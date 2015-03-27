@@ -1,0 +1,20 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "A web app showing the states of all (feature) branches and links to running docker containers for each feature.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lowsky/dashboard.git"
+  },
+  "keywords": [
+    "dashboard",
+    "docker",
+    "github"
+  ],
+  "author": "Robert Hostlowsky",
+  "license": "APACHE-2.0",
+  "bugs": {
+    "url": "https://github.com/lowsky/dashboard/issues"
+  },
+  "homepage": "https://github.com/lowsky/dashboard"
+}
