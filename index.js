@@ -1,7 +1,12 @@
-var http = require('http');
+var express = require('express');
+var app = express();
 
-http.createServer(function (req, res) {
-    res.end('hello world!');
-}).listen(3000);
+app.set('port', process.env.PORT || 3000);
 
-console.log('Server started on localhost:3000; press Ctrl-C to terminate....');
+app.get('*', function(req, res) {
+    res.send('Hello express world').end();
+});
+
+app.listen(app.get('port'), function() {
+    console.log( 'Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.' );
+});
