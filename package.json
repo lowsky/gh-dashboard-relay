@@ -11,6 +11,9 @@
     "docker",
     "github"
   ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
   "bugs": {
