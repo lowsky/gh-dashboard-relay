@@ -16,6 +16,8 @@
   "bugs": {
     "url": "https://github.com/lowsky/dashboard/issues"
   },
+  "private": true,
+  "analyze": true,
   "homepage": "https://github.com/lowsky/dashboard",
   "dependencies": {
     "express": "^4.12.3"
