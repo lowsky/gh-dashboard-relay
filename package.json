@@ -11,10 +11,18 @@
     "docker",
     "github"
   ],
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
   "bugs": {
     "url": "https://github.com/lowsky/dashboard/issues"
   },
-  "homepage": "https://github.com/lowsky/dashboard"
+  "private": true,
+  "analyze": true,
+  "homepage": "https://github.com/lowsky/dashboard",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }
