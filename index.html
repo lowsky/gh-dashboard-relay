@@ -28,23 +28,32 @@
                     <th>Git branch</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr class="warning">
-                    <td>dockerize</td>
-                </tr>
-                <tr class="warning">
-                    <td>show-dummy-branches</td>
-                </tr>
-                <tr class="warning">
-                    <td>simple-web-app</td>
-                </tr>
-                <tr class="warning">
-                    <td>master</td>
-                </tr>
+                <tbody id="branchesTable">
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script>
+    var branches = [
+        'dockerize',
+        'master',
+        'show-dummy-branches',
+        'simple-web-app'
+    ];
+
+    var branchesTable = document.getElementById('branchesTable');
+
+    branches.forEach(function (b) {
+        var tr = document.createElement('tr');
+        tr.setAttribute('class', 'warning');
+
+        var td = document.createElement('td');
+        td.textContent = b;
+
+        tr.appendChild(td);
+        branchesTable.appendChild(tr);
+    });
+</script>
 </body>
 </html>
