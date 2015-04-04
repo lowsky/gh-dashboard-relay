@@ -28,6 +28,7 @@
                 <thead>
                 <tr>
                     <th>Git branch</th>
+                    <th>GitHub</th>
                 </tr>
                 </thead>
                 <tbody id="branchesTable">
@@ -54,6 +55,15 @@
         td.textContent = b;
 
         tr.appendChild(td);
+
+        td = document.createElement('td');
+        var a = document.createElement('a');
+        a.textContent = 'on GitHub';
+        a.href = 'https://github.com/lowsky/dashboard/tree/' + b;
+        td.appendChild(a);
+
+        tr.appendChild(td);
+
         branchesTable.appendChild(tr);
     });
 </script>
