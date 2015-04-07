@@ -38,6 +38,7 @@
 </div>
 <script>
     var branches = [
+        'link_to_deployed_app',
         'dockerize',
         'master',
         'show-dummy-branches',
@@ -51,7 +52,10 @@
         tr.setAttribute('class', 'warning');
 
         var td = document.createElement('td');
-        td.textContent = b;
+        var a = document.createElement('a');
+        a.href='http://'+ b + '.dashboard/';
+        a.textContent = b;
+        td.appendChild(a);
 
         tr.appendChild(td);
         branchesTable.appendChild(tr);
