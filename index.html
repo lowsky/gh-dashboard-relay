@@ -59,7 +59,13 @@
         td = document.createElement('td');
         var a = document.createElement('a');
         a.textContent = 'on GitHub';
+        var githubImg = document.createElement('img');
+        githubImg.src = './Octocat.jpg';
+        githubImg.width = '32';
+        githubImg.alt = 'link to branch on github';
         a.href = 'https://github.com/lowsky/dashboard/tree/' + b;
+        a.appendChild(githubImg);
+
         td.appendChild(a);
 
         tr.appendChild(td);
