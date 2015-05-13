@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+    <script src="dashboard.js" type="text/jsx"></script>
 </head>
 <body>
 <header class="navbar navbar-default navbar-static-top">
@@ -37,7 +40,8 @@
         </div>
     </div>
 </div>
-<script>
+<script type="text/jsx">
+
     var branches = [
         'link_to_deployed_app',
         'dockerize',
@@ -48,34 +52,12 @@
 
     var branchesTable = document.getElementById('branchesTable');
 
-    branches.forEach(function (b) {
-        var tr = document.createElement('tr');
-        tr.setAttribute('class', 'warning');
+    React.render(
+        <tbody>
+            {branches.map(renderRows)}
+        </tbody>,
+        branchesTable);
 
-        var td = document.createElement('td');
-        var a = document.createElement('a');
-        a.href='http://'+ b + '.dashboard/';
-        a.textContent = b;
-        td.appendChild(a);
-
-        tr.appendChild(td);
-
-        td = document.createElement('td');
-        var a = document.createElement('a');
-        a.textContent = 'on GitHub';
-        var githubImg = document.createElement('img');
-        githubImg.src = './Octocat.jpg';
-        githubImg.width = '32';
-        githubImg.alt = 'link to branch on github';
-        a.href = 'https://github.com/lowsky/dashboard/tree/' + b;
-        a.appendChild(githubImg);
-
-        td.appendChild(a);
-
-        tr.appendChild(td);
-
-        branchesTable.appendChild(tr);
-    });
 </script>
 </body>
 </html>
