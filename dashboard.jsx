@@ -1,6 +1,7 @@
 'use strict';
 
-function renderRows(branch) {
+function renderBranchRow(branchObj) {
+    var branch = branchObj.name;
     var liveLink = 'http://' + branch + '.dashboard/';
     var githubBranchSrc = 'https://github.com/lowsky/dashboard/tree/' + branch;
     return (<tr className="warning" key={branch}>
