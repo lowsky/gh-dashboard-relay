@@ -1,7 +1,9 @@
+'use strict';
+
 function renderRows(branch) {
     var liveLink = 'http://' + branch + '.dashboard/';
     var githubBranchSrc = 'https://github.com/lowsky/dashboard/tree/' + branch;
-    return <tr className="warning" key={branch}>
+    return (<tr className="warning" key={branch}>
         <td>
             <a href={liveLink}>{branch}</a>
         </td>
@@ -12,5 +14,5 @@ function renderRows(branch) {
                 on GitHub
             </a>
         </td>
-    </tr>;
+    </tr>);
 }
