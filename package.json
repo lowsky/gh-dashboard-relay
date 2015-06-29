@@ -12,6 +12,7 @@
     "github"
   ],
   "scripts": {
+    "test": "NODE_ENV=test istanbul test _mocha tests -- --opts tests/unit/mocha.opts",
     "start": "node index.js"
   },
   "author": "Robert Hostlowsky",
@@ -23,6 +24,16 @@
   "analyze": true,
   "homepage": "https://github.com/lowsky/dashboard",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "jsdom": "^5.4.3",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
+    "react-tools": "^0.13.3",
+    "superagent": "^1.2.0",
+    "webpack": "^1.10.0"
   }
 }
