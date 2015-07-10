@@ -1,9 +1,6 @@
 'use strict';
 
-//if( typeof env != undefined ) {
-    var React = require('react');
-//}
-
+var React = require('react');
 var DashboardRow = React.createClass({
 
     props: {
