@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="build/react.js"></script>
-    <script src="build/JSXTransformer.js"></script>
-    <script src="dashboard.jsx" type="text/jsx"></script>
+    <!--<script src="build/JSXTransformer.js"></script>-->
+    <!--<script src="src/dashboard.jsx" type="text/jsx"></script>-->
 </head>
 <body>
 <header class="navbar navbar-default navbar-static-top">
@@ -40,43 +40,6 @@
         </div>
     </div>
 </div>
-<script type="text/jsx">
-
-    function updateBranches(branches) {
-        var branchesTable = document.getElementById('branchesTable');
-
-        React.render(
-            <tbody>
-                {branches.map(renderBranchRow)}
-            </tbody>,
-            branchesTable);
-
-    }
-
-    var repo = 'lowsky/dashboard';
-
-    function requestAndShowBranches() {
-        var url = 'https://api.github.com/repos/' + repo + '/branches';
-        var request = new XMLHttpRequest();
-        request.open('GET', url, true);
-        request.onload = function () {
-            if (request.status >= 200 && request.status < 400) {
-                var data = JSON.parse(request.responseText);
-                updateBranches(data);
-            } else {
-                alert('Load error, while trying to retrieve data from ' + url +
-                    ' Server respond: ' + request.responseText);
-            }
-        };
-        request.onerror = function () {
-            console.error(request);
-            alert('Load error, while trying to retrieve data from ' + url);
-        };
-        return request;
-    }
-
-    requestAndShowBranches().send();
-
-</script>
+<script src="bundle.js"></script>
 </body>
 </html>
