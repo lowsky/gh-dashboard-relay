@@ -14,10 +14,18 @@ global.window = document.defaultView;
 
 describe('Dashboard branch component', function() {
 
-    it('renders correctly', function() {
-        var tableComp = TestUtils.renderIntoDocument(<table><Dashboard /></table>);
-        var dashComp = TestUtils.findRenderedComponentWithType(tableComp, Dashboard);
+    describe('rendering', function() {
+        var tableComp,
+            dashComp;
 
-        expect(React.findDOMNode(dashComp).className).to.equal('warning');
-    })
+        beforeEach(function () {
+            tableComp = TestUtils.renderIntoDocument(<table><Dashboard /></table>);
+            dashComp = TestUtils.findRenderedComponentWithType(tableComp, Dashboard);
+        });
+
+        it('should have class warning', function() {
+
+            expect(React.findDOMNode(dashComp).className).to.equal('warning');
+        })
+    });
 });
