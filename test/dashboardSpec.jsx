@@ -2,12 +2,10 @@
 
 import jsdom from 'jsdom';
 
-var React = require('react/addons'),
-    TestUtils = React.addons.TestUtils,
-    Dashboard = require('../src/dashboard'),
-    //jsdom = require('jsdom'),
-    chai = require('chai'),
-    expect = chai.expect;
+import React, { TestUtils } from 'react/addons';
+import { expect } from 'chai';
+
+import Dashboard from '../src/dashboard';
 
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
