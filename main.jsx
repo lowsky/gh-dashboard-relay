@@ -7,7 +7,7 @@ const repo = 'lowsky/dashboard';
 
 let branchesTable = document.getElementById('panel-body');
 
-let renderOrUpdateBranches = (branches) => {
+let renderOrUpdateBranches = branches => {
     React.render(
         <BranchesTable branches={ branches } />,
         branchesTable);
@@ -17,16 +17,16 @@ let requestAndShowBranches = () => {
     let url = `https://api.github.com/repos/${repo}/branches`;
     let request = new XMLHttpRequest();
     request.open('GET', url, true);
-    request.onload = function () {
+    request.onload = () => {
         if (request.status >= 200 && request.status < 400) {
             let data = JSON.parse(request.responseText);
 
-            console.log(data);
+            console.log('Github response: ', request.responseText);
 
-            let branchNames = data.map(function (item) {
-                return item.name;
+            let branchNames = data.map(function (branch) {
+                return branch.name;
             });
-            console.log(branchNames);
+            console.log(branchNames.join(' / '));
 
             renderOrUpdateBranches(branchNames);
 
