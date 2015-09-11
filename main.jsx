@@ -20,7 +20,7 @@ let renderOrUpdateBranches = (branches) => {
 };
 
 let requestAndShowBranches = () => {
-    let url = 'https://api.github.com/repos/' + repo + '/branches';
+    let url = `https://api.github.com/repos/${repo}/branches`;
     let request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.onload = function () {
@@ -37,13 +37,12 @@ let requestAndShowBranches = () => {
             renderOrUpdateBranches(branchNames);
 
         } else {
-            alert('Load error, while trying to retrieve data from ' + url +
-                ' Server respond: ' + request.responseText);
+            alert(`Load error, while trying to retrieve data from $url - respond status: `, request.status);
         }
     };
-    request.onerror = function () {
-        console.error(request);
-        alert('Load error, while trying to retrieve data from ' + url);
+    request.onerror = () => {
+        console.error('Error occured', request);
+        alert(`Load error, while trying to retrieve data from $url`);
     };
     return request;
 };
