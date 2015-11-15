@@ -34,7 +34,7 @@
     "istanbul": "^0.3.21",
     "jsdom": "^6.5.1",
     "jsx-loader": "^0.13.2",
-    "mocha": "^2.2.5",
+    "mocha": "^2.3.4",
     "node-libs-browser": "^0.5.2",
     "react-bootstrap": "^0.25.2",
     "react-tools": "^0.13.3",
