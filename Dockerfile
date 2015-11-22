@@ -1,3 +1,3 @@
-FROM iojs:1.6.2-onbuild
+FROM node:4.2.2-onbuild
 
 EXPOSE 3000
