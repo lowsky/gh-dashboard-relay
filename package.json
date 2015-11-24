@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.19",
-    "chai": "^3.2.0",
+    "chai": "^3.4.1",
     "istanbul": "^0.3.21",
     "jsdom": "^6.5.1",
     "jsx-loader": "^0.13.2",
