@@ -32,7 +32,7 @@
     "babel": "^5.8.34",
     "chai": "^3.4.1",
     "istanbul": "^0.3.21",
-    "jsdom": "^6.5.1",
+    "jsdom": "^7.1.0",
     "jsx-loader": "^0.13.2",
     "mocha": "^2.3.4",
     "node-libs-browser": "^0.5.2",
