@@ -1,21 +1,15 @@
-'use strict';
-
 import React from 'react';
-import DashboardRow from './src/dashboard.jsx';
+
+import { DashboardRow } from './src/DashboardRow.jsx';
+import { BranchesTable } from './src/BranchesTableBody.jsx';
 
 const repo = 'lowsky/dashboard';
 
-let branchesTable = document.getElementById('branchesTable');
+let branchesTable = document.getElementById('branches-table');
 
 let renderOrUpdateBranches = (branches) => {
     React.render(
-        <tbody>
-        {
-            branches.map(function (branch) {
-                return <DashboardRow branch={branch} key={branch}/>;
-            })
-        }
-        </tbody>,
+        <BranchesTable branches={ branches } />,
         branchesTable);
 };
 
