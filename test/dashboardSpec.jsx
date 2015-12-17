@@ -15,12 +15,27 @@ describe('Dashboard branch component', () => {
             dashComp;
 
         beforeEach(function () {
-            tableComp = TestUtils.renderIntoDocument(<table><Dashboard /></table>);
-            dashComp = TestUtils.findRenderedComponentWithType(tableComp, Dashboard);
+            tableComp = TestUtils.renderIntoDocument(<table><tbody><DashboardRow branch='branchName' /></tbody></table>);
+            dashComp = TestUtils.findRenderedComponentWithType(tableComp, DashboardRow);
         });
 
         it('should have class warning', () => {
             expect(React.findDOMNode(dashComp).className).to.equal('warning');
+        });
+
+        it('should have 2 columns', () => {
+            let columns = TestUtils.scryRenderedDOMComponentsWithTag(dashComp, 'td');
+
+            expect(columns.length).to.equal(2);
+        });
+
+        it('first column should contain link to github branch', () => {
+            let columns = TestUtils.scryRenderedDOMComponentsWithTag(dashComp, 'td'),
+                firstColumn = columns[0],
+                aLink;
+
+            aLink = TestUtils.findRenderedDOMComponentWithTag(firstColumn, 'a');
+            expect(aLink.props.children).to.equal('branchName');
         });
     });
 });
