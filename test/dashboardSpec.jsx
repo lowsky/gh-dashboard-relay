@@ -4,7 +4,7 @@ import React, { TestUtils } from 'react/addons';
 import { expect } from 'chai';
 
 let DashboardRow = require('../src/DashboardRow');
-let BranchesTableBody = require('../src/BranchesTableBody.jsx');
+let BranchesTable = require('../src/BranchesTable.jsx');
 let TestUtils = React.addons.TestUtils;
 
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
@@ -17,7 +17,7 @@ describe('Dashboard branch component', () => {
             dashComp;
 
         beforeEach(function () {
-            tableComp = TestUtils.renderIntoDocument(<BranchesTableBody branches={['branchName']} />);
+            tableComp = TestUtils.renderIntoDocument(<BranchesTable branches={['branchName']} />);
             dashComp = TestUtils.findRenderedComponentWithType(tableComp, DashboardRow);
         });
 

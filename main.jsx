@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { DashboardRow } from './src/DashboardRow.jsx';
-import { BranchesTable } from './src/BranchesTableBody.jsx';
+import BranchesTable  from './src/BranchesTable.jsx';
 
 const repo = 'lowsky/dashboard';
 
