@@ -3,7 +3,7 @@ import jsdom from 'jsdom';
 import React, { TestUtils } from 'react/addons';
 import { expect } from 'chai';
 
-let DashboardRow = require('../src/DashboardRow');
+let DashboardRow = require('../src/DashboardRow.jsx');
 let BranchesTable = require('../src/BranchesTable.jsx');
 let TestUtils = React.addons.TestUtils;
 
