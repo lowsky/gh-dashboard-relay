@@ -8,8 +8,8 @@ let DashboardRow = React.createClass({
 
     render: function() {
         let branch = this.props.branch,
-            liveLink = 'http://${branch}.dashboard/',
-            githubBranchSrc = 'https://github.com/lowsky/dashboard/tree/$branch';
+            liveLink = `http://${branch}.dashboard/`,
+            githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${branch}`;
 
         return (<tr className="warning" key={branch}>
             <td>

@@ -5,7 +5,7 @@ import BranchesTable  from './src/BranchesTable.jsx';
 
 const repo = 'lowsky/dashboard';
 
-let branchesTable = document.getElementById('branches-table');
+let branchesTable = document.getElementById('panel-body');
 
 let renderOrUpdateBranches = (branches) => {
     React.render(
