@@ -1,16 +1,15 @@
-'use strict';
+import React from 'react';
 
-var React = require('react');
-var DashboardRow = React.createClass({
+let DashboardRow = React.createClass({
 
     props: {
         branch: React.PropTypes.string
     },
 
     render: function() {
-        var branch = this.props.branch;
-        var liveLink = 'http://' + branch + '.dashboard/';
-        var githubBranchSrc = 'https://github.com/lowsky/dashboard/tree/' + branch;
+        let branch = this.props.branch,
+            liveLink = `http://${branch}.dashboard/`,
+            githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${branch}`;
 
         return (<tr className="warning" key={branch}>
             <td>
