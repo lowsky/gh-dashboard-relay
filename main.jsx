@@ -1,59 +1,45 @@
-'use strict';
+import React from 'react';
 
-var React = require('react');
-var DashboardRow = require('./src/dashboard.jsx');
+import { DashboardRow } from './src/DashboardRow.jsx';
+import BranchesTable  from './src/BranchesTable.jsx';
 
-var branches = [
-    'link_to_deployed_app',
-    'dockerize',
-    'master',
-    'show-dummy-branches',
-    'simple-web-app'
-];
+const repo = 'lowsky/dashboard';
 
-var branchesTable = document.getElementById('branchesTable');
+let branchesTable = document.getElementById('panel-body');
 
-function renderOrUpdateBranches(branches) {
+let renderOrUpdateBranches = branches => {
     React.render(
-        <tbody>
-        {
-            branches.map(function (branch) {
-                return <DashboardRow branch={branch} key={branch}/>;
-            })
-        }
-        </tbody>,
+        <BranchesTable branches={ branches } />,
         branchesTable);
-}
+};
 
-var repo = 'lowsky/dashboard';
-
-function requestAndShowBranches() {
-    var url = 'https://api.github.com/repos/' + repo + '/branches';
-    var request = new XMLHttpRequest();
+let requestAndShowBranches = () => {
+    let url = `https://api.github.com/repos/${repo}/branches`;
+    let request = new XMLHttpRequest();
     request.open('GET', url, true);
-    request.onload = function () {
+    request.onload = () => {
         if (request.status >= 200 && request.status < 400) {
-            var data = JSON.parse(request.responseText);
+            let data = JSON.parse(request.responseText);
 
-            console.log(data);
+            console.log('Github response: ', request.responseText);
 
-            var branchNames = data.map(function (item) {
-                return item.name;
+            let branchNames = data.map(function (branch) {
+                return branch.name;
             });
-            console.log(branchNames);
+            console.log(branchNames.join(' / '));
 
             renderOrUpdateBranches(branchNames);
+
         } else {
-            alert('Load error, while trying to retrieve data from ' + url +
-                ' Server respond: ' + request.responseText);
+            alert(`Load error, while trying to retrieve data from $url - respond status: `, request.status);
         }
     };
-    request.onerror = function () {
-        console.error(request);
-        alert('Load error, while trying to retrieve data from ' + url);
+    request.onerror = () => {
+        console.error('Error occured', request);
+        alert(`Load error, while trying to retrieve data from $url`);
     };
     return request;
-}
+};
 
 renderOrUpdateBranches([]);
 
