@@ -1,6 +1,6 @@
 import jsdom from 'jsdom';
 
-import React, { TestUtils } from 'react/addons';
+import React from 'react/addons';
 import { expect } from 'chai';
 
 let DashboardRow = require('../src/DashboardRow.jsx');
