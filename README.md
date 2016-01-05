@@ -7,6 +7,3 @@ A web app showing the states of all (feature) branches and links to running dock
 
 ![Preview image](DashboardDemo.png "Dashboard preview picture")
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/lowsky/dashboard/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
