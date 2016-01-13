@@ -7,3 +7,4 @@ A web app showing the states of all (feature) branches and links to running dock
 
 ![Preview image](DashboardDemo.png "Dashboard preview picture")
 
+[![Analytics](https://ga-beacon.appspot.com/UA-72383363-1/lowsky/dashboard/README.md)](https://github.com/lowsky/dashboard/README.md)
