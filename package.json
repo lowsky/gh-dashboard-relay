@@ -38,6 +38,6 @@
     "mocha": "^2.3.4",
     "node-libs-browser": "^0.5.2",
     "superagent": "^1.2.0",
-    "webpack": "^1.12.8"
+    "webpack": "^1.12.11"
   }
 }
