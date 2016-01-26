@@ -39,7 +39,7 @@
     "jsx-loader": "^0.13.2",
     "mocha": "^2.4.1",
     "node-libs-browser": "^1.0.0",
-    "superagent": "^1.7.1",
+    "superagent": "^1.7.2",
     "webpack": "^1.12.11"
   }
 }
