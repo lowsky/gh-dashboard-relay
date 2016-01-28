@@ -37,7 +37,7 @@
     "istanbul": "^0.4.2",
     "jsdom": "^7.2.2",
     "jsx-loader": "^0.13.2",
-    "mocha": "^2.3.4",
+    "mocha": "^2.4.3",
     "node-libs-browser": "^1.0.0",
     "superagent": "^1.7.1",
     "webpack": "^1.12.11"
