@@ -27,6 +27,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "react": "^0.14.6"
+    "react": "^0.14.7"
   },
   "devDependencies": {
     "babel": "^6.3.26",
