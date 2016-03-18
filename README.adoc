@@ -1,0 +1,12 @@
+link:https://www.waffle.io[Waffle issues]: image:https://badge.waffle.io/lowsky/dashboard.png?label=in%20progress&title=in-progress[Stories/Tasks in Progress,link=https://waffle.io/lowsky/dashboard]
+
+Master: image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Score,link=https://www.bithound.io/github/lowsky/dashboard]
+image:https://www.codacy.com/project/badge/5f6f0a485bfe4afab427fdba4eae3ac2[Codacy Badge,link=https://www.codacy.com/app/skylab71/dashboard]
+
+= dashboard
+
+A web app showing the states of all (feature) branches and links to running docker containers for each feature.
+
+image:DashboardDemo.png[Preview image]
+
+image:https://ga-beacon.appspot.com/UA-72383363-1/lowsky/dashboard/README.md[Analytics,link=https://github.com/lowsky/dashboard/blob/master/README.md]
