@@ -6,6 +6,8 @@ machine:
 
 dependencies:
   pre:
+    - echo docker build -t dashboard/$CIRCLE_BRANCH:$CIRCLE_SHA1 .
+  post:
     - docker build -t dashboard/$CIRCLE_BRANCH:$CIRCLE_SHA1 .
 
 test:
