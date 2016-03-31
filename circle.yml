@@ -1,0 +1,17 @@
+machine:
+  node:
+    version: 4.2.2
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - echo building ... dashboard/${CIRCLE_BRANCH}:$CIRCLE_SHA1 .
+    - env
+  post:
+    - docker build -t dashboard .
+
+test:
+  post:
+    - docker run -d -p 3000:3000 dashboard; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:3000
