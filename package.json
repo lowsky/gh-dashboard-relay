@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test istanbul cover -i '**/*.js' -i '**/*.jsx' _mocha test -- --compilers jsx:babel-core/register",
-    "test:circle": "NODE_ENV=test istanbul cover -i '**/*.js' -i '**/*.jsx' _mocha test -- --compilers jsx:babel-core/register -R xunit >$CIRCLE_TEST_REPORTS/xunit.xml",
+    "test:circle": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
     "prestart": "webpack",
     "start": "node ."
   },
@@ -27,7 +27,8 @@
   "homepage": "https://github.com/lowsky/dashboard",
   "dependencies": {
     "express": "^4.13.4",
-    "react": "^15.0.0"
+    "react": "^15.0.0",
+    "xunit-file": "0.0.9"
   },
   "devDependencies": {
     "babel": "^6.5.2",
