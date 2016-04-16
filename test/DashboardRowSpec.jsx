@@ -1,11 +1,12 @@
 import jsdom from 'jsdom';
 
-import React from 'react/addons';
+import React from 'react';
+import ReactDom from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
 
 let DashboardRow = require('../src/DashboardRow.jsx');
 let BranchesTable = require('../src/BranchesTable.jsx');
-let TestUtils = React.addons.TestUtils;
 
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = document.defaultView;
@@ -22,7 +23,7 @@ describe('Dashboard branch component', () => {
         });
 
         it('should have class warning', () => {
-            expect(React.findDOMNode(dashComp).className).to.equal('warning');
+            expect(ReactDom.findDOMNode(dashComp).className).to.equal('warning');
         });
 
         it('should have 2 columns', () => {
