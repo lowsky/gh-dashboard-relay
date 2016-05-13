@@ -1,0 +1,10 @@
+{
+"test": [
+ "**/test/**"
+],
+"dependencies": {
+ "unused-ignores": [
+   "xunit-file"
+ ]
+}
+}
