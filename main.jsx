@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { DashboardRow } from './src/DashboardRow.jsx';
 import BranchesTable  from './src/BranchesTable.jsx';
@@ -8,7 +9,7 @@ const repo = 'lowsky/dashboard';
 let branchesTable = document.getElementById('panel-body');
 
 let renderOrUpdateBranches = branches => {
-    React.render(
+    ReactDOM.render(
         <BranchesTable branches={ branches } />,
         branchesTable);
 };
