@@ -26,7 +26,7 @@
   "analyze": true,
   "homepage": "https://github.com/lowsky/dashboard",
   "dependencies": {
-    "express": "^4.13.4",
+    "express": "^4.13.4"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -45,7 +45,7 @@
     "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.2",
     "superagent": "^1.8.3",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
     "xunit-file": "0.0.9"
   }
 }
