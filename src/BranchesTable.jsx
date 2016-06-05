@@ -1,4 +1,5 @@
 import React from 'react';
+import Relay from 'react-relay';
 
 let DashboardRow = require('./DashboardRow.jsx');
 
@@ -9,11 +10,15 @@ let BranchesTable = React.createClass({
     },
 
     render: function() {
+        const { branches=[], keyValue= {} } = this.props;
         return (
             <table className="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr>
-                    <th>Git branch</th>
+                    <th>Git branch
+                        {keyValue.id}
+                        {keyValue.value}
+                    </th>
                     <th>GitHub</th>
                 </tr>
                 </thead>
@@ -29,4 +34,15 @@ let BranchesTable = React.createClass({
     }
 });
 
-module.exports = BranchesTable;
+// module.exports = BranchesTable;
+
+export default Relay.createContainer(BranchesTable, {
+    fragments: {
+        keyValue: () => Relay.QL`
+          fragment on KeyValueItem {
+                id
+                value
+          }
+        `
+    }
+});
