@@ -63,27 +63,36 @@ Relay.injectNetworkLayer(
 // { getValue(id: "initialKey")
 let KV= React.createClass({
     render: function() {
-        const { keyValue } = this.props;
-        console.log(keyValue);
-        console.log(this.props);
-        return (<div>{keyValue.getValue.id} = {keyValue.getValue.value} </div>)}
+        const user = {};
+        const { github = { user }} = this.props;
+        console.log(github.repo);
+        return (<div>{github.user.login} = {github.user.login}
+            <ul>
+                {github.repo.branches.map((b)=><li>{b.name}</li>) }
+            </ul>
+
+         </div>)}
 });
+
 // BranchesTable
 let KVContainer = Relay.createContainer(KV, {
     initialVariables: {
-        initId: 'initialKey'
+        username: 'lowsky',
+        ownerUsername: 'lowsky',
+        name: 'dashboard'
     },
     fragments: {
-        keyValue: () => Relay.QL`
-          fragment on KeyValueAPI {
-                getValue(id: $initId) {
-                    value
-                    id
-                }
+        github: () => Relay.QL`
+          fragment on GithubAPI {
+           user(username:$username) {
+              login
+            }
+            repo(ownerUsername:$ownerUsername, name: $name) {
+              branches {name}
+            }
           }
         `
     },
-    // keyValue { getValue(id: ${vars.id})
     name: 'KV'
 });
 
@@ -94,11 +103,11 @@ let renderOrUpdateBranches = branches => {
             route={
                 {
                     queries: {
-                        keyValue: () => Relay.QL`
-                            query { keyValue }
+                        github: () => Relay.QL`
+                            query { github }
                         `
                     },
-                    name: 'Key-Values',
+                    name: 'KV',
                     params: {
                          extraProps: 'forUseInAnyClientRender'
                     },
