@@ -62,22 +62,22 @@ Relay.injectNetworkLayer(
 );
 // { getValue(id: "initialKey")
 let KV= React.createClass({
-    render: () => (<div>KV</div>)
+    render: function() {
+        const { keyValue } = this.props;
+        console.log(keyValue);
+        console.log(this.props);
+        return (<div>{keyValue.getValue.id} = {keyValue.getValue.value} </div>)}
 });
 // BranchesTable
 let KVContainer = Relay.createContainer(KV, {
-    prepareVariables () {
-        return {
-            id: 'initialKey'
-        }
-    },
     initialVariables: {
-        id: 'initialKey'
+        initId: 'initialKey'
     },
     fragments: {
-        keyValue: (variables) => Relay.QL`
+        keyValue: () => Relay.QL`
           fragment on KeyValueAPI {
-                getValue(id: $id) {
+                getValue(id: $initId) {
+                    value
                     id
                 }
           }
@@ -98,12 +98,9 @@ let renderOrUpdateBranches = branches => {
                             query { keyValue }
                         `
                     },
-                    // paramDefinitions: {
-                    //     id: {requiered: true}
-                    // },
                     name: 'Key-Values',
                     params: {
-                        id: 'initialKey',
+                         extraProps: 'forUseInAnyClientRender'
                     },
                 }
             }
