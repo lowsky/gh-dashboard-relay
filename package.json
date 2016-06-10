@@ -46,6 +46,6 @@
     "react-dom": "^15.1.0",
     "superagent": "^1.8.3",
     "webpack": "^1.13.0",
-    "xunit-file": "0.0.9"
+    "xunit-file": "0.0.10"
   }
 }
