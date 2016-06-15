@@ -3472,7 +3472,7 @@
                             "args": [],
                             "type": {
                                 "kind": "SCALAR",
-                                "name": "Int",
+                                "name": "String",
                                 "ofType": null
                             },
                             "isDeprecated": false,
@@ -3713,9 +3713,9 @@
                                 "kind": "LIST",
                                 "name": null,
                                 "ofType": {
-                                "kind": "OBJECT",
-                                "name": "GithubStatus",
-                                "ofType": null
+                                    "kind": "OBJECT",
+                                    "name": "GithubStatus",
+                                    "ofType": null
                                 }
                             },
                             "isDeprecated": false,
@@ -4026,7 +4026,7 @@
                                 "name": null,
                                 "ofType": {
                                     "kind": "OBJECT",
-                                    "name": "GithuIssueLabelType",
+                                    "name": "GithubIssueLabelType",
                                     "ofType": null
                                 }
                             },
@@ -4069,7 +4069,7 @@
                 },
                 {
                     "kind": "OBJECT",
-                    "name": "GithuIssueLabelType",
+                    "name": "GithubIssueLabelType",
                     "description": null,
                     "fields": [
                         {
