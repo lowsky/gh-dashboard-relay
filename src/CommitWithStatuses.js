@@ -66,7 +66,7 @@ function renderStatus(status) {
 
 let LastCommit = React.createClass({
     render: function () {
-        const { sha='', date='', message='', status=[] } = this.props.commit;
+        const { sha='<missing>', date='', message='<missing>', status=[] } = this.props.commit;
 
         const githubLastCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 

@@ -2,14 +2,14 @@ import React from 'react';
 import Relay from 'react-relay';
 
 import CommitWithStatuses from './CommitWithStatuses';
-let BranchInfoRow = React.createClass({
 
+let BranchInfoRow = React.createClass({
     props: {
         branch: React.PropTypes.object
     },
 
     render: function() {
-        const { name, last_commit = {} } = this.props.branch,
+        const { name, lastCommit = {} } = this.props.branch,
               liveLink = `http://${name}.dashboard/`,
               githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
 
@@ -24,7 +24,7 @@ let BranchInfoRow = React.createClass({
                 </a>
             </td>
             <td>
-                <CommitWithStatuses commit={last_commit} />
+                <CommitWithStatuses commit={lastCommit} />
             </td>
         </tr>
         );
@@ -34,9 +34,9 @@ let BranchInfoRow = React.createClass({
 export default Relay.createContainer(BranchInfoRow, {
     fragments: {
         branch: () => Relay.QL`
-          fragment on GitBranch {
+          fragment on GithubBranch {
             name
-            last_commit {
+            lastCommit {
               sha
               message
               date
