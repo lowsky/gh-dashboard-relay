@@ -45,7 +45,7 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
           }
         `
     },
-    name: 'KV'
+    name: 'UserRepo'
 });
 
 let renderOrUpdateBranches = branches => {
@@ -61,8 +61,8 @@ let renderOrUpdateBranches = branches => {
                     },
                     name: 'UserRepo',
                     params: {
-                         extraProps: 'forUseInAnyClientRender'
-                    },
+                         extraProps: 'availableInAnyClientRender'
+                    }
                 }
             }
     />,
@@ -72,4 +72,6 @@ let renderOrUpdateBranches = branches => {
 
 renderOrUpdateBranches([]);
 
-// requestAndShowBranches().send();
+
+// old:
+// https://api.github.com/repos/lowsky/dashboard/branches
