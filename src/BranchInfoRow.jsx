@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 
+import CommitWithStatuses from './CommitWithStatuses';
 let BranchInfoRow = React.createClass({
 
     props: {
@@ -23,6 +24,7 @@ let BranchInfoRow = React.createClass({
                 </a>
             </td>
             <td>
+                <CommitWithStatuses commit={last_commit} />
             </td>
         </tr>
         );
@@ -34,6 +36,18 @@ export default Relay.createContainer(BranchInfoRow, {
         branch: () => Relay.QL`
           fragment on GitBranch {
             name
+            last_commit {
+              sha
+              message
+              date
+              status {
+                  context
+                  description
+                  state
+                  target_url
+                  updated_at
+              }
+            }
           }
         `
     }
