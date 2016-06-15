@@ -9,8 +9,8 @@ let content = document.getElementById('content');
 
 Relay.injectNetworkLayer(
     new Relay.DefaultNetworkLayer('http://localhost:8000/graphql', {
-        fetchTimeout: 5000,   // Timeout after 30s.
-        retryDelays: [2000],   // Only retry once after a 5s delay.
+        fetchTimeout: 45000,   // Timeout after 30s.
+        retryDelays: [3000]   // Only retry once after a 5s delay.
     })
 );
 
