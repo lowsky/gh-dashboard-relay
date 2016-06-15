@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 import Relay from 'react-relay';
 
+import BranchesTable  from './src/BranchesTable.jsx';
+import User from './src/User.js';
+
 const repo = 'lowsky/dashboard';
 
 let content = document.getElementById('content');
@@ -55,6 +58,7 @@ let UserRepo = React.createClass({
                         <h1 className="panel-title">Owner:</h1>
                     </div>
                     <div className="panel-body">
+                        <User user={github.user}/>
                     </div>
                 </div>
                 <div className="panel-default">
@@ -76,6 +80,7 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
           fragment on GithubAPI {
            user(username:$username) {
               login
+                    ${User.getFragment('user')}
             }
                 repo(ownerUsername: $ownerUsername, name: $repoName) {
                     name
