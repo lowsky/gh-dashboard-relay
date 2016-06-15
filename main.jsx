@@ -63,6 +63,7 @@ let UserRepo = React.createClass({
                 </div>
                 <div className="panel-default">
                     <div className="panel-body">
+                        <BranchesTable repo={github.repo}/>
                     </div>
                 </div>
             </div>)
@@ -85,6 +86,7 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
                 repo(ownerUsername: $ownerUsername, name: $repoName) {
                     name
                     ${RepoContainer.getFragment('repo')}
+                    ${BranchesTable.getFragment('repo')}
             }
           }
         `

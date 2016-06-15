@@ -5,7 +5,7 @@ import ReactDom from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import { expect } from 'chai';
 
-let DashboardRow = require('../src/DashboardRow.jsx');
+let BranchInfoRow = require('../src/BranchInfoRow.jsx');
 let BranchesTable = require('../src/BranchesTable.jsx');
 
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
@@ -19,7 +19,7 @@ describe('Dashboard branch component', () => {
 
         beforeEach(function () {
             tableComp = TestUtils.renderIntoDocument(<BranchesTable branches={['branchName']} />);
-            dashComp = TestUtils.findRenderedComponentWithType(tableComp, DashboardRow);
+            dashComp = TestUtils.findRenderedComponentWithType(tableComp, BranchInfoRow);
         });
 
         it('should have class warning', () => {
