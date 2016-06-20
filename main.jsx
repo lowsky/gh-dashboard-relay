@@ -79,14 +79,14 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
     fragments: {
         github: () => Relay.QL`
           fragment on GithubAPI {
-           user(username:$username) {
-              login
-                    ${User.getFragment('user')}
+            user(username:$username) {
+                login
+                ${User.getFragment('user')}
             }
-                repo(ownerUsername: $ownerUsername, name: $repoName) {
-                    name
-                    ${RepoContainer.getFragment('repo')}
-                    ${BranchesTable.getFragment('repo')}
+            repo(ownerUsername: $ownerUsername, name: $repoName) {
+                name 
+                ${RepoContainer.getFragment('repo')}
+                ${BranchesTable.getFragment('repo')}
             }
           }
         `

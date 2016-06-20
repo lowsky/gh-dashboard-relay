@@ -2,8 +2,8 @@ import React from 'react';
 import Relay from 'react-relay';
 
 import CommitWithStatuses from './CommitWithStatuses';
-let BranchInfoRow = React.createClass({
 
+let BranchInfoRow = React.createClass({
     props: {
         branch: React.PropTypes.object
     },
