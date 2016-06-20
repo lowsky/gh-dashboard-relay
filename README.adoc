@@ -3,9 +3,19 @@ link:https://www.waffle.io[Waffle issues]: image:https://badge.waffle.io/lowsky/
 Master: image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Score,link=https://www.bithound.io/github/lowsky/dashboard]
 image:https://www.codacy.com/project/badge/5f6f0a485bfe4afab427fdba4eae3ac2[Codacy Badge,link=https://www.codacy.com/app/skylab71/dashboard]
 
-= dashboard
+= lastest changes:
+
+This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's *Relay* and *GraphQL* libraries.
+
+For deep interns of the concepts, see the link:https://lowsky.github.io/deck-graphql-relay-talk[presentation at the EnterJS Conference] with its link:https://www.github.com/lowsky/deck-graphql-relay-talk[slide sources]
+
+= Purpose of this dashboard
 
 A web app showing the states of all (feature) branches and links to running docker containers for each feature.
+
+An old presentation was giving some details about the background: link:https://github.com/lowsky/dockerMeetupSlides[slides]
+
+= ScreenShot:
 
 image:DashboardDemo.png[Preview image]
 
