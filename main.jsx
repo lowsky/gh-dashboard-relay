@@ -97,7 +97,20 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
 let raleyRoot = (
     <Relay.RootContainer
         Component={UserRepoContainer}
-        route={
+            renderLoading={function() {
+                return <div>Loading...</div>;
+            }}
+            renderFailure={function(error, retry) {
+                debugger;
+                console.error(error, error);
+                return (
+                    <div>
+                        <p>Error: {error.message}</p>
+                        <p><button onClick={retry}>Retry?</button></p>
+                    </div>
+                );
+            }}
+            route={
                 {
                     queries: {
                         github: () => Relay.QL`
