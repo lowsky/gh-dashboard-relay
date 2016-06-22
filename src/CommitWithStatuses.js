@@ -64,15 +64,15 @@ function renderStatus(status) {
         );
 }
 
-let LastCommit = React.createClass({
+let CommitWithStatus = React.createClass({
     render: function () {
         const { sha='<missing>', date='', message='<missing>', status=[] } = this.props.commit;
 
-        const githubLastCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
+        const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
         return (
             <div>
-            <a href={githubLastCommit}>
+            <a href={githubCommit}>
                 <span><i>{ date }</i></span>
                 <b>{ message }</b>
             </a>
@@ -84,4 +84,22 @@ let LastCommit = React.createClass({
     }
 });
 
-export default LastCommit;
+export default Relay.createContainer(CommitWithStatus, {
+    fragments: {
+        commit: () => Relay.QL`
+            fragment on GithubCommit {
+                sha
+                message
+                date
+                status {
+                    context
+                    description
+                    state
+                    target_url
+                    updated_at
+                }
+            }
+        `
+    }
+});
+
