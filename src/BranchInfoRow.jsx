@@ -37,16 +37,7 @@ export default Relay.createContainer(BranchInfoRow, {
           fragment on GithubBranch {
             name
             lastCommit {
-              sha
-              message
-              date
-              status {
-                  context
-                  description
-                  state
-                  target_url
-                  updated_at
-              }
+                ${CommitWithStatuses.getFragment('commit')}
             }
           }
         `
