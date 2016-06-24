@@ -8,7 +8,6 @@ pids
 *.seed
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/
 /coverage/
 
 node_modules/
