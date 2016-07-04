@@ -3,7 +3,7 @@ import Relay from 'react-relay';
 
 import BranchInfoRow from './BranchInfoRow.jsx';
 
-const BranchesTable = React.createClass({
+export const BranchesTable = React.createClass({
     render: function() {
         const { repo } = this.props;
         return (
