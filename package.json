@@ -47,6 +47,7 @@
     "graphql-relay": "0.4.2",
     "istanbul": "^0.4.4",
     "jsx-loader": "^0.13.2",
+    "minimatch": "3.0.2",
     "mocha": "^2.5.3",
     "node-libs-browser": "^1.0.0",
     "nodemon": "1.9.2",
@@ -56,8 +57,5 @@
     "superagent": "^2.0.0",
     "webpack": "^1.13.0",
     "xunit-file": "1.0.0"
-  },
-  "optionalDependencies": {
-    "minimatch": "3.0.2"
   }
 }
