@@ -2,6 +2,11 @@
 "test": [
  "**/test/**"
 ],
+"critics": {
+ "lint": {
+   "engine": "eslint"
+   }
+},
 "dependencies": {
  "unused-ignores": [
    "xunit-file"
