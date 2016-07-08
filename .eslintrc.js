@@ -3,7 +3,7 @@ module.exports = {
     "parser": "babel-eslint",
     "rules": {
         "graphql/template-strings": [
-            'error', {
+            2, {
 // Import default settings for your GraphQL client. Supported values:
 // 'apollo', 'relay', 'lokka'
                 env: 'relay',
