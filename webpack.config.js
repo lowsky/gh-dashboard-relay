@@ -1,7 +1,22 @@
+const ENV = process.env.NODE_ENV;
+
+const webpack = require('webpack');
+
 module.exports = {
     entry: './main.jsx',
     output: {
-        filename: 'bundle.js'
+        filename: 'dist/bundle.js'
+    },
+    resolve: {
+        extensions: ['', '.html', '.js', '.json', '.scss', '.css']
+    },
+    plugins: ( ENV == 'production'
+            ? [new webpack.optimize.UglifyJsPlugin({minimize: true})]
+            : [new webpack.HotModuleReplacementPlugin()]
+    ),
+    devServer: {
+        contentBase: './',
+        hot: true
     },
     module: {
         loaders: [

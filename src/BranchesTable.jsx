@@ -1,27 +1,29 @@
 import React from 'react';
 
-let DashboardRow = require('./DashboardRow.jsx');
+import BranchInfoRow from './BranchInfoRow.jsx'; // eslint-disable-line no-unused-vars
 
-let BranchesTable = React.createClass({
+export const BranchesTable = React.createClass({
 
     props: {
         branches: React.PropTypes.array.required
     },
 
     render: function() {
+        const { branches } = this.props;
+
         return (
             <table className="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr>
-                    <th>Git branch</th>
-                    <th>GitHub</th>
+                    <th>Live application</th>
+                    <th>Branch</th>
                 </tr>
                 </thead>
                 <tbody>
                 {
-                    this.props.branches.map(branch => {
-                        return <DashboardRow branch={branch} key={branch}/>;
-                    })
+                    branches.map(
+                        branch => <BranchInfoRow branch={branch} key={branch}/>
+                    )
                 }
                 </tbody>
             </table>

@@ -1,21 +1,25 @@
-import React from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { DashboardRow } from './src/DashboardRow.jsx';
-import BranchesTable  from './src/BranchesTable.jsx';
+import BranchesTable from './src/BranchesTable.jsx'; // eslint-disable-line no-unused-vars
 
 const repo = 'lowsky/dashboard';
 
-let branchesTable = document.getElementById('panel-body');
+let content = document.getElementById('content');
 
-let renderOrUpdateBranches = branches => {
-    ReactDOM.render(
-        <BranchesTable branches={ branches } />,
-        branchesTable);
+let renderOrUpdateBranches = (branches) => {
+    ReactDOM.render((
+        <div className="panel-default">
+                <div className="panel-body">
+                    <BranchesTable branches={ branches } />
+                </div>
+        </div>),
+        content);
 };
 
+
 let requestAndShowBranches = () => {
-    let url = `https://api.github.com/repos/${repo}/branches`;
+    let url = `https://api.github.com/repos/${repo}/branches`; // eslint-disable-line quotes
     let request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.onload = () => {
@@ -32,12 +36,12 @@ let requestAndShowBranches = () => {
             renderOrUpdateBranches(branchNames);
 
         } else {
-            alert(`Load error, while trying to retrieve data from $url - respond status: `, request.status);
+            alert(`Load error, while trying to retrieve data from $url - respond status: `, request.status); // eslint-disable-line quotes
         }
     };
     request.onerror = () => {
         console.error('Error occured', request);
-        alert(`Load error, while trying to retrieve data from $url`);
+        alert(`Load error, while trying to retrieve data from $url`); // eslint-disable-line quotes
     };
     return request;
 };

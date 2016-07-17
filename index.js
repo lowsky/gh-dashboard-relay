@@ -1,4 +1,4 @@
-/*jshint node:true*/
+/* eslint:disable no-undef */
 'use strict';
 
 var express = require('express');

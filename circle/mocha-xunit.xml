@@ -1,5 +1,0 @@
-<testsuite name="Mocha Tests" tests="3" failures="0" errors="0" skipped="0" timestamp="2016-04-16T10:44:08" time="0.189">
-<testcase classname="Dashboard branch component rendering" name="should have class warning" time="0.008"/>
-<testcase classname="Dashboard branch component rendering" name="should have 2 columns" time="0.001"/>
-<testcase classname="Dashboard branch component rendering" name="first column should contain the branchName" time="0.001"/>
-</testsuite>
