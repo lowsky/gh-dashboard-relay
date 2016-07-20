@@ -1,4 +1,4 @@
-// import React from 'react';
+/* eslint-disable no-console */
 import ReactDOM from 'react-dom';
 
 import BranchesTable from './src/BranchesTable.jsx'; // eslint-disable-line no-unused-vars
