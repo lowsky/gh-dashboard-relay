@@ -11,7 +11,7 @@ export default ({branch}) => {
         </td>
         <td>
             <a href={githubBranchSrc}>
-                <img src='./Octocat.jpg' width='32' alt='link to branch on github'>
+                <img src='./assets/images/Octocat.jpg' width='32' alt='link to branch on github'>
                 </img>
                 on GitHub
             </a>

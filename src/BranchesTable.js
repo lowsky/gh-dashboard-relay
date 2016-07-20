@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BranchInfoRow from './BranchInfoRow.jsx'; // eslint-disable-line no-unused-vars
+import BranchInfoRow from './BranchInfoRow'; // eslint-disable-line no-unused-vars
 
 export const BranchesTable = React.createClass({
 

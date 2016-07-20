@@ -2,7 +2,7 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import BranchInfoRow from '../src/BranchInfoRow.jsx'; // eslint-disable-line no-unused-vars
+import BranchInfoRow from '../src/BranchInfoRow'; // eslint-disable-line no-unused-vars
 
 describe('BranchInfoRow component', () => {
     const BRANCH_NAME = 'someBranchName';

@@ -3,7 +3,7 @@ const ENV = process.env.NODE_ENV;
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './main.jsx',
+    entry: './src/main.js',
     output: {
         filename: 'dist/bundle.js'
     },
