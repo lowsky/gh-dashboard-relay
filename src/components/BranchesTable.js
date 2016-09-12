@@ -4,7 +4,7 @@ import BranchInfoRow from './BranchInfoRow'; // eslint-disable-line no-unused-va
 
 export const BranchesTable = React.createClass({
 
-    props: {
+    propTypes: {
         branches: React.PropTypes.array.required
     },
 
@@ -31,4 +31,4 @@ export const BranchesTable = React.createClass({
     }
 });
 
-module.exports = BranchesTable;
+export default BranchesTable;

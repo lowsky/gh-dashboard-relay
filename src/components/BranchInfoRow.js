@@ -1,5 +1,6 @@
-import React from 'react'; // eslint-disable-line no-unused-vars
-export default ({branch}) => {
+import React from 'react';
+
+const BranchTable = ({ branch }) => {
 
     const
         liveLink = `http://${branch}.dashboard/`,
@@ -19,3 +20,9 @@ export default ({branch}) => {
     </tr>
     );
 };
+
+BranchTable.propTypes = {
+    branch: React.PropTypes.array.isRequired
+};
+
+export default BranchTable;

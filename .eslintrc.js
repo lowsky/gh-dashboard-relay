@@ -9,12 +9,12 @@ module.exports = {
         'process': true,
         '__dirname': true
     },
-    'extends': 'eslint:recommended',
+    'extends': ['eslint:recommended', 'plugin:react/recommended'],
+    'ecmaFeatures': {
+        'experimentalObjectRestSpread': true,
+        'jsx': true
+    },
     'parserOptions': {
-        'ecmaFeatures': {
-            'experimentalObjectRestSpread': true,
-            'jsx': true
-        },
         'sourceType': 'module'
     },
     'plugins': [

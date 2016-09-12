@@ -2,7 +2,7 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import ReactDOM from 'react-dom';
 
-import BranchesTable from '../components/BranchesTable'; // eslint-disable-line no-unused-vars
+import BranchesTable from '../components/BranchesTable';
 
 const repo = 'lowsky/dashboard';
 
