@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
+
 import { requestAndUpdateBranches } from './fetchGithubApi';
-import React from 'react'; // eslint-disable-line no-unused-vars
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import BranchesTable from '../components/BranchesTable';

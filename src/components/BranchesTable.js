@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-import BranchInfoRow from './BranchInfoRow'; // eslint-disable-line no-unused-vars
+import BranchInfoRow from './BranchInfoRow';
 
 export const BranchesTable = React.createClass({
 
     propTypes: {
-        branches: React.PropTypes.array.required
+        branches: PropTypes.array.required
     },
 
-    render: function() {
+    render: () => {
         const { branches } = this.props;
 
         return (
