@@ -1,5 +1,4 @@
 import React from 'react';
-import Relay from 'react-relay';
 
 const User = React.createClass({
     render: function () {
@@ -21,16 +20,4 @@ const User = React.createClass({
     }
 });
 
-export default Relay.createContainer(User, {
-    fragments: {
-        user: () => Relay.QL`
-            fragment on GithubUser {
-                login
-                avatar_url
-                company
-                avatar_url
-            }
-        `
-    },
-    name: 'User'
-});
+export default User;

@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 
 import Relay from 'react-relay';
 
-import BranchesTable  from './src/BranchesTable.jsx';
-import User from './src/User.js';
+import BranchesTable  from '../relay/BranchesTable';
+import User from '../relay/User';
+
+import UserRepo from './UserRepo';
+import RepoContainer from './Repo';
 
 const repo = 'lowsky/dashboard';
 
@@ -18,58 +21,6 @@ Relay.injectNetworkLayer(
 );
 
 
-const Repo = React.createClass({
-    render: function () {
-        const {repo = {}} = this.props; // same as in // fragments ['repo']
-        return (<div> {repo.owner.login} / {repo.name} </div>);
-    }
-});
-
-const RepoContainer = Relay.createContainer(Repo, {
-    fragments: {
-        repo: () => Relay.QL`
-            fragment on GithubRepo {
-                name
-                owner {
-                    login
-                }
-            }
-        `
-    },
-    name: 'Repo'
-});
-
-let UserRepo = React.createClass({
-    render: function () {
-        const user = {};
-        const { github = {user, repo} } = this.props;
-        return (
-            <div>
-                <div className="panel-default">
-                    <div className="panel-heading">
-                        <h1 className="panel-title"> Repository: </h1>
-                    </div>
-                    <div className="panel-body">
-                        <RepoContainer repo={github.repo}/>
-                    </div>
-                </div>
-                <div className="panel-default">
-                    <div className="panel-heading">
-                        <h1 className="panel-title">Owner:</h1>
-                    </div>
-                    <div className="panel-body">
-                        <User user={github.user}/>
-                    </div>
-                </div>
-                <div className="panel-default">
-                    <div className="panel-body">
-                        <BranchesTable repo={github.repo}/>
-                    </div>
-                </div>
-            </div>)
-    }
-});
-
 let UserRepoContainer = Relay.createContainer(UserRepo, {
     initialVariables: {
         username: 'lowsky',
@@ -80,13 +31,11 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
         github: () => Relay.QL`
           fragment on GithubAPI {
             user(username:$username) {
-                login
                 ${User.getFragment('user')}
             }
             repo(ownerUsername: $ownerUsername, name: $repoName) {
-                name 
-                ${RepoContainer.getFragment('repo')}
-                ${BranchesTable.getFragment('repo')}
+                 ${RepoContainer.getFragment('repo')}
+                 ${BranchesTable.getFragment('repo')}
             }
           }
         `
@@ -94,7 +43,8 @@ let UserRepoContainer = Relay.createContainer(UserRepo, {
     name: 'UserRepo'
 });
 
-let raleyRoot = (
+
+let relayRoot = (
     <Relay.RootContainer
         Component={UserRepoContainer}
             renderLoading={function() {
@@ -130,7 +80,7 @@ let renderOrUpdateBranches = () => {
     ReactDOM.render(
         <div className="panel-default">
             {
-                raleyRoot
+                relayRoot
             }
         </div>,
         content);

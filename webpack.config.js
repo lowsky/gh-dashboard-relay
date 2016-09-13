@@ -3,7 +3,7 @@ const ENV = process.env.NODE_ENV;
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/relay/main.js',
     output: {
         filename: 'dist/bundle.js'
     },
@@ -21,7 +21,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
             }

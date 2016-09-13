@@ -1,5 +1,4 @@
 import React from 'react';
-import Relay from 'react-relay';
 
 function icon4context(context) {
     if(context=== 'bitHound - Code') {
@@ -84,22 +83,4 @@ let CommitWithStatus = React.createClass({
     }
 });
 
-export default Relay.createContainer(CommitWithStatus, {
-    fragments: {
-        commit: () => Relay.QL`
-            fragment on GithubCommit {
-                sha
-                message
-                date
-                status {
-                    context
-                    description
-                    state
-                    target_url
-                    updated_at
-                }
-            }
-        `
-    }
-});
-
+export default CommitWithStatus;
