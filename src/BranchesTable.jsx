@@ -1,32 +1,25 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-let DashboardRow = require('./DashboardRow.jsx');
+import BranchInfoRow from './BranchInfoRow.jsx';
 
-let BranchesTable = React.createClass({
-
-    props: {
-        branches: React.PropTypes.array.required
-    },
-
+const BranchesTable = React.createClass({
     render: function() {
-        const { branches=[], keyValue= {} } = this.props;
+        const { repo } = this.props;
         return (
             <table className="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr>
-                    <th>Git branch
-                        {keyValue.id}
-                        {keyValue.value}
-                    </th>
-                    <th>GitHub</th>
+                    <th>Live application</th>
+                    <th>Branch</th>
+                    <th>Commit</th>
                 </tr>
                 </thead>
                 <tbody>
                 {
-                    this.props.branches.map(branch => {
-                        return <DashboardRow branch={branch} key={branch}/>;
-                    })
+                    repo.branches.map(
+                        branch => <BranchInfoRow branch={branch} />
+                    )
                 }
                 </tbody>
             </table>
@@ -34,15 +27,14 @@ let BranchesTable = React.createClass({
     }
 });
 
-// module.exports = BranchesTable;
-
 export default Relay.createContainer(BranchesTable, {
     fragments: {
-        keyValue: () => Relay.QL`
-          fragment on KeyValueItem {
-                id
-                value
-          }
+        repo: () => Relay.QL`
+            fragment on GithubRepo {
+                branches {
+                    ${BranchInfoRow.getFragment('branch')}
+                }
+            }
         `
     }
 });
