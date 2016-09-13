@@ -66,18 +66,25 @@ function renderStatus(status) {
 let CommitWithStatus = React.createClass({
     render: function () {
         const { sha='<missing>', date='', message='<missing>', status=[] } = this.props.commit;
+        const { author={} } = this.props.commit;
 
         const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
         return (
-            <div>
+            <div key={sha}>
             <a href={githubCommit}>
                 <span><i>{ date }</i></span>
-                <b>{ message }</b>
-            </a>
+                &nbsp;
+                <b>{ message.split('\n\n',1) }</b>
+                <br/>
+                <a><img width={16} src={author.avatar_url}/>by {author.login}</a>
+                &nbsp;
+                <a href={'mailto:' + author.email}>by {author.name}</a>
+                &nbsp;
                 {
                     status.map(s => renderStatus(s))
                 }
+                </a>
             </div>
         );
     }

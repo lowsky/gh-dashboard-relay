@@ -2,7 +2,7 @@ import React from 'react';
 
 const User = React.createClass({
     render: function () {
-        const { user } = this.props; // same as in // fragments ['user']
+        const { user = {} } = this.props;
 
         const style = { display:"inline", marginBottom:'auto' };
         const userLoginStyle  = { display:'inline', padding:'10px' };
