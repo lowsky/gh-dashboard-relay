@@ -1,15 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-import BranchInfoRow from './BranchInfoRow';
+import BranchInfoRow from '../relay/BranchInfoRow';
 
 export const BranchesTable = React.createClass({
-
-    propTypes: {
-        branches: PropTypes.array.required
-    },
-
-    render: () => {
-        const { branches } = this.props;
+    render: function() {
+        const { repo } = this.props;
 
         return (
             <table className="table table-striped table-bordered table-condensed">
@@ -17,12 +12,13 @@ export const BranchesTable = React.createClass({
                 <tr>
                     <th>Live application</th>
                     <th>Branch</th>
+                    <th>Commit</th>
                 </tr>
                 </thead>
                 <tbody>
                 {
-                    branches.map(
-                        branch => <BranchInfoRow branch={branch} key={branch}/>
+                    repo.branches.map(
+                        branch => <BranchInfoRow branch={branch} />
                     )
                 }
                 </tbody>

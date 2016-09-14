@@ -1,28 +1,33 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-const BranchInfoRow = ({ branch }) => {
+import CommitWithStatuses from '../relay/CommitWithStatuses';
 
-    const
-        liveLink = `http://${branch}.dashboard/`,
-        githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${branch}`;
+export const BranchInfoRow = React.createClass({
+    props: {
+        branch: React.PropTypes.object
+    },
 
-    return (
-        <tr className="warning" key={branch}>
+    render: function() {
+        const { name, lastCommit = {} } = this.props.branch,
+            liveLink = `http://${name}.dashboard/`,
+            githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
+
+        return (<tr key={name}>
             <td>
-                <a href={liveLink}>{branch}</a>
+                <a href={liveLink}>{name}</a>
             </td>
             <td>
                 <a href={githubBranchSrc}>
-                    <img src='./assets/images/Octocat.jpg' width='32' alt='link to branch on github' />
-                    on GitHub
+                    <img src='./assets/images/Octocat.jpg' width='32' alt='link to branch on github'>
+                    </img>
                 </a>
             </td>
+            <td>
+                <CommitWithStatuses commit={lastCommit} />
+            </td>
         </tr>
-    );
-};
-
-BranchInfoRow.propTypes = {
-    branch: PropTypes.string.isRequired
-};
+        );
+    }
+});
 
 export default BranchInfoRow;
