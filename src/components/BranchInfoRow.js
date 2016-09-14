@@ -9,8 +9,8 @@ export const BranchInfoRow = React.createClass({
 
     render: function() {
         const { name, lastCommit = {} } = this.props.branch,
-              liveLink = `http://${name}.dashboard/`,
-              githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
+            liveLink = `http://${name}.dashboard/`,
+            githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
 
         return (<tr key={name}>
             <td>

@@ -9,8 +9,6 @@ import User from '../relay/User';
 import UserRepo from './UserRepo';
 import RepoContainer from './Repo';
 
-const repo = 'lowsky/dashboard';
-
 let content = document.getElementById('content');
 
 Relay.injectNetworkLayer(
@@ -51,7 +49,6 @@ let relayRoot = (
                 return <div>Loading...</div>;
             }}
             renderFailure={function(error, retry) {
-                debugger;
                 console.error(error, error);
                 return (
                     <div>
@@ -61,17 +58,17 @@ let relayRoot = (
                 );
             }}
             route={
-                {
-                    queries: {
-                        github: () => Relay.QL`
+            {
+                queries: {
+                    github: () => Relay.QL`
                             query { github }
                         `
-                    },
-                    name: 'UserRepo',
-                    params: {
-                         extraProps: 'availableInAnyClientRender'
-                    }
+                },
+                name: 'UserRepo',
+                params: {
+                    extraProps: 'availableInAnyClientRender'
                 }
+            }
             }
     />
 );

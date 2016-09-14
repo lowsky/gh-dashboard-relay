@@ -30,7 +30,7 @@ let UserRepo = React.createClass({
                         <BranchesTable repo={github.repo}/>
                     </div>
                 </div>
-            </div>)
+            </div>);
     }
 });
 

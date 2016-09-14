@@ -38,22 +38,21 @@ function icon4status(status) {
 
 function status2color(status) {
     if(status=== 'success') {
-        return "green";
+        return 'green';
     }
     if(status=== 'pending') {
-        return "orange";
+        return 'orange';
     }
     if(status=== 'failure') {
-        return "red";
+        return 'red';
     }
     if(status=== 'error') {
-        return "red";
+        return 'red';
     }
     return 'inherit';
 }
 
 function renderStatus(status) {
-    const linkStyle = {};
     const color = status2color(status.state);
 
     return (

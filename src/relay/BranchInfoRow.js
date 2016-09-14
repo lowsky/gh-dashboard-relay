@@ -1,4 +1,3 @@
-import React from 'react';
 import Relay from 'react-relay';
 
 import BranchInfoRow from '../components/BranchInfoRow';
