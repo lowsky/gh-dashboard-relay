@@ -5,6 +5,7 @@ import BranchInfoRow from '../relay/BranchInfoRow';
 export const BranchesTable = React.createClass({
     render: function() {
         const { repo } = this.props;
+
         return (
             <table className="table table-striped table-bordered table-condensed">
                 <thead>
@@ -17,7 +18,7 @@ export const BranchesTable = React.createClass({
                 <tbody>
                 {
                     repo.branches.map(
-                        branch => <BranchInfoRow branch={branch} key={branch.name} />
+                        branch => <BranchInfoRow branch={branch} />
                     )
                 }
                 </tbody>
