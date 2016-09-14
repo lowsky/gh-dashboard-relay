@@ -16,4 +16,4 @@ test:
     - npm run test:circle
   post:
     - docker run -d -p 3000:3000 dashboard; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:3000
+    - wget -T 60 -S -v --retry-connrefused http://localhost:3000 -O-
