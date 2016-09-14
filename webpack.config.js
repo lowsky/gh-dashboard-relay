@@ -1,11 +1,18 @@
+// import path from 'path';
+const path = require('path');
+
 const ENV = process.env.NODE_ENV;
 
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/relay/main.js',
+    entry: {
+        relay: './src/relay/main.js',
+        restful: './src/restinpeace/main.js'
+    },
     output: {
-        filename: 'dist/bundle.js'
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js'
     },
     resolve: {
         extensions: ['', '.html', '.js', '.json', '.scss', '.css']
