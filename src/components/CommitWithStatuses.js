@@ -62,31 +62,28 @@ function renderStatus(status) {
         );
 }
 
-let CommitWithStatus = React.createClass({
-    render: function () {
-        const { sha='<missing>', date='', message='<missing>', status=[] } = this.props.commit;
-        const { author={} } = this.props.commit;
+let CommitWithStatus = props => {
+    const { commit = {} } = props;
+    const { sha = '<missing>', date = '', message = '<missing>', status = [] } = commit;
+    const { author = {} } = props.commit;
 
-        const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
+    const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
-        return (
-            <div key={sha}>
+    return (
+        <div key={sha}>
             <a href={githubCommit}>
                 <span><i>{ date }</i></span>
                 &nbsp;
-                <b>{ message.split('\n\n',1) }</b>
+                <b>{ message.split('\n\n', 1) }</b>
+            </a>
                 <br/>
-                <a><img width={16} src={author.avatar_url}/>by {author.login}</a>
-                &nbsp;
-                <a href={'mailto:' + author.email}>by {author.name}</a>
-                &nbsp;
+                <img width={16} src={author.avatar_url}/> by {author.login}
+                <a href={'mailto:' + author.email}>{author.name}</a>
                 {
                     status.map(s => renderStatus(s))
                 }
-                </a>
-            </div>
-        );
-    }
-});
+        </div>
+    );
+};
 
 export default CommitWithStatus;

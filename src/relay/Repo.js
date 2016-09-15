@@ -1,14 +1,6 @@
-import React from 'react';
 import Relay from 'react-relay';
 
-const Repo = React.createClass({
-    render: function () {
-        const {repo} = this.props;
-        const {owner = {}, name} = repo;
-
-        return (<div> {owner.login} / {name} </div>);
-    }
-});
+import Repo from '../components/Repo';
 
 export default Relay.createContainer(Repo, {
     fragments: {

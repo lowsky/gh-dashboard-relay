@@ -6,7 +6,7 @@ import Relay from 'react-relay';
 import BranchesTable  from '../relay/BranchesTable';
 import User from '../relay/User';
 
-import UserRepo from './UserRepo';
+import UserRepo from '../components/UserRepo';
 import RepoContainer from './Repo';
 
 let content = document.getElementById('content');
