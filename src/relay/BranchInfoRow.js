@@ -1,6 +1,6 @@
 import Relay from 'react-relay';
 
-import BranchInfoRow from '../components/BranchInfoRow';
+import BranchInfoRow from '../container/BranchInfoRow';
 import CommitWithStatuses, {fakeCommitWithStatuses} from './CommitWithStatuses';
 
 export const fakeBranchInfo = {

@@ -1,6 +1,6 @@
 import Relay from 'react-relay';
 
-import BranchesTable from '../components/BranchesTable';
+import BranchesTable from '../container/BranchesTable';
 import BranchInfoRow from './BranchInfoRow';
 
 export default Relay.createContainer(BranchesTable, {

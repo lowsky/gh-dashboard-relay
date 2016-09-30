@@ -3,12 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Relay from 'react-relay';
 
-import BranchesTable  from '../relay/BranchesTable';
-import User from '../relay/User';
-
-import UserRepo from '../components/UserRepo';
-import RepoContainer from './Repo';
-
+import UserRepo from './UserRepo';
 let content = document.getElementById('content');
 
 Relay.injectNetworkLayer(
@@ -18,33 +13,9 @@ Relay.injectNetworkLayer(
     })
 );
 
-
-let UserRepoContainer = Relay.createContainer(UserRepo, {
-    initialVariables: {
-        username: 'lowsky',
-        ownerUsername: 'lowsky',
-        repoName: 'dashboard'
-    },
-    fragments: {
-        github: () => Relay.QL`
-          fragment on GithubAPI {
-            user(username:$username) {
-                ${User.getFragment('user')}
-            }
-            repo(ownerUsername: $ownerUsername, name: $repoName) {
-                 ${RepoContainer.getFragment('repo')}
-                 ${BranchesTable.getFragment('repo')}
-            }
-          }
-        `
-    },
-    name: 'UserRepo'
-});
-
-
 let relayRoot = (
     <Relay.RootContainer
-        Component={UserRepoContainer}
+        Component={UserRepo}
             renderLoading={function() {
                 return <div>Loading...</div>;
             }}
@@ -64,7 +35,7 @@ let relayRoot = (
                             query { github }
                         `
                 },
-                name: 'UserRepo',
+                name: 'UserRepoBranches',
                 params: {
                     extraProps: 'availableInAnyClientRender'
                 }

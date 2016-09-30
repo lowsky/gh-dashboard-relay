@@ -4,8 +4,7 @@ import fetchGithubApi from './fetchGithubApi';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import BranchesTable from '../components/BranchesTable';
-import User from '../components/User';
+import UserRepo from '../container/UserRepo';
 
 const repo = 'lowsky/dashboard';
 
@@ -26,8 +25,7 @@ let renderOrUpdateBranches = () => {
     ReactDOM.render((
         <div className="panel-default">
                 <div className="panel-body">
-                    <User user={githubData.user} />
-                    <BranchesTable repo={githubData.repo} />
+                    <UserRepo github={githubData} />
                 </div>
         </div>),
         content);
@@ -59,5 +57,5 @@ fetchRepoBranches(repo)
     })
     .catch(function (ex) {
         console.log('fetching branches info failed', ex);
-        alert(`Error, while trying to retrieve data for branches of repo.`); // eslint-disable-line quotes
+        // alert(`Error, while trying to retrieve data for branches of repo.`); // eslint-disable-line quotes
     });

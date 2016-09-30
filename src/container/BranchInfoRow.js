@@ -1,14 +1,16 @@
 import React from 'react';
 
-const RelayCommitWithStatuses = require('../relay/CommitWithStatuses').default;
-const DumpCommitWithStatuses = require('./CommitWithStatuses').default;
+// import { CommitWithStatuses } from '../components';
+// import CommitWithStatuses from '../components/CommitWithStatuses';
+import Ui from '../components';
 
-export const BranchInfoRow = props => {
+const BranchInfoRow = props => {
     const { branch = {} } = props;
     const { name, lastCommit = {} } = branch,
         liveLink = `http://${name}.dashboard/`,
         githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
-    const CommitWithStatuses = (props.relay) ? RelayCommitWithStatuses : DumpCommitWithStatuses;
+
+    const CommitWithStatuses = Ui.createCommitWithStatuses(props);
 
     return (<tr key={name}>
             <td>
@@ -20,11 +22,13 @@ export const BranchInfoRow = props => {
                     </img>
                 </a>
             </td>
-            <td>
+            <td>{
                 <CommitWithStatuses commit={lastCommit} />
+            }
             </td>
         </tr>
     );
 };
+
 
 export default BranchInfoRow;

@@ -1,11 +1,14 @@
 import React from 'react';
 
-import Repo from '../relay/Repo';
-import User from '../relay/User';
-import BranchesTable from '../relay/BranchesTable';
+import Ui from '../components';
 
-let UserRepo = props => {
-    const { github = {} } = props;
+let UserRepo = (props) => {
+    const {github = {}} = props;
+    const {user, repo = { branches: [] }}  = github;
+
+    const User = Ui.createUser(props);
+    const Repo = Ui.createRepo(props);
+    const BranchesTable = Ui.createBranchTable(props);
 
     return (
         <div>
@@ -14,7 +17,9 @@ let UserRepo = props => {
                     <h1 className="panel-title"> Repository: </h1>
                 </div>
                 <div className="panel-body">
-                    <Repo repo={github.repo}/>
+                    {
+                        <Repo repo={repo}/>
+                    }
                 </div>
             </div>
             <div className="panel-default">
@@ -22,12 +27,16 @@ let UserRepo = props => {
                     <h1 className="panel-title">Owner:</h1>
                 </div>
                 <div className="panel-body">
-                    <User user={github.user}/>
+                    {
+                        <User user={user}/>
+                    }
                 </div>
             </div>
             <div className="panel-default">
                 <div className="panel-body">
-                    <BranchesTable repo={github.repo}/>
+                    {
+                        <BranchesTable repo={repo}/>
+                    }
                 </div>
             </div>
         </div>);
