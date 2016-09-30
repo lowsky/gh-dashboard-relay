@@ -23,8 +23,8 @@ module.exports = {
         'react'
     ],
     'rules': {
-        'react/prop-types': 1, // fix these later
-        'react/display-name': 1, // fix these later, see
+        'react/prop-types': 0, // fix these later
+        'react/display-name': 0, // fix these later, see
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
 
         "graphql/template-strings": [
@@ -38,7 +38,7 @@ module.exports = {
             }
         ],
         'no-undef': 1,
-        'no-console': 1,
+        'no-console': 0,
         'indent': [
             'error',
             4
