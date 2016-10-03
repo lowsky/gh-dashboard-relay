@@ -1,3 +1,3 @@
 IMAGE=dashboard:latest
-docker build $IMAGE .
+docker build -t $IMAGE .
 # later: docker run -d --name dash_latest -P $IMAGE

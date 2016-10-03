@@ -1,0 +1,14 @@
+{
+    "name": "dashboard",
+    "components": {
+        "webserver": {
+            "image": "skylo/dashboard",
+            "ports": [
+                3000
+            ],
+            "domains": {
+                "3000": "$domain"
+            }
+        }
+    }
+}
