@@ -59,7 +59,7 @@ function renderStatus(status) {
         <div><a className='commitLink' href={ status.target_url } style={ {color: color} }>
             { icon4status(status.state) } - { icon4context(status.context) } { status.description }</a>
         </div>
-        );
+    );
 }
 
 let CommitWithStatus = props => {
