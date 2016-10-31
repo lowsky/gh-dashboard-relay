@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import { BranchInfoRow } from '../../src/components/BranchInfoRow';
+import BranchInfoRow  from '../../src/container/BranchInfoRow';
 
 describe('Dashboard branch component', () => {
     const BRANCH_NAME = 'someBranchName';

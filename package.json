@@ -27,9 +27,9 @@
   "analyze": true,
   "homepage": "https://github.com/lowsky/dashboard",
   "dependencies": {
-    "babel-runtime": "6.11.6",
+    "babel-runtime": "^6.18.0",
     "express": "^4.14.0",
-    "react-relay": "^0.9.2"
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
@@ -52,6 +52,7 @@
     "express-graphql": "^0.5.4",
     "graphql": "^0.7.2",
     "graphql-relay": "^0.4.3",
+    "graphql-schema-from-introspection": "0.1.2",
     "istanbul": "^0.4.4",
     "jsdom": "^9.7.1",
     "jsx-loader": "^0.13.2",

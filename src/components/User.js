@@ -1,23 +1,33 @@
 import React from 'react';
 
-const User = React.createClass({
-    render: function () {
-        const { user = {} } = this.props;
+const imgStyle = {
+    display: 'inline',
+    marginBottom: 'auto'
+};
+const userLoginStyle = {
+    display: 'inline',
+    padding: '10px'
+};
 
-        const style = { display:'inline', marginBottom:'auto' };
-        const userLoginStyle  = { display:'inline', padding:'10px' };
+const User = props => {
+    const { user = {} } = props;
 
-        return (
-            <div className="row">
-                <div className="col col-1">
-                    <a className="thumbnail" src={ user.avatar_url } role="button">
-                        <img src={ user.avatar_url } className="thumbnail" style={ style }/>
-                        <h3 style={ userLoginStyle }>{ user.login }</h3>
-                        { user.company }
-                    </a>
-                </div>
-            </div>);
-    }
-});
+    const {
+        avatar_url,
+        login = '?',
+        company
+    } = user;
+
+    return (
+        <div className="row">
+            <div className="col col-1">
+                <a className="thumbnail" src={ avatar_url } role="button">
+                    <img src={ avatar_url } className="thumbnail" style={ imgStyle }/>
+                    <h3 style={ userLoginStyle }>{ login }</h3>
+                    { company }
+                </a>
+            </div>
+        </div>);
+};
 
 export default User;

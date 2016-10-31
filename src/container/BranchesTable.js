@@ -1,12 +1,12 @@
 import React from 'react';
 
-import BranchInfoRow from '../relay/BranchInfoRow';
+import Ui from '../components';
 
-export const BranchesTable = React.createClass({
-    render: function() {
-        const { repo } = this.props;
+const BranchesTable = (props) => {
+    const {repo = { branches: [] }} = props;
+    const BranchInfoRow = Ui.createBranchInfoRow(props);
 
-        return (
+    return (
             <table className="table table-striped table-bordered table-condensed">
                 <thead>
                 <tr>
@@ -17,14 +17,11 @@ export const BranchesTable = React.createClass({
                 </thead>
                 <tbody>
                 {
-                    repo.branches.map(
-                        branch => <BranchInfoRow branch={branch} />
-                    )
+                    repo.branches.map(branch => <BranchInfoRow branch={branch}/>)
                 }
                 </tbody>
             </table>
-        );
-    }
-});
+    );
+};
 
 export default BranchesTable;

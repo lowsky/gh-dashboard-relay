@@ -1,37 +1,29 @@
-import React from 'react';
+import Relay from 'react-relay';
 
-import Repo from './Repo';
+import UserRepo from '../container/UserRepo';
+
 import User from './User';
-import BranchesTable from './BranchesTable';
+import BranchesTable  from './BranchesTable';
+import RepoContainer from './Repo';
 
-let UserRepo = React.createClass({
-    render: function () {
-        const { github = {} } = this.props;
-        return (
-            <div>
-                <div className="panel-default">
-                    <div className="panel-heading">
-                        <h1 className="panel-title"> Repository: </h1>
-                    </div>
-                    <div className="panel-body">
-                       <Repo repo={github.repo}/>
-                    </div>
-                </div>
-                <div className="panel-default">
-                    <div className="panel-heading">
-                        <h1 className="panel-title">Owner:</h1>
-                    </div>
-                    <div className="panel-body">
-                        <User user={github.user}/>
-                    </div>
-                </div>
-                <div className="panel-default">
-                    <div className="panel-body">
-                        <BranchesTable repo={github.repo}/>
-                    </div>
-                </div>
-            </div>);
-    }
+export default Relay.createContainer(UserRepo, {
+    initialVariables: {
+        username: 'lowsky',
+        ownerUsername: 'lowsky',
+        repoName: 'dashboard'
+    },
+    fragments: {
+        github: () => Relay.QL`
+            fragment on GithubAPI {
+                user(username:$username) {
+                    ${User.getFragment('user')}
+                }
+                repo(ownerUsername: $ownerUsername, name: $repoName) {
+                     ${RepoContainer.getFragment('repo')}
+                     ${BranchesTable.getFragment('repo')}
+                }
+            }
+        `
+    },
+    name: 'UserRepo'
 });
-
-export default UserRepo;
