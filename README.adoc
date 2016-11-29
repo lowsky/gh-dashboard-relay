@@ -3,6 +3,9 @@ link:https://www.waffle.io[Waffle issues]: image:https://badge.waffle.io/lowsky/
 Master: image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Score,link=https://www.bithound.io/github/lowsky/dashboard]
 image:https://www.codacy.com/project/badge/5f6f0a485bfe4afab427fdba4eae3ac2[Codacy Badge,link=https://www.codacy.com/app/skylab71/dashboard]
 
+Master: image:https://snyk.io/test/github/lowsky/dashboard/badge.svg[Known Vulnerabilities,link=
+https://snyk.io/test/github/lowsky/dashboard]
+
 = lastest changes:
 
 This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's *Relay* and *GraphQL* libraries.
