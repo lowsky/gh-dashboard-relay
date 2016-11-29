@@ -64,7 +64,7 @@
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-relay": "^0.9.3",
-    "superagent": "^2.3.0",
+    "superagent": "^3.0.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.1",
     "xunit-file": "^1.0.0"
