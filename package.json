@@ -50,7 +50,7 @@
     "eslint-plugin-promise": "^3.3.1",
     "eslint-plugin-react": "^6.2.2",
     "express-graphql": "^0.6.1",
-    "graphql": "^0.8.1",
+    "graphql": "^0.8.2",
     "graphql-relay": "^0.4.4",
     "graphql-schema-from-introspection": "0.1.2",
     "istanbul": "^0.4.4",
