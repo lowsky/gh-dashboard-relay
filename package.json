@@ -7,6 +7,9 @@
     "url": "https://github.com/lowsky/dashboard.git"
   },
   "keywords": [
+    "graphql",
+    "relay",
+    "react",
     "dashboard",
     "docker",
     "github"
