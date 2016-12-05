@@ -11,6 +11,9 @@
     "docker",
     "github"
   ],
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "dev": "webpack-dev-server --progress --colors --inline",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js'  _mocha test/** -- --compilers js:babel-core/register",
