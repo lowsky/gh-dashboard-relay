@@ -1,14 +1,11 @@
 link:https://www.waffle.io[Waffle issues]: image:https://badge.waffle.io/lowsky/dashboard.png?label=in%20progress&title=in-progress[Stories/Tasks in Progress,link=https://waffle.io/lowsky/dashboard]
-
-Master: image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Score,link=https://www.bithound.io/github/lowsky/dashboard]
+image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Score,link=https://www.bithound.io/github/lowsky/dashboard]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Overall Score,link=https://www.bithound.io/github/lowsky/dashboard]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/dependencies.svg[bitHound Dependencies,link=https://www.bithound.io/github/lowsky/dashboard/master/dependencies/npm]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/devDependencies.svg[bitHound Dev Dependencies,link=https://www.bithound.io/github/lowsky/dashboard/master/dependencies/npm]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/code.svg[bitHound Code,link=https://www.bithound.io/github/lowsky/dashboard]
-
 image:https://www.codacy.com/project/badge/5f6f0a485bfe4afab427fdba4eae3ac2[Codacy Badge,link=https://www.codacy.com/app/skylab71/dashboard]
-
-Master: image:https://snyk.io/test/github/lowsky/dashboard/badge.svg[Known Vulnerabilities,link=
+image:https://snyk.io/test/github/lowsky/dashboard/badge.svg[Snyk: Known Vulnerabilities,link=
 https://snyk.io/test/github/lowsky/dashboard]
 
 = lastest changes:
