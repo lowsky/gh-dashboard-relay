@@ -1,12 +1,12 @@
 FROM node:6.2.2
 
-ENV yarnVersion 0.18.1
 
 # It was set to info, which enables
 # log output for downloading dependencies.
 # there is no unset, right
 ENV NPM_CONFIG_LOGLEVEL warn
 
+ENV yarnVersion 0.19.1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
