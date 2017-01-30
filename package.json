@@ -71,7 +71,7 @@
     "react-dom": "^15.4.2",
     "react-relay": "^0.10.0",
     "superagent": "^3.4.1",
-    "webpack": "^1.13.3",
+    "webpack": "^2.2.1",
     "webpack-dev-server": "^2.2.1",
     "xunit-file": "^1.0.0"
   }
