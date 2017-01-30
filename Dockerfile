@@ -1,5 +1,7 @@
 FROM node:6.2.2
 
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
 # It was set to info, which enables
 # log output for downloading dependencies.
@@ -8,8 +10,6 @@ ENV NPM_CONFIG_LOGLEVEL warn
 
 ENV yarnVersion 0.19.1
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
 RUN mkdir -p yarn && cd yarn && \
   wget https://github.com/yarnpkg/yarn/releases/download/v$yarnVersion/yarn-v$yarnVersion.tar.gz && \
   tar xzf yarn-v$yarnVersion.tar.gz && rm yarn-v$yarnVersion.tar.gz && pwd && ls -l
@@ -19,10 +19,9 @@ ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 
 COPY package.json /usr/src/app/
-COPY yarn.lock /usr/src/app/
+## COPY yarn.lock /usr/src/app/
 
 # replacement for npm install
-RUN yarn
 RUN yarn/dist/bin/yarn --verbose
 COPY . /usr/src/app
 
