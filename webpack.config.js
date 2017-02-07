@@ -15,7 +15,7 @@ module.exports = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['', '.html', '.js', '.json', '.scss', '.css']
+        extensions: ['.html', '.js', '.json', '.scss', '.css']
     },
     plugins: ( ENV == 'production'
             ? [new webpack.optimize.UglifyJsPlugin({minimize: true})]
