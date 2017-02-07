@@ -16,4 +16,4 @@ test:
     - npm run test:circle
   post:
     - docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5
-    - wget -T 60 -S -v --retry-connrefused http://localhost:3000 -O-
+    - wget -T 60 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont
