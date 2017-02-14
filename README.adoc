@@ -11,6 +11,8 @@ image:https://badge.waffle.io/lowsky/dashboard.png?label=Tasks%20in%20progress&t
 
 = lastest changes:
 
+image:https://badges.greenkeeper.io/lowsky/dashboard.svg[link="https://greenkeeper.io/"]
+
 This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's *Relay* and *GraphQL* libraries.
 
 For deep interns of the concepts, see the link:https://lowsky.github.io/deck-graphql-relay-talk[presentation at the EnterJS Conference] with its link:https://www.github.com/lowsky/deck-graphql-relay-talk[slide sources]
