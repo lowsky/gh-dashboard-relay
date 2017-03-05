@@ -22,7 +22,7 @@ const User = props => {
         <div className="row">
             <div className="col col-1">
                 <a className="thumbnail" src={ avatar_url } role="button">
-                    <img src={ avatar_url } className="thumbnail" style={ imgStyle }/>
+                    <img src={ avatar_url } className="thumbnail" style={ imgStyle } height={80} width={80}/>
                     <h3 style={ userLoginStyle }>{ login }</h3>
                     { company }
                 </a>
