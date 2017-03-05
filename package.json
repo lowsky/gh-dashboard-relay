@@ -18,7 +18,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --inline",
+    "dev": "webpack -w",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js'  _mocha test/** -- --compilers js:babel-core/register",
     "test:circle": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
     "prestart": "webpack",
