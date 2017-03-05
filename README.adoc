@@ -9,8 +9,6 @@ https://snyk.io/test/github/lowsky/dashboard]
 
 image:https://badge.waffle.io/lowsky/dashboard.png?label=Tasks%20in%20progress&title=in-progress[Stories/Tasks in Progress,link=https://waffle.io/lowsky/dashboard]
 
-= lastest changes:
-
 image:https://badges.greenkeeper.io/lowsky/dashboard.svg[link="https://greenkeeper.io/"]
 
 This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's *Relay* and *GraphQL* libraries.
@@ -22,6 +20,17 @@ For deep interns of the concepts, see the link:https://lowsky.github.io/deck-gra
 A web app showing the states of all (feature) branches and links to running docker containers for each feature.
 
 An old presentation was giving some details about the background: link:https://github.com/lowsky/dockerMeetupSlides[slides]
+
+= Getting started locally
+Start a the backend-server locally, see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
+then come back and do these steps:
+``` 
+git clone https://github.com/lowsky/dashboard
+cd dashboard
+npm install # or better just run  yarn  (if you have installed it already)
+npm start & # runs in background
+open http://locahost:3000
+```
 
 = ScreenShot:
 
