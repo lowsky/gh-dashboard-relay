@@ -11,27 +11,28 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <!-- Title -->
-            <span class="mdl-layout-title">Github Repo Dashboard</span>
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
-            <!-- Navigation. We hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="/index.html">Home</a></li>
-                <a class="mdl-navigation__link" href="relay.html">GraphQL + Relay Demo</a></li>
-                <a class="mdl-navigation__link" href="restful.html">RESTful Demo</a>
-            </nav>
-        </div>
-    </header>
-    <main class="mdl-layout__content">
-        <div class="page-content" id="restful-content">
-            Loading ...
-        </div>
-    </main>
-</div>
+    <div class=" mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">
+                    <a class="mdl-navigation__link" href="https://github.com/lowsky/dashboard/">
+                        Github Repo Dashboard
+                    </a>
+                </span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="/index.html">Home</a>
+                    <a class="mdl-navigation__link" href="relay.html">GraphQL + Relay Demo</a>
+                    <a class="mdl-navigation__link" href="restful.html">RESTful Demo</a>
+                </nav>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div id="content">
+                Loading ...
+            </div>
+        </main>
+        <script src="dist/restful.js"></script>
+    </div>
 </body>
 </html>
