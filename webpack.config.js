@@ -15,6 +15,10 @@ module.exports = {
         filename: '[name].js'
     },
     resolve: {
+        modules: [
+            path.join(__dirname, "."),
+            "node_modules"
+        ],
         extensions: ['.html', '.js', '.json', '.scss', '.css']
     },
     plugins: ( ENV == 'production'
