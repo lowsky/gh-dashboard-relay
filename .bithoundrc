@@ -1,15 +1,18 @@
 {
-"test": [
- "**/test/**"
-],
-"critics": {
- "lint": {
-   "engine": "eslint"
-   }
-},
-"dependencies": {
- "unused-ignores": [
-   "xunit-file"
- ]
-}
+    "test": [
+        "**/test/**"
+    ],
+    "critics": {
+        "lint": {
+            "engine": "eslint"
+        }
+    },
+    "dependencies": {
+        "unused-ignores": [
+            "xunit-file"
+        ],
+        "mute": [
+            "babel-relay-plugin"
+        ]
+    }
 }
