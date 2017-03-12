@@ -21,7 +21,6 @@ const githubData = {
 };
 
 let renderOrUpdateBranches = () => {
-
     ReactDOM.render((
         <div className="panel-default">
                 <div className="panel-body">
@@ -33,6 +32,13 @@ let renderOrUpdateBranches = () => {
 
 // init
 renderOrUpdateBranches();
+
+// hot-module-reloading
+if (module.hot) {
+    module.hot.accept('../container/UserRepo', () => {
+        renderOrUpdateBranches();
+    });
+}
 
 // fetch per github REST api
 const { fetchRepoBranches, fetchUser } = fetchGithubApi;
