@@ -7,7 +7,7 @@ image:https://www.codacy.com/project/badge/5f6f0a485bfe4afab427fdba4eae3ac2[Coda
 image:https://snyk.io/test/github/lowsky/dashboard/badge.svg[Snyk: Known Vulnerabilities,link=
 https://snyk.io/test/github/lowsky/dashboard]
 
-image:https://badge.waffle.io/lowsky/dashboard.png?label=Tasks%20in%20progress&title=in-progress[Stories/Tasks in Progress,link=https://waffle.io/lowsky/dashboard]
+image:https://badge.waffle.io/lowsky/dashboard.png?label=in%20progress&title=in-progress[Stories/Tasks in Progress,link=https://waffle.io/lowsky/dashboard]
 
 image:https://badges.greenkeeper.io/lowsky/dashboard.svg[link="https://greenkeeper.io/"]
 
