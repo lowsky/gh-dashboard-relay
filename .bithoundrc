@@ -10,6 +10,9 @@
 "dependencies": {
  "unused-ignores": [
    "xunit-file"
+ ],
+ "mute": [
+  "babel-relay-plugin"
  ]
 }
 }
