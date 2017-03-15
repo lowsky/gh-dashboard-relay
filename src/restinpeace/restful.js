@@ -50,7 +50,7 @@ const { fetchRepoBranches, fetchUser } = fetchGithubApi;
 fetchUser('lowsky')
     .then(user => {
         githubData.user = user;
-        console.log('fetched user data:', user);
+        console.debug('fetched user data:', user);
         renderOrUpdateBranches();
     })
     .catch(ex => {
