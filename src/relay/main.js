@@ -17,31 +17,27 @@ Relay.injectNetworkLayer(
 let relayRoot = (
     <Relay.RootContainer
         Component={UserRepo}
-            renderLoading={function() {
-                return <div>Loading...</div>;
-            }}
-            renderFailure={function(error, retry) {
-                console.error(error, error);
-                return (
-                    <div>
-                        <p>Error: {error.message}</p>
-                        <p><button onClick={retry}>Retry?</button></p>
-                    </div>
-                );
-            }}
-            route={
-            {
-                queries: {
-                    github: () => Relay.QL`
-                            query { github }
-                        `
-                },
-                name: 'UserRepoBranches',
-                params: {
-                    extraProps: 'availableInAnyClientRender'
-                }
+        renderLoading={() => <div>Loading...</div>}
+        renderFailure={(error, retry) =>{
+            console.error('Failure while rendering in relay root container:', error);
+            return (
+                <div>
+                    <p>Error: {error.message}</p>
+                    <p><button onClick={retry}>Retry?</button></p>
+                </div>
+            );
+        }}
+        route={{
+            queries: {
+                github: () => Relay.QL`
+                        query { github }
+                    `
+            },
+            name: 'UserRepoBranches',
+            params: {
+                extraProps: 'availableInAnyClientRender'
             }
-            }
+        }}
     />
 );
 
@@ -66,5 +62,3 @@ if (module.hot) {
     });
 }
 
-// old:
-// https://api.github.com/repos/lowsky/dashboard/branches
