@@ -62,8 +62,30 @@ fetchRepoBranches(repo)
             branches
         };
         renderOrUpdateBranches();
+        return branches;
     })
-    .catch(function (ex) {
+    .then(branches => {
+        githubData.repo = {
+            branches: branches.map(branch => enrich(branch))
+        };
+        renderOrUpdateBranches();
+    })
+    .catch((ex) => {
         console.log('fetching branches info failed', ex);
         // alert(`Error, while trying to retrieve data for branches of repo.`); // eslint-disable-line quotes
     });
+
+let enrich = (branch) => {
+    branch.lastCommit = {
+        date: '',
+        'sha': 'bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e',
+        'message': 'Merge pull request #287 from lowsky/greenkeeper/jsdom-pin-9.11.0\n\nchore: pin jsdom to 9.11.0',
+        'status': [
+        ],
+        'author': {
+            'login': 'lowsky',
+            'avatar_url': 'https://avatars2.githubusercontent.com/u/217931?v=3'
+        }
+    };
+    return branch;
+};
