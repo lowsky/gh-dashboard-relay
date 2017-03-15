@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import Relay from 'react-relay';
 
 import UserRepo from './UserRepo';
-let content = document.getElementById('content');
+
+let content = document.getElementById('relay-content');
 
 Relay.injectNetworkLayer(
     new Relay.DefaultNetworkLayer('http://localhost:8000/graphql', {
@@ -45,20 +46,25 @@ let relayRoot = (
 );
 
 let renderOrUpdateBranches = () => {
-    ReactDOM.render(
-        <div className="panel-default">
-            {
-                relayRoot
-            }
-        </div>,
-        content);
+    if (content) {
+        ReactDOM.render(
+            <div className="panel-default">
+                {
+                    relayRoot
+                }
+            </div>,
+            content);
+    }
 };
 
-renderOrUpdateBranches([]);
+renderOrUpdateBranches();
 
-/*
-requestAndShowBranches().send();
-*/
+// hot-module-reloading
+if (module.hot) {
+    module.hot.accept('../container/UserRepo', () => {
+        renderOrUpdateBranches();
+    });
+}
 
 // old:
 // https://api.github.com/repos/lowsky/dashboard/branches
