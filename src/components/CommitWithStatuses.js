@@ -2,19 +2,16 @@ import React from 'react';
 
 function icon4context(context) {
     if(context=== 'bitHound - Code') {
-        return (<img width={48} height={48} src="./bithound.png" alt="bitHound - Code"/>);
+        return (<img width={48} height={48} src="./assets/images/bithound.png" alt="bitHound - Code"/>);
     }
     if(context=== 'bitHound - Dependencies') {
-        return (<img width={48} height={48} src="./bithound.png" alt="bitHound - Dependencies"/>);
+        return (<img width={48} height={48} src="./assets/images/bithound.png" alt="bitHound - Dependencies"/>);
     }
     if(context=== 'codacy/pr') {
-        return (<img width={48} height={48} src="./codacy.png" alt="codacy"/>);
+        return (<img width={48} height={48} src="./assets/images/codacy.png" alt="codacy"/>);
     }
     if(context=== 'ci/circleci') {
-        return (<img width={48} height={48} src="./circleci.png" alt="circleci"/>);
-    }
-    if(context=== 'code-review/gitcolony') {
-        return (<img width={48} height={48} src="./bithound.png" alt="gitcolony"/>);
+        return (<img width={48} height={48} src="./assets/images/circleci.png" alt="circleci"/>);
     }
 
     return (<span>{ context }</span> );
