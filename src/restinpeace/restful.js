@@ -8,7 +8,7 @@ import UserRepo from '../container/UserRepo';
 
 const repo = 'lowsky/dashboard';
 
-let content = document.getElementById('content');
+let content = document.getElementById('restful-content');
 
 const githubData = {
     repo: {
@@ -21,13 +21,15 @@ const githubData = {
 };
 
 let renderOrUpdateBranches = () => {
-    ReactDOM.render((
-        <div className="panel-default">
-                <div className="panel-body">
-                    <UserRepo github={githubData} />
-                </div>
-        </div>),
-        content);
+    if (content) {
+        ReactDOM.render((
+                <div className="panel-default">
+                    <div className="panel-body">
+                        <UserRepo github={githubData}/>
+                    </div>
+                </div>),
+            content);
+    }
 };
 
 // init
