@@ -59,6 +59,12 @@ renderOrUpdateBranches([]);
 /*
 requestAndShowBranches().send();
 */
+// hot-module-reloading
+if (module.hot) {
+    module.hot.accept('../container/UserRepo', () => {
+        renderOrUpdateBranches();
+    });
+}
 
 // old:
 // https://api.github.com/repos/lowsky/dashboard/branches

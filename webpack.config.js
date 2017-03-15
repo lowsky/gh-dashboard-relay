@@ -1,6 +1,6 @@
 // import path from 'path';
-const path = require('path');
 const {resolve} = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV;
 
@@ -11,7 +11,8 @@ module.exports = {
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        './src/restinpeace/main.js'
+        './src/restinpeace/restful.js',
+        './src/relay/main.js'
     ],
     output: {
         path: resolve(__dirname, 'dist'),
@@ -22,10 +23,24 @@ module.exports = {
 
     plugins: ( ENV == 'production'
             ? [new webpack.optimize.UglifyJsPlugin({minimize: true})]
-            : [new webpack.HotModuleReplacementPlugin()]
+            : [
+                new HtmlWebpackPlugin({
+                    filename: 'restful.html',
+                    template: 'restful.html'
+                }),
+                new HtmlWebpackPlugin({
+                    filename: 'relay.html',
+                    template: 'relay.html'
+                }),
+                new HtmlWebpackPlugin({
+                    filename: 'index.html',
+                    template: 'index.html'
+                }),
+                new webpack.HotModuleReplacementPlugin(),
+                new webpack.NamedModulesPlugin()
+            ]
     ),
     devServer: {
-        contentBase: './',
         hot: true
     },
     module: {
