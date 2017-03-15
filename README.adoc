@@ -17,9 +17,13 @@ For deep interns of the concepts, see the link:https://lowsky.github.io/deck-gra
 
 = Purpose of this dashboard
 
-A web app showing the states of all (feature) branches and links to running docker containers for each feature.
+This web app lists the (feature) branches of a specific github repository,
 
-An old presentation was giving some details about the background: link:https://github.com/lowsky/dockerMeetupSlides[slides]
+* shows the last commit's commit message
+* shows the last commit's status
+* (not implemented yet) links to running docker containers for each feature
+
+On a meetup, this talk and presentation gave some details about the background idea: link:https://github.com/lowsky/dockerMeetupSlides[slides]
 
 = Getting started locally
 A reduced functionality with a RESTful api backend works out of the box.
