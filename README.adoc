@@ -22,21 +22,32 @@ A web app showing the states of all (feature) branches and links to running dock
 An old presentation was giving some details about the background: link:https://github.com/lowsky/dockerMeetupSlides[slides]
 
 = Getting started locally
-Start a the backend-server locally, see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
-then come back and do these steps:
+A reduced functionality with a RESTful api backend works out of the box.
+
+For the Relay backend only, you might start this backend-server locally, see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
+
 ```
 git clone https://github.com/lowsky/dashboard
 cd dashboard
-npm install # or better just run  yarn  (if you have installed it already)
-npm start & # runs in background
+npm install  # or better just run  yarn  (if you have installed it already)
+npm start &  # runs in background
 open http://localhost:3000
 
-# to update the page, run a webpack like:
-node_modules/.bin/webpack -w
-# and refresh the page in the browser
-# (this needs update!)
-
+# to update the page, you need to stop and re-start,
+# or run webpack via
+npm run prestart
+# and refresh the page in the browser (this needs update!)
 ```
+
+For local development you can use webpack-dev based hot-reloading per
+```
+npm run dev
+# this opens the browser automatically
+```
+
+Then switch to either the REST based or the RELAY based view...
+
+Have fun!
 
 = ScreenShot:
 
