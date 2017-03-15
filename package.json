@@ -61,7 +61,7 @@
     "graphql-relay": "^0.5.1",
     "graphql-schema-from-introspection": "0.1.2",
     "istanbul": "^0.4.4",
-    "jsdom": "9.11.0",
+    "jsdom": "^9.12.0",
     "jsx-loader": "^0.13.2",
     "minimatch": "^3.0.3",
     "mocha": "^3.2.0",
