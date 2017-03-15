@@ -1,9 +1,16 @@
 /* eslint-disable no-console */
 'use strict';
 
+const express = require('express');
+const helmet = require('helmet');
 
-var express = require('express');
-var app = express();
+const app = express();
+
+app.use(helmet.hidePoweredBy());
+// disable IEx to open other files with same rights
+app.use(helmet.ieNoOpen());
+// Sets "X-Content-Type-Options: nosniff".
+app.use(helmet.noSniff());
 
 app.set('port', process.env.PORT || 3000);
 
