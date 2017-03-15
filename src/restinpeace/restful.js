@@ -8,12 +8,16 @@ import fetchGithubApi from './fetchGithubApi';
 
 const lastCommitMock = require('./lastCommitMock.json');
 
+const repoName = 'dashboard';
+const repoOwnerLogin = 'lowsky';
 const repo = 'lowsky/dashboard';
 
 let content = document.getElementById('restful-content');
 
 const githubData = {
     repo: {
+        owner: {login: repoOwnerLogin},
+        name: repoName,
         branches: []
     },
     user: {
@@ -61,7 +65,9 @@ fetchUser('lowsky')
 fetchRepoBranches(repo)
     .then(branches => {
         githubData.repo = {
-            branches
+            branches,
+            owner: { login: repoOwnerLogin },
+            name: repoName
         };
         renderOrUpdateBranches();
         return branches;
