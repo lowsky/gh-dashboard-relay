@@ -52,11 +52,11 @@ function status2color(status) {
     return 'inherit';
 }
 
-function renderStatus(status) {
+function renderStatus(status, idx) {
     const color = status2color(status.state);
 
     return (
-        <div><a className='commitLink' href={ status.target_url } style={ {color: color} }>
+        <div key={idx}><a className='commitLink' href={ status.target_url } style={ {color: color} }>
             { icon4status(status.state) } - { icon4context(status.context) } { status.description }</a>
         </div>
     );
@@ -80,7 +80,7 @@ let CommitWithStatus = props => {
                 <img width={16} src={author.avatar_url}/> by {author.login}
                 <a href={'mailto:' + author.email}>{author.name}</a>
                 {
-                    status.map(s => renderStatus(s))
+                    status.map((s, idx) => renderStatus(s, idx))
                 }
         </div>
     );

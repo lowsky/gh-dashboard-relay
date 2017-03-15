@@ -17,7 +17,7 @@ const BranchesTable = (props) => {
                 </thead>
                 <tbody>
                 {
-                    repo.branches.map(branch => <BranchInfoRow branch={branch}/>)
+                    repo.branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch}/>)
                 }
                 </tbody>
             </table>
