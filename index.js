@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
 'use strict';
 
-
-var express = require('express');
-var app = express();
+let express = require('express');
+let app = express();
 
 app.set('port', process.env.PORT || 3000);
 
-app.use(express.static(__dirname));
-
-
+app.use(express.static('dist'));
+app.use('/assets', express().use(express.static('assets')));
 
 
 // const graphql = _graphql.graphql;

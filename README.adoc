@@ -29,7 +29,7 @@ git clone https://github.com/lowsky/dashboard
 cd dashboard
 npm install # or better just run  yarn  (if you have installed it already)
 npm start & # runs in background
-open http://locahost:3000
+open http://localhost:3000
 
 # to update the page, run a webpack like:
 node_modules/.bin/webpack -w
