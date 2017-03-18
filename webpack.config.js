@@ -11,6 +11,7 @@ module.exports = {
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
+        './src/index/indexPage.js',
         './src/restinpeace/restful.js',
         './src/relay/main.js'
     ],
@@ -45,6 +46,19 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.adoc$/,
+                use: [
+                    'html-loader',
+                    'asciidoctor-loader'
+                ],
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    'url-loader'
+                ],
+            },
             {
                 test: /\.js$/,
                 use: [

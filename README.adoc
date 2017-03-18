@@ -15,7 +15,7 @@ This project was used to figure out and to demonstrate, how to develop a fronten
 
 For deep interns of the concepts, see the link:https://lowsky.github.io/deck-graphql-relay-talk[presentation at the EnterJS Conference] with its link:https://www.github.com/lowsky/deck-graphql-relay-talk[slide sources]
 
-= Purpose of this dashboard
+== Purpose of this dashboard
 
 This web app lists the (feature) branches of a specific github repository,
 
@@ -25,7 +25,7 @@ This web app lists the (feature) branches of a specific github repository,
 
 On a meetup, this talk and presentation gave some details about the background idea: link:https://github.com/lowsky/dockerMeetupSlides[slides]
 
-= Getting started locally
+== Getting started locally
 A reduced functionality with a RESTful api backend works out of the box.
 
 For the Relay backend only, you might start this backend-server locally, see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
@@ -53,7 +53,7 @@ Then switch to either the REST based or the RELAY based view...
 
 Have fun!
 
-= ScreenShot:
+== ScreenShot:
 
 image:DashboardDemo.png[Preview image]
 
