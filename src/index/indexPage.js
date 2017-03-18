@@ -5,8 +5,8 @@ const __html = require('../../README.adoc');
 /* just include the README content on the start page */
 
 let renderOrUpdate = () => {
-    if (content) {
-        const readmeElement = document.getElementById('readme');
+    const readmeElement = document.getElementById('readme');
+    if (readmeElement) {
         render((<div dangerouslySetInnerHTML={{ __html }}></div>), readmeElement);
     }
 };
