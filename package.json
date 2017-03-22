@@ -60,6 +60,7 @@
     "eslint-plugin-promise": "^3.3.1",
     "eslint-plugin-react": "^6.10.2",
     "express-graphql": "^0.6.3",
+    "file-loader": "^0.10.1",
     "graphql": "^0.9.1",
     "graphql-relay": "^0.5.1",
     "graphql-schema-from-introspection": "0.1.2",
@@ -77,9 +78,9 @@
     "react-hot-loader": "next",
     "react-relay": "^0.10.0",
     "superagent": "^3.4.1",
+    "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
-    "url-loader": "^0.5.8",
     "xunit-file": "^1.0.0"
   }
 }
