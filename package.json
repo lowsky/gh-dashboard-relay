@@ -18,10 +18,11 @@
     "node": ">=6"
   },
   "scripts": {
-    "dev": "webpack-dev-server -w -d  --progress  --open",
+    "convert-readme": "asciidoctorjs -s -v README.adoc",
+    "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js'  _mocha test/** -- --compilers js:babel-core/register",
     "test:circle": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
-    "prestart": "webpack",
+    "prestart": "npm run convert-readme ; webpack --profile --progress",
     "start": "node ."
   },
   "author": "Robert Hostlowsky",
@@ -40,7 +41,7 @@
     "whatwg-fetch": "^2.0.0"
   },
   "devDependencies": {
-    "asciidoctor-loader": "https://github.com/exaptis/asciidoctor-loader#master",
+    "asciidoctor-cli": "^1.5.5-beta.3",
     "babel-cli": "^6.22.2",
     "babel-core": "^6.13.2",
     "babel-eslint": "^7.1.1",

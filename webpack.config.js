@@ -63,10 +63,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.adoc$/,
-                use: [
-                    'html-loader',
-                    'asciidoctor-loader'
+                test: /\.css$/,
+                include: /node_modules/,
+                loader: [
+                    'style-loader',
+                    'css-loader'
                 ],
             },
             {
