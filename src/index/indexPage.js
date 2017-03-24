@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-const __html = require('../../README.adoc');
+const __html = require('html-loader!../../README.html');
 
 /* just include the README content on the start page */
 

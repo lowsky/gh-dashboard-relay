@@ -26,30 +26,21 @@ This web app lists the (feature) branches of a specific github repository,
 On a meetup, this talk and presentation gave some details about the background idea: link:https://github.com/lowsky/dockerMeetupSlides[slides]
 
 == Getting started locally
-A reduced functionality with a RESTful api backend works out of the box.
-
-For the Relay backend only, you might start this backend-server locally, see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
+A reduced functionality with a RESTful api backend works out of the box,
+after invoking this in a shell:
 
 ```
 git clone https://github.com/lowsky/dashboard
 cd dashboard
 npm install  # or better just run  yarn  (if you have installed it already)
-npm start &  # runs in background
-open http://localhost:3000
-
-# to update the page, you need to stop and re-start,
-# or run webpack via
-npm run prestart
-# and refresh the page in the browser (this needs update!)
+npm run dev  # this opens the browser automatically
 ```
+For local development this also uses webpack-dev based hot-reloading which
+automatically updates the page in the browser!
 
-For local development you can use webpack-dev based hot-reloading per
-```
-npm run dev
-# this opens the browser automatically
-```
-
-Then switch to either the REST based or the RELAY based view...
+== Backend for Relay powered page:
+For the Relay backend only, you might start a github-proxy backend-server locally,
+see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
 
 Have fun!
 
