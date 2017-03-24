@@ -3,7 +3,7 @@ import React from 'react';
 import Ui from '../components';
 
 const cards = {
-    height: '300px'
+    // height: '400px'
 };
 
 let UserRepo = (props) => {
