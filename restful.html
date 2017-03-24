@@ -5,24 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
-<header class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand"
-               href="https://github.com/lowsky/dashboard/">Github Repo Dashboard</a>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Github Repo Dashboard</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="/index.html">Home</a></li>
+                <a class="mdl-navigation__link" href="relay.html">GraphQL + Relay Demo</a></li>
+                <a class="mdl-navigation__link" href="restful.html">RESTful Demo</a>
+            </nav>
         </div>
-        <ul class="nav nav-tabs">
-            <li role="presentation" ><a href="/index.html">Home</a></li>
-            <li role="presentation" ><a href="relay.html">GraphQL + Relay Demo</a></li>
-            <li role="presentation" class="active"><a href="restful.html">RESTful Demo</a></li>
-        </ul>
-    </div>
-</header>
-<div class="container-fluid" id="restful-content">
-    Loading ...
+    </header>
+    <main class="mdl-layout__content">
+        <div class="page-content" id="restful-content">
+            Loading ...
+        </div>
+    </main>
 </div>
 </body>
 </html>
