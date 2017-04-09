@@ -10,7 +10,6 @@ const BranchesTable = (props) => {
         <table className="mdl-data-table mdl-js-data-table ">
             <thead>
                 <tr>
-                    <th className="mdl-data-table__cell--non-numeric">Live application</th>
                     <th className="mdl-data-table__cell--non-numeric">Branch</th>
                     <th className="mdl-data-table__cell--non-numeric">Commit</th>
                 </tr>
