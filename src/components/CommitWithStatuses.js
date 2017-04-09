@@ -53,8 +53,11 @@ function renderStatus(status, idx) {
     const color = status2color(status.state);
 
     return (
-        <div key={idx}><a className='commitLink' href={ status.target_url } style={ {color: color} }>
-            { icon4status(status.state) } - { icon4context(status.context) } { status.description }</a>
+        <div key={idx} style={ { display: 'inline' } }>
+            <a className="commitLink" href={status.target_url} style={{ color: color }}
+                title={ status.context + ' ' + status.description }>
+                {icon4context(status.context)}{icon4status(status.state)}
+            </a>
         </div>
     );
 }
@@ -69,13 +72,18 @@ let CommitWithStatus = props => {
     return (
         <div key={sha}>
             <a href={githubCommit}>
-                <span><i>{ date }</i></span>
-                &nbsp;
                 <b>{ message.split('\n\n', 1) }</b>
             </a>
-                <br/>
-                <img width={16} src={author.avatar_url}/> by {author.login}
-                <a href={'mailto:' + author.email}>{author.name}</a>
+            <br />
+            <span><i>{date}</i></span>
+            &nbsp;
+            by
+            &nbsp;
+            <img width={32} src={author.avatar_url} />
+            &nbsp;
+            {author.login}
+            <a href={'mailto:' + author.email}>{author.name}</a>
+            <br/>
                 {
                     status.map((s, idx) => renderStatus(s, idx))
                 }
