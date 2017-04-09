@@ -13,16 +13,15 @@ const BranchInfoRow = props => {
     const CommitWithStatuses = Ui.createCommitWithStatuses(props);
 
     return (<tr key={name}>
-            <td>
-                <a href={liveLink}>{name}</a>
+            <td className="mdl-data-table__cell--non-numeric">
+                {name}
             </td>
-            <td>
-                <a href={githubBranchSrc}>
-                    <img src='./assets/images/Octocat.jpg' width='32' alt='link to branch on github'>
-                    </img>
-                </a>
+            <td className="mdl-data-table__cell--non-numeric">
+                <img src='./assets/images/Octocat.jpg' width='32' alt='link to branch on github'>
+                </img>
+                <a href={githubBranchSrc}>{name}</a>
             </td>
-            <td>{
+            <td className="mdl-data-table__cell--non-numeric">{
                 <CommitWithStatuses commit={lastCommit} />
             }
             </td>
