@@ -62,12 +62,7 @@ fetchUser('lowsky')
         alert(`Error, while loading user info for user ($user) from github`); // eslint-disable-line quotes
     });
 
-if(false)
 fetchRepoBranches(repo)
-
-Promise.resolve([{
-    name: 'lowsky'
-}])
     .then(branches => {
         githubData.repo = {
             branches,
