@@ -1,36 +1,41 @@
 import React from 'react';
 
+const ContextLogo = (props) => (
+    <img width={48} height={48} {...props} style={ {verticalAlign: 'top' } } />
+)
 function icon4context(context) {
-    if(context=== 'bitHound - Code') {
-        return (<img width={48} height={48} src="./assets/images/bithound.png" alt="bitHound - Code"/>);
+    if (context === 'bitHound - Code') {
+        return (<ContextLogo src="./assets/images/bithound.png" alt="bitHound - Code"/>);
     }
-    if(context=== 'bitHound - Dependencies') {
-        return (<img width={48} height={48} src="./assets/images/bithound.png" alt="bitHound - Dependencies"/>);
+    if (context === 'bitHound - Dependencies') {
+        return (<ContextLogo src="./assets/images/bithound.png" alt="bitHound - Dependencies"/>);
     }
-    if(context=== 'codacy/pr') {
-        return (<img width={48} height={48} src="./assets/images/codacy.png" alt="codacy"/>);
+    if (context === 'codacy/pr') {
+        return (<ContextLogo src="./assets/images/codacy.png" alt="codacy"/>);
     }
-    if(context=== 'ci/circleci') {
-        return (<img width={48} height={48} src="./assets/images/circleci.png" alt="circleci"/>);
+    if (context === 'ci/circleci') {
+        return (<ContextLogo src="./assets/images/circleci.svg" alt="circleci"/>);
     }
 
     return (<span>{ context }</span> );
 }
 
 function icon4status(status) {
-    if(status=== 'success') {
-        return (<span className="glyphicon glyphicon-ok green"></span>);
+    const StatusIcon = ({type}) => (<i className="material-icons" style={ {fontSize: '48px'} }>{type}</i>);
+
+    if (status === 'success') {
+        return <StatusIcon type='check' />;
     }
-    if(status=== 'pending') {
-        return (<span className="glyphicon glyphicon-hourglass orange"></span>);
+    if (status === 'pending') {
+        return <StatusIcon type='hourglass_empty' />;
     }
-    if(status=== 'failure') {
-        return (<span className="glyphicon glyphicon-remove red"></span>);
+    if (status === 'failure') {
+        return <StatusIcon type='cancel' />;
     }
-    if(status=== 'error') {
-        return (<span className="glyphicon glyphicon-remove red"></span>);
+    if (status === 'error') {
+        return <StatusIcon type='error' />;
     }
-    return (<span>{ status }</span> );
+    return (<span>?{ status } </span> );
 }
 
 function status2color(status) {
