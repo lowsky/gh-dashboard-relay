@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    expect
-}
-from 'chai';
-import {
-    shallow
-}
-from 'enzyme';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
 
 import BranchInfoRow from '../../src/container/BranchInfoRow';
 
@@ -32,10 +26,10 @@ describe('Dashboard branch component', () => {
     });
 
     it('first column should contain a link with text containing the branchName', () => {
-            const firstColumn = dashComp.childAt(0);
-            const aLink = firstColumn.find('a');
+        const firstColumn = dashComp.childAt(0);
+        const aLink = firstColumn.find('a');
 
-            expect(aLink.props().children).to.equal(BRANCH_NAME);
-        });
+        expect(aLink.props().children).to.equal(BRANCH_NAME);
+    });
 
 });

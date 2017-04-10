@@ -2,7 +2,8 @@ import React from 'react';
 
 const ContextLogo = (props) => (
     <img width={48} height={48} {...props} style={ {verticalAlign: 'top' } } />
-)
+);
+
 function icon4context(context) {
     if (context === 'bitHound - Code') {
         return (<ContextLogo src="./assets/images/bithound.png" alt="bitHound - Code"/>);
