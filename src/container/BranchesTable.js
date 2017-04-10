@@ -7,20 +7,19 @@ const BranchesTable = (props) => {
     const BranchInfoRow = Ui.createBranchInfoRow(props);
 
     return (
-            <table className="table table-striped table-bordered table-condensed">
-                <thead>
+        <table className="mdl-data-table mdl-js-data-table ">
+            <thead>
                 <tr>
-                    <th>Live application</th>
-                    <th>Branch</th>
-                    <th>Commit</th>
+                    <th className="mdl-data-table__cell--non-numeric">Branch</th>
+                    <th className="mdl-data-table__cell--non-numeric">Commit</th>
                 </tr>
-                </thead>
+            </thead>
                 <tbody>
                 {
                     repo.branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch}/>)
                 }
                 </tbody>
-            </table>
+        </table>
     );
 };
 

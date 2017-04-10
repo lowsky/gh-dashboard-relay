@@ -1,36 +1,42 @@
 import React from 'react';
 
+const ContextLogo = (props) => (
+    <img width={48} height={48} {...props} style={ {verticalAlign: 'top' } } />
+);
+
 function icon4context(context) {
-    if(context=== 'bitHound - Code') {
-        return (<img width={48} height={48} src="./assets/images/bithound.png" alt="bitHound - Code"/>);
+    if (context === 'bitHound - Code') {
+        return (<ContextLogo src="./assets/images/bithound.png" alt="bitHound - Code"/>);
     }
-    if(context=== 'bitHound - Dependencies') {
-        return (<img width={48} height={48} src="./assets/images/bithound.png" alt="bitHound - Dependencies"/>);
+    if (context === 'bitHound - Dependencies') {
+        return (<ContextLogo src="./assets/images/bithound.png" alt="bitHound - Dependencies"/>);
     }
-    if(context=== 'codacy/pr') {
-        return (<img width={48} height={48} src="./assets/images/codacy.png" alt="codacy"/>);
+    if (context === 'codacy/pr') {
+        return (<ContextLogo src="./assets/images/codacy.png" alt="codacy"/>);
     }
-    if(context=== 'ci/circleci') {
-        return (<img width={48} height={48} src="./assets/images/circleci.png" alt="circleci"/>);
+    if (context === 'ci/circleci') {
+        return (<ContextLogo src="./assets/images/circleci.svg" alt="circleci"/>);
     }
 
     return (<span>{ context }</span> );
 }
 
 function icon4status(status) {
-    if(status=== 'success') {
-        return (<span className="glyphicon glyphicon-ok green"></span>);
+    const StatusIcon = ({type}) => (<i className="material-icons" style={ {fontSize: '48px'} }>{type}</i>);
+
+    if (status === 'success') {
+        return <StatusIcon type='check' />;
     }
-    if(status=== 'pending') {
-        return (<span className="glyphicon glyphicon-hourglass orange"></span>);
+    if (status === 'pending') {
+        return <StatusIcon type='hourglass_empty' />;
     }
-    if(status=== 'failure') {
-        return (<span className="glyphicon glyphicon-remove red"></span>);
+    if (status === 'failure') {
+        return <StatusIcon type='cancel' />;
     }
-    if(status=== 'error') {
-        return (<span className="glyphicon glyphicon-remove red"></span>);
+    if (status === 'error') {
+        return <StatusIcon type='error' />;
     }
-    return (<span>{ status }</span> );
+    return (<span>?{ status } </span> );
 }
 
 function status2color(status) {
@@ -53,8 +59,11 @@ function renderStatus(status, idx) {
     const color = status2color(status.state);
 
     return (
-        <div key={idx}><a className='commitLink' href={ status.target_url } style={ {color: color} }>
-            { icon4status(status.state) } - { icon4context(status.context) } { status.description }</a>
+        <div key={idx} style={ { display: 'inline' } }>
+            <a className="commitLink" href={status.target_url} style={{ color: color }}
+                title={ status.context + ' ' + status.description }>
+                {icon4context(status.context)}{icon4status(status.state)}
+            </a>
         </div>
     );
 }
@@ -69,13 +78,18 @@ let CommitWithStatus = props => {
     return (
         <div key={sha}>
             <a href={githubCommit}>
-                <span><i>{ date }</i></span>
-                &nbsp;
                 <b>{ message.split('\n\n', 1) }</b>
             </a>
-                <br/>
-                <img width={16} src={author.avatar_url}/> by {author.login}
-                <a href={'mailto:' + author.email}>{author.name}</a>
+            <br />
+            <span><i>{date}</i></span>
+            &nbsp;
+            by
+            &nbsp;
+            <img width={32} src={author.avatar_url} />
+            &nbsp;
+            {author.login}
+            <a href={'mailto:' + author.email}>{author.name}</a>
+            <br/>
                 {
                     status.map((s, idx) => renderStatus(s, idx))
                 }

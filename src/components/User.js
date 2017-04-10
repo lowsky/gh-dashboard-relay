@@ -1,16 +1,20 @@
 import React from 'react';
 
-const imgStyle = {
-    display: 'inline',
-    marginBottom: 'auto'
+const card = {
+    width: '320px',
 };
-const userLoginStyle = {
-    display: 'inline',
-    padding: '10px'
+
+const titleBg = (url) => {
+    return {
+        color: '#fff',
+        backgroundImage: `url("${url}")`,
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat'
+    };
 };
 
 const User = props => {
-    const { user = {} } = props;
+    const {user = {}} = props;
 
     const {
         avatar_url,
@@ -19,15 +23,13 @@ const User = props => {
     } = user;
 
     return (
-        <div className="row">
-            <div className="col col-1">
-                <a className="thumbnail" src={ avatar_url } role="button">
-                    <img src={ avatar_url } className="thumbnail" style={ imgStyle } height={80} width={80}/>
-                    <h3 style={ userLoginStyle }>{ login }</h3>
-                    { company }
-                </a>
+        <div className="mdl-card mdl-shadow--2dp" style={{...card, ...titleBg(avatar_url)}}>
+            <div className="mdl-card__title mdl-card--expand"></div>
+            <div className="mdl-card__actions">
+                <span className="demo-card-image__filename"><b>{ login }</b> { company }</span>
             </div>
-        </div>);
+        </div>
+    );
 };
 
 export default User;

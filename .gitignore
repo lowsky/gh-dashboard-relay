@@ -17,3 +17,6 @@ node_modules/
 #generated files / output
 dist/
 README.html
+
+#sublime and tern-js
+.tern-project
