@@ -53,7 +53,6 @@ let renderOrUpdateBranches = () => {
     }
 };
 
-renderOrUpdateBranches();
 
 // hot-module-reloading
 if (module.hot) {
@@ -61,4 +60,6 @@ if (module.hot) {
         renderOrUpdateBranches();
     });
 }
+
+export default relayRoot;
 

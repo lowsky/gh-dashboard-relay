@@ -38,13 +38,19 @@ let renderOrUpdateBranches = () => {
     }
 };
 
+export default function RestMain () {
+    return (<div className="panel-default">
+        <div className="panel-body">
+            REST Main
+            <UserRepo github={githubData}/>
+        </div>
+    </div>);
+}
 // init
-renderOrUpdateBranches();
 
 // hot-module-reloading
 if (module.hot) {
     module.hot.accept('../container/UserRepo', () => {
-        renderOrUpdateBranches();
     });
 }
 
@@ -61,6 +67,7 @@ fetchUser('lowsky')
         console.log('fetching user info failed', ex);
         alert(`Error, while loading user info for user ($user) from github`); // eslint-disable-line quotes
     });
+if (false) {
 
 fetchRepoBranches(repo)
     .then(branches => {
@@ -83,3 +90,4 @@ fetchRepoBranches(repo)
         alert(`Error, while loading branches info for repo ($repo) from github`); // eslint-disable-line quotes
     });
 
+}
