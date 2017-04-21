@@ -1,11 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
 import Relay from 'react-relay';
 
 import UserRepo from './UserRepo';
-
-let content = document.getElementById('relay-content');
 
 Relay.injectNetworkLayer(
     new Relay.DefaultNetworkLayer('http://localhost:8000/graphql', {
@@ -14,7 +10,7 @@ Relay.injectNetworkLayer(
     })
 );
 
-let relayRoot = (
+let relayRoot = () => (
     <Relay.RootContainer
         Component={UserRepo}
         renderLoading={() => <div>Loading...</div>}
@@ -40,26 +36,6 @@ let relayRoot = (
         }}
     />
 );
-
-let renderOrUpdateBranches = () => {
-    if (content) {
-        ReactDOM.render(
-            <div className="panel-default">
-                {
-                    relayRoot
-                }
-            </div>,
-            content);
-    }
-};
-
-
-// hot-module-reloading
-if (module.hot) {
-    module.hot.accept('../container/UserRepo', () => {
-        renderOrUpdateBranches();
-    });
-}
 
 export default relayRoot;
 

@@ -8,23 +8,13 @@ const webpack = require('webpack');
 
 const pages = [
     new HtmlWebpackPlugin({
-        filename: 'restful.html',
-        template: 'restful.html'
-    }),
-    new HtmlWebpackPlugin({
-        filename: 'relay.html',
-        template: 'relay.html'
-    }),
-    new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'index.html'
     }),
 ];
 
 let entries = [
-    './src/index/indexPage.js',
-    './src/restinpeace/restful.js',
-    './src/relay/main.js'
+    './src/index.js'
 ];
 
 module.exports = {

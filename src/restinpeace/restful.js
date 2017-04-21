@@ -48,12 +48,6 @@ export default function RestMain () {
 }
 // init
 
-// hot-module-reloading
-if (module.hot) {
-    module.hot.accept('../container/UserRepo', () => {
-    });
-}
-
 // fetch per github REST api
 const { fetchRepoBranches, fetchUser } = fetchGithubApi;
 
@@ -67,7 +61,6 @@ fetchUser('lowsky')
         console.log('fetching user info failed', ex);
         alert(`Error, while loading user info for user ($user) from github`); // eslint-disable-line quotes
     });
-if (false) {
 
 fetchRepoBranches(repo)
     .then(branches => {
@@ -89,5 +82,3 @@ fetchRepoBranches(repo)
         console.log('fetching branches info failed', ex);
         alert(`Error, while loading branches info for repo ($repo) from github`); // eslint-disable-line quotes
     });
-
-}
