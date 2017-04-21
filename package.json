@@ -79,7 +79,7 @@
     "react-hot-loader": "next",
     "react-relay": "^0.10.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.2.1",
+    "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.1",
     "xunit-file": "^1.0.0"
   }
