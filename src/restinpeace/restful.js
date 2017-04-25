@@ -38,15 +38,15 @@ let renderOrUpdateBranches = () => {
     }
 };
 
-// init
-renderOrUpdateBranches();
-
-// hot-module-reloading
-if (module.hot) {
-    module.hot.accept('../container/UserRepo', () => {
-        renderOrUpdateBranches();
-    });
+export default function RestMain () {
+    return (<div className="panel-default">
+        <div className="panel-body">
+            REST Main
+            <UserRepo github={githubData}/>
+        </div>
+    </div>);
 }
+// init
 
 // fetch per github REST api
 const { fetchRepoBranches, fetchUser } = fetchGithubApi;
@@ -82,4 +82,3 @@ fetchRepoBranches(repo)
         console.log('fetching branches info failed', ex);
         alert(`Error, while loading branches info for repo ($repo) from github`); // eslint-disable-line quotes
     });
-
