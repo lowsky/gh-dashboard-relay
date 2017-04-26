@@ -18,6 +18,7 @@
     "node": ">=6"
   },
   "scripts": {
+    "lint": "eslint .",
     "convert-readme": "asciidoctorjs -s -v README.adoc",
     "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js'  _mocha test/** -- --compilers js:babel-core/register",
@@ -54,7 +55,7 @@
     "babel-relay-plugin": "0.10.0",
     "chai": "^3.5.0",
     "enzyme": "2.8.1",
-    "eslint": "^3.16.0",
+    "eslint": "^3.19.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-graphql": "^0.7.0",
     "eslint-plugin-promise": "^3.3.1",
