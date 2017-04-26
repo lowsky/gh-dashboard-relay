@@ -9,7 +9,12 @@ module.exports = {
         'process': true,
         '__dirname': true
     },
-    'extends': ['eslint:recommended', 'plugin:react/recommended'],
+    'extends': [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'prettier',
+        'prettier/react'
+    ],
     'ecmaFeatures': {
         'experimentalObjectRestSpread': true,
         'jsx': true
@@ -19,10 +24,22 @@ module.exports = {
         'sourceType': 'module'
     },
     'plugins': [
+        'prettier',
         'graphql',
         'react'
     ],
     'rules': {
+        "prettier/prettier": [
+            "warn",
+            {
+                 "trailingComma": 'none',
+                 "singleQuote": true,
+                 tabWidth: 4,
+                 bracketSpacing: true,
+                 jsxBracketSameLine: true,
+                 printWidth: 160
+             }
+        ],
         'react/prop-types': 0, // fix these later
         'react/display-name': 0, // fix these later, see
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
