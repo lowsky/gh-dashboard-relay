@@ -18,7 +18,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . -c .eslintrc-with-pretty.js",
     "convert-readme": "asciidoctorjs -s -v README.adoc",
     "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js'  _mocha test/** -- --compilers js:babel-core/register",
@@ -56,7 +56,7 @@
     "chai": "^3.5.0",
     "enzyme": "2.8.1",
     "eslint": "^3.19.0",
-    "eslint-config-prettier": "^1.5.0",
+    "eslint-config-prettier": "^1.7.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-graphql": "^0.7.0",
     "eslint-plugin-prettier": "^2.0.1",
