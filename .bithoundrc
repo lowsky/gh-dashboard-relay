@@ -4,6 +4,7 @@
     ],
     "critics": {
         "lint": {
+            "configLocation": ".eslintrc-bithound.js",
             "engine": "eslint"
         }
     },
