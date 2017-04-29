@@ -5,8 +5,8 @@ import UserRepo from './UserRepo';
 
 Relay.injectNetworkLayer(
     new Relay.DefaultNetworkLayer('http://localhost:8000/graphql', {
-        fetchTimeout: 45000,   // Timeout after 30s.
-        retryDelays: [3000]   // Only retry once after a 5s delay.
+        fetchTimeout: 45000, // Timeout after 30s.
+        retryDelays: [3000], // Only retry once after a 5s delay.
     })
 );
 
@@ -14,7 +14,7 @@ let relayRoot = () => (
     <Relay.RootContainer
         Component={UserRepo}
         renderLoading={() => <div>Loading...</div>}
-        renderFailure={(error, retry) =>{
+        renderFailure={(error, retry) => {
             console.error('Failure while rendering in relay root container:', error);
             return (
                 <div>
@@ -27,15 +27,14 @@ let relayRoot = () => (
             queries: {
                 github: () => Relay.QL`
                         query { github }
-                    `
+                    `,
             },
             name: 'UserRepoBranches',
             params: {
-                extraProps: 'availableInAnyClientRender'
-            }
+                extraProps: 'availableInAnyClientRender',
+            },
         }}
     />
 );
 
 export default relayRoot;
-

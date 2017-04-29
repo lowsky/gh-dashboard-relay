@@ -1,13 +1,13 @@
 import Relay from 'react-relay';
 
 import BranchInfoRow from '../container/BranchInfoRow';
-import CommitWithStatuses, {fakeCommitWithStatuses} from './CommitWithStatuses';
+import CommitWithStatuses, { fakeCommitWithStatuses } from './CommitWithStatuses';
 
 export const fakeBranchInfo = {
     name: 'fake',
     lastCommit: {
-        ...fakeCommitWithStatuses
-    }
+        ...fakeCommitWithStatuses,
+    },
 };
 
 export default Relay.createContainer(BranchInfoRow, {
@@ -19,6 +19,6 @@ export default Relay.createContainer(BranchInfoRow, {
                     ${CommitWithStatuses.getFragment('commit')}
                 }
             }
-        `
-    }
+        `,
+    },
 });
