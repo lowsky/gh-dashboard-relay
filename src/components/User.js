@@ -15,12 +15,7 @@ const titleBg = url => {
 
 const User = props => {
     const { user = {} } = props;
-
-    const {
-        avatar_url,
-        login = '?',
-        company,
-    } = user;
+    const { avatar_url, login = '?', company } = user;
 
     return (
         <div className="mdl-card mdl-shadow--2dp" style={{ ...card, ...titleBg(avatar_url) }}>
