@@ -1,5 +1,5 @@
 // import path from 'path';
-const {resolve} = require('path');
+const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.NODE_ENV;
@@ -9,15 +9,14 @@ const webpack = require('webpack');
 const pages = [
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: 'index.html'
+        template: 'index.html',
     }),
 ];
 
-let entries = [
-    './src/index.js'
-];
+let entries = ['./src/index.js'];
 
 module.exports = {
+    // prettier-ignore
     entry:  ( ENV === 'production'
             ? [
                 ...entries
@@ -36,6 +35,7 @@ module.exports = {
 
     devtool: 'inline-source-map',
 
+    // prettier-ignore
     plugins: ( ENV === 'production'
             ? [
                 ... pages,
@@ -49,15 +49,16 @@ module.exports = {
     ),
     devServer: {
         historyApiFallback: {
-            disableDotRule: true
+            disableDotRule: true,
         },
-        hot: true
+        hot: true,
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
                 include: /node_modules/,
+                // prettier-ignore
                 loader: [
                     'style-loader',
                     'css-loader'
@@ -65,17 +66,19 @@ module.exports = {
             },
             {
                 test: /\.png$/,
+                // prettier-ignore
                 use: [
                     'url-loader'
                 ],
             },
             {
                 test: /\.js$/,
+                // prettier-ignore
                 use: [
                     'babel-loader',
                 ],
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
         ],
-    }
+    },
 };

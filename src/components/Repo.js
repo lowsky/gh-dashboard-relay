@@ -7,8 +7,8 @@ const card = {
 };
 
 const Repo = props => {
-    const {repo = {}} = props;
-    const {owner = {}, name} = repo;
+    const { repo = {} } = props;
+    const { owner = {}, name } = repo;
 
     return (
         <div className="mdl-card mdl-shadow--2dp" style={card}>

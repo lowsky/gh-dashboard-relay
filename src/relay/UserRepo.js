@@ -3,14 +3,14 @@ import Relay from 'react-relay';
 import UserRepo from '../container/UserRepo';
 
 import User from './User';
-import BranchesTable  from './BranchesTable';
+import BranchesTable from './BranchesTable';
 import RepoContainer from './Repo';
 
 export default Relay.createContainer(UserRepo, {
     initialVariables: {
         username: 'lowsky',
         ownerUsername: 'lowsky',
-        repoName: 'dashboard'
+        repoName: 'dashboard',
     },
     fragments: {
         github: () => Relay.QL`
@@ -23,7 +23,7 @@ export default Relay.createContainer(UserRepo, {
                      ${BranchesTable.getFragment('repo')}
                 }
             }
-        `
+        `,
     },
-    name: 'UserRepo'
+    name: 'UserRepo',
 });
