@@ -1,4 +1,4 @@
-let base = {
+module.exports = {
     'env': {
         'browser': true,
         'commonjs': true,
@@ -60,5 +60,3 @@ let base = {
         ]
     }
 };
-
-module.exports = base;
