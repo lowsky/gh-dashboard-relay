@@ -11,6 +11,6 @@ export default Relay.createContainer(BranchesTable, {
                     ${BranchInfoRow.getFragment('branch')}
                 }
             }
-        `
-    }
+        `,
+    },
 });

@@ -7,13 +7,9 @@ import BranchInfoRow from '../../src/container/BranchInfoRow';
 describe('Dashboard branch component', () => {
     const BRANCH_NAME = 'someBranchName';
     const branch = {
-        name: BRANCH_NAME
+        name: BRANCH_NAME,
     };
-    const dashComp = shallow( < BranchInfoRow branch = {
-            branch
-        }
-        />
-    );
+    const dashComp = shallow(<BranchInfoRow branch={branch} />);
 
     it('should render to a <tr> without className per default', () => {
         expect(dashComp.type()).to.equal('tr');
@@ -31,5 +27,4 @@ describe('Dashboard branch component', () => {
 
         expect(aLink.props().children).to.equal(BRANCH_NAME);
     });
-
 });
