@@ -1,22 +1,8 @@
 import React from 'react';
-import {render} from 'react-dom';
-const __html = require('html-loader!../../README.html');
 
 /* just include the README content on the start page */
+const __html = require('html-loader!../../README.html');
 
-let renderOrUpdate = () => {
-    const readmeElement = document.getElementById('readme');
-    if (readmeElement) {
-        render((<div dangerouslySetInnerHTML={{ __html }}></div>), readmeElement);
-    }
-};
+const indexPageContent = () => <div dangerouslySetInnerHTML={{ __html }} />;
 
-// init
-renderOrUpdate();
-
-// hot-module-reloading
-if (module.hot) {
-    module.hot.accept('../index/indexPage', () => {
-        renderOrUpdate();
-    });
-}
+export default indexPageContent;

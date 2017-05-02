@@ -12,9 +12,9 @@ export const fakeCommitWithStatuses = {
             description: 'some pre-commit check',
             sate: 'unknown',
             target_url: 'http://precommit.check/',
-            updated_at: new Date().toISOString()
-        }
-    ]
+            updated_at: new Date().toISOString(),
+        },
+    ],
 };
 
 export default Relay.createContainer(CommitWithStatus, {
@@ -42,7 +42,6 @@ export default Relay.createContainer(CommitWithStatus, {
                     updated_at
                 }
             }
-        `
-    }
+        `,
+    },
 });
-
