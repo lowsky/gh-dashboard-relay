@@ -10,7 +10,7 @@ export default Relay.createContainer(User, {
                 company
                 avatar_url
             }
-        `
+        `,
     },
-    name: 'User'
+    name: 'User',
 });
