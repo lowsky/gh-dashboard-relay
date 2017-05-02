@@ -4,25 +4,22 @@ import Ui from '../components';
 
 const BranchInfoRow = props => {
     const { branch = {} } = props;
-    const { name, lastCommit = {} } = branch,
-        githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
+    const { name, lastCommit = {} } = branch;
+    const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
 
     const CommitWithStatuses = Ui.createCommitWithStatuses(props);
 
     return (
         <tr key={name}>
             <td className="mdl-data-table__cell--non-numeric">
-                <img src='./assets/images/Octocat.jpg' width='32' alt='link to branch on github'>
-                </img>
+                <img src="./assets/images/Octocat.jpg" width="32" alt="link to branch on github" />
                 <a href={githubBranchSrc}>{name}</a>
             </td>
-            <td className="mdl-data-table__cell--non-numeric">{
-                <CommitWithStatuses commit={lastCommit} />
-            }
+            <td className="mdl-data-table__cell--non-numeric">
+                {<CommitWithStatuses commit={lastCommit} />}
             </td>
         </tr>
     );
 };
-
 
 export default BranchInfoRow;
