@@ -72,6 +72,18 @@ let CommitWithStatus = props => {
 
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
+    const onlyTakeFirstStatusPerContext = statuses => {
+        const foundContexts = [];
+
+        return statuses.reduce((acc, item) => {
+            if (foundContexts[item.context]) {
+                return acc;
+            }
+            foundContexts[item.context] = item;
+            return [...acc, item];
+        }, []);
+    };
+
     return (
         <div key={sha}>
             <a href={githubCommit}>
@@ -83,7 +95,7 @@ let CommitWithStatus = props => {
             {author.login}
             <a href={'mailto:' + author.email}>{author.name}</a>
             <br />
-            {status.map((s, idx) => renderStatus(s, idx))}
+            {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
         </div>
     );
 };

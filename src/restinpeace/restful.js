@@ -77,6 +77,7 @@ fetchRepoBranches(repo)
     })
     .then(branches => {
         githubData.repo = {
+            ...githubData.repo,
             branches: branches.map(branch => {
                 branch.lastCommit = lastCommitMock;
                 return branch;
