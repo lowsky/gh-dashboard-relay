@@ -12,6 +12,7 @@
             "xunit-file"
         ],
         "mute": [
+            "asciidoctor-cli",
             "babel-relay-plugin"
         ]
     }
