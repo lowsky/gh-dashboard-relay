@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContextLogo = props => <img width={48} height={48} {...props} style={{ verticalAlign: 'top' }} />;
+const ContextLogo = props => <img width={48} height={48} {...props} style={{ verticalAlign: 'top' }} alt='' />;
 
 function icon4context(context) {
     if (context === 'bitHound - Code') {
@@ -91,7 +91,7 @@ let CommitWithStatus = props => {
             </a>
             <br />
             <span><i>{date}</i></span> &nbsp; by &nbsp;
-            <img width={32} src={author.avatar_url} /> &nbsp;
+            <img width={32} src={author.avatar_url} alt='author-avatar'/> &nbsp;
             {author.login}
             <a href={'mailto:' + author.email}>{author.name}</a>
             <br />
