@@ -13,6 +13,8 @@
         ],
         "mute": [
             "asciidoctor-cli",
+            "react-relay",
+            "babel-runtime",
             "babel-relay-plugin"
         ]
     }
