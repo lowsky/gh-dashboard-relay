@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # there is no unset, right
 ENV NPM_CONFIG_LOGLEVEL warn
 
-ENV yarnVersion 0.19.1
+ENV yarnVersion 0.24.6
 
 RUN mkdir -p yarn && cd yarn && \
   wget https://github.com/yarnpkg/yarn/releases/download/v$yarnVersion/yarn-v$yarnVersion.tar.gz && \
