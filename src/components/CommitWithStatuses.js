@@ -16,6 +16,10 @@ function icon4context(context) {
         return <ContextLogo src="./assets/images/circleci.svg" alt="circleci" />;
     }
 
+    if (context === 'security/snyk') {
+        return <ContextLogo src="./assets/images/snyk-dog.svg" alt="snyk" />;
+    }
+
     return <span>{context}</span>;
 }
 
