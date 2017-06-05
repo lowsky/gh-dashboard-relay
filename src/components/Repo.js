@@ -2,7 +2,6 @@ import React from 'react';
 
 const card = {
     width: '320px',
-    height: '320px',
     float: 'left'
 };
 

@@ -1,23 +1,28 @@
 import React from 'react';
 
-const ContextLogo = props => <img width={48} height={48} {...props} style={{ verticalAlign: 'top' }} alt='' />;
+import bithoundLogo from './bithound.png';
+import circleciLogo from './circleci.svg';
+import codacyLogo from './codacy.png';
+import snykLogo from './snyk.svg';
+
+const ContextLogo = props => <img width={48} height={48} {...props} style={{ verticalAlign: 'top' }} alt="" />;
 
 function icon4context(context) {
     if (context === 'bitHound - Code') {
-        return <ContextLogo src="./assets/images/bithound.png" alt="bitHound - Code" />;
+        return <ContextLogo src={bithoundLogo} alt="bitHound - Code" />;
     }
     if (context === 'bitHound - Dependencies') {
-        return <ContextLogo src="./assets/images/bithound.png" alt="bitHound - Dependencies" />;
+        return <ContextLogo src={bithoundLogo} alt="bitHound - Dependencies" />;
     }
     if (context === 'codacy/pr') {
-        return <ContextLogo src="./assets/images/codacy.png" alt="codacy" />;
+        return <ContextLogo src={codacyLogo} alt="codacy" />;
     }
     if (context === 'ci/circleci') {
-        return <ContextLogo src="./assets/images/circleci.svg" alt="circleci" />;
+        return <ContextLogo src={circleciLogo} alt="circleci" />;
     }
 
     if (context === 'security/snyk') {
-        return <ContextLogo src="./assets/images/snyk-dog.svg" alt="snyk" />;
+        return <ContextLogo src={snykLogo} alt="snyk" />;
     }
 
     return <span>{context}</span>;
@@ -95,7 +100,7 @@ let CommitWithStatus = props => {
             </a>
             <br />
             <span><i>{date}</i></span> &nbsp; by &nbsp;
-            <img width={32} src={author.avatar_url} alt='author-avatar'/> &nbsp;
+            <img width={32} src={author.avatar_url} alt="author-avatar" /> &nbsp;
             {author.login}
             <a href={'mailto:' + author.email}>{author.name}</a>
             <br />

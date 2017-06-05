@@ -9,7 +9,7 @@ const webpack = require('webpack');
 const pages = [
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: 'index.html',
+        template: 'public/index.html',
     }),
 ];
 
@@ -65,7 +65,21 @@ module.exports = {
                 ],
             },
             {
+                test: /\.svg$/,
+                // prettier-ignore
+                use: [
+                    'url-loader'
+                ],
+            },
+            {
                 test: /\.png$/,
+                // prettier-ignore
+                use: [
+                    'url-loader'
+                ],
+            },
+            {
+                test: /\.jpg/,
                 // prettier-ignore
                 use: [
                     'url-loader'
