@@ -32,7 +32,8 @@ after invoking this in a shell:
 ```
 git clone https://github.com/lowsky/dashboard
 cd dashboard
-npm install  # or better just run  yarn  (if you have installed it already)
+npm install  # or  yarn
+# start in dev-mode: this will do re-generating and re-loading:
 npm run dev  # this opens the browser automatically
 ```
 For local development this also uses webpack-dev based hot-reloading which
