@@ -1,4 +1,4 @@
-FROM node:8.0.0
+FROM node:8.0-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -17,6 +17,8 @@ RUN mkdir -p yarn && cd yarn && \
 # Could be set while building per --build-arg ...
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
+# override default (info) to reduce output
+ENV NPM_CONFIG_LOGLEVEL warn
 
 COPY package.json /usr/src/app/
 
