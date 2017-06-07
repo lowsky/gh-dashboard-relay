@@ -18,7 +18,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "lint": "eslint . -c .eslintrc-with-pretty.js",
+    "lint": "eslint . -c .eslintrc.js",
     "convert-readme": "asciidoctorjs -s -v README.adoc",
     "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js' _mocha test/**/*.js",

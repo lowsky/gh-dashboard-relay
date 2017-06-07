@@ -9,7 +9,7 @@ module.exports = {
         process: true,
         __dirname: true,
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier', 'prettier/react'],
     ecmaFeatures: {
         experimentalObjectRestSpread: true,
         jsx: true,
@@ -18,10 +18,10 @@ module.exports = {
     parserOptions: {
         sourceType: 'module',
     },
-    plugins: ['graphql', 'react'],
+    plugins: ['graphql', 'react', 'prettier'],
     rules: {
-        'react/prop-types': 0, // fix these later
-        'react/display-name': 0, // fix these later, see
+        'react/prop-types': 1, // fix these later
+        'react/display-name': 1, // fix these later, see
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
 
         'graphql/template-strings': [
@@ -43,5 +43,16 @@ module.exports = {
         indent: ['error', 4],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
+        'prettier/prettier': [
+            'error',
+            {
+                trailingComma: 'es5',
+                singleQuote: true,
+                tabWidth: 4,
+                bracketSpacing: true,
+                jsxBracketSameLine: true,
+                printWidth: 160,
+            },
+        ],
     },
 };
