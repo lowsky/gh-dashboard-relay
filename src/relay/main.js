@@ -10,7 +10,7 @@ Relay.injectNetworkLayer(
     })
 );
 
-let relayRoot = () => (
+let relayRoot = () =>
     <Relay.RootContainer
         Component={UserRepo}
         renderLoading={() => <div>Loading...</div>}
@@ -34,7 +34,6 @@ let relayRoot = () => (
                 extraProps: 'availableInAnyClientRender',
             },
         }}
-    />
-);
+    />;
 
 export default relayRoot;

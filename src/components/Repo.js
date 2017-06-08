@@ -2,7 +2,7 @@ import React from 'react';
 
 const card = {
     width: '320px',
-    float: 'left'
+    float: 'left',
 };
 
 const Repo = props => {

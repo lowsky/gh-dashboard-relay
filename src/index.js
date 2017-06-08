@@ -6,7 +6,7 @@ import IndexPageMain from './index/indexPage';
 import RelayMain from './relay/main';
 import RestfulMain from './restinpeace/restful';
 
-const MainPage = () => (
+const MainPage = () =>
     <Router>
         <div>
             <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -33,10 +33,9 @@ const MainPage = () => (
                 </main>
             </div>
         </div>
-    </Router>
-);
+    </Router>;
 
-const readmeElement = document.getElementById('root');
-if (readmeElement) {
-    ReactDOM.render(MainPage(), readmeElement);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+    ReactDOM.render(MainPage(), rootElement);
 }
