@@ -13,6 +13,6 @@ dependencies:
 
 test:
   override:
-    - npm run test:circle
+    - npm run test:circleci
   post:
     - docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5 ; wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont
