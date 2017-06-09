@@ -51,7 +51,7 @@ module.exports = {
                 tabWidth: 4,
                 bracketSpacing: true,
                 jsxBracketSameLine: true,
-                printWidth: 160,
+                printWidth: 120,
             },
         ],
     },

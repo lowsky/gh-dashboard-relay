@@ -67,11 +67,13 @@ function status2color(status) {
 }
 
 function renderStatus(status, idx) {
-    const color = status2color(status.state);
-
     return (
         <div key={idx} style={{ display: 'inline' }}>
-            <a className="commitLink" href={status.target_url} style={{ color: color }} title={status.context + ' ' + status.description}>
+            <a
+                className="commitLink"
+                href={status.target_url}
+                style={{ color: status2color(status.state) }}
+                title={status.context + ' ' + status.description}>
                 {icon4context(status.context)}{icon4status(status.state)}
             </a>
         </div>
