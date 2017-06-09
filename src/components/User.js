@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const card = {
     width: '320px',
@@ -13,8 +14,7 @@ const titleBg = url => {
     };
 };
 
-const User = props => {
-    const { user = {} } = props;
+const User = ({ user = {} }) => {
     const { avatar_url, login = '?', company } = user;
 
     return (
@@ -25,6 +25,14 @@ const User = props => {
             </div>
         </div>
     );
+};
+
+User.propTypes = {
+    user: PropTypes.shape({
+        avatar_url: PropTypes.string,
+        company: PropTypes.string,
+        login: PropTypes.string,
+    }),
 };
 
 export default User;

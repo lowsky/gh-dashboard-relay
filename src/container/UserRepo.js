@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Ui from '../components';
 
@@ -21,6 +22,10 @@ let UserRepo = props => {
             <div className="mdl-cell mdl-cell--12-col"><BranchesTable repo={github.repo} /></div>
         </div>
     );
+};
+UserRepo.propTypes = {
+    github: PropTypes.object,
+    relay: PropTypes.optionalObject,
 };
 
 export default UserRepo;

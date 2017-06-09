@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const card = {
     width: '320px',
     float: 'left',
 };
 
-const Repo = props => {
-    const { repo = {} } = props;
+const Repo = ({ repo = {} }) => {
     const { owner = {}, name } = repo;
 
     return (
@@ -24,6 +24,15 @@ const Repo = props => {
             </div>
         </div>
     );
+};
+
+Repo.propTypes = {
+    repo: PropTypes.shape({
+        owner: PropTypes.shape({
+            login: PropTypes.string,
+        }),
+        name: PropTypes.string,
+    }),
 };
 
 export default Repo;

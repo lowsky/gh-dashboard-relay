@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import bithoundLogo from './bithound.png';
 import circleciLogo from './circleci.svg';
@@ -30,6 +31,9 @@ function icon4context(context) {
 
 function icon4status(status) {
     const StatusIcon = ({ type }) => <i className="material-icons" style={{ fontSize: '48px' }}>{type}</i>;
+    StatusIcon.propTypes = {
+        type: PropTypes.string,
+    };
 
     if (status === 'success') {
         return <StatusIcon type="check" />;
@@ -74,10 +78,9 @@ function renderStatus(status, idx) {
     );
 }
 
-let CommitWithStatus = props => {
-    const { commit = {} } = props;
+let CommitWithStatus = ({ commit = {} }) => {
     const { sha = '<missing>', date = '', message = '<missing>', status = [] } = commit;
-    const { author = {} } = props.commit;
+    const { author = {} } = commit;
 
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
@@ -107,6 +110,10 @@ let CommitWithStatus = props => {
             {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
         </div>
     );
+};
+
+CommitWithStatus.propTypes = {
+    commit: PropTypes.object,
 };
 
 export default CommitWithStatus;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Ui from '../components';
 import octocat from './octocat.jpg';
@@ -21,6 +22,13 @@ const BranchInfoRow = props => {
             </td>
         </tr>
     );
+};
+
+BranchInfoRow.propTypes = {
+    branch: PropTypes.shape({
+        name: PropTypes.string,
+        lastCommit: PropTypes.object,
+    }),
 };
 
 export default BranchInfoRow;
