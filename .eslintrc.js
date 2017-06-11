@@ -10,13 +10,13 @@ module.exports = {
         __dirname: true,
     },
     extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier', 'prettier/react'],
-    ecmaFeatures: {
-        experimentalObjectRestSpread: true,
-        jsx: true,
-    },
     parser: 'babel-eslint',
     parserOptions: {
         sourceType: 'module',
+        ecmaFeatures: {
+            experimentalObjectRestSpread: true,
+            jsx: true,
+        },
     },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
