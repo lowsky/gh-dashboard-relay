@@ -31,5 +31,6 @@ export default {
     createRepo: props => createRelayOrPureComponent(RelayRepo, PureRepo, props),
     createBranchTable: props => createRelayOrPureComponent(RelayBranchesTable, PureBranchesTable, props),
     createBranchInfoRow: props => createRelayOrPureComponent(RelayBranchInfoRow, PureBranchInfoRow, props),
-    createCommitWithStatuses: props => createRelayOrPureComponent(RelayCommitWithStatuses, PureCommitWithStatuses, props),
+    createCommitWithStatuses: props =>
+        createRelayOrPureComponent(RelayCommitWithStatuses, PureCommitWithStatuses, props),
 };

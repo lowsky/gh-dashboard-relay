@@ -18,7 +18,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "lint": "eslint . -c .eslintrc-with-pretty.js",
+    "lint": "eslint .",
     "convert-readme": "asciidoctorjs -s -v README.adoc",
     "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js' _mocha test/**/*.js",
@@ -78,6 +78,7 @@
     "node-libs-browser": "^2.0.0",
     "nodemon": "^1.10.0",
     "prettier": "^1.4.4",
+    "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",

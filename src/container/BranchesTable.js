@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Ui from '../components';
 
@@ -20,6 +21,12 @@ const BranchesTable = props => {
             </tbody>
         </table>
     );
+};
+
+BranchesTable.propTypes = {
+    repo: PropTypes.shape({
+        branch: PropTypes.arrayOf(PropTypes.string),
+    }),
 };
 
 export default BranchesTable;
