@@ -57,7 +57,7 @@
     "chai": "^4.0.1",
     "enzyme": "2.8.2",
     "eslint": "^3.19.0",
-    "eslint-config-prettier": "^2.1.1",
+    "eslint-config-prettier": "^2.2.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-graphql": "^1.0.0",
     "eslint-plugin-prettier": "^2.0.1",
