@@ -13,7 +13,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.png$/,
+                test: /\.png|\.jpg|\.svg$/,
                 // prettier-ignore
                 use: [
                     'url-loader'
