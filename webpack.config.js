@@ -13,7 +13,7 @@ const pages = [
     }),
 ];
 
-let entries = ['./src/index.js'];
+let entries = ['babel-polyfill', './src/index.js'];
 
 module.exports = {
     // prettier-ignore
