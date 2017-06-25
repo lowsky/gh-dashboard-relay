@@ -55,7 +55,7 @@
     "babel-register": "^6.24.1",
     "babel-relay-plugin": "0.10.0",
     "chai": "^4.0.1",
-    "enzyme": "2.8.2",
+    "enzyme": "2.9.1",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.1.1",
     "eslint-plugin-babel": "^4.0.0",
