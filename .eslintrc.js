@@ -31,7 +31,7 @@ module.exports = {
                 // 'apollo', 'relay', 'lokka'
                 env: 'relay',
                 // Import your schema JSON here
-                schemaJson: require('./data/schema.json'),
+                schemaJson: require('./src/relay/data/schema.json'),
                 // tagName is set for you to Relay.QL ...
             },
         ],
