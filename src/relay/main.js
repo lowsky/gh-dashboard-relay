@@ -1,9 +1,22 @@
 import React from 'react';
 import Relay from 'react-relay';
+import RelayLocalSchema from 'relay-local-schema/lib/classic';
 
 import UserRepo from './UserRepo';
 
-Relay.injectNetworkLayer(
+import Schema from './schema';
+
+const localSchema = true;
+
+if (localSchema) {
+    Relay.injectNetworkLayer(
+        new RelayLocalSchema.NetworkLayer({
+            schema: Schema.schema,
+            rootValue: 'foo',
+            onError: (errors, request) => console.error(errors, request),
+        })
+    );
+} else Relay.injectNetworkLayer(
     new Relay.DefaultNetworkLayer('http://localhost:8000/graphql', {
         fetchTimeout: 45000, // Timeout after 30s.
         retryDelays: [3000], // Only retry once after a 5s delay.
