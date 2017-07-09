@@ -3,8 +3,9 @@ import Relay from 'react-relay';
 
 import UserRepo from './UserRepo';
 
+/* eslint-disable prettier/prettier */
 Relay.injectNetworkLayer(
-    new Relay.DefaultNetworkLayer('http://localhost:8000/graphql', {
+    new Relay.DefaultNetworkLayer('http://localhost:3000/graphql', {
         fetchTimeout: 45000, // Timeout after 30s.
         retryDelays: [3000], // Only retry once after a 5s delay.
     })
