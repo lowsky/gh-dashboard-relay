@@ -4,7 +4,7 @@ import RelayLocalSchema from 'relay-local-schema/lib/classic';
 
 import UserRepo from './UserRepo';
 
-import Schema from './data/schema';
+import Schema from './localSchema';
 
 const localSchema = false;
 
@@ -12,7 +12,7 @@ const localSchema = false;
 if (localSchema) {
     Relay.injectNetworkLayer(
         new RelayLocalSchema.NetworkLayer({
-            schema: Schema.schema,
+            schema: Schema,
             rootValue: 'foo',
             onError: (errors, request) => console.error(errors, request),
         })
