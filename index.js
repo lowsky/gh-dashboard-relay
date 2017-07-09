@@ -3,8 +3,9 @@ require('dotenv/config');
 const express = require('express');
 const helmet = require('helmet');
 
-var cors = require('cors');
-var corsOptions = {
+// allow requests in webpack-dev-server mode (on :8080)
+const cors = require('cors');
+const corsOptions = {
     origin: 'http://localhost:8080',
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
