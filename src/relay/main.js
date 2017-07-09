@@ -18,8 +18,12 @@ let relayRoot = () =>
             console.error('Failure while rendering in relay root container:', error);
             return (
                 <div>
-                    <p>Error: {error.message}</p>
-                    <p><button onClick={retry}>Retry?</button></p>
+                    <p>
+                        Error: {error.message}
+                    </p>
+                    <p>
+                        <button onClick={retry}>Retry?</button>
+                    </p>
                 </div>
             );
         }}

@@ -18,15 +18,15 @@ let entries = ['babel-polyfill', './src/index.js'];
 module.exports = {
     // prettier-ignore
     entry:  ( ENV === 'production'
-            ? [
-                ...entries
-            ]
-            : [
-                'react-hot-loader/patch',
-                'webpack-dev-server/client?http://localhost:8080',
-                'webpack/hot/only-dev-server',
-                ...entries
-            ]
+        ? [
+            ...entries
+        ]
+        : [
+            'react-hot-loader/patch',
+            'webpack-dev-server/client?http://localhost:8080',
+            'webpack/hot/only-dev-server',
+            ...entries
+        ]
     ),
     output: {
         path: resolve(__dirname, 'dist'),
@@ -37,15 +37,15 @@ module.exports = {
 
     // prettier-ignore
     plugins: ( ENV === 'production'
-            ? [
-                ... pages,
-                new webpack.optimize.UglifyJsPlugin({minimize: true})
-            ]
-            : [
-                ...pages,
-                new webpack.HotModuleReplacementPlugin(),
-                new webpack.NamedModulesPlugin()
-            ]
+        ? [
+            ... pages,
+            new webpack.optimize.UglifyJsPlugin({minimize: true})
+        ]
+        : [
+            ...pages,
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NamedModulesPlugin()
+        ]
     ),
     devServer: {
         historyApiFallback: {
