@@ -17,9 +17,15 @@ let UserRepo = props => {
 
     return (
         <div className="mdl-grid" style={cards}>
-            <div className="mdl-cell mdl-cell--6-col"><Repo repo={repo} /></div>
-            <div className="mdl-cell mdl-cell--6-col"><User user={user} /></div>
-            <div className="mdl-cell mdl-cell--12-col"><BranchesTable repo={github.repo} /></div>
+            <div className="mdl-cell mdl-cell--6-col">
+                <Repo repo={repo} />
+            </div>
+            <div className="mdl-cell mdl-cell--6-col">
+                <User user={user} />
+            </div>
+            <div className="mdl-cell mdl-cell--12-col">
+                <BranchesTable repo={github.repo} />
+            </div>
         </div>
     );
 };
