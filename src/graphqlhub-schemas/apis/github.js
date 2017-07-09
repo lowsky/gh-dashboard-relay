@@ -1,10 +1,9 @@
 import Github from 'github-api';
 
-const token
-    = 'REPLACE_MAGIC';
+const { GITHUB_TOKEN } = process.env;
 
 const github = new Github({
-    token: token,
+    token: GITHUB_TOKEN,
     auth: 'oauth',
 });
 

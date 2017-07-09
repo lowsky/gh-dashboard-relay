@@ -117,7 +117,7 @@ let CommitType = new GraphQLObjectType({
         type : UserOrCommitAuthorType,
         resolve(obj) {
           return obj.author || (obj.commit && obj.commit.author);
-        }        
+        }
       },
       message : {
         type : GraphQLString,
@@ -286,6 +286,7 @@ let RepoType = new GraphQLObjectType({
   }
 });
 
+export const resolveUser = (username) => getUser(username);
 
 let githubType = new GraphQLObjectType({
   name : 'GithubAPI',
