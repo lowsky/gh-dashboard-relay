@@ -19,9 +19,15 @@ const MainPage = () =>
                         </span>
                         <div className="mdl-layout-spacer" />
                         <nav className="mdl-navigation">
-                            <Link className="mdl-navigation__link" to="/">Home</Link>
-                            <Link className="mdl-navigation__link" to="relay.html">GraphQL + Relay Demo</Link>
-                            <Link className="mdl-navigation__link" to="restful.html">RESTful Demo</Link>
+                            <Link className="mdl-navigation__link" to="/">
+                                Home
+                            </Link>
+                            <Link className="mdl-navigation__link" to="relay.html">
+                                GraphQL + Relay Demo
+                            </Link>
+                            <Link className="mdl-navigation__link" to="restful.html">
+                                RESTful Demo
+                            </Link>
                         </nav>
                     </div>
                 </header>

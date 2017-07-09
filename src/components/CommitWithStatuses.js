@@ -26,11 +26,18 @@ function icon4context(context) {
         return <ContextLogo src={snykLogo} alt="snyk" />;
     }
 
-    return <span>{context}</span>;
+    return (
+        <span>
+            {context}
+        </span>
+    );
 }
 
 function icon4status(status) {
-    const StatusIcon = ({ type }) => <i className="material-icons" style={{ fontSize: '48px' }}>{type}</i>;
+    const StatusIcon = ({ type }) =>
+        <i className="material-icons" style={{ fontSize: '48px' }}>
+            {type}
+        </i>;
     StatusIcon.propTypes = {
         type: PropTypes.string,
     };
@@ -47,7 +54,11 @@ function icon4status(status) {
     if (status === 'error') {
         return <StatusIcon type="error" />;
     }
-    return <span>?{status} </span>;
+    return (
+        <span>
+            ?{status}{' '}
+        </span>
+    );
 }
 
 function status2color(status) {
@@ -74,7 +85,8 @@ function renderStatus(status, idx) {
                 href={status.target_url}
                 style={{ color: status2color(status.state) }}
                 title={status.context + ' ' + status.description}>
-                {icon4context(status.context)}{icon4status(status.state)}
+                {icon4context(status.context)}
+                {icon4status(status.state)}
             </a>
         </div>
     );
@@ -101,10 +113,17 @@ let CommitWithStatus = ({ commit = {} }) => {
     return (
         <div key={sha}>
             <a href={githubCommit}>
-                <b>{message.split('\n\n', 1)}</b>
+                <b>
+                    {message.split('\n\n', 1)}
+                </b>
             </a>
             <br />
-            <span><i>{date}</i></span> &nbsp; by &nbsp;
+            <span>
+                <i>
+                    {date}
+                </i>
+            </span>{' '}
+            &nbsp; by &nbsp;
             <img width={32} src={author.avatar_url} alt="author-avatar" /> &nbsp;
             {author.login}
             <a href={'mailto:' + author.email}>{author.name}</a>
