@@ -19,11 +19,11 @@ For deep interns of the concepts, see the link:https://lowsky.github.io/deck-gra
 
 This web app lists the (feature) branches of a specific github repository,
 
+* shows the last commit's build status
 * shows the last commit's commit message
-* shows the last commit's status
-* (not implemented yet) links to running docker containers for each feature
+* Later: links to running docker containers for each feature (not implemented yet)
 
-On a meetup, this talk and presentation gave some details about the background idea: link:https://github.com/lowsky/dockerMeetupSlides[slides]
+On a meetup, I presented some details about the background idea: You can find the link:https://github.com/lowsky/dockerMeetupSlides[slides here]
 
 == Getting started locally
 A reduced functionality with a RESTful api backend works out of the box,
@@ -33,15 +33,31 @@ after invoking this in a shell:
 git clone https://github.com/lowsky/dashboard
 cd dashboard
 npm install  # or  yarn
-# start in dev-mode: this will do re-generating and re-loading:
+```
+
+=== Start in dev-mode: this will do re-generating and re-loading
+*The Relay part does not function in this mode, because the graphql-endpoint was not activated !*
+```
 npm run dev  # this opens the browser automatically
 ```
 For local development this also uses webpack-dev based hot-reloading which
 automatically updates the page in the browser!
 
-== Backend for Relay powered page:
-For the Relay backend only, you might start a github-proxy backend-server locally,
-see https://github.com/lowsky/github-rest-graphql-proxy/ (in its own terminal),
+== Start in normal mode, with built-in GraphQL-backend
+```
+npm start   # or   yarn run start
+```
+*Note:*
+For Relay, you *need to create your own github-token* and store it locally:
+```
+# create your .env file as a copy of .env.example by
+cp .env.example .env
+# ... and adapt it with your API key:
+# You can create one at
+# https://github.com/settings/tokens/
+```
+It also provides a GraphIql IDE at http://localhost:8080/graphql - This is the ideal *playground*
+for using and playing with different graphql queries.
 
 Have fun!
 
