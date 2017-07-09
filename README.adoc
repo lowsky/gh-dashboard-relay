@@ -36,7 +36,7 @@ npm install  # or  yarn
 ```
 
 === Start in dev-mode: this will do re-generating and re-loading
-*The Relay part does not function in this mode, because the graphql-endpoint was not activated !*
+*For Relay you also need to start the server in normal mode, to activate the graphql-endpoint!*
 ```
 npm run dev  # this opens the browser automatically
 ```
@@ -56,7 +56,7 @@ cp .env.example .env
 # You can create one at
 # https://github.com/settings/tokens/
 ```
-It also provides a GraphIql IDE at http://localhost:8080/graphql - This is the ideal *playground*
+It also provides a GraphIql IDE at http://localhost:3000/graphql - This is the ideal *playground*
 for using and playing with different graphql queries.
 
 Have fun!
