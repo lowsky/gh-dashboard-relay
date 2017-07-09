@@ -21,7 +21,9 @@ const User = ({ user = {} }) => {
         <div className="mdl-card mdl-shadow--2dp" style={{ ...card, ...titleBg(avatar_url) }}>
             <div className="mdl-card__title mdl-card--expand" />
             <div className="mdl-card__actions">
-                <span className="demo-card-image__filename"><b>{login}</b> {company}</span>
+                <span className="demo-card-image__filename">
+                    <b>{login}</b> {company}
+                </span>
             </div>
         </div>
     );
