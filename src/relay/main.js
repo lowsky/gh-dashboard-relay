@@ -4,10 +4,11 @@ import RelayLocalSchema from 'relay-local-schema/lib/classic';
 
 import UserRepo from './UserRepo';
 
-import Schema from './schema';
+import Schema from './data/schema';
 
-const localSchema = true;
+const localSchema = false;
 
+/* eslint-disable prettier/prettier */
 if (localSchema) {
     Relay.injectNetworkLayer(
         new RelayLocalSchema.NetworkLayer({
