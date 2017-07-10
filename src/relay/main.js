@@ -1,5 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
+import RelayLocalSchema from 'relay-local-schema/lib/classic';
 
 import UserRepo from './UserRepo';
 
