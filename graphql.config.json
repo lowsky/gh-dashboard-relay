@@ -25,7 +25,7 @@
     "endpoints" : [
         {
             "name": "Default (http://localhost:8000/graphql)",
-            "url": "http://localhost:8000/graphql",
+            "url": "http://localhost:3000/graphql",
             "options" : {
                 "headers": {
                     "user-agent" : "JS GraphQL"
