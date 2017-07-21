@@ -59,7 +59,7 @@
     "babel-relay-plugin": "0.10.0",
     "chai": "^4.0.1",
     "enzyme": "2.9.1",
-    "eslint": "^4.2.0",
+    "eslint": "^4.3.0",
     "eslint-config-prettier": "^2.2.0",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-graphql": "^1.2.0",
