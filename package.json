@@ -80,7 +80,7 @@
     "mocha": "^3.4.2",
     "node-libs-browser": "^2.0.0",
     "nodemon": "^1.10.0",
-    "prettier": "^1.5.2",
+    "prettier": "^1.5.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.0",
     "react-addons-test-utils": "^15.4.2",
@@ -90,7 +90,7 @@
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
     "url-loader": "^0.5.8",
-    "webpack": "^3.3.0",
+    "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1",
     "xunit-file": "^1.0.0"
   }
