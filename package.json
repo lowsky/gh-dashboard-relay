@@ -40,7 +40,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.1",
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
-    "helmet": "3.6.1",
+    "helmet": "3.8.0",
     "whatwg-fetch": "^2.0.0"
   },
   "devDependencies": {
@@ -67,7 +67,7 @@
     "eslint-plugin-promise": "^3.3.1",
     "eslint-plugin-react": "^7.0.1",
     "express-graphql": "^0.6.6",
-    "file-loader": "^0.11.0",
+    "file-loader": "^1.0.0",
     "graphql": "^0.10.1",
     "graphql-relay": "^0.5.2",
     "graphql-schema-from-introspection": "0.1.2",
