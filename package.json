@@ -24,7 +24,7 @@
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js' _mocha test/**/*.js",
     "test:circleci": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
     "prestart": "npm run convert-readme ; webpack --profile --progress",
-    "start": "node ."
+    "start": "babel-node ."
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
