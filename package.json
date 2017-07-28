@@ -40,7 +40,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.1",
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
-    "helmet": "3.8.0",
+    "helmet": "3.8.1",
     "whatwg-fetch": "^2.0.0"
   },
   "devDependencies": {
