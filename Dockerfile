@@ -26,3 +26,5 @@ COPY package.json /usr/src/app/
 RUN yarn
 
 COPY . /usr/src/app
+
+RUN yarn run build
