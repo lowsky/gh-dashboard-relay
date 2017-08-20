@@ -20,7 +20,8 @@ CMD [ "npm", "start" ]
 COPY package.json yarn.lock /usr/src/app/
 
 # replacement for npm install
-RUN yarn --frozen-lockfile # don't generate a lockfile and fail if an update is needed
+RUN yarn 
+#LATER: re-add: --frozen-lockfile # don't generate a lockfile and fail if an update is needed
 
 COPY . /usr/src/app
 
