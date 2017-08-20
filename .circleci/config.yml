@@ -1,21 +1,37 @@
 version: 2
-  jobs:
-    build:
-        
-        node:
-            version: 8
-        services:
-            - docker
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: status message
+          command: "echo building ... dashboard/${CIRCLE_BRANCH}:$CIRCLE_SHA1 ."
+      - run:
+          name: env
+          command: env
+      - run:
+          name: env
+          command: "echo docker build -t dashboard ."
 
-        dependencies:
-          pre:
-            - echo building ... dashboard/${CIRCLE_BRANCH}:$CIRCLE_SHA1 .
-            - env
-          post:
-            - docker build -t dashboard .
+  test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: npm run test
+          command: "echo npm run test:circleci"
+      - run:
+          name: integration test
+          command: "echo  docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5 ; wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont"
 
-        test:
-          override:
-            - npm run test:circleci
-          post:
-            - docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5 ; wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
