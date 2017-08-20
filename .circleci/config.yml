@@ -16,15 +16,18 @@ jobs:
           name: npm run test
           command: "echo npm run test:circleci"
       - run:
-          name: env
+          name: npm run lint
+          command: "echo npm run test:circleci"
+      - run:
+          name: docker build
           command: "docker build -t dashboard:$CIRCLE_SHA1 ."
       - run:
-          name: integration test
+          name: integration test of generated docker image
           command: |
             docker run -d -p 3000:3000 dashboard:$CIRCLE_SHA1
             cont=$(docker ps -ql)
             sleep 5
-            wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- && RESULT=$?
+            wget -T 30 --tries=15 -S -v --retry-connrefused http://localhost:3000 -O- && RESULT=$?
             docker logs $cont
             exit $RESULT
 
