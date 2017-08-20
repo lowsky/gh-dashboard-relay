@@ -13,18 +13,11 @@ jobs:
           name: env
           command: env
       - run:
-          name: env
-          command: "docker build -t dashboard ."
-
-  test:
-    docker:
-      - image: circleci/node:8
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
           name: npm run test
           command: "echo npm run test:circleci"
+      - run:
+          name: env
+          command: "docker build -t dashboard ."
       - run:
           name: integration test
           command: "docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5 ; wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont"
@@ -34,6 +27,3 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      - test:
-          requires:
-            - build
