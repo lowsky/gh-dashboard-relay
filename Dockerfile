@@ -17,13 +17,11 @@ ENV NPM_CONFIG_LOGLEVEL warn
 EXPOSE 3000
 CMD [ "npm", "start" ]
 
-COPY package.json /usr/src/app/
+COPY package.json yarn.lock /usr/src/app/
 
 # replacement for npm install
-## Disabled, because might not yet work nicely?
-## COPY yarn.lock /usr/src/app/
-
-RUN yarn
+RUN yarn 
+#LATER: re-add: --frozen-lockfile # don't generate a lockfile and fail if an update is needed
 
 COPY . /usr/src/app
 
