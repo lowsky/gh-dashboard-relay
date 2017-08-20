@@ -5,6 +5,7 @@ jobs:
       - image: circleci/node:8
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: status message
           command: "echo building ... dashboard/${CIRCLE_BRANCH}:$CIRCLE_SHA1 ."
@@ -13,19 +14,20 @@ jobs:
           command: env
       - run:
           name: env
-          command: "echo docker build -t dashboard ."
+          command: "docker build -t dashboard ."
 
   test:
     docker:
       - image: circleci/node:8
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: npm run test
           command: "echo npm run test:circleci"
       - run:
           name: integration test
-          command: "echo  docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5 ; wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont"
+          command: "docker run -d -p 3000:3000 dashboard; cont=$(docker ps -ql) ; sleep 5 ; wget -T 30 --tries=10 -S -v --retry-connrefused http://localhost:3000 -O- ; docker logs $cont"
 
 workflows:
   version: 2
