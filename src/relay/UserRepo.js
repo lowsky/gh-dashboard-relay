@@ -1,29 +1,25 @@
-import Relay from 'react-relay';
+import { createFragmentContainer, graphql } from 'react-relay';
 
 import UserRepo from '../container/UserRepo';
 
-import User from './User';
-import BranchesTable from './BranchesTable';
-import RepoContainer from './Repo';
-
-export default Relay.createContainer(UserRepo, {
+export default createFragmentContainer(
+    UserRepo,
+    /* TODO manually deal with:
     initialVariables: {
         username: 'lowsky',
         ownerUsername: 'lowsky',
         repoName: 'dashboard',
-    },
-    fragments: {
-        github: () => Relay.QL`
-            fragment on GithubAPI {
-                user(username:$username) {
-                    ${User.getFragment('user')}
-                }
-                repo(ownerUsername: $ownerUsername, name: $repoName) {
-                     ${RepoContainer.getFragment('repo')}
-                     ${BranchesTable.getFragment('repo')}
-                }
+    }
+    */
+    graphql`
+        fragment UserRepo_github on GithubAPI {
+            user(username: "lowsky") {
+                ...User_user
             }
-        `,
-    },
-    name: 'UserRepo',
-});
+            repo(ownerUsername: "lowsky", name: "dashboard") {
+                ...Repo_repo
+                ...BranchesTable_repo
+            }
+        }
+    `
+);

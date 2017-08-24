@@ -1,7 +1,7 @@
-import Relay from 'react-relay';
+import { createFragmentContainer, graphql } from 'react-relay';
 
 import BranchInfoRow from '../container/BranchInfoRow';
-import CommitWithStatuses, { fakeCommitWithStatuses } from './CommitWithStatuses';
+import { fakeCommitWithStatuses } from './CommitWithStatuses';
 
 export const fakeBranchInfo = {
     name: 'fake',
@@ -10,15 +10,14 @@ export const fakeBranchInfo = {
     },
 };
 
-export default Relay.createContainer(BranchInfoRow, {
-    fragments: {
-        branch: () => Relay.QL`
-            fragment on GithubBranch {
-                name
-                lastCommit {
-                    ${CommitWithStatuses.getFragment('commit')}
-                }
+export default createFragmentContainer(
+    BranchInfoRow,
+    graphql`
+        fragment BranchInfoRow_branch on GithubBranch {
+            name
+            lastCommit {
+                ...CommitWithStatuses_commit
             }
-        `,
-    },
-});
+        }
+    `
+);

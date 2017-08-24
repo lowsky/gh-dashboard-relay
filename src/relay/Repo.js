@@ -1,16 +1,15 @@
-import Relay from 'react-relay';
-
+import { createFragmentContainer, graphql } from 'react-relay';
+import React from 'react';
 import Repo from '../components/Repo';
 
-export default Relay.createContainer(Repo, {
-    fragments: {
-        repo: () => Relay.QL`
-            fragment on GithubRepo {
-                name
-                owner {
-                    login
-                }
+export default createFragmentContainer(
+    Repo,
+    graphql`
+        fragment Repo_repo on GithubRepo {
+            name
+            owner {
+                login
             }
-        `,
-    },
-});
+        }
+    `
+);

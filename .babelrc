@@ -5,11 +5,6 @@
         "transform-runtime"
     ],
     "presets": [
-        {
-            "plugins": [
-                "./build/babelRelayPlugin"
-            ]
-        },
         "react",
         "es2015",
         "stage-0"
