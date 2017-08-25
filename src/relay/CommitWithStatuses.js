@@ -1,4 +1,4 @@
-import Relay from 'react-relay';
+import { createFragmentContainer, graphql } from 'react-relay';
 
 import CommitWithStatus from '../components/CommitWithStatuses';
 
@@ -17,31 +17,20 @@ export const fakeCommitWithStatuses = {
     ],
 };
 
-export default Relay.createContainer(CommitWithStatus, {
-    fragments: {
-        commit: () => Relay.QL`
-            fragment on GithubCommit {
-                sha
-                message
-                date
-                author {
-                    ... on GithubCommitAuthor {
-                        name
-                        email
-                    }
-                    ... on  GithubUser{
-                        login 
-                        avatar_url
-                    }
-                }
-                status {
-                    context
-                    description
-                    state
-                    target_url
-                    updated_at
-                }
+export default createFragmentContainer(
+    CommitWithStatus,
+    graphql`
+        fragment CommitWithStatuses_commit on GithubCommit {
+            sha
+            message
+            date
+            status {
+                context
+                description
+                state
+                target_url
+                updated_at
             }
-        `,
-    },
-});
+        }
+    `
+);

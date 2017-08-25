@@ -24,7 +24,7 @@ let UserRepo = props => {
                 <User user={user} />
             </div>
             <div className="mdl-cell mdl-cell--12-col">
-                <BranchesTable repo={github.repo} />
+                <BranchesTable repo={repo} />
             </div>
         </div>
     );
