@@ -93,7 +93,7 @@
     "react-router-dom": "^4.0.0",
     "relay-compiler": "1.1.0",
     "url-loader": "^0.5.8",
-    "webpack": "^3.4.1",
+    "webpack": "^3.5.5",
     "webpack-dev-server": "^2.6.1",
     "xunit-file": "^1.0.0"
   }
