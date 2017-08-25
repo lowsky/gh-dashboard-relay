@@ -1,6 +1,7 @@
 {
     "passPerPreset": true,
     "plugins": [
+        "relay",
         "react-hot-loader/babel",
         "transform-runtime"
     ],
