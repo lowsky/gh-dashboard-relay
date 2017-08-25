@@ -1,4 +1,4 @@
-FROM node:8.0-alpine
+FROM node:8-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -14,15 +14,15 @@ ENV NODE_ENV $NODE_ENV
 # override default (info) to reduce output
 ENV NPM_CONFIG_LOGLEVEL warn
 
-COPY package.json /usr/src/app/
-
-## Disabled, because might not yet work nicely?
-## COPY yarn.lock /usr/src/app/
-
-# replacement for npm install
-RUN yarn
-COPY . /usr/src/app
-
+EXPOSE 3000
 CMD [ "npm", "start" ]
 
-EXPOSE 3000
+COPY package.json yarn.lock /usr/src/app/
+
+# replacement for npm install
+RUN yarn 
+#LATER: re-add: --frozen-lockfile # don't generate a lockfile and fail if an update is needed
+
+COPY . /usr/src/app
+
+RUN yarn run build
