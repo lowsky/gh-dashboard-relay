@@ -28,7 +28,7 @@ const environment = new Environment({
     store,
 });
 
-const GithubQuery = graphql`
+const GithubQuery = Relay.graphql`
     query mainQuery {
         github {
             ...UserRepo_github

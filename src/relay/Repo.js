@@ -1,5 +1,4 @@
 import { createFragmentContainer, graphql } from 'react-relay';
-import React from 'react';
 import Repo from '../components/Repo';
 
 export default createFragmentContainer(
