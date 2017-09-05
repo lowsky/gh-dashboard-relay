@@ -18,3 +18,5 @@ ratings:
   - "**.jsx"
 exclude_paths:
 - test/
+- src/relay/__generated__/
+

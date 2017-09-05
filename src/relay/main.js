@@ -1,43 +1,61 @@
 import React from 'react';
 import Relay from 'react-relay';
 
+const { Environment, Network, RecordSource, Store } = require('relay-runtime');
+
 import UserRepo from './UserRepo';
 
-/* eslint-disable prettier/prettier */
-Relay.injectNetworkLayer(
-    new Relay.DefaultNetworkLayer('http://localhost:3000/graphql', {
-        fetchTimeout: 45000, // Timeout after 30s.
-        retryDelays: [3000], // Only retry once after a 5s delay.
-    })
-);
+const store = new Store(new RecordSource());
+
+const network = Network.create((operation, variables) => {
+    return fetch('http://localhost:3000/graphql', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            query: operation.text,
+            variables,
+        }),
+    }).then(response => {
+        return response.json();
+    });
+});
+
+const environment = new Environment({
+    network,
+    store,
+});
+
+const GithubQuery = Relay.graphql`
+    query mainQuery {
+        github {
+            ...UserRepo_github
+        }
+    }
+`;
 
 let relayRoot = () =>
-    <Relay.RootContainer
-        Component={UserRepo}
-        renderLoading={() => <div>Loading...</div>}
-        renderFailure={(error, retry) => {
-            console.error('Failure while rendering in relay root container:', error);
-            return (
-                <div>
-                    <p>
-                        Error: {error.message}
-                    </p>
-                    <p>
-                        <button onClick={retry}>Retry?</button>
-                    </p>
-                </div>
-            );
-        }}
-        route={{
-            queries: {
-                github: () => Relay.QL`
-                        query { github }
-                    `,
-            },
-            name: 'UserRepoBranches',
-            params: {
-                extraProps: 'availableInAnyClientRender',
-            },
+    <Relay.QueryRenderer
+        environment={environment}
+        query={GithubQuery}
+        render={({ error, props }) => {
+            if (error) {
+                console.error('Failure while rendering in relay root container:', error);
+                return (
+                    <div>
+                        {error.message}
+                    </div>
+                );
+            } else if (props) {
+                return (
+                    <div>
+                        <UserRepo github={props.github} />
+                    </div>
+                );
+            }
+            return <div>Loading</div>;
         }}
     />;
 
