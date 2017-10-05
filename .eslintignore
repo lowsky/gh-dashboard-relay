@@ -1,0 +1,6 @@
+**/*{.,-}min.js
+dist
+node_modules
+coverage
+public
+.circleci
