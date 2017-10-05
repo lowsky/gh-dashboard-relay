@@ -16,7 +16,9 @@ const BranchesTable = props => {
                     <th className="mdl-data-table__cell--non-numeric">Commit</th>
                 </tr>
             </thead>
-            <tbody>{repo.branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch} />)}</tbody>
+            <tbody>
+                {repo.branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch} />)}
+            </tbody>
         </table>
     );
 };

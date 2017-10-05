@@ -36,14 +36,18 @@ const GithubQuery = Relay.graphql`
     }
 `;
 
-let relayRoot = () => (
+let relayRoot = () =>
     <Relay.QueryRenderer
         environment={environment}
         query={GithubQuery}
         render={({ error, props }) => {
             if (error) {
                 console.error('Failure while rendering in relay root container:', error);
-                return <div>{error.message}</div>;
+                return (
+                    <div>
+                        {error.message}
+                    </div>
+                );
             } else if (props) {
                 return (
                     <div>
@@ -53,7 +57,6 @@ let relayRoot = () => (
             }
             return <div>Loading</div>;
         }}
-    />
-);
+    />;
 
 export default relayRoot;
