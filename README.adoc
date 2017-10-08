@@ -1,4 +1,6 @@
-CI: image:https://circleci.com/gh/lowsky/dashboard.svg?style=svg[CircleCI,link=https://circleci.com/gh/lowsky/dashboard]
+link:README.md[move over to the markdown-version]
+
+image:https://circleci.com/gh/lowsky/dashboard.svg?style=svg[CircleCI,link=https://circleci.com/gh/lowsky/dashboard]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Score,link=https://www.bithound.io/github/lowsky/dashboard]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/score.svg[bitHound Overall Score,link=https://www.bithound.io/github/lowsky/dashboard]
 image:https://www.bithound.io/github/lowsky/dashboard/badges/dependencies.svg[bitHound Dependencies,link=https://www.bithound.io/github/lowsky/dashboard/master/dependencies/npm]
