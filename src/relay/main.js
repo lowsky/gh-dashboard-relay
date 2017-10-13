@@ -47,7 +47,10 @@ let relayRoot = () => (
             } else if (props) {
                 return (
                     <div>
-                        <UserRepo github={props.github} />
+                        {
+                            // eslint-disable-next-line react/prop-types
+                            <UserRepo github={props.github} />
+                        }
                     </div>
                 );
             }
