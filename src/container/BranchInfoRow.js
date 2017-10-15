@@ -15,13 +15,9 @@ const BranchInfoRow = props => {
         <tr key={name}>
             <td className="mdl-data-table__cell--non-numeric">
                 <img src={octocat} width="32" alt="link to branch on github" />
-                <a href={githubBranchSrc}>
-                    {name}
-                </a>
+                <a href={githubBranchSrc}>{name}</a>
             </td>
-            <td className="mdl-data-table__cell--non-numeric">
-                {<CommitWithStatuses commit={lastCommit} />}
-            </td>
+            <td className="mdl-data-table__cell--non-numeric">{<CommitWithStatuses commit={lastCommit} />}</td>
         </tr>
     );
 };
