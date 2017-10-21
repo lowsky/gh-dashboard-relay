@@ -21,8 +21,8 @@
     "relay": "relay-compiler --src ./src --schema ./schema.graphql",
     "build": "npm run convert-readme ; webpack --profile --progress",
     "lint": "eslint .",
-    "convert-readme": "asciidoctorjs -s -v README.adoc",
     "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open",
+    "convert-readme": " remark README.md --use remark-html > README.html",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js' _mocha test/**/*.js",
     "test:circleci": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
     "start": "babel-node ."
@@ -43,10 +43,12 @@
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
     "helmet": "3.8.2",
     "relay-runtime": "^1.1.0",
+    "remark": "8.0.0",
+    "remark-cli": "4.0.0",
+    "remark-html": "6.0.1",
     "whatwg-fetch": "^2.0.0"
   },
   "devDependencies": {
-    "asciidoctor-cli": "^1.5.5-beta.3",
     "babel-cli": "^6.22.2",
     "babel-core": "^6.13.2",
     "babel-eslint": "^8.0.1",
