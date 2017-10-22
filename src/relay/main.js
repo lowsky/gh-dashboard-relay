@@ -1,5 +1,5 @@
 import React from 'react';
-import Relay from 'react-relay';
+import { QueryRenderer, graphql } from 'react-relay';
 
 const { Environment, Network, RecordSource, Store } = require('relay-runtime');
 
@@ -37,7 +37,7 @@ const GithubQuery = graphql`
 `;
 
 let relayRoot = () => (
-    <Relay.QueryRenderer
+    <QueryRenderer
         environment={environment}
         query={GithubQuery}
         render={({ error, props }) => {
