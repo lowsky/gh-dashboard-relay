@@ -23,8 +23,6 @@ module.exports = {
         ]
         : [
             'react-hot-loader/patch',
-            'webpack-dev-server/client?http://localhost:8080',
-            'webpack/hot/only-dev-server',
             ...entries
         ]
     ),
@@ -34,6 +32,8 @@ module.exports = {
     },
 
     devtool: 'inline-source-map',
+    // fix of https://reactjs.org/docs/cross-origin-errors.html
+    //devtool: 'cheap-module-source-map',
 
     // prettier-ignore
     plugins: ( ENV === 'production'
@@ -43,7 +43,6 @@ module.exports = {
         ]
         : [
             ...pages,
-            new webpack.HotModuleReplacementPlugin(),
             new webpack.NamedModulesPlugin()
         ]
     ),

@@ -31,7 +31,7 @@ let UserRepo = props => {
 };
 UserRepo.propTypes = {
     github: PropTypes.object,
-    relay: PropTypes.optionalObject,
+    relay: PropTypes.object,
 };
 
 export default UserRepo;
