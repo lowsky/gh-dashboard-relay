@@ -33,6 +33,7 @@ app.use('/assets', express().use(express.static('assets')));
 
 var expressGraphQL = require('express-graphql');
 var schema = require('./src/relay/localSchema');
+const path = require('path');
 
 app.use(cors(corsOptions));
 
@@ -42,6 +43,13 @@ app.use('/graphql', expressGraphQL(req => ({
     graphiql: true,
     pretty: true
 })));
+
+app.use(express.static('dist'));
+
+// doesn't work with webpack-dev-server :(
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.listen(app.get('port'), function() {
     console.log(`Express app started on http://localhost:${app.get('port')} press Ctrl-C to terminate.`);
