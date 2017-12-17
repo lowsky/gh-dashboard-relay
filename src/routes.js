@@ -18,7 +18,7 @@ const MainPage = () => (
                         </span>
                         <div className="mdl-layout-spacer" />
                         <nav className="mdl-navigation">
-                            <Link className="mdl-navigation__link" to="/">
+                            <Link className="mdl-navigation__link" to="/home">
                                 Home
                             </Link>
                             <Link className="mdl-navigation__link" to="/relay">
