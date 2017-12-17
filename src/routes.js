@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 
 import IndexPageMain from './index/indexPage';
 import RelayMain from './relay/main';
@@ -18,13 +18,13 @@ const MainPage = () => (
                         </span>
                         <div className="mdl-layout-spacer" />
                         <nav className="mdl-navigation">
-                            <Link className="mdl-navigation__link" to="/">
+                            <Link className="mdl-navigation__link" to="/home">
                                 Home
                             </Link>
-                            <Link className="mdl-navigation__link" to="relay.html">
+                            <Link className="mdl-navigation__link" to="/relay">
                                 GraphQL + Relay Demo
                             </Link>
-                            <Link className="mdl-navigation__link" to="restful.html">
+                            <Link className="mdl-navigation__link" to="/restful">
                                 RESTful Demo
                             </Link>
                         </nav>
@@ -32,9 +32,14 @@ const MainPage = () => (
                 </header>
 
                 <main className="mdl-layout__content">
-                    <Route exact path="/" component={IndexPageMain} />
-                    <Route path="/relay.html" component={RelayMain} />
-                    <Route path="/restful.html" component={RestfulMain} />
+                    <Switch>
+                        <Redirect exact from="/" to="/restful" />
+                        <Route path="/relay/:repo" component={RelayMain} />
+                        <Route exact path="/home" component={IndexPageMain} />
+                        <Route path="/restful/:userName/:repoName" component={RestfulMain} />
+                        <Redirect from="/relay" to="/relay/lowsky/dashboard" />
+                        <Redirect from="/restful" to="/restful/lowsky/dashboard" />
+                    </Switch>
                 </main>
             </div>
         </div>

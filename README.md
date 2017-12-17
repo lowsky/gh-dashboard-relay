@@ -58,6 +58,6 @@ Have fun!
 
 ## ScreenShot
 
-![Preview image](DashboardDemo.png)
+![Preview image](./assets/images/DashboardDemo.png)
 
 ![Analytics](https://ga-beacon.appspot.com/UA-72383363-1/lowsky/dashboard/README.md)
