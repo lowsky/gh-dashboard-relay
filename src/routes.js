@@ -33,9 +33,9 @@ const MainPage = () => (
 
                 <main className="mdl-layout__content">
                     <Switch>
-                        <Redirect exact from="/" to="/restful" />
-                        <Route path="/relay/:repo" component={RelayMain} />
+                        <Redirect exact from="/" to="/home" />
                         <Route exact path="/home" component={IndexPageMain} />
+                        <Route path="/relay/:repo" component={RelayMain} />
                         <Route path="/restful/:userName/:repoName" component={RestfulMain} />
                         <Redirect from="/relay" to="/relay/lowsky/dashboard" />
                         <Redirect from="/restful" to="/restful/lowsky/dashboard" />
