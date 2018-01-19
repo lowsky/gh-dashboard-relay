@@ -78,7 +78,7 @@
     "istanbul": "^0.4.4",
     "jsdom": "^11.1.0",
     "jsx-loader": "^0.13.2",
-    "lint-staged": "4.3.0",
+    "lint-staged": "6.0.1",
     "minimatch": "^3.0.3",
     "mocha": "^4.0.0",
     "node-libs-browser": "^2.0.0",
