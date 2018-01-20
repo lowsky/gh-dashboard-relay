@@ -94,7 +94,7 @@
     "react-router-dom": "4.2.2",
     "react-test-renderer": "^16.0.0",
     "relay-compiler": "1.4.1",
-    "remark": "8.0.0",
+    "remark": "9.0.0",
     "remark-cli": "4.0.0",
     "remark-html": "7.0.0",
     "remark-preset-lint-markdown-style-guide": "2.1.1",
