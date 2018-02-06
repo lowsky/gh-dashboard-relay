@@ -1,2 +1,5 @@
 --recursive
---compilers js:babel-register,jpg:test/ignoreJpg,png:test/ignorePng,svg:test/ignoreSvg
+--require babel-core/register
+--require test/ignoreJpg
+--require test/ignorePng
+--require test/ignoreSvg
