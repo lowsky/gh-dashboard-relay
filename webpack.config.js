@@ -17,7 +17,7 @@ let entries = ['babel-polyfill', './src/index.js'];
 
 module.exports = {
     // prettier-ignore
-    entry:  ( ENV === 'production'
+    entry: (ENV === 'production'
         ? [
             ...entries
         ]
@@ -33,10 +33,10 @@ module.exports = {
 
     devtool: 'inline-source-map',
     // fix of https://reactjs.org/docs/cross-origin-errors.html
-    //devtool: 'cheap-module-source-map',
+    // devtool: 'cheap-module-source-map',
 
     // prettier-ignore
-    plugins: ( ENV === 'production'
+    plugins: (ENV === 'production'
         ? [
             ... pages,
             new webpack.optimize.UglifyJsPlugin({minimize: true})

@@ -296,7 +296,7 @@ let githubType = new GraphQLObjectType({
                     type: new GraphQLNonNull(GraphQLString),
                 },
             },
-            resolve: function(root, { username }) {
+            resolve(root, { username }) {
                 return getUser(username);
             },
         },
@@ -312,7 +312,7 @@ let githubType = new GraphQLObjectType({
                     type: new GraphQLNonNull(GraphQLString),
                 },
             },
-            resolve: function(root, { ownerUsername, name }) {
+            resolve(root, { ownerUsername, name }) {
                 return getRepoForUser(ownerUsername, name);
             },
         },
