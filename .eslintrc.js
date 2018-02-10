@@ -9,7 +9,7 @@ module.exports = {
         process: true,
         __dirname: true,
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:prettier/recommended', 'prettier/react'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier/react', 'prettier'],
     parser: 'babel-eslint',
     parserOptions: {
         sourceType: 'module',
@@ -20,6 +20,7 @@ module.exports = {
     },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
+        'prettier/prettier': 1,
         'graphql/template-strings': [
             2,
             {
