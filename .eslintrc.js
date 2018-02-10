@@ -9,7 +9,7 @@ module.exports = {
         process: true,
         __dirname: true,
     },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier', 'prettier/react'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier/react', 'prettier'],
     parser: 'babel-eslint',
     parserOptions: {
         sourceType: 'module',
@@ -20,10 +20,7 @@ module.exports = {
     },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
-        'react/prop-types': 1, // fix these later
-        'react/display-name': 1, // fix these later, see
-        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
-
+        'prettier/prettier': 1,
         'graphql/template-strings': [
             2,
             {
@@ -37,22 +34,5 @@ module.exports = {
         ],
         'no-undef': 1,
         'no-console': 0,
-        'linebreak-style': ['error', 'unix'],
-
-        // might both conflict with prettier, see https://github.com/prettier/eslint-config-prettier
-        indent: ['error', 4],
-        quotes: ['error', 'single'],
-        semi: ['error', 'always'],
-        'prettier/prettier': [
-            'error',
-            {
-                trailingComma: 'es5',
-                singleQuote: true,
-                tabWidth: 4,
-                bracketSpacing: true,
-                jsxBracketSameLine: true,
-                printWidth: 120,
-            },
-        ],
     },
 };
