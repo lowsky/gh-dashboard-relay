@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 
 const styles = {
@@ -29,7 +30,9 @@ const styles = {
 export default class Intro extends Component {
     showApp(e) {
         e.preventDefault();
-        if (this.props.showApp) this.props.showApp();
+        if (this.props.showApp) {
+            this.props.showApp();
+        }
     }
 
     render() {

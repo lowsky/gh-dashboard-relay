@@ -19,9 +19,14 @@ module.exports = {
                     'url-loader'
                 ],
             },
-        ],
-        loaders: [
-            // add your custom loaders.
+            {
+                test: /\.js$/,
+                // prettier-ignore
+                use: [
+                    'babel-loader',
+                ],
+                exclude: /node_modules/,
+            },
         ],
     },
 };
