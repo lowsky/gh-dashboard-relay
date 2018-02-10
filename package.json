@@ -98,7 +98,7 @@
     "remark-html": "7.0.0",
     "remark-preset-lint-markdown-style-guide": "2.1.1",
     "url-loader": "0.6.2",
-    "webpack": "3.7.1",
+    "webpack": "3.11.0",
     "webpack-dev-server": "2.9.1",
     "xunit-file": "1.0.0"
   }
