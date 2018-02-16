@@ -83,7 +83,7 @@
     "node-libs-browser": "2.0.0",
     "nodemon": "1.12.1",
     "pre-commit": "1.2.2",
-    "prettier": "1.7.4",
+    "prettier": "1.10.2",
     "prop-types": "15.6.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
