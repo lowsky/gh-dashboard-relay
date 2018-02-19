@@ -68,7 +68,7 @@
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-react": "7.6.1",
-    "express-graphql": "0.6.11",
+    "express-graphql": "0.6.12",
     "file-loader": "1.1.7",
     "graphql": "0.13.1",
     "graphql-relay": "0.5.4",
