@@ -60,4 +60,9 @@ Have fun!
 
 ![Preview image](./assets/images/DashboardDemo.png)
 
+
+## License
+
+Licensed under the Apache License 2.0, Copyright ©️ 2018 Robert Hostlowsky. See [LICENSE](LICENSE) for more information.
+
 ![Analytics](https://ga-beacon.appspot.com/UA-72383363-1/lowsky/dashboard/README.md)
