@@ -17,6 +17,7 @@
   "engines": {
     "node": ">=8"
   },
+  "proxy": "http://localhost:3000",
   "scripts": {
     "relay": "relay-compiler --src ./src --schema ./schema.graphql",
     "cra-start": "PORT=8080 react-app-rewired start",
