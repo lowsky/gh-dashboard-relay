@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 
 import routes from './routes';
 
-const rootElement = document.getElementById('root');
-
 import { AppContainer } from 'react-hot-loader';
+
+const rootElement = document.getElementById('root');
 
 const render = Component => {
     ReactDOM.render(

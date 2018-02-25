@@ -1,9 +1,10 @@
 import React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
 
+import UserRepo from './UserRepo';
+
 const { Environment, Network, RecordSource, Store } = require('relay-runtime');
 
-import UserRepo from './UserRepo';
 
 const store = new Store(new RecordSource());
 
