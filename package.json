@@ -19,10 +19,11 @@
   },
   "scripts": {
     "relay": "relay-compiler --src ./src --schema ./schema.graphql",
+    "cra-start": "PORT=8080 react-app-rewired start",
     "build": "npm run convert-readme ; webpack --profile --progress",
     "lint": "eslint .",
     "convert-readme": "remark README.md --use remark-html > public/README.html; mkdir -p public/assets/images/ ; cp -rv assets/images/DashboardDemo.png public/assets/images/",
-    "dev": "npm run convert-readme ; webpack-dev-server -w -d  --progress  --open --hot",
+    "dev": "npm run convert-readme ; yarn run cra-start",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js' _mocha test/**/*.js",
     "test:circleci": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
     "start": "babel-node ."
@@ -38,10 +39,12 @@
   "dependencies": {
     "babel-runtime": "6.26.0",
     "cors": "2.8.4",
+    "create-react-app": "^1.5.2",
     "dotenv": "5.0.0",
     "express": "4.16.2",
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
     "helmet": "3.11.0",
+    "react-scripts": "^1.1.1",
     "relay-runtime": "1.4.1",
     "whatwg-fetch": "2.0.3"
   },
@@ -83,6 +86,7 @@
     "prettier": "1.10.2",
     "prop-types": "15.6.0",
     "react": "16.2.0",
+    "react-app-rewired": "^1.4.1",
     "react-dom": "16.2.0",
     "react-hot-loader": "4.0.0-rc.0",
     "react-relay": "1.4.1",
