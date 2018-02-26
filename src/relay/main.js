@@ -5,7 +5,6 @@ import UserRepo from './UserRepo';
 
 const { Environment, Network, RecordSource, Store } = require('relay-runtime');
 
-
 const store = new Store(new RecordSource());
 
 const network = Network.create((operation, variables) => {
