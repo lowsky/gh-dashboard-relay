@@ -28,7 +28,9 @@
     "dev": "yarn run cra-start",
     "test": "NODE_ENV=test istanbul cover -v -i '**/*.js' _mocha test/**/*.js",
     "test:circleci": "XUNIT_FILE=$CIRCLE_TEST_REPORTS/mocha-xunit.xml npm run test -- -R xunit-file",
-    "start": "babel-node ."
+    "start": "babel-node .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
@@ -89,6 +91,10 @@
     "react-router-dom": "4.2.2",
     "react-test-renderer": "16.2.0",
     "relay-compiler": "1.4.1",
-    "xunit-file": "1.0.0"
+    "xunit-file": "1.0.0",
+    "@storybook/react": "^3.3.12",
+    "@storybook/addon-actions": "^3.3.12",
+    "@storybook/addon-links": "^3.3.12",
+    "@storybook/addons": "^3.3.12"
   }
 }
