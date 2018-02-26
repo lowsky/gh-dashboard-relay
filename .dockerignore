@@ -8,7 +8,6 @@ npm-debug.log
 /circle.yml
 README.md
 .codeclimate.yml
-.babelrc
 .bithoundrc
 .editorconfig
 .env
