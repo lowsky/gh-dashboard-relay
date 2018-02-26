@@ -45,7 +45,7 @@ app.use('/graphql', expressGraphQL(req => ({
     pretty: true
 })));
 
-app.use(express.static('dist'));
+app.use(express.static('build'));
 
 // doesn't work with webpack-dev-server :(
 app.get('/*', function (req, res) {

@@ -20,8 +20,9 @@
   "proxy": "http://localhost:3000",
   "scripts": {
     "cra-start": "PORT=8080 react-app-rewired start",
+    "cra-build": "react-app-rewired build",
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
-    "build": "npm run convert-readme ; webpack --profile --progress",
+    "build": "npm run convert-readme ; npm run relay ; npm run cra-build",
     "lint": "eslint .",
     "convert-readme": "remark README.md --use remark-html > public/README.html; mkdir -p public/assets/images/ ; cp -rv assets/images/DashboardDemo.png public/assets/images/",
     "dev": "npm run convert-readme ; yarn run cra-start",

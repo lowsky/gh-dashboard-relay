@@ -30,6 +30,7 @@ after invoking this in a shell:
 
 ### regular mode for deployment
 
+    npm run build # or  yarn run build
     npm start   # or   yarn run start
 
 **Note:**
