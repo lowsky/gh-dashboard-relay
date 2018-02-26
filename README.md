@@ -32,6 +32,14 @@ after invoking this in a shell:
 
     npm run build # or  yarn run build
     npm start   # or   yarn run start
+    
+### docker build
+
+    docker build -t dashboard .
+    
+    ### docker run
+    # injecting the github creds per .env file
+    docker run --rm -v $PWD/.env:/usr/src/app/.env -p 3000:3000 dashboard
 
 **Note:**
 You  **need to create your own github-token** and store it locally:
