@@ -69,7 +69,7 @@
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-react": "7.6.1",
     "express-graphql": "0.6.12",
-    "file-loader": "1.1.7",
+    "file-loader": "1.1.10",
     "graphql": "0.13.1",
     "graphql-relay": "0.5.4",
     "graphql-schema-from-introspection": "0.1.2",
