@@ -45,7 +45,7 @@
     "express": "4.16.2",
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
     "helmet": "3.11.0",
-    "react-scripts": "^1.1.1",
+    "react-scripts": "1.1.1",
     "relay-runtime": "1.4.1",
     "whatwg-fetch": "2.0.3"
   },
@@ -81,7 +81,7 @@
     "prettier": "1.10.2",
     "prop-types": "15.6.0",
     "react": "16.2.0",
-    "react-app-rewired": "^1.4.1",
+    "react-app-rewired": "1.4.1",
     "react-dom": "16.2.0",
     "react-hot-loader": "4.0.0-rc.0",
     "react-relay": "1.4.1",
