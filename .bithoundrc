@@ -9,10 +9,10 @@
     },
     "dependencies": {
         "unused-ignores": [
+            "react-scripts",
             "xunit-file"
         ],
         "mute": [
-            "asciidoctor-cli",
             "react-relay",
             "babel-runtime",
             "babel-relay-plugin"
