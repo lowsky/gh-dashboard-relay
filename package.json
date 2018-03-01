@@ -26,6 +26,7 @@
     "lint": "eslint .",
     "dev": "yarn run cra-start",
     "test": "react-app-rewired test --env=jsdom --no-cache ",
+    "coverage": "yarn run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
     "test:circleci": "TEST_REPORT_FILENAME=$CIRCLE_TEST_REPORTS/jest-junit.xml yarn test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
     "start": "babel-node .",
     "storybook": "start-storybook -p 6006",
