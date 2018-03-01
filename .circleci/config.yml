@@ -13,8 +13,14 @@ jobs:
           name: env
           command: env
       - run:
+          name: yarn install
+          command: "yarn install"
+      - run:
           name: npm run test
           command: "yarn run test:circleci"
+      #- store_artifacts:
+          #path: //test-results
+          #destination: prefix
       - run:
           name: npm run lint
           command: "echo npm run test:circleci"
