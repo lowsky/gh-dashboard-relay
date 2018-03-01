@@ -23,7 +23,9 @@ jobs:
             - ./node_modules
       - run:
           name: npm run test
-          command: "yarn run test:circleci"
+          command: "yarn run test:circleci ; ls -lart ; pwd"
+      - store_test_results:
+          path: jest-junit.xml
       - run:
           name: npm run lint
           command: "yarn run lint --format junit --output-file ./eslint-report.xml"
