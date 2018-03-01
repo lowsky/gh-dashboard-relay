@@ -14,7 +14,7 @@ jobs:
           command: env
       - run:
           name: npm run test
-          command: "echo npm run test:circleci"
+          command: "yarn run test:circleci"
       - run:
           name: npm run lint
           command: "echo npm run test:circleci"
@@ -33,7 +33,7 @@ jobs:
             # we start another container with curl in the same network as `contacts`, this way we have
             # all exposed ports from `contacts` available on `localhost` in this new container
             docker run --network container:$CONT_NAME \
-              appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000/  
+              appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000/
             #&& RESULT=$?
             docker logs $cont
             exit $RESULT
