@@ -12,7 +12,7 @@ jobs:
       - run:
           name: env
           command: env
-       - restore_cache:
+      - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: yarn install
