@@ -1,4 +1,22 @@
 version: 2
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - buildprep
+      - analyse:
+          requires:
+            - buildprep
+      - tests:
+          requires:
+            - buildprep
+      - docker-build
+      - build:
+          requires:
+            - docker-build
+            - tests
+            - analyse
+
 jobs:
   buildprep:
     docker:
@@ -100,21 +118,3 @@ jobs:
             #&& RESULT=$?
             docker logs $cont
             exit $RESULT
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - buildprep
-      - analyse:
-          requires:
-            - buildprep
-      - tests:
-          requires:
-            - buildprep
-      - docker-build
-      - build:
-          requires:
-            - docker-build
-            - tests
-            - analyse
-            
