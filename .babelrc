@@ -1,20 +1,12 @@
 {
-    "passPerPreset": true,
+    // only needed for starting the graphql proxy server, and
+    // running jest per react-app-rewired
     "plugins": [
-        "relay",
-        "react-hot-loader/babel",
-        "transform-runtime"
+        "relay"
     ],
     "presets": [
-        "react",
-        [
-            // disable transpiling modules
-            // https://github.com/gaearon/react-hot-loader
-            "es2015",
-            {
-             //   "modules": false
-            }
-        ],
-        "stage-0"
+        //"react",
+        "es2015",
+        "stage-3"
     ]
 }
