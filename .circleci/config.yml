@@ -11,12 +11,6 @@ workflows:
           requires:
             - buildprep
       - docker-build
-      - build:
-          requires:
-            - docker-build
-            - tests
-            - analyse
-
 jobs:
   buildprep:
     docker:
