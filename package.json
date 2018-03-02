@@ -82,7 +82,7 @@
     "react-addons-test-utils": "15.6.2",
     "react-app-rewired": "1.4.1",
     "react-dom": "16.2.0",
-    "react-relay": "1.4.1",
+    "react-relay": "1.5.0",
     "react-router": "4.2.0",
     "react-router-dom": "4.2.2",
     "react-test-renderer": "16.2.0",
