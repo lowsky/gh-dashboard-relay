@@ -1,6 +1,18 @@
 version: 2
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - buildprep
+      - analyse:
+          requires:
+            - buildprep
+      - tests:
+          requires:
+            - buildprep
+      - docker-build
 jobs:
-  build:
+  buildprep:
     docker:
       - image: circleci/node:8
     steps:
@@ -21,14 +33,66 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+  tests:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: status message
+          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
+      - run:
+          name: env
+          command: env
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: create test report output folder
+          command: "mkdir -p test-reports"
       - run:
           name: npm run test
-          command: "yarn run test:circleci ; ls -lart ; pwd"
+          command: "yarn run test:circleci"
       - store_test_results:
-          path: jest-junit.xml
+          path: test-reports
+      - store_artifacts:
+          path: test-reports
+  analyse:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: status message
+          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
+      - run:
+          name: env
+          command: env
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: create lint report output folder
+          command: "mkdir -p reports"
       - run:
           name: npm run lint
-          command: "yarn run lint --format junit --output-file ./eslint-report.xml"
+          command: "yarn run lint --format junit --output-file ./reports/eslint-report.xml"
+      - store_test_results:
+          path: ./reports
+      - store_artifacts:
+          path: ./reports
+  docker-build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: status message
+          command: "echo building ... dashboard:$CIRCLE_SHA1 ."
+      - run:
+          name: env
+          command: env
       - run:
           name: docker build
           command: "docker build -t dashboard:$CIRCLE_SHA1 ."
@@ -48,9 +112,3 @@ jobs:
             #&& RESULT=$?
             docker logs $cont
             exit $RESULT
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
