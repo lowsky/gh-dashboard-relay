@@ -21,7 +21,7 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
-  analyse:
+  tests:
     docker:
       - image: circleci/node:8
     steps:
@@ -84,12 +84,6 @@ jobs:
       - run:
           name: docker build
           command: "docker build -t dashboard:$CIRCLE_SHA1 ."
-  docker-int:
-    docker:
-      - image: circleci/node:8
-    steps:
-      - checkout
-      - setup_remote_docker
       - run:
           name: integration test of generated docker image
           command: |
@@ -119,6 +113,3 @@ workflows:
           requires:
             - buildprep
       - docker-build
-      - docker-int:
-          requires:
-            - docker-build
