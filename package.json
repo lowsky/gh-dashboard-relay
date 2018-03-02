@@ -49,7 +49,7 @@
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
     "helmet": "3.11.0",
     "react-scripts": "1.1.1",
-    "relay-runtime": "1.4.1",
+    "relay-runtime": "1.5.0",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
