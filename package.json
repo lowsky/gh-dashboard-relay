@@ -54,7 +54,7 @@
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
-    "babel-eslint": "8.2.1",
+    "babel-eslint": "8.2.2",
     "babel-helper-builder-react-jsx": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-plugin-relay": "1.4.1",
