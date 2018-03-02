@@ -30,8 +30,11 @@ jobs:
       - store_test_results:
           path: test-reports
       - run:
+          name: create lint report output folder
+          command: "mkdir -p reports"
+      - run:
           name: npm run lint
-          command: "yarn run lint --format junit --output-file ./eslint-report.xml"
+          command: "yarn run lint # --format junit --output-file ./reports/eslint-report.xml"
       - run:
           name: docker build
           command: "docker build -t dashboard:$CIRCLE_SHA1 ."
