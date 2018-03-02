@@ -22,10 +22,13 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: create test report output folder
+          command: "mkdir -p test-reports"
+      - run:
           name: npm run test
-          command: "yarn run test:circleci ; ls -lart ; pwd"
+          command: "yarn run test:circleci"
       - store_test_results:
-          path: jest-junit.xml
+          path: test-reports
       - run:
           name: npm run lint
           command: "yarn run lint --format junit --output-file ./eslint-report.xml"
