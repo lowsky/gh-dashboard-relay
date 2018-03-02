@@ -45,6 +45,7 @@
     "cors": "2.8.4",
     "dotenv": "5.0.0",
     "express": "4.16.2",
+    "express-graphql": "0.6.12",
     "github-api": "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz",
     "helmet": "3.11.0",
     "react-scripts": "1.1.1",
@@ -52,6 +53,10 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "3.3.12",
+    "@storybook/addon-links": "3.3.12",
+    "@storybook/addons": "3.3.12",
+    "@storybook/react": "3.3.12",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.2.1",
@@ -73,7 +78,6 @@
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-react": "7.6.1",
-    "express-graphql": "0.6.12",
     "graphql": "0.13.1",
     "graphql-relay": "0.5.4",
     "graphql-schema-from-introspection": "0.1.2",
@@ -89,10 +93,6 @@
     "react-router-dom": "4.2.2",
     "react-test-renderer": "16.2.0",
     "relay-compiler": "1.4.1",
-    "xunit-file": "1.0.0",
-    "@storybook/react": "3.3.12",
-    "@storybook/addon-actions": "3.3.12",
-    "@storybook/addon-links": "3.3.12",
-    "@storybook/addons": "3.3.12"
+    "xunit-file": "1.0.0"
   }
 }
