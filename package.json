@@ -81,7 +81,7 @@
     "prop-types": "15.6.1",
     "react": "16.2.0",
     "react-addons-test-utils": "15.6.2",
-    "react-app-rewired": "1.4.1",
+    "react-app-rewired": "1.5.0",
     "react-dom": "16.2.0",
     "react-relay": "1.5.0",
     "react-router": "4.2.0",
