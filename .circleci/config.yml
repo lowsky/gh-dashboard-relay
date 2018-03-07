@@ -61,15 +61,30 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
+          name:  Download cc-test-reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
+      - run:
           name: create test report output folder
           command: "mkdir -p test-reports"
       - run:
-          name: npm run test
+          name: run test
           command: "yarn run test:circleci"
       - store_test_results:
           path: test-reports
       - store_artifacts:
           path: test-reports
+      - run:
+          name: run coverage
+          command: |
+            yarn run coverage
+            ./tmp/cc-test-reporter format-coverage -t lcov -o tmp/codeclimate.json coverage/lcov.info
+      - run:
+          name: Upload coverage results to Code Climate
+          command: |
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.json
   analyse:
     docker:
       - image: circleci/node:8
