@@ -11,7 +11,20 @@ workflows:
           requires:
             - buildprep
       - docker-build
+      - build
+          requires:
+            - docker-build
+            - analyse
+            - tests
 jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - setup_remote_docker
+      - run:
+          name: message
+          command: "echo Overall target built."
   buildprep:
     docker:
       - image: circleci/node:8
