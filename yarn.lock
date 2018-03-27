@@ -4269,9 +4269,9 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-"github-api@https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz":
+github-api@lowsky/github-api#supportInUsedInBrowser:
   version "0.10.7"
-  resolved "https://github.com/lowsky/github-api/archive/supportInUsedInBrowser.tar.gz#455168afb6ed6bd919ef64500b0c4d541daeb314"
+  resolved "https://codeload.github.com/lowsky/github-api/tar.gz/49bf347a5262366c9410cc2c854e0dacec593bb4"
   dependencies:
     js-base64 "^2.1.8"
     xmlhttprequest "~1.7.0"
@@ -4433,17 +4433,23 @@ graphql-request@^1.4.0:
   dependencies:
     cross-fetch "1.1.1"
 
-graphql@0.13.1, graphql@^0.13.0:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.1.tgz#9b3db3d8e40d1827e4172404bfdd2e4e17a58b55"
+graphql@0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
   dependencies:
-    iterall "^1.2.0"
+    iterall "^1.2.1"
 
 graphql@^0.11.7:
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.11.7.tgz#e5abaa9cb7b7cccb84e9f0836bf4370d268750c6"
   dependencies:
     iterall "1.1.3"
+
+graphql@^0.13.0:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.1.tgz#9b3db3d8e40d1827e4172404bfdd2e4e17a58b55"
+  dependencies:
+    iterall "^1.2.0"
 
 growly@^1.3.0:
   version "1.3.0"
@@ -5407,6 +5413,10 @@ iterall@1.1.3:
 iterall@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.0.tgz#434e9f41f0b99911ab9c3d49d95f0e079176a2a2"
+
+iterall@^1.2.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
 
 jest-changed-files@^20.0.3:
   version "20.0.3"
