@@ -39,7 +39,7 @@
   },
   "private": true,
   "analyze": true,
-  "homepage": "https://github.com/lowsky/dashboard",
+  "homepage": ".",
   "dependencies": {
     "babel-runtime": "6.26.0",
     "cors": "2.8.4",
