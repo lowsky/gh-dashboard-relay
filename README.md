@@ -1,9 +1,13 @@
-![bitHound Score](https://www.bithound.io/github/lowsky/dashboard/badges/score.svg) ![bitHound Code](https://www.bithound.io/github/lowsky/dashboard/badges/code.svg) ![Codacy Badge](https://www.codacy.com/project/badge/5f6f0a485bfe4afab427fdba4eae3ac2)
+![bitHound Score](https://www.bithound.io/github/lowsky/dashboard/badges/score.svg) ![bitHound Code](https://www.bithound.io/github/lowsky/dashboard/badges/code.svg) 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f6f0a485bfe4afab427fdba4eae3ac2)](https://www.codacy.com/app/skylab/dashboard)
 
-![bitHound Dependencies](https://www.bithound.io/github/lowsky/dashboard/badges/dependencies.svg) ![bitHound Dev Dependencies](https://www.bithound.io/github/lowsky/dashboard/badges/devDependencies.svg)
-![Snyk: Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)
 
-![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) ![Stories/Tasks in Progress](https://badge.waffle.io/lowsky/dashboard.png?label=in%20progress&title=in-progress)
+[![bitHound Dependencies](https://www.bithound.io/github/lowsky/dashboard/badges/dependencies.svg)](https://www.bithound.io/github/lowsky/dashboard/master/dependencies/npm) 
+[![bitHound Dev Dependencies](https://www.bithound.io/github/lowsky/dashboard/badges/devDependencies.svg)](https://www.bithound.io/github/lowsky/dashboard/master/dependencies/npm) 
+[![Snyk: Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/org/lowsky/project/50ca31b4-9fbf-4a3f-afba-3bb418493afe/)
+
+![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/lowsky/dashboard.svg?columns=all)](https://waffle.io/lowsky/dashboard)
 
 This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's _Relay_ and _GraphQL_ libraries.
 
