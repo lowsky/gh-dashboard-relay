@@ -13,20 +13,20 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.png|\.jpg|\.svg$/,
-                // prettier-ignore
-                use: [
-                    'url-loader'
-                ],
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.js$/,
-                // prettier-ignore
-                use: [
-                    'babel-loader',
-                ],
-                exclude: /node_modules/,
+                test: /\.(jpg|png|gif|eot|ttf|woff|woff2)$/,
+                use: ['file-loader'],
             },
+            {
+                test: /\.svg$/,
+                loader: 'svg-url-loader',
+                options: {
+                    noquotes: true,
+                },
+            }
         ],
     },
 };
