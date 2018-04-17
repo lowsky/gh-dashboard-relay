@@ -17,7 +17,7 @@ import User from '../src/components/User';
 import CommitWithStatuses from '../src/components/CommitWithStatuses';
 import Repo from '../src/components/Repo';
 
-storiesOf('Intro', module).add('to this storybook', () => <Intro showApp={linkTo('User')} />);
+storiesOf('Intro', module).add('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
 const userWithoutAvatar = {
     user: {
@@ -77,13 +77,13 @@ const userRepo = {
     }
 };
 
-storiesOf('Repo', module)
-    .add('fake data', () => <Repo {...repo} />);
-
 storiesOf('Pages', module)
     .add('main', () => <IndexPage />)
     .add('restful', () => <RestfulPage />)
     .add('relay', () => <RelayPage />);
+
+storiesOf('Repo', module)
+    .add('fake data', () => <Repo {...repo} />);
 
 storiesOf('User', module)
     .add('without avatar', () => <User {...userWithoutAvatar} />)

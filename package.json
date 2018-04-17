@@ -29,8 +29,8 @@
     "coverage": "yarn run test --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml yarn test --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
     "start": "babel-node .",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
@@ -54,10 +54,10 @@
     "yarn.lock": "0.0.1-security"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "3.3.15",
-    "@storybook/addon-links": "3.3.15",
-    "@storybook/addons": "3.3.15",
-    "@storybook/react": "3.3.15",
+    "@storybook/addon-actions": "3.4.1",
+    "@storybook/addon-links": "3.4.1",
+    "@storybook/addons": "3.4.1",
+    "@storybook/react": "3.4.1",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.2.3",
@@ -85,6 +85,7 @@
     "react-router-dom": "4.2.2",
     "react-test-renderer": "16.3.2",
     "relay-compiler": "1.5.0",
+    "svg-url-loader": "2.3.2",
     "xunit-file": "1.0.0"
   }
 }
