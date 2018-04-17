@@ -1,14 +1,6 @@
 /* this file will be used by react-app-rewired when running jest */
 {
-    // only needed for starting the graphql proxy server, and
-    // running jest per react-app-rewired
     "plugins": [
-        /* needed for running jest, */
         "relay"
-    ],
-    "presets": [
-        //"react",
-        "es2015",
-        "stage-3"
     ]
 }
