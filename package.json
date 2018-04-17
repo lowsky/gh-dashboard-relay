@@ -51,7 +51,7 @@
     "react-scripts": "1.1.2",
     "relay-runtime": "1.5.0",
     "whatwg-fetch": "2.0.4",
-    "yarn.lock": "^0.0.1-security"
+    "yarn.lock": "0.0.1-security"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.3.15",

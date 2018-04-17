@@ -9467,6 +9467,6 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-yarn.lock@^0.0.1-security:
+yarn.lock@0.0.1-security:
   version "0.0.1-security"
   resolved "https://registry.yarnpkg.com/yarn.lock/-/yarn.lock-0.0.1-security.tgz#8e7117924bfe916671b21f14212ba1bb49dfe0c7"
