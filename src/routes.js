@@ -21,6 +21,9 @@ const MainPage = () => (
                             <Link className="mdl-navigation__link" to="/home">
                                 Home
                             </Link>
+                            <a className="mdl-navigation__link" href="./story-book">
+                                Storybook
+                            </a>
                             <Link className="mdl-navigation__link" to="/relay">
                                 GraphQL + Relay Demo
                             </Link>

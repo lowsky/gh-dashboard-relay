@@ -22,7 +22,7 @@
     "cra-start": "PORT=8080 react-app-rewired start",
     "cra-build": "react-app-rewired build",
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
-    "build": "npm run relay ; npm run cra-build",
+    "build": "npm run relay ; npm run cra-build ; npm run build-storybook -- -o build/story-book",
     "lint": "eslint .",
     "dev": "yarn run cra-start",
     "test": "react-app-rewired test --env=jsdom --no-cache ",

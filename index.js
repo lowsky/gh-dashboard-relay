@@ -49,7 +49,7 @@ app.use(express.static('build'));
 
 // doesn't work with webpack-dev-server :(
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(app.get('port'), function () {
