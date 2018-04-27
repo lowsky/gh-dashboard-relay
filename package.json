@@ -56,10 +56,10 @@
     "yarn.lock": "0.0.1-security"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "3.4.2",
-    "@storybook/addon-links": "3.4.2",
-    "@storybook/addons": "3.4.2",
-    "@storybook/react": "3.4.2",
+    "@storybook/addon-actions": "3.4.3",
+    "@storybook/addon-links": "3.4.3",
+    "@storybook/addons": "3.4.3",
+    "@storybook/react": "3.4.3",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.2",
     "babel-eslint": "8.2.3",
