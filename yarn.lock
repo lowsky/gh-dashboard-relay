@@ -1098,13 +1098,12 @@ babel-plugin-react-docgen@^1.9.0:
     lodash "^4.17.0"
     react-docgen "^3.0.0-beta11"
 
-babel-plugin-relay@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-1.5.0.tgz#61145f75f59d6070fb50397832333fa734f8bead"
+babel-plugin-relay@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-1.6.0.tgz#a224da524362d6903a524214a1b840530fdfbd28"
   dependencies:
     babel-runtime "^6.23.0"
     babel-types "^6.24.1"
-    graphql "^0.13.0"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
