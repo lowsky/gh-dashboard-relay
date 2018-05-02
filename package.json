@@ -61,7 +61,7 @@
     "@storybook/addons": "3.4.3",
     "@storybook/react": "3.4.3",
     "babel-cli": "6.26.0",
-    "babel-core": "6.26.2",
+    "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
     "babel-plugin-relay": "1.6.0",
     "babel-register": "6.26.0",
