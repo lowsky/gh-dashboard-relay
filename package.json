@@ -73,7 +73,7 @@
     "eslint-plugin-graphql": "2.1.1",
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-promise": "3.8.0",
-    "eslint-plugin-react": "7.8.2",
+    "eslint-plugin-react": "7.9.1",
     "graphql": "0.13.2",
     "graphql-relay": "0.5.5",
     "jest-junit-reporter": "1.1.0",
