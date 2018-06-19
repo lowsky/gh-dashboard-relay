@@ -8,7 +8,7 @@ const { Environment, Network, RecordSource, Store } = require('relay-runtime');
 const store = new Store(new RecordSource());
 
 const network = Network.create((operation, variables) => {
-    return fetch('/graphql', {
+    return fetch('http://localhost:3000/graphql', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -31,33 +31,37 @@ const environment = new Environment({
 const GithubQuery = graphql`
     query mainQuery {
         github {
-            ...UserRepo_github
+            id
+            # ...UserRepo_github
         }
     }
 `;
 
-let relayRoot = () => (
-    <QueryRenderer
-        environment={environment}
-        query={GithubQuery}
-        render={({ error, props }) => {
-            if (error) {
-                console.error('Failure while rendering in relay root container:', error);
-                return <div>{error.message}</div>;
-            } else if (props) {
-                return (
-                    <div>
-                        <hr />
-                        {
-                            // eslint-disable-next-line react/prop-types
-                            <UserRepo github={props.github} />
-                        }
-                    </div>
-                );
-            }
-            return <div>Loading</div>;
-        }}
-    />
-);
+let relayRoot = () =>
+    true ? (
+        <h2>Sorry, this seems to be broken at the moment, needs a fix... !</h2>
+    ) : (
+        <QueryRenderer
+            environment={environment}
+            query={GithubQuery}
+            render={({ error, props }) => {
+                if (error) {
+                    console.error('Failure while rendering in relay root container:', error);
+                    return <div>{error.message}</div>;
+                } else if (props) {
+                    return (
+                        <div>
+                            <hr />
+                            {
+                                // eslint-disable-next-line react/prop-types
+                                <UserRepo github={props.github} />
+                            }
+                        </div>
+                    );
+                }
+                return <div>Loading</div>;
+            }}
+        />
+    );
 
 export default relayRoot;
