@@ -1,8 +1,8 @@
 # ? serving index.html should work automatically 
-/index.html / 200
+/* /index.html 200
 
-/home /index.html  301!
+/home /  301
 
 # This will redirect all paths under /jobs except the path above
-/relay/*  /index.html  301!  # redirect ignoring if path it exist
-/restful/*  /index.html  301!
+/relay/*    /  301
+/restful/*  /  301
