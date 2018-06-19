@@ -1,4 +1,6 @@
-/ /index.html
+#not needed: serving index.html should work automatically 
+#/ /index.html
+
 /home /index.html  301!
 
 # This will redirect all paths under /jobs except the path above
