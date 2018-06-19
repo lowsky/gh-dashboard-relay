@@ -18,35 +18,46 @@ const githubData = {
         branches: [],
     },
     user: {
-        avatar_url: '',
+        avatar_url: 'http://lorempixel.com/200/200/cats/lorempixel/',
         login: 'lowsky',
     },
+    errorMsg: '',
 };
 
 export default class RestMain extends Component {
-    constructor(props) {
-        super(props);
-        this.state = githubData;
+    constructor() {
+        super();
+        this.state = {
+            ...githubData, // clone
+        };
     }
 
     componentDidMount() {
         const { fetchRepoBranches, fetchUser } = fetchGithubApi;
-        fetchUser('lowsky')
+
+        githubData.errorMsg = ''; // reset
+
+        fetchUser(repoOwnerLogin + 'adfadf')
             .then(user => {
+                if (user.message) {
+                    throw new Error(user.message);
+                }
                 githubData.user = user;
                 this.setState(githubData);
             })
             .catch(ex => {
+                githubData.errorMsg = ex.message;
+                this.setState(githubData);
                 console.log('fetching user info failed', ex);
-                // alert(`Error, while loading user info for user ($user) from github`); // eslint-disable-line quotes
             });
 
         fetchRepoBranches(repo)
             .then(branches => {
+                if (branches.message) {
+                    throw new Error(branches.message);
+                }
                 githubData.repo = {
                     branches,
-                    owner: { login: repoOwnerLogin },
-                    name: repoName,
                 };
                 this.setState(githubData);
                 return branches;
@@ -62,8 +73,9 @@ export default class RestMain extends Component {
                 this.setState(githubData);
             })
             .catch(ex => {
+                githubData.errorMsg = ex.message;
+                this.setState(githubData);
                 console.log('fetching branches info failed', ex);
-                // alert(`Error, while loading branches info for repo ($repo) from github`); // eslint-disable-line quotes
             });
     }
 
@@ -73,6 +85,7 @@ export default class RestMain extends Component {
                 <div className="panel-body">
                     <UserRepo github={this.state} />
                 </div>
+                {this.state.errorMsg && <p> {this.state.errorMsg}</p>}
             </div>
         );
     }
