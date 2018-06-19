@@ -1,5 +1,5 @@
-#not needed: serving index.html should work automatically 
-#/ /index.html
+# ? serving index.html should work automatically 
+/index.html / 200
 
 /home /index.html  301!
 
