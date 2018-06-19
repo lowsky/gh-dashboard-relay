@@ -1,0 +1,6 @@
+/ /index.html
+/home /index.html  301!
+
+# This will redirect all paths under /jobs except the path above
+/relay/*  /index.html  301!  # redirect ignoring if path it exist
+/restful/*  /index.html  301!
