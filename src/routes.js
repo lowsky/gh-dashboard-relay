@@ -34,7 +34,7 @@ const MainPage = () => (
                     </div>
                 </header>
 
-                <main className="mdl-layout__content">
+                <main>
                     <Switch>
                         <Redirect exact from="/" to="/home" />
                         <Route exact path="/home" component={IndexPageMain} />

@@ -9,11 +9,11 @@ const BranchesTable = props => {
     const BranchInfoRow = Ui.createBranchInfoRow(props);
 
     return (
-        <table className="mdl-data-table mdl-js-data-table ">
+        <table className="table is-bordered is-striped is-hoverable">
             <thead>
                 <tr>
-                    <th className="mdl-data-table__cell--non-numeric">Branch</th>
-                    <th className="mdl-data-table__cell--non-numeric">Commit</th>
+                    <th className="is-narrow">Branch</th>
+                    <th className="">Commit</th>
                 </tr>
             </thead>
             <tbody>{repo.branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch} />)}</tbody>

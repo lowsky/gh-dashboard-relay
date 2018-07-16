@@ -16,17 +16,13 @@ let UserRepo = props => {
     const BranchesTable = Ui.createBranchTable(props);
 
     return (
-        <div className="mdl-grid" style={cards}>
-            <div className="mdl-cell mdl-cell--6-col">
-                <Repo repo={repo} />
-            </div>
-            <div className="mdl-cell mdl-cell--6-col">
-                <User user={user} />
-            </div>
-            <div className="mdl-cell mdl-cell--12-col">
+        <React.Fragment>
+            <Repo repo={repo} />
+            <User user={user} />
+            <div className="column">
                 <BranchesTable repo={repo} />
-            </div>
         </div>
+        </React.Fragment>
     );
 };
 UserRepo.propTypes = {

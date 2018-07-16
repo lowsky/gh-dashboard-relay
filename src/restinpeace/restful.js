@@ -25,14 +25,28 @@ const githubData = {
 };
 
 export default class RestMain extends Component {
-    constructor() {
-        super();
+    currentFetcher = () => {};
+
+    constructor(props) {
+        super(props);
         this.state = {
             ...githubData, // clone
         };
     }
 
-    componentDidMount() {
+    componentWillUnmount() {
+        //this.nullifyUpdater();
+    }
+
+    nullifyUpdater() {
+        this.updater = () => {};
+    }
+
+    componentDidMount(prevProps, prevState) {
+        console.error({prevProps, prevState});
+
+        //if (this.props.repoName === prevProps.repoName) {return;}
+
         const { fetchRepoBranches, fetchUser } = fetchGithubApi;
 
         githubData.errorMsg = ''; // reset
@@ -42,12 +56,22 @@ export default class RestMain extends Component {
                 if (user.message) {
                     throw new Error(user.message);
                 }
-                githubData.user = user;
-                this.setState(githubData);
+                //githubData.user = user;
+                this.setState(state => {
+                    return {
+                        ...state,
+                        user: user,
+                    };
+                });
             })
             .catch(ex => {
-                githubData.errorMsg = ex.message;
-                this.setState(githubData);
+                //githubData.errorMsg = ex.message;
+                this.setState(state => {
+                    return {
+                        ...state,
+                        errorMsg: ex.message,
+                    };
+                });
                 console.log('fetching user info failed', ex);
             });
 
@@ -59,7 +83,18 @@ export default class RestMain extends Component {
                 githubData.repo = {
                     branches,
                 };
-                this.setState(githubData);
+
+                this.setState(state => {
+                    return {
+                        ...state,
+                        repo: {
+                            ...state.repo,
+                            branches,
+                        },
+                    };
+                });
+
+                //                this.setState(githubData);
                 return branches;
             })
             .then(branches => {
@@ -70,7 +105,19 @@ export default class RestMain extends Component {
                         return branch;
                     }),
                 };
-                this.setState(githubData);
+                this.setState(state => {
+                    return {
+                        ...state.githubData,
+                        repo: {
+                            ...state.repo,
+                            branches: branches.map(branch => {
+                                branch.lastCommit = lastCommitMock;
+                                return branch;
+                            }),
+                        },
+                    };
+                });
+                //                    this.setState(githubData);
             })
             .catch(ex => {
                 githubData.errorMsg = ex.message;
@@ -90,3 +137,9 @@ export default class RestMain extends Component {
         );
     }
 }
+
+RestMain.defaultProps = {
+    color: 'blue',
+    repoName,
+    username: repoOwnerLogin,
+};
