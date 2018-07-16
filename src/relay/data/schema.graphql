@@ -88,7 +88,9 @@ type GithubTreeEntry {
 
 type GithubUser {
   login: String
-  id: String
+
+    id: ID!
+
   company: String
   avatar_url: String
   repos: [GithubRepo]

@@ -38,7 +38,7 @@ const GithubQuery = graphql`
 `;
 
 let relayRoot = () =>
-    true ? (
+    false ? (
         <h2>Sorry, this seems to be broken at the moment, needs a fix... !</h2>
     ) : (
         <QueryRenderer
