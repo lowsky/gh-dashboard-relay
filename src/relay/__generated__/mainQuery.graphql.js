@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 3a8c6a57836b4fd578237adeaa1f1edc
+ * @relayHash 8635d5ae07f6f2df495d7d5ec35eddf6
  */
 
 /* eslint-disable */
@@ -8,9 +8,13 @@
 'use strict';
 
 /*::
-import type {ConcreteBatch} from 'relay-runtime';
+import type { ConcreteRequest } from 'relay-runtime';
+type UserRepo_github$ref = any;
+export type mainQueryVariables = {||};
 export type mainQueryResponse = {|
-  +github: ?{| |};
+  +github: ?{|
+    +$fragmentRefs: UserRepo_github$ref
+  |}
 |};
 */
 
@@ -25,6 +29,7 @@ query mainQuery {
 fragment UserRepo_github on GithubAPI {
   user(username: "lowsky") {
     ...User_user
+    id
   }
   repo(ownerUsername: "lowsky", name: "dashboard") {
     ...Repo_repo
@@ -42,6 +47,7 @@ fragment Repo_repo on GithubRepo {
   name
   owner {
     login
+    id
   }
 }
 
@@ -72,19 +78,49 @@ fragment CommitWithStatuses_commit on GithubCommit {
 }
 */
 
-const batch /*: ConcreteBatch*/ = {
+const node/*: ConcreteRequest*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "login",
+  "args": null,
+  "storageKey": null
+},
+v1 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "name",
+  "args": null,
+  "storageKey": null
+};
+return {
+  "kind": "Request",
+  "operationKind": "query",
+  "name": "mainQuery",
+  "id": null,
+  "text": "query mainQuery {\n  github {\n    ...UserRepo_github\n  }\n}\n\nfragment UserRepo_github on GithubAPI {\n  user(username: \"lowsky\") {\n    ...User_user\n    id\n  }\n  repo(ownerUsername: \"lowsky\", name: \"dashboard\") {\n    ...Repo_repo\n    ...BranchesTable_repo\n  }\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n    id\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n  }\n}\n",
+  "metadata": {},
   "fragment": {
-    "argumentDefinitions": [],
     "kind": "Fragment",
-    "metadata": null,
     "name": "mainQuery",
+    "type": "GraphQL_github_API",
+    "metadata": null,
+    "argumentDefinitions": [],
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
+        "name": "github",
+        "storageKey": null,
         "args": null,
         "concreteType": "GithubAPI",
-        "name": "github",
         "plural": false,
         "selections": [
           {
@@ -92,33 +128,29 @@ const batch /*: ConcreteBatch*/ = {
             "name": "UserRepo_github",
             "args": null
           }
-        ],
-        "storageKey": null
+        ]
       }
-    ],
-    "type": "GraphQL_github_API"
+    ]
   },
-  "id": null,
-  "kind": "Batch",
-  "metadata": {},
-  "name": "mainQuery",
-  "query": {
-    "argumentDefinitions": [],
-    "kind": "Root",
+  "operation": {
+    "kind": "Operation",
     "name": "mainQuery",
-    "operation": "query",
+    "argumentDefinitions": [],
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
+        "name": "github",
+        "storageKey": null,
         "args": null,
         "concreteType": "GithubAPI",
-        "name": "github",
         "plural": false,
         "selections": [
           {
             "kind": "LinkedField",
             "alias": null,
+            "name": "user",
+            "storageKey": "user(username:\"lowsky\")",
             "args": [
               {
                 "kind": "Literal",
@@ -128,36 +160,31 @@ const batch /*: ConcreteBatch*/ = {
               }
             ],
             "concreteType": "GithubUser",
-            "name": "user",
             "plural": false,
             "selections": [
+              v0,
               {
                 "kind": "ScalarField",
                 "alias": null,
-                "args": null,
-                "name": "login",
-                "storageKey": null
-              },
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
                 "name": "company",
+                "args": null,
                 "storageKey": null
               },
               {
                 "kind": "ScalarField",
                 "alias": null,
-                "args": null,
                 "name": "avatar_url",
+                "args": null,
                 "storageKey": null
-              }
-            ],
-            "storageKey": "user{\"username\":\"lowsky\"}"
+              },
+              v1
+            ]
           },
           {
             "kind": "LinkedField",
             "alias": null,
+            "name": "repo",
+            "storageKey": "repo(name:\"dashboard\",ownerUsername:\"lowsky\")",
             "args": [
               {
                 "kind": "Literal",
@@ -173,145 +200,120 @@ const batch /*: ConcreteBatch*/ = {
               }
             ],
             "concreteType": "GithubRepo",
-            "name": "repo",
             "plural": false,
             "selections": [
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
-                "name": "name",
-                "storageKey": null
-              },
+              v2,
               {
                 "kind": "LinkedField",
                 "alias": null,
+                "name": "owner",
+                "storageKey": null,
                 "args": null,
                 "concreteType": "GithubUser",
-                "name": "owner",
                 "plural": false,
                 "selections": [
-                  {
-                    "kind": "ScalarField",
-                    "alias": null,
-                    "args": null,
-                    "name": "login",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
+                  v0,
+                  v1
+                ]
               },
               {
                 "kind": "LinkedField",
                 "alias": null,
+                "name": "branches",
+                "storageKey": null,
                 "args": null,
                 "concreteType": "GithubBranch",
-                "name": "branches",
                 "plural": true,
                 "selections": [
+                  v2,
                   {
-                    "kind": "InlineFragment",
-                    "type": "GithubBranch",
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "lastCommit",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "GithubCommit",
+                    "plural": false,
                     "selections": [
                       {
                         "kind": "ScalarField",
                         "alias": null,
+                        "name": "sha",
                         "args": null,
-                        "name": "name",
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "message",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "date",
+                        "args": null,
                         "storageKey": null
                       },
                       {
                         "kind": "LinkedField",
                         "alias": null,
+                        "name": "status",
+                        "storageKey": null,
                         "args": null,
-                        "concreteType": "GithubCommit",
-                        "name": "lastCommit",
-                        "plural": false,
+                        "concreteType": "GithubStatus",
+                        "plural": true,
                         "selections": [
                           {
                             "kind": "ScalarField",
                             "alias": null,
+                            "name": "context",
                             "args": null,
-                            "name": "sha",
                             "storageKey": null
                           },
                           {
                             "kind": "ScalarField",
                             "alias": null,
+                            "name": "description",
                             "args": null,
-                            "name": "message",
                             "storageKey": null
                           },
                           {
                             "kind": "ScalarField",
                             "alias": null,
+                            "name": "state",
                             "args": null,
-                            "name": "date",
                             "storageKey": null
                           },
                           {
-                            "kind": "LinkedField",
+                            "kind": "ScalarField",
                             "alias": null,
+                            "name": "target_url",
                             "args": null,
-                            "concreteType": "GithubStatus",
-                            "name": "status",
-                            "plural": true,
-                            "selections": [
-                              {
-                                "kind": "ScalarField",
-                                "alias": null,
-                                "args": null,
-                                "name": "context",
-                                "storageKey": null
-                              },
-                              {
-                                "kind": "ScalarField",
-                                "alias": null,
-                                "args": null,
-                                "name": "description",
-                                "storageKey": null
-                              },
-                              {
-                                "kind": "ScalarField",
-                                "alias": null,
-                                "args": null,
-                                "name": "state",
-                                "storageKey": null
-                              },
-                              {
-                                "kind": "ScalarField",
-                                "alias": null,
-                                "args": null,
-                                "name": "target_url",
-                                "storageKey": null
-                              },
-                              {
-                                "kind": "ScalarField",
-                                "alias": null,
-                                "args": null,
-                                "name": "updated_at",
-                                "storageKey": null
-                              }
-                            ],
+                            "storageKey": null
+                          },
+                          {
+                            "kind": "ScalarField",
+                            "alias": null,
+                            "name": "updated_at",
+                            "args": null,
                             "storageKey": null
                           }
-                        ],
-                        "storageKey": null
+                        ]
                       }
                     ]
                   }
-                ],
-                "storageKey": null
+                ]
               }
-            ],
-            "storageKey": "repo{\"name\":\"dashboard\",\"ownerUsername\":\"lowsky\"}"
+            ]
           }
-        ],
-        "storageKey": null
+        ]
       }
     ]
-  },
-  "text": "query mainQuery {\n  github {\n    ...UserRepo_github\n  }\n}\n\nfragment UserRepo_github on GithubAPI {\n  user(username: \"lowsky\") {\n    ...User_user\n  }\n  repo(ownerUsername: \"lowsky\", name: \"dashboard\") {\n    ...Repo_repo\n    ...BranchesTable_repo\n  }\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n  }\n}\n"
+  }
 };
-
-module.exports = batch;
+})();
+// prettier-ignore
+(node/*: any*/).hash = '88a3edb48a603a39d1416ace8434cb95';
+module.exports = node;

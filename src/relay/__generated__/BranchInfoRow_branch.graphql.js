@@ -7,33 +7,41 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+type CommitWithStatuses_commit$ref = any;
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type BranchInfoRow_branch$ref: FragmentReference;
 export type BranchInfoRow_branch = {|
-  +name: ?string;
-  +lastCommit: ?{| |};
+  +name: ?string,
+  +lastCommit: ?{|
+    +$fragmentRefs: CommitWithStatuses_commit$ref
+  |},
+  +$refType: BranchInfoRow_branch$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "metadata": null,
   "name": "BranchInfoRow_branch",
+  "type": "GithubBranch",
+  "metadata": null,
+  "argumentDefinitions": [],
   "selections": [
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "name",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "LinkedField",
       "alias": null,
+      "name": "lastCommit",
+      "storageKey": null,
       "args": null,
       "concreteType": "GithubCommit",
-      "name": "lastCommit",
       "plural": false,
       "selections": [
         {
@@ -41,11 +49,10 @@ const fragment /*: ConcreteFragment*/ = {
           "name": "CommitWithStatuses_commit",
           "args": null
         }
-      ],
-      "storageKey": null
+      ]
     }
-  ],
-  "type": "GithubBranch"
+  ]
 };
-
-module.exports = fragment;
+// prettier-ignore
+(node/*: any*/).hash = '63a94145a0e0c902e3ffeee712c071db';
+module.exports = node;

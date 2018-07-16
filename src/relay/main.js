@@ -31,8 +31,7 @@ const environment = new Environment({
 const GithubQuery = graphql`
     query mainQuery {
         github {
-            id
-            # ...UserRepo_github
+            ...UserRepo_github
         }
     }
 `;

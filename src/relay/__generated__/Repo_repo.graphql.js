@@ -7,49 +7,53 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type Repo_repo$ref: FragmentReference;
 export type Repo_repo = {|
-  +name: ?string;
+  +name: ?string,
   +owner: ?{|
-    +login: ?string;
-  |};
+    +login: ?string
+  |},
+  +$refType: Repo_repo$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "metadata": null,
   "name": "Repo_repo",
+  "type": "GithubRepo",
+  "metadata": null,
+  "argumentDefinitions": [],
   "selections": [
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "name",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "LinkedField",
       "alias": null,
+      "name": "owner",
+      "storageKey": null,
       "args": null,
       "concreteType": "GithubUser",
-      "name": "owner",
       "plural": false,
       "selections": [
         {
           "kind": "ScalarField",
           "alias": null,
-          "args": null,
           "name": "login",
+          "args": null,
           "storageKey": null
         }
-      ],
-      "storageKey": null
+      ]
     }
-  ],
-  "type": "GithubRepo"
+  ]
 };
-
-module.exports = fragment;
+// prettier-ignore
+(node/*: any*/).hash = '48dd795de55f30c5bdef3d9f4ce6cea7';
+module.exports = node;

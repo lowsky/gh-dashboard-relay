@@ -7,23 +7,36 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+type BranchesTable_repo$ref = any;
+type Repo_repo$ref = any;
+type User_user$ref = any;
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type UserRepo_github$ref: FragmentReference;
 export type UserRepo_github = {|
-  +user: ?{| |};
-  +repo: ?{| |};
+  +user: ?{|
+    +$fragmentRefs: User_user$ref
+  |},
+  +repo: ?{|
+    +$fragmentRefs: Repo_repo$ref & BranchesTable_repo$ref
+  |},
+  +$refType: UserRepo_github$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "metadata": null,
   "name": "UserRepo_github",
+  "type": "GithubAPI",
+  "metadata": null,
+  "argumentDefinitions": [],
   "selections": [
     {
       "kind": "LinkedField",
       "alias": null,
+      "name": "user",
+      "storageKey": "user(username:\"lowsky\")",
       "args": [
         {
           "kind": "Literal",
@@ -33,7 +46,6 @@ const fragment /*: ConcreteFragment*/ = {
         }
       ],
       "concreteType": "GithubUser",
-      "name": "user",
       "plural": false,
       "selections": [
         {
@@ -41,12 +53,13 @@ const fragment /*: ConcreteFragment*/ = {
           "name": "User_user",
           "args": null
         }
-      ],
-      "storageKey": "user{\"username\":\"lowsky\"}"
+      ]
     },
     {
       "kind": "LinkedField",
       "alias": null,
+      "name": "repo",
+      "storageKey": "repo(name:\"dashboard\",ownerUsername:\"lowsky\")",
       "args": [
         {
           "kind": "Literal",
@@ -62,7 +75,6 @@ const fragment /*: ConcreteFragment*/ = {
         }
       ],
       "concreteType": "GithubRepo",
-      "name": "repo",
       "plural": false,
       "selections": [
         {
@@ -75,11 +87,10 @@ const fragment /*: ConcreteFragment*/ = {
           "name": "BranchesTable_repo",
           "args": null
         }
-      ],
-      "storageKey": "repo{\"name\":\"dashboard\",\"ownerUsername\":\"lowsky\"}"
+      ]
     }
-  ],
-  "type": "GithubAPI"
+  ]
 };
-
-module.exports = fragment;
+// prettier-ignore
+(node/*: any*/).hash = '76b766f8d7d9a862ad7fe1874cef0d9b';
+module.exports = node;

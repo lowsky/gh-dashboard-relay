@@ -7,97 +7,101 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type CommitWithStatuses_commit$ref: FragmentReference;
 export type CommitWithStatuses_commit = {|
-  +sha: ?string;
-  +message: ?string;
-  +date: ?string;
+  +sha: ?string,
+  +message: ?string,
+  +date: ?string,
   +status: ?$ReadOnlyArray<?{|
-    +context: ?string;
-    +description: ?string;
-    +state: ?string;
-    +target_url: ?string;
-    +updated_at: ?string;
-  |}>;
+    +context: ?string,
+    +description: ?string,
+    +state: ?string,
+    +target_url: ?string,
+    +updated_at: ?string,
+  |}>,
+  +$refType: CommitWithStatuses_commit$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "metadata": null,
   "name": "CommitWithStatuses_commit",
+  "type": "GithubCommit",
+  "metadata": null,
+  "argumentDefinitions": [],
   "selections": [
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "sha",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "message",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "date",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "LinkedField",
       "alias": null,
+      "name": "status",
+      "storageKey": null,
       "args": null,
       "concreteType": "GithubStatus",
-      "name": "status",
       "plural": true,
       "selections": [
         {
           "kind": "ScalarField",
           "alias": null,
-          "args": null,
           "name": "context",
+          "args": null,
           "storageKey": null
         },
         {
           "kind": "ScalarField",
           "alias": null,
-          "args": null,
           "name": "description",
+          "args": null,
           "storageKey": null
         },
         {
           "kind": "ScalarField",
           "alias": null,
-          "args": null,
           "name": "state",
+          "args": null,
           "storageKey": null
         },
         {
           "kind": "ScalarField",
           "alias": null,
-          "args": null,
           "name": "target_url",
+          "args": null,
           "storageKey": null
         },
         {
           "kind": "ScalarField",
           "alias": null,
-          "args": null,
           "name": "updated_at",
+          "args": null,
           "storageKey": null
         }
-      ],
-      "storageKey": null
+      ]
     }
-  ],
-  "type": "GithubCommit"
+  ]
 };
-
-module.exports = fragment;
+// prettier-ignore
+(node/*: any*/).hash = 'cf04016c8a60d1891fa2db687cc186f9';
+module.exports = node;
