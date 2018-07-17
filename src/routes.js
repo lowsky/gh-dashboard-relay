@@ -14,7 +14,7 @@ const MainPage = () => (
                         <span className="navbar-item">
                             <a href="https://github.com/lowsky/dashboard/">Dashboard</a>
                         </span>
-                        <div className="navbar-burger" data-target="navMenu" >
+                        <div className="navbar-burger" data-target="navMenu">
                             <span aria-hidden="true" />
                             <span aria-hidden="true" />
                             <span aria-hidden="true" />

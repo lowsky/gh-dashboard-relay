@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 
 import Ui from '../components';
 
-const cards = {
-    // height: '400px'
-};
-
 let UserRepo = props => {
     const { github = {} } = props;
     const { user, repo = { branches: [] } } = github;
@@ -21,7 +17,7 @@ let UserRepo = props => {
             <User user={user} />
             <div className="column">
                 <BranchesTable repo={repo} />
-        </div>
+            </div>
         </React.Fragment>
     );
 };

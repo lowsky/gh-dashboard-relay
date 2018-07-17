@@ -15,14 +15,14 @@ function icon4context(context) {
     if (context === 'bitHound - Dependencies') {
         return <ContextLogo src={bithoundLogo} alt="bitHound - Dependencies" />;
     }
-    if (context.indexOf('Codacy/PR')>=0) {
+    if (context.indexOf('Codacy/PR') >= 0) {
         return <ContextLogo src={codacyLogo} alt="codacy" />;
     }
-    if (context.indexOf('ci/circleci')>=0) {
+    if (context.indexOf('ci/circleci') >= 0) {
         return <ContextLogo src={circleciLogo} alt="circleci" />;
     }
 
-    if (context.indexOf('security/snyk')>=0) {
+    if (context.indexOf('security/snyk') >= 0) {
         return <ContextLogo src={snykLogo} alt="snyk" />;
     }
 
@@ -31,8 +31,15 @@ function icon4context(context) {
 
 function icon4status(status) {
     const StatusIcon = ({ type }) => {
-        return <i className={"fa fa-" + type} style={{
-            verticalAlign: 'bottom'}} alt={"status: "+type}></i>
+        return (
+            <i
+                className={'fa fa-' + type}
+                style={{
+                    verticalAlign: 'bottom',
+                }}
+                alt={'status: ' + type}
+            />
+        );
     };
     StatusIcon.propTypes = {
         type: PropTypes.string,
@@ -104,16 +111,16 @@ let CommitWithStatus = ({ commit = {} }) => {
     return (
         <div key={sha}>
             <div>
-            <a href={githubCommit}>
-                <b>{message.split('\n\n', 1)}</b>
-            </a>
+                <a href={githubCommit}>
+                    <b>{message.split('\n\n', 1)}</b>
+                </a>
             </div>
-            <div className="level" style={{justifyContent:'normal'}}>
+            <div className="level" style={{ justifyContent: 'normal' }}>
                 <i>{date}</i>
                 &nbsp; by &nbsp;
                 {author.avatar_url && <img width={32} src={author.avatar_url} title="avatar" />} &nbsp;
                 <span>{author.login}</span> &nbsp;
-                {author.email && <a href={'mailto:' + author.email}>{"?" + author.name}</a>}
+                {author.email && <a href={'mailto:' + author.email}>{'?' + author.name}</a>}
             </div>
             {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
         </div>

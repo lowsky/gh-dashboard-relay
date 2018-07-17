@@ -1,21 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const card = {
-    width: '320px',
-};
-
 const User = ({ user = {} }) => {
     const { avatar_url, login = '?', company } = user;
 
     return (
-
         <div className="card">
             <div className="card-content">
                 <div className="media">
                     <div className="media-left">
                         <figure className="image is-48x48">
-                            <img src={avatar_url} alt="avatar"/>
+                            <img src={avatar_url} alt="avatar" />
                         </figure>
                     </div>
                     <div className="media-content">
@@ -23,9 +18,7 @@ const User = ({ user = {} }) => {
                         <p className="subtitle is-6">{company}</p>
                     </div>
                 </div>
-                <div className="content">
-                    Owner
-                </div>
+                <div className="content">Owner</div>
             </div>
         </div>
     );

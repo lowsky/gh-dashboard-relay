@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const card = {
-    width: '320px',
-    float: 'left',
-};
-
 const Repo = ({ repo = {} }) => {
     const { owner = {}, name } = repo;
 
@@ -20,7 +15,7 @@ const Repo = ({ repo = {} }) => {
                         {owner.login} / {name}
                     </strong>
                     <span className="icon">
-                      <i className="fa fa-github"></i>
+                        <i className="fa fa-github" />
                     </span>
                 </a>
             </h3>
