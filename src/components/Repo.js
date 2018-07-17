@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const card = {
-    width: '320px',
-    float: 'left',
-};
-
 const Repo = ({ repo = {} }) => {
     const { owner = {}, name } = repo;
 
     return (
-        <div className="mdl-card mdl-shadow--2dp" style={card}>
-            <div className="mdl-card__title">
-                <h2 className="mdl-card__title-text">Repository</h2>
-            </div>
-            <div className="mdl-card__supporting-text">
-                {owner.login} / {name}
-            </div>
-            <div className="mdl-card__menu">
-                <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                    <i className="material-icons">link</i>
-                </button>
-            </div>
+        <div className="column">
+            <h1 className="title is-3">
+                <span className="has-text-grey-light">Repository</span>
+            </h1>
+            <h3 className="subTitle is-3">
+                <a href={`https://github.com/${owner.login}/${name}`}>
+                    <strong>
+                        {owner.login} / {name}
+                    </strong>
+                    <span className="icon">
+                        <i className="fa fa-github" />
+                    </span>
+                </a>
+            </h3>
         </div>
     );
 };
