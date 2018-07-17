@@ -8,29 +8,50 @@ import RestfulMain from './restinpeace/restful';
 const MainPage = () => (
     <Router>
         <div>
-            <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-                <header className="mdl-layout__header">
-                    <div className="mdl-layout__header-row">
-                        <span className="mdl-layout-title">
-                            <a className="mdl-navigation__link" href="https://github.com/lowsky/dashboard/">
-                                Github Repo Dashboard
-                            </a>
+            <div>
+                <nav className="navbar" role="navigation" aria-label="main navigation">
+                    <div className="navbar-brand">
+                        <span className="navbar-item">
+                            <a href="https://github.com/lowsky/dashboard/">Dashboard</a>
                         </span>
-                        <div className="mdl-layout-spacer" />
-                        <nav className="mdl-navigation">
-                            <Link className="mdl-navigation__link" to="/home">
-                                Home
-                            </Link>
-                            <a className="mdl-navigation__link" href="./story-book">
-                                Storybook
-                            </a>
-                            <Link className="mdl-navigation__link" to="/relay">
-                                GraphQL + Relay Demo
-                            </Link>
-                            <Link className="mdl-navigation__link" to="/restful">
-                                RESTful Demo
-                            </Link>
-                        </nav>
+                        <div className="navbar-burger" data-target="navMenu" >
+                            <span aria-hidden="true" />
+                            <span aria-hidden="true" />
+                            <span aria-hidden="true" />
+                        </div>
+                    </div>
+
+                    <div className={'navbar-menu '} id="navMenu" aria-label="menu" aria-expanded="false">
+                        <div className="navbar-start">
+                            <span className="navbar-item">
+                                <Link to="/home">Home</Link>
+                            </span>
+                            <span className="navbar-item">
+                                <a href="./story-book">Storybook</a>
+                            </span>
+                            <span className="navbar-item">
+                                <Link to="/relay">GraphQL + Relay Demo</Link>
+                            </span>
+                            <span className="navbar-item">
+                                <Link to="/restful">RESTful Demo</Link>
+                            </span>
+                        </div>
+
+                        <div className="navbar-end">
+                            <span className="navbar-item">
+                                <a href="https://github.com/lowsky/dashboard/">
+                                    <span>
+                                        <i className="fab fa-github" />
+                                    </span>
+                                    <span>Github Repo</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </nav>
+                <header>
+                    <div>
+                        <nav />
                     </div>
                 </header>
 
