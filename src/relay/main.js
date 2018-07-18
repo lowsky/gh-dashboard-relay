@@ -36,31 +36,28 @@ const GithubQuery = graphql`
     }
 `;
 
-let relayRoot = () =>
-    false ? (
-        <h2>Sorry, this seems to be broken at the moment, needs a fix... !</h2>
-    ) : (
-        <QueryRenderer
-            environment={environment}
-            query={GithubQuery}
-            render={({ error, props }) => {
-                if (error) {
-                    console.error('Failure while rendering in relay root container:', error);
-                    return <div>{error.message}</div>;
-                } else if (props) {
-                    return (
-                        <div>
-                            <hr />
-                            {
-                                // eslint-disable-next-line react/prop-types
-                                <UserRepo github={props.github} />
-                            }
-                        </div>
-                    );
-                }
-                return <div>Loading</div>;
-            }}
-        />
-    );
+let relayRoot = () => (
+    <QueryRenderer
+        environment={environment}
+        query={GithubQuery}
+        render={({ error, props }) => {
+            if (error) {
+                console.error('Failure while rendering in relay root container:', error);
+                return <div>{error.message}</div>;
+            } else if (props) {
+                return (
+                    <div>
+                        <hr />
+                        {
+                            // eslint-disable-next-line react/prop-types
+                            <UserRepo github={props.github} />
+                        }
+                    </div>
+                );
+            }
+            return <div>Loading</div>;
+        }}
+    />
+);
 
 export default relayRoot;
