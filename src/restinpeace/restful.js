@@ -37,7 +37,7 @@ export default class RestMain extends Component {
 
         githubData.errorMsg = ''; // reset
 
-        fetchUser(repoOwnerLogin + 'adfadf')
+        fetchUser(repoOwnerLogin)
             .then(user => {
                 if (user.message) {
                     throw new Error(user.message);
