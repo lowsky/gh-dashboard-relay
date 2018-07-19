@@ -31,15 +31,7 @@ function icon4context(context) {
 
 function icon4status(status) {
     const StatusIcon = ({ type }) => {
-        return (
-            <i
-                className={'fa fa-' + type}
-                style={{
-                    verticalAlign: 'bottom',
-                }}
-                alt={'status: ' + type}
-            />
-        );
+        return <i className={'fa fa-' + type} style={{ verticalAlign: 'bottom' }} />;
     };
     StatusIcon.propTypes = {
         type: PropTypes.string,
