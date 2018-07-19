@@ -6,7 +6,7 @@ import circleciLogo from './circleci.svg';
 import codacyLogo from './codacy.png';
 import snykLogo from './snyk.svg';
 
-const ContextLogo = props => <img width={48} height={48} {...props} style={{ verticalAlign: 'top' }} alt="" />;
+const ContextLogo = props => <img width={32} height={32} {...props} style={{ verticalAlign: 'middle' }} alt="" />;
 
 function icon4context(context) {
     if (context === 'bitHound - Code') {
@@ -15,14 +15,14 @@ function icon4context(context) {
     if (context === 'bitHound - Dependencies') {
         return <ContextLogo src={bithoundLogo} alt="bitHound - Dependencies" />;
     }
-    if (context === 'codacy/pr') {
+    if (context.indexOf('Codacy/PR') >= 0) {
         return <ContextLogo src={codacyLogo} alt="codacy" />;
     }
-    if (context === 'ci/circleci') {
+    if (context.indexOf('ci/circleci') >= 0) {
         return <ContextLogo src={circleciLogo} alt="circleci" />;
     }
 
-    if (context === 'security/snyk') {
+    if (context.indexOf('security/snyk') >= 0) {
         return <ContextLogo src={snykLogo} alt="snyk" />;
     }
 
@@ -30,26 +30,32 @@ function icon4context(context) {
 }
 
 function icon4status(status) {
-    const StatusIcon = ({ type }) => (
-        <i className="material-icons" style={{ fontSize: '48px' }}>
-            {type}
-        </i>
-    );
+    const StatusIcon = ({ type }) => {
+        return (
+            <i
+                className={'fa fa-' + type}
+                style={{
+                    verticalAlign: 'bottom',
+                }}
+                alt={'status: ' + type}
+            />
+        );
+    };
     StatusIcon.propTypes = {
         type: PropTypes.string,
     };
 
     if (status === 'success') {
-        return <StatusIcon type="check" />;
+        return <StatusIcon type="check-circle" />;
     }
     if (status === 'pending') {
-        return <StatusIcon type="hourglass_empty" />;
+        return <StatusIcon type="hourglass" />;
     }
     if (status === 'failure') {
-        return <StatusIcon type="cancel" />;
+        return <StatusIcon type="exclamation-circle" />;
     }
     if (status === 'error') {
-        return <StatusIcon type="error" />;
+        return <StatusIcon type="times" />;
     }
     return <span>?{status} </span>;
 }
@@ -104,18 +110,18 @@ let CommitWithStatus = ({ commit = {} }) => {
 
     return (
         <div key={sha}>
-            <a href={githubCommit}>
-                <b>{message.split('\n\n', 1)}</b>
-            </a>
-            <br />
-            <span>
+            <div>
+                <a href={githubCommit}>
+                    <b>{message.split('\n\n', 1)}</b>
+                </a>
+            </div>
+            <div className="level" style={{ justifyContent: 'normal' }}>
                 <i>{date}</i>
-            </span>{' '}
-            &nbsp; by &nbsp;
-            <img width={32} src={author.avatar_url} alt="author-avatar" /> &nbsp;
-            {author.login}
-            <a href={'mailto:' + author.email}>{author.name}</a>
-            <br />
+                &nbsp; by &nbsp;
+                {author.avatar_url && <img width={32} src={author.avatar_url} title="avatar" />} &nbsp;
+                <span>{author.login}</span> &nbsp;
+                {author.email && <a href={'mailto:' + author.email}>{'?' + author.name}</a>}
+            </div>
             {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
         </div>
     );
