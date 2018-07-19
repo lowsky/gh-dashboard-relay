@@ -14,7 +14,7 @@ const indexPageContent = () => (
                 <code>npm start</code>
             </li>
             <li>
-                <b>RESTFul Demo</b> - just fetches info from Github's public open API via Rest calls.
+                <b>RESTFul Demo</b> - just fetches info from Github&apos;s public open API via Rest calls.
             </li>
         </ul>
         <p>
