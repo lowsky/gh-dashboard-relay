@@ -86,7 +86,7 @@
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-test-renderer": "16.4.1",
-    "relay-compiler": "1.6.0",
+    "relay-compiler": "1.6.1",
     "svg-url-loader": "2.3.2",
     "xunit-file": "1.0.0"
   }
