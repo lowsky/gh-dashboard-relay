@@ -30,9 +30,7 @@ function icon4context(context) {
 }
 
 function icon4status(status) {
-    const StatusIcon = ({ type }) => {
-        <i className={'fa fa-' + type} style={{ verticalAlign: 'bottom' }} />;
-    };
+    const StatusIcon = ({ type }) => <i className={'fa fa-' + type} style={{ verticalAlign: 'bottom' }} />;
     StatusIcon.propTypes = {
         type: PropTypes.string,
     };
@@ -110,7 +108,7 @@ let CommitWithStatus = ({ commit = {} }) => {
             <div className="level" style={{ justifyContent: 'normal' }}>
                 <i>{date}</i>
                 &nbsp; by &nbsp;
-                {author.avatar_url && <img width={32} src={author.avatar_url} title="avatar" />} &nbsp;
+                {author.avatar_url && <img width={32} src={author.avatar_url} alt="avatar" />} &nbsp;
                 <span>{author.login}</span> &nbsp;
                 {author.email && <a href={'mailto:' + author.email}>{'?' + author.name}</a>}
             </div>

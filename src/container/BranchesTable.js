@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Ui from '../components';
 
 const BranchesTable = props => {
-    const { repo = { branches: [] } } = props;
+    const { repo = {} } = props;
+    const { branches = [] } = repo;
 
     const BranchInfoRow = Ui.createBranchInfoRow(props);
 
@@ -16,14 +17,14 @@ const BranchesTable = props => {
                     <th className="">Commit</th>
                 </tr>
             </thead>
-            <tbody>{repo.branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch} />)}</tbody>
+            <tbody>{branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch} />)}</tbody>
         </table>
     );
 };
 
 BranchesTable.propTypes = {
     repo: PropTypes.shape({
-        branch: PropTypes.arrayOf(PropTypes.string),
+        branches: PropTypes.arrayOf(PropTypes.string),
     }),
 };
 

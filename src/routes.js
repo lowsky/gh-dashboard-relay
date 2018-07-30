@@ -9,7 +9,7 @@ const MainPage = () => (
     <Router>
         <div>
             <div>
-                <nav className="navbar" role="navigation" aria-label="main navigation">
+                <nav className="navbar" aria-label="main navigation">
                     <div className="navbar-brand">
                         <span className="navbar-item">
                             <a href="https://github.com/lowsky/dashboard/">Dashboard</a>

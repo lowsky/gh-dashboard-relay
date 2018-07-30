@@ -99,12 +99,16 @@ export default class RestMain extends Component {
     }
 
     render() {
+        const { errorMsg } = this.state;
         return (
-            <div className="panel-default">
-                <div className="panel-body">
+            <div className="content">
+                <div className="box">
+                    <span className="icon is-large has-text-danger">
+                        <i className="fas fa-3x fa-spinner" />
+                    </span>
                     <UserRepo github={this.state} />
                 </div>
-                {this.state.errorMsg && <p> {this.state.errorMsg}</p>}
+                {errorMsg && <div className="notification"> {errorMsg} </div>}
             </div>
         );
     }
