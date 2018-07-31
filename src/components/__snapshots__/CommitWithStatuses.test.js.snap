@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommitWithStatuses component should render as expected 1`] = `
+<div>
+  <div>
+    <a
+      href="https://github.com/lowsky/dashboard/tree/<missing>"
+    >
+      <b>
+        some-message,
+      </b>
+    </a>
+  </div>
+  <div
+    className="level"
+    style={
+      Object {
+        "justifyContent": "normal",
+      }
+    }
+  >
+    <i>
+      01.01.2001
+    </i>
+      by  
+    <img
+      alt="avatar"
+      src="avatar_url"
+      width={32}
+    />
+      
+    <span>
+      login
+    </span>
+      
+    <a
+      href="mailto:email"
+    >
+      ?name
+    </a>
+  </div>
+  <div
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  >
+    <a
+      className="commitLink"
+      href="target_url"
+      style={
+        Object {
+          "color": "inherit",
+        }
+      }
+      title="context description"
+    >
+      <span>
+        context
+      </span>
+      <span>
+        ?
+        state
+         
+      </span>
+    </a>
+  </div>
+</div>
+`;

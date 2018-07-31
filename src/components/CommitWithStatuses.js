@@ -8,7 +8,7 @@ import snykLogo from './snyk.svg';
 
 const ContextLogo = props => <img width={32} height={32} {...props} style={{ verticalAlign: 'middle' }} alt="" />;
 
-function icon4context(context) {
+function icon4context(context = '') {
     if (context === 'bitHound - Code') {
         return <ContextLogo src={bithoundLogo} alt="bitHound - Code" />;
     }
