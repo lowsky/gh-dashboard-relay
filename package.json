@@ -24,10 +24,10 @@
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "npm run relay ; npm run cra-build ; npm run build-storybook -- -o build/story-book",
     "lint": "eslint .",
-    "dev": "yarn run cra-start",
+    "dev": "npm run cra-start",
     "test": "react-app-rewired test --env=jsdom --no-cache ",
-    "coverage": "yarn run test --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
-    "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml yarn test --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
+    "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
+    "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
     "start": "babel-node .",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
