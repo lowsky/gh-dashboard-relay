@@ -1,25 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Repo from './Repo';
 import renderer from 'react-test-renderer';
 
-describe('Repo component', () => {
+import User from '../User';
+
+describe('User component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Repo />, div);
+        ReactDOM.render(<User />, div);
     });
 
     it('should render as expected', () => {
         const props = {
-            repo: {
-                owner: {
-                    login: 'owner-login',
-                },
-                name: 'name,',
-            },
+            avatar_url: 'www.avatar.url',
+            login: 'login',
+            company: 'comp',
         };
-        const appContainer = renderer.create(<Repo {...props} />).toJSON();
+        const appContainer = renderer.create(<User {...props} />).toJSON();
         expect(appContainer).toMatchSnapshot();
     });
 });

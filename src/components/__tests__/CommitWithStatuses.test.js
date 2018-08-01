@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import CommitWithStatuses from './CommitWithStatuses';
+import CommitWithStatuses from '../CommitWithStatuses';
 import renderer from 'react-test-renderer';
 
 export const status = {
