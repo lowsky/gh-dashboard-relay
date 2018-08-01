@@ -43,11 +43,14 @@ let relayRoot = () => (
         render={({ error, props }) => {
             if (error) {
                 console.error('Failure while rendering in relay root container:', error);
-                return <div>{error.message}</div>;
+                return (
+                    <div className="notification has-text-danger">
+                        Error! While trying to load data from the server: {error.message}{' '}
+                    </div>
+                );
             } else if (props) {
                 return (
-                    <div>
-                        <hr />
+                    <div className="box">
                         {
                             // eslint-disable-next-line react/prop-types
                             <UserRepo github={props.github} />
@@ -55,7 +58,15 @@ let relayRoot = () => (
                     </div>
                 );
             }
-            return <div>Loading</div>;
+
+            return (
+                <div className="box">
+                    <span className="icon is-large ">
+                        <i className="fas fa-spinner fa-pulse" />
+                    </span>
+                    Loading ...
+                </div>
+            );
         }}
     />
 );

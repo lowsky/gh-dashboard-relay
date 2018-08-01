@@ -24,10 +24,10 @@
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "npm run relay ; npm run cra-build ; npm run build-storybook -- -o build/story-book",
     "lint": "eslint .",
-    "dev": "yarn run cra-start",
+    "dev": "npm run cra-start",
     "test": "react-app-rewired test --env=jsdom --no-cache ",
-    "coverage": "yarn run test --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
-    "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml yarn test --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
+    "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
+    "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
     "start": "babel-node .",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
@@ -44,6 +44,7 @@
     "babel-preset-env": "1.7.0",
     "babel-preset-stage-3": "6.24.1",
     "babel-runtime": "6.26.0",
+    "bulma": "^0.7.1",
     "cors": "2.8.4",
     "dotenv": "6.0.0",
     "express": "4.16.3",
@@ -52,8 +53,7 @@
     "helmet": "3.12.1",
     "react-scripts": "1.1.2",
     "relay-runtime": "1.5.0",
-    "whatwg-fetch": "2.0.4",
-    "yarn.lock": "0.0.1-security"
+    "whatwg-fetch": "2.0.4"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.4.8",
