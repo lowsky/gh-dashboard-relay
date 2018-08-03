@@ -26,6 +26,7 @@ const githubData = {
 
 export default class RestMain extends Component {
     state = {
+        loading: true,
         ...githubData, // clone
     };
 
@@ -42,6 +43,7 @@ export default class RestMain extends Component {
                 this.setState(state => {
                     return {
                         ...state,
+                        loading: false,
                         user: user,
                     };
                 });
@@ -99,16 +101,18 @@ export default class RestMain extends Component {
     }
 
     render() {
-        const { errorMsg } = this.state;
+        const { errorMsg, loading } = this.state;
         return (
             <div className="content">
                 <div className="box">
-                    <span className="icon is-large has-text-danger">
-                        <i className="fas fa-3x fa-spinner" />
-                    </span>
+                    {loading && (
+                        <span className="icon is-large">
+                            <i className="fas fa-3x fa-spinner fa-pulse" />
+                        </span>
+                    )}
                     <UserRepo github={this.state} />
                 </div>
-                {errorMsg && <div className="notification"> {errorMsg} </div>}
+                {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
             </div>
         );
     }
