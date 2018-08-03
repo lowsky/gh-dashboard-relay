@@ -105,9 +105,11 @@ export default class RestMain extends Component {
         return (
             <div className="content">
                 <div className="box">
-                    {loading && <span className="icon is-large">
-                        <i className="fas fa-3x fa-spinner fa-pulse" />
-                    </span>}
+                    {loading && (
+                        <span className="icon is-large">
+                            <i className="fas fa-3x fa-spinner fa-pulse" />
+                        </span>
+                    )}
                     <UserRepo github={this.state} />
                 </div>
                 {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
