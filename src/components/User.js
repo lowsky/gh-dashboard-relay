@@ -14,7 +14,7 @@ const User = ({ user = {} }) => {
                         </figure>
                     </div>
                     <div className="media-content">
-                        <p className="title is-4">@{login}</p>
+                        <p className="title is-4">{login}</p>
                         <p className="subtitle is-6">{company}</p>
                     </div>
                 </div>

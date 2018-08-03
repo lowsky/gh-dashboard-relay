@@ -15,7 +15,7 @@ const Repo = ({ repo = {} }) => {
                         {owner.login} / {name}
                     </strong>
                     <span className="icon">
-                        <i className="fa fa-github" />
+                        <i className="fas fa-github" />
                     </span>
                 </a>
             </h3>

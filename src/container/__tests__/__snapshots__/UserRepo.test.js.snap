@@ -27,7 +27,7 @@ Array [
                 className="icon"
             >
                 <i
-                    className="fa fa-github"
+                    className="fas fa-github"
                 />
             </span>
         </a>
@@ -60,7 +60,6 @@ Array [
                 <p
                     className="title is-4"
                 >
-                    @
                     ?
                 </p>
                 <p
