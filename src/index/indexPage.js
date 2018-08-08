@@ -37,7 +37,8 @@ const indexPageContent = () => (
                     <a href="./restful/lowsky/dashboard">
                         <b>lowsky/spotify-graphql-server</b>
                     </a>
-                    &nbsp; (needs a running local server. See <a href="#localserver">setup</a>!)
+                    &nbsp; (needs a running local server. See <a href="#localserver">setup</a>
+                    !)
                 </li>
             </ul>
             <h4 className="is-size-4">How to start the local server</h4>

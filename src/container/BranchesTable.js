@@ -17,7 +17,11 @@ const BranchesTable = props => {
                     <th className="">Commit</th>
                 </tr>
             </thead>
-            <tbody>{branches.map((branch, idx) => <BranchInfoRow key={idx} branch={branch} />)}</tbody>
+            <tbody>
+                {branches.map((branch, idx) => (
+                    <BranchInfoRow key={idx} branch={branch} />
+                ))}
+            </tbody>
         </table>
     );
 };

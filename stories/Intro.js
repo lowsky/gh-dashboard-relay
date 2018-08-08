@@ -44,8 +44,7 @@ export default class Intro extends Component {
                     <a style={styles.link} href="#" onClick={this.showApp.bind(this)}>
                         stories
                     </a>{' '}
-                    for the component called <code style={styles.code}>User</code>
-                    .
+                    for the component called <code style={styles.code}>User</code>.
                 </p>
                 <p>
                     Have a look at the{' '}
