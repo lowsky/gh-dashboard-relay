@@ -19,7 +19,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:8@sha256:f14878f1d311c428c33cbcea6b540eaf10562e8470b35fe01d7e8c22f365ee6f
+      - image: circleci/node:8@sha256:f9412c07c7318b6c19cdb9b758bd5c601678a83f8277059c79288dd43fcb7281
     steps:
       - setup_remote_docker
       - run:
@@ -27,7 +27,7 @@ jobs:
           command: "echo Overall target built."
   buildprep:
     docker:
-      - image: circleci/node:8@sha256:f14878f1d311c428c33cbcea6b540eaf10562e8470b35fe01d7e8c22f365ee6f
+      - image: circleci/node:8@sha256:f9412c07c7318b6c19cdb9b758bd5c601678a83f8277059c79288dd43fcb7281
     steps:
       - checkout
       - setup_remote_docker
@@ -48,7 +48,7 @@ jobs:
             - ./node_modules
   tests:
     docker:
-      - image: circleci/node:8@sha256:f14878f1d311c428c33cbcea6b540eaf10562e8470b35fe01d7e8c22f365ee6f
+      - image: circleci/node:8@sha256:f9412c07c7318b6c19cdb9b758bd5c601678a83f8277059c79288dd43fcb7281
     steps:
       - checkout
       - setup_remote_docker
@@ -87,7 +87,7 @@ jobs:
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.json
   analyse:
     docker:
-      - image: circleci/node:8@sha256:f14878f1d311c428c33cbcea6b540eaf10562e8470b35fe01d7e8c22f365ee6f
+      - image: circleci/node:8@sha256:f9412c07c7318b6c19cdb9b758bd5c601678a83f8277059c79288dd43fcb7281
     steps:
       - checkout
       - setup_remote_docker
@@ -111,7 +111,7 @@ jobs:
           path: ./reports
   docker-build:
     docker:
-      - image: circleci/node:8@sha256:f14878f1d311c428c33cbcea6b540eaf10562e8470b35fe01d7e8c22f365ee6f
+      - image: circleci/node:8@sha256:f9412c07c7318b6c19cdb9b758bd5c601678a83f8277059c79288dd43fcb7281
     steps:
       - checkout
       - setup_remote_docker
