@@ -5,6 +5,7 @@ public
 .circleci
 build
 .storybook/
+storybook-static/
 
 #for react-app-rewired
 config-overrides.js
