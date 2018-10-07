@@ -18,6 +18,8 @@ node_modules/
 dist/
 build/
 
+storybook-static/
+
 #sublime and tern-js
 .tern-project
 
