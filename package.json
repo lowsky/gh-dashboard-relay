@@ -51,7 +51,7 @@
     "express-graphql": "0.6.12",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "helmet": "3.13.0",
-    "react-scripts": "1.1.5",
+    "react-scripts": "2.0.4",
     "relay-runtime": "1.6.2",
     "whatwg-fetch": "3.0.0"
   },
