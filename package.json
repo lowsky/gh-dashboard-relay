@@ -15,17 +15,17 @@
     "github"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "proxy": "http://localhost:3000",
   "scripts": {
-    "cra-start": "PORT=8080 react-app-rewired start",
-    "cra-build": "react-app-rewired build",
+    "cra-start": "PORT=8080 react-scripts start",
+    "cra-build": "react-scripts build",
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "npm run relay ; npm run cra-build ; npm run build-storybook -- -o build/story-book",
     "lint": "eslint .",
     "dev": "npm run cra-start",
-    "test": "react-app-rewired test --env=jsdom --no-cache ",
+    "test": "react-scripts test --no-cache ",
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
     "start": "babel-node .",
@@ -85,7 +85,6 @@
     "prettier": "1.14.2",
     "prop-types": "15.6.2",
     "react": "16.5.1",
-    "react-app-rewired": "1.6.2",
     "react-dom": "16.5.1",
     "react-relay": "1.6.0",
     "react-router": "4.3.1",
