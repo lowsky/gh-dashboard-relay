@@ -15,7 +15,7 @@
     "github"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=8"
   },
   "proxy": "http://localhost:3000",
   "scripts": {
