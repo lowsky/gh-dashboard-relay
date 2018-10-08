@@ -63,7 +63,7 @@
     "@storybook/addon-links": "4.0.0-alpha.24",
     "@storybook/addons": "4.0.0-alpha.24",
     "@storybook/react": "4.0.0-alpha.24",
-    "babel-loader": "8.0.4",
+    "babel-loader": "8",
     "babel-plugin-relay": "1.7.0-rc.1",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
