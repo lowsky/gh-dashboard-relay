@@ -4,10 +4,13 @@
     // running jest per react-app-rewired
     "plugins": [
         /* needed for running jest, */
-        "relay"
+        "relay",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-import-meta",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-json-strings"
     ],
     "presets": [
-        "env",
-        "stage-3"
+        "@babel/preset-env"
     ]
 }
