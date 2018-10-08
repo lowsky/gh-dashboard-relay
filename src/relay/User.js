@@ -1,4 +1,6 @@
-import { createFragmentContainer, graphql } from 'react-relay';
+import { createFragmentContainer } from 'react-relay';
+import graphql from "babel-plugin-relay/macro";
+
 import User from '../components/User';
 
 export default createFragmentContainer(
