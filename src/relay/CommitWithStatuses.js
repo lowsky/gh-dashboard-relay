@@ -1,5 +1,5 @@
 import { createFragmentContainer } from 'react-relay';
-import graphql from "babel-plugin-relay/macro";
+import graphql from 'babel-plugin-relay/macro';
 
 import CommitWithStatus from '../components/CommitWithStatuses';
 
