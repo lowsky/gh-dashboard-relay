@@ -42,10 +42,6 @@
   "homepage": ".",
   "dependencies": {
     "@babel/core": "7.1.2",
-    "@babel/plugin-proposal-class-properties": "7.1.0",
-    "@babel/plugin-proposal-json-strings": "7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "7.0.0",
-    "@babel/plugin-syntax-import-meta": "7.0.0",
     "@babel/preset-env": "7.1.0",
     "@babel/runtime": "7.1.2",
     "bulma": "0.7.1",
@@ -61,8 +57,6 @@
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.2",
-    "@babel/core": "7.1.2",
     "@babel/node": "7.0.0",
     "@babel/register": "7.0.0",
     "@storybook/addon-actions": "4.0.0-alpha.24",
@@ -74,11 +68,8 @@
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
     "eslint-config-prettier": "3.0.1",
-    "eslint-plugin-babel": "5.2.0",
     "eslint-plugin-graphql": "2.1.1",
-    "eslint-plugin-prettier": "2.6.2",
-    "eslint-plugin-promise": "4.0.1",
-    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-prettier": "3.0.0",
     "graphql": "0.13.2",
     "graphql-relay": "0.5.5",
     "jest-junit-reporter": "1.1.0",
