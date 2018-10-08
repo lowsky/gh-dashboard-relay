@@ -85,6 +85,10 @@ jobs:
           name: Upload coverage results to Code Climate
           command: |
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.json
+      - run:
+          name: Upload coverage results to codecov
+          command: |
+            cat coverage/lcov.info | yarn codacy-coverage -t $CODACY_PROJECT_TOKEN -u lowsky -n dashboard -v
   analyse:
     docker:
       - image: circleci/node:8@sha256:cf1411f92b98954a78aae92f718030f4ba2aadd4fb09f9f0aea1d775c30937af
