@@ -18,7 +18,6 @@ exports[`User component should render as expected 1`] = `
         >
           <img
             alt="avatar"
-            src={undefined}
           />
         </figure>
       </div>
