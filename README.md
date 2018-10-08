@@ -1,6 +1,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f6f0a485bfe4afab427fdba4eae3ac2)](https://www.codacy.com/app/skylab/dashboard)
 
-[![Snyk: Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/org/lowsky/project/50ca31b4-9fbf-4a3f-afba-3bb418493afe/)
+[![Snyk known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/org/lowsky/project/50ca31b4-9fbf-4a3f-afba-3bb418493afe/)
 
 ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/lowsky/dashboard.svg?columns=all)](https://waffle.io/lowsky/dashboard)
@@ -26,12 +26,12 @@ after invoking this in a shell:
 
     git clone https://github.com/lowsky/dashboard
     cd dashboard
-    npm install  # or  yarn
+    yarn
 
 ### regular mode for deployment
 
-    npm run build # or  yarn run build
-    npm start   # or   yarn run start
+    yarn run build
+    yarn run start
     
 ### docker build
 
@@ -54,9 +54,7 @@ You  **need to create your own github-token** and store it locally:
 
 Note: For Relay you also need to start in _regular mode_, to activate the graphql-server.
 
-    npm run dev  # this opens the browser automatically
-
-For local development this also uses webpack-dev based hot-reloading which automatically updates the page in the browser!
+    yarn run dev  # this opens the browser automatically
 
 ### Built-in GraphQL-backend
 
