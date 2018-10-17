@@ -41,6 +41,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
+    "@babel/core": "7.1.2",
     "bulma": "0.7.1",
     "cors": "2.8.4",
     "dotenv": "6.0.0",
@@ -48,9 +49,7 @@
     "express-graphql": "0.6.12",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "helmet": "3.13.0",
-    "jest-matchers": "20.0.3",
     "react-scripts": "2.0.4",
-    "relay-runtime": "1.6.2",
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
