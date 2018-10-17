@@ -13,14 +13,17 @@ README.md
 .env.example
 .eslintignore
 .eslintrc.js
-.graphqlconfig
 .nodemon.json
 .nvmrc
 .prettierrc
 _config.yml
-build.sh
-LICENSE
 renovate.json
-webpack.config.js
 
 /.circleci
+
+.prettierrc
+.nodemon.json
+.gitignore
+test-reports/
+build/
+

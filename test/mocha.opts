@@ -1,5 +1,0 @@
---recursive
---require babel-core/register
---require test/ignoreJpg
---require test/ignorePng
---require test/ignoreSvg
