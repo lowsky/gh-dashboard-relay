@@ -32,6 +32,7 @@
     "test:vis": "start-server-and-test 'npm run storybook -- --quiet --ci' 9009 'cypress run --record'",
     "test:storybook": "cypress run --record",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
+    "chromatic": "chromatic test  --do-not-start",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -98,7 +99,8 @@
     "relay-config": "9.1.0",
     "start-server-and-test": "1.11.0",
     "storybook-addon-jsx": "7.2.3",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "storybook-chromatic": "4.0.2"
   },
   "browserslist": [
     ">0.2%",
