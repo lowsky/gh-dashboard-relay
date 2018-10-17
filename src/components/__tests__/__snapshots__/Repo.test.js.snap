@@ -28,7 +28,7 @@ exports[`Repo component should render as expected 1`] = `
         className="icon"
       >
         <i
-          className="fas fa-github"
+          className="fab fa-github"
         />
       </span>
     </a>
