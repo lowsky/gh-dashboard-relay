@@ -18,7 +18,7 @@ const githubData = {
         branches: [],
     },
     user: {
-        avatar_url: 'http://lorempixel.com/200/200/cats/lorempixel/',
+        avatar_url: '//lorempixel.com/200/200/cats/lorempixel/',
         login: 'lowsky',
     },
     errorMsg: '',
