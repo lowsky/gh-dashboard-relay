@@ -42,6 +42,7 @@
   "homepage": ".",
   "dependencies": {
     "@babel/core": "7.1.2",
+    "@babel/node": "7.0.0",
     "bulma": "0.7.1",
     "cors": "2.8.4",
     "dotenv": "6.0.0",
