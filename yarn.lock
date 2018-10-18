@@ -3449,7 +3449,7 @@ coa@~2.0.1:
   dependencies:
     q "^1.1.2"
 
-codacy-coverage@^3.1.0:
+codacy-coverage@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/codacy-coverage/-/codacy-coverage-3.1.0.tgz#a49a75d962733dc0b524b3d5eb3b6367d5bece59"
   integrity sha512-CRxJUokkUVzZlu2nXfDFPbwE+9F8dOzz7jdIv2IffAqv7Yq9QSqSOeSxz0D0+v7Et2YlcpgAeIkx4Le7aQfisQ==
