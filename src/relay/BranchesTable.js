@@ -1,10 +1,11 @@
 import { createFragmentContainer } from 'react-relay';
 import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 
 import BranchesTable from '../container/BranchesTable';
 
 export default createFragmentContainer(
-    BranchesTable,
+    (props) => <BranchesTable {...props}/>,
     graphql`
         fragment BranchesTable_repo on GithubRepo {
             branches {
