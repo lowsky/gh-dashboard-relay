@@ -1,4 +1,5 @@
 import { createFragmentContainer } from 'react-relay';
+import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 
 import BranchInfoRow from '../container/BranchInfoRow';
@@ -12,7 +13,7 @@ export const fakeBranchInfo = {
 };
 
 export default createFragmentContainer(
-    BranchInfoRow,
+    (props) => (<BranchInfoRow {...props}/>),
     graphql`
         fragment BranchInfoRow_branch on GithubBranch {
             name

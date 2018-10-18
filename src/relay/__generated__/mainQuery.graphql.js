@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 8635d5ae07f6f2df495d7d5ec35eddf6
+ * @relayHash 87c9ce167ac6b174adc8135e7e2f2bdf
  */
 
 /* eslint-disable */
@@ -15,6 +15,10 @@ export type mainQueryResponse = {|
   +github: ?{|
     +$fragmentRefs: UserRepo_github$ref
   |}
+|};
+export type mainQuery = {|
+  variables: mainQueryVariables,
+  response: mainQueryResponse,
 |};
 */
 
