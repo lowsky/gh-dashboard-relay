@@ -55,10 +55,10 @@
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "4.0.0-alpha.24",
-    "@storybook/addon-links": "4.0.0-alpha.24",
-    "@storybook/addons": "4.0.0-alpha.24",
-    "@storybook/react": "4.0.0-alpha.24",
+    "@storybook/addon-actions": "4.0.0-rc.1",
+    "@storybook/addon-links": "4.0.0-rc.1",
+    "@storybook/addons": "4.0.0-rc.1",
+    "@storybook/react": "4.0.0-rc.1",
     "babel-loader": "8.0.4",
     "babel-plugin-relay": "1.7.0-rc.1",
     "enzyme": "3.7.0",
