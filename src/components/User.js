@@ -4,14 +4,17 @@ import PropTypes from 'prop-types';
 const User = ({ user = {} }) => {
     const { avatar_url, login = '?', company } = user;
 
+    console.log('Debug: avatar-url', avatar_url);
+
     return (
         <div className="card">
             <div className="card-content">
                 <div className="media">
                     <div className="media-left">
                         <figure className="image is-48x48">
-                            <img src={avatar_url} alt="avatar" />
+                            {false && <img src={avatar_url} alt="avatar" /> }
                         </figure>
+                        avatar_url: {avatar_url}
                     </div>
                     <div className="media-content">
                         <p className="title is-4">{login}</p>
