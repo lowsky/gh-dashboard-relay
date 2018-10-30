@@ -19,7 +19,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:8@sha256:32cc0af4554594c9a1b08e6869d75113fe572463adf694054cb2eae3c8ed46a7
+      - image: circleci/node:8@sha256:1f976a89c24fb78d7ef72eaa1abd6c3ac3ffb3aa7c3d575f468c67ac5c051519
     steps:
       - setup_remote_docker
       - run:
@@ -27,7 +27,7 @@ jobs:
           command: "echo Overall target built."
   buildprep:
     docker:
-      - image: circleci/node:8@sha256:32cc0af4554594c9a1b08e6869d75113fe572463adf694054cb2eae3c8ed46a7
+      - image: circleci/node:8@sha256:1f976a89c24fb78d7ef72eaa1abd6c3ac3ffb3aa7c3d575f468c67ac5c051519
     steps:
       - checkout
       - setup_remote_docker
@@ -48,7 +48,7 @@ jobs:
             - ./node_modules
   tests:
     docker:
-      - image: circleci/node:8@sha256:32cc0af4554594c9a1b08e6869d75113fe572463adf694054cb2eae3c8ed46a7
+      - image: circleci/node:8@sha256:1f976a89c24fb78d7ef72eaa1abd6c3ac3ffb3aa7c3d575f468c67ac5c051519
     steps:
       - checkout
       - setup_remote_docker
@@ -91,7 +91,7 @@ jobs:
             cat coverage/lcov.info | yarn codacy-coverage -t $CODACY_PROJECT_TOKEN -u lowsky -n dashboard -v
   analyse:
     docker:
-      - image: circleci/node:8@sha256:32cc0af4554594c9a1b08e6869d75113fe572463adf694054cb2eae3c8ed46a7
+      - image: circleci/node:8@sha256:1f976a89c24fb78d7ef72eaa1abd6c3ac3ffb3aa7c3d575f468c67ac5c051519
     steps:
       - checkout
       - setup_remote_docker
@@ -115,7 +115,7 @@ jobs:
           path: ./reports
   docker-build:
     docker:
-      - image: circleci/node:8@sha256:32cc0af4554594c9a1b08e6869d75113fe572463adf694054cb2eae3c8ed46a7
+      - image: circleci/node:8@sha256:1f976a89c24fb78d7ef72eaa1abd6c3ac3ffb3aa7c3d575f468c67ac5c051519
     steps:
       - checkout
       - setup_remote_docker
