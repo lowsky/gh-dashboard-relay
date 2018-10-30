@@ -15,11 +15,8 @@ exports[`User component should render as expected 1`] = `
       >
         <figure
           className="image is-48x48"
-        >
-          <img
-            alt="avatar"
-          />
-        </figure>
+        />
+        avatar_url: 
       </div>
       <div
         className="media-content"
