@@ -26,34 +26,35 @@ const githubData = {
 
 export default class RestMain extends Component {
     state = {
-        loading: true,
-        ...githubData, // clone
+        ...githubData,
     };
 
     componentDidMount() {
-        const { fetchRepoBranches, fetchUser } = fetchGithubApi;
+        this.loadData(fetchGithubApi);
+    }
 
-        this.setState(() => githubData);
+    loadData({ fetchRepoBranches, fetchUser }) {
+        //
+        this.setState({
+            loadingRepo: true,
+            loadingUser: true,
+            ...githubData,
+        });
 
         fetchUser(repoOwnerLogin)
             .then(user => {
                 if (user.message) {
                     throw new Error(user.message);
                 }
-                this.setState(state => {
-                    return {
-                        ...state,
-                        loading: false,
-                        user: user,
-                    };
+                this.setState({
+                    loadingUser: false,
+                    user,
                 });
             })
             .catch(ex => {
-                this.setState(state => {
-                    return {
-                        ...state,
-                        errorMsg: ex.message,
-                    };
+                this.setState({
+                    loadingUser: false,
+                    errorMsg: ex.message,
                 });
                 console.log('fetching user info failed', ex);
             });
@@ -65,20 +66,18 @@ export default class RestMain extends Component {
                 }
                 this.setState(state => {
                     return {
-                        ...state,
                         repo: {
                             ...state.repo,
                             branches,
                         },
                     };
                 });
-
                 return branches;
             })
             .then(branches => {
                 this.setState(state => {
                     return {
-                        ...state,
+                        loadingRepo: false,
                         repo: {
                             ...state.repo,
                             branches: branches.map(branch => {
@@ -90,22 +89,20 @@ export default class RestMain extends Component {
                 });
             })
             .catch(ex => {
-                this.setState(state => {
-                    return {
-                        ...state,
-                        errorMsg: ex.message,
-                    };
+                this.setState({
+                    loadingRepo: false,
+                    errorMsg: ex.message,
                 });
                 console.log('fetching branches info failed', ex);
             });
     }
 
     render() {
-        const { errorMsg, loading } = this.state;
+        const { errorMsg, loadingRepo, loadingUser } = this.state;
         return (
             <div className="content">
                 <div className="box">
-                    {loading && (
+                    {(loadingUser || loadingRepo) && (
                         <span className="icon is-large">
                             <i className="fas fa-3x fa-spinner fa-pulse" />
                         </span>
