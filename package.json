@@ -80,7 +80,7 @@
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
     "react-test-renderer": "16.6.1",
-    "relay-compiler": "1.6.2",
+    "relay-compiler": "1.7.0",
     "xunit-file": "1.0.0"
   },
   "browserslist": [
