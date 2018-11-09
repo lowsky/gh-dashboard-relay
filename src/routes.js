@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import IndexPageMain from './index/indexPage';
-import RelayMain from './relay/main';
-import RestfulMain from './restinpeace/restful';
+const RelayMain = lazy(() => import('./relay/main'));
+const RestfulMain = lazy(() => import('./restinpeace/restful'));
 import { NavBar } from './components/NavBar';
 
 const MainPage = () => (
