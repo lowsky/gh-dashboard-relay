@@ -87,14 +87,14 @@
     source-map "^0.5.0"
     trim-right "^1.0.1"
 
-"@babel/generator@7.0.0-beta.54":
-  version "7.0.0-beta.54"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.0.0-beta.54.tgz#c043c7eebeebfd7e665d95c281a4aafc83d4e1c9"
-  integrity sha1-wEPH7r7r/X5mXZXCgaSq/IPU4ck=
+"@babel/generator@7.0.0-beta.56":
+  version "7.0.0-beta.56"
+  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.0.0-beta.56.tgz#07d9c2f45990c453130e080eddcd252a9cbd8d66"
+  integrity sha512-d+Ls/Vr5OU5FBDYQToXSqAluI3r2UaSoNZ41zD3sxdoVoaT8K5Bdh4So4eG4o//INGM7actValXGfb+5J1+r8w==
   dependencies:
-    "@babel/types" "7.0.0-beta.54"
+    "@babel/types" "7.0.0-beta.56"
     jsesc "^2.5.1"
-    lodash "^4.17.5"
+    lodash "^4.17.10"
     source-map "^0.5.0"
     trim-right "^1.0.1"
 
@@ -360,10 +360,10 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.53.tgz#1f45eb617bf9463d482b2c04d349d9e4edbf4892"
   integrity sha1-H0XrYXv5Rj1IKywE00nZ5O2/SJI=
 
-"@babel/parser@7.0.0-beta.54":
-  version "7.0.0-beta.54"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.54.tgz#c01aa63b57c9c8dce8744796c81d9df121f20db4"
-  integrity sha1-wBqmO1fJyNzodEeWyB2d8SHyDbQ=
+"@babel/parser@7.0.0-beta.56":
+  version "7.0.0-beta.56"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.56.tgz#8638aa02e0130cd10b2ba4128e2b804112073ed3"
+  integrity sha512-JM0ughhbo+sPXw2Z+SUyowfYrAOhjanzjMshcLswBdXVelJCOeEKe/FqMqPWGVPQr7wByongXIn+MKdCpY7DBw==
 
 "@babel/parser@^7.0.0", "@babel/parser@^7.1.0", "@babel/parser@^7.1.2", "@babel/parser@^7.1.3":
   version "7.1.3"
@@ -940,13 +940,13 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@babel/types@7.0.0-beta.54":
-  version "7.0.0-beta.54"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.54.tgz#025ad68492fed542c13f14c579a44c848e531063"
-  integrity sha1-AlrWhJL+1ULBPxTFeaRMhI5TEGM=
+"@babel/types@7.0.0-beta.56":
+  version "7.0.0-beta.56"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.56.tgz#df456947a82510ec30361971e566110d89489056"
+  integrity sha512-fRIBeHtKxAD3D1E7hYSpG4MnLt0AfzHHs5gfVclOB0NlfLu3qiWU/IqdbK2ixTK61424iEkV1P/VAzndx6ungA==
   dependencies:
     esutils "^2.0.2"
-    lodash "^4.17.5"
+    lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
 "@babel/types@^7.0.0", "@babel/types@^7.1.2", "@babel/types@^7.1.3":
@@ -5869,10 +5869,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
   integrity sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=
 
-graphql-compiler@1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/graphql-compiler/-/graphql-compiler-1.6.2.tgz#45dfd1095f8af087e0c963d028831abde07dc605"
-  integrity sha512-ZpnZm6ijwfphsnJpUvWd/M4taRR0xy5wYf1JR9LC29IGobORjAhXtEng41hYL4hAiSIpqep8zcac1yGCknaVMg==
+graphql-compiler@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/graphql-compiler/-/graphql-compiler-1.7.0.tgz#19942b47325cd41f6f4f79e67ef0d75c379b6ba1"
+  integrity sha512-jC4PBo1ikFRiA2CLclNxMMFJTwhxPam1HxzIxJgWWHm26AXw0ZsN41a2t6vGfw7NxXCfnef4JCIHWFMgIm8iOQ==
   dependencies:
     chalk "^1.1.1"
     fb-watchman "^2.0.0"
@@ -10636,14 +10636,14 @@ relateurl@0.2.x:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-relay-compiler@1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-1.6.2.tgz#845e27bb446e993524d176b0ef4593c9757ed662"
-  integrity sha512-p2dYbQR4up4ZPLbTQ7GRP0ySlN3Btr1eT4PBhzCC+z4iJxZJczUPJnCvmxTvIHaxgoSjlUS88TR0Dbl13s7gDw==
+relay-compiler@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-1.7.0.tgz#a78e629f2156f31fc6d42b5dbcfa9ad33eefd6f6"
+  integrity sha512-vCsgj52Up8BmYKcsjxhnXFb8sQL2iE7rZouImPk05ZpRk0uhjkizEncWHiIHSAwq8BehEK1p0G9Hfv2IhLDgMQ==
   dependencies:
-    "@babel/generator" "7.0.0-beta.54"
-    "@babel/parser" "7.0.0-beta.54"
-    "@babel/types" "7.0.0-beta.54"
+    "@babel/generator" "7.0.0-beta.56"
+    "@babel/parser" "7.0.0-beta.56"
+    "@babel/types" "7.0.0-beta.56"
     babel-polyfill "^6.20.0"
     babel-preset-fbjs "2.2.0"
     babel-runtime "^6.23.0"
@@ -10652,9 +10652,9 @@ relay-compiler@1.6.2:
     fast-glob "^2.2.2"
     fb-watchman "^2.0.0"
     fbjs "0.8.17"
-    graphql-compiler "1.6.2"
+    graphql-compiler "1.7.0"
     immutable "~3.7.6"
-    relay-runtime "1.6.2"
+    relay-runtime "1.7.0"
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
