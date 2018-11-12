@@ -12,7 +12,7 @@
     "graphql"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=8"
   },
   "scripts": {
     "start": "babel-node ."
