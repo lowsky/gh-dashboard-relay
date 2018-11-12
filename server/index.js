@@ -22,9 +22,6 @@ app.use(helmet.noSniff());
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static('dist'));
-app.use('/assets', express().use(express.static('assets')));
-
-// const graphql = _graphql.graphql;
 
 // mutation : GraphQLHub.MutationsType,
 
@@ -33,7 +30,7 @@ app.use('/assets', express().use(express.static('assets')));
 // pretty: req.query.pretty,
 
 let expressGraphQL = require('express-graphql');
-let schema = require('./src/relay/localSchema');
+let schema = require('./localSchema');
 const path = require('path');
 
 app.use(cors(corsOptions));
@@ -45,11 +42,18 @@ app.use('/graphql', expressGraphQL(req => ({
     pretty: true
 })));
 
-app.use(express.static('build'));
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('../build'));
+    console.log('Running in production mode, serving build artifacts of react app.');
+}
+else {
+    app.use(express.static('../public'));
+    console.log('Running in dev mode, serving only /public folder');
+}
 
 // doesn't work with webpack-dev-server :(
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 app.listen(app.get('port'), function () {
