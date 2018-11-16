@@ -1,5 +1,6 @@
 ---
-engines:
+version: 2
+plugins:
   duplication:
     enabled: true
     config:
@@ -7,17 +8,13 @@ engines:
       - javascript
   eslint:
     enabled: true
-    channel: "eslint-4"
+    channel: "eslint-5"
     checks:
       graphql/template-strings:
         enabled: false
   fixme:
     enabled: true
-ratings:
-  paths:
-  - "**.js"
-  - "**.jsx"
-exclude_paths:
+exclude_patterns:
 - test/
 - src/relay/__generated__/
 
