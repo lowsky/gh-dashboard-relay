@@ -7,7 +7,7 @@ engines:
       - javascript
   eslint:
     enabled: true
-    channel: "eslint-4"
+    channel: "eslint-5"
     checks:
       graphql/template-strings:
         enabled: false
