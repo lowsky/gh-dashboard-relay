@@ -28,7 +28,12 @@ const BranchesTable = props => {
 
 BranchesTable.propTypes = {
     repo: PropTypes.shape({
-        branches: PropTypes.arrayOf(PropTypes.string),
+        branches: PropTypes.arrayOf(
+            PropTypes.shape({
+                name: PropTypes.string,
+                lastCommit: PropTypes.object,
+            })
+        ),
     }),
 };
 
