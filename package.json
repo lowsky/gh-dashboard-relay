@@ -84,6 +84,7 @@
     "react-router-dom": "4.3.1",
     "react-test-renderer": "16.6.3",
     "relay-compiler": "1.7.0",
+    "storybook-addon-jsx": "6.0.0",
     "xunit-file": "1.0.0"
   },
   "browserslist": [

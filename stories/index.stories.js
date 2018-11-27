@@ -17,7 +17,9 @@ import User from '../src/components/User';
 import CommitWithStatuses from '../src/components/CommitWithStatuses';
 import Repo from '../src/components/Repo';
 
-storiesOf('Intro', module).add('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
+import { withLinks } from '@storybook/addon-links';
+
+storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
 const userWithoutAvatar = {
     user: {
@@ -78,26 +80,27 @@ const userRepo = {
 };
 
 storiesOf('Pages', module)
-    .add('main', () => <IndexPage />)
-    .add('restful', () => <RestfulPage />)
-    .add('relay', () => <RelayPage />);
+    .addDecorator(withLinks)
+    .addWithJSX('main', () => <IndexPage />)
+    .addWithJSX('restful', () => <RestfulPage />)
+    .addWithJSX('relay', () => <RelayPage />);
 
 storiesOf('Repo', module)
-    .add('fake data', () => <Repo {...repo} />);
+    .addWithJSX('fake data', () => <Repo {...repo} />);
 
 storiesOf('User', module)
-    .add('without avatar', () => <User {...userWithoutAvatar} />)
-    .add('with avatar', () => <User {...userWithAvatar} />);
+    .addWithJSX('without avatar', () => <User {...userWithoutAvatar} />)
+    .addWithJSX('with avatar', () => <User {...userWithAvatar} />);
 
 storiesOf('CommitStatus', module)
-    .add('with data', () => <CommitWithStatuses {...commit} />)
-    .add('with no data', () => <CommitWithStatuses />);
+    .addWithJSX('with data', () => <CommitWithStatuses {...commit} />)
+    .addWithJSX('with no data', () => <CommitWithStatuses />);
 
 storiesOf('BranchesTable', module)
-    .add('with one branch', () => <BranchesTable {...branches} />);
+    .addWithJSX('with one branch', () => <BranchesTable {...branches} />);
 
 storiesOf('BranchInfoRow', module)
-    .add('with info', () => <BranchInfoRow {...branchInfo} />);
+    .addWithJSX('with info', () => <BranchInfoRow {...branchInfo} />);
 
 storiesOf('UserRepo', module)
-    .add('with user and repo', () => <UserRepo {...userRepo} />);
+    .addWithJSX('with user and repo', () => <UserRepo {...userRepo} />);
