@@ -27,7 +27,7 @@
     "dev": "npm run cra-start",
     "test": "react-scripts test --no-cache ",
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
-    "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --forceExit",
+    "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
     "start": "babel-node .",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
