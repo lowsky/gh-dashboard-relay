@@ -23,3 +23,4 @@ storybook-static/
 #sublime and tern-js
 .tern-project
 
+test-reports
