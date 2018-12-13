@@ -7,7 +7,7 @@
 
 This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's _Relay_ and _GraphQL_ libraries.
 
-For deep interns of the concepts, see the [presentation at the EnterJS Conference](https://lowsky.github.io/deck-graphql-relay-talk) with its [slide sources](https://www.github.com/lowsky/deck-graphql-relay-talk)
+For deep interns of GraphQL concepts, see the [presentation at the EnterJS Conference 2016](https://lowsky.github.io/deck-graphql-relay-talk) with its [slide sources](https://www.github.com/lowsky/deck-graphql-relay-talk)
 
 ## Purpose of this dashboard
 
@@ -21,25 +21,40 @@ On a Docker Meetup, I presented some details about the background idea: You can 
 
 ## Getting started locally
 
-A reduced functionality with a RESTful api backend works out of the box,
-after invoking this in a shell:
+After invoking this in a shell, a page with a restful functionality works out-of-the box
 
     git clone https://github.com/lowsky/dashboard
     cd dashboard
+    
+    cd server ; yarn ; cd -
     yarn
 
-### regular mode for deployment
+then run these steps for simple dev mode 
 
-    yarn run build
-    yarn run start
+    yarn run start-server
     
+in another terminal, start the web app:
+
+    yarn run start
+
+    # it opens the web app in the browser
+
+
+### Built-in GraphQL-backend
+
+It also provides a GraphIql IDE at <http://localhost:3000/graphql> - This is the ideal _playground_ 
+for using and playing with different graphql queries.
+
+Have fun!
+    
+**Note:**
 ### docker build
 
     docker build -t dashboard .
     
     ### docker run
     # injecting the github creds per .env file
-    docker run --rm -v $PWD/.env:/usr/src/app/.env -p 3000:3000 dashboard
+    docker run --rm -v $PWD/server/.env:/usr/src/app/.env -p 3000:3000 dashboard
 
 **Note:**
 You  **need to create your own github-token** and store it locally:
@@ -49,19 +64,6 @@ You  **need to create your own github-token** and store it locally:
     # ... and adapt it with your API key:
     # You can create one at
     # https://github.com/settings/tokens/
-
-### Run dev-mode: with HOT re-loading
-
-Note: For Relay you also need to start in _regular mode_, to activate the graphql-server.
-
-    yarn run dev  # this opens the browser automatically
-
-### Built-in GraphQL-backend
-
-It also provides a GraphIql IDE at <http://localhost:3000/graphql> - This is the ideal _playground_ 
-for using and playing with different graphql queries.
-
-Have fun!
 
 ## ScreenShot
 

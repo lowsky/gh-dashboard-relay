@@ -3,11 +3,11 @@
 .git
 .idea
 node_modules
+server/node_modules
 .DS_Store
 npm-debug.log
-/circle.yml
+/.codeclimate.yml
 README.md
-.codeclimate.yml
 .editorconfig
 .env
 .env.example
@@ -21,9 +21,8 @@ renovate.json
 
 /.circleci
 
-.prettierrc
-.nodemon.json
-.gitignore
 test-reports/
 build/
+
+server/node_modules/
 

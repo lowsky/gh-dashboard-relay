@@ -1,0 +1,39 @@
+{
+  "name": "dashboard-github-server",
+  "version": "1.0.0",
+  "description": "A graphql proxy for some github rest api.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lowsky/dashboard.git"
+  },
+  "keywords": [
+    "express",
+    "github",
+    "graphql"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "babel-node ."
+  },
+  "author": "Robert Hostlowsky",
+  "license": "APACHE-2.0",
+  "bugs": {
+    "url": "https://github.com/lowsky/dashboard/issues"
+  },
+  "private": true,
+  "analyze": true,
+  "dependencies": {
+    "@babel/core": "7.1.5",
+    "@babel/node": "7.0.0",
+    "@babel/preset-env": "7.1.5",
+    "cors": "2.8.5",
+    "dotenv": "6.1.0",
+    "express": "4.16.4",
+    "express-graphql": "0.7.1",
+    "github-api": "lowsky/github-api#supportInUsedInBrowser",
+    "graphql": "0.13.2",
+    "helmet": "3.15.0"
+  }
+}
