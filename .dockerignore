@@ -24,3 +24,5 @@ renovate.json
 test-reports/
 build/
 
+server/node_modules/
+

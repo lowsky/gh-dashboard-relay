@@ -1,7 +1,7 @@
 {
   "name": "dashboard-github-server",
   "version": "1.0.0",
-  "description": "A graphql proxy for som github rest api.",
+  "description": "A graphql proxy for some github rest api.",
   "repository": {
     "type": "git",
     "url": "https://github.com/lowsky/dashboard.git"

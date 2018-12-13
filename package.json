@@ -11,7 +11,6 @@
     "relay",
     "react",
     "dashboard",
-    "docker",
     "github"
   ],
   "engines": {
@@ -19,16 +18,15 @@
   },
   "proxy": "http://localhost:3000",
   "scripts": {
-    "cra-start": "PORT=8080 react-scripts start",
+    "start": "PORT=8080 react-scripts start",
     "cra-build": "react-scripts build",
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "npm run relay ; npm run cra-build ; npm run build-storybook -- -o build/story-book",
     "lint": "eslint .",
-    "dev": "npm run cra-start",
     "test": "react-scripts test --no-cache ",
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
-    "start": "babel-node .",
+    "start-server": "cd server ; npm start",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -45,12 +43,7 @@
     "@babel/node": "7.0.0",
     "bulma": "0.7.2",
     "codacy-coverage": "3.2.0",
-    "cors": "2.8.5",
-    "dotenv": "6.1.0",
-    "express": "4.16.4",
-    "express-graphql": "0.7.1",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
-    "helmet": "3.15.0",
     "react-scripts": "2.1.1",
     "whatwg-fetch": "3.0.0"
   },
