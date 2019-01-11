@@ -2,8 +2,11 @@ const proxy = require('http-proxy-middleware');
 
 module.exports = function(app) {
     app.use(
-        proxy('/graphql', {
-            target: 'http://localhost:4000',
+        proxy('/.netlify/functions/', {
+            target: 'http://localhost:9000/',
+            pathRewrite: {
+                '^/\\.netlify/functions': '',
+            },
         })
     );
 };
