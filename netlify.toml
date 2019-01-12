@@ -1,0 +1,4 @@
+[build]
+  Command = "yarn run build"
+  Functions = "server/lambda"
+  Publish = "build"
