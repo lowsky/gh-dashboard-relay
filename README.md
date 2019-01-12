@@ -54,16 +54,21 @@ Have fun!
     
     ### docker run
     # injecting the github creds per .env file
-    docker run --rm -v $PWD/server/.env:/usr/src/app/.env -p 3000:3000 dashboard
+    
+    docker run --rm -v $PWD/server/.env:/usr/src/app/.env \
+               -p 3000:3000 \
+               -e NODE_ENV=production \
+               dashboard
 
 **Note:**
-You  **need to create your own github-token** and store it locally:
+You  **need to create your own github-token** (see https://github.com/settings/tokens/) and 
+store it locally in `.env` file (similar to [.env.example](.env.example) )
 
-    # create your .env file as a copy of .env.example by
+    # create your own .env file as a copy of .env.example by
     cp .env.example .env
-    # ... and adapt it with your API key:
-    # You can create one at
-    # https://github.com/settings/tokens/
+    
+    # ... and replace the XXX with your API key
+    
 
 ## ScreenShot
 

@@ -44,11 +44,11 @@ app.use('/graphql', expressGraphQL(req => ({
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('../build'));
-    console.log('Running in production mode, serving build artifacts of react app.');
+    console.log('Running in production mode, serving web client from ../build.');
 }
 else {
     app.use(express.static('../public'));
-    console.log('Running in dev mode, serving only /public folder');
+    console.log('Running in dev mode, serving only ../public folder');
 }
 
 // doesn't work with webpack-dev-server :(
