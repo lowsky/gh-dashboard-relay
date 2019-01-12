@@ -5,7 +5,10 @@ const lambda = new GraphQLServerLambda({
     schema: schema.default,
     options: {
         debug: false,
-    }
+        tracing: {
+            mode: 'enabled',
+        },
+    },
 });
 
 const handler = (event, lambdaContext, callback) => {
