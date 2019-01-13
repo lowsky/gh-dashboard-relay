@@ -10,12 +10,13 @@ workflows:
       - tests:
           requires:
             - buildprep
-      # disabled - docker-build
+            - docker-integration-test
+      - docker-integration-test
       - build:
           requires:
-            # disabled - docker-build
             - analyse
             - tests
+            - docker-integration-test
 jobs:
   build:
     docker:
@@ -67,7 +68,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: status message
-          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
+          command: "echo testing... dashboard:$CIRCLE_SHA1 ."
       - run:
           name: env
           command: env
@@ -126,7 +127,7 @@ jobs:
           path: ./reports
       - store_artifacts:
           path: ./reports
-  docker-build:
+  docker-integration-test:
     docker:
       - image: circleci/node:8@sha256:bf22ccaadca0cd6dc7019003eb6592163aa9edbdb0652128ca90e0af002bc055
     steps:
@@ -148,10 +149,11 @@ jobs:
             docker run -d --name $CONT_NAME -p 3000:3000 dashboard:$CIRCLE_SHA1
             cont=$(docker ps -ql)
             sleep 5
+            # run simple curl or health check:
             #
-            # docker-compose will start 2 containers, the one with service will be named `contacts`
-            # we start another container with curl in the same network as `contacts`, this way we have
-            # all exposed ports from `contacts` available on `localhost` in this new container
+            # we will start a second containers, the one above with service will be named `dashboard-$CIRCLE_SHA1`
+            # we start another container with curl in the same network as `dashboard-$CIRCLE_SHA1`, this way we have
+            # all exposed ports from `dashboard-$CIRCLE_SHA1` available on `localhost` in this new container
             docker run --network container:$CONT_NAME \
               appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000/
             #&& RESULT=$?
