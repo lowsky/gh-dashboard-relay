@@ -15,7 +15,8 @@
     "node": ">=8"
   },
   "scripts": {
-    "start": "babel-node ."
+    "start": "PORT=4000 babel-node .",
+    "dev": "PORT=4000 nodemon -e js,graphql -x babel-node ."
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
@@ -37,5 +38,6 @@
     "helmet": "3.15.0"
   },
   "devDependencies": {
+    "nodemon": "1.18.9"
   }
 }
