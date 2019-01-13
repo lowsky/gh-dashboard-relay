@@ -41,8 +41,22 @@ for a simple dev mode where it starts the server and the web app in parallel.
 
 ### Built-in GraphQL-backend
 
-It also provides a GraphIql IDE at <http://localhost:3000/graphql> - This is the ideal _playground_ 
-for using and playing with different graphql queries.
+It also provides a GraphIql Playground at <http://localhost:4000/graphql> - which is great 
+for using and playing with different graphql queries, e.g.:
+```graphql
+{
+  github {
+    user(username: "lowsky") {
+      login
+      avatar_url
+    }
+    repo(ownerUsername: "lowsky", name: "dashboard") {
+      name
+      branches{name}
+    }
+  }
+}
+```
 
 Have fun!
     
