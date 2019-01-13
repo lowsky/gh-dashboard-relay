@@ -26,18 +26,17 @@ After invoking this in a shell, a page with a restful functionality works out-of
     git clone https://github.com/lowsky/dashboard
     cd dashboard
     
-    cd server ; yarn ; cd -
-    yarn
+    # Install the dependencies of the react app and
+    # installs the server's dependencies, too:
+    yarn 
 
-then run these steps for simple dev mode 
-
-    yarn run start-server
     
-in another terminal, start the web app:
+    
+then run  
 
-    yarn run start
-
-    # it opens the web app in the browser
+    yarn run dev
+    
+for a simple dev mode where it starts the server and the web app in parallel.
 
 
 ### Built-in GraphQL-backend
