@@ -17,6 +17,7 @@
     "node": ">=8"
   },
   "scripts": {
+    "postinstall": "cd server ; yarn",
     "dev": "npm-run-all --parallel start-server start",
     "start": "react-scripts start",
     "cra-build": "react-scripts build",
