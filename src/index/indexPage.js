@@ -14,7 +14,7 @@ const indexPageContent = () => (
                 <li>
                     <b>GraphQL + Relay</b> - fetches all information from a locally installed relay server. <b>Note:</b>
                     <i>
-                        This only works locally! See <a href="#localserver">Run local server</a>
+                        This only works locally! See <a href="#localserver">How to start the local server</a>
                     </i>
                 </li>
                 <li>
@@ -34,7 +34,7 @@ const indexPageContent = () => (
                 </li>
                 <li>
                     Relay based &nbsp;
-                    <a href="./restful/lowsky/dashboard">
+                    <a href="./relay/lowsky/dashboard">
                         <b>lowsky/spotify-graphql-server</b>
                     </a>
                     &nbsp; (needs a running local server. See <a href="#localserver">setup</a>
@@ -44,8 +44,9 @@ const indexPageContent = () => (
             <h4 className="is-size-4">How to start the local server</h4>
             <p>
                 After installing the dependencies via <code>npm install</code> you also need to configure GitHub
-                authentication token in the <code>.env</code> file, then simply run the local graphql server via{' '}
-                <code>npm start</code>
+                authentication token in the <code>server/.env</code> file, then simply run the local graphql server via
+                and web app via
+                <code>npm run dev</code>
             </p>
         </div>
     </div>
