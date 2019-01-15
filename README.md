@@ -29,8 +29,6 @@ After invoking this in a shell, a page with a restful functionality works out-of
     # Install the dependencies of the react app and
     # installs the server's dependencies, too:
     yarn 
-
-    
     
 then run  
 
@@ -68,14 +66,14 @@ Have fun!
     ### docker run
     # injecting the github creds per .env file
     
-    docker run --rm -v $PWD/server/.env:/usr/src/app/.env \
+    docker run --rm -v $PWD/server/.env:/usr/src/app/server/.env \
                -p 3000:3000 \
                -e NODE_ENV=production \
                dashboard
 
 **Note:**
 You  **need to create your own github-token** (see https://github.com/settings/tokens/) and 
-store it locally in `.env` file (similar to [.env.example](.env.example) )
+store it locally in `server/.env` file (similar to [server/.env.example](server/.env.example) )
 
     # create your own .env file as a copy of .env.example by
     cp .env.example .env
