@@ -323,7 +323,7 @@ exports[`Storyshots Pages main 1`] = `
           <a
             href="#localserver"
           >
-            Run local server
+            How to start the local server
           </a>
         </i>
       </li>
@@ -364,7 +364,7 @@ exports[`Storyshots Pages main 1`] = `
       <li>
         Relay based  
         <a
-          href="./restful/lowsky/dashboard"
+          href="./relay/lowsky/dashboard"
         >
           <b>
             lowsky/spotify-graphql-server
@@ -391,12 +391,11 @@ exports[`Storyshots Pages main 1`] = `
       </code>
        you also need to configure GitHub authentication token in the 
       <code>
-        .env
+        server/.env
       </code>
-       file, then simply run the local graphql server via
-       
+       file, then simply run the local graphql server via and web app via
       <code>
-        npm start
+        npm run dev
       </code>
     </p>
   </div>
