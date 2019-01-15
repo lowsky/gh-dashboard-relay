@@ -33,3 +33,6 @@ COPY . /usr/src/app
 RUN cd .. ; pwd ; ls
 
 RUN cd .. ; yarn run build
+
+# override graphql-yoga's default server port
+ENV PORT 3000

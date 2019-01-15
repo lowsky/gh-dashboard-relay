@@ -146,7 +146,7 @@ jobs:
           name: integration test of generated docker image
           command: |
             CONT_NAME=dashboard-$CIRCLE_SHA1
-            docker run -d --name $CONT_NAME -p 4000:3000 dashboard:$CIRCLE_SHA1
+            docker run -d --name $CONT_NAME -p 3000:3000 -e NODE_ENV=production dashboard:$CIRCLE_SHA1
             cont=$(docker ps -ql)
             sleep 5
             # run simple curl or health check:
