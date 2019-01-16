@@ -1815,7 +1815,7 @@ graphql-tools@^4.0.0, graphql-tools@^4.0.3:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql-yoga@^1.16.9:
+graphql-yoga@1.16.9:
   version "1.16.9"
   resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.16.9.tgz#9e9d5aab25419b298ed857518d95d6a1ad486d84"
   integrity sha512-S0+M0NCMUmC/IMXARhwqGovVr8MzuY+jFtbrM8KBWy0zlZV0+ATHZ6FSVXalkVejmngVEqYNkQXdiD8p33RhqQ==
