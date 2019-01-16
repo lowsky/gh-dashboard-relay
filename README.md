@@ -39,7 +39,7 @@ for a simple dev mode where it starts the server and the web app in parallel.
 
 ### Built-in GraphQL-backend
 
-It also provides a GraphIql Playground at <http://localhost:4000/graphql> - which is great 
+It also provides a GraphIql Playground at <http://localhost:9000/graphql> - which is great 
 for using and playing with different graphql queries, e.g.:
 ```graphql
 {

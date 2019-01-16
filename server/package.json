@@ -1,7 +1,7 @@
 {
   "name": "dashboard-github-server",
-  "version": "1.0.0",
-  "description": "A graphql proxy for some github rest api.",
+  "version": "1.1.0",
+  "description": "A graphql proxy for some github rest api, using netlify lambda function",
   "repository": {
     "type": "git",
     "url": "https://github.com/lowsky/dashboard.git"
@@ -15,11 +15,10 @@
     "node": ">=8"
   },
   "scripts": {
-    "start:lambda": "node -r dotenv/config node_modules/.bin/netlify-lambda serve src/lambda",
-    "build:lambda": "netlify-lambda build src/lambda",
-    "lint": "eslint .",
+    "dev": "node -r dotenv/config node_modules/.bin/netlify-lambda serve src/lambda",
+    "build": "netlify-lambda build src/lambda",
     "start": "babel-node .",
-    "dev": "PORT=4000 nodemon -e js,graphql -x babel-node ."
+    "dev:server": "PORT=4000 nodemon -e js,graphql -x babel-node ."
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
@@ -45,12 +44,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "7.2.3",
-    "babel-eslint": "10.0.1",
-    "eslint": "5.9.0",
-    "eslint-config-prettier": "3.3.0",
-    "eslint-plugin-graphql": "2.1.1",
-    "eslint-plugin-prettier": "3.0.0",
-    "nodemon": "1.18.9",
-    "prettier": "1.15.1"
+    "nodemon": "1.18.9"
   }
 }
