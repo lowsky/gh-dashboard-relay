@@ -57,7 +57,7 @@
     "@storybook/addon-viewport": "4.1.6",
     "@storybook/addons": "4.1.6",
     "@storybook/react": "4.1.6",
-    "babel-loader": "8.0.4",
+    "babel-loader": "8.0.5",
     "babel-plugin-relay": "1.7.0",
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.7.1",
