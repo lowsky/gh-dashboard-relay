@@ -9,7 +9,6 @@ import Intro from './Intro';
 
 import IndexPage from '../src/index/indexPage';
 import RelayPage from '../src/relay/main';
-//import {restful as RestfulPage } from '../src/restinpeace/restful';
 import RestfulPage from '../src/restinpeace/restful';
 import UserRepo from '../src/container/UserRepo';
 import BranchesTable from '../src/container/BranchesTable';
@@ -75,8 +74,15 @@ const userRepo = {
     },
 };
 
+const Suspensor = (storyFn) => (
+    <Suspense fallback={<div>delayed loading ...</div>}>
+        { storyFn() }
+    </Suspense>
+);
+
 storiesOf('Pages', module)
     .addDecorator(withLinks)
+    .addDecorator(Suspensor)
     .addWithJSX('main', () => <IndexPage />)
     .addWithJSX('restful', () => <RestfulPage />)
     .addWithJSX('relay', () => <RelayPage />);
