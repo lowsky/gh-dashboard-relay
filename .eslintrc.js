@@ -18,6 +18,11 @@ module.exports = {
             jsx: true,
         },
     },
+    settings: {
+        "react": {
+            "version": "detect", // React version. "detect" automatically picks the version you have installed.
+        }
+    },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
         'prettier/prettier': 1,
