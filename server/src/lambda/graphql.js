@@ -6,12 +6,7 @@ const server = new ApolloServer({
     schema: schema.default,
     introspection: true,
     playground: true,
-
 });
 
 exports.handler = server.createHandler({
-    cors: {
-        origin: '*',
-        credentials: true,
-    },
 });
