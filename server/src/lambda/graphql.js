@@ -1,19 +1,11 @@
-const { GraphQLServerLambda } = require('graphql-yoga');
+import { ApolloServer } from 'apollo-server-lambda';
+
 const schema = require('../../localSchema');
 
-const lambda = new GraphQLServerLambda({
+const server = new ApolloServer({
     schema: schema.default,
-    options: {
-        debug: false,
-        tracing: {
-            mode: 'enabled',
-        },
-    },
+    introspection: true,
+    playground: true,
 });
 
-const handler = (event, lambdaContext, callback) => {
-    console.error('.....handling handle get', event);
-    lambda.handler(event, lambdaContext, callback);
-};
-
-exports.handler = handler;
+exports.handler = server.createHandler({});
