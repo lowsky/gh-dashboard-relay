@@ -8,5 +8,4 @@ const server = new ApolloServer({
     playground: true,
 });
 
-exports.handler = server.createHandler({
-});
+exports.handler = server.createHandler({});
