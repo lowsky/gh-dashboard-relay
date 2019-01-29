@@ -141,21 +141,22 @@ jobs:
           command: env
       - run:
           name: docker build
-          command: "docker build -t dashboard:$CIRCLE_SHA1 ."
+          command: "# disabled docker build -t dashboard:$CIRCLE_SHA1 ."
       - run:
           name: integration test of generated docker image
           command: |
             CONT_NAME=dashboard-$CIRCLE_SHA1
-            docker run -d --name $CONT_NAME -p 3000:3000 -e NODE_ENV=production dashboard:$CIRCLE_SHA1
-            cont=$(docker ps -ql)
-            sleep 5
+            #docker run -d --name $CONT_NAME -p 3000:3000 -e
+            #NODE_ENV=production dashboard:$CIRCLE_SHA1
+            #cont=$(docker ps -ql)
+            #sleep 5
             # run simple curl or health check:
             #
             # we will start a second containers, the one above with service will be named `dashboard-$CIRCLE_SHA1`
             # we start another container with curl in the same network as `dashboard-$CIRCLE_SHA1`, this way we have
             # all exposed ports from `dashboard-$CIRCLE_SHA1` available on `localhost` in this new container
-            docker run --network container:$CONT_NAME \
-              appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000/
+            #docker run --network container:$CONT_NAME \
+            #  appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000/
             #&& RESULT=$?
-            docker logs $cont
-            exit $RESULT
+            #docker logs $cont
+            #exit $RESULT
