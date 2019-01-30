@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 type BranchInfoRow_branch$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type BranchesTable_repo$ref: FragmentReference;
@@ -20,7 +20,7 @@ export type BranchesTable_repo = {|
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "BranchesTable_repo",
   "type": "GithubRepo",

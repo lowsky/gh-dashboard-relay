@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 87c9ce167ac6b174adc8135e7e2f2bdf
+ * @relayHash 6001a2dd65cfe2e46014a109826f1b11
  */
 
 /* eslint-disable */
@@ -106,11 +106,6 @@ v2 = {
 };
 return {
   "kind": "Request",
-  "operationKind": "query",
-  "name": "mainQuery",
-  "id": null,
-  "text": "query mainQuery {\n  github {\n    ...UserRepo_github\n  }\n}\n\nfragment UserRepo_github on GithubAPI {\n  user(username: \"lowsky\") {\n    ...User_user\n    id\n  }\n  repo(ownerUsername: \"lowsky\", name: \"dashboard\") {\n    ...Repo_repo\n    ...BranchesTable_repo\n  }\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n    id\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n  }\n}\n",
-  "metadata": {},
   "fragment": {
     "kind": "Fragment",
     "name": "mainQuery",
@@ -166,7 +161,7 @@ return {
             "concreteType": "GithubUser",
             "plural": false,
             "selections": [
-              v0,
+              (v0/*: any*/),
               {
                 "kind": "ScalarField",
                 "alias": null,
@@ -181,7 +176,7 @@ return {
                 "args": null,
                 "storageKey": null
               },
-              v1
+              (v1/*: any*/)
             ]
           },
           {
@@ -206,7 +201,7 @@ return {
             "concreteType": "GithubRepo",
             "plural": false,
             "selections": [
-              v2,
+              (v2/*: any*/),
               {
                 "kind": "LinkedField",
                 "alias": null,
@@ -216,8 +211,8 @@ return {
                 "concreteType": "GithubUser",
                 "plural": false,
                 "selections": [
-                  v0,
-                  v1
+                  (v0/*: any*/),
+                  (v1/*: any*/)
                 ]
               },
               {
@@ -229,7 +224,7 @@ return {
                 "concreteType": "GithubBranch",
                 "plural": true,
                 "selections": [
-                  v2,
+                  (v2/*: any*/),
                   {
                     "kind": "LinkedField",
                     "alias": null,
@@ -315,6 +310,13 @@ return {
         ]
       }
     ]
+  },
+  "params": {
+    "operationKind": "query",
+    "name": "mainQuery",
+    "id": null,
+    "text": "query mainQuery {\n  github {\n    ...UserRepo_github\n  }\n}\n\nfragment UserRepo_github on GithubAPI {\n  user(username: \"lowsky\") {\n    ...User_user\n    id\n  }\n  repo(ownerUsername: \"lowsky\", name: \"dashboard\") {\n    ...Repo_repo\n    ...BranchesTable_repo\n  }\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n    id\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n  }\n}\n",
+    "metadata": {}
   }
 };
 })();
