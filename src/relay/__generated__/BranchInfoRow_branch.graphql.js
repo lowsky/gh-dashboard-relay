@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 type CommitWithStatuses_commit$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type BranchInfoRow_branch$ref: FragmentReference;
@@ -21,7 +21,7 @@ export type BranchInfoRow_branch = {|
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "BranchInfoRow_branch",
   "type": "GithubBranch",

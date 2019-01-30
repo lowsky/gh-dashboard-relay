@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 type BranchesTable_repo$ref = any;
 type Repo_repo$ref = any;
 type User_user$ref = any;
@@ -25,7 +25,7 @@ export type UserRepo_github = {|
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "UserRepo_github",
   "type": "GithubAPI",

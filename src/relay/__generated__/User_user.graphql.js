@@ -7,7 +7,7 @@
 'use strict';
 
 /*::
-import type { ConcreteFragment } from 'relay-runtime';
+import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type User_user$ref: FragmentReference;
 export type User_user = {|
@@ -19,7 +19,7 @@ export type User_user = {|
 */
 
 
-const node/*: ConcreteFragment*/ = {
+const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
   "name": "User_user",
   "type": "GithubUser",
