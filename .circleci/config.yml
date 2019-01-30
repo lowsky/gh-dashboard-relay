@@ -10,13 +10,10 @@ workflows:
       - tests:
           requires:
             - buildprep
-            - docker-integration-test
-      - docker-integration-test
       - build:
           requires:
             - analyse
             - tests
-            - docker-integration-test
 jobs:
   build:
     docker:
@@ -49,9 +46,6 @@ jobs:
       - run:
           name: yarn install
           command: "yarn"
-      - run:
-          name: server - yarn install
-          command: "cd server ; yarn"
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
@@ -112,9 +106,6 @@ jobs:
       - run:
           name: status message
           command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
-      - run:
-          name: env
-          command: env
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
