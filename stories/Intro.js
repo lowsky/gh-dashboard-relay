@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types, jsx-a11y/anchor-is-valid*/
 import React, { Component } from 'react';
 
 const styles = {
@@ -14,6 +14,8 @@ const styles = {
         textDecoration: 'none',
         borderBottom: '1px solid #1474f3',
         paddingBottom: 2,
+        paddingLeft: '1em',
+        paddingRight: '1em',
     },
 
     code: {
@@ -28,22 +30,22 @@ const styles = {
 };
 
 export default class Intro extends Component {
-    showApp(e) {
-        e.preventDefault();
+    jumpToStory = event => {
+        event.preventDefault();
         if (this.props.showApp) {
-            this.props.showApp();
+            this.props.jumpToStory();
         }
-    }
+    };
 
     render() {
         return (
             <div style={styles.main}>
                 <h1>STORYBOOK of dashboard</h1>
                 <p>
-                    Jump to these{' '}
-                    <a style={styles.link} href="#" onClick={this.showApp.bind(this)}>
+                    Jump to these
+                    <a style={styles.link} href="#" onClick={e => this.jumpToStory(e)}>
                         stories
-                    </a>{' '}
+                    </a>
                     for the component called <code style={styles.code}>User</code>.
                 </p>
                 <p>
