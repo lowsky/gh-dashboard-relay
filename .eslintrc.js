@@ -1,23 +1,11 @@
 module.exports = {
-    env: {
-        browser: true,
-        commonjs: true,
-        es6: true,
-        node: false,
-    },
-    globals: {
-        process: true,
-        __dirname: true,
-    },
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier/react', 'prettier'],
-    parser: 'babel-eslint',
-    parserOptions: {
-        sourceType: 'module',
-        ecmaFeatures: {
-            experimentalObjectRestSpread: true,
-            jsx: true,
-        },
-    },
+    extends: [
+        'eslint-config-react-app',
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'prettier/react',
+        'prettier'
+    ],
     settings: {
         "react": {
             "version": "detect", // React version. "detect" automatically picks the version you have installed.
