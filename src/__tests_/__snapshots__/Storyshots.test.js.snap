@@ -224,7 +224,6 @@ exports[`Storyshots Intro to this storybook 1`] = `
   </h1>
   <p>
     Jump to these
-     
     <a
       href="#"
       onClick={[Function]}
@@ -233,13 +232,14 @@ exports[`Storyshots Intro to this storybook 1`] = `
           "borderBottom": "1px solid #1474f3",
           "color": "#1474f3",
           "paddingBottom": 2,
+          "paddingLeft": "1em",
+          "paddingRight": "1em",
           "textDecoration": "none",
         }
       }
     >
       stories
     </a>
-     
     for the component called 
     <code
       style={
@@ -269,6 +269,8 @@ exports[`Storyshots Intro to this storybook 1`] = `
           "borderBottom": "1px solid #1474f3",
           "color": "#1474f3",
           "paddingBottom": 2,
+          "paddingLeft": "1em",
+          "paddingRight": "1em",
           "textDecoration": "none",
         }
       }
