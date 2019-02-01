@@ -1,5 +1,7 @@
 {
-  "extends": [
-    "config:base"
-  ]
+    "supportPolicy": ["lts_latest"],
+    "extends": [
+        "docker:disable",
+        "config:base"
+    ]
 }
