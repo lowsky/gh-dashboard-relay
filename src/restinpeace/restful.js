@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import UserRepo from '../container/UserRepo';
 import fetchGithubApi from './fetchGithubApi';
@@ -9,7 +9,7 @@ const lastCommitMock = require('./lastCommitMock.json');
 
 const repoName = 'dashboard';
 const repoOwnerLogin = 'lowsky';
-const repo = 'lowsky/dashboard';
+const repoPath = 'lowsky/dashboard';
 
 const githubData = {
     repo: {
@@ -24,93 +24,57 @@ const githubData = {
     errorMsg: '',
 };
 
-export default class RestMain extends Component {
-    state = {
-        ...githubData,
-    };
+export default () => {
+    const [repo, storeRepo] = useState(githubData.repo);
+    const [user, storeUser] = useState(githubData.user);
+    const [errorMsg, storeErrorMsg] = useState(githubData.errorMsg);
 
-    componentDidMount() {
-        this.loadData(fetchGithubApi);
-    }
-
-    loadData({ fetchRepoBranches, fetchUser }) {
-        //
-        this.setState({
-            loadingRepo: true,
-            loadingUser: true,
-            ...githubData,
-        });
-
+    const loadUser = ({ fetchUser }) => {
         fetchUser(repoOwnerLogin)
             .then(user => {
                 if (user.message) {
                     throw new Error(user.message);
                 }
-                this.setState({
-                    loadingUser: false,
-                    user,
-                });
+                storeUser(user);
             })
             .catch(ex => {
-                this.setState({
-                    loadingUser: false,
-                    errorMsg: ex.message,
-                });
+                storeErrorMsg('User: ' + ex.message);
                 console.log('fetching user info failed', ex);
             });
+    };
 
-        fetchRepoBranches(repo)
+    const loadRepoBranches = ({ fetchRepoBranches }) => {
+        fetchRepoBranches(repoPath)
             .then(branches => {
                 if (branches.message) {
                     throw new Error(branches.message);
                 }
-                this.setState(state => {
-                    return {
-                        repo: {
-                            ...state.repo,
-                            branches,
-                        },
-                    };
-                });
-                return branches;
-            })
-            .then(branches => {
-                this.setState(state => {
-                    return {
-                        loadingRepo: false,
-                        repo: {
-                            ...state.repo,
-                            branches: branches.map(branch => {
-                                branch.lastCommit = lastCommitMock;
-                                return branch;
-                            }),
-                        },
-                    };
+                storeRepo({
+                    owner: { login: repoOwnerLogin },
+                    name: repoName,
+                    branches: branches.map(b => ({ ...b, lastCommit: lastCommitMock })),
                 });
             })
             .catch(ex => {
-                this.setState({
-                    loadingRepo: false,
-                    errorMsg: ex.message,
-                });
+                storeErrorMsg('Repo: ' + ex.message);
                 console.log('fetching branches info failed', ex);
             });
-    }
+    };
 
-    render() {
-        const { errorMsg, loadingRepo, loadingUser } = this.state;
-        return (
-            <div className="content">
-                <div className="box">
-                    {(loadingUser || loadingRepo) && (
-                        <span className="icon is-large">
-                            <i className="fas fa-3x fa-spinner fa-pulse" />
-                        </span>
-                    )}
-                    <UserRepo github={this.state} />
-                </div>
-                {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
+    useEffect(() => loadUser(fetchGithubApi), [repoOwnerLogin]);
+    useEffect(() => loadRepoBranches(fetchGithubApi), [repoPath]);
+
+    return (
+        <div className="content">
+            <div className="box">
+                {(user.loading || repo.loading) && (
+                    <span className="icon is-large">
+                        <i className="fas fa-3x fa-spinner fa-pulse" />
+                    </span>
+                )}
+                <UserRepo github={{ user, repo }} />
             </div>
-        );
-    }
-}
+            {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
+        </div>
+    );
+};

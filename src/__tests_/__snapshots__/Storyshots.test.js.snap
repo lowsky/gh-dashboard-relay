@@ -426,13 +426,6 @@ exports[`Storyshots Pages restful 1`] = `
   <div
     className="box"
   >
-    <span
-      className="icon is-large"
-    >
-      <i
-        className="fas fa-3x fa-spinner fa-pulse"
-      />
-    </span>
     <div
       className="column"
     >
