@@ -10,7 +10,7 @@ action "GitHub Action for npm" {
 }
 
 action "GitHub Action for npm-1" {
-  uses = "docker://aquariuslt/yarn@master"
+  uses = "docker://circleci/node@8"
   needs = ["GitHub Action for npm"]
   runs = "yarn"
   args = "test"
