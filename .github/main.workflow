@@ -11,7 +11,7 @@ action "deps" {
 action "Test" {
   needs = "deps"
   uses = "actions/npm@master"
-  args = "test:ci"
+  args = "run test:ci"
   env = {
       CI = "true"
   }
