@@ -1,17 +1,15 @@
-workflow "AndAction!" {
+workflow "Build, Test" {
   on = "push"
-  resolves = ["yarn lint"]
+  resolves = ["Test"]
 }
 
-action "GitHub Action for npm" {
-  uses = "docker://circleci/node:8"
+action "Build" {
+  uses = "actions/npm@master"
   args = "install"
-  runs = "yarn"
 }
 
-action "yarn lint" {
-  uses = "docker://circleci/node:8"
-  needs = ["GitHub Action for npm"]
-  runs = "yarn"
-  args = "lint"
+action "Test" {
+  needs = "Build"
+  uses = "actions/npm@master"
+  args = "test"
 }
