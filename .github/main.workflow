@@ -12,4 +12,7 @@ action "Test" {
   needs = "Build"
   uses = "actions/npm@master"
   args = "test"
+  env = {
+      CI = "true"
+  }
 }
