@@ -1,4 +1,4 @@
-workflow "Build, Test" {
+workflow "AndAction!" {
   on = "push"
   resolves = ["Test", "Lint", "Build"]
 }
