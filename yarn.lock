@@ -2476,10 +2476,10 @@ babel-plugin-react-docgen@^2.0.0:
     react-docgen "^3.0.0"
     recast "^0.14.7"
 
-babel-plugin-relay@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-2.0.0.tgz#f5c408f81427f3e97b65ea3f6bccf6821f1615b9"
-  integrity sha512-NFQ+TzQtr4Wh1/FEpjeZqghS1Orpn0gAvksrBOgn606bMf2vd1YYed8z4gMAyAPkwSgWzsNtsLzq84pMJi6agQ==
+babel-plugin-relay@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-3.0.0.tgz#dc5b66c94c8565f2e52edf8fbe86aadff6e7966d"
+  integrity sha512-lI+PR4/H8XytNVUtz8cYYM7sR2unFMeTsBbnKFvuU/mnxxmDO3JA7OHxtTdctLjlRSYrcCVmvIEL2JDehMxlTg==
   dependencies:
     babel-plugin-macros "^2.0.0"
 
