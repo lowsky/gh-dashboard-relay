@@ -1,20 +1,15 @@
 workflow "Build, Test" {
   on = "push"
-  resolves = ["Test", "Lint", "Build"]
+  resolves = [
+    "Lint",
+    "Build",
+    "deps",
+  ]
 }
 
 action "deps" {
   uses = "actions/npm@master"
   args = "install"
-}
-
-action "Test" {
-  needs = "deps"
-  uses = "actions/npm@master"
-  args = "run test:ci"
-  env = {
-      CI = "true"
-  }
 }
 
 action "Lint" {
