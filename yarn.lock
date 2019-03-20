@@ -12118,10 +12118,10 @@ stealthy-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-storybook-addon-jsx@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-6.0.0.tgz#dc1c422ac387912f70a4e3820b8376b67d7db65b"
-  integrity sha512-vPYsC2AhwnWORPgF0Yk7jHEJfouGZs4GiuC1W+cqd+sdb6vJOZ/SJDpfvW+2Obg8837ukWZa7KoIlJ3Z/FVY3g==
+storybook-addon-jsx@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-6.0.1.tgz#d7b76bf1c50f36ba84639d8326ed68a7b2c80644"
+  integrity sha512-cpVFcV5cu6xuTgVLgk753K0zsHcUvecRspBcIctLiA87sEjv/JGFF6BPdhbEhr7oQKvHNfRwselE2cnlNC9bcw==
   dependencies:
     js-beautify "^1.8.8"
     react-copy-to-clipboard "^5.0.1"
