@@ -4052,7 +4052,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-copy-to-clipboard@^3:
+copy-to-clipboard@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.0.8.tgz#f4e82f4a8830dce4666b7eb8ded0c9bcc313aba9"
   integrity sha512-c3GdeY8qxCHGezVb1EFQfHYK/8NZRemgcTIzPq7PuxjHAf/raKibn2QdhHPb/y6q74PMgH6yizaDZlRmw6QyKw==
@@ -10722,14 +10722,6 @@ react-clientside-effect@^1.2.0:
     "@babel/runtime" "^7.0.0"
     shallowequal "^1.1.0"
 
-react-copy-to-clipboard@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.1.tgz#8eae107bb400be73132ed3b6a7b4fb156090208e"
-  integrity sha512-ELKq31/E3zjFs5rDWNCfFL4NvNFQvGRoJdAKReD/rUPA+xxiLPQmZBZBvy2vgH7V0GE9isIQpT9WXbwIVErYdA==
-  dependencies:
-    copy-to-clipboard "^3"
-    prop-types "^15.5.8"
-
 react-dev-utils@^7.0.0, react-dev-utils@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-7.0.3.tgz#f1316cfffd792fd41b0c28ad5db86c1d74484d6f"
@@ -12219,14 +12211,14 @@ stealthy-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-storybook-addon-jsx@7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.0.2.tgz#b331ef9c132979e10ee3afc24d9667a41c4094b1"
-  integrity sha512-eDpNY2BQgtwLFL1uCnLVTZBt6Cb0lP817duQBoWT4juLxW4hqo/r8B6Z7k0h/42RrAyn7iRkPZEOE601VjAitw==
+storybook-addon-jsx@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.1.0.tgz#d80dec7a91eff45180068db1be925a3295d42b4a"
+  integrity sha512-misUBJ/vdcf+OjI6pAQOWFu4V3vN9h8lP/HePSZLlokyPnFbF/gREiVqBOW5YcNzux6exelJoIJmoZNWovUNmw==
   dependencies:
+    copy-to-clipboard "^3.0.8"
     js-beautify "^1.8.8"
     prismjs "^1.15.0"
-    react-copy-to-clipboard "^5.0.1"
     react-element-to-jsx-string "^14.0.2"
 
 stream-browserify@^2.0.1:
