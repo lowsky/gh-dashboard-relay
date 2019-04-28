@@ -3,11 +3,13 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
+import { withLinks } from '@storybook/addon-links';
 
 import Intro from './Intro';
 
 import IndexPage from '../src/index/indexPage';
 import RelayPage from '../src/relay/main';
+//import {restful as RestfulPage } from '../src/restinpeace/restful';
 import RestfulPage from '../src/restinpeace/restful';
 import UserRepo from '../src/container/UserRepo';
 import BranchesTable from '../src/container/BranchesTable';
@@ -17,9 +19,8 @@ import User from '../src/components/User';
 import CommitWithStatuses from '../src/components/CommitWithStatuses';
 import Repo from '../src/components/Repo';
 
-import { withLinks } from '@storybook/addon-links';
 
-storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
+// storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
 const userWithoutAvatar = {
     user: {
@@ -78,6 +79,10 @@ const userRepo = {
         repo: repo.repo
     }
 };
+
+if(false)
+storiesOf('R', module)
+    .add('restful', () => <RestfulPage />)
 
 storiesOf('Pages', module)
     .addDecorator(withLinks)
