@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import { UILibContext } from '../components';
 import UserWithPropTypes from '../components/User';
 
-let UserRepo = ({ github = {} }) => {
+interface UserRepoProps {
+    github: any;
+    relay?: any;
+}
+
+let UserRepo = (props:UserRepoProps) => {
+    const { github = {} } = props;
     const { user, repo = { branches: [] } } = github;
     const { Repo, User, BranchTable } = useContext(UILibContext);
 
