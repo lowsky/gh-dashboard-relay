@@ -1,5 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import * as React from 'react';
+
+import { Switch, Redirect, Route, BrowserRouter } from 'react-router-dom';
 
 import IndexPageMain from './index/indexPage';
 import { NavBar } from './components/NavBar';
