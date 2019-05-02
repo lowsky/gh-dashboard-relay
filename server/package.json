@@ -28,7 +28,7 @@
   "dependencies": {
     "apollo-server-lambda": "2.4.8",
     "bufferutil": "4.0.1",
-    "dotenv": "7.0.0",
+    "dotenv": "8.0.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "graphql": "14.2.1",
     "netlify-lambda": "1.4.5",
