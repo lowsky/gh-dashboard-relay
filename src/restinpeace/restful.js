@@ -24,7 +24,7 @@ const githubData = {
     errorMsg: '',
 };
 
-export default () => {
+const RestfulPage = () => {
     const [repo, storeRepo] = useState(githubData.repo);
     const [user, storeUser] = useState(githubData.user);
     const [errorMsg, storeErrorMsg] = useState(githubData.errorMsg);
@@ -61,8 +61,8 @@ export default () => {
             });
     };
 
-    useEffect(() => loadUser(fetchGithubApi), [repoOwnerLogin]);
-    useEffect(() => loadRepoBranches(fetchGithubApi), [repoPath]);
+    useEffect(() => loadUser(fetchGithubApi), []);
+    useEffect(() => loadRepoBranches(fetchGithubApi), []);
 
     return (
         <div className="content">
@@ -78,3 +78,4 @@ export default () => {
         </div>
     );
 };
+export default RestfulPage;
