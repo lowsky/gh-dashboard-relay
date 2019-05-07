@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withLinks } from '@storybook/addon-links';
@@ -8,8 +8,6 @@ import { linkTo } from '@storybook/addon-links';
 import Intro from './Intro';
 
 import IndexPage from '../src/index/indexPage';
-import RelayPage from '../src/relay/main';
-import RestfulPage from '../src/restinpeace/restful';
 import UserRepo from '../src/container/UserRepo';
 import BranchesTable from '../src/container/BranchesTable';
 import BranchInfoRow from '../src/container/BranchInfoRow';
@@ -17,6 +15,10 @@ import BranchInfoRow from '../src/container/BranchInfoRow';
 import User from '../src/components/User';
 import CommitWithStatuses from '../src/components/CommitWithStatuses';
 import Repo from '../src/components/Repo';
+
+const RelayPage = lazy(() => import('../src/relay/main'));
+const RestfulPage = lazy(() => import('../src/restinpeace/restful'));
+
 
 storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
