@@ -11,6 +11,7 @@ import type { ReaderFragment } from 'relay-runtime';
 type CommitWithStatuses_commit$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type BranchInfoRow_branch$ref: FragmentReference;
+declare export opaque type BranchInfoRow_branch$fragmentType: BranchInfoRow_branch$ref;
 export type BranchInfoRow_branch = {|
   +name: ?string,
   +lastCommit: ?{|
@@ -18,6 +19,11 @@ export type BranchInfoRow_branch = {|
   |},
   +$refType: BranchInfoRow_branch$ref,
 |};
+export type BranchInfoRow_branch$data = BranchInfoRow_branch;
+export type BranchInfoRow_branch$key = {
+  +$data?: BranchInfoRow_branch$data,
+  +$fragmentRefs: BranchInfoRow_branch$ref,
+};
 */
 
 

@@ -11,12 +11,18 @@ import type { ReaderFragment } from 'relay-runtime';
 type BranchInfoRow_branch$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type BranchesTable_repo$ref: FragmentReference;
+declare export opaque type BranchesTable_repo$fragmentType: BranchesTable_repo$ref;
 export type BranchesTable_repo = {|
   +branches: ?$ReadOnlyArray<?{|
     +$fragmentRefs: BranchInfoRow_branch$ref
   |}>,
   +$refType: BranchesTable_repo$ref,
 |};
+export type BranchesTable_repo$data = BranchesTable_repo;
+export type BranchesTable_repo$key = {
+  +$data?: BranchesTable_repo$data,
+  +$fragmentRefs: BranchesTable_repo$ref,
+};
 */
 
 

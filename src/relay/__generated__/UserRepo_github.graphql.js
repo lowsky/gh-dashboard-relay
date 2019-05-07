@@ -13,6 +13,7 @@ type Repo_repo$ref = any;
 type User_user$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type UserRepo_github$ref: FragmentReference;
+declare export opaque type UserRepo_github$fragmentType: UserRepo_github$ref;
 export type UserRepo_github = {|
   +user: ?{|
     +$fragmentRefs: User_user$ref
@@ -22,6 +23,11 @@ export type UserRepo_github = {|
   |},
   +$refType: UserRepo_github$ref,
 |};
+export type UserRepo_github$data = UserRepo_github;
+export type UserRepo_github$key = {
+  +$data?: UserRepo_github$data,
+  +$fragmentRefs: UserRepo_github$ref,
+};
 */
 
 
@@ -41,8 +47,7 @@ const node/*: ReaderFragment*/ = {
         {
           "kind": "Literal",
           "name": "username",
-          "value": "lowsky",
-          "type": "String!"
+          "value": "lowsky"
         }
       ],
       "concreteType": "GithubUser",
@@ -64,14 +69,12 @@ const node/*: ReaderFragment*/ = {
         {
           "kind": "Literal",
           "name": "name",
-          "value": "dashboard",
-          "type": "String!"
+          "value": "dashboard"
         },
         {
           "kind": "Literal",
           "name": "ownerUsername",
-          "value": "lowsky",
-          "type": "String!"
+          "value": "lowsky"
         }
       ],
       "concreteType": "GithubRepo",
