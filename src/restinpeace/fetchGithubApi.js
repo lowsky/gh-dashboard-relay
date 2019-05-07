@@ -7,7 +7,7 @@ import 'whatwg-fetch';
  *
  * @param repo <userName>/<repoName>, like lowsky/dashboard
  */
-let fetchRepoBranches = async repo => {
+const fetchRepoBranches = async repo => {
     let url = `https://api.github.com/repos/${repo}/branches`; // eslint-disable-line quotes
     let response = await fetch(url);
     return await response.json();
@@ -18,7 +18,7 @@ let fetchRepoBranches = async repo => {
  *
  * @param login user's login name, e.g lowsky
  */
-let fetchUser = async login => {
+const fetchUser = async login => {
     let url = `https://api.github.com/users/${login}`; // eslint-disable-line quotes
     let response = await fetch(url);
     return await response.json();
