@@ -3,16 +3,15 @@ import graphql from 'babel-plugin-relay/macro';
 
 import UserRepo from '../container/UserRepo';
 
-export default createFragmentContainer(
-    UserRepo,
+export default createFragmentContainer(UserRepo, {
     /* TODO manually deal with:
-    initialVariables: {
-        username: 'lowsky',
-        ownerUsername: 'lowsky',
-        repoName: 'dashboard',
-    }
-    */
-    graphql`
+        initialVariables: {
+            username: 'lowsky',
+            ownerUsername: 'lowsky',
+            repoName: 'dashboard',
+        }
+        */
+    github: graphql`
         fragment UserRepo_github on GithubAPI {
             user(username: "lowsky") {
                 ...User_user
@@ -22,5 +21,5 @@ export default createFragmentContainer(
                 ...BranchesTable_repo
             }
         }
-    `
-);
+    `,
+});

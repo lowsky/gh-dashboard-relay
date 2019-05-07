@@ -2,102 +2,100 @@
 # timestamp: Sun Feb 25 2018 02:36:17 GMT+0100 (CET)
 
 schema {
-  query: GraphQL_github_API
+    query: GraphQL_github_API
 }
 
 type GithubAPI {
-  user(
-    username: String!
-  ): GithubUser
-  repo(
-    name: String!
+    user(username: String!): GithubUser
+    repo(
+        name: String!
 
-    ownerUsername: String!
-  ): GithubRepo
+        ownerUsername: String!
+    ): GithubRepo
 }
 
 type GithubBranch {
-  name: String
-  lastCommit: GithubCommit
+    name: String
+    lastCommit: GithubCommit
 }
 
 type GithubCommit {
-  sha: String
-  author: UserOrCommitAuthor
-  message: String
-  date: String
-  status: [GithubStatus]
-  tree: GithubTree
+    sha: String
+    author: UserOrCommitAuthor
+    message: String
+    date: String
+    status: [GithubStatus]
+    tree: GithubTree
 }
 
 type GithubCommitAuthor {
-  email: String
-  name: String
+    email: String
+    name: String
 }
 
 type GithubIssue {
-  id: Int
-  state: String
-  title: String
-  body: String
-  user: GithubUser
-  assignee: GithubUser
-  closed_by: GithubUser
-  labels: [GithubIssueLabelType]
-  commentCount: Int
-  comments: [GithubIssueCommentType]
+    id: Int
+    state: String
+    title: String
+    body: String
+    user: GithubUser
+    assignee: GithubUser
+    closed_by: GithubUser
+    labels: [GithubIssueLabelType]
+    commentCount: Int
+    comments: [GithubIssueCommentType]
 }
 
 type GithubIssueCommentType {
-  id: Int
-  body: String
-  user: GithubUser
+    id: Int
+    body: String
+    user: GithubUser
 }
 
 type GithubIssueLabelType {
-  url: String
-  name: String
-  color: String
+    url: String
+    name: String
+    color: String
 }
 
 type GithubRepo {
-  id: String
-  name: String
-  commits(limit: Int): [GithubCommit]
-  issues(limit: Int): [GithubIssue]
-  branches(limit: Int): [GithubBranch]
-  owner: GithubUser
+    id: String
+    name: String
+    commits(limit: Int): [GithubCommit]
+    issues(limit: Int): [GithubIssue]
+    branches(limit: Int): [GithubBranch]
+    owner: GithubUser
 }
 
 type GithubStatus {
-  state: String
-  description: String
-  target_url: String
-  context: String
-  updated_at: String
+    state: String
+    description: String
+    target_url: String
+    context: String
+    updated_at: String
 }
 
 type GithubTree {
-  entries: [GithubTreeEntry]
+    entries: [GithubTreeEntry]
 }
 
 type GithubTreeEntry {
-  path: String
-  last_commit: GithubCommit
+    path: String
+    last_commit: GithubCommit
 }
 
 type GithubUser {
-  login: String
+    login: String
 
     id: ID!
 
-  company: String
-  avatar_url: String
-  repos: [GithubRepo]
+    company: String
+    avatar_url: String
+    repos: [GithubRepo]
 }
 
 type GraphQL_github_API {
-  github: GithubAPI
+    github: GithubAPI
 }
 
 union UserOrCommitAuthor = GithubCommitAuthor | GithubUser

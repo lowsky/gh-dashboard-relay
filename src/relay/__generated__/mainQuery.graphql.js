@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6001a2dd65cfe2e46014a109826f1b11
+ * @relayHash e609572453aee369ec3947b23b6e62b5
  */
 
 /* eslint-disable */
@@ -154,8 +154,7 @@ return {
               {
                 "kind": "Literal",
                 "name": "username",
-                "value": "lowsky",
-                "type": "String!"
+                "value": "lowsky"
               }
             ],
             "concreteType": "GithubUser",
@@ -188,14 +187,12 @@ return {
               {
                 "kind": "Literal",
                 "name": "name",
-                "value": "dashboard",
-                "type": "String!"
+                "value": "dashboard"
               },
               {
                 "kind": "Literal",
                 "name": "ownerUsername",
-                "value": "lowsky",
-                "type": "String!"
+                "value": "lowsky"
               }
             ],
             "concreteType": "GithubRepo",

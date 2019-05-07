@@ -18,9 +18,8 @@ export const fakeCommitWithStatuses = {
     ],
 };
 
-export default createFragmentContainer(
-    CommitWithStatus,
-    graphql`
+export default createFragmentContainer(CommitWithStatus, {
+    commit: graphql`
         fragment CommitWithStatuses_commit on GithubCommit {
             sha
             message
@@ -33,5 +32,5 @@ export default createFragmentContainer(
                 updated_at
             }
         }
-    `
-);
+    `,
+});

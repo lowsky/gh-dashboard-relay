@@ -12,14 +12,13 @@ export const fakeBranchInfo = {
     },
 };
 
-export default createFragmentContainer(
-    props => <BranchInfoRow {...props} />,
-    graphql`
+export default createFragmentContainer(props => <BranchInfoRow {...props} />, {
+    branch: graphql`
         fragment BranchInfoRow_branch on GithubBranch {
             name
             lastCommit {
                 ...CommitWithStatuses_commit
             }
         }
-    `
-);
+    `,
+});

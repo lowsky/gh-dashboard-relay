@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type CommitWithStatuses_commit$ref: FragmentReference;
+declare export opaque type CommitWithStatuses_commit$fragmentType: CommitWithStatuses_commit$ref;
 export type CommitWithStatuses_commit = {|
   +sha: ?string,
   +message: ?string,
@@ -23,6 +24,11 @@ export type CommitWithStatuses_commit = {|
   |}>,
   +$refType: CommitWithStatuses_commit$ref,
 |};
+export type CommitWithStatuses_commit$data = CommitWithStatuses_commit;
+export type CommitWithStatuses_commit$key = {
+  +$data?: CommitWithStatuses_commit$data,
+  +$fragmentRefs: CommitWithStatuses_commit$ref,
+};
 */
 
 

@@ -10,12 +10,18 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type User_user$ref: FragmentReference;
+declare export opaque type User_user$fragmentType: User_user$ref;
 export type User_user = {|
   +login: ?string,
   +company: ?string,
   +avatar_url: ?string,
   +$refType: User_user$ref,
 |};
+export type User_user$data = User_user;
+export type User_user$key = {
+  +$data?: User_user$data,
+  +$fragmentRefs: User_user$ref,
+};
 */
 
 

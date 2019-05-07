@@ -10,6 +10,7 @@
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Repo_repo$ref: FragmentReference;
+declare export opaque type Repo_repo$fragmentType: Repo_repo$ref;
 export type Repo_repo = {|
   +name: ?string,
   +owner: ?{|
@@ -17,6 +18,11 @@ export type Repo_repo = {|
   |},
   +$refType: Repo_repo$ref,
 |};
+export type Repo_repo$data = Repo_repo;
+export type Repo_repo$key = {
+  +$data?: Repo_repo$data,
+  +$fragmentRefs: Repo_repo$ref,
+};
 */
 
 
