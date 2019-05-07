@@ -3,34 +3,35 @@
 import React, { useEffect, useState } from 'react';
 
 import UserRepo from '../container/UserRepo';
-import fetchGithubApi from './fetchGithubApi';
+import github from './fetchGithubApi';
 
 const lastCommitMock = require('./lastCommitMock.json');
 
-const repoName = 'dashboard';
-const repoOwnerLogin = 'lowsky';
-const repoPath = 'lowsky/dashboard';
+const defaultRepoName = 'dashboard';
+const defaultOwnerLogin = 'lowsky';
 
 const githubData = {
     repo: {
-        owner: { login: repoOwnerLogin },
-        name: repoName,
+        owner: { login: defaultOwnerLogin },
+        name: defaultRepoName,
         branches: [],
     },
     user: {
         avatar_url: '//lorempixel.com/200/200/cats/lorempixel/',
-        login: 'lowsky',
+        login: defaultOwnerLogin,
     },
     errorMsg: '',
 };
 
-const RestfulPage = () => {
+// eslint-disable-next-line react/prop-types
+const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName }) => {
     const [repo, storeRepo] = useState(githubData.repo);
     const [user, storeUser] = useState(githubData.user);
     const [errorMsg, storeErrorMsg] = useState(githubData.errorMsg);
 
-    const loadUser = ({ fetchUser }) => {
-        fetchUser(repoOwnerLogin)
+    useEffect(() => {
+        github
+            .fetchUser(userName)
             .then(user => {
                 if (user.message) {
                     throw new Error(user.message);
@@ -41,16 +42,17 @@ const RestfulPage = () => {
                 storeErrorMsg('User: ' + ex.message);
                 console.log('fetching user info failed', ex);
             });
-    };
+    }, [userName]);
 
-    const loadRepoBranches = ({ fetchRepoBranches }) => {
-        fetchRepoBranches(repoPath)
+    useEffect(() => {
+        github
+            .fetchRepoBranches(userName + '/' + repoName)
             .then(branches => {
                 if (branches.message) {
                     throw new Error(branches.message);
                 }
                 storeRepo({
-                    owner: { login: repoOwnerLogin },
+                    owner: { login: userName },
                     name: repoName,
                     branches: branches.map(b => ({ ...b, lastCommit: lastCommitMock })),
                 });
@@ -59,10 +61,7 @@ const RestfulPage = () => {
                 storeErrorMsg('Repo: ' + ex.message);
                 console.log('fetching branches info failed', ex);
             });
-    };
-
-    useEffect(() => loadUser(fetchGithubApi), []);
-    useEffect(() => loadRepoBranches(fetchGithubApi), []);
+    }, [userName, repoName]);
 
     return (
         <div className="content">
@@ -78,4 +77,4 @@ const RestfulPage = () => {
         </div>
     );
 };
-export default RestfulPage;
+export default RestfulMain;
