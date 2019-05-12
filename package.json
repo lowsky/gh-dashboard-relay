@@ -60,7 +60,7 @@
     "@storybook/addon-viewport": "5.0.11",
     "@storybook/addons": "5.0.11",
     "@storybook/react": "5.0.11",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "babel-plugin-relay": "4.0.0",
     "cypress": "3.3.1",
     "cypress-match-screenshot": "1.1.0",
