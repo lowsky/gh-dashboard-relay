@@ -10,7 +10,7 @@ import 'whatwg-fetch';
 const fetchRepoBranches = async repo => {
     let url = `https://api.github.com/repos/${repo}/branches`; // eslint-disable-line quotes
     let response = await fetch(url);
-    return await response.json();
+    return response.json();
 };
 
 /**
@@ -21,7 +21,7 @@ const fetchRepoBranches = async repo => {
 const fetchUser = async login => {
     let url = `https://api.github.com/users/${login}`; // eslint-disable-line quotes
     let response = await fetch(url);
-    return await response.json();
+    return response.json();
 };
 
 export default {
