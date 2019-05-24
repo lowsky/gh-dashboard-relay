@@ -19,70 +19,61 @@ import User from '../src/components/User';
 import CommitWithStatuses from '../src/components/CommitWithStatuses';
 import Repo from '../src/components/Repo';
 
-
 // storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
 const userWithoutAvatar = {
-    user: {
-        login: 'login',
-        id: '1234',
-        company: 'company',
-    },
+    login: 'login',
+    id: '1234',
+    company: 'company',
 };
 const userWithAvatar = {
-    user: {
-        ...userWithoutAvatar.user,
-        avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
-    },
+    ...userWithoutAvatar,
+    avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
 };
 
-const commit = {
+const commitData = {
     user: {
-        ...userWithoutAvatar.user,
+        ...userWithoutAvatar,
         avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
     },
     commit: {
-        sha : 'no-sha',
-        date : 'no-date',
-        message : 'no-message',
-        status : [],
+        sha: 'no-sha',
+        date: 'no-date',
+        message: 'no-message',
+        status: [],
         author: {
             ...userWithAvatar.user,
             email: 'me@work',
-            name: 'My-Name'
-        }
-    }
+            name: 'My-Name',
+        },
+    },
 };
 
 const branchInfo = {
     branch: {
         name: 'branch-x',
-        lastCommit: commit.commit
+        lastCommit: commitData.commit,
     },
 };
 
 const branches = {
-    repo: {branches: [branchInfo.branch]}
+    repo: { branches: [branchInfo.branch] },
 };
 
 const repo = {
     repo: {
         owner: userWithAvatar.user,
         name: 'demo-repo',
-        branches: branches.repo.branches
+        branches: branches.repo.branches,
     },
 };
 
 const userRepo = {
     github: {
         user: userWithAvatar.user,
-        repo: repo.repo
-    }
+        repo: repo.repo,
+    },
 };
-
-if(false)
-storiesOf('R', module)
-    .add('restful', () => <RestfulPage />)
 
 storiesOf('Pages', module)
     .addDecorator(withLinks)
@@ -90,22 +81,20 @@ storiesOf('Pages', module)
     .addWithJSX('restful', () => <RestfulPage />)
     .addWithJSX('relay', () => <RelayPage />);
 
-storiesOf('Repo', module)
-    .addWithJSX('fake data', () => <Repo {...repo} />);
+storiesOf('Repo', module).addWithJSX('fake data', () => <Repo {...repo} />);
 
 storiesOf('User', module)
-    .addWithJSX('without avatar', () => <User {...userWithoutAvatar} />)
-    .addWithJSX('with avatar', () => <User {...userWithAvatar} />);
+    .addWithJSX('without avatar', () => <User user={userWithoutAvatar} />)
+    .addWithJSX('with avatar', () => <User user={userWithAvatar} />);
+
+const moreStatus = require('../src/restinpeace/lastCommitMock');
 
 storiesOf('CommitStatus', module)
-    .addWithJSX('with data', () => <CommitWithStatuses {...commit} />)
+    .addWithJSX('with data', () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />)
     .addWithJSX('with no data', () => <CommitWithStatuses />);
 
-storiesOf('BranchesTable', module)
-    .addWithJSX('with one branch', () => <BranchesTable {...branches} />);
+storiesOf('BranchesTable', module).addWithJSX('with one branch', () => <BranchesTable {...branches} />);
 
-storiesOf('BranchInfoRow', module)
-    .addWithJSX('with info', () => <BranchInfoRow {...branchInfo} />);
+storiesOf('BranchInfoRow', module).addWithJSX('with info', () => <BranchInfoRow {...branchInfo} />);
 
-storiesOf('UserRepo', module)
-    .addWithJSX('with user and repo', () => <UserRepo {...userRepo} />);
+storiesOf('UserRepo', module).addWithJSX('with user and repo', () => <UserRepo {...userRepo} />);
