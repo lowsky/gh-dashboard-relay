@@ -6,7 +6,9 @@ import circleciLogo from './circleci.svg';
 import codacyLogo from './codacy.png';
 import snykLogo from './snyk.svg';
 
-const ContextLogo = props => <img width={24} height={24} {...props} style={{ verticalAlign: 'middle' }} alt="" />;
+import './CommitWithStatuses.css';
+
+const ContextLogo = props => <img className="contextlogo" width={24} height={24} {...props} alt="" />;
 
 function icon4context(context = '') {
     if (context === 'bitHound - Code') {
@@ -30,7 +32,8 @@ function icon4context(context = '') {
 }
 
 function icon4status(status) {
-    const StatusIcon = ({ type }) => <i className={'fa fa-' + type} style={{ verticalAlign: 'bottom' }} />;
+    const StatusIcon = ({ type }) => <i className={`fa fa-${type} statusicon`} />;
+
     StatusIcon.propTypes = {
         type: PropTypes.string,
     };
@@ -68,7 +71,7 @@ function status2color(status) {
 
 function renderStatus(status, idx) {
     return (
-        <div key={idx} style={{ display: 'inline' }}>
+        <span key={idx}>
             <a
                 className="commitLink"
                 href={status.target_url}
@@ -77,7 +80,7 @@ function renderStatus(status, idx) {
                 {icon4context(status.context)}
                 {icon4status(status.state)}
             </a>
-        </div>
+        </span>
     );
 }
 
@@ -105,14 +108,14 @@ let CommitWithStatus = ({ commit = {} }) => {
                     <b>{message.split('\n\n', 1)}</b>
                 </a>
             </div>
-            <div className="level" style={{ justifyContent: 'normal' }}>
+            <div className="level">
                 <i>{date}</i>
                 &nbsp; by &nbsp;
                 {author.avatar_url && <img width={32} src={author.avatar_url} alt="avatar" />} &nbsp;
                 <span>{author.login}</span> &nbsp;
                 {author.email && <a href={'mailto:' + author.email}>{'?' + author.name}</a>}
             </div>
-            {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
+            <div>{onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}</div>
         </div>
     );
 };

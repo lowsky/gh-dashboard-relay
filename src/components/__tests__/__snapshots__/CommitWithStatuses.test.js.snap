@@ -13,11 +13,6 @@ exports[`CommitWithStatuses component should render as expected 1`] = `
   </div>
   <div
     className="level"
-    style={
-      Object {
-        "justifyContent": "normal",
-      }
-    }
   >
     <i>
       01.01.2001
@@ -39,32 +34,28 @@ exports[`CommitWithStatuses component should render as expected 1`] = `
       ?name
     </a>
   </div>
-  <div
-    style={
-      Object {
-        "display": "inline",
-      }
-    }
-  >
-    <a
-      className="commitLink"
-      href="target_url"
-      style={
-        Object {
-          "color": "inherit",
+  <div>
+    <span>
+      <a
+        className="commitLink"
+        href="target_url"
+        style={
+          Object {
+            "color": "inherit",
+          }
         }
-      }
-      title="context description"
-    >
-      <span>
-        context
-      </span>
-      <span>
-        ?
-        state
-         
-      </span>
-    </a>
+        title="context description"
+      >
+        <span>
+          context
+        </span>
+        <span>
+          ?
+          state
+           
+        </span>
+      </a>
+    </span>
   </div>
 </div>
 `;
