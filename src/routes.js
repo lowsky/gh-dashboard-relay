@@ -29,7 +29,7 @@ const MainPage = () => (
                             component={({ match }) => <RestfulMain {...match.params} />}
                         />
                         <Redirect from="/relay" to="/relay/lowsky/dashboard" />
-                        <Redirect from="/restfulxxxx" to="/restful/lowsky/dashboard" />
+                        <Redirect from="/restful" to="/restful/lowsky/dashboard" />
                     </Switch>
                 </Suspense>
             </main>
