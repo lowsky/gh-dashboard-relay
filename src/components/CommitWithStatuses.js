@@ -6,7 +6,7 @@ import circleciLogo from './circleci.svg';
 import codacyLogo from './codacy.png';
 import snykLogo from './snyk.svg';
 
-const ContextLogo = props => <img width={32} height={32} {...props} style={{ verticalAlign: 'middle' }} alt="" />;
+const ContextLogo = props => <img width={24} height={24} {...props} style={{ verticalAlign: 'middle' }} alt="" />;
 
 function icon4context(context = '') {
     if (context === 'bitHound - Code') {
