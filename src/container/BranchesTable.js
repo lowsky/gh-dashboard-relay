@@ -13,7 +13,10 @@ const BranchesTable = props => {
         <table className="table is-bordered is-striped is-hoverable">
             <thead>
                 <tr>
-                    <th className="is-narrow">Branch</th>
+                    <th className="is-narrow">
+                        <span className="fas fa-code-branch"/>
+                        <span>Branch</span>
+                    </th>
                     <th className="">Commit</th>
                 </tr>
             </thead>
