@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Ui from '../components';
-import octocat from './octocat.jpg';
 
 const BranchInfoRow = props => {
     const { branch = {} } = props;
@@ -14,10 +13,12 @@ const BranchInfoRow = props => {
     return (
         <tr key={name}>
             <td>
-                <img src={octocat} width="32" alt="link to branch on github" />
                 <a href={githubBranchSrc}>{name}</a>
+                <i className="fab fa-github" />
             </td>
-            <td>{<CommitWithStatuses commit={lastCommit} />}</td>
+            <td>
+                <CommitWithStatuses commit={lastCommit} />
+            </td>
         </tr>
     );
 };
