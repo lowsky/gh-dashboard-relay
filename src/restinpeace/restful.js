@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import UserRepo from '../container/UserRepo';
 import github from './fetchGithubApi';
 
-const lastCommitMock = require('./lastCommitMock.json');
+import lastCommitMock from './lastCommitMock.json';
 
 const defaultRepoName = 'dashboard';
 const defaultOwnerLogin = 'lowsky';
@@ -30,37 +30,56 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
     const [errorMsg, storeErrorMsg] = useState(githubData.errorMsg);
 
     useEffect(() => {
+        let ignoreDownloadedData = false;
+
         github
             .fetchUser(userName)
             .then(user => {
-                if (user.message) {
-                    throw new Error(user.message);
+                if (!ignoreDownloadedData) {
+                    if (user.message) {
+                        throw new Error(user.message);
+                    }
+                    storeUser(user);
                 }
-                storeUser(user);
             })
             .catch(ex => {
-                storeErrorMsg('User: ' + ex.message);
-                console.log('fetching user info failed', ex);
+                if (!ignoreDownloadedData) {
+                    storeErrorMsg('User: ' + ex.message);
+                    console.log('fetching user info failed', ex);
+                }
             });
+        return () => {
+            ignoreDownloadedData = true;
+        };
     }, [userName]);
 
     useEffect(() => {
+        let ignoreDownloadedData = false;
+
         github
             .fetchRepoBranches(userName + '/' + repoName)
             .then(branches => {
-                if (branches.message) {
-                    throw new Error(branches.message);
+                if (!ignoreDownloadedData) {
+                    if (branches.message) {
+                        throw new Error(branches.message);
+                    }
+                    storeRepo({
+                        owner: { login: userName },
+                        name: repoName,
+                        branches: branches.map(b => ({ ...b, lastCommit: lastCommitMock })),
+                    });
                 }
-                storeRepo({
-                    owner: { login: userName },
-                    name: repoName,
-                    branches: branches.map(b => ({ ...b, lastCommit: lastCommitMock })),
-                });
             })
             .catch(ex => {
-                storeErrorMsg('Repo: ' + ex.message);
-                console.log('fetching branches info failed', ex);
+                if (!ignoreDownloadedData) {
+                    storeErrorMsg('Repo: ' + ex.message);
+                    console.log('fetching branches info failed', ex);
+                }
             });
+
+        return () => {
+            ignoreDownloadedData = true;
+        };
     }, [userName, repoName]);
 
     return (
