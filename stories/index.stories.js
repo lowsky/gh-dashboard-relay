@@ -2,8 +2,8 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { linkTo } from '@storybook/addon-links';
 import { withLinks } from '@storybook/addon-links';
+import { linkTo } from '@storybook/addon-links';
 
 import Intro from './Intro';
 
@@ -19,7 +19,7 @@ import User from '../src/components/User';
 import CommitWithStatuses from '../src/components/CommitWithStatuses';
 import Repo from '../src/components/Repo';
 
-// storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
+storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
 const userWithoutAvatar = {
     login: 'login',
