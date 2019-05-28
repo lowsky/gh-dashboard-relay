@@ -84,7 +84,12 @@ Array [
           <th
             className="is-narrow"
           >
-            Branch
+            <span
+              className="fas fa-code-branch"
+            />
+            <span>
+              Branch
+            </span>
           </th>
           <th
             className=""

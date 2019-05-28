@@ -9,7 +9,12 @@ exports[`BranchesTable component should render as expected 1`] = `
       <th
         className="is-narrow"
       >
-        Branch
+        <span
+          className="fas fa-code-branch"
+        />
+        <span>
+          Branch
+        </span>
       </th>
       <th
         className=""
