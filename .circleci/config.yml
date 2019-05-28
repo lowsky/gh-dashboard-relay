@@ -145,5 +145,7 @@ jobs:
           command: "yarn run test:vis"
       - store_artifacts:
           path: ./cypress/screenshots
+          destination: screenshots
       - store_artifacts:
           path: ./cypress/match-screenshots
+          destination: match-screenshots
