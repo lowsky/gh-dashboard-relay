@@ -51,6 +51,7 @@ jobs:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+            - ~/.cache
       - save_cache:
           key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
           paths:
