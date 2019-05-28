@@ -14,7 +14,7 @@ const BranchesTable = props => {
             <thead>
                 <tr>
                     <th className="is-narrow">
-                        <span className="fas fa-code-branch"/>
+                        <span className="fas fa-code-branch" />
                         <span>Branch</span>
                     </th>
                     <th className="">Commit</th>
