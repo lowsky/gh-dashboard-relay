@@ -62,7 +62,7 @@
     "@storybook/react": "5.0.11",
     "babel-loader": "8.0.5",
     "babel-plugin-relay": "4.0.0",
-    "cypress": "3.2.0",
+    "cypress": "3.3.1",
     "cypress-match-screenshot": "1.1.0",
     "emotion-theming": "10.0.10",
     "enzyme": "3.9.0",
