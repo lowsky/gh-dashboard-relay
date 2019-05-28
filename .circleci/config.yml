@@ -4,6 +4,9 @@ workflows:
   build-and-deploy:
     jobs:
       - buildprep
+      - vis:
+          requires:
+            - buildprep
       - analyse:
           requires:
             - buildprep
@@ -36,26 +39,24 @@ jobs:
           name: show env
           command: env
       - restore_cache:
-          key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          path:
+            - ./node_modules
       - restore_cache:
-          key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
-      - restore_cache:
-          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
+          key: dependency-cache-{{ checksum "server/yarn.lock" }}
+          path:
+            - ./server/node_modules
       - run:
           name: yarn install
           command: "yarn"
       - save_cache:
-          key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
       - save_cache:
-          key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
+          key: dependency-cache-{{ checksum "server/yarn.lock" }}
           paths:
             - ./server/node_modules
-      - save_cache:
-          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
   tests:
     docker:
       - image: circleci/node:8@sha256:6675c3f7d4af321065d3aa1cc6e45a3c87280021d7dd4b0266bf84bb754f133a
@@ -69,9 +70,7 @@ jobs:
           name: env
           command: env
       - restore_cache:
-          key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
-      - restore_cache:
-          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name:  Download cc-test-reporter
           command: |
@@ -113,7 +112,7 @@ jobs:
       - restore_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: create lint report output folder
+          name: create report output folder
           command: "mkdir -p reports"
       - run:
           name: npm run lint
@@ -122,3 +121,22 @@ jobs:
           path: ./reports
       - store_artifacts:
           path: ./reports
+  vis:
+    docker:
+      - image: circleci/node:8@sha256:6675c3f7d4af321065d3aa1cc6e45a3c87280021d7dd4b0266bf84bb754f133a
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: status message
+          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: create report output folder
+          command: "mkdir -p reports"
+      - run:
+          name: npm run visual tests
+          command: "yarn run test:vis"
+      - store_artifacts:
+          path: ./cypress/screenshots
