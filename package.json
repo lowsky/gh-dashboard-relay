@@ -44,7 +44,7 @@
   "dependencies": {
     "@babel/core": "7.4.5",
     "@babel/node": "7.4.5",
-    "bulma": "0.7.4",
+    "bulma": "0.7.5",
     "codacy-coverage": "3.4.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-scripts": "3.0.1",
