@@ -12055,10 +12055,10 @@ relateurl@0.2.x:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-relay-compiler@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-4.0.0.tgz#d97dd2819d3b92669599c9cfec8049c9b487be67"
-  integrity sha512-IljjuroVEBWfNgZHb9Qm2YeAH6GRagM64eRYIdyVN4kitY1u1Hitle4000y3A1XRwjgrEuD4CuryFK0ktGaszA==
+relay-compiler@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-5.0.0.tgz#ca2514bda20ff829550ac87f126d07a1517bf6de"
+  integrity sha512-q8gKlPRTJe/TwtIokbdXehy1SxDFIyLBZdsfg60J4OcqyviIx++Vhc+h4lXzBY8LsBVaJjTuolftYcXJLhlE6g==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
@@ -12074,7 +12074,7 @@ relay-compiler@4.0.0:
     fbjs "^1.0.0"
     immutable "~3.7.6"
     nullthrows "^1.1.0"
-    relay-runtime "4.0.0"
+    relay-runtime "5.0.0"
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
