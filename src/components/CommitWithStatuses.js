@@ -69,20 +69,19 @@ function status2color(status) {
     return 'inherit';
 }
 
-function renderStatus(status, idx) {
-    return (
-        <span key={idx}>
-            <a
-                className="commitLink"
-                href={status.target_url}
-                style={{ color: status2color(status.state) }}
-                title={status.context + ' ' + status.description}>
-                {icon4context(status.context)}
-                {icon4status(status.state)}
-            </a>
-        </span>
-    );
-}
+// eslint-disable-next-line react/prop-types
+const renderStatus = ({ target_url, context, description, state }, idx) => (
+    <span key={idx}>
+        <a
+            className="commitLink"
+            href={target_url}
+            style={{ color: status2color(state) }}
+            title={context + ' ' + description}>
+            {icon4context(context)}
+            {icon4status(state)}
+        </a>
+    </span>
+);
 
 let CommitWithStatus = ({ commit = {} }) => {
     const { sha = '<missing>', date = '', message = '<missing>', status = [], author = {} } = commit;
