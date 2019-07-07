@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Ui from '../components';
+import { UILibContext } from '../components';
 
 const BranchesTable = props => {
     const { repo = {} } = props;
     const { branches = [] } = repo;
 
-    const BranchInfoRow = Ui.createBranchInfoRow(props);
 
     return (
+    <UILibContext.Consumer>
+        {({ BranchInfoRow })) => (
         <table className="table is-bordered is-striped is-hoverable">
             <thead>
                 <tr>
@@ -26,6 +27,8 @@ const BranchesTable = props => {
                 ))}
             </tbody>
         </table>
+    )}
+    </UILibContext.Consumer>
     );
 };
 

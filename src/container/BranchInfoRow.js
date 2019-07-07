@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Ui from '../components';
+import { UILibContext } from '../components';
 
 const BranchInfoRow = props => {
     const { branch = {} } = props;
     const { name, lastCommit = {} } = branch;
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
 
-    const CommitWithStatuses = Ui.createCommitWithStatuses(props);
-
     return (
+        <UILibContext.Consumer>
+            {({ CommitWithStatuses }) => (
         <tr key={name}>
             <td>
                 <a href={githubBranchSrc}>{name}</a>
@@ -20,6 +20,8 @@ const BranchInfoRow = props => {
                 <CommitWithStatuses commit={lastCommit} />
             </td>
         </tr>
+            )}
+        </UILibContext.Consumer>
     );
 };
 

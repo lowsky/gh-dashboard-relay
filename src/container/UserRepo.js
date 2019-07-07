@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Ui from '../components';
+import { UILibContext } from '../components';
 
 let UserRepo = props => {
     const { github = {} } = props;
     const { user, repo = { branches: [] } } = github;
-
+    <UILibContext.Consumer>
+        {({ Repo, User, BranchTable }) => (
     const User = Ui.createUser(props);
     const Repo = Ui.createRepo(props);
     const BranchesTable = Ui.createBranchTable(props);
@@ -19,11 +20,12 @@ let UserRepo = props => {
                 <BranchesTable repo={repo} />
             </div>
         </React.Fragment>
-    );
-};
+        )}
+    </UILibContext.Consumer>
+);
+
 UserRepo.propTypes = {
-    github: PropTypes.object,
-    relay: PropTypes.object,
+    github: PropTypes.object.isRequired,
 };
 
 export default UserRepo;

@@ -4,6 +4,8 @@ import graphql from 'babel-plugin-relay/macro';
 
 import UserRepo from './UserRepo';
 
+import { UILibContext, UILibWithRelaySupport } from '../components';
+
 const { Environment, Network, RecordSource, Store } = require('relay-runtime');
 
 const store = new Store(new RecordSource());
@@ -51,12 +53,14 @@ let relayRoot = () => (
                 );
             } else if (props) {
                 return (
+                    <UILibContext.Provider value={UILibWithRelaySupport}>
                     <div className="box">
                         {
                             // eslint-disable-next-line react/prop-types
                             <UserRepo github={props.github} />
                         }
                     </div>
+                    </UILibContext.Provider>
                 );
             }
 

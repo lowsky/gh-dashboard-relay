@@ -6,6 +6,7 @@ import UserRepo from '../container/UserRepo';
 import github from './fetchGithubApi';
 
 import lastCommitMock from './lastCommitMock.json';
+import { UILibContext, UILibPureComponents } from '../components';
 
 const defaultRepoName = 'dashboard';
 const defaultOwnerLogin = 'lowsky';
@@ -83,6 +84,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
     }, [userName, repoName]);
 
     return (
+        <UILibContext.Provider value={UILibPureComponents}>
         <div className="content">
             <div className="box">
                 {(user.loading || repo.loading) && (
@@ -94,6 +96,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
             </div>
             {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
         </div>
+        </UILibContext.Provider>
     );
 };
 export default RestfulMain;
