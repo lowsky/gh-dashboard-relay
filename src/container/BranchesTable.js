@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import Ui from '../components';
+import { UILibContext } from '../components';
 
-const BranchesTable = props => {
-    const { repo = {} } = props;
-    const { branches = [] } = repo;
-
-    const BranchInfoRow = Ui.createBranchInfoRow(props);
+const BranchesTable = ({ repo = {} }) => {
+    const { BranchInfoRow } = useContext(UILibContext);
 
     return (
         <table className="table is-bordered is-striped is-hoverable">
@@ -17,11 +14,11 @@ const BranchesTable = props => {
                         <span className="fas fa-code-branch" />
                         <span>Branch</span>
                     </th>
-                    <th className="">Commit</th>
+                    <th>Commit</th>
                 </tr>
             </thead>
             <tbody>
-                {branches.map((branch, idx) => (
+                {(repo.branches || []).map((branch, idx) => (
                     <BranchInfoRow key={idx} branch={branch} />
                 ))}
             </tbody>

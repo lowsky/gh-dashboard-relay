@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CommitWithStatuses component should render as expected 1`] = `
-<div>
+Array [
   <div>
     <a
       href="https://github.com/lowsky/dashboard/tree/<missing>"
@@ -10,31 +10,36 @@ exports[`CommitWithStatuses component should render as expected 1`] = `
         some-message,
       </b>
     </a>
-  </div>
-  <div
-    className="level"
-  >
+  </div>,
+  <div>
     <i>
       01.01.2001
     </i>
       by  
-    <img
-      alt="avatar"
-      src="avatar_url"
-      width={32}
-    />
-      
-    <span>
-      login
-    </span>
-      
+    <a
+      href="https://github.com/login"
+    >
+      <img
+        alt="avatar"
+        className="commit_avatar"
+        src="avatar_url"
+        width={32}
+      />
+       
+      <span>
+        login
+      </span>
+    </a>
+     
     <a
       href="mailto:email"
     >
       ?name
     </a>
-  </div>
-  <div>
+  </div>,
+  <div
+    className="statusline"
+  >
     <span>
       <a
         className="commitLink"
@@ -56,6 +61,6 @@ exports[`CommitWithStatuses component should render as expected 1`] = `
         </span>
       </a>
     </span>
-  </div>
-</div>
+  </div>,
+]
 `;

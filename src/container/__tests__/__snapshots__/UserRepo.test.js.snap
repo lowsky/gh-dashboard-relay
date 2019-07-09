@@ -50,6 +50,7 @@ Array [
           >
             <img
               alt="avatar"
+              src="octicon-git-branch.svg"
             />
           </figure>
         </div>
@@ -91,9 +92,7 @@ Array [
               Branch
             </span>
           </th>
-          <th
-            className=""
-          >
+          <th>
             Commit
           </th>
         </tr>

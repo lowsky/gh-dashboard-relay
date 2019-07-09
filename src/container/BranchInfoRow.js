@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import Ui from '../components';
+import { UILibContext } from '../components';
 
-const BranchInfoRow = props => {
-    const { branch = {} } = props;
+const BranchInfoRow = ({ branch }) => {
     const { name, lastCommit = {} } = branch;
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
-
-    const CommitWithStatuses = Ui.createCommitWithStatuses(props);
+    const { CommitWithStatuses } = useContext(UILibContext);
 
     return (
         <tr key={name}>

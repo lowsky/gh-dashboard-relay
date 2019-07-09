@@ -69,20 +69,19 @@ function status2color(status) {
     return 'inherit';
 }
 
-function renderStatus(status, idx) {
-    return (
-        <span key={idx}>
-            <a
-                className="commitLink"
-                href={status.target_url}
-                style={{ color: status2color(status.state) }}
-                title={status.context + ' ' + status.description}>
-                {icon4context(status.context)}
-                {icon4status(status.state)}
-            </a>
-        </span>
-    );
-}
+// eslint-disable-next-line react/prop-types
+const renderStatus = ({ target_url, context, description, state }, idx) => (
+    <span key={idx}>
+        <a
+            className="commitLink"
+            href={target_url}
+            style={{ color: status2color(state) }}
+            title={context + ' ' + description}>
+            {icon4context(context)}
+            {icon4status(state)}
+        </a>
+    </span>
+);
 
 let CommitWithStatus = ({ commit = {} }) => {
     const { sha = '<missing>', date = '', message = '<missing>', status = [], author = {} } = commit;
@@ -102,21 +101,29 @@ let CommitWithStatus = ({ commit = {} }) => {
     };
 
     return (
-        <div key={sha}>
+        <>
             <div>
                 <a href={githubCommit}>
                     <b>{message.split('\n\n', 1)}</b>
                 </a>
             </div>
-            <div className="level">
+            <div>
                 <i>{date}</i>
                 &nbsp; by &nbsp;
-                {author.avatar_url && <img width={32} src={author.avatar_url} alt="avatar" />} &nbsp;
-                <span>{author.login}</span> &nbsp;
+                <a href={`https://github.com/${author.login}`}>
+                    {author.avatar_url && (
+                        <img className="commit_avatar" width={32} src={author.avatar_url} alt="avatar" />
+                    )}
+                    &nbsp;
+                    <span>{author.login}</span>
+                </a>
+                &nbsp;
                 {author.email && <a href={'mailto:' + author.email}>{'?' + author.name}</a>}
             </div>
-            <div>{onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}</div>
-        </div>
+            <div className="statusline">
+                {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
+            </div>
+        </>
     );
 };
 

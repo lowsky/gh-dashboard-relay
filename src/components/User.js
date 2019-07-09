@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import gitBranchSvgUrl from '../components/octicon-git-branch.svg';
+
 const User = ({ user = {} }) => {
-    const { avatar_url, login = '?', company } = user;
+    const { avatar_url = gitBranchSvgUrl, login = '?', company } = user;
 
     return (
         <div className="card">

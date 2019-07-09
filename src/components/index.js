@@ -1,3 +1,5 @@
+import React from 'react';
+
 import PureBranchInfoRow from '../container/BranchInfoRow';
 import RelayBranchInfoRow from '../relay/BranchInfoRow';
 
@@ -34,3 +36,21 @@ export default {
     createCommitWithStatuses: props =>
         createRelayOrPureComponent(RelayCommitWithStatuses, PureCommitWithStatuses, props),
 };
+
+export const UILibPureComponents = {
+    User: PureUser,
+    Repo: PureRepo,
+    BranchTable: PureBranchesTable,
+    BranchInfoRow: PureBranchInfoRow,
+    CommitWithStatuses: PureCommitWithStatuses,
+};
+
+export const UILibWithRelaySupport = {
+    User: RelayUser,
+    Repo: RelayRepo,
+    BranchTable: RelayBranchesTable,
+    BranchInfoRow: RelayBranchInfoRow,
+    CommitWithStatuses: RelayCommitWithStatuses,
+};
+
+export const UILibContext = React.createContext(UILibPureComponents);

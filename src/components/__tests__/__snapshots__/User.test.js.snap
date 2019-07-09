@@ -18,6 +18,7 @@ exports[`User component should render as expected 1`] = `
         >
           <img
             alt="avatar"
+            src="octicon-git-branch.svg"
           />
         </figure>
       </div>

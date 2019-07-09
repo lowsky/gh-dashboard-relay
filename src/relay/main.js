@@ -4,6 +4,8 @@ import graphql from 'babel-plugin-relay/macro';
 
 import UserRepo from './UserRepo';
 
+import { UILibContext, UILibWithRelaySupport } from '../components';
+
 const { Environment, Network, RecordSource, Store } = require('relay-runtime');
 
 const store = new Store(new RecordSource());
@@ -37,7 +39,7 @@ const GithubQuery = graphql`
     }
 `;
 
-let relayRoot = () => (
+const RelayRoot = () => (
     <QueryRenderer
         environment={environment}
         query={GithubQuery}
@@ -49,14 +51,18 @@ let relayRoot = () => (
                         Error! While trying to load data from the server: {error.message}{' '}
                     </div>
                 );
-            } else if (props) {
+            }
+
+            if (props) {
                 return (
-                    <div className="box">
-                        {
-                            // eslint-disable-next-line react/prop-types
-                            <UserRepo github={props.github} />
-                        }
-                    </div>
+                    <UILibContext.Provider value={UILibWithRelaySupport}>
+                        <div className="box">
+                            {
+                                // eslint-disable-next-line react/prop-types
+                                <UserRepo github={props.github} />
+                            }
+                        </div>
+                    </UILibContext.Provider>
                 );
             }
 
@@ -72,4 +78,4 @@ let relayRoot = () => (
     />
 );
 
-export default relayRoot;
+export default RelayRoot;
