@@ -85,17 +85,17 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
 
     return (
         <UILibContext.Provider value={UILibPureComponents}>
-        <div className="content">
-            <div className="box">
-                {(user.loading || repo.loading) && (
-                    <span className="icon is-large">
-                        <i className="fas fa-3x fa-spinner fa-pulse" />
-                    </span>
-                )}
-                <UserRepo github={{ user, repo }} />
+            <div className="content">
+                <div className="box">
+                    {(user.loading || repo.loading) && (
+                        <span className="icon is-large">
+                            <i className="fas fa-3x fa-spinner fa-pulse" />
+                        </span>
+                    )}
+                    <UserRepo github={{ user, repo }} />
+                </div>
+                {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
             </div>
-            {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
-        </div>
         </UILibContext.Provider>
     );
 };

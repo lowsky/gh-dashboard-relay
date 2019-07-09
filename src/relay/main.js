@@ -39,7 +39,7 @@ const GithubQuery = graphql`
     }
 `;
 
-let relayRoot = () => (
+const RelayRoot = () => (
     <QueryRenderer
         environment={environment}
         query={GithubQuery}
@@ -51,15 +51,17 @@ let relayRoot = () => (
                         Error! While trying to load data from the server: {error.message}{' '}
                     </div>
                 );
-            } else if (props) {
+            }
+
+            if (props) {
                 return (
                     <UILibContext.Provider value={UILibWithRelaySupport}>
-                    <div className="box">
-                        {
-                            // eslint-disable-next-line react/prop-types
-                            <UserRepo github={props.github} />
-                        }
-                    </div>
+                        <div className="box">
+                            {
+                                // eslint-disable-next-line react/prop-types
+                                <UserRepo github={props.github} />
+                            }
+                        </div>
                     </UILibContext.Provider>
                 );
             }
@@ -76,4 +78,4 @@ let relayRoot = () => (
     />
 );
 
-export default relayRoot;
+export default RelayRoot;
