@@ -102,21 +102,29 @@ let CommitWithStatus = ({ commit = {} }) => {
     };
 
     return (
-        <div key={sha}>
+        <>
             <div>
                 <a href={githubCommit}>
                     <b>{message.split('\n\n', 1)}</b>
                 </a>
             </div>
-            <div className="level">
+            <div>
                 <i>{date}</i>
                 &nbsp; by &nbsp;
-                {author.avatar_url && <img width={32} src={author.avatar_url} alt="avatar" />} &nbsp;
-                <span>{author.login}</span> &nbsp;
+                <a href={`https://github.com/${author.login}`}>
+                    {author.avatar_url && (
+                        <img className="commit_avatar" width={32} src={author.avatar_url} alt="avatar" />
+                    )}
+                    &nbsp;
+                    <span>{author.login}</span>
+                </a>
+                &nbsp;
                 {author.email && <a href={'mailto:' + author.email}>{'?' + author.name}</a>}
             </div>
-            <div>{onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}</div>
-        </div>
+            <div className="statusline">
+                {onlyTakeFirstStatusPerContext(status).map((s, idx) => renderStatus(s, idx))}
+            </div>
+        </>
     );
 };
 

@@ -20,7 +20,20 @@ let UserRepo = ({ github = {} }) => {
     );
 };
 UserRepo.propTypes = {
-    github: PropTypes.object.isRequired,
+    github: PropTypes.shape({
+        branch: PropTypes.shape({
+            name: PropTypes.string,
+            lastCommit: PropTypes.object,
+        }),
+        repo: PropTypes.shape({
+            branches: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string,
+                    lastCommit: PropTypes.object,
+                })
+            ),
+        }),
+    }),
 };
 
 export default UserRepo;
