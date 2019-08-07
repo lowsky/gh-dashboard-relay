@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { UILibContext } from '../components';
+import UserWithPropTypes from '../components/User';
 
 let UserRepo = ({ github = {} }) => {
     const { user, repo = { branches: [] } } = github;
@@ -19,6 +20,7 @@ let UserRepo = ({ github = {} }) => {
 };
 UserRepo.propTypes = {
     github: PropTypes.shape({
+        user: UserWithPropTypes.propTypes,
         branch: PropTypes.shape({
             name: PropTypes.string,
             lastCommit: PropTypes.object,
