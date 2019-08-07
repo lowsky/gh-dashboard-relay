@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { UILibContext } from '../components';
-import { UserWithPropTypes } from '../components/User';
+import UserWithPropTypes from '../components/User';
 
 let UserRepo = ({ github = {} }) => {
     const { user, repo = { branches: [] } } = github;
