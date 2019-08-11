@@ -46,7 +46,15 @@ jobs:
           key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
       - run:
           name: yarn install
-          command: "yarn"
+          command: |
+              if [ ! -d node_modules ]; then
+                  set -exu
+                  yarn
+              fi
+              if [ ! -d server/node_modules ]; then
+                  set -exu
+                  yarn
+              fi
       - save_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
           paths:
