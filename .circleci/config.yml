@@ -4,6 +4,9 @@ workflows:
   build-and-deploy:
     jobs:
       - buildprep
+      - visual:
+          requires:
+            - buildprep
       - analyse:
           requires:
             - buildprep
@@ -17,7 +20,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: circleci/node:8@sha256:6675c3f7d4af321065d3aa1cc6e45a3c87280021d7dd4b0266bf84bb754f133a
+      - image: cypress/base:10
     steps:
       - setup_remote_docker
       - run:
@@ -25,7 +28,7 @@ jobs:
           command: "echo Overall target built."
   buildprep:
     docker:
-      - image: circleci/node:8@sha256:6675c3f7d4af321065d3aa1cc6e45a3c87280021d7dd4b0266bf84bb754f133a
+      - image: cypress/base:10
     steps:
       - checkout
       - setup_remote_docker
@@ -43,11 +46,20 @@ jobs:
           key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
       - run:
           name: yarn install
-          command: "yarn"
+          command: |
+              if [ ! -d node_modules ]; then
+                  set -exu
+                  yarn
+              fi
+              if [ ! -d server/node_modules ]; then
+                  set -exu
+                  yarn
+              fi
       - save_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+            - ~/.cache
       - save_cache:
           key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
           paths:
@@ -58,7 +70,7 @@ jobs:
             - ~/.cache/yarn
   tests:
     docker:
-      - image: circleci/node:8@sha256:6675c3f7d4af321065d3aa1cc6e45a3c87280021d7dd4b0266bf84bb754f133a
+      - image: cypress/base:10
     steps:
       - checkout
       - setup_remote_docker
@@ -103,7 +115,7 @@ jobs:
             cat coverage/lcov.info | yarn codacy-coverage -t $CODACY_PROJECT_TOKEN -u lowsky -n dashboard -v
   analyse:
     docker:
-      - image: circleci/node:8@sha256:6675c3f7d4af321065d3aa1cc6e45a3c87280021d7dd4b0266bf84bb754f133a
+      - image: cypress/base:10
     steps:
       - checkout
       - setup_remote_docker
@@ -113,7 +125,7 @@ jobs:
       - restore_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: create lint report output folder
+          name: create report output folder
           command: "mkdir -p reports"
       - run:
           name: npm run lint
@@ -122,3 +134,26 @@ jobs:
           path: ./reports
       - store_artifacts:
           path: ./reports
+  visual:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: status message
+          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
+      - restore_cache:
+          key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: create report output folder
+          command: "mkdir -p reports"
+      - run:
+          name: npm run visual tests
+          command: "yarn run test:vis"
+      - store_artifacts:
+          path: ./cypress/screenshots
+          destination: screenshots
+      - store_artifacts:
+          path: ./cypress/match-screenshots
+          destination: match-screenshots
