@@ -52,7 +52,7 @@
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
-    "@emotion/core": "10.0.15",
+    "@emotion/core": "10.0.16",
     "@storybook/addon-a11y": "5.1.11",
     "@storybook/addon-actions": "5.1.11",
     "@storybook/addon-links": "5.1.11",
