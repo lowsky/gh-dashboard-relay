@@ -74,7 +74,7 @@
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.14.3",
-    "graphql": "14.4.2",
+    "graphql": "14.5.1",
     "graphql-relay": "0.6.0",
     "http-proxy-middleware": "0.19.1",
     "jest-junit-reporter": "1.1.0",
