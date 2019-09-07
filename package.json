@@ -43,8 +43,8 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@babel/core": "7.5.5",
-    "@babel/node": "7.5.5",
+    "@babel/core": "7.6.0",
+    "@babel/node": "7.6.1",
     "bulma": "0.7.5",
     "codacy-coverage": "3.4.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
