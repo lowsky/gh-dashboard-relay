@@ -89,7 +89,7 @@
     "react-test-renderer": "16.9.0",
     "relay-compiler": "5.0.0",
     "start-server-and-test": "1.10.0",
-    "storybook-addon-jsx": "7.1.5",
+    "storybook-addon-jsx": "7.1.6",
     "xunit-file": "1.0.0"
   },
   "browserslist": [
