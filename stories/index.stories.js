@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import Intro from './Intro';
 
-import IndexPage from '../src/index/indexPage';
+import IndexPage from '../src/index/IndexPage';
 import UserRepo from '../src/container/UserRepo';
 import BranchesTable from '../src/container/BranchesTable';
 import BranchInfoRow from '../src/container/BranchInfoRow';
