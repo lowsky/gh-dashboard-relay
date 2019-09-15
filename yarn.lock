@@ -2742,6 +2742,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-relay@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-5.0.0.tgz#03244d48c2942ef9b1df69479e1e6516b6074c5c"
+  integrity sha512-DUm4YW2cdkF3P1TayDMR05Bmda7Cl+mTWj2dnpSwDYl5tEuKCZsj9zhNZsGr6ldIUVbjkyW9QzyAvWYGKiKZkg==
+  dependencies:
+    "@types/react" "*"
+    "@types/relay-runtime" "*"
+
 "@types/react-router-dom@4.3.1":
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.3.1.tgz#71fe2918f8f60474a891520def40a63997dafe04"
@@ -2781,6 +2789,11 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
+
+"@types/relay-runtime@*":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-5.0.5.tgz#62fb80d4925a707583e535f6d0afdf0762467adb"
+  integrity sha512-ZfhRGH8kYnMUeV3NBSYsy99hvJ/GiWAZ4Kc7KG7SuKXdYAHNuHV69TJnHmnmuh54EZytu3NplYDwccerghykpQ==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"

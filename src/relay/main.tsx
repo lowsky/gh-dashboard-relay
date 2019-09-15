@@ -58,7 +58,6 @@ const RelayRoot = () => (
                     <UILibContext.Provider value={UILibWithRelaySupport}>
                         <div className="box">
                             {
-                                // eslint-disable-next-line react/prop-types
                                 <UserRepo github={props.github} />
                             }
                         </div>

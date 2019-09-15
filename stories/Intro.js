@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types, jsx-a11y/anchor-is-valid*/
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 
 const styles = {

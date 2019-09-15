@@ -1,7 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Repo = ({ repo: { name, owner = {} } = {} }) => (
+interface OwnerType {
+    login?: string;
+}
+
+interface RepoType {
+    owner?: OwnerType;
+    name?: string;
+}
+
+interface RepoProps {
+    repo: RepoType;
+}
+
+const Repo: React.FC<RepoProps> = ({ repo: { name, owner = {} } = {} }) => (
     <div className="column">
         <h1 className="title is-3">
             <span className="has-text-grey-light">Repository</span>
@@ -18,14 +30,5 @@ const Repo = ({ repo: { name, owner = {} } = {} }) => (
         </h3>
     </div>
 );
-
-Repo.propTypes = {
-    repo: PropTypes.shape({
-        owner: PropTypes.shape({
-            login: PropTypes.string,
-        }),
-        name: PropTypes.string,
-    }),
-};
 
 export default Repo;

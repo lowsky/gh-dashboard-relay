@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { UILibContext } from '../components';
 
-const BranchesTable = ({ repo = {} }) => {
+const BranchesTable: React.FC = ({ repo = {} }) => {
     const { BranchInfoRow } = useContext(UILibContext);
 
     return (
