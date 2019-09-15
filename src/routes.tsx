@@ -1,10 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import * as React from 'react';
 
-import { Switch, Redirect, Route, BrowserRouter } from 'react-router-dom';
-
-import IndexPageMain from './index/indexPage';
+import IndexPageMain from './index/IndexPage';
 import { NavBar } from './components/NavBar';
 import { Spinner } from './components/Spinner';
 
@@ -29,7 +26,7 @@ const MainPage = () => (
                         <Route path="/relay/:repo" component={RelayMain} />
                         <Route
                             path="/restful/:userName/:repoName"
-                            component={({ match }) => <RestfulMain {...match.params} />}
+                            component={({ match: { params } }) => <RestfulMain {...params} />}
                         />
                         <Redirect from="/relay" to="/relay/lowsky/dashboard" />
                         <Redirect from="/restful" to="/restful/lowsky/dashboard" />

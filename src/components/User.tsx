@@ -1,9 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import gitBranchSvgUrl from '../components/octicon-git-branch.svg';
 
-const User = ({ user = {} }) => {
+interface UserProps {
+    user?: {
+        avatar_url?: string;
+        company?: string;
+        login?: string;
+    };
+}
+
+const User: React.FC<UserProps> = (props) => {
+    const { user = {} } = props;
     const { avatar_url = gitBranchSvgUrl, login = '?', company } = user;
 
     return (
@@ -24,14 +32,6 @@ const User = ({ user = {} }) => {
             </div>
         </div>
     );
-};
-
-User.propTypes = {
-    user: PropTypes.shape({
-        avatar_url: PropTypes.string,
-        company: PropTypes.string,
-        login: PropTypes.string,
-    }),
 };
 
 export default User;

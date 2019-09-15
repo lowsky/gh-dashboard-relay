@@ -65,6 +65,7 @@
     "@storybook/react": "5.2.0",
     "@types/react": "16.8.10",
     "@types/react-dom": "^16.8.3",
+    "@types/react-relay": "^5.0.0",
     "@types/react-router-dom": "4.3.1",
     "babel-loader": "8.0.6",
     "babel-plugin-relay": "5.0.0",

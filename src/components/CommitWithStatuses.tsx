@@ -31,8 +31,8 @@ function icon4context(context = '') {
     return <span>{context}</span>;
 }
 
-function icon4status(status) {
-    const StatusIcon = ({ type }) => <i className={`fa fa-${type} statusicon`} />;
+function icon4status(status: string) {
+    const StatusIcon: React.FC<{ type: string }> = ({ type }) => <i className={`fa fa-${type} statusicon`} />;
 
     StatusIcon.propTypes = {
         type: PropTypes.string,
@@ -53,7 +53,7 @@ function icon4status(status) {
     return <span>?{status} </span>;
 }
 
-function status2color(status) {
+function status2color(status: string) {
     if (status === 'success') {
         return 'green';
     }
@@ -69,7 +69,6 @@ function status2color(status) {
     return 'inherit';
 }
 
-// eslint-disable-next-line react/prop-types
 const renderStatus = ({ target_url, context, description, state }, idx) => (
     <span key={idx}>
         <a
@@ -125,10 +124,6 @@ let CommitWithStatus = ({ commit = {} }) => {
             </div>
         </>
     );
-};
-
-CommitWithStatus.propTypes = {
-    commit: PropTypes.object,
 };
 
 export default CommitWithStatus;

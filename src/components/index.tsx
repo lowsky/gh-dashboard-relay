@@ -19,7 +19,7 @@ function checkProps(props) {
     return props.relay;
 }
 
-const createUser = props => createRelayOrPureComponent(RelayUser, PureUser, props);
+const createUser: React.FC = props => createRelayOrPureComponent(RelayUser, PureUser, props);
 
 const createRelayOrPureComponent = (relayComponent, pureComp, props) => {
     if (checkProps(props)) {

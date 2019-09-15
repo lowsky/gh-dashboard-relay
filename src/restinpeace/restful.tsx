@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 
 import UserRepo from '../container/UserRepo';
-import github from './fetchGithubApi';
+
+import { fetchRepoBranches, fetchUser, BranchesWithErrorMessage, UserWithErrorMessage } from "./fetchGithubApi";
 
 import lastCommitMock from './lastCommitMock.json';
 import { UILibContext, UILibPureComponents } from '../components';
@@ -11,30 +12,31 @@ import { UILibContext, UILibPureComponents } from '../components';
 const defaultRepoName = 'dashboard';
 const defaultOwnerLogin = 'lowsky';
 
+const user: UserWithErrorMessage = {
+    avatar_url: "//lorempixel.com/200/200/cats/lorempixel/",
+    login: defaultOwnerLogin,
+};
+let branches: BranchesWithErrorMessage = [];
 const githubData = {
     repo: {
         owner: { login: defaultOwnerLogin },
         name: defaultRepoName,
-        branches: [],
+        branches,
+        loading: false,
     },
-    user: {
-        avatar_url: '//lorempixel.com/200/200/cats/lorempixel/',
-        login: defaultOwnerLogin,
-    },
+    user,
     errorMsg: '',
 };
 
-// eslint-disable-next-line react/prop-types
 const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName }) => {
     const [repo, storeRepo] = useState(githubData.repo);
-    const [user, storeUser] = useState(githubData.user);
+    const [user, storeUser] = useState<UserWithErrorMessage>(githubData.user);
     const [errorMsg, storeErrorMsg] = useState(githubData.errorMsg);
 
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        github
-            .fetchUser(userName)
+        fetchUser(userName)
             .then(user => {
                 if (!ignoreDownloadedData) {
                     if (user.message) {
@@ -57,8 +59,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        github
-            .fetchRepoBranches(userName + '/' + repoName)
+        fetchRepoBranches(userName + '/' + repoName)
             .then(branches => {
                 if (!ignoreDownloadedData) {
                     if (branches.message) {

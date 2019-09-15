@@ -13,6 +13,7 @@ module.exports = {
     },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
+        'react/prop-types': 1,
         'prettier/prettier': 1,
         'graphql/template-strings': [
             2,
