@@ -2730,10 +2730,10 @@
     "@types/react" "*"
     "@types/relay-runtime" "*"
 
-"@types/react-router-dom@4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.3.1.tgz#71fe2918f8f60474a891520def40a63997dafe04"
-  integrity sha512-GbztJAScOmQ/7RsQfO4cd55RuH1W4g6V1gDW3j4riLlt+8yxYLqqsiMzmyuXBLzdFmDtX/uU2Bpcm0cmudv44A==
+"@types/react-router-dom@4.3.5":
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.3.5.tgz#72f229967690c890d00f96e6b85e9ee5780db31f"
+  integrity sha512-eFajSUASYbPHg2BDM1G8Btx+YqGgvROPIg6sBhl3O4kbDdYXdFdfrgQFf/pcBuQVObjfT9AL/dd15jilR5DIEA==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
@@ -13475,14 +13475,6 @@ relay-config@6.0.0:
   integrity sha512-GBJviiK0U0APnrJf5RQu8HaNdRSN7MkCR3Ccgod0vOBbrQScHyzKqcuefkgr1lZxP85JuC6WC5FJn94nrUiE4Q==
   dependencies:
     cosmiconfig "^5.0.5"
-
-relay-runtime@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-5.0.0.tgz#7c688ee621d6106a2cd9f3a3706eb6d717c7f660"
-  integrity sha512-lrC2CwfpWWHBAN608eENAt5Bc5zqXXE2O9HSo8tc6Gy5TxfK+fU+x9jdwXQ2mXxVPgANYtYeKzU5UTfcX0aDEw==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fbjs "^1.0.0"
 
 relay-runtime@6.0.0:
   version "6.0.0"
