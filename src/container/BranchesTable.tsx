@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import { UILibContext } from '../components';
 
-const BranchesTable: React.FC = ({ repo = {} }) => {
-    const { BranchInfoRow } = useContext(UILibContext);
+const BranchesTable = ({repo = {branches:[]}}) => {const { BranchInfoRow } = useContext(UILibContext);
 
     return (
         <table className="table is-bordered is-striped is-hoverable">
@@ -24,17 +22,6 @@ const BranchesTable: React.FC = ({ repo = {} }) => {
             </tbody>
         </table>
     );
-};
-
-BranchesTable.propTypes = {
-    repo: PropTypes.shape({
-        branches: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string,
-                lastCommit: PropTypes.object,
-            })
-        ),
-    }),
 };
 
 export default BranchesTable;

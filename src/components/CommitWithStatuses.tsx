@@ -83,6 +83,7 @@ const renderStatus = ({ target_url, context, description, state }, idx) => (
 );
 
 let CommitWithStatus = ({ commit = {} }) => {
+    // @ts-ignore
     const { sha = '<missing>', date = '', message = '<missing>', status = [], author = {} } = commit;
 
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;

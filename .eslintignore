@@ -14,3 +14,6 @@ config-overrides.js
 src/relay/__generated__/
 #generated netlify functions
 server/lambda
+
+cypress/support/
+eval-reg-suit/
