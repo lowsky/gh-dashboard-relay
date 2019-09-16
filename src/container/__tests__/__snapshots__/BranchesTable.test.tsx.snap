@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BranchesTable component should render as expected 1`] = `
+<table
+  className="table is-bordered is-striped is-hoverable"
+>
+  <thead>
+    <tr>
+      <th
+        className="is-narrow"
+      >
+        <span
+          className="fas fa-code-branch"
+        />
+        <span>
+          Branch
+        </span>
+      </th>
+      <th>
+        Commit
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;

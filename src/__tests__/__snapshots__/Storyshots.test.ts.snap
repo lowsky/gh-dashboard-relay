@@ -1,0 +1,759 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots BranchInfoRow with info 1`] = `
+<tr>
+  <td>
+    <a
+      href="https://github.com/lowsky/dashboard/tree/branch-x"
+    >
+      branch-x
+    </a>
+    <i
+      className="fab fa-github"
+    />
+  </td>
+  <td>
+    <div>
+      <a
+        href="https://github.com/lowsky/dashboard/tree/no-sha"
+      >
+        <b>
+          no-message
+        </b>
+      </a>
+    </div>
+    <div>
+      <i>
+        no-date
+      </i>
+        by  
+      <a
+        href="https://github.com/undefined"
+      >
+         
+        <span />
+      </a>
+       
+      <a
+        href="mailto:me@work"
+      >
+        ?My-Name
+      </a>
+    </div>
+    <div
+      className="statusline"
+    />
+  </td>
+</tr>
+`;
+
+exports[`Storyshots BranchesTable with one branch 1`] = `
+<table
+  className="table is-bordered is-striped is-hoverable"
+>
+  <thead>
+    <tr>
+      <th
+        className="is-narrow"
+      >
+        <span
+          className="fas fa-code-branch"
+        />
+        <span>
+          Branch
+        </span>
+      </th>
+      <th>
+        Commit
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a
+          href="https://github.com/lowsky/dashboard/tree/branch-x"
+        >
+          branch-x
+        </a>
+        <i
+          className="fab fa-github"
+        />
+      </td>
+      <td>
+        <div>
+          <a
+            href="https://github.com/lowsky/dashboard/tree/no-sha"
+          >
+            <b>
+              no-message
+            </b>
+          </a>
+        </div>
+        <div>
+          <i>
+            no-date
+          </i>
+            by  
+          <a
+            href="https://github.com/undefined"
+          >
+             
+            <span />
+          </a>
+           
+          <a
+            href="mailto:me@work"
+          >
+            ?My-Name
+          </a>
+        </div>
+        <div
+          className="statusline"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots CommitStatus with data 1`] = `
+Array [
+  <div>
+    <a
+      href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
+    >
+      <b>
+        Merge pull request #287 from lowsky/greenkeeper/jsdom-pin-9.11.0
+      </b>
+    </a>
+  </div>,
+  <div>
+    <i>
+      2017-03-14T18:59:30Z
+    </i>
+      by  
+    <a
+      href="https://github.com/lowsky"
+    >
+      <img
+        alt="avatar"
+        className="commit_avatar"
+        src="https://avatars2.githubusercontent.com/u/217931?v=3"
+        width={32}
+      />
+       
+      <span>
+        lowsky
+      </span>
+    </a>
+     
+  </div>,
+  <div
+    className="statusline"
+  >
+    <span>
+      <a
+        className="commitLink"
+        href="https://circleci.com/gh/lowsky/dashboard/763?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="ci/circleci Your tests passed on CircleCI!"
+      >
+        <img
+          alt=""
+          className="contextlogo"
+          height={24}
+          src="circleci.svg"
+          width={24}
+        />
+        <i
+          className="fa fa-check-circle statusicon"
+        />
+      </a>
+    </span>
+    <span>
+      <a
+        className="commitLink"
+        href="https://www.bithound.io/github/lowsky/dashboard/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e/dependencies/npm?status=passing"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="bitHound - Dependencies No failing dependencies."
+      >
+        <img
+          alt=""
+          className="contextlogo"
+          height={24}
+          src="bithound.png"
+          width={24}
+        />
+        <i
+          className="fa fa-check-circle statusicon"
+        />
+      </a>
+    </span>
+    <span>
+      <a
+        className="commitLink"
+        href="https://www.bithound.io/github/lowsky/dashboard/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e/files?status=passing"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="bitHound - Code No failing files."
+      >
+        <img
+          alt=""
+          className="contextlogo"
+          height={24}
+          src="bithound.png"
+          width={24}
+        />
+        <i
+          className="fa fa-check-circle statusicon"
+        />
+      </a>
+    </span>
+    <span>
+      <a
+        className="commitLink"
+        href={null}
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="github/pages GitHub Pages successfully built your site."
+      >
+        <span>
+          github/pages
+        </span>
+        <i
+          className="fa fa-check-circle statusicon"
+        />
+      </a>
+    </span>
+  </div>,
+]
+`;
+
+exports[`Storyshots CommitStatus with no data 1`] = `
+Array [
+  <div>
+    <a
+      href="https://github.com/lowsky/dashboard/tree/<missing>"
+    >
+      <b>
+        &lt;missing&gt;
+      </b>
+    </a>
+  </div>,
+  <div>
+    <i>
+      
+    </i>
+      by  
+    <a
+      href="https://github.com/undefined"
+    >
+       
+      <span />
+    </a>
+     
+  </div>,
+  <div
+    className="statusline"
+  />,
+]
+`;
+
+exports[`Storyshots Intro to this storybook 1`] = `
+<div
+  style={
+    Object {
+      "fontFamily": "\\"Helvetica Neue\\", Helvetica, \\"Segoe UI\\", Arial, freesans, sans-serif",
+      "lineHeight": 1.4,
+      "margin": 15,
+      "maxWidth": 600,
+    }
+  }
+>
+  <h1>
+    STORYBOOK of dashboard
+  </h1>
+  <p>
+    Jump to these
+    <a
+      href="#"
+      onClick={[Function]}
+      style={
+        Object {
+          "borderBottom": "1px solid #1474f3",
+          "color": "#1474f3",
+          "paddingBottom": 2,
+          "paddingLeft": "1em",
+          "paddingRight": "1em",
+          "textDecoration": "none",
+        }
+      }
+    >
+      stories
+    </a>
+    for the component called 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      User
+    </code>
+    .
+  </p>
+  <p>
+    Have a look at the
+     
+    <a
+      href="https://github.com/storybooks/storybook"
+      rel="noopener noreferrer"
+      style={
+        Object {
+          "borderBottom": "1px solid #1474f3",
+          "color": "#1474f3",
+          "paddingBottom": 2,
+          "paddingLeft": "1em",
+          "paddingRight": "1em",
+          "textDecoration": "none",
+        }
+      }
+      target="_blank"
+    >
+      Storybook
+    </a>
+     
+    repo for more information about storybook.
+  </p>
+</div>
+`;
+
+exports[`Storyshots Pages main 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3em",
+    }
+  }
+>
+  <div
+    className="title"
+  >
+    <h1>
+      Getting started
+    </h1>
+  </div>
+  <div
+    className="content"
+  >
+    <p>
+      You can use the links above in the nav bar for different views:
+    </p>
+    <ul>
+      <li>
+        <b>
+          Storybook
+        </b>
+         shows all components.
+      </li>
+      <li>
+        <b>
+          GraphQL + Relay
+        </b>
+         - fetches all information from a locally installed relay server. 
+        <b>
+          Note:
+        </b>
+        <i>
+          This only works locally! See 
+          <a
+            href="#localserver"
+          >
+            How to start the local server
+          </a>
+        </i>
+      </li>
+      <li>
+        <b>
+          RESTFul Demo
+        </b>
+         - just fetches info from Github's public open API via Rest calls.
+      </li>
+    </ul>
+    <p>
+      This demo was just to figure out, how to setup mixing 
+      <b>
+        Relay
+      </b>
+       and 
+      <b>
+        regular
+      </b>
+       react components.
+    </p>
+    <h4
+      className="is-size-4"
+    >
+      Examples
+    </h4>
+    <ul>
+      <li>
+        Rest-based  
+        <a
+          href="./restful/lowsky/dashboard"
+        >
+          <b>
+            lowsky/dashboard
+          </b>
+        </a>
+      </li>
+      <li>
+        Relay based  
+        <a
+          href="./relay/lowsky/dashboard"
+        >
+          <b>
+            lowsky/spotify-graphql-server
+          </b>
+        </a>
+          (needs a running local server. See 
+        <a
+          href="#localserver"
+        >
+          setup
+        </a>
+        !)
+      </li>
+    </ul>
+    <h4
+      className="is-size-4"
+    >
+      How to start the local server
+    </h4>
+    <p>
+      After installing the dependencies via 
+      <code>
+        npm install
+      </code>
+       you also need to configure GitHub authentication token in the 
+      <code>
+        server/.env
+      </code>
+       file, then simply run the local graphql server via and web app via
+      <code>
+        npm run dev
+      </code>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pages relay 1`] = `
+<div>
+  delayed loading ...
+</div>
+`;
+
+exports[`Storyshots Pages restful 1`] = `
+<div>
+  delayed loading ...
+</div>
+`;
+
+exports[`Storyshots Repo fake data 1`] = `
+<div
+  className="column"
+>
+  <h1
+    className="title is-3"
+  >
+    <span
+      className="has-text-grey-light"
+    >
+      Repository
+    </span>
+  </h1>
+  <h3
+    className="subTitle is-3"
+  >
+    <a
+      href="https://github.com/undefined/demo-repo"
+    >
+      <strong>
+         / 
+        demo-repo
+      </strong>
+      <span
+        className="icon"
+      >
+        <i
+          className="fab fa-github"
+        />
+      </span>
+    </a>
+  </h3>
+</div>
+`;
+
+exports[`Storyshots User with avatar 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-left"
+      >
+        <figure
+          className="image is-48x48"
+        >
+          <img
+            alt="avatar"
+            src="https://avatars2.githubusercontent.com/u/217931?v=3"
+          />
+        </figure>
+      </div>
+      <div
+        className="media-content"
+      >
+        <p
+          className="title is-4"
+        >
+          login
+        </p>
+        <p
+          className="subtitle is-6"
+        >
+          company
+        </p>
+      </div>
+    </div>
+    <div
+      className="content"
+    >
+      Owner
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots User without avatar 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-left"
+      >
+        <figure
+          className="image is-48x48"
+        >
+          <img
+            alt="avatar"
+            src="octicon-git-branch.svg"
+          />
+        </figure>
+      </div>
+      <div
+        className="media-content"
+      >
+        <p
+          className="title is-4"
+        >
+          login
+        </p>
+        <p
+          className="subtitle is-6"
+        >
+          company
+        </p>
+      </div>
+    </div>
+    <div
+      className="content"
+    >
+      Owner
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots UserRepo with user and repo 1`] = `
+Array [
+  <div
+    className="column"
+  >
+    <h1
+      className="title is-3"
+    >
+      <span
+        className="has-text-grey-light"
+      >
+        Repository
+      </span>
+    </h1>
+    <h3
+      className="subTitle is-3"
+    >
+      <a
+        href="https://github.com/undefined/demo-repo"
+      >
+        <strong>
+           / 
+          demo-repo
+        </strong>
+        <span
+          className="icon"
+        >
+          <i
+            className="fab fa-github"
+          />
+        </span>
+      </a>
+    </h3>
+  </div>,
+  <div
+    className="card"
+  >
+    <div
+      className="card-content"
+    >
+      <div
+        className="media"
+      >
+        <div
+          className="media-left"
+        >
+          <figure
+            className="image is-48x48"
+          >
+            <img
+              alt="avatar"
+              src="octicon-git-branch.svg"
+            />
+          </figure>
+        </div>
+        <div
+          className="media-content"
+        >
+          <p
+            className="title is-4"
+          >
+            ?
+          </p>
+          <p
+            className="subtitle is-6"
+          />
+        </div>
+      </div>
+      <div
+        className="content"
+      >
+        Owner
+      </div>
+    </div>
+  </div>,
+  <div
+    className="column"
+  >
+    <table
+      className="table is-bordered is-striped is-hoverable"
+    >
+      <thead>
+        <tr>
+          <th
+            className="is-narrow"
+          >
+            <span
+              className="fas fa-code-branch"
+            />
+            <span>
+              Branch
+            </span>
+          </th>
+          <th>
+            Commit
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a
+              href="https://github.com/lowsky/dashboard/tree/branch-x"
+            >
+              branch-x
+            </a>
+            <i
+              className="fab fa-github"
+            />
+          </td>
+          <td>
+            <div>
+              <a
+                href="https://github.com/lowsky/dashboard/tree/no-sha"
+              >
+                <b>
+                  no-message
+                </b>
+              </a>
+            </div>
+            <div>
+              <i>
+                no-date
+              </i>
+                by  
+              <a
+                href="https://github.com/undefined"
+              >
+                 
+                <span />
+              </a>
+               
+              <a
+                href="mailto:me@work"
+              >
+                ?My-Name
+              </a>
+            </div>
+            <div
+              className="statusline"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>,
+]
+`;
