@@ -93,7 +93,7 @@
     "react-router": "5.0.1",
     "react-router-dom": "5.0.1",
     "react-test-renderer": "16.9.0",
-    "relay-compiler": "5.0.0",
+    "relay-compiler": "6.0.0",
     "relay-config": "5.0.0",
     "start-server-and-test": "1.10.2",
     "storybook-addon-jsx": "7.1.6",
