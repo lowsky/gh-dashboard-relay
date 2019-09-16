@@ -32,7 +32,9 @@ const styles = {
 export default class Intro extends Component {
     jumpToStory = event => {
         event.preventDefault();
+        // eslint-disable-next-line react/prop-types
         if (this.props.showApp) {
+            // eslint-disable-next-line react/prop-types
             this.props.jumpToStory();
         }
     };

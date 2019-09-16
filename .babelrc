@@ -1,5 +1,4 @@
 {
-    // only needed for starting the graphql proxy server
     "presets": [
         "@babel/preset-env"
     ]

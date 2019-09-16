@@ -40,6 +40,7 @@ const GithubQuery = graphql`
 `;
 
 const RelayRoot = () => (
+    // @ts-ignore
     <QueryRenderer
         environment={environment}
         query={GithubQuery}
@@ -55,9 +56,11 @@ const RelayRoot = () => (
 
             if (props) {
                 return (
+                    // @ts-ignore
                     <UILibContext.Provider value={UILibWithRelaySupport}>
                         <div className="box">
                             {
+                                // @ts-ignore
                                 <UserRepo github={props.github} />
                             }
                         </div>

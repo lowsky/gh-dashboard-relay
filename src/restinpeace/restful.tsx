@@ -65,6 +65,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
                     if (branches.message) {
                         throw new Error(branches.message);
                     }
+                    // @ts-ignore
                     storeRepo({
                         owner: { login: userName },
                         name: repoName,

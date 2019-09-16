@@ -7,6 +7,7 @@ export class NavBar extends React.Component {
 
     toggleNavbar = () => {
         this.setState(state => ({
+            // @ts-ignore
             burgerActive: !state.burgerActive,
         }));
     };

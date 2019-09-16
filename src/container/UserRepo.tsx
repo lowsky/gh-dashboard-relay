@@ -16,7 +16,8 @@ interface UserRepoProps {
 
 let UserRepo: React.FunctionComponent<UserRepoProps> = (props: UserRepoProps) => {
     const { github = {} } = props;
-    const { user, repo = { branches: [] } } = github;
+    // eslint-disable-next-line no-restricted-globals,no-undef
+    const { user, repo } = github;
     const { Repo, User, BranchTable } = useContext(UILibContext);
 
     return (

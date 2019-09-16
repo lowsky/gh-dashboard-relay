@@ -7,7 +7,10 @@ import BranchesTable from '../BranchesTable';
 describe('BranchesTable component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<BranchesTable />, div);
+        let repo = {
+            branches: []
+        };
+        ReactDOM.render(<BranchesTable repo={repo} />, div);
     });
 
     it('should render as expected', () => {
