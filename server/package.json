@@ -34,5 +34,7 @@
     "netlify-lambda": "1.6.3",
     "utf-8-validate": "5.0.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "3.6.3"
+  }
 }

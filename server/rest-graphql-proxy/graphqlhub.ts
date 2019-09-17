@@ -1,10 +1,10 @@
 import { GraphQLObjectType } from 'graphql';
 
-import * as GITHUB from './github';
+import { QueryObjectType as githubQueryType } from './github';
 
 let FIELDS = {
     github: {
-        type: GITHUB.QueryObjectType,
+        type: githubQueryType,
         resolve() {
             return {};
         },
