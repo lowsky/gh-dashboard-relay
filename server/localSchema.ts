@@ -1,9 +1,7 @@
-const Graphql = require('graphql');
+import { GraphQLSchema } from 'graphql';
 
-const graphqlhubSchemas = require('./rest-graphql-proxy/graphqlhub');
+import { QueryObjectType } from './rest-graphql-proxy/graphqlhub';
 
-const schema = new Graphql.GraphQLSchema({
-    query: graphqlhubSchemas.QueryObjectType,
+export const schema = new GraphQLSchema({
+    query: QueryObjectType,
 });
-
-export default schema;

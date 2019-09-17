@@ -1,9 +1,9 @@
 import { ApolloServer } from 'apollo-server-lambda';
 
-const schema = require('../../localSchema');
+import { schema } from '../../localSchema';
 
 const server = new ApolloServer({
-    schema: schema.default,
+    schema,
     introspection: true,
     playground: true,
 });
