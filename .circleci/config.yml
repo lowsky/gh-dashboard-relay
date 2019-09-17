@@ -49,11 +49,11 @@ jobs:
           command: |
               if [ ! -d node_modules ]; then
                   set -exu
-                  yarn
+                  yarn --non-interactive --pure-lockfile
               fi
               if [ ! -d server/node_modules ]; then
                   set -exu
-                  yarn
+                  yarn --non-interactive --pure-lockfile
               fi
       - save_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
@@ -67,7 +67,7 @@ jobs:
       - save_cache:
           key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
           paths:
-            - ~/.cache/yarn
+            - /usr/local/share/yarn
   tests:
     docker:
       - image: cypress/base:10
