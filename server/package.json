@@ -35,9 +35,9 @@
     "utf-8-validate": "5.0.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.6.0",
-    "@types/aws-lambda": "^8.10.31",
-    "@types/node": "^12.7.5",
-    "typescript": "^3.6.3"
+    "@babel/preset-typescript": "7.6.0",
+    "@types/aws-lambda": "8.10.31",
+    "@types/node": "12.7.5",
+    "typescript": "3.6.3"
   }
 }
