@@ -65,7 +65,7 @@
     "@types/node": "12.7.11",
     "@types/react": "16.9.5",
     "@types/react-dom": "16.9.1",
-    "@types/react-relay": "5.0.1",
+    "@types/react-relay": "6.0.1",
     "@types/react-router-dom": "5.1.0",
     "babel-loader": "8.0.6",
     "babel-plugin-relay": "6.0.0",
