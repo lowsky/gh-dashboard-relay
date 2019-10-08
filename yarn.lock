@@ -2865,10 +2865,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-relay@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-5.0.1.tgz#a369e04e7c1862359c1c4a0f428518c30b342d4a"
-  integrity sha512-nvLlSmkQN/OBu9hLvJGtE8KmN5TviKZIWyU7IKUa0X6OPvl21Qf6gUFPEYWcNL+ql/490kPxSzJzZCeVrw3yQg==
+"@types/react-relay@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-6.0.1.tgz#f9fbe5493f86cffe0ce1cc491b3898bd1cd40cdd"
+  integrity sha512-aM0z3/7pNU/n9+pK9NKHTTTowQZ/bvQitKJX8bRpnHrApxFNhJVH1t8dqecjCz5POKIxJmIRP6k12ZaYv5YvCw==
   dependencies:
     "@types/react" "*"
     "@types/relay-runtime" "*"
@@ -2917,6 +2917,11 @@
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-5.0.5.tgz#62fb80d4925a707583e535f6d0afdf0762467adb"
   integrity sha512-ZfhRGH8kYnMUeV3NBSYsy99hvJ/GiWAZ4Kc7KG7SuKXdYAHNuHV69TJnHmnmuh54EZytu3NplYDwccerghykpQ==
+
+"@types/relay-runtime@^6.0.6":
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-6.0.6.tgz#ca1a2ba8eaff8fcefc584afac0df68490d5b88e8"
+  integrity sha512-S2C2/BeXw22XKaz9F0rEn7bsyIhTZrtc+mFaTeK+5mGj7Sa6AD+8Vs9hOhPSe3aTbeDu2ORINz8mlrB/dehKKQ==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
@@ -8368,6 +8373,11 @@ immer@1.10.0:
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
   integrity sha512-O3sR1/opvCDGLEVcvrGTMtLac8GJ5IwZC4puPrLuRj3l7ICKvkmA0vGuU9OW8mV9WIBRnaxp5GJh9IEAaNOoYg==
 
+immutable@^4.0.0-rc.12:
+  version "4.0.0-rc.12"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0-rc.12.tgz#ca59a7e4c19ae8d9bf74a97bdf0f6e2f2a5d0217"
+  integrity sha512-0M2XxkZLx/mi3t8NVwIm1g8nHoEmM9p9UBl/G9k4+hm0kBgOVdMV/B3CY5dQ8qG8qc80NN4gDV4HQv6FTJ5q7A==
+
 immutable@~3.7.6:
   version "3.7.6"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
@@ -13779,6 +13789,14 @@ relateurl@0.2.x:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+relay-compiler-language-typescript@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/relay-compiler-language-typescript/-/relay-compiler-language-typescript-7.0.0.tgz#ed0b83b1cd4f1350b86e21f69e339ab4789159da"
+  integrity sha512-UiYIP0Xw8A9OuAELZoF+CntPlJocTY+oJzsGzTrXSmnCE73RPONgwVtxsThAyxk7FNr3xZI/HZGAVWpTu87pGw==
+  dependencies:
+    immutable "^4.0.0-rc.12"
+    invariant "^2.2.4"
 
 relay-compiler@6.0.0:
   version "6.0.0"
