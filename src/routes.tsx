@@ -23,7 +23,7 @@ const MainPage = () => (
                     <Switch>
                         <Redirect exact from="/" to="/home" />
                         <Route exact path="/home" component={IndexPageMain} />
-                        <Route path="/relay/:repo" component={RelayMain} />
+                        <Route path="/relay/:userName/:repoName" component={RelayMain} />
                         <Route
                             path="/restful/:userName/:repoName"
                             component={({ match: { params } }) => <RestfulMain {...params} />}
