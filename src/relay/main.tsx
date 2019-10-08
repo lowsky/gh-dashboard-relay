@@ -32,16 +32,19 @@ const environment = new Environment({
 });
 
 const GithubQuery = graphql`
-    query mainQuery {
+    query mainQuery($userName: String!, $repoName: String!) {
         github {
-            ...UserRepo_github
+            ...UserRepo_github @arguments(userName: $userName, repoName: $repoName)
         }
     }
 `;
 
-const RelayRoot = () => (
-    // @ts-ignore
+const RelayRoot = ({ match }) => (
     <QueryRenderer
+        variables={{
+            userName: match.params.userName,
+            repoName: match.params.repoName,
+        }}
         environment={environment}
         query={GithubQuery}
         render={({ error, props }) => {
