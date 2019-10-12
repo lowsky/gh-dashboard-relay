@@ -14,7 +14,7 @@ const indexPageContent = () => (
                 <li>
                     <b>GraphQL + Relay</b> - fetches all information from a locally installed relay server. <b>Note:</b>
                     <i>
-                        This only works locally! See <a href="#localserver">How to start the local server</a>
+                        This needs a backend server / currently implemented as lambda function...
                     </i>
                 </li>
                 <li>
@@ -35,10 +35,12 @@ const indexPageContent = () => (
                 <li>
                     Relay based &nbsp;
                     <a href="./relay/lowsky/dashboard">
+                        <b>lowsky/dashboard</b>
+                    </a>
+                    or<br/>
+                    <a href="./relay/lowsky/spotify-graphql-server">
                         <b>lowsky/spotify-graphql-server</b>
                     </a>
-                    &nbsp; (needs a running local server. See <a href="#localserver">setup</a>
-                    !)
                 </li>
             </ul>
             <h4 className="is-size-4">How to start the local server</h4>
@@ -46,7 +48,7 @@ const indexPageContent = () => (
                 After installing the dependencies via <code>npm install</code> you also need to configure GitHub
                 authentication token in the <code>server/.env</code> file, then simply run the local graphql server via
                 and web app via
-                <code>npm run dev</code>
+                <code>yarn run dev</code>
             </p>
         </div>
     </div>
