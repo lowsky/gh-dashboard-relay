@@ -70,7 +70,7 @@
     "@types/relay-runtime": "6.0.6",
     "babel-loader": "8.0.6",
     "babel-plugin-relay": "6.0.0",
-    "cypress": "3.4.1",
+    "cypress": "3.5.0",
     "cypress-match-screenshot": "1.1.0",
     "emotion-theming": "10.0.19",
     "enzyme": "3.10.0",
