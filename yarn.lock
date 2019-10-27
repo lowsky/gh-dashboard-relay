@@ -2279,7 +2279,7 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/components@5.2.5":
+"@storybook/components@5.2.5", "@storybook/components@^5.2.5":
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.2.5.tgz#40190dafbee34f083182255d26c19a0ea50789c8"
   integrity sha512-6NVaBJm5wY53e9k+2ZiL2ABsHghE1ssQciLTG3jJPahnM6rfkM8ue66rhxhP88jE9isT48JgOZOJepEyxDz/fg==
@@ -11158,7 +11158,7 @@ nth-check@^1.0.2, nth-check@~1.0.1:
   dependencies:
     boolbase "~1.0.0"
 
-nullthrows@^1.1.0, nullthrows@^1.1.1:
+nullthrows@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/nullthrows/-/nullthrows-1.1.1.tgz#7818258843856ae971eae4208ad7d7eb19a431b1"
   integrity sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==
@@ -12712,7 +12712,7 @@ pretty-hrtime@^1.0.3:
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
-prismjs@^1.15.0, prismjs@^1.8.4, prismjs@~1.16.0:
+prismjs@^1.8.4, prismjs@~1.16.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.16.0.tgz#406eb2c8aacb0f5f0f1167930cb83835d10a4308"
   integrity sha512-OA4MKxjFZHSvZcisLGe14THYsug/nF6O1f0pAJc0KN0wTyAcLqmsbE+lTGKSpyh+9pEW57+k6pg2AfYR+coyHA==
@@ -13790,14 +13790,6 @@ relay-config@7.0.0:
   dependencies:
     cosmiconfig "^5.0.5"
 
-relay-runtime@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-6.0.0.tgz#073ec2408f41a28c3a7310d71dd5f42f8e4e4bf3"
-  integrity sha512-zIXQqFfe0zBCVzKbMGEPMvKFxfbE3pY2RbZsKBvHAr/vMDj6OX9E+f4R4udE5xvMbI7g+baYFHi2I9NDEydGaQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fbjs "^1.0.0"
-
 relay-runtime@7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-7.0.0.tgz#49642c0e16096cd4e5f435fcbdd63ffd8da54090"
@@ -14817,14 +14809,14 @@ store2@^2.7.1:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.7.1.tgz#22070b7dc04748a792fc6912a58ab99d3a21d788"
   integrity sha512-zzzP5ZY6QWumnAFV6kBRbS44pUMcpZBNER5DWUe1HETlaKXqLcCQxbNu6IHaKr1pUsjuhUGBdOy8sWKmMkL6pQ==
 
-storybook-addon-jsx@7.1.6:
-  version "7.1.6"
-  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.1.6.tgz#56177cc0c98d836fcec837c8bb2f7e2c64838f7f"
-  integrity sha512-1aCF4xFYImjwJDJhI9f7l8PEt1ScCNfkgvofFRB7CwxFf4chepM5HirH4wc2kSWhFcBRoQhx/Y0cNxnlsJAN4A==
+storybook-addon-jsx@7.1.13:
+  version "7.1.13"
+  resolved "https://registry.yarnpkg.com/storybook-addon-jsx/-/storybook-addon-jsx-7.1.13.tgz#1bc18a64bd9053b0c2f9669d398697ec6fdb6b36"
+  integrity sha512-JHWbVUzpkyIMiGeFWFkxg6qNkR0fLeT++v1Q4IN9s7JfxrHksPskMnCkDra+rmx/Mtdq4uk5XKREJNIl0H8d/w==
   dependencies:
+    "@storybook/components" "^5.2.5"
     copy-to-clipboard "^3.0.8"
     js-beautify "^1.8.8"
-    prismjs "^1.15.0"
     react-element-to-jsx-string "^14.0.3"
 
 stream-browserify@^2.0.1:
