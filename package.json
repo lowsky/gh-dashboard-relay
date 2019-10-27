@@ -96,7 +96,7 @@
     "react-test-renderer": "16.11.0",
     "relay-compiler": "6.0.0",
     "relay-compiler-language-typescript": "8.0.3",
-    "relay-config": "6.0.0",
+    "relay-config": "7.0.0",
     "start-server-and-test": "1.10.6",
     "storybook-addon-jsx": "7.1.6",
     "typescript": "3.6.4",
