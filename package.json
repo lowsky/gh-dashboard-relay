@@ -67,7 +67,7 @@
     "@types/react-dom": "16.9.2",
      "@types/react-relay": "6.0.1",
     "@types/react-router-dom": "5.1.0",
-    "@types/relay-runtime": "6.0.6",
+    "@types/relay-runtime": "6.0.7",
     "babel-loader": "8.0.6",
     "babel-plugin-relay": "6.0.0",
     "cypress": "3.5.0",
