@@ -99,7 +99,7 @@
     "relay-config": "7.0.0",
     "start-server-and-test": "1.10.6",
     "storybook-addon-jsx": "7.1.13",
-    "typescript": "3.6.4",
+    "typescript": "3.7.2",
     "xunit-file": "1.0.0"
   },
   "browserslist": [

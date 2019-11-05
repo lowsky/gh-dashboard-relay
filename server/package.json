@@ -38,6 +38,6 @@
     "@babel/preset-typescript": "7.6.0",
     "@types/aws-lambda": "8.10.34",
     "@types/node": "12.11.7",
-    "typescript": "3.6.4"
+    "typescript": "3.7.2"
   }
 }
