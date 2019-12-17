@@ -26,7 +26,7 @@
   "private": true,
   "analyze": true,
   "dependencies": {
-    "apollo-server-lambda": "2.9.13",
+    "apollo-server-lambda": "2.9.14",
     "bufferutil": "4.0.1",
     "dotenv": "8.2.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
