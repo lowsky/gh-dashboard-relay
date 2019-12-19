@@ -94,7 +94,7 @@
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
     "react-test-renderer": "16.12.0",
-    "relay-compiler": "7.1.0",
+    "relay-compiler": "8.0.0",
     "relay-compiler-language-typescript": "10.1.3",
     "relay-config": "7.1.0",
     "start-server-and-test": "1.10.6",
