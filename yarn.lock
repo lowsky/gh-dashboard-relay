@@ -3395,10 +3395,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-5.0.5.tgz#62fb80d4925a707583e535f6d0afdf0762467adb"
   integrity sha512-ZfhRGH8kYnMUeV3NBSYsy99hvJ/GiWAZ4Kc7KG7SuKXdYAHNuHV69TJnHmnmuh54EZytu3NplYDwccerghykpQ==
 
-"@types/relay-runtime@6.0.11":
-  version "6.0.11"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-6.0.11.tgz#635e0e7d60d6b66fa632bdeb7e3d02b44f9add03"
-  integrity sha512-59JBBYnO6aHvIoVoUHuXQbZA/FWPfQgUPr34xOXKTiJ04cV1Mp+JRmtGBmuBw9N9dT/aDMwq1SOgHMQdAha4Pg==
+"@types/relay-runtime@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.0.tgz#49ee330be9367dfc61e52b91461f64137dbff207"
+  integrity sha512-FDHMdHCRI6nL5M40/gU3mG0e0c4Szx4NOupguIPhPA0ZbtMGZO2RLteT5q3jtHaCrtk1qDmlE7KoTmbNj+RljA==
 
 "@types/sizzle@2.3.2":
   version "2.3.2"
@@ -8532,13 +8532,6 @@ graphql-import@^0.7.1:
     lodash "^4.17.4"
     resolve-from "^4.0.0"
 
-graphql-relay@0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/graphql-relay/-/graphql-relay-0.6.0.tgz#18ec36b772cfcb3dbb9bd369c3f8004cf42c7b93"
-  integrity sha512-OVDi6C9/qOT542Q3KxZdXja3NrDvqzbihn1B44PH8P/c5s0Q90RyQwT6guhGqXqbYEH6zbeLJWjQqiYvcg2vVw==
-  dependencies:
-    prettier "^1.16.0"
-
 graphql-request@^1.5.0:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-1.8.2.tgz#398d10ae15c585676741bde3fc01d5ca948f8fbe"
@@ -13437,7 +13430,7 @@ prettier@1.19.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
-prettier@^1.16.0, prettier@^1.16.4:
+prettier@^1.16.4:
   version "1.17.0"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.17.0.tgz#53b303676eed22cc14a9f0cec09b477b3026c008"
   integrity sha512-sXe5lSt2WQlCbydGETgfm1YBShgOX4HxQkFPvbxkcwgDvGDeqVau8h+12+lmSVlP3rHPz0oavfddSZg/q+Szjw==
@@ -14031,15 +14024,15 @@ react-redux@^7.0.2:
     prop-types "^15.7.2"
     react-is "^16.8.6"
 
-react-relay@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-7.1.0.tgz#8a97357914d079f7a537f757782ed126b041a7ac"
-  integrity sha512-O0MTyeVnrnG990rLdEQcFqGf0f7VBT2Y+mRYEC6nTPAxN+M/DB2U6VGPHNjrfoW8PQ2BUyp2ddNGM9b2PtnEwg==
+react-relay@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-8.0.0.tgz#b648da45c8280e6ad321b6260655092381f7479d"
+  integrity sha512-CiEODNIMyQXc3nwAUh5TbRnqPrv5fvEPCnAn1j5/qi0WP+Etjf/GQvSOkfI0CFxaHT63BMB5GbM9gBA+0i2XCg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
     nullthrows "^1.1.1"
-    relay-runtime "7.1.0"
+    relay-runtime "8.0.0"
 
 react-router-dom@5.1.2:
   version "5.1.2"
@@ -14564,14 +14557,6 @@ relay-config@8.0.0:
   integrity sha512-CQhl+a7tjV44zfR+J3vKouFV4YEqVt30Ilucj6K4ye6PrhaJa9YekafLoqVaFr9lAwQvECY9YzPrUI95jzBA4Q==
   dependencies:
     cosmiconfig "^5.0.5"
-
-relay-runtime@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-7.1.0.tgz#3a1b38cb55fae7ab2fbb404f7db7a5b900ef963f"
-  integrity sha512-19WV0dC4rcbXnVBKEA4ZL41ccfJRUZ7/KKfQsgc9SwjqCi2g3+yYIR9wJ4KoC+rEfG2yN3W1vWBEqr+igH/rzA==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fbjs "^1.0.0"
 
 relay-runtime@8.0.0:
   version "8.0.0"
