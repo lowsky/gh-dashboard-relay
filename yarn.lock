@@ -3395,10 +3395,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-5.0.5.tgz#62fb80d4925a707583e535f6d0afdf0762467adb"
   integrity sha512-ZfhRGH8kYnMUeV3NBSYsy99hvJ/GiWAZ4Kc7KG7SuKXdYAHNuHV69TJnHmnmuh54EZytu3NplYDwccerghykpQ==
 
-"@types/relay-runtime@6.0.11":
-  version "6.0.11"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-6.0.11.tgz#635e0e7d60d6b66fa632bdeb7e3d02b44f9add03"
-  integrity sha512-59JBBYnO6aHvIoVoUHuXQbZA/FWPfQgUPr34xOXKTiJ04cV1Mp+JRmtGBmuBw9N9dT/aDMwq1SOgHMQdAha4Pg==
+"@types/relay-runtime@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.0.tgz#49ee330be9367dfc61e52b91461f64137dbff207"
+  integrity sha512-FDHMdHCRI6nL5M40/gU3mG0e0c4Szx4NOupguIPhPA0ZbtMGZO2RLteT5q3jtHaCrtk1qDmlE7KoTmbNj+RljA==
 
 "@types/sizzle@2.3.2":
   version "2.3.2"
