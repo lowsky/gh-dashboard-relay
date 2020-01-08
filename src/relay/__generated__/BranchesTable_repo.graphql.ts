@@ -1,13 +1,18 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
-type BranchInfoRow_branch$ref = any;
-export type BranchesTable_repo$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type BranchesTable_repo = {
     readonly branches: ReadonlyArray<{
-        readonly " $fragmentRefs": BranchInfoRow_branch$ref;
+        readonly " $fragmentRefs": FragmentRefs<"BranchInfoRow_branch">;
     } | null> | null;
-    readonly " $refType": BranchesTable_repo$ref;
+    readonly " $refType": "BranchesTable_repo";
+};
+export type BranchesTable_repo$data = BranchesTable_repo;
+export type BranchesTable_repo$key = {
+    readonly " $data"?: BranchesTable_repo$data;
+    readonly " $fragmentRefs": FragmentRefs<"BranchesTable_repo">;
 };
 
 

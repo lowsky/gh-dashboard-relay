@@ -1,14 +1,16 @@
 /* tslint:disable */
+/* eslint-disable */
+/* @relayHash 0794c613d2f0e6141d7daa6c1aeb7380 */
 
 import { ConcreteRequest } from "relay-runtime";
-type UserRepo_github$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type mainQueryVariables = {
-    readonly userName: string;
-    readonly repoName: string;
+    userName: string;
+    repoName: string;
 };
 export type mainQueryResponse = {
     readonly github: {
-        readonly " $fragmentRefs": UserRepo_github$ref;
+        readonly " $fragmentRefs": FragmentRefs<"UserRepo_github">;
     } | null;
 };
 export type mainQuery = {
@@ -28,6 +30,40 @@ query mainQuery(
   }
 }
 
+fragment BranchInfoRow_branch on GithubBranch {
+  name
+  lastCommit {
+    ...CommitWithStatuses_commit
+  }
+}
+
+fragment BranchesTable_repo on GithubRepo {
+  branches {
+    ...BranchInfoRow_branch
+  }
+}
+
+fragment CommitWithStatuses_commit on GithubCommit {
+  sha
+  message
+  date
+  status {
+    context
+    description
+    state
+    target_url
+    updated_at
+  }
+}
+
+fragment Repo_repo on GithubRepo {
+  name
+  owner {
+    login
+    id
+  }
+}
+
 fragment UserRepo_github_3YBi4U on GithubAPI {
   user(username: $userName) {
     ...User_user
@@ -43,40 +79,6 @@ fragment User_user on GithubUser {
   login
   company
   avatar_url
-}
-
-fragment Repo_repo on GithubRepo {
-  name
-  owner {
-    login
-    id
-  }
-}
-
-fragment BranchesTable_repo on GithubRepo {
-  branches {
-    ...BranchInfoRow_branch
-  }
-}
-
-fragment BranchInfoRow_branch on GithubBranch {
-  name
-  lastCommit {
-    ...CommitWithStatuses_commit
-  }
-}
-
-fragment CommitWithStatuses_commit on GithubCommit {
-  sha
-  message
-  date
-  status {
-    context
-    description
-    state
-    target_url
-    updated_at
-  }
 }
 */
 
@@ -335,7 +337,7 @@ return {
     "operationKind": "query",
     "name": "mainQuery",
     "id": null,
-    "text": "query mainQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  github {\n    ...UserRepo_github_3YBi4U\n  }\n}\n\nfragment UserRepo_github_3YBi4U on GithubAPI {\n  user(username: $userName) {\n    ...User_user\n    id\n  }\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...Repo_repo\n    ...BranchesTable_repo\n  }\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n    id\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n  }\n}\n",
+    "text": "query mainQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  github {\n    ...UserRepo_github_3YBi4U\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n  }\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n    id\n  }\n}\n\nfragment UserRepo_github_3YBi4U on GithubAPI {\n  user(username: $userName) {\n    ...User_user\n    id\n  }\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...Repo_repo\n    ...BranchesTable_repo\n  }\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n",
     "metadata": {}
   }
 };

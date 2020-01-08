@@ -1,13 +1,19 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
-export type Repo_repo$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type Repo_repo = {
     readonly name: string | null;
     readonly owner: {
         readonly login: string | null;
     } | null;
-    readonly " $refType": Repo_repo$ref;
+    readonly " $refType": "Repo_repo";
+};
+export type Repo_repo$data = Repo_repo;
+export type Repo_repo$key = {
+    readonly " $data"?: Repo_repo$data;
+    readonly " $fragmentRefs": FragmentRefs<"Repo_repo">;
 };
 
 

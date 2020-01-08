@@ -1,14 +1,19 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
-type CommitWithStatuses_commit$ref = any;
-export type BranchInfoRow_branch$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type BranchInfoRow_branch = {
     readonly name: string | null;
     readonly lastCommit: {
-        readonly " $fragmentRefs": CommitWithStatuses_commit$ref;
+        readonly " $fragmentRefs": FragmentRefs<"CommitWithStatuses_commit">;
     } | null;
-    readonly " $refType": BranchInfoRow_branch$ref;
+    readonly " $refType": "BranchInfoRow_branch";
+};
+export type BranchInfoRow_branch$data = BranchInfoRow_branch;
+export type BranchInfoRow_branch$key = {
+    readonly " $data"?: BranchInfoRow_branch$data;
+    readonly " $fragmentRefs": FragmentRefs<"BranchInfoRow_branch">;
 };
 
 
