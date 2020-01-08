@@ -20,7 +20,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.1.0
     steps:
       - setup_remote_docker
       - run:
@@ -28,7 +28,7 @@ jobs:
           command: "echo Overall target built."
   buildprep:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.1.0
     steps:
       - checkout
       - setup_remote_docker
@@ -70,7 +70,7 @@ jobs:
             - /usr/local/share/yarn
   tests:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.1.0
     steps:
       - checkout
       - setup_remote_docker
@@ -115,7 +115,7 @@ jobs:
             cat coverage/lcov.info | yarn codacy-coverage -t $CODACY_PROJECT_TOKEN -u lowsky -n dashboard -v
   analyse:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.1.0
     steps:
       - checkout
       - setup_remote_docker
@@ -136,7 +136,7 @@ jobs:
           path: ./reports
   visual:
     docker:
-      - image: cypress/base:10
+      - image: cypress/base:12.1.0
     steps:
       - checkout
       - setup_remote_docker
