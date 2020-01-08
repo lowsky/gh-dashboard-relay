@@ -1,18 +1,21 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
-type BranchesTable_repo$ref = any;
-type Repo_repo$ref = any;
-type User_user$ref = any;
-export type UserRepo_github$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type UserRepo_github = {
     readonly user: {
-        readonly " $fragmentRefs": User_user$ref;
+        readonly " $fragmentRefs": FragmentRefs<"User_user">;
     } | null;
     readonly repo: {
-        readonly " $fragmentRefs": Repo_repo$ref & BranchesTable_repo$ref;
+        readonly " $fragmentRefs": FragmentRefs<"Repo_repo" | "BranchesTable_repo">;
     } | null;
-    readonly " $refType": UserRepo_github$ref;
+    readonly " $refType": "UserRepo_github";
+};
+export type UserRepo_github$data = UserRepo_github;
+export type UserRepo_github$key = {
+    readonly " $data"?: UserRepo_github$data;
+    readonly " $fragmentRefs": FragmentRefs<"UserRepo_github">;
 };
 
 

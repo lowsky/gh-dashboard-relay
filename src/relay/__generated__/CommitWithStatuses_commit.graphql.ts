@@ -1,7 +1,8 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
-export type CommitWithStatuses_commit$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type CommitWithStatuses_commit = {
     readonly sha: string | null;
     readonly message: string | null;
@@ -13,7 +14,12 @@ export type CommitWithStatuses_commit = {
         readonly target_url: string | null;
         readonly updated_at: string | null;
     } | null> | null;
-    readonly " $refType": CommitWithStatuses_commit$ref;
+    readonly " $refType": "CommitWithStatuses_commit";
+};
+export type CommitWithStatuses_commit$data = CommitWithStatuses_commit;
+export type CommitWithStatuses_commit$key = {
+    readonly " $data"?: CommitWithStatuses_commit$data;
+    readonly " $fragmentRefs": FragmentRefs<"CommitWithStatuses_commit">;
 };
 
 

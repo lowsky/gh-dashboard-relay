@@ -1,12 +1,18 @@
 /* tslint:disable */
+/* eslint-disable */
 
 import { ReaderFragment } from "relay-runtime";
-export type User_user$ref = any;
+import { FragmentRefs } from "relay-runtime";
 export type User_user = {
     readonly login: string | null;
     readonly company: string | null;
     readonly avatar_url: string | null;
-    readonly " $refType": User_user$ref;
+    readonly " $refType": "User_user";
+};
+export type User_user$data = User_user;
+export type User_user$key = {
+    readonly " $data"?: User_user$data;
+    readonly " $fragmentRefs": FragmentRefs<"User_user">;
 };
 
 
