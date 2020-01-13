@@ -1,27 +1,20 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f6f0a485bfe4afab427fdba4eae3ac2)](https://www.codacy.com/app/skylab/dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f6f0a485bfe4afab427fdba4eae3ac2)](https://www.codacy.com/app/skylab/dashboard) [![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)  ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
 
-[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard) 
+## Purpose
 
-![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/lowsky/dashboard.svg?columns=all)](https://waffle.io/lowsky/dashboard)
+This web app lists the `(feature) branches` of a github repository with its
 
-This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's _Relay_ and _GraphQL_ libraries.
+-   last commit's build status
+-   last commit's commit message
+-   links to running running docker containers for each feature (upcoming feature)
 
-For deep interns of GraphQL concepts, see the [presentation at the EnterJS Conference 2016](https://lowsky.github.io/deck-graphql-relay-talk) with its [slide sources](https://www.github.com/lowsky/deck-graphql-relay-talk)
+The idea behind this was, to get an easy access to all feature branches for demoing new features before going live.
 
-## Purpose of this dashboard
+Presentation on a Meetup: You can find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
 
-This web app lists the (feature) branches of a specific github repository,
+## Getting started
 
--   shows the last commit's build status
--   shows the last commit's commit message
--   links to running running docker containers for each feature (not implemented yet)
-
-On a Docker Meetup, I presented some details about the background idea: You can find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
-
-## Getting started locally
-
-After invoking this in a shell, a page with a restful functionality works out-of-the box
+After invoking this in a shell
 
     git clone https://github.com/lowsky/dashboard
     cd dashboard
@@ -30,11 +23,12 @@ After invoking this in a shell, a page with a restful functionality works out-of
     # installs the server's dependencies, too:
     yarn 
     
-then run  
+then setup the `github-token` (see [Setup Github Token](#setupgithubtoken) ) before starting via:
 
-    yarn run dev
+    yarn run dev 
     
-for a simple dev mode where it starts the server and the web app in parallel.
+for a simple `dev mode`: it starts the serverless-based server and the web app in parallel.
+
 
 
 ### Built-in GraphQL-backend
@@ -58,21 +52,9 @@ for using and playing with different graphql queries, e.g.:
 ```
 
 Have fun!
-    
-**Note:**
-### docker build
-
-    docker build -t dashboard .
-    
-    ### docker run
-    # injecting the github creds per .env file
-    
-    docker run --rm -v $PWD/server/.env:/usr/src/app/server/.env \
-               -p 3000:3000 \
-               -e NODE_ENV=production \
-               dashboard
 
 **Note:**
+### setupGithubToken
 You  **need to create your own github-token** (see https://github.com/settings/tokens/) and 
 store it locally in `server/.env` file (similar to [server/.env.example](server/.env.example) )
 
@@ -80,12 +62,16 @@ store it locally in `server/.env` file (similar to [server/.env.example](server/
     cp .env.example .env
     
     # ... and replace the XXX with your API key
-    
 
 ## ScreenShot
 
 ![Preview image](./assets/images/DashboardDemo.png)
 
+# Background
+
+This project was used to figure out and to demonstrate, how to develop a frontend UI with Facebook's _Relay_ and _GraphQL_ libraries.
+
+For deep interns of GraphQL concepts, see the [presentation at the EnterJS Conference 2016](https://lowsky.github.io/deck-graphql-relay-talk) with its [slide sources](https://www.github.com/lowsky/deck-graphql-relay-talk)
 
 ## License
 
