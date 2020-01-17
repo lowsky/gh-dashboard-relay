@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
-import React, {lazy, Suspense} from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withLinks } from '@storybook/addon-links';
 import { linkTo } from '@storybook/addon-links';
+
+import { jsxDecorator } from 'storybook-addon-jsx';
 
 import Intro from './Intro';
 
@@ -19,8 +21,9 @@ import Repo from '../src/components/Repo';
 const RelayPage = lazy(() => import('../src/relay/main'));
 const RestfulPage = lazy(() => import('../src/restinpeace/restful'));
 
-
-storiesOf('Intro', module).addWithJSX('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
+storiesOf('Intro', module)
+    .addDecorator(jsxDecorator)
+    .add('to this storybook', () => <Intro showApp={linkTo('UserRepo')} />);
 
 const userWithoutAvatar = {
     login: 'login',
@@ -83,26 +86,37 @@ const Suspensor = (storyFn) => (
 );
 
 storiesOf('Pages', module)
+    .addDecorator(jsxDecorator)
     .addDecorator(withLinks)
     .addDecorator(Suspensor)
-    .addWithJSX('main', () => <IndexPage />)
-    .addWithJSX('restful', () => <RestfulPage />)
-    .addWithJSX('relay', () => <RelayPage />);
+    .add('main', () => <IndexPage />)
+    .add('restful', () => <RestfulPage />)
+    .add('relay', () => <RelayPage />);
 
-storiesOf('Repo', module).addWithJSX('fake data', () => <Repo {...repo} />);
+storiesOf('Repo', module)
+    .addDecorator(jsxDecorator)
+    .add('fake data', () => <Repo {...repo} />);
 
 storiesOf('User', module)
-    .addWithJSX('without avatar', () => <User user={userWithoutAvatar} />)
-    .addWithJSX('with avatar', () => <User user={userWithAvatar} />);
+    .addDecorator(jsxDecorator)
+    .add('without avatar', () => <User user={userWithoutAvatar} />)
+    .add('with avatar', () => <User user={userWithAvatar} />);
 
 const moreStatus = require('../src/restinpeace/lastCommitMock');
 
 storiesOf('CommitStatus', module)
-    .addWithJSX('with data', () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />)
-    .addWithJSX('with no data', () => <CommitWithStatuses />);
+    .addDecorator(jsxDecorator)
+    .add('with data', () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />)
+    .add('with no data', () => <CommitWithStatuses />);
 
-storiesOf('BranchesTable', module).addWithJSX('with one branch', () => <BranchesTable {...branches} />);
+storiesOf('BranchesTable', module)
+    .addDecorator(jsxDecorator)
+    .add('with one branch', () => <BranchesTable {...branches} />);
 
-storiesOf('BranchInfoRow', module).addWithJSX('with info', () => <BranchInfoRow {...branchInfo} />);
+storiesOf('BranchInfoRow', module)
+    .addDecorator(jsxDecorator)
+    .add('with info', () => <BranchInfoRow {...branchInfo} />);
 
-storiesOf('UserRepo', module).addWithJSX('with user and repo', () => <UserRepo {...userRepo} />);
+storiesOf('UserRepo', module)
+    .addDecorator(jsxDecorator)
+    .add('with user and repo', () => <UserRepo {...userRepo} />);
