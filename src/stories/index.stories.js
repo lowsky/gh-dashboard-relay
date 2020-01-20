@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { lazy, Suspense } from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -9,17 +8,17 @@ import { jsxDecorator } from 'storybook-addon-jsx';
 
 import Intro from './Intro';
 
-import IndexPage from '../src/index/IndexPage';
-import UserRepo from '../src/container/UserRepo';
-import BranchesTable from '../src/container/BranchesTable';
-import BranchInfoRow from '../src/container/BranchInfoRow';
+import IndexPage from '../index/IndexPage';
+import UserRepo from '../container/UserRepo';
+import BranchesTable from '../container/BranchesTable';
+import BranchInfoRow from '../container/BranchInfoRow';
 
-import User from '../src/components/User';
-import CommitWithStatuses from '../src/components/CommitWithStatuses';
-import Repo from '../src/components/Repo';
+import User from '../components/User';
+import CommitWithStatuses from '../components/CommitWithStatuses';
+import Repo from '../components/Repo';
 
-const RelayPage = lazy(() => import('../src/relay/main'));
-const RestfulPage = lazy(() => import('../src/restinpeace/restful'));
+const RelayPage = lazy(() => import('../relay/main'));
+const RestfulPage = lazy(() => import('../restinpeace/restful'));
 
 storiesOf('Intro', module)
     .addDecorator(jsxDecorator)
@@ -79,11 +78,7 @@ const userRepo = {
     },
 };
 
-const Suspensor = (storyFn) => (
-    <Suspense fallback={<div>delayed loading ...</div>}>
-        { storyFn() }
-    </Suspense>
-);
+const Suspensor = storyFn => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
 
 storiesOf('Pages', module)
     .addDecorator(jsxDecorator)
@@ -102,7 +97,7 @@ storiesOf('User', module)
     .add('without avatar', () => <User user={userWithoutAvatar} />)
     .add('with avatar', () => <User user={userWithAvatar} />);
 
-const moreStatus = require('../src/restinpeace/lastCommitMock');
+const moreStatus = require('../restinpeace/lastCommitMock');
 
 storiesOf('CommitStatus', module)
     .addDecorator(jsxDecorator)
