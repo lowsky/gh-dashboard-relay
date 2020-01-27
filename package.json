@@ -98,7 +98,7 @@
     "relay-compiler": "8.0.0",
     "relay-compiler-language-typescript": "10.1.4",
     "relay-config": "8.0.0",
-    "start-server-and-test": "1.10.6",
+    "start-server-and-test": "1.10.8",
     "storybook-addon-jsx": "7.1.14",
     "typescript": "3.7.5",
     "xunit-file": "1.0.0"
