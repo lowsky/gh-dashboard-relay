@@ -3628,10 +3628,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-5.0.5.tgz#62fb80d4925a707583e535f6d0afdf0762467adb"
   integrity sha512-ZfhRGH8kYnMUeV3NBSYsy99hvJ/GiWAZ4Kc7KG7SuKXdYAHNuHV69TJnHmnmuh54EZytu3NplYDwccerghykpQ==
 
-"@types/relay-runtime@8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.1.tgz#0c4f675de7936aa087fdfd850fb22991af7bb1c1"
-  integrity sha512-1CtxLU8iDXA6E0nMHL2pwW63qEL8zYTO5qv6eUnQvYIbL80GWxhYfeluort3LIkKkSctiOUy06ysxPgrENoWdQ==
+"@types/relay-runtime@8.0.3":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.3.tgz#31836ad151c751496827d8cac3a88726f69d3216"
+  integrity sha512-YtsdtnmPCPTJcLm2LY7Xi1O7XHQ1VhqGowhGcrafD7mB13EDCKHl8/tZ6wUHxuJF7ztM+nl9/X7nVM3Yjlsiiw==
 
 "@types/sizzle@2.3.2":
   version "2.3.2"
