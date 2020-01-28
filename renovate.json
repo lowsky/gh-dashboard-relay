@@ -1,4 +1,7 @@
 {
+    {
+        "ignoreDeps": ["^@types"]
+    },
     "supportPolicy": ["lts_latest"],
     "extends": [
         "docker:disable",
