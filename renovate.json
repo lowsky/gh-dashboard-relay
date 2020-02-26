@@ -1,7 +1,4 @@
 {
-    {
-        "ignoreDeps": ["^@types"]
-    },
     "ignoreDeps": ["^@types"],
     "supportPolicy": ["lts_latest"],
     "extends": [
