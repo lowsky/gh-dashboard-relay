@@ -2,3 +2,6 @@
   Command = "yarn run build"
   Functions = "server/lambda"
   Publish = "build"
+
+[build.environment]
+  YARN_FLAGS = "--pure-lockfile --verbose"
