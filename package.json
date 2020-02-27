@@ -48,7 +48,7 @@
     "bulma": "0.8.0",
     "codacy-coverage": "3.4.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
-    "react-scripts": "3.3.0",
+    "react-scripts": "3.4.0",
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
