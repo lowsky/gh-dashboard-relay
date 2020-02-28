@@ -23,7 +23,7 @@
     "start:server": "cd server ; npm run start",
     "cra-build": "react-scripts build",
     "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
-    "build": "npm run relay ; npm run build:server ; npm run cra-build ; npm run build-storybook -- -o build/story-book --quiet",
+    "build": "npm run relay ; npm run build:server && npm run cra-build && npm run build-storybook -- -o build/story-book --quiet",
     "build:server": "cd server ; npm run build",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
