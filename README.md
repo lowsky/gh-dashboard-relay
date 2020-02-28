@@ -1,4 +1,5 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5f6f0a485bfe4afab427fdba4eae3ac2)](https://www.codacy.com/app/skylab/dashboard) [![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)  ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
+[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)  ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
+[![Netlify Status(master)](https://api.netlify.com/api/v1/badges/23113b55-4107-426a-94c0-e2db95956157/deploy-status)](https://app.netlify.com/sites/github-dashboard/deploys)
 
 ## Purpose
 
