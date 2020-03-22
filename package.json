@@ -60,7 +60,7 @@
     "@storybook/addon-storysource": "5.3.17",
     "@storybook/addon-viewport": "5.3.17",
     "@storybook/addons": "5.3.17",
-    "@storybook/preset-create-react-app": "2.0.0",
+    "@storybook/preset-create-react-app": "2.1.0",
     "@storybook/react": "5.3.17",
     "@types/jest": "25.1.4",
     "@types/node": "12.12.30",
