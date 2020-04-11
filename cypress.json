@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://localhost:9009/",
   "video": true,
+  "projectId": "t423r5",
   "viewportHeight": 500,
   "viewportWidth": 500
 }
