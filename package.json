@@ -47,6 +47,7 @@
     "@babel/node": "7.8.7",
     "bulma": "0.8.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
+    "react-router-config": "5.1.1",
     "react-scripts": "3.4.1",
     "whatwg-fetch": "3.0.0"
   },
