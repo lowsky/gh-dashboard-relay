@@ -42,8 +42,8 @@ const GithubQuery = graphql`
 const RelayRoot = ({ match }) => (
     <QueryRenderer
         variables={{
-            userName: match.params.userName,
-            repoName: match.params.repoName,
+            userName: match?.params?.userName,
+            repoName: match?.params?.repoName,
         }}
         environment={environment}
         query={GithubQuery}
