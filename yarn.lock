@@ -3798,10 +3798,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-5.0.5.tgz#62fb80d4925a707583e535f6d0afdf0762467adb"
   integrity sha512-ZfhRGH8kYnMUeV3NBSYsy99hvJ/GiWAZ4Kc7KG7SuKXdYAHNuHV69TJnHmnmuh54EZytu3NplYDwccerghykpQ==
 
-"@types/relay-runtime@8.0.8":
-  version "8.0.8"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.8.tgz#77be2b7647995b6f2d9bcceae0febe7a7e337da8"
-  integrity sha512-Wy/31wkIZn0M1VlDAy2haNRiXQtaQr6D+XnhCRraX6BTGhzytLj05hdqMo3unbP0/5WcYXXTPMLPeGvDwHQISQ==
+"@types/relay-runtime@8.0.9":
+  version "8.0.9"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.9.tgz#4d09a8016a9300e3d2575b0a14b314e7763aa2dd"
+  integrity sha512-LD8vLMoKegn/wMo0UPgX3LZ0/3qzVusrLVjAQT6wfDUQA3V9PkrkzUGWCqpPvIgRUPev/vVzVHrNRp9MOpLFfA==
 
 "@types/sinon-chai@3.2.3":
   version "3.2.3"
@@ -14880,6 +14880,13 @@ react-relay@9.0.0:
     fbjs "^1.0.0"
     nullthrows "^1.1.1"
     relay-runtime "9.0.0"
+
+react-router-config@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-router-config/-/react-router-config-5.1.1.tgz#0f4263d1a80c6b2dc7b9c1902c9526478194a988"
+  integrity sha512-DuanZjaD8mQp1ppHjgnnUnyOlqYXZVjnov/JzFhjLEwd3Z4dYjMSnqrEzzGThH47vpCOqPPwJM2FtthLeJ8Pbg==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
 
 react-router-dom@5.1.2:
   version "5.1.2"
