@@ -43,7 +43,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@babel/core": "7.9.0",
+    "@babel/core": "7.9.6",
     "@babel/node": "7.8.7",
     "bulma": "0.8.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
