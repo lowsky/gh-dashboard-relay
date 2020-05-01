@@ -30,8 +30,7 @@ jobs:
           command: "env |sort ; echo Overall target built."
   buildprep:
     docker:
-      - image:  cypress/base:12.16.1
-    parallelism: 1
+      - image: cypress/base:12.16.1
     steps:
       - checkout
       - setup_remote_docker
@@ -75,7 +74,6 @@ jobs:
   tests:
     docker:
       - image: cypress/base:12.16.1
-    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
@@ -138,7 +136,6 @@ jobs:
   visual:
     docker:
       - image: cypress/base:12.16.1
-    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
@@ -164,7 +161,6 @@ jobs:
   build:
     docker:
       - image: cypress/base:12.16.1
-      parallelism: 1
     steps:
       - checkout
       - run:
