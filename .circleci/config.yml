@@ -143,8 +143,8 @@ jobs:
       - run:
           name: status message
           command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
-      - restore_cache:
-          key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
+      #- restore_cache:
+      #    key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
       - run:
             name: yarn install
             command: |
