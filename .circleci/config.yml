@@ -150,7 +150,7 @@ jobs:
             command: |
                 if [ ! -d node_modules ]; then
                     set -exu
-                    # yarn --non-interactive --pure-lockfile
+                    yarn --non-interactive --pure-lockfile
                 fi
       - run:
           name: npm run cypress tests
