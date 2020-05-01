@@ -7,16 +7,17 @@ workflows:
       - visual:
           requires:
             - buildprep
-      - analyse:
-          requires:
-            - buildprep
-      - tests:
-          requires:
-            - buildprep
+      #- analyse:
+      #    requires:
+      #      - buildprep
+      #- tests:
+      #    requires:
+      #      - buildprep
       - build:
           requires:
-            - analyse
-            - tests
+             - buildprep
+      #      - analyse
+      #      - tests
   version: 2
 
 jobs:
