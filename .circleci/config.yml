@@ -1,8 +1,8 @@
 version: 2
 workflows:
-  version: 2
   build-and-deploy:
     jobs:
+      - prebuild_diag
       - buildprep
       - visual:
           requires:
@@ -17,15 +17,17 @@ workflows:
           requires:
             - analyse
             - tests
+  version: 2
+
 jobs:
-  build:
+  prebuild_diag:
     docker:
       - image: cypress/base:12.1.0
     steps:
       - setup_remote_docker
       - run:
           name: message
-          command: "echo Overall target built."
+          command: "env |sort ; echo Overall target built."
   buildprep:
     docker:
       - image:  cypress/base:12.16.1
