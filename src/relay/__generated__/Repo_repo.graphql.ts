@@ -19,38 +19,38 @@ export type Repo_repo$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "Repo_repo",
-  "type": "GithubRepo",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "Repo_repo",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "name",
       "args": null,
+      "kind": "ScalarField",
+      "name": "name",
       "storageKey": null
     },
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "owner",
-      "storageKey": null,
       "args": null,
       "concreteType": "GithubUser",
+      "kind": "LinkedField",
+      "name": "owner",
       "plural": false,
       "selections": [
         {
-          "kind": "ScalarField",
           "alias": null,
-          "name": "login",
           "args": null,
+          "kind": "ScalarField",
+          "name": "login",
           "storageKey": null
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "GithubRepo"
 };
 (node as any).hash = '48dd795de55f30c5bdef3d9f4ce6cea7';
 export default node;

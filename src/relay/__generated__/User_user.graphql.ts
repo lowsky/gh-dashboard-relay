@@ -18,34 +18,34 @@ export type User_user$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "User_user",
-  "type": "GithubUser",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "User_user",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "login",
-      "args": null,
       "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "company",
-      "args": null,
       "storageKey": null
     },
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "avatar_url",
       "args": null,
+      "kind": "ScalarField",
+      "name": "avatar_url",
       "storageKey": null
     }
-  ]
+  ],
+  "type": "GithubUser"
 };
 (node as any).hash = '3c8e54b55d329d4240245369a0c42524';
 export default node;

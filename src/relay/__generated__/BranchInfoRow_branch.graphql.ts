@@ -19,36 +19,36 @@ export type BranchInfoRow_branch$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "BranchInfoRow_branch",
-  "type": "GithubBranch",
-  "metadata": null,
   "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "BranchInfoRow_branch",
   "selections": [
     {
-      "kind": "ScalarField",
       "alias": null,
-      "name": "name",
       "args": null,
+      "kind": "ScalarField",
+      "name": "name",
       "storageKey": null
     },
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "lastCommit",
-      "storageKey": null,
       "args": null,
       "concreteType": "GithubCommit",
+      "kind": "LinkedField",
+      "name": "lastCommit",
       "plural": false,
       "selections": [
         {
+          "args": null,
           "kind": "FragmentSpread",
-          "name": "CommitWithStatuses_commit",
-          "args": null
+          "name": "CommitWithStatuses_commit"
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "GithubBranch"
 };
 (node as any).hash = '63a94145a0e0c902e3ffeee712c071db';
 export default node;

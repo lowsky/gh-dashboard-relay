@@ -21,30 +21,26 @@ export type UserRepo_github$key = {
 
 
 const node: ReaderFragment = {
-  "kind": "Fragment",
-  "name": "UserRepo_github",
-  "type": "GithubAPI",
-  "metadata": null,
   "argumentDefinitions": [
     {
+      "defaultValue": "lowsky",
       "kind": "LocalArgument",
       "name": "userName",
-      "type": "String",
-      "defaultValue": "lowsky"
+      "type": "String"
     },
     {
+      "defaultValue": "dashboard",
       "kind": "LocalArgument",
       "name": "repoName",
-      "type": "String",
-      "defaultValue": "dashboard"
+      "type": "String"
     }
   ],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "UserRepo_github",
   "selections": [
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "user",
-      "storageKey": null,
       "args": [
         {
           "kind": "Variable",
@@ -53,20 +49,20 @@ const node: ReaderFragment = {
         }
       ],
       "concreteType": "GithubUser",
+      "kind": "LinkedField",
+      "name": "user",
       "plural": false,
       "selections": [
         {
+          "args": null,
           "kind": "FragmentSpread",
-          "name": "User_user",
-          "args": null
+          "name": "User_user"
         }
-      ]
+      ],
+      "storageKey": null
     },
     {
-      "kind": "LinkedField",
       "alias": null,
-      "name": "repo",
-      "storageKey": null,
       "args": [
         {
           "kind": "Variable",
@@ -80,21 +76,25 @@ const node: ReaderFragment = {
         }
       ],
       "concreteType": "GithubRepo",
+      "kind": "LinkedField",
+      "name": "repo",
       "plural": false,
       "selections": [
         {
+          "args": null,
           "kind": "FragmentSpread",
-          "name": "Repo_repo",
-          "args": null
+          "name": "Repo_repo"
         },
         {
+          "args": null,
           "kind": "FragmentSpread",
-          "name": "BranchesTable_repo",
-          "args": null
+          "name": "BranchesTable_repo"
         }
-      ]
+      ],
+      "storageKey": null
     }
-  ]
+  ],
+  "type": "GithubAPI"
 };
 (node as any).hash = '14f1f0e0612dc24df5318bf178aaeee3';
 export default node;
