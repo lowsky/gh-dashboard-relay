@@ -13,9 +13,9 @@ workflows:
       #- tests:
       #    requires:
       #      - buildprep
-      - build:
-          requires:
-             - buildprep
+      #- build:
+      #    requires:
+      #       - buildprep
       #      - analyse
       #      - tests
   version: 2
@@ -146,11 +146,13 @@ jobs:
       - restore_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: create report output folder
-          command: "mkdir -p reports"
-      - run:
-          name: npm run visual tests
-          command: "yarn run test:vis"
+          name: npm run cypress tests
+          command: |
+              env | grep CIRCLE | sort
+              echo PR: $CIRCLE_PR_NUMBER
+              export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app
+              mkdir -p cypress/results
+              CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
           path: ./cypress/screenshots
           destination: screenshots
