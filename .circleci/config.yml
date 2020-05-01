@@ -157,8 +157,8 @@ jobs:
           command: |
               env | grep CIRCLE | sort
               echo PR: $CIRCLE_PR_NUMBER
-              export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app
-              export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app
+              export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+              export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app/story-book/
               mkdir -p cypress/results
 
               CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
@@ -296,8 +296,8 @@ jobs:
           name: run cypress
           command: |
               echo PR: $CIRCLE_PR_NUMBER
-                export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app
-              export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app
+                export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+              export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app/story-book/
               mkdir -p cypress/results
               CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_test_results:
