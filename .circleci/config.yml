@@ -28,7 +28,8 @@ jobs:
           command: "echo Overall target built."
   buildprep:
     docker:
-      - image: cypress/base:12.1.0
+      - image:  cypress/base:12.16.1
+    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
@@ -59,6 +60,7 @@ jobs:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+            - ~/.npm
             - ~/.cache
       - save_cache:
           key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
@@ -70,7 +72,8 @@ jobs:
             - /usr/local/share/yarn
   tests:
     docker:
-      - image: cypress/base:12.1.0
+      - image: cypress/base:12.16.1
+    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
@@ -132,7 +135,8 @@ jobs:
           path: ./reports
   visual:
     docker:
-      - image: cypress/base:12.1.0
+      - image: cypress/base:12.16.1
+    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
@@ -153,3 +157,77 @@ jobs:
       - store_artifacts:
           path: ./cypress/match-screenshots
           destination: match-screenshots
+
+  # regular build job:
+  build:
+    docker:
+      - image: cypress/base:12.16.1
+      parallelism: 1
+    steps:
+      - checkout
+      - run:
+        name: Set PR number in env
+        command: |
+          env | grep CIRCLE | sort
+          echo $CIRCLE_PR_NUMBER   no.: $CIRCLE_PR_NUMBER
+          echo CIRCLE_PULL_REQUEST no.: CIRCLE_PULL_REQUEST
+          echo 'export CIRCLE_PR_NUMBER="${CIRCLE_PR_NUMBER:-${CIRCLE_PULL_REQUEST##*/}}"' >> $BASH_ENV
+      - run:
+        name: build diagnosis
+        command: |
+          echo PR no.: $CIRCLE_PR_NUMBER
+
+          source $BASH_ENV
+          if [ -n "$CIRCLE_PR_NUMBER" ]; then
+            echo " there is this PR number: $CIRCLE_PR_NUMBER"
+          fi
+
+          if [ "X${CIRCLE_PR_NUMBER}" == "X" ]; then
+            echo no CIRCLE_PR_NUMBER set, so skipping this step
+            exit -1
+          fi
+
+          echo "Value of CIRCLE_PULL_REQUEST: ${CIRCLE_PULL_REQUEST} "
+          if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+            echo transformed to ${CIRCLE_PULL_REQUEST##*/}
+          fi
+
+          env | grep CIRCLE | sort
+      - restore_cache:
+        keys:
+          - cache-smoke-{{ checksum "package.json" }}
+      - run:
+        name: Npm CI
+        command: |
+          cd smoketest
+          if [ ! -d node_modules ]; then
+            set -exu
+            npm ci
+            fi
+      - save_cache:
+        key: cache-smoke-{{ checksum "package.json" }}
+        paths:
+          - ~/.npm
+          - ./node_modules
+          - ~/.cache
+      - run:
+        name: cypress verify
+        command: |
+          echo PR: $CIRCLE_PR_NUMBER
+          cd smoketest
+          npx cypress verify ; npx cypress cache path
+      - run:
+        name: run cypress
+        command: |
+          echo PR: $CIRCLE_PR_NUMBER
+            export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app
+          mkdir -p cypress/results
+          CYPRESS_branch=${CIRCLE_BRANCH} npx cypress run cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
+      - store_test_results:
+        path: cypress/results
+      - store_artifacts:
+        path: /root/project/cypress/screenshots
+        destination: screenshots
+      - store_artifacts:
+        path: /root/project/cypress/videos
+        destination: videos

@@ -40,7 +40,7 @@ export class NavBar extends React.Component {
                             <Link to="/home">Home</Link>
                         </span>
                         <span className="navbar-item">
-                            <a href="./story-book">Storybook</a>
+                            <a href="./story-book/">Storybook</a>
                         </span>
                         <span className="navbar-item">
                             <Link to="/relay">GraphQL + Relay Demo</Link>

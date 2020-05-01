@@ -25,3 +25,6 @@ storybook-static/
 
 test-reports
 /server/lambda/
+
+# Local Netlify folder
+.netlify
