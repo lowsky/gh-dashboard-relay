@@ -4,7 +4,8 @@ workflows:
     jobs:
       #- prebuild_diag
       #- buildprep
-      - visual:
+      - visual
+      #- visual:
       #    requires:
       #      - buildprep
       #- analyse:
@@ -19,7 +20,6 @@ workflows:
       #      - analyse
       #      - tests
   version: 2
-
 jobs:
   prebuild_diag:
     docker:
