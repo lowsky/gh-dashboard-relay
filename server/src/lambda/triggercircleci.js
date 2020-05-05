@@ -17,7 +17,7 @@ exports.handler = async (event) => {
 
     const url = `https://${CIRCLE_API_USER_TOKEN}@circleci.com/api/v1.1/project/github/lowsky/dashboard/tree/${branch}`;
     const build_parameters = {
-        CIRCLE_JOB: 'smoke',
+        CIRCLE_JOB: 'visual',
         CIRCLE_PR_NUMBER: review_id,
         DEPLOYED_SHA1: commit_ref,
     };
