@@ -169,6 +169,7 @@ jobs:
             export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
             mkdir -p cypress/results
 
+            yarn add cypress-match-screenshot
             CYPRESS_branch=${CIRCLE_BRANCH} npx cypress run -- --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
           path: ./cypress/screenshots
