@@ -1,29 +1,47 @@
-version: 2
+version: 2.1
 workflows:
-  build-and-deploy:
+  # have a filter to disable regular builds.
+  do_not_run_usually:
     jobs:
-      #- prebuild_diag
-      #- buildprep
-      - visual
-      #- visual:
-      #    requires:
-      #      - buildprep
-      #- analyse:
-      #    requires:
-      #      - buildprep
-      #- tests:
-      #    requires:
-      #      - buildprep
-      #- build:
+      - build:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
       #    requires:
       #       - buildprep
       #      - analyse
       #      - tests
-  version: 2
+      - buildprep:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
+      - visual:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
+          requires:
+            - buildprep
+      - analyse:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
+          requires:
+            - buildprep
+      - tests:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
+          requires:
+            - buildprep
 jobs:
   prebuild_diag:
     docker:
-      - image: cypress/base:12.1.0
+      - image: cypress/base:12.16.1
     steps:
       - setup_remote_docker
       - run:
@@ -50,28 +68,28 @@ jobs:
       - run:
           name: yarn install
           command: |
-              if [ ! -d node_modules ]; then
-                  set -exu
-                  yarn --non-interactive --pure-lockfile
-              fi
-              if [ ! -d server/node_modules ]; then
-                  set -exu
-                  yarn --non-interactive --pure-lockfile
-              fi
+            if [ ! -d node_modules ]; then
+                set -exu
+                yarn --non-interactive --pure-lockfile
+            fi
+#              if [ ! -d server/node_modules ]; then
+#                  set -exu
+#                  yarn --non-interactive --pure-lockfile
+#              fi
       - save_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
             - ~/.npm
             - ~/.cache
-      - save_cache:
-          key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
-          paths:
-            - ./server/node_modules
-      - save_cache:
-          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
-          paths:
-            - /usr/local/share/yarn
+#      - save_cache:
+#          key: lowsky-dashboard-srv-cache-{{ checksum "server/yarn.lock" }}
+#          paths:
+#            - ./server/node_modules
+#      - save_cache:
+#          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
+#          paths:
+#            - /usr/local/share/yarn
   tests:
     docker:
       - image: cypress/base:12.16.1
@@ -83,13 +101,13 @@ jobs:
           command: "echo testing... dashboard:$CIRCLE_SHA1 ."
       - run:
           name: env
-          command: env
+          command: env|sort
       - restore_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
-      - restore_cache:
-          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
+      #      - restore_cache:
+      #          key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
       - run:
-          name:  Download cc-test-reporter
+          name: Download cc-test-reporter
           command: |
             mkdir -p tmp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
@@ -115,7 +133,7 @@ jobs:
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.json
   analyse:
     docker:
-      - image: cypress/base:12.1.0
+      - image: cypress/base:12.16.1
     steps:
       - checkout
       - setup_remote_docker
@@ -136,32 +154,22 @@ jobs:
           path: ./reports
   visual:
     docker:
-      - image: cypress/base:12.16.1
+      - image: cypress/included:4.5.0
     steps:
       - checkout
       - setup_remote_docker
       - run:
           name: status message
           command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
-      #- restore_cache:
-      #    key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
-      - run:
-            name: yarn install
-            command: |
-                if [ ! -d node_modules ]; then
-                    set -exu
-                    yarn --non-interactive --pure-lockfile
-                fi
       - run:
           name: npm run cypress tests
           command: |
-              env | grep CIRCLE | sort
-              echo PR: $CIRCLE_PR_NUMBER
-              export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
-              export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app/story-book/
-              mkdir -p cypress/results
+            env | grep CIRCLE | sort
+            echo PR: $CIRCLE_PR_NUMBER
+            export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+            mkdir -p cypress/results
 
-              CYPRESS_branch=${CIRCLE_BRANCH} npx cypress run -- --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
+            CYPRESS_branch=${CIRCLE_BRANCH} npx cypress run -- --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
           path: ./cypress/screenshots
           destination: screenshots
@@ -169,77 +177,6 @@ jobs:
           path: ./cypress/match-screenshots
           destination: match-screenshots
 
-  buildOld:
-    docker:
-      - image: cypress/base:12.16.1
-    steps:
-      - checkout
-      - run:
-          name: Set PR number in env
-          command: |
-            env | grep CIRCLE | sort
-            echo $CIRCLE_PR_NUMBER   no.: $CIRCLE_PR_NUMBER
-            echo CIRCLE_PULL_REQUEST no.: CIRCLE_PULL_REQUEST
-            echo 'export CIRCLE_PR_NUMBER="${CIRCLE_PR_NUMBER:-${CIRCLE_PULL_REQUEST##*/}}"' >> $BASH_ENV
-      - run:
-          name: build diagnosis
-          command: |
-            echo PR no.: $CIRCLE_PR_NUMBER
-
-            source $BASH_ENV
-            if [ -n "$CIRCLE_PR_NUMBER" ]; then
-              echo " there is this PR number: $CIRCLE_PR_NUMBER"
-            fi
-
-            if [ "X${CIRCLE_PR_NUMBER}" == "X" ]; then
-              echo no CIRCLE_PR_NUMBER set, so skipping this step
-              exit -1
-            fi
-
-            echo "Value of CIRCLE_PULL_REQUEST: ${CIRCLE_PULL_REQUEST} "
-            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
-              echo transformed to ${CIRCLE_PULL_REQUEST##*/}
-            fi
-
-            env | grep CIRCLE | sort
-      - restore_cache:
-          keys:
-            - cache-smoke-{{ checksum "package.json" }}
-      - run:
-          name: Npm CI
-          command: |
-              cd smoketest
-              if [ ! -d node_modules ]; then
-                set -exu
-                npm ci
-                fi
-      - save_cache:
-          key: cache-smoke-{{ checksum "package.json" }}
-          paths:
-              - ~/.npm
-              - ./node_modules
-              - ~/.cache
-      - run:
-          name: cypress verify
-          command: |
-              echo PR: $CIRCLE_PR_NUMBER
-              cd smoketest
-              npx cypress verify ; npx cypress cache path
-      - run:
-          name: run cypress
-          command: |
-              echo PR: $CIRCLE_PR_NUMBER
-                export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app
-              mkdir -p cypress/results
-              CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
-      - store_test_results:
-          path: cypress/results
-      - store_artifacts:
-          path: /root/project/cypress/screenshots
-          destination: screenshots
-      - store_artifacts:
-          path: /root/project/cypress/videos
-          destination: videos
   build:
     docker:
       - image: cypress/base:12.16.1
@@ -279,27 +216,27 @@ jobs:
       - run:
           name: Npm CI
           command: |
-              echo not yet: yarn
+            echo not yet: yarn
       - save_cache:
           key: cache-smoke-{{ checksum "package.json" }}
           paths:
-              - ~/.npm
-              - ./node_modules
-              - ~/.cache
+            - ~/.npm
+            - ./node_modules
+            - ~/.cache
       - run:
           name: cypress verify
           command: |
-              echo PR: $CIRCLE_PR_NUMBER
-              cd smoketest
-              npx cypress verify ; npx cypress cache path
+            echo PR: $CIRCLE_PR_NUMBER
+            cd smoketest
+            npx cypress verify ; npx cypress cache path
       - run:
           name: run cypress
           command: |
-              echo PR: $CIRCLE_PR_NUMBER
-                export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
-              export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app/story-book/
-              mkdir -p cypress/results
-              CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
+            echo PR: $CIRCLE_PR_NUMBER
+              export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+            export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app/story-book/
+            mkdir -p cypress/results
+            CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_test_results:
           path: cypress/results
       - store_artifacts:
