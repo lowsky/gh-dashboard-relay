@@ -158,9 +158,15 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - restore_cache:
+          key: lowsky-dashboard-cypress-deps-cache-1.1.0
       - run:
-          name: status message
-          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
+          name: yarn install
+          command: |
+            if [ ! -d node_modules ]; then
+                set -exu
+                yarn add cypress-match-screenshot@1.1.0
+            fi
       - run:
           name: npm run cypress tests
           command: |
@@ -168,7 +174,6 @@ jobs:
             echo PR: $CIRCLE_PR_NUMBER
             export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
             mkdir -p cypress/results
-            yarn add cypress-match-screenshot@1.1.0
             CYPRESS_branch=${CIRCLE_BRANCH} cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
           path: ./cypress/screenshots
@@ -176,6 +181,10 @@ jobs:
       - store_artifacts:
           path: ./cypress/match-screenshots
           destination: match-screenshots
+      - save_cache:
+          key: lowsky-dashboard-cypress-deps-cache-1.1.0
+          paths:
+            - ./node_modules
 
   build:
     docker:
