@@ -161,7 +161,7 @@ jobs:
           command: |
             if [ ! -d node_modules ]; then
                 set -exu
-                yarn add cypress-match-screenshot@1.1.0
+                yarn add cypress-match-screenshot@1.1.0 cypress@4.5.0
             fi
       - run:
           name: npm run cypress tests
@@ -170,7 +170,7 @@ jobs:
             echo PR: $CIRCLE_PR_NUMBER
             export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
             mkdir -p cypress/results
-            CYPRESS_branch=${CIRCLE_BRANCH} cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
+            CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
           path: ./cypress/screenshots
           destination: screenshots
