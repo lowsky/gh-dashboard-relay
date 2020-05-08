@@ -16,7 +16,9 @@ exports.handler = async (event) => {
     const { branch = 'info-missing', review_id = '0', commit_ref = '123456' } = body;
     console.log('deploy-success body.review_id=', review_id);
 
-    const url = `https://${CIRCLE_API_USER_TOKEN}@circleci.com/api/v1.1/project/github/lowsky/dashboard/tree/${branch}`;
+    const url = `https://${CIRCLE_API_USER_TOKEN}@circleci.com/api/v1.1/project/github/lowsky/dashboard/tree/${branch}?build_parameters%5BCIRCLE_JOB%5D=visual`+
+    `&build_parameters%5BCIRCLE_PR_NUMBER%5D=${review_id}`;
+
     const build_parameters = {
         CIRCLE_JOB: 'visual',
         CIRCLE_PR_NUMBER: review_id,
