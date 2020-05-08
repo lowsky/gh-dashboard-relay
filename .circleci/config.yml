@@ -1,28 +1,43 @@
-version: 2
+version: 2.1
 workflows:
-  build-and-deploy:
+  # have a filter to disable regular builds.
+  do_not_run_usually:
     jobs:
-      - prebuild_diag
-      - buildprep
+      - build:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
+      - buildprep:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
       - visual:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
           requires:
             - buildprep
       - analyse:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
           requires:
             - buildprep
       - tests:
+          filters:
+            branches:
+              only:
+                - non-existing-branch
           requires:
             - buildprep
-      - build:
-          requires:
-            - analyse
-            - tests
-  version: 2
-
 jobs:
   prebuild_diag:
     docker:
-      - image: cypress/base:12.1.0
+      - image: cypress/base:12.16.1
     steps:
       - setup_remote_docker
       - run:
@@ -30,8 +45,7 @@ jobs:
           command: "env |sort ; echo Overall target built."
   buildprep:
     docker:
-      - image:  cypress/base:12.16.1
-    parallelism: 1
+      - image: cypress/base:12.16.1
     steps:
       - checkout
       - setup_remote_docker
@@ -50,14 +64,14 @@ jobs:
       - run:
           name: yarn install
           command: |
-              if [ ! -d node_modules ]; then
-                  set -exu
-                  yarn --non-interactive --pure-lockfile
-              fi
-              if [ ! -d server/node_modules ]; then
-                  set -exu
-                  yarn --non-interactive --pure-lockfile
-              fi
+            if [ ! -d node_modules ]; then
+                set -exu
+                yarn --non-interactive --pure-lockfile
+            fi
+            if [ ! -d server/node_modules ]; then
+                set -exu
+                yarn --non-interactive --pure-lockfile
+            fi
       - save_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
           paths:
@@ -75,7 +89,6 @@ jobs:
   tests:
     docker:
       - image: cypress/base:12.16.1
-    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
@@ -84,13 +97,13 @@ jobs:
           command: "echo testing... dashboard:$CIRCLE_SHA1 ."
       - run:
           name: env
-          command: env
+          command: env|sort
       - restore_cache:
           key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
       - restore_cache:
           key: lowsky-dashboard-yarn-cache-{{ checksum "yarn.lock" }}-{{ checksum "server/yarn.lock" }}
       - run:
-          name:  Download cc-test-reporter
+          name: Download cc-test-reporter
           command: |
             mkdir -p tmp/
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
@@ -116,7 +129,7 @@ jobs:
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.json
   analyse:
     docker:
-      - image: cypress/base:12.1.0
+      - image: cypress/base:12.16.1
     steps:
       - checkout
       - setup_remote_docker
@@ -138,98 +151,105 @@ jobs:
   visual:
     docker:
       - image: cypress/base:12.16.1
-    parallelism: 1
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: status message
-          command: "echo analysing... dashboard:$CIRCLE_SHA1 ."
       - restore_cache:
-          key: lowsky-dashboard-cache-{{ checksum "yarn.lock" }}
+          key: lowsky-dashboard-cypress-deps-cache-1.1.0
       - run:
-          name: create report output folder
-          command: "mkdir -p reports"
+          name: yarn install
+          command: |
+            if [ ! -d node_modules ]; then
+                set -exu
+                yarn add cypress-match-screenshot@1.1.0
+            fi
       - run:
-          name: npm run visual tests
-          command: "yarn run test:vis"
+          name: npm run cypress tests
+          command: |
+            env | grep CIRCLE | sort
+            echo PR: $CIRCLE_PR_NUMBER
+            export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+            mkdir -p cypress/results
+            CYPRESS_branch=${CIRCLE_BRANCH} cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
           path: ./cypress/screenshots
           destination: screenshots
       - store_artifacts:
           path: ./cypress/match-screenshots
           destination: match-screenshots
+      - save_cache:
+          key: lowsky-dashboard-cypress-deps-cache-1.1.0
+          paths:
+            - ./node_modules
 
-  # regular build job:
   build:
     docker:
       - image: cypress/base:12.16.1
-      parallelism: 1
     steps:
       - checkout
       - run:
-        name: Set PR number in env
-        command: |
-          env | grep CIRCLE | sort
-          echo $CIRCLE_PR_NUMBER   no.: $CIRCLE_PR_NUMBER
-          echo CIRCLE_PULL_REQUEST no.: CIRCLE_PULL_REQUEST
-          echo 'export CIRCLE_PR_NUMBER="${CIRCLE_PR_NUMBER:-${CIRCLE_PULL_REQUEST##*/}}"' >> $BASH_ENV
+          name: Set PR number in env
+          command: |
+            env | grep CIRCLE | sort
+            echo $CIRCLE_PR_NUMBER   no.: $CIRCLE_PR_NUMBER
+            echo CIRCLE_PULL_REQUEST no.: CIRCLE_PULL_REQUEST
+            echo 'export CIRCLE_PR_NUMBER="${CIRCLE_PR_NUMBER:-${CIRCLE_PULL_REQUEST##*/}}"' >> $BASH_ENV
       - run:
-        name: build diagnosis
-        command: |
-          echo PR no.: $CIRCLE_PR_NUMBER
+          name: build diagnosis
+          command: |
+            echo PR no.: $CIRCLE_PR_NUMBER
 
-          source $BASH_ENV
-          if [ -n "$CIRCLE_PR_NUMBER" ]; then
-            echo " there is this PR number: $CIRCLE_PR_NUMBER"
-          fi
+            source $BASH_ENV
+            if [ -n "$CIRCLE_PR_NUMBER" ]; then
+              echo " there is this PR number: $CIRCLE_PR_NUMBER"
+            fi
 
-          if [ "X${CIRCLE_PR_NUMBER}" == "X" ]; then
-            echo no CIRCLE_PR_NUMBER set, so skipping this step
-            exit -1
-          fi
+            if [ "X${CIRCLE_PR_NUMBER}" == "X" ]; then
+              echo no CIRCLE_PR_NUMBER set, so skipping this step
+              exit -1
+            fi
 
-          echo "Value of CIRCLE_PULL_REQUEST: ${CIRCLE_PULL_REQUEST} "
-          if [ -n "$CIRCLE_PULL_REQUEST" ]; then
-            echo transformed to ${CIRCLE_PULL_REQUEST##*/}
-          fi
+            echo "Value of CIRCLE_PULL_REQUEST: ${CIRCLE_PULL_REQUEST} "
+            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+              echo transformed to ${CIRCLE_PULL_REQUEST##*/}
+            fi
 
-          env | grep CIRCLE | sort
+            env | grep CIRCLE | sort
       - restore_cache:
-        keys:
-          - cache-smoke-{{ checksum "package.json" }}
+          keys:
+           - cache-smoke-{{ checksum "package.json" }}
       - run:
-        name: Npm CI
-        command: |
-          cd smoketest
-          if [ ! -d node_modules ]; then
-            set -exu
-            npm ci
+          name: Npm CI
+          command: |
+            if [ ! -d node_modules ]; then
+              set -exu
+              echo NOT YET: npm ci / FOR MORE SPEED
             fi
       - save_cache:
-        key: cache-smoke-{{ checksum "package.json" }}
-        paths:
-          - ~/.npm
-          - ./node_modules
-          - ~/.cache
+          key: cache-smoke-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ./node_modules
+            - ~/.cache
       - run:
-        name: cypress verify
-        command: |
-          echo PR: $CIRCLE_PR_NUMBER
-          cd smoketest
-          npx cypress verify ; npx cypress cache path
+          name: cypress verify
+          command: |
+            echo PR: $CIRCLE_PR_NUMBER
+            cd smoketest
+            npx cypress verify ; npx cypress cache path
       - run:
-        name: run cypress
-        command: |
-          echo PR: $CIRCLE_PR_NUMBER
-            export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app
-          mkdir -p cypress/results
-          CYPRESS_branch=${CIRCLE_BRANCH} npx cypress run cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
+          name: run cypress
+          command: |
+            echo PR: $CIRCLE_PR_NUMBER
+              export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+            export CYPRESS_baseUrl=https://deploy-preview-1191--github-dashboard.netlify.app/story-book/
+            mkdir -p cypress/results
+            CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_test_results:
-        path: cypress/results
+          path: cypress/results
       - store_artifacts:
-        path: /root/project/cypress/screenshots
-        destination: screenshots
+          path: /root/project/cypress/screenshots
+          destination: screenshots
       - store_artifacts:
-        path: /root/project/cypress/videos
-        destination: videos
+          path: /root/project/cypress/videos
+          destination: videos

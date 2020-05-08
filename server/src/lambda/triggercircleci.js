@@ -11,13 +11,14 @@ exports.handler = async (event) => {
     console.log('deploy-success body type', typeof event.body);
     console.log('deploy-success body=', event.body);
     const body = JSON.parse(event.body);
-    console.log('deploy-success body.review_id=', body.review_id);
+    console.log('deploy-success body =', { body} );
 
     const { branch = 'info-missing', review_id = '0', commit_ref = '123456' } = body;
+    console.log('deploy-success body.review_id=', review_id);
 
     const url = `https://${CIRCLE_API_USER_TOKEN}@circleci.com/api/v1.1/project/github/lowsky/dashboard/tree/${branch}`;
     const build_parameters = {
-        CIRCLE_JOB: 'smoke',
+        CIRCLE_JOB: 'visual',
         CIRCLE_PR_NUMBER: review_id,
         DEPLOYED_SHA1: commit_ref,
     };

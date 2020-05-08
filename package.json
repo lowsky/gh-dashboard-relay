@@ -30,6 +30,7 @@
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
     "test:ci": "mkdir -p test-reports ; npm run test:circleci",
     "test:vis": "start-server-and-test 'npm run storybook -- --quiet --ci' 9009 'cypress run --record'",
+    "test:storybook": "cypress run --record",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
@@ -54,11 +55,9 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "7.9.0",
     "@emotion/core": "10.0.28",
-    "@storybook/addon-a11y": "5.3.18",
     "@storybook/addon-actions": "5.3.18",
     "@storybook/addon-links": "5.3.18",
     "@storybook/addon-storyshots": "5.3.18",
-    "@storybook/addon-storysource": "5.3.18",
     "@storybook/addon-viewport": "5.3.18",
     "@storybook/addons": "5.3.18",
     "@storybook/preset-create-react-app": "2.1.0",
@@ -72,7 +71,6 @@
     "@types/relay-runtime": "8.0.9",
     "babel-loader": "8.1.0",
     "babel-plugin-relay": "9.1.0",
-    "cypress": "4.5.0",
     "cypress-match-screenshot": "1.1.0",
     "emotion-theming": "10.0.27",
     "enzyme": "3.11.0",
@@ -100,8 +98,7 @@
     "relay-config": "9.1.0",
     "start-server-and-test": "1.11.0",
     "storybook-addon-jsx": "7.2.3",
-    "typescript": "3.8.3",
-    "xunit-file": "1.0.0"
+    "typescript": "3.8.3"
   },
   "browserslist": [
     ">0.2%",
