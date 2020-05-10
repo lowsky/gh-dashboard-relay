@@ -1,5 +1,15 @@
 version: 2.1
+parameters:
+  test_pr:
+    description: specific PR to test, used in deployed-url
+    type: string
+    default: "0"
+
 workflows:
+  visual_regression:
+    when: << pipeline.parameters.test_pr >>
+    jobs:
+      - visual
   # have a filter to disable regular builds.
   do_not_run_usually:
     jobs:
@@ -149,9 +159,21 @@ jobs:
       - store_artifacts:
           path: ./reports
   visual:
+    environment:
+      TEST_PR: << pipeline.parameters.test_pr >>
+      CIRCLE_PR_NUMBER: << pipeline.parameters.test_pr >>
     docker:
       - image: cypress/base:12.16.1
     steps:
+      - run:
+          name: diagnostics CIRCLE env
+          command: |
+            env | grep CIRCLE | sort
+            echo PR: $CIRCLE_PR_NUMBER
+      - run:
+          name: diagnostics non CIRCLE env
+          command: |
+            env | grep -v CIRCLE | sort
       - checkout
       - setup_remote_docker
       - restore_cache:
@@ -163,12 +185,26 @@ jobs:
                 set -exu
                 yarn add cypress-match-screenshot@1.1.0 cypress@4.5.0
             fi
+            if [ ! -d /root/.cache/Cypress ]; then
+                yarn cypress install
+            fi
+      - save_cache:
+          key: lowsky-dashboard-cypress-deps-cache-1.1.0
+          paths:
+            - ./node_modules
+            - /root/.cache/Cypress
       - run:
           name: npm run cypress tests
           command: |
+            env | grep -v CIRCLE | sort
             env | grep CIRCLE | sort
             echo PR: $CIRCLE_PR_NUMBER
-            export CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+            if [ "${CIRCLE_BRANCH}" = "master" ];then
+              CYPRESS_baseUrl=https://master--github-dashboard.netlify.app/story-book/
+            else
+              CYPRESS_baseUrl=https://deploy-preview-${CIRCLE_PR_NUMBER}--github-dashboard.netlify.app/story-book/
+            fi
+            export CYPRESS_baseUrl
             mkdir -p cypress/results
             CYPRESS_branch=${CIRCLE_BRANCH} yarn cypress run --record --key $CYPRESS_API_KEY --reporter junit --reporter-options mochaFile=cypress/results/test-results.xml,toConsole=true
       - store_artifacts:
@@ -177,10 +213,6 @@ jobs:
       - store_artifacts:
           path: ./cypress/match-screenshots
           destination: match-screenshots
-      - save_cache:
-          key: lowsky-dashboard-cypress-deps-cache-1.1.0
-          paths:
-            - ./node_modules
 
   build:
     docker:
