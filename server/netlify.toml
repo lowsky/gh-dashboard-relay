@@ -1,5 +1,0 @@
-[build]
-  Functions = "lambda"
-
-[build.environment]
-  YARN_FLAGS = "--pure-lockfile"
