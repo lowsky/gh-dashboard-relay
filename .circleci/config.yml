@@ -3,7 +3,7 @@ parameters:
   test_pr:
     description: specific PR to test, used in deployed-url
     type: string
-    default: "0"
+    default: ""
 
 workflows:
   visual_regression:
