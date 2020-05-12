@@ -48,7 +48,7 @@
   "dependencies": {
     "@babel/core": "7.9.6",
     "@babel/node": "7.8.7",
-    "bulma": "0.8.0",
+    "bulma": "0.8.2",
     "chromatic": "4.0.2",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
