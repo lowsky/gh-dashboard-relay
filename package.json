@@ -103,7 +103,7 @@
     "start-server-and-test": "1.11.0",
     "storybook-addon-jsx": "7.2.3",
     "storybook-chromatic": "4.0.2",
-    "typescript": "3.8.3"
+    "typescript": "3.9.2"
   },
   "browserslist": [
     ">0.2%",
