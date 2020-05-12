@@ -103,7 +103,6 @@ storiesOf('User', module)
 const moreStatus = require('../restinpeace/lastCommitMock');
 
 storiesOf('CommitStatus', module)
-    .addDecorator(jsxDecorator)
     .add('with data', () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />)
     .add('with no data', () => <CommitWithStatuses />);
 
