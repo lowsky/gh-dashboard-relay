@@ -5,6 +5,7 @@ import { withLinks } from '@storybook/addon-links';
 import { linkTo } from '@storybook/addon-links';
 
 import { jsxDecorator } from 'storybook-addon-jsx';
+import isChromatic from 'storybook-chromatic/isChromatic';
 
 import Intro from './Intro';
 
@@ -78,15 +79,17 @@ const userRepo = {
     },
 };
 
-const Suspensor = storyFn => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
+const Suspensor = (storyFn) => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
 
-storiesOf('Pages', module)
+const pages = storiesOf('Pages', module)
     .addDecorator(jsxDecorator)
     .addDecorator(withLinks)
     .addDecorator(Suspensor)
-    .add('main', () => <IndexPage />)
-    .add('restful', () => <RestfulPage />)
-    .add('relay', () => <RelayPage />);
+    .add('main', () => <IndexPage />);
+if (!isChromatic()) {
+    pages.add('restful', () => <RestfulPage />);
+    pages.add('relay', () => <RelayPage />);
+}
 
 storiesOf('Repo', module)
     .addDecorator(jsxDecorator)
@@ -100,7 +103,6 @@ storiesOf('User', module)
 const moreStatus = require('../restinpeace/lastCommitMock');
 
 storiesOf('CommitStatus', module)
-    .addDecorator(jsxDecorator)
     .add('with data', () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />)
     .add('with no data', () => <CommitWithStatuses />);
 

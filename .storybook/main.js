@@ -2,8 +2,8 @@ module.exports = {
     stories: ['../src/**/*.stories.js'],
     addons: [
         '@storybook/preset-create-react-app',
-        // LATER '@storybook/addon-storysource',
         'storybook-addon-jsx',
+        'storybook-chromatic',
         '@storybook/addon-viewport',
         '@storybook/addon-actions',
         '@storybook/addon-links',
