@@ -7,7 +7,7 @@ const github = new Github({
     auth: 'oauth',
 });
 
-export let getUser = username => {
+export let getUser = (username) => {
     let user = github.getUser();
     return new Promise((resolve, reject) => {
         user.show(username, (err, user) => {
@@ -20,7 +20,7 @@ export let getUser = username => {
     });
 };
 
-export let getReposForUser = username => {
+export let getReposForUser = (username) => {
     let user = github.getUser();
     return new Promise((resolve, reject) => {
         user.userRepos(username, (err, repos) => {
@@ -53,7 +53,7 @@ export let getCommitsForRepo = (username, reponame, options = {}) => {
 
 let getBranchesLastCommits = (repo, branchNames) => {
     return branchNames.map(
-        name =>
+        (name) =>
             new Promise((resolve, reject) => {
                 repo.getRef('heads/' + name, (err, sha) => {
                     if (sha) {

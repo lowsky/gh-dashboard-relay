@@ -11,7 +11,7 @@ export const pages = [
 
 describe('VisualRegression', () => {
     // eslint-disable-next-line array-callback-return
-    pages.map(path => {
+    pages.map((path) => {
         const filename = path.replace(/^\//, '').replace(/\//gi, '_');
 
         const flags = [];

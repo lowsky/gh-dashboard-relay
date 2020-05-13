@@ -30,7 +30,7 @@ const styles = {
 };
 
 export default class Intro extends Component {
-    jumpToStory = event => {
+    jumpToStory = (event) => {
         event.preventDefault();
         // eslint-disable-next-line react/prop-types
         if (this.props.showApp) {
@@ -45,7 +45,7 @@ export default class Intro extends Component {
                 <h1>STORYBOOK of dashboard</h1>
                 <p>
                     Jump to these
-                    <a style={styles.link} href="#" onClick={e => this.jumpToStory(e)}>
+                    <a style={styles.link} href="#" onClick={(e) => this.jumpToStory(e)}>
                         stories
                     </a>
                     for the component called <code style={styles.code}>User</code>.

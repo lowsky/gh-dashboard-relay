@@ -60,7 +60,7 @@ let UserType = new GraphQLObjectType({
 
 let UserOrCommitAuthorType = new GraphQLUnionType({
     name: 'UserOrCommitAuthor',
-    resolveType: author => {
+    resolveType: (author) => {
         if (isObject(author) && author.login) {
             return UserType;
         }
@@ -81,7 +81,7 @@ let TreeEntryType = new GraphQLObjectType({
                 resolve(data) {
                     const path = data.path;
                     const { username, reponame } = grabUsernameAndReponameFromURL(data.url);
-                    return getCommitsForRepo(username, reponame, { path, limit: 1 }).then(list => list[0]); // just the commit object
+                    return getCommitsForRepo(username, reponame, { path, limit: 1 }).then((list) => list[0]); // just the commit object
                 },
             },
         };
@@ -170,7 +170,7 @@ let IssueLabelType = new GraphQLObjectType({
     },
 });
 
-let grabUsernameAndReponameFromURL = url => {
+let grabUsernameAndReponameFromURL = (url) => {
     let array = url.split('https://api.github.com/repos/')[1].split('/');
     return {
         username: array[0],
@@ -211,9 +211,9 @@ let BranchType = new GraphQLObjectType({
         name: { type: GraphQLString },
         lastCommit: {
             type: CommitType,
-            resolve: branch => {
+            resolve: (branch) => {
                 const { ownerUsername, reponame } = branch; // info has been added while loading
-                return getCommitsForRepo(ownerUsername, reponame, { sha: branch.sha }).then(list => list[0]); // just the commit object
+                return getCommitsForRepo(ownerUsername, reponame, { sha: branch.sha }).then((list) => list[0]); // just the commit object
             },
         },
     },
@@ -246,7 +246,7 @@ let RepoType = new GraphQLObjectType({
                 limit: { type: GraphQLInt },
             },
             resolve(repo, { limit }) {
-                return getIssuesForRepo(repo.owner.login, repo.name).then(issues => {
+                return getIssuesForRepo(repo.owner.login, repo.name).then((issues) => {
                     if (limit) {
                         return issues.slice(0, limit);
                     }
@@ -263,11 +263,11 @@ let RepoType = new GraphQLObjectType({
                 const ownerUsername = repo.owner.login;
                 const reponame = repo.name;
                 return getBranchesForRepo(ownerUsername, reponame)
-                    .then(branches => {
+                    .then((branches) => {
                         // add repo referenceData
-                        return branches.map(b => ({ reponame, ownerUsername, ...b }));
+                        return branches.map((b) => ({ reponame, ownerUsername, ...b }));
                     })
-                    .then(branches => {
+                    .then((branches) => {
                         if (limit) {
                             // Later: optimise query...
                             return branches.slice(0, limit);
@@ -282,7 +282,7 @@ let RepoType = new GraphQLObjectType({
     },
 });
 
-export const resolveUser = username => getUser(username);
+export const resolveUser = (username) => getUser(username);
 
 let githubType = new GraphQLObjectType({
     name: 'GithubAPI',
