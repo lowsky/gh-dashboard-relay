@@ -58,7 +58,7 @@ exports[`NavBar component should render as expected 1`] = `
         className="navbar-item"
       >
         <a
-          href="./story-book"
+          href="./story-book/"
         >
           Storybook
         </a>
@@ -67,7 +67,7 @@ exports[`NavBar component should render as expected 1`] = `
         className="navbar-item"
       >
         <a
-          href="/relay"
+          href="/relay/lowsky/dashboard"
           onClick={[Function]}
         >
           GraphQL + Relay Demo
@@ -77,7 +77,7 @@ exports[`NavBar component should render as expected 1`] = `
         className="navbar-item"
       >
         <a
-          href="/restful"
+          href="/restful/lowsky/dashboard"
           onClick={[Function]}
         >
           RESTful Demo

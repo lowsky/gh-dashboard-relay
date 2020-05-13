@@ -43,10 +43,10 @@ export class NavBar extends React.Component {
                             <a href="./story-book/">Storybook</a>
                         </span>
                         <span className="navbar-item">
-                            <Link to="/relay">GraphQL + Relay Demo</Link>
+                            <Link to="/relay/lowsky/dashboard">GraphQL + Relay Demo</Link>
                         </span>
                         <span className="navbar-item">
-                            <Link to="/restful">RESTful Demo</Link>
+                            <Link to="/restful/lowsky/dashboard">RESTful Demo</Link>
                         </span>
                         <span className="navbar-item">
                             <a href="https://github.com/lowsky/dashboard/">
