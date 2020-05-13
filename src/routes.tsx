@@ -9,9 +9,11 @@ import { Spinner } from './components/Spinner';
 const RelayMain = lazy(() => import('./relay/main'));
 const RestfulMain = lazy(() => import('./restinpeace/restful'));
 
-const WarningMissingURLParams = (
+export const WarningMissingURLParams = (
     <div className="jumbo has-text-weight-bold has-text-danger has-text-centered">
-        Warning, need full <i>user</i> and <i>repo</i> info as part orf url!
+        Sorry, this page needs a <i>user</i> and <i>repo</i> info as part orf url!
+        <br/>
+        <a href="/">Find links on the home page.</a>
     </div>
 );
 const routes = [
