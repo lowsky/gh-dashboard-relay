@@ -9,16 +9,14 @@ const indexPageContent = () => (
             <p>You can use the links above in the nav bar for different views:</p>
             <ul>
                 <li>
-                    <b>Storybook</b> shows all components.
+                    <strong>Storybook</strong> shows all components.
                 </li>
                 <li>
-                    <b>GraphQL + Relay</b> - fetches all information from a locally installed relay server. <b>Note:</b>
-                    <i>
-                        This needs a backend server / currently implemented as lambda function...
-                    </i>
+                    <strong>GraphQL + Relay</strong> - fetches all information from a locally installed relay server. <b>Note:</b>
+                    <i>This needs a backend server / currently implemented as lambda function...</i>
                 </li>
                 <li>
-                    <b>RESTFul Demo</b> - just fetches info from Github&apos;s public open API via Rest calls.
+                    <strong>RESTFul Demo</strong> - just fetches info from Github&apos;s public open API via Rest calls.
                 </li>
             </ul>
             <p>
@@ -27,17 +25,18 @@ const indexPageContent = () => (
             <h4 className="is-size-4">Examples</h4>
             <ul>
                 <li>
-                    Rest-based &nbsp;
+                    <strong>Rest</strong> based: &nbsp;
                     <a href="./restful/lowsky/dashboard">
                         <b>lowsky/dashboard</b>
                     </a>
                 </li>
                 <li>
-                    Relay based &nbsp;
+                    <strong>Relay</strong> based &nbsp;
                     <a href="./relay/lowsky/dashboard">
                         <b>lowsky/dashboard</b>
-                    </a>
-                    or<br/>
+                    </a>&nbsp;
+                    <span>or</span>&nbsp;
+                    <br />
                     <a href="./relay/lowsky/spotify-graphql-server">
                         <b>lowsky/spotify-graphql-server</b>
                     </a>

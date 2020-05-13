@@ -373,15 +373,15 @@ exports[`Storyshots Pages main 1`] = `
     </p>
     <ul>
       <li>
-        <b>
+        <strong>
           Storybook
-        </b>
+        </strong>
          shows all components.
       </li>
       <li>
-        <b>
+        <strong>
           GraphQL + Relay
-        </b>
+        </strong>
          - fetches all information from a locally installed relay server. 
         <b>
           Note:
@@ -391,9 +391,9 @@ exports[`Storyshots Pages main 1`] = `
         </i>
       </li>
       <li>
-        <b>
+        <strong>
           RESTFul Demo
-        </b>
+        </strong>
          - just fetches info from Github's public open API via Rest calls.
       </li>
     </ul>
@@ -415,7 +415,10 @@ exports[`Storyshots Pages main 1`] = `
     </h4>
     <ul>
       <li>
-        Rest-based  
+        <strong>
+          Rest
+        </strong>
+         based:  
         <a
           href="./restful/lowsky/dashboard"
         >
@@ -425,7 +428,10 @@ exports[`Storyshots Pages main 1`] = `
         </a>
       </li>
       <li>
-        Relay based  
+        <strong>
+          Relay
+        </strong>
+         based  
         <a
           href="./relay/lowsky/dashboard"
         >
@@ -433,7 +439,11 @@ exports[`Storyshots Pages main 1`] = `
             lowsky/dashboard
           </b>
         </a>
-        or
+         
+        <span>
+          or
+        </span>
+         
         <br />
         <a
           href="./relay/lowsky/spotify-graphql-server"
