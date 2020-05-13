@@ -20,11 +20,7 @@ const routes = [
     {
         path: '/relay/:userName/:repoName',
         exact: true,
-        _component: (props) => {
-            console.log(props);
-            return <div>{`${props.match.params.userName}`}</div>;
-        },
-        component: ({ match }) => <RelayMain {...match.params} />,
+        component: RelayMain,
     },
     {
         path: '/relay',
