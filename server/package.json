@@ -38,7 +38,7 @@
     "dotenv": "8.2.0",
     "@babel/preset-typescript": "7.9.0",
     "@types/aws-lambda": "8.10.51",
-    "@types/node": "12.12.39",
+    "@types/node": "12.12.42",
     "typescript": "3.9.3"
   }
 }
