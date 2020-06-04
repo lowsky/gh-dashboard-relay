@@ -39,6 +39,6 @@
     "@babel/preset-typescript": "7.10.1",
     "@types/aws-lambda": "8.10.51",
     "@types/node": "12.12.42",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   }
 }
