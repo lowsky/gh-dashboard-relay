@@ -100,7 +100,7 @@
     "relay-compiler-language-typescript": "12.0.3",
     "relay-config": "9.1.0",
     "start-server-and-test": "1.11.0",
-    "storybook-addon-jsx": "7.2.3",
+    "storybook-addon-jsx": "7.3.0",
     "storybook-chromatic": "4.0.2",
     "typescript": "3.9.3"
   },
