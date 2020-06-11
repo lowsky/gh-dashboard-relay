@@ -2723,10 +2723,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.9.tgz#4d09a8016a9300e3d2575b0a14b314e7763aa2dd"
   integrity sha512-LD8vLMoKegn/wMo0UPgX3LZ0/3qzVusrLVjAQT6wfDUQA3V9PkrkzUGWCqpPvIgRUPev/vVzVHrNRp9MOpLFfA==
 
-"@types/relay-runtime@8.0.11":
-  version "8.0.11"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.11.tgz#7b186ee9fd3b0fa1ee787bf66164d0154f7e8c0a"
-  integrity sha512-m2j4UD1BB6nNS5QBbvjulHT+pxNV15wHCy0yG40CYbavwYfNxte63uN/elOCI0p/+2qRUc3ymtuneth0iNgNmA==
+"@types/relay-runtime@8.0.13":
+  version "8.0.13"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.13.tgz#16d3a3a680da7712c825b87d607fe50f716625b8"
+  integrity sha512-y2DG5pVioeT89P7Eezgrq3spiq+sQ7VlwzSDhvAZcprqNFob4h/Q2BkJ10OAnCTatnW3TV6+Kwqh5rw/pVTBQw==
 
 "@types/source-list-map@*":
   version "0.1.2"
