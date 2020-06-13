@@ -46,7 +46,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@babel/core": "7.10.1",
+    "@babel/core": "7.10.2",
     "@babel/node": "7.10.1",
     "bulma": "0.8.2",
     "chromatic": "4.0.3",
