@@ -68,7 +68,7 @@
     "@storybook/react": "5.3.19",
     "@types/jest": "26.0.0",
     "@types/node": "12.12.47",
-    "@types/react": "16.9.36",
+    "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
     "@types/react-router-dom": "5.1.5",
     "@types/relay-runtime": "9.1.0",
