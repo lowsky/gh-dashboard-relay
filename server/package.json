@@ -30,7 +30,7 @@
     "bufferutil": "4.0.1",
     "dotenv": "8.2.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
-    "graphql": "15.0.0",
+    "graphql": "15.1.0",
     "netlify-lambda": "1.6.3",
     "utf-8-validate": "5.0.2"
   },
