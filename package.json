@@ -49,7 +49,7 @@
     "@babel/core": "7.10.1",
     "@babel/node": "7.10.1",
     "bulma": "0.9.0",
-    "chromatic": "4.0.3",
+    "chromatic": "5.0.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
     "react-scripts": "3.4.1",
