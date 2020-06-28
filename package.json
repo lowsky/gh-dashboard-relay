@@ -53,6 +53,7 @@
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
     "react-scripts": "3.4.1",
+    "relay-runtime": "9.1.0",
     "whatwg-fetch": "3.0.0"
   },
   "devDependencies": {
@@ -69,7 +70,6 @@
     "@types/node": "12.12.47",
     "@types/react": "16.9.36",
     "@types/react-dom": "16.9.8",
-    "@types/react-relay": "7.0.8",
     "@types/react-router-dom": "5.1.5",
     "@types/relay-runtime": "9.1.0",
     "babel-loader": "8.1.0",
@@ -86,7 +86,6 @@
     "eslint-plugin-react": "7.20.0",
     "graphql": "15.0.0",
     "http-proxy-middleware": "1.0.4",
-    "jest-junit-reporter": "1.1.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "prop-types": "15.7.2",

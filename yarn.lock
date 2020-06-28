@@ -2663,14 +2663,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-relay@7.0.8":
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-7.0.8.tgz#928e91d7c7b58844738d6a7b18aa224ab564c98c"
-  integrity sha512-cs1dqvSzlZI4Gxm4gUalL/f8uRozLCOAaoHmMWIRS7ggDCkF/gaua86sAbRr5/5GeBCDcLAZDUzmAxzS9exrlA==
-  dependencies:
-    "@types/react" "*"
-    "@types/relay-runtime" "*"
-
 "@types/react-router-dom@5.1.5":
   version "5.1.5"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.1.5.tgz#7c334a2ea785dbad2b2dcdd83d2cf3d9973da090"
@@ -2717,11 +2709,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
-
-"@types/relay-runtime@*":
-  version "8.0.9"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-8.0.9.tgz#4d09a8016a9300e3d2575b0a14b314e7763aa2dd"
-  integrity sha512-LD8vLMoKegn/wMo0UPgX3LZ0/3qzVusrLVjAQT6wfDUQA3V9PkrkzUGWCqpPvIgRUPev/vVzVHrNRp9MOpLFfA==
 
 "@types/relay-runtime@9.1.0":
   version "9.1.0"
@@ -9368,13 +9355,6 @@ jest-jasmine2@^25.5.4:
     jest-util "^25.5.0"
     pretty-format "^25.5.0"
     throat "^5.0.0"
-
-jest-junit-reporter@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/jest-junit-reporter/-/jest-junit-reporter-1.1.0.tgz#88d6006ec13f82df40c47882c8640989cdcb1434"
-  integrity sha1-iNYAbsE/gt9AxHiCyGQJic3LFDQ=
-  dependencies:
-    xml "^1.0.1"
 
 jest-leak-detector@^24.9.0:
   version "24.9.0"
@@ -16455,11 +16435,6 @@ xml2js@^0.4.5:
   dependencies:
     sax ">=0.6.0"
     xmlbuilder "~11.0.0"
-
-xml@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
-  integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
 
 xmlbuilder@~11.0.0:
   version "11.0.1"
