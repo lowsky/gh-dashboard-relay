@@ -42,3 +42,7 @@ export default {
 };
 
 export const WithOneBranch = () => <BranchesTable repo={{ branches: [branchInfo] }} />;
+
+WithOneBranch.story = {
+    name: 'with one branch',
+};

@@ -18,11 +18,28 @@ const Suspensor = (storyFn) => <Suspense fallback={<div>delayed loading ...</div
 export default {
     title: 'Pages',
     decorators: [jsxDecorator, withLinks, Suspensor],
-
 };
 
 export const ToThisStorybook = () => <Intro showApp={linkTo('UserRepo')} />;
 
+ToThisStorybook.story = {
+    name: 'to this storybook',
+};
+
 export const Main = () => <IndexPage />;
+
+Main.story = {
+    name: 'main',
+};
+
 export const Restful = () => <RestfulPage />;
+
+Restful.story = {
+    name: 'restful',
+};
+
 export const Relay = () => <RelayPage />;
+
+Relay.story = {
+    name: 'relay',
+};

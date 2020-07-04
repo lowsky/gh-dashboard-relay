@@ -39,3 +39,11 @@ export default {
 export const WithData = () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />;
 
 export const WithNoData = () => <CommitWithStatuses />;
+
+WithData.story = {
+    name: 'with data',
+};
+
+WithNoData.story = {
+    name: 'with no data',
+};

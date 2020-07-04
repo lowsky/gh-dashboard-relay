@@ -57,3 +57,7 @@ export default {
 };
 
 export const FakeData = () => <Repo {...repo} />;
+
+FakeData.story = {
+    name: 'fake data',
+};

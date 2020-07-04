@@ -22,3 +22,11 @@ export default {
 export const WithoutAvatar = () => <User user={userWithoutAvatar} />;
 
 export const WithAvatar = () => <User user={userWithAvatar} />;
+
+WithoutAvatar.story = {
+    name: 'without avatar',
+};
+
+WithAvatar.story = {
+    name: 'with avatar',
+};

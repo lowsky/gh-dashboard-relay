@@ -68,3 +68,7 @@ export const WithUserAndRepo = () => <UserRepo {...userRepo} />;
 WithUserAndRepo.story = {
     includeStories: ['SimpleStory', 'ComplexStory'],
 };
+
+WithUserAndRepo.story = {
+    name: 'with user and repo',
+};

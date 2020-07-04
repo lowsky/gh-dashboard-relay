@@ -44,3 +44,7 @@ export default {
 };
 
 export const WithInfo = () => <BranchInfoRow {...branchInfo} />;
+
+WithInfo.story = {
+    name: 'with info',
+};
