@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 
-import { UILibContext } from '../components';
+import UILibContext from '../components/UILibContext';
 
-const BranchesTable = ({repo = {branches:[]}}) => {const { BranchInfoRow } = useContext(UILibContext);
+const BranchesTable = ({ repo = { branches: [] } }) => {
+    const { BranchInfoRow } = useContext(UILibContext);
 
-    return (
-        <table className="table is-bordered is-striped is-hoverable">
-            <thead>
+  return (
+    <table className="table is-bordered is-striped is-hoverable">
+      <thead>
                 <tr>
                     <th className="is-narrow">
                         <span className="fas fa-code-branch" />
@@ -17,7 +18,8 @@ const BranchesTable = ({repo = {branches:[]}}) => {const { BranchInfoRow } = use
             </thead>
             <tbody>
                 {(repo.branches || []).map((branch, idx) => (
-                    <BranchInfoRow key={idx} branch={branch} />
+                  // @ts-ignore
+                  <BranchInfoRow key={idx} branch={branch} />
                 ))}
             </tbody>
         </table>

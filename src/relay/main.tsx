@@ -5,7 +5,8 @@ import graphql from 'babel-plugin-relay/macro';
 
 import UserRepo from './UserRepo';
 import { WarningMissingURLParams } from '../routes';
-import { UILibContext, UILibWithRelaySupport } from '../components';
+import { UILibWithRelaySupport } from '../components';
+import UILibContext from '../components/UILibContext';
 
 const store = new Store(new RecordSource());
 
@@ -20,7 +21,7 @@ const network = Network.create((operation, variables) => {
             query: operation.text,
             variables,
         }),
-    }).then(response => {
+    }).then((response) => {
         return response.json();
     });
 });

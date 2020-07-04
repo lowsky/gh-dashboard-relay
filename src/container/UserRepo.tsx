@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import { UILibContext } from '../components';
 import { BranchesWithErrorMessage, UserWithErrorMessage } from '../restinpeace/fetchGithubApi';
+import UILibContext from '../components/UILibContext';
 
 interface UserRepoProps {
     github: {
@@ -22,9 +22,12 @@ let UserRepo: React.FunctionComponent<UserRepoProps> = (props: UserRepoProps) =>
 
     return (
         <React.Fragment>
+            {/*@ts-ignore*/}
             <Repo repo={repo} />
+            {/*@ts-ignore*/}
             <User user={user} />
             <div className="column">
+                {/*@ts-ignore*/}
                 <BranchTable repo={repo} />
             </div>
         </React.Fragment>

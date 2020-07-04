@@ -4,16 +4,17 @@ import React, { useEffect, useState } from 'react';
 
 import UserRepo from '../container/UserRepo';
 
-import { fetchRepoBranches, fetchUser, BranchesWithErrorMessage, UserWithErrorMessage } from "./fetchGithubApi";
+import { fetchRepoBranches, fetchUser, BranchesWithErrorMessage, UserWithErrorMessage } from './fetchGithubApi';
 
 import lastCommitMock from './lastCommitMock.json';
-import { UILibContext, UILibPureComponents } from '../components';
+import { UILibPureComponents } from '../components';
+import UILibContext from '../components/UILibContext';
 
 const defaultRepoName = 'dashboard';
 const defaultOwnerLogin = 'lowsky';
 
 const user: UserWithErrorMessage = {
-    avatar_url: "//lorempixel.com/200/200/cats/lorempixel/",
+    avatar_url: '//lorempixel.com/200/200/cats/lorempixel/',
     login: defaultOwnerLogin,
 };
 let branches: BranchesWithErrorMessage = [];
@@ -37,7 +38,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
         let ignoreDownloadedData = false;
 
         fetchUser(userName)
-            .then(user => {
+            .then((user) => {
                 if (!ignoreDownloadedData) {
                     if (user.message) {
                         throw new Error(user.message);
@@ -45,7 +46,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
                     storeUser(user);
                 }
             })
-            .catch(ex => {
+            .catch((ex) => {
                 if (!ignoreDownloadedData) {
                     storeErrorMsg('User: ' + ex.message);
                     console.log('fetching user info failed', ex);
@@ -60,7 +61,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
         let ignoreDownloadedData = false;
 
         fetchRepoBranches(userName + '/' + repoName)
-            .then(branches => {
+            .then((branches) => {
                 if (!ignoreDownloadedData) {
                     if (branches.message) {
                         throw new Error(branches.message);
@@ -69,11 +70,11 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
                     storeRepo({
                         owner: { login: userName },
                         name: repoName,
-                        branches: branches.map(b => ({ ...b, lastCommit: lastCommitMock })),
+                        branches: branches.map((b) => ({ ...b, lastCommit: lastCommitMock })),
                     });
                 }
             })
-            .catch(ex => {
+            .catch((ex) => {
                 if (!ignoreDownloadedData) {
                     storeErrorMsg('Repo: ' + ex.message);
                     console.log('fetching branches info failed', ex);
@@ -86,6 +87,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
     }, [userName, repoName]);
 
     return (
+        // @ts-ignore
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
