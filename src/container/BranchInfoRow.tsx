@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { UILibContext } from '../components';
+import UILibContext from '../components/UILibContext';
 
 const BranchInfoRow = ({ branch }) => {
     const { name, lastCommit = {} } = branch;

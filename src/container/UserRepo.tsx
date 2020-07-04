@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import { UILibContext } from '../components';
 import { BranchesWithErrorMessage, UserWithErrorMessage } from '../restinpeace/fetchGithubApi';
+import UILibContext from '../components/UILibContext';
 
 interface UserRepoProps {
     github: {

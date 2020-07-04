@@ -4,10 +4,11 @@ import React, { useEffect, useState } from 'react';
 
 import UserRepo from '../container/UserRepo';
 
-import { fetchRepoBranches, fetchUser, BranchesWithErrorMessage, UserWithErrorMessage } from "./fetchGithubApi";
+import { fetchRepoBranches, fetchUser, BranchesWithErrorMessage, UserWithErrorMessage } from './fetchGithubApi';
 
 import lastCommitMock from './lastCommitMock.json';
-import { UILibContext, UILibPureComponents } from '../components';
+import { UILibPureComponents } from '../components';
+import UILibContext from '../components/UILibContext';
 
 const defaultRepoName = 'dashboard';
 const defaultOwnerLogin = 'lowsky';
