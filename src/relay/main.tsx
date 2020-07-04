@@ -20,7 +20,7 @@ const network = Network.create((operation, variables) => {
             query: operation.text,
             variables,
         }),
-    }).then(response => {
+    }).then((response) => {
         return response.json();
     });
 });

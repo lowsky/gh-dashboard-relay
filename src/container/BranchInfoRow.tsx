@@ -15,6 +15,7 @@ const BranchInfoRow = ({ branch }) => {
                 <i className="fab fa-github" />
             </td>
             <td>
+                {/* @ts-ignore*/}
                 <CommitWithStatuses commit={lastCommit} />
             </td>
         </tr>

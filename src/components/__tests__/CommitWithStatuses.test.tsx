@@ -33,6 +33,7 @@ describe('CommitWithStatuses component', () => {
         const props = {
             commit,
         };
+        // @ts-ignore
         const appContainer = renderer.create(<CommitWithStatuses {...props} />).toJSON();
         expect(appContainer).toMatchSnapshot();
     });

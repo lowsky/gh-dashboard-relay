@@ -17,7 +17,8 @@ const BranchesTable = ({repo = {branches:[]}}) => {const { BranchInfoRow } = use
             </thead>
             <tbody>
                 {(repo.branches || []).map((branch, idx) => (
-                    <BranchInfoRow key={idx} branch={branch} />
+                  // @ts-ignore
+                  <BranchInfoRow key={idx} branch={branch} />
                 ))}
             </tbody>
         </table>

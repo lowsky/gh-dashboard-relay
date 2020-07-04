@@ -22,9 +22,12 @@ let UserRepo: React.FunctionComponent<UserRepoProps> = (props: UserRepoProps) =>
 
     return (
         <React.Fragment>
+            {/*@ts-ignore*/}
             <Repo repo={repo} />
+            {/*@ts-ignore*/}
             <User user={user} />
             <div className="column">
+                {/*@ts-ignore*/}
                 <BranchTable repo={repo} />
             </div>
         </React.Fragment>

@@ -86,6 +86,7 @@ const RestfulMain = ({ userName = defaultOwnerLogin, repoName = defaultRepoName 
     }, [userName, repoName]);
 
     return (
+        // @ts-ignore
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
