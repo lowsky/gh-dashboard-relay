@@ -2,6 +2,8 @@ import React from 'react';
 
 import { jsxDecorator } from 'storybook-addon-jsx';
 import BranchInfoRow from '../container/BranchInfoRow';
+import UILibContext from '../components/UILibContext';
+import { UILibPureComponents } from '../components';
 
 const userWithoutAvatar = {
     login: 'login',
@@ -43,7 +45,15 @@ export default {
     decorators: [jsxDecorator],
 };
 
-export const WithInfo = () => <BranchInfoRow {...branchInfo} />;
+export const WithInfo = () => (
+    <table width={400}>
+        <tbody>
+            <UILibContext.Provider value={UILibPureComponents}>
+                <BranchInfoRow {...branchInfo} />
+            </UILibContext.Provider>
+        </tbody>
+    </table>
+);
 
 WithInfo.story = {
     name: 'with info',
