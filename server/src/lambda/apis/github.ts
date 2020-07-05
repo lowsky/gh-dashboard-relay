@@ -1,4 +1,4 @@
-import Github from 'github-api';
+const Github = require('github-api');
 
 const { GITHUB_TOKEN } = process.env;
 
@@ -7,7 +7,7 @@ const github = new Github({
     auth: 'oauth',
 });
 
-export let getUser = (username) => {
+export const getUser = (username) => {
     let user = github.getUser();
     return new Promise((resolve, reject) => {
         user.show(username, (err, user) => {
@@ -20,7 +20,7 @@ export let getUser = (username) => {
     });
 };
 
-export let getReposForUser = (username) => {
+export const getReposForUser = (username) => {
     let user = github.getUser();
     return new Promise((resolve, reject) => {
         user.userRepos(username, (err, repos) => {
@@ -32,12 +32,14 @@ export let getReposForUser = (username) => {
         });
     });
 };
-
-export let getCommitsForRepo = (username, reponame, options = {}) => {
+export const getCommitsForRepo = (username, reponame, options = {}) => {
     let repo = github.getRepo(username, reponame);
     let params = {};
+    // @ts-ignore
     if (options.limit) params.perpage = options.limit;
+    // @ts-ignore
     if (options.path) params.path = options.path;
+    // @ts-ignore
     if (options.sha) params.sha = options.sha;
 
     return new Promise((resolve, reject) => {
@@ -66,7 +68,7 @@ let getBranchesLastCommits = (repo, branchNames) => {
     );
 };
 
-export let getBranchesForRepo = (username, reponame) => {
+export const getBranchesForRepo = (username, reponame) => {
     let repo = github.getRepo(username, reponame);
     return new Promise((resolve, reject) => {
         repo.listBranches((err, branches) => {
@@ -79,7 +81,7 @@ export let getBranchesForRepo = (username, reponame) => {
     });
 };
 
-export let getRepoForUser = (username, reponame) => {
+export const getRepoForUser = (username, reponame) => {
     let repo = github.getRepo(username, reponame);
     return new Promise((resolve, reject) => {
         repo.show((err, repo) => {
@@ -92,7 +94,7 @@ export let getRepoForUser = (username, reponame) => {
     });
 };
 
-export let getIssuesForRepo = (username, reponame) => {
+export const getIssuesForRepo = (username, reponame) => {
     let issues = github.getIssues(username, reponame);
     return new Promise((resolve, reject) => {
         issues.list({}, (err, issues) => {
@@ -105,7 +107,7 @@ export let getIssuesForRepo = (username, reponame) => {
     });
 };
 
-export let getCommentsForIssue = (username, reponame, issue) => {
+export const getCommentsForIssue = (username, reponame, issue) => {
     let issues = github.getIssues(username, reponame);
     return new Promise((resolve, reject) => {
         issues.getComments(issue, (err, comments) => {
@@ -118,7 +120,7 @@ export let getCommentsForIssue = (username, reponame, issue) => {
     });
 };
 
-export let getTreeForRepo = (username, reponame, tree) => {
+export const getTreeForRepo = (username, reponame, tree) => {
     return new Promise((resolve, reject) => {
         github.getRepo(username, reponame).getTree(tree, (err, result) => {
             if (result) {
@@ -130,7 +132,7 @@ export let getTreeForRepo = (username, reponame, tree) => {
     });
 };
 
-export let getStatusesForRepo = (username, reponame, sha) => {
+export const getStatusesForRepo = (username, reponame, sha) => {
     return new Promise((resolve, reject) => {
         github.getRepo(username, reponame).getStatuses(sha, (err, result) => {
             if (result) {
