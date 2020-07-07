@@ -1,4 +1,5 @@
-const Github = require('github-api');
+import Github from 'github-api';
+import { GithubRepo, GithubStatus, GithubBranch } from './types/resolvers';
 
 const { GITHUB_TOKEN } = process.env;
 
@@ -20,7 +21,7 @@ export const getUser = (username) => {
     });
 };
 
-export const getReposForUser = (username) => {
+export const getReposForUser = (username): Promise<Array<GithubRepo>> => {
     let user = github.getUser();
     return new Promise((resolve, reject) => {
         user.userRepos(username, (err, repos) => {
@@ -32,15 +33,25 @@ export const getReposForUser = (username) => {
         });
     });
 };
-export const getCommitsForRepo = (username, reponame, options = {}) => {
-    let repo = github.getRepo(username, reponame);
-    let params = {};
-    // @ts-ignore
-    if (options.limit) params.perpage = options.limit;
-    // @ts-ignore
-    if (options.path) params.path = options.path;
-    // @ts-ignore
-    if (options.sha) params.sha = options.sha;
+
+type RestGithubCommit = {
+    // author?: Maybe<UserOrCommitAuthor>;
+    date?: string;
+    message?: string;
+    sha?: string;
+    url?: string;
+    commit: {
+        message?: string;
+        committer: {
+            date?: string;
+        };
+    };
+    // status?: Maybe<Array<Maybe<GithubStatus>>>;
+    // tree?: Maybe<GithubTree>;
+};
+export const getCommitsForRepo = (username, reponame, sha?: string): Promise<Array<RestGithubCommit>> => {
+    const repo = github.getRepo(username, reponame);
+    const params = { perpage: 1, sha };
 
     return new Promise((resolve, reject) => {
         repo.getCommits(params, (err, commits) => {
@@ -68,7 +79,7 @@ let getBranchesLastCommits = (repo, branchNames) => {
     );
 };
 
-export const getBranchesForRepo = (username, reponame) => {
+export const getBranchesForRepo = (username, reponame): Promise<Array<GithubBranch>> => {
     let repo = github.getRepo(username, reponame);
     return new Promise((resolve, reject) => {
         repo.listBranches((err, branches) => {
@@ -132,7 +143,7 @@ export const getTreeForRepo = (username, reponame, tree) => {
     });
 };
 
-export const getStatusesForRepo = (username, reponame, sha) => {
+export const getStatusesForRepo = (username, reponame, sha): Promise<GithubStatus> => {
     return new Promise((resolve, reject) => {
         github.getRepo(username, reponame).getStatuses(sha, (err, result) => {
             if (result) {

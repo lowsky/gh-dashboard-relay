@@ -2,13 +2,9 @@
 import { addMocksToSchema } from '@graphql-tools/mock';
 import { graphql } from 'graphql';
 
-import { schema } from './localSchema';
+import { schema } from './src/localSchema';
 
 const schemaWithMocks = addMocksToSchema({ schema, preserveResolvers: true });
-
-function keys(obj, title = '???') {
-    console.log(title, Object.keys(obj));
-}
 
 // Run the GraphQL query '{ hello }' and print out the response
 graphql(
@@ -76,3 +72,7 @@ graphql(
         branch.lastCommit.status.map((s) => console.info(s));
     }
 });
+
+function keys(obj, title = '???') {
+    console.log(title, Object.keys(obj));
+}
