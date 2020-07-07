@@ -30,6 +30,7 @@ export default createFragmentContainer(CommitWithStatus, {
                 state
                 target_url
                 updated_at
+                avatar_url
             }
         }
     `,

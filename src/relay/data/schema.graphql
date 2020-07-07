@@ -9,7 +9,6 @@ type GithubAPI {
     user(username: String!): GithubUser
     repo(
         name: String!
-
         ownerUsername: String!
     ): GithubRepo
 }
@@ -71,6 +70,7 @@ type GithubStatus {
     state: String
     description: String
     target_url: String
+    avatar_url: String
     context: String
     updated_at: String
 }
