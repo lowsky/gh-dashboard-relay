@@ -73,7 +73,7 @@
     "@types/react-router-dom": "5.1.5",
     "@types/relay-runtime": "9.1.5",
     "babel-loader": "8.1.0",
-    "babel-plugin-relay": "9.1.0",
+    "babel-plugin-relay": "10.0.0",
     "cypress-match-screenshot": "1.1.0",
     "emotion-theming": "10.0.27",
     "enzyme": "3.11.0",
