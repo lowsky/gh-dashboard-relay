@@ -33,7 +33,7 @@
     "dotenv": "8.2.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "graphql": "15.3.0",
-    "netlify-lambda": "1.6.3",
+    "netlify-lambda": "2.0.0",
     "utf-8-validate": "5.0.2"
   },
   "devDependencies": {
