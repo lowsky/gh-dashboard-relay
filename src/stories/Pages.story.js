@@ -1,7 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 
-import isChromatic from 'storybook-chromatic/isChromatic';
-
 import { withLinks, linkTo } from '@storybook/addon-links';
 
 import Intro from './Intro';
@@ -15,7 +13,9 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 
 export default {
     title: 'Pages',
-    excludeStories: isChromatic() ? ['Restful', 'Relay'] : [],
+    parameters: {
+        chromatic: { disable: true },
+    },
     decorators: [withLinks, withSuspenseFallback],
 };
 
@@ -35,10 +35,16 @@ export const Restful = () => <RestfulPage />;
 
 Restful.story = {
     name: 'restful',
+    parameters: {
+        chromatic: { disable: true },
+    },
 };
 
 export const Relay = () => <RelayPage />;
 
 Relay.story = {
     name: 'relay',
+    parameters: {
+        chromatic: { disable: true },
+    },
 };
