@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { jsxDecorator } from 'storybook-addon-jsx';
-
 import Repo from '../components/Repo';
 
 const userWithoutAvatar = {
@@ -53,7 +51,6 @@ const repo = {
 
 export default {
     title: 'Repo',
-    decorators: [jsxDecorator],
 };
 
 export const FakeData = () => <Repo {...repo} />;

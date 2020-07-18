@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { jsxDecorator } from 'storybook-addon-jsx';
-
+import { Button } from '@storybook/react/demo';
 import User from '../components/User';
 
 const userWithoutAvatar = {
@@ -16,7 +15,6 @@ const userWithAvatar = {
 
 export default {
     title: 'User',
-    decorators: [jsxDecorator],
 };
 
 export const WithoutAvatar = () => <User user={userWithoutAvatar} />;

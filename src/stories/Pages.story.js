@@ -4,8 +4,6 @@ import isChromatic from 'storybook-chromatic/isChromatic';
 
 import { withLinks, linkTo } from '@storybook/addon-links';
 
-import { jsxDecorator } from 'storybook-addon-jsx';
-
 import Intro from './Intro';
 
 import IndexPage from '../index/IndexPage';
@@ -18,7 +16,7 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 export default {
     title: 'Pages',
     excludeStories: isChromatic() ? ['Restful', 'Relay'] : [],
-    decorators: [jsxDecorator, withLinks, withSuspenseFallback],
+    decorators: [withLinks, withSuspenseFallback],
 };
 
 export const ToThisStorybook = () => <Intro showApp={linkTo('UserRepo')} />;

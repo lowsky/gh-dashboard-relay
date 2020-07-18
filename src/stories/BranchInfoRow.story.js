@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { jsxDecorator } from 'storybook-addon-jsx';
 import BranchInfoRow from '../container/BranchInfoRow';
 import UILibContext from '../components/UILibContext';
 import { UILibPureComponents } from '../components';
@@ -42,7 +41,6 @@ const branchInfo = {
 
 export default {
     title: 'BranchInfoRow',
-    decorators: [jsxDecorator],
 };
 
 export const WithInfo = () => (
