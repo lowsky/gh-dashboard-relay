@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Button } from '@storybook/react/demo';
 import User from '../components/User';
 
 const userWithoutAvatar = {
