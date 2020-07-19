@@ -13,9 +13,6 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 
 export default {
     title: 'Pages',
-    parameters: {
-        chromatic: { disable: true },
-    },
     decorators: [withLinks, withSuspenseFallback],
 };
 

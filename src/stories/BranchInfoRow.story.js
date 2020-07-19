@@ -41,6 +41,7 @@ const branchInfo = {
 
 export default {
     title: 'BranchInfoRow',
+    component: BranchInfoRow,
 };
 
 export const WithInfo = () => (

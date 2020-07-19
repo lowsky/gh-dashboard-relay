@@ -61,6 +61,7 @@ const userRepo = {
 
 export default {
     title: 'UserRepo',
+    component: UserRepo,
 };
 
 export const WithUserAndRepo = () => (

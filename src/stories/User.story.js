@@ -14,6 +14,7 @@ const userWithAvatar = {
 
 export default {
     title: 'User',
+    component: User,
 };
 
 export const WithoutAvatar = () => <User user={userWithoutAvatar} />;

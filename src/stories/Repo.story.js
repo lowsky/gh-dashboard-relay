@@ -51,6 +51,7 @@ const repo = {
 
 export default {
     title: 'Repo',
+    component: Repo,
 };
 
 export const FakeData = () => <Repo {...repo} />;
