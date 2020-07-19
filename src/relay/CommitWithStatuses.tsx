@@ -13,6 +13,8 @@ export const fakeCommitWithStatuses = {
             description: 'some pre-commit check',
             sate: 'unknown',
             target_url: 'http://precommit.check/',
+            avatar_url:
+                'https://avatars1.githubusercontent.com/oa/581325?s=40&u=3d11470b9117a9024372113ecd1fc682b02395b8&v=4/',
             updated_at: new Date().toISOString(),
         },
     ],
