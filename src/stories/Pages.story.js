@@ -1,8 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 
-import { withLinks, linkTo } from '@storybook/addon-links';
-
-import Intro from './Intro';
+import { withLinks } from '@storybook/addon-links';
 
 import IndexPage from '../index/IndexPage';
 
@@ -14,12 +12,6 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 export default {
     title: 'Pages',
     decorators: [withLinks, withSuspenseFallback],
-};
-
-export const ToThisStorybook = () => <Intro showApp={linkTo('UserRepo')} />;
-
-ToThisStorybook.story = {
-    name: 'to this storybook',
 };
 
 export const Main = () => <IndexPage />;
@@ -37,7 +29,8 @@ Restful.story = {
     },
 };
 
-export const Relay = () => <RelayPage />;
+const params = { repoName: 'dashboard' };
+export const Relay = () => <RelayPage match={params} />;
 
 Relay.story = {
     name: 'relay',
