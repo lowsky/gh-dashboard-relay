@@ -34,6 +34,7 @@ const moreStatus = require('../restinpeace/lastCommitMock');
 
 export default {
     title: 'CommitStatus',
+    component: CommitWithStatuses,
 };
 
 export const WithData = () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />;

@@ -59,10 +59,8 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "7.10.5",
     "@emotion/core": "10.0.28",
-    "@storybook/addon-actions": "5.3.19",
-    "@storybook/addon-links": "5.3.19",
+    "@storybook/addon-docs": "5.3.19",
     "@storybook/addon-storyshots": "5.3.19",
-    "@storybook/addon-viewport": "5.3.19",
     "@storybook/addons": "5.3.19",
     "@storybook/preset-create-react-app": "3.1.4",
     "@storybook/react": "5.3.19",
@@ -99,7 +97,7 @@
     "relay-compiler-language-typescript": "12.0.3",
     "relay-config": "10.0.0",
     "start-server-and-test": "1.11.2",
-    "storybook-addon-jsx": "7.3.1",
+    "storybook-addon-deps": "2.0.1",
     "storybook-chromatic": "4.0.2",
     "typescript": "3.9.6"
   },

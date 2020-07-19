@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { jsxDecorator } from 'storybook-addon-jsx';
 import BranchesTable from '../container/BranchesTable';
 
 import { UILibPureComponents } from '../components';
 
 import UILibContext from '../components/UILibContext';
+
 const userWithoutAvatar = {
     login: 'login',
     id: '1234',
@@ -41,12 +41,12 @@ const branchInfo = {
 
 export default {
     title: 'BranchesTable',
-    decorators: [jsxDecorator],
+    component: BranchesTable,
 };
 
 export const WithOneBranch = () => (
     <UILibContext.Provider value={UILibPureComponents}>
-        <BranchesTable repo={{ branches: [branchInfo] }} />;
+        <BranchesTable repo={{ branches: [branchInfo] }} />
     </UILibContext.Provider>
 );
 WithOneBranch.story = {

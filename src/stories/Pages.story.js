@@ -1,13 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 
-import isChromatic from 'storybook-chromatic/isChromatic';
-
-import { withLinks, linkTo } from '@storybook/addon-links';
-
-import { jsxDecorator } from 'storybook-addon-jsx';
-
-import Intro from './Intro';
-
 import IndexPage from '../index/IndexPage';
 
 const RelayPage = lazy(() => import('../relay/main'));
@@ -17,14 +9,7 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 
 export default {
     title: 'Pages',
-    excludeStories: isChromatic() ? ['Restful', 'Relay'] : [],
-    decorators: [jsxDecorator, withLinks, withSuspenseFallback],
-};
-
-export const ToThisStorybook = () => <Intro showApp={linkTo('UserRepo')} />;
-
-ToThisStorybook.story = {
-    name: 'to this storybook',
+    decorators: [withSuspenseFallback],
 };
 
 export const Main = () => <IndexPage />;
@@ -37,10 +22,17 @@ export const Restful = () => <RestfulPage />;
 
 Restful.story = {
     name: 'restful',
+    parameters: {
+        chromatic: { disable: true },
+    },
 };
 
-export const Relay = () => <RelayPage />;
+const params = { repoName: 'dashboard' };
+export const Relay = () => <RelayPage match={params} />;
 
 Relay.story = {
     name: 'relay',
+    parameters: {
+        chromatic: { disable: true },
+    },
 };
