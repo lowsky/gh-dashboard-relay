@@ -8,9 +8,12 @@ import snykLogo from './snyk.svg';
 
 import './CommitWithStatuses.css';
 
-const ContextLogo = props => <img className="contextlogo" width={24} height={24} {...props} alt="" />;
+const ContextLogo = (props) => <img className="contextlogo" width={24} height={24} {...props} alt="" />;
 
-function icon4context(context = '') {
+function icon4context(context = '', avatar_url) {
+    if (avatar_url) {
+        return <ContextLogo src={avatar_url} alt={context} />;
+    }
     if (context === 'bitHound - Code') {
         return <ContextLogo src={bithoundLogo} alt="bitHound - Code" />;
     }
@@ -69,14 +72,14 @@ function status2color(status: string) {
     return 'inherit';
 }
 
-const renderStatus = ({ target_url, context, description, state }, idx) => (
+const renderStatus = ({ target_url, avatar_url, context, description, state }, idx) => (
     <span key={idx}>
         <a
             className="commitLink"
             href={target_url}
             style={{ color: status2color(state) }}
             title={context + ' ' + description}>
-            {icon4context(context)}
+            {icon4context(context, avatar_url)}
             {icon4status(state)}
         </a>
     </span>
@@ -88,7 +91,7 @@ let CommitWithStatus = ({ commit = {} }) => {
 
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
-    const onlyTakeFirstStatusPerContext = statuses => {
+    const onlyTakeFirstStatusPerContext = (statuses) => {
         const foundContexts = [];
 
         return statuses.reduce((acc, item) => {

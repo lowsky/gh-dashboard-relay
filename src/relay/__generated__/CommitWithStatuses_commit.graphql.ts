@@ -13,6 +13,7 @@ export type CommitWithStatuses_commit = {
         readonly state: string | null;
         readonly target_url: string | null;
         readonly updated_at: string | null;
+        readonly avatar_url: string | null;
     } | null> | null;
     readonly " $refType": "CommitWithStatuses_commit";
 };
@@ -93,6 +94,13 @@ const node: ReaderFragment = {
           "kind": "ScalarField",
           "name": "updated_at",
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "avatar_url",
+          "storageKey": null
         }
       ],
       "storageKey": null
@@ -100,5 +108,5 @@ const node: ReaderFragment = {
   ],
   "type": "GithubCommit"
 };
-(node as any).hash = 'cf04016c8a60d1891fa2db687cc186f9';
+(node as any).hash = '0a23222cea2c4545dc4b5539933a7883';
 export default node;
