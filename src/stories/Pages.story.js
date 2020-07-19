@@ -1,7 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 
-import { withLinks } from '@storybook/addon-links';
-
 import IndexPage from '../index/IndexPage';
 
 const RelayPage = lazy(() => import('../relay/main'));
@@ -11,7 +9,7 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 
 export default {
     title: 'Pages',
-    decorators: [withLinks, withSuspenseFallback],
+    decorators: [withSuspenseFallback],
 };
 
 export const Main = () => <IndexPage />;
