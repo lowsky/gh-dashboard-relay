@@ -53,7 +53,7 @@
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
     "react-scripts": "3.4.1",
-    "relay-runtime": "10.0.0",
+    "relay-runtime": "10.0.1",
     "whatwg-fetch": "3.2.0"
   },
   "devDependencies": {
