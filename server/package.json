@@ -28,7 +28,7 @@
   "dependencies": {
     "@graphql-tools/mock": "6.0.15",
     "@graphql-tools/schema": "6.0.15",
-    "apollo-server-lambda": "2.16.0",
+    "apollo-server-lambda": "2.16.1",
     "bufferutil": "4.0.1",
     "dotenv": "8.2.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
