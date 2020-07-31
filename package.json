@@ -49,11 +49,9 @@
     "@babel/core": "7.10.5",
     "@babel/node": "7.10.5",
     "bulma": "0.9.0",
-    "chromatic": "5.0.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
     "react-scripts": "3.4.1",
-    "relay-runtime": "10.0.1",
     "whatwg-fetch": "3.2.0"
   },
   "devDependencies": {
@@ -64,14 +62,9 @@
     "@storybook/addons": "5.3.19",
     "@storybook/preset-create-react-app": "3.1.4",
     "@storybook/react": "5.3.19",
-    "@types/jest": "26.0.7",
-    "@types/node": "12.12.53",
-    "@types/react": "16.9.43",
-    "@types/react-dom": "16.9.8",
-    "@types/react-router-dom": "5.1.5",
-    "@types/relay-runtime": "10.0.1",
     "babel-loader": "8.1.0",
     "babel-plugin-relay": "10.0.1",
+    "chromatic": "5.0.0",
     "cypress-match-screenshot": "1.1.0",
     "emotion-theming": "10.0.27",
     "enzyme": "3.11.0",
@@ -98,7 +91,6 @@
     "relay-config": "10.0.1",
     "start-server-and-test": "1.11.2",
     "storybook-addon-deps": "2.0.1",
-    "storybook-chromatic": "4.0.2",
     "typescript": "3.9.7"
   },
   "browserslist": [
