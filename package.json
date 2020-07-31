@@ -21,9 +21,9 @@
     "dev": "npm-run-all --parallel start:server start",
     "start": "react-scripts start",
     "start:server": "cd server ; npm run start",
-    "cra-build": "react-scripts build",
-    "relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
-    "build": "npm run relay ; npm run build:server && npm run cra-build && npm run build-storybook -- -o build/story-book --quiet && npm run chromatic-test",
+    "build:cra": "react-scripts build",
+    "build:relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
+    "build": "npm run build:relay ; npm-run-all --parallel build:server build:cra build-storybook && npm run chromatic-test",
     "build:server": "cd server ; npm run build",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
@@ -35,7 +35,7 @@
     "chromatic": "chromatic test  --do-not-start",
     "chromatic-test": "chromatic test  --do-not-start --exit-zero-on-changes -d build/story-book --debug ",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public -o build/story-book --quiet"
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
