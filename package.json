@@ -23,7 +23,7 @@
     "start:server": "cd server ; npm run start",
     "build:cra": "react-scripts build",
     "build:relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
-    "build": "npm run build:relay ; npm-run-all --parallel build:server build:cra build-storybook && npm run chromatic-test",
+    "build": "npm run build:relay ; npm-run-all --parallel build:server build:cra build-storybook ; npm run chromatic-test",
     "build:server": "cd server ; npm run build",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
@@ -33,7 +33,7 @@
     "test:storybook": "cypress run --record",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
     "chromatic": "chromatic test  --do-not-start",
-    "chromatic-test": "chromatic test  --do-not-start --exit-zero-on-changes -d build/story-book --debug ",
+    "chromatic-test": "chromatic  --exit-zero-on-changes -d build/story-book --debug --ci",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public -o build/story-book --quiet"
   },
