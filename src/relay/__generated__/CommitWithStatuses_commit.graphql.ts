@@ -106,7 +106,8 @@ const node: ReaderFragment = {
       "storageKey": null
     }
   ],
-  "type": "GithubCommit"
+  "type": "GithubCommit",
+  "abstractKey": null
 };
 (node as any).hash = '0a23222cea2c4545dc4b5539933a7883';
 export default node;

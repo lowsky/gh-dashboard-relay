@@ -23,16 +23,14 @@ export type UserRepo_github$key = {
 const node: ReaderFragment = {
   "argumentDefinitions": [
     {
-      "defaultValue": "lowsky",
-      "kind": "LocalArgument",
-      "name": "userName",
-      "type": "String"
-    },
-    {
       "defaultValue": "dashboard",
       "kind": "LocalArgument",
-      "name": "repoName",
-      "type": "String"
+      "name": "repoName"
+    },
+    {
+      "defaultValue": "lowsky",
+      "kind": "LocalArgument",
+      "name": "userName"
     }
   ],
   "kind": "Fragment",
@@ -94,7 +92,8 @@ const node: ReaderFragment = {
       "storageKey": null
     }
   ],
-  "type": "GithubAPI"
+  "type": "GithubAPI",
+  "abstractKey": null
 };
 (node as any).hash = '14f1f0e0612dc24df5318bf178aaeee3';
 export default node;

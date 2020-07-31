@@ -83,42 +83,38 @@ fragment User_user on GithubUser {
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "userName",
-    "type": "String!"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "repoName",
-    "type": "String!"
-  }
-],
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "repoName"
+},
 v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "userName"
+},
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "login",
   "storageKey": null
 },
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "avatar_url",
   "storageKey": null
 },
-v3 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v4 = {
+v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -127,7 +123,10 @@ v4 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "mainQuery",
@@ -160,11 +159,15 @@ return {
         "storageKey": null
       }
     ],
-    "type": "GraphQL_github_API"
+    "type": "GraphQL_github_API",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "mainQuery",
     "selections": [
@@ -190,7 +193,7 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v1/*: any*/),
+              (v2/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -198,8 +201,8 @@ return {
                 "name": "company",
                 "storageKey": null
               },
-              (v2/*: any*/),
-              (v3/*: any*/)
+              (v3/*: any*/),
+              (v4/*: any*/)
             ],
             "storageKey": null
           },
@@ -222,7 +225,7 @@ return {
             "name": "repo",
             "plural": false,
             "selections": [
-              (v4/*: any*/),
+              (v5/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -231,8 +234,8 @@ return {
                 "name": "owner",
                 "plural": false,
                 "selections": [
-                  (v1/*: any*/),
-                  (v3/*: any*/)
+                  (v2/*: any*/),
+                  (v4/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -244,7 +247,7 @@ return {
                 "name": "branches",
                 "plural": true,
                 "selections": [
-                  (v4/*: any*/),
+                  (v5/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -317,7 +320,7 @@ return {
                             "name": "updated_at",
                             "storageKey": null
                           },
-                          (v2/*: any*/)
+                          (v3/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -336,6 +339,7 @@ return {
     ]
   },
   "params": {
+    "cacheID": "07627fac7851832915e7cc8619677df3",
     "id": null,
     "metadata": {},
     "name": "mainQuery",
