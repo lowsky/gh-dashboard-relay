@@ -52,7 +52,7 @@
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
     "react-scripts": "3.4.1",
-    "whatwg-fetch": "3.2.0"
+    "whatwg-fetch": "3.4.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "7.10.5",
