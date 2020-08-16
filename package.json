@@ -101,7 +101,7 @@
     "relay-compiler-language-typescript": "13.0.0",
     "relay-config": "10.0.1",
     "start-server-and-test": "1.11.3",
-    "storybook-addon-deps": "2.1.0",
+    "storybook-addon-deps": "2.1.2",
     "typescript": "3.9.7"
   },
   "browserslist": [
