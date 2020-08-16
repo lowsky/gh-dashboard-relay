@@ -40,7 +40,7 @@ const branchInfo = {
 };
 
 export default {
-    title: 'BranchInfoRow',
+    title: 'Others/BranchInfoRow',
     component: BranchInfoRow,
 };
 

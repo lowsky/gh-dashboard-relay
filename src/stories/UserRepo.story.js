@@ -60,7 +60,7 @@ const userRepo = {
 };
 
 export default {
-    title: 'UserRepo',
+    title: 'Others/UserRepo',
     component: UserRepo,
 };
 

@@ -50,7 +50,7 @@ const repo = {
 };
 
 export default {
-    title: 'Repo',
+    title: 'Others/Repo',
     component: Repo,
 };
 

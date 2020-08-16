@@ -33,7 +33,7 @@ const commitData = {
 const moreStatus = require('../restinpeace/lastCommitMock');
 
 export default {
-    title: 'CommitStatus',
+    title: 'Others/CommitStatus',
     component: CommitWithStatuses,
 };
 

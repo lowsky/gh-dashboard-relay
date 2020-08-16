@@ -8,7 +8,7 @@ const RestfulPage = lazy(() => import('../restinpeace/restful'));
 const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
 
 export default {
-    title: 'Pages',
+    title: 'Others/Pages',
     decorators: [withSuspenseFallback],
 };
 
