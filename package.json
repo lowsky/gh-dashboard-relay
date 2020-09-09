@@ -59,7 +59,7 @@
     "@babel/helper-hoist-variables": "7.10.4",
     "@babel/helper-skip-transparent-expression-wrappers": "7.11.0",
     "@babel/plugin-transform-react-jsx-source": "7.10.5",
-    "@emotion/core": "10.0.28",
+    "@emotion/core": "10.0.35",
     "@storybook/addon-docs": "6.0.21",
     "@storybook/addon-storyshots": "6.0.21",
     "@storybook/addons": "6.0.21",
