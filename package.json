@@ -74,7 +74,7 @@
     "@types/relay-runtime": "10.0.3",
     "babel-loader": "8.1.0",
     "babel-plugin-relay": "10.0.1",
-    "chromatic": "5.1.0",
+    "chromatic": "5.2.0",
     "cypress-match-screenshot": "1.1.0",
     "emotion-theming": "10.0.27",
     "enzyme": "3.11.0",
