@@ -24,6 +24,7 @@
     "build:cra": "react-scripts build",
     "build:relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "npm run build:relay ; npm-run-all --parallel build:server build:cra build-storybook ; npm run chromatic-test",
+    "build-now": "npm run build:relay ; npm-run-all --parallel build:cra build-storybook build:server",
     "build:server": "cd server ; npm run build",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
