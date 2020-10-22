@@ -1,0 +1,8 @@
+server/node_modules
+stuff
+node_modules
+.netlify
+.circleci
+.github
+cypress
+eval-reg-suit
