@@ -46,8 +46,8 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@babel/core": "7.11.6",
-    "@babel/node": "7.10.5",
+    "@babel/core": "7.12.3",
+    "@babel/node": "7.12.1",
     "bulma": "0.9.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
@@ -55,10 +55,10 @@
     "whatwg-fetch": "3.4.1"
   },
   "devDependencies": {
-    "@babel/helper-create-regexp-features-plugin": "7.10.4",
+    "@babel/helper-create-regexp-features-plugin": "7.12.1",
     "@babel/helper-hoist-variables": "7.10.4",
-    "@babel/helper-skip-transparent-expression-wrappers": "7.11.0",
-    "@babel/plugin-transform-react-jsx-source": "7.10.5",
+    "@babel/helper-skip-transparent-expression-wrappers": "7.12.1",
+    "@babel/plugin-transform-react-jsx-source": "7.12.1",
     "@storybook/addon-docs": "6.0.26",
     "@storybook/addon-storyshots": "6.0.26",
     "@storybook/addons": "6.0.26",
