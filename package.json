@@ -70,7 +70,7 @@
     "@types/react": "16.9.53",
     "@types/react-dom": "16.9.8",
     "@types/react-router-dom": "5.1.6",
-    "@types/relay-runtime": "10.0.7",
+    "@types/relay-runtime": "10.0.9",
     "babel-loader": "8.1.0",
     "babel-plugin-relay": "10.0.1",
     "chromatic": "5.2.0",
