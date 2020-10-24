@@ -10,4 +10,5 @@ jobs:
       - uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # this is currently missing
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
