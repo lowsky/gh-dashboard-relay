@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server-micro';
 
-import { typeDefs } from '../localSchema';
-import { resolvers } from '../lambda/apis/resolvers';
+import { typeDefs } from '../src/localSchema';
+import { resolvers } from '../src/lambda/apis/resolvers';
 
 const server = new ApolloServer({
     typeDefs,
