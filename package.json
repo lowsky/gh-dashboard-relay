@@ -26,7 +26,7 @@
     "build": "yarn run build:relay ; npm-run-all --parallel build:server build:storybook build:cra ; yarn run chromatic-test",
     "build-now": "yarn run build:relay ; npm-run-all --parallel build:storybook build:cra build:server-now",
     "build:server": "cd server ; yarn run build",
-    "build:server-now": "mkdir -p build/api api; cp server/api/graphql.js build/api/graphql.js; cp server/api/graphql.js api/graphql.js",
+    "build:server-now": "mkdir -p build/api api; cp server/api/graphql.js build/api/graphql.ts; cp server/api/graphql.ts api/graphql.js",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
