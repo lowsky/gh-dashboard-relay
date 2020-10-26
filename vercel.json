@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/story-book/(.*)", "destination": "/story-book/$1" },
+    { "source": "/api/(.*)", "destination": "/api/$1" }
+  ]
+}
