@@ -24,7 +24,7 @@
     "build:cra": "react-scripts build",
     "build:relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "yarn run build:relay ; npm-run-all --parallel build:server build:storybook build:cra ; yarn run chromatic-test",
-    "vercel-build": "#REACT_APP_GRAPHQL_URL=/api/graphql ; yarn run build:relay ; npm-run-all --parallel build:cra build:storybook ",
+    "vercel-build": " yarn run build:relay ; npm-run-all --parallel build:cra build:storybook ",
     "build:server": "cd server ; yarn run build",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
@@ -34,7 +34,7 @@
     "test:storybook": "cypress run --record",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
     "chromatic-test": "chromatic  --exit-zero-on-changes -d build/story-book --ci",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook -p 9009 --no-dll",
     "build:storybook": "build-storybook -o build/story-book --quiet --no-dll"
   },
   "author": "Robert Hostlowsky",
