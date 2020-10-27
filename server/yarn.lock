@@ -1508,7 +1508,7 @@ apollo-server-lambda@2.18.2:
     apollo-server-types "^0.6.0"
     graphql-tools "^4.0.0"
 
-apollo-server-micro@^2.18.2:
+apollo-server-micro@2.18.2:
   version "2.18.2"
   resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-2.18.2.tgz#29fe1a9c1808581cc4ce29c2c45f282eb129cef5"
   integrity sha512-QmWXrWdD0BCC4NZidskgdG81XUGuogf+SIl15VkcaZAO5lvmiFqLL372Q0qakvigpOXYrU77eW4iHk7FHurEZg==
