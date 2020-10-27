@@ -34,7 +34,7 @@
     "test:storybook": "cypress run --record",
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
     "chromatic-test": "chromatic  --exit-zero-on-changes -d build/story-book --ci",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook -p 9009 --no-dll",
     "build:storybook": "build-storybook -o build/story-book --quiet --no-dll"
   },
   "author": "Robert Hostlowsky",
