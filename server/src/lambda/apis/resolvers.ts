@@ -91,24 +91,25 @@ export const resolvers = {
         github: () => {
             return {};
         },
-    },
-    GithubAPI: {
+        // @ts-ignore
         user: (parent, { username }) => {
             return getUser(username);
         },
+        // @ts-ignore
         repo: (parent, { ownerUsername, name }) => {
             return getRepoForUser(ownerUsername, name);
         },
     },
-    /*
-    GithubTreeEntry: {
-      last_commit: (parent) => {
-              const path = parent.path;
-              const { username, reponame } = grabUsernameAndReponameFromURL(parent.url);
-              return getCommitsForRepo(username, reponame, { path, limit: 1 }).then((list) => list[0]); // just the commit object
+    GithubAPI: {
+        // @ts-ignore
+        user: (parent, { username }) => {
+            return getUser(username);
+        },
+        // @ts-ignore
+        repo: (parent, { ownerUsername, name }) => {
+            return getRepoForUser(ownerUsername, name);
+        },
     },
-    GithubTree: {},
-    */
 };
 
 const grabUsernameAndReponameFromURL = (url) => {
