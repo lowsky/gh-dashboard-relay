@@ -9,9 +9,9 @@ import { UILibWithRelaySupport } from '../components';
 import UILibContext from '../components/UILibContext';
 
 const store = new Store(new RecordSource());
-
+const graphQlUrl = process.env.REACT_APP_GRAPHQL_URL ?? '/.netlify/functions/graphql';
 const network = Network.create((operation, variables) => {
-    return fetch('/.netlify/functions/graphql', {
+    return fetch(graphQlUrl, {
         method: 'POST',
         headers: {
             Accept: 'application/json',

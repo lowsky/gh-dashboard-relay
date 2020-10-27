@@ -17,16 +17,15 @@
     "node": ">=12.1"
   },
   "scripts": {
-    "_postinstall": "cd server ; yarn",
+    "postinstall": "cd server ; yarn",
     "_dev": "npm-run-all --parallel start:server start",
     "start": "react-scripts start",
     "start:server": "cd server ; yarn run start",
     "build:cra": "react-scripts build",
     "build:relay": "relay-compiler --src ./src --schema ./src/relay/data/schema.graphql",
     "build": "yarn run build:relay ; npm-run-all --parallel build:server build:storybook build:cra ; yarn run chromatic-test",
-    "build-now": "yarn run build:relay ; npm-run-all --parallel build:storybook build:cra build:server-now",
+    "vercel-build": " yarn run build:relay ; npm-run-all --parallel build:cra build:storybook ; yarn run chromatic-test",
     "build:server": "cd server ; yarn run build",
-    "build:server-now": "mkdir -p build/api api; cp server/api/graphql.js build/api/graphql.ts; cp server/api/graphql.ts api/graphql.js",
     "lint": "eslint .",
     "test": "react-scripts test --no-cache ",
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
