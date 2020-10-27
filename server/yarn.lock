@@ -895,27 +895,27 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@graphql-tools/mock@6.2.1":
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-6.2.1.tgz#3f1dac72047033cded9fcd1c2daadfe7f2b3f4d0"
-  integrity sha512-YQM24oHdz5jDVJJel8WoMy5BGyPuucg4WIL+7JW2i6V7AZN3IS7jza9DosNzo6Adm/zu26W1a90dJzmvrlY9wA==
+"@graphql-tools/mock@6.2.4":
+  version "6.2.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-6.2.4.tgz#205323c51f89dd855d345d130c7713d0420909ea"
+  integrity sha512-O5Zvq/mcDZ7Ptky0IZ4EK9USmxV6FEVYq0Jxv2TI80kvxbCjt0tbEpZ+r1vIt1gZOXlAvadSHYyzWnUPh+1vkQ==
   dependencies:
-    "@graphql-tools/schema" "6.2.1"
-    "@graphql-tools/utils" "6.2.1"
+    "@graphql-tools/schema" "^6.2.4"
+    "@graphql-tools/utils" "^6.2.4"
     tslib "~2.0.1"
 
-"@graphql-tools/schema@6.2.1":
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-6.2.1.tgz#6b584defa37d6649180491ae32e1bb737b1d33e5"
-  integrity sha512-SKoZmxlLwOq08/NZ8Y5aShgEHneTJ8Ksw4gU1WBSWVJGf64ROoxIxN4Uc47F0cZxwOBqVqUy/EdXWZ8Jt97uQQ==
+"@graphql-tools/schema@6.2.4", "@graphql-tools/schema@^6.2.4":
+  version "6.2.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-6.2.4.tgz#cc4e9f5cab0f4ec48500e666719d99fc5042481d"
+  integrity sha512-rh+14lSY1q8IPbEv2J9x8UBFJ5NrDX9W5asXEUlPp+7vraLp/Tiox4GXdgyA92JhwpYco3nTf5Bo2JDMt1KnAQ==
   dependencies:
-    "@graphql-tools/utils" "6.2.1"
+    "@graphql-tools/utils" "^6.2.4"
     tslib "~2.0.1"
 
-"@graphql-tools/utils@6.2.1":
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-6.2.1.tgz#07774dbcc7657d9f9b898721f10fc613ce116b56"
-  integrity sha512-DZ6a2bjOH4sWKhNUachvYy+3ocXDvDcTtComOD/z7ncszdlZPU6RXNOgBTxh/bMVHBPqlEh/VjCVMwBysZRbJw==
+"@graphql-tools/utils@^6.2.4":
+  version "6.2.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-6.2.4.tgz#38a2314d2e5e229ad4f78cca44e1199e18d55856"
+  integrity sha512-ybgZ9EIJE3JMOtTrTd2VcIpTXtDrn2q6eiYkeYMKRVh3K41+LZa6YnR2zKERTXqTWqhobROwLt4BZbw2O3Aeeg==
   dependencies:
     "@ardatan/aggregate-error" "0.0.6"
     camel-case "4.1.1"
