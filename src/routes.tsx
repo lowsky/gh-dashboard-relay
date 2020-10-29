@@ -12,7 +12,7 @@ const RestfulMain = lazy(() => import('./restinpeace/restful'));
 export const WarningMissingURLParams = (
     <div className="jumbo has-text-weight-bold has-text-danger has-text-centered">
         Sorry, this page needs a <i>user</i> and <i>repo</i> info as part orf url!
-        <br/>
+        <br />
         <a href="/">Find links on the home page.</a>
     </div>
 );
@@ -29,7 +29,9 @@ const routes = [
     {
         path: '/restful/:userName/:repoName',
         // eslint-disable-next-line react/prop-types
-        component: ({ match: { params } }) => <RestfulMain {...params} />,
+        component({ match: { params } }) {
+            return <RestfulMain {...params} />;
+        },
     },
     {
         path: '/restful',
@@ -41,12 +43,14 @@ const routes = [
     },
     {
         path: '/home',
-        component: (props) => (
-            <div>
-                {JSON.stringify(props)}
-                <IndexPageMain {...props} />
-            </div>
-        ),
+        component(props) {
+            return (
+                <div>
+                    {JSON.stringify(props)}
+                    <IndexPageMain {...props} />
+                </div>
+            );
+        },
     },
 ];
 
