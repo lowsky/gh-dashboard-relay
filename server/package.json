@@ -28,7 +28,7 @@
   "dependencies": {
     "@graphql-tools/schema": "7.0.0",
     "apollo-server-micro": "2.19.0",
-    "bufferutil": "4.0.1",
+    "bufferutil": "4.0.2",
     "dotenv": "8.2.0",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "graphql": "15.4.0",
