@@ -47,7 +47,7 @@
   "homepage": ".",
   "dependencies": {
     "@babel/core": "7.12.3",
-    "@babel/node": "7.12.1",
+    "@babel/node": "7.12.6",
     "bulma": "0.9.1",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "react-router-config": "5.1.1",
