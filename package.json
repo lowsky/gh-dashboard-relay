@@ -63,7 +63,7 @@
     "@storybook/addon-storyshots": "6.0.28",
     "@storybook/addons": "6.0.28",
     "@storybook/components": "6.0.28",
-    "@storybook/preset-create-react-app": "3.1.4",
+    "@storybook/preset-create-react-app": "3.1.5",
     "@storybook/react": "6.0.28",
     "@types/jest": "26.0.15",
     "@types/node": "14.14.6",
