@@ -10,21 +10,40 @@ pids
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 /coverage/
 
+# dependencies
 node_modules/
+/.pnp
+.pnp.js
 
+# next.js
+/.next/
+/out/
+
+# production
+/build
+storybook-static/
+test-reports
+
+# misc
+.DS_Store
 .idea/
 
-#generated files / output
-dist/
-build/
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-storybook-static/
-
-#sublime and tern-js
-.tern-project
-
-test-reports
-/server/lambda/
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Local Netlify folder
 .netlify
+.vercel
+
+/server/lambda/
+
+
+/next-relay-modern/

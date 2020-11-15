@@ -26,15 +26,15 @@ After invoking this in a shell
     
 then setup the `github-token` (see [Setup Github Token](#setupgithubtoken) ) before starting via:
 
-    yarn run dev 
+    yarn dev
     
-for a simple `dev mode`: it starts the serverless-based server and the web app in parallel.
+for a simple `dev mode`: it starts the serverless-based serverless functions and the web app in parallel.
 
-
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### Built-in GraphQL-backend
 
-It also provides a GraphIql Playground at <http://localhost:3000/.netlify/functions/graphql> - which is great 
+It also provides a GraphIql Playground at <http://localhost:3000/api/graphql> - which is great 
 (Note: you may need to specify this endpoint http://localhost:3000/.netlify/functions/graphql , too)
 for using and playing with different graphql queries, e.g.:
 ```graphql
@@ -57,7 +57,7 @@ Have fun!
 **Note:**
 ### setupGithubToken
 You  **need to create your own github-token** (see https://github.com/settings/tokens/) and 
-store it locally in `server/.env` file (similar to [server/.env.example](server/.env.example) )
+store it locally in `.env` file (similar to [server/.env.example](server/.env.example) )
 
     # create your own .env file as a copy of .env.example by
     cp .env.example .env

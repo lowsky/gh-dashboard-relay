@@ -6,3 +6,6 @@ node_modules
 .github
 cypress
 eval-reg-suit
+storybook-static
+src
+server/schemaTest.ts
