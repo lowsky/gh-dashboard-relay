@@ -2,7 +2,7 @@
 import { addMocksToSchema } from '@graphql-tools/mock';
 import { graphql } from 'graphql';
 
-import { schema } from './src/localSchema';
+import { schema } from '../lib/localSchema';
 
 const schemaWithMocks = addMocksToSchema({ schema, preserveResolvers: true });
 
@@ -51,7 +51,7 @@ graphql(
 
     keys(data, 'data');
     // eslint-disable-next-line no-unused-vars
-    const { user, github } = data;
+    const { /*user */ github } = data;
 
     keys(github, 'github');
     // eslint-disable-next-line no-constant-condition
