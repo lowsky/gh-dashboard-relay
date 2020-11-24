@@ -84,7 +84,7 @@
     "npm-run-all": "4.1.5",
     "prop-types": "15.7.2",
     "react-is": "17.0.1",
-    "react-relay": "10.0.1",
+    "react-relay": "10.1.0",
     "react-router-dom": "5.2.0",
     "relay-compiler": "10.0.1",
     "relay-compiler-language-typescript": "13.0.2",
