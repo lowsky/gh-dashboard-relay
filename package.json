@@ -27,6 +27,7 @@
     "build:relay": "relay-compiler --src . --schema schema/schema.graphql --language typescript --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' '**/schema/**' --include '**/container/**' '**/components/**' '**/pages/**' '**/relay/**' '**/queries/**' ",
     "_build": "yarn run build:relay ; npm-run-all --parallel build:server build:storybook build:cra ; yarn run chromatic-test",
     "vercel-build": " yarn run build:relay ; npm-run-all --parallel build:storybook; yarn run build ; yarn run chromatic-test",
+    "vercel-build:without-chromatic": " yarn run build:relay ; npm-run-all --parallel build:storybook; yarn run build ; yarn run chromatic-test",
     "_build:server": "cd server ; yarn run build",
     "_lint": "eslint .",
     "_test": "react-scripts test --no-cache ",
