@@ -10,7 +10,7 @@ const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loadi
 
 export default {
     title: 'Others/Pages',
-    //decorators: [withSuspenseFallback],
+    decorators: [withSuspenseFallback],
 };
 
 export const Main = () => <IndexPage />;
