@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -16,24 +15,6 @@ function icon4context(context = '', avatar_url: string) {
     if (avatar_url) {
         return <img className="contextlogo" width={24} height={24} src={avatar_url} alt={context} />;
     }
-    if (context === 'bitHound - Code') {
-        return <Image src={'/bithound.png'} width={24} height={24} alt="bitHound - Code" />;
-    }
-    if (context === 'bitHound - Dependencies') {
-        return <Image src={'/bithound.png'} width={24} height={24} alt="bitHound - Dependencies" />;
-    }
-    /*
-    if (context.indexOf('Codacy/PR') >= 0) {
-        return <img className="contextlogo" width={24} height={24} src={codacyLogo} alt="codacy" />;
-    }
-    if (context.indexOf('ci/circleci') >= 0) {
-        return <img className="contextlogo" width={24} height={24} src={circleciLogo} alt="circleci" />;
-    }
-
-    if (context.indexOf('security/snyk') >= 0) {
-        return <img className="contextlogo" width={24} height={24} src={snykLogo} alt="snyk" />;
-    }
-*/
     return <span>{context}</span>;
 }
 
