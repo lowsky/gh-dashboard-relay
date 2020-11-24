@@ -35,7 +35,7 @@
     "utf-8-validate": "5.0.3"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "7.12.1",
+    "@babel/preset-typescript": "7.12.7",
     "@graphql-tools/mock": "7.0.0",
     "apollo-server-lambda": "2.19.0",
     "dotenv": "8.2.0",

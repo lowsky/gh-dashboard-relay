@@ -61,7 +61,7 @@
     "whatwg-fetch": "3.4.1"
   },
   "devDependencies": {
-    "@babel/core": "7.12.3",
+    "@babel/core": "7.12.8",
     "@babel/plugin-transform-typescript": "7.12.1",
     "@fortawesome/fontawesome-svg-core": "1.2.32",
     "@fortawesome/free-brands-svg-icons": "5.15.1",
