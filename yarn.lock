@@ -1253,7 +1253,7 @@
     globals "^11.1.0"
     lodash "^4.17.19"
 
-"@babel/traverse@^7.12.9":
+"@babel/traverse@^7.12.8", "@babel/traverse@^7.12.9":
   version "7.12.9"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.12.9.tgz#fad26c972eabbc11350e0b695978de6cc8e8596f"
   integrity sha512-iX9ajqnLdoU1s1nHt36JDI9KG4k+vmI8WgjK5d+aDTwQbL2fUnzedNedssA645Ede3PM2ma1n8Q4h2ohwXgMXw==
@@ -1446,10 +1446,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.32"
 
-"@fortawesome/react-fontawesome@0.1.12":
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.12.tgz#fbdea86e8b73032895e6ded1ee1dbb1874902d1a"
-  integrity sha512-kV6HtqotM3K4YIXlTVvomuIi6QgGCvYm++ImyEx2wwgmSppZ6kbbA29ASwjAUBD63j2OFU0yoxeXpZkjrrX0qQ==
+"@fortawesome/react-fontawesome@0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.13.tgz#ce9654bf4e537108014ec022f2423dbe8114fd62"
+  integrity sha512-/HrLnIft5Ks2511Pz6TxHBIctC9QalVscAC64sufQ4sJH/sXaQlG3uR9LCu6VpEwkBemgcBLrz/QPNP/ddbjDg==
   dependencies:
     prop-types "^15.7.2"
 
