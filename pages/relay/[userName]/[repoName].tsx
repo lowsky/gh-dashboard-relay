@@ -12,80 +12,82 @@ import UILibContext from "../../../components/UILibContext";
 import { WarningMissingURLParams } from "../../../container/NavBarWithRouting";
 
 const RelayRoot = () => {
-  const router = useRouter()
-  const { userName , repoName } = router.query
-  console.log("rendering Relay root", { userName , repoName  });
+    const router = useRouter();
+    const { userName, repoName } = router?.query ?? {
+        userName: 'lowsky',
+        repoName: 'dashboard',
+    };
+    const environment = initEnvironment();
 
-  // @ts-ignore
-  const [{ github, error }, setGithub] = useState({
+    // @ts-ignore
+    const [{ github, error }, setGithub] = useState({
     github:null,
     error: ""
-  });
+    });
 
-  useEffect(() => {
-    const runQuery = async () => {
-      try {
-        const queryProps = await fetchQuery(environment, GithubQuery, {
+    useEffect(() => {
+        const runQuery = async () => {
+            try {
+                const queryProps = await fetchQuery(environment, GithubQuery, {
           userName: userName ?? "lowsky",
           repoName: repoName ?? "dashboard"
-        });
-        //const initialRecords = environment.getStore().getSource().toJSON();
-        // initEnvironment(initialRecords);
+                });
+                //const initialRecords = environment.getStore().getSource().toJSON();
+                // initEnvironment(initialRecords);
 
-        console.log("fetched data:", queryProps);
-        // @ts-ignore
-        setGithub({
-          github: queryProps.github
-        });
-      } catch (error) {
-        setGithub({
-          // @ts-ignore
-          github: null,
-          error
-        });
-      }
-    };
+               console.log("fetched data:", queryProps);
+                // @ts-ignore
+                setGithub({
+                  github: queryProps.github
+                });
+            } catch (error) {
+                setGithub({
+                    // @ts-ignore
+                    github: null,
+                    error
+                });
+            }
+        };
 
-    if (environment) {
-      runQuery();
+        if (environment) {
+            if (userName) {
+                runQuery();
+            }
+        }
+    }, [userName, repoName]);
+
+    if (!userName || !repoName) {
+        return WarningMissingURLParams;
     }
 
-  }, [userName , repoName]);
-  if (!userName) {
-    return WarningMissingURLParams;
-  }
-  const environment = initEnvironment();
+    if (error) {
+        console.error("Failure while rendering in relay root container:", error);
+        return (
+          <div className="notification has-text-danger">
+              Error! While trying to load data from the server: {JSON.stringify(error)}
+          </div>
+        );
+    }
 
-  if (error) {
-    console.error("Failure while rendering in relay root container:", error);
+    if (github) {
+        return (
+          // @ts-ignore
+          <UILibContext.Provider value={UILibWithRelaySupport}>
+              <div className="box">
+                  <UserRepo github={github}/>
+              </div>
+          </UILibContext.Provider>
+        );
+    }
+
     return (
-      <div className="notification has-text-danger">
-        Error! While trying to load data from the server: {error}
-      </div>
-    );
-  }
-
-  if (github) {
-    return (
-      // @ts-ignore
-      <UILibContext.Provider value={UILibWithRelaySupport}>
-        <div className="box">
-          {
-            <UserRepo github={github}/>
-          }
-        </div>
-      </UILibContext.Provider>
-    );
-  }
-
-  return (
-    <div className="box">
+      <div className="box">
       <span className="icon is-large ">
           <i className="fas fa-spinner fa-pulse"/>
       </span>
-      Loading ...
-    </div>
-  );
+          Loading ...
+      </div>
+    );
 };
 
 /*
