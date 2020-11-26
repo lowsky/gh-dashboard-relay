@@ -46,10 +46,13 @@ exports[`Storyshots Others/BranchInfoRow with info 1`] = `
           </i>
             by  
           <a
-            href="https://github.com/undefined"
+            href="https://github.com/"
           >
+            
              
-            <span />
+            <span>
+              
+            </span>
           </a>
            
           <a
@@ -130,10 +133,13 @@ exports[`Storyshots Others/BranchesTable with one branch 1`] = `
           </i>
             by  
           <a
-            href="https://github.com/undefined"
+            href="https://github.com/"
           >
+            
              
-            <span />
+            <span>
+              
+            </span>
           </a>
            
           <a
@@ -182,6 +188,7 @@ Array [
       </span>
     </a>
      
+    
   </div>,
   <div
     className="statusline"
@@ -343,12 +350,16 @@ Array [
     </i>
       by  
     <a
-      href="https://github.com/undefined"
+      href="https://github.com/"
     >
+      
        
-      <span />
+      <span>
+        
+      </span>
     </a>
      
+    
   </div>,
   <div
     className="statusline"
@@ -544,49 +555,49 @@ exports[`Storyshots Others/Pages restful 1`] = `
       </h3>
     </div>
     <div
-      className="card"
-    >
-      <div
-        className="card-content"
-      >
-        <div
-          className="media"
-        >
-          <div
-            className="media-left"
-          >
-            <figure
-              className="image is-48x48"
-            >
-              <img
-                alt="avatar"
-                src="//lorempixel.com/200/200/cats/lorempixel/"
-              />
-            </figure>
-          </div>
-          <div
-            className="media-content"
-          >
-            <p
-              className="title is-4"
-            >
-              lowsky
-            </p>
-            <p
-              className="subtitle is-6"
-            />
-          </div>
-        </div>
-        <div
-          className="content"
-        >
-          Owner
-        </div>
-      </div>
-    </div>
-    <div
       className="column"
     >
+      <div
+        className="card"
+      >
+        <div
+          className="card-content"
+        >
+          <div
+            className="media"
+          >
+            <div
+              className="media-left"
+            >
+              <figure
+                className="image is-48x48"
+              >
+                <img
+                  alt="avatar"
+                  src="//lorempixel.com/200/200/cats/lorempixel/"
+                />
+              </figure>
+            </div>
+            <div
+              className="media-content"
+            >
+              <p
+                className="title is-4"
+              >
+                lowsky
+              </p>
+              <p
+                className="subtitle is-6"
+              />
+            </div>
+          </div>
+          <div
+            className="content"
+          >
+            Owner
+          </div>
+        </div>
+      </div>
       <table
         className="table is-bordered is-striped is-hoverable"
       >
@@ -808,6 +819,47 @@ Array [
   <div
     className="column"
   >
+    <div
+      className="card"
+    >
+      <div
+        className="card-content"
+      >
+        <div
+          className="media"
+        >
+          <div
+            className="media-left"
+          >
+            <figure
+              className="image is-48x48"
+            >
+              <img
+                alt="avatar"
+                src="/octicon-git-branch.svg"
+              />
+            </figure>
+          </div>
+          <div
+            className="media-content"
+          >
+            <p
+              className="title is-4"
+            >
+              ?
+            </p>
+            <p
+              className="subtitle is-6"
+            />
+          </div>
+        </div>
+        <div
+          className="content"
+        >
+          Owner
+        </div>
+      </div>
+    </div>
     <table
       className="table is-bordered is-striped is-hoverable"
     >
@@ -870,10 +922,13 @@ Array [
               </i>
                 by  
               <a
-                href="https://github.com/undefined"
+                href="https://github.com/"
               >
+                
                  
-                <span />
+                <span>
+                  
+                </span>
               </a>
                
               <a
