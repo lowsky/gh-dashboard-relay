@@ -18,7 +18,6 @@ const github = { user, repo };
 describe('UserRepo component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');
-        // @ts-ignore
         ReactDOM.render(<UserRepo />, div);
     });
 
@@ -28,7 +27,6 @@ describe('UserRepo component', () => {
         };
 
         const appContainer = renderer.create(
-          // @ts-ignore
           <UILibContext.Provider value={UILibPureComponents}>
               <UserRepo {...props} />
           </UILibContext.Provider>).toJSON();
