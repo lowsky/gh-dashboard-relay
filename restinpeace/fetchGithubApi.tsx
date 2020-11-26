@@ -1,17 +1,12 @@
 import 'whatwg-fetch';
+import { GithubBranch } from "../lib/types/resolvers";
 
-interface Commit {
+export interface Commit {
     sha: string;
     url: string;
 }
 
-interface Branch {
-    name: string;
-    commit: Array<Commit>;
-    protected: string;
-}
-
-type Branches = Branch[];
+export type Branches = GithubBranch[];
 
 export interface BranchesWithErrorMessage extends Branches {
     loading?: Boolean;

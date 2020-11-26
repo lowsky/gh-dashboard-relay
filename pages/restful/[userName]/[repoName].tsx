@@ -35,10 +35,10 @@ const githubData = {
 
 export default function RestfulPage() {
     const router = useRouter();
-    const { userName = defaultOwnerLogin, repoName = defaultRepoName } = router.query;
+    const { userName , repoName } = router.query;
 
     // @ts-ignore
-    return RestfulMain({ userName, repoName });
+    return <RestfulMain userName={userName} repoName={repoName}/>;
 }
 
 export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRepoName }) {
@@ -49,7 +49,6 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        // @ts-ignore
         fetchUser(userName)
             .then((user) => {
                 if (!ignoreDownloadedData) {
@@ -81,9 +80,7 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
                     }
                     // @ts-ignore
                     storeRepo({
-                        // @ts-ignore
                         owner: { login: userName },
-                        // @ts-ignore
                         name: repoName,
                         branches: branches.map((b) => ({ ...b, lastCommit: lastCommitMock })),
                     });
@@ -102,7 +99,6 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
     }, [userName, repoName]);
 
     return (
-        // @ts-ignore
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
@@ -113,6 +109,6 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
             </div>
         </UILibContext.Provider>
     );
-};
+}
 
 

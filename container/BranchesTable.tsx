@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
 
 import UILibContext from '../components/UILibContext';
+import { GithubRepo } from "../lib/types/resolvers";
 
-const BranchesTable = ({ repo = { branches: [] } }) => {
+export interface BranchesTableProps {
+  repo?: GithubRepo
+}
+const BranchesTable: React.FC<BranchesTableProps> = ({ repo  }) => {
   const { BranchInfoRow } = useContext(UILibContext);
 
   return (
@@ -17,8 +21,7 @@ const BranchesTable = ({ repo = { branches: [] } }) => {
                 </tr>
             </thead>
             <tbody>
-                {(repo.branches || []).map((branch, idx) => (
-                  // @ts-ignore
+                {(repo?.branches || []).map((branch, idx) => (
                   <BranchInfoRow key={idx} branch={branch} />
                 ))}
             </tbody>

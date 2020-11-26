@@ -10,6 +10,7 @@ import {
 }  from '@fortawesome/free-solid-svg-icons'
 
 import './CommitWithStatuses.module.css';
+import { GithubCommit } from "../lib/types/resolvers";
 
 function icon4context(context = '', avatar_url: string) {
     if (avatar_url) {
@@ -65,10 +66,19 @@ const renderStatus = ({ target_url, avatar_url, context, description, state }, i
     </span>
 );
 
-let CommitWithStatus = ({ commit = {} }) => {
-    // @ts-ignore
-    const { sha = '<missing>', date = '', message = '<missing>', status = [], author = {} } = commit;
-
+export interface CommitWithStatusProps {
+    commit?: GithubCommit;
+}
+let CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
+    const { sha = '<missing>', date = '', message = '<missing>', status = [],
+      } = commit;
+    const author = {
+        login: '',
+        name: '',
+        email: '',
+        avatar_url: '',
+        ...commit.author
+    };
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
     const onlyTakeFirstStatusPerContext = (statuses) => {

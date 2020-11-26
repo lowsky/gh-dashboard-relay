@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-interface OwnerType {
+export interface OwnerType {
     login?: string;
 }
 
@@ -11,9 +11,10 @@ interface RepoType {
     name?: string;
 }
 
-interface RepoProps {
-    repo: RepoType;
+export interface RepoProps {
+    repo?: RepoType;
 }
+
 const Repo: React.FC<RepoProps> = (props) => {
   const { repo: { name= '?', owner = {} } = {} } = props;
   return (

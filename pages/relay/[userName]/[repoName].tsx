@@ -19,10 +19,9 @@ const RelayRoot = () => {
     };
     const environment = initEnvironment();
 
-    // @ts-ignore
     const [{ github, error }, setGithub] = useState({
-    github:null,
-    error: ""
+      github:null,
+      error: ""
     });
 
     useEffect(() => {
@@ -35,7 +34,6 @@ const RelayRoot = () => {
                 //const initialRecords = environment.getStore().getSource().toJSON();
                 // initEnvironment(initialRecords);
 
-               console.log("fetched data:", queryProps);
                 // @ts-ignore
                 setGithub({
                   github: queryProps.github
@@ -71,7 +69,6 @@ const RelayRoot = () => {
 
     if (github) {
         return (
-          // @ts-ignore
           <UILibContext.Provider value={UILibWithRelaySupport}>
               <div className="box">
                   <UserRepo github={github}/>
@@ -95,9 +92,7 @@ export async function getStaticProps() {
   const params = {}
   const environment = initEnvironment()
   const queryProps = await fetchQuery(environment, GithubQuery, {
-    // @ts-ignore
     userName: params?.userName ?? "lowsky",
-    // @ts-ignore
     repoName: params?.repoName ?? "dashboard"
   })
   const initialRecords = environment.getStore().getSource().toJSON()

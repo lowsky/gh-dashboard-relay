@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import UILibContext from '../components/UILibContext';
+import { GithubBranch } from "../lib/types/resolvers";
 
-const BranchInfoRow = ({ branch }) => {
+export interface BranchInfoRowProps {
+  branch: GithubBranch;
+}
+
+const BranchInfoRow:React.FC<BranchInfoRowProps> = ({ branch }) => {
     const { name, lastCommit = {} } = branch;
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
     const { CommitWithStatuses } = useContext(UILibContext);
@@ -22,13 +26,6 @@ const BranchInfoRow = ({ branch }) => {
             </td>
         </tr>
     );
-};
-
-BranchInfoRow.propTypes = {
-    branch: PropTypes.shape({
-        name: PropTypes.string,
-        lastCommit: PropTypes.object,
-    }),
 };
 
 export default BranchInfoRow;
