@@ -1,7 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import BranchInfoRow from '../../container/BranchInfoRow';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+Enzyme.configure({ adapter: new Adapter() });
+
+import BranchInfoRow from '../BranchInfoRow';
 
 describe('BranchInfoRow component', () => {
     const BRANCH_NAME = 'someBranchName';

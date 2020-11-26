@@ -18,7 +18,7 @@ exports[`User component should render as expected 1`] = `
         >
           <img
             alt="avatar"
-            src="octicon-git-branch.svg"
+            src="www.avatar.url"
           />
         </figure>
       </div>
@@ -28,11 +28,13 @@ exports[`User component should render as expected 1`] = `
         <p
           className="title is-4"
         >
-          ?
+          login
         </p>
         <p
           className="subtitle is-6"
-        />
+        >
+          comp
+        </p>
       </div>
     </div>
     <div
