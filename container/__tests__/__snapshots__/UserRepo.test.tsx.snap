@@ -49,49 +49,49 @@ Array [
     </h3>
   </div>,
   <div
-    className="card"
-  >
-    <div
-      className="card-content"
-    >
-      <div
-        className="media"
-      >
-        <div
-          className="media-left"
-        >
-          <figure
-            className="image is-48x48"
-          >
-            <img
-              alt="avatar"
-              src=""
-            />
-          </figure>
-        </div>
-        <div
-          className="media-content"
-        >
-          <p
-            className="title is-4"
-          >
-            dude
-          </p>
-          <p
-            className="subtitle is-6"
-          />
-        </div>
-      </div>
-      <div
-        className="content"
-      >
-        Owner
-      </div>
-    </div>
-  </div>,
-  <div
     className="column"
   >
+    <div
+      className="card"
+    >
+      <div
+        className="card-content"
+      >
+        <div
+          className="media"
+        >
+          <div
+            className="media-left"
+          >
+            <figure
+              className="image is-48x48"
+            >
+              <img
+                alt="avatar"
+                src=""
+              />
+            </figure>
+          </div>
+          <div
+            className="media-content"
+          >
+            <p
+              className="title is-4"
+            >
+              dude
+            </p>
+            <p
+              className="subtitle is-6"
+            />
+          </div>
+        </div>
+        <div
+          className="content"
+        >
+          Owner
+        </div>
+      </div>
+    </div>
     <table
       className="table is-bordered is-striped is-hoverable"
     >
