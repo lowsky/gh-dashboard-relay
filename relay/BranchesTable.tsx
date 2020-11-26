@@ -4,7 +4,6 @@ import React from 'react';
 
 import BranchesTable from '../container/BranchesTable';
 
-// @ts-ignore
 export default createFragmentContainer(props => <BranchesTable {...props} />, {
     repo: graphql`
         fragment BranchesTable_repo on GithubRepo {

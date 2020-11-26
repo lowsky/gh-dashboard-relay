@@ -1,11 +1,13 @@
 import React from 'react';
 
+export interface User {
+    avatar_url?: string;
+    company?: string;
+    login?: string;
+}
+
 export interface UserProps {
-    user?: {
-        avatar_url?: string;
-        company?: string;
-        login?: string;
-    };
+    user?: User;
 }
 
 const User: React.FC<UserProps> = (props) => {

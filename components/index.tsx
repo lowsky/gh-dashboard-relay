@@ -13,6 +13,8 @@ import RelayRepo from '../relay/Repo';
 import PureUser from './User';
 import RelayUser from '../relay/User';
 
+import { UILib } from "./UILibContext";
+
 export const UILibPureComponents = {
     User: PureUser,
     Repo: PureRepo,
@@ -21,7 +23,7 @@ export const UILibPureComponents = {
     CommitWithStatuses: PureCommitWithStatuses,
 };
 
-export const UILibWithRelaySupport = {
+export const UILibWithRelaySupport : UILib = {
     User: RelayUser,
     Repo: RelayRepo,
     BranchTable: RelayBranchesTable,

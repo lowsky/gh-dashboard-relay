@@ -1,17 +1,27 @@
 import React from 'react';
 
-import { UserProps } from "./User";
+import { UserProps } from './User';
+import { RepoProps } from './Repo';
+import { BranchesTableProps } from '../container/BranchesTable';
+import { BranchInfoRowProps } from '../container/BranchInfoRow';
+import { CommitWithStatusProps } from './CommitWithStatuses';
 
-const User: React.FC<UserProps> = () => null;
+export interface UILib {
+  User: React.FC<UserProps>;
+  Repo: React.FC<RepoProps>;
+  BranchTable: React.FC<BranchesTableProps>;
+  BranchInfoRow: React.FC<BranchInfoRowProps>;
+  CommitWithStatuses: React.FC<CommitWithStatusProps>;
+}
 
 /* Dummy components avoids crashes caused by undefined components */
-export const UILibDummy = {
-           User,
-           Repo: () => null,
-           BranchTable: () => null,
-           BranchInfoRow: () => null,
-           CommitWithStatuses: () => null,
-       };
+export const UILibDummy : UILib = {
+   User: () => null,
+   Repo: () => null,
+   BranchTable: () => null,
+   BranchInfoRow: () => null,
+   CommitWithStatuses: () => null,
+};
 
 /*
   To avoid cyclic dependency, we initialise the default context here with dummy

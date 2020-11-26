@@ -92,22 +92,18 @@ export const resolvers = {
             console.log("dude");
             return {};
         },
-        // @ts-ignore
-        user: (parent, { username }) => {
+        user: (_, { username }) => {
             return getUser(username);
         },
-        // @ts-ignore
-        repo: (parent, { ownerUsername, name }) => {
+        repo: (_, { ownerUsername, name }) => {
             return getRepoForUser(ownerUsername, name);
         },
     },
     GithubAPI: {
-        // @ts-ignore
-        user: (parent, { username }) => {
+        user: (_, { username }) => {
             return getUser(username);
         },
-        // @ts-ignore
-        repo: (parent, { ownerUsername, name }) => {
+        repo: (_, { ownerUsername, name }) => {
             return getRepoForUser(ownerUsername, name);
         },
     },
