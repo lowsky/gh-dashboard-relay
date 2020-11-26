@@ -1,0 +1,949 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Others/BranchInfoRow with info 1`] = `
+<table
+  width={400}
+>
+  <tbody>
+    <tr>
+      <td>
+        <a
+          href="https://github.com/lowsky/dashboard/tree/branch-x"
+        >
+          branch-x
+        </a>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-github fa-w-16 "
+          data-icon="github"
+          data-prefix="fab"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 496 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </td>
+      <td>
+        <div>
+          <a
+            href="https://github.com/lowsky/dashboard/tree/no-sha"
+          >
+            <b>
+              no-message
+            </b>
+          </a>
+        </div>
+        <div>
+          <i>
+            no-date
+          </i>
+            by  
+          <a
+            href="https://github.com/"
+          >
+            
+             
+            <span>
+              
+            </span>
+          </a>
+           
+          <a
+            href="mailto:me@work"
+          >
+            ?My-Name
+          </a>
+        </div>
+        <div
+          className="statusline"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Others/BranchesTable with one branch 1`] = `
+<table
+  className="table is-bordered is-striped is-hoverable"
+>
+  <thead>
+    <tr>
+      <th
+        className="is-narrow"
+      >
+        <span
+          className="fas fa-code-branch"
+        />
+        <span>
+          Branch
+        </span>
+      </th>
+      <th>
+        Commit
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a
+          href="https://github.com/lowsky/dashboard/tree/branch-x"
+        >
+          branch-x
+        </a>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-github fa-w-16 "
+          data-icon="github"
+          data-prefix="fab"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 496 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </td>
+      <td>
+        <div>
+          <a
+            href="https://github.com/lowsky/dashboard/tree/no-sha"
+          >
+            <b>
+              no-message
+            </b>
+          </a>
+        </div>
+        <div>
+          <i>
+            no-date
+          </i>
+            by  
+          <a
+            href="https://github.com/"
+          >
+            
+             
+            <span>
+              
+            </span>
+          </a>
+           
+          <a
+            href="mailto:me@work"
+          >
+            ?My-Name
+          </a>
+        </div>
+        <div
+          className="statusline"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Others/CommitStatus with data 1`] = `
+Array [
+  <div>
+    <a
+      href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
+    >
+      <b>
+        Merge pull request #287 from lowsky/greenkeeper/jsdom-pin-9.11.0
+      </b>
+    </a>
+  </div>,
+  <div>
+    <i>
+      2017-03-14T18:59:30Z
+    </i>
+      by  
+    <a
+      href="https://github.com/lowsky"
+    >
+      <img
+        alt="avatar"
+        className="commit_avatar"
+        src="https://avatars2.githubusercontent.com/u/217931?v=3"
+        width={32}
+      />
+       
+      <span>
+        lowsky
+      </span>
+    </a>
+     
+    
+  </div>,
+  <div
+    className="statusline"
+  >
+    <span>
+      <a
+        className="commitLink"
+        href="https://www.chromatic.com/build?appId=5afab010f1d19900240b5469"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="chromatic ui tests No changes."
+      >
+        <img
+          alt="chromatic ui tests"
+          className="contextlogo"
+          height={24}
+          src="https://avatars1.githubusercontent.com/oa/581325?s=40&u=3d11470b9117a9024372113ecd1fc682b02395b8&v=4"
+          width={24}
+        />
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check-circle fa-w-16 "
+          data-icon="check-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </a>
+    </span>
+    <span>
+      <a
+        className="commitLink"
+        href="https://circleci.com/gh/lowsky/dashboard/763?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="ci/circleci Your tests passed on CircleCI!"
+      >
+        <span>
+          ci/circleci
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check-circle fa-w-16 "
+          data-icon="check-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </a>
+    </span>
+    <span>
+      <a
+        className="commitLink"
+        href="https://www.bithound.io/github/lowsky/dashboard/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e/files?status=passing"
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+        title="bitHound - Code No failing files."
+      >
+        <span>
+          bitHound - Code
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-check-circle fa-w-16 "
+          data-icon="check-circle"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </a>
+    </span>
+    <span>
+      <a
+        className="commitLink"
+        href="https://www.bithound.io/github/lowsky/dashboard/master"
+        style={
+          Object {
+            "color": "orange",
+          }
+        }
+        title="bitHound - Dependencies null"
+      >
+        <span>
+          bitHound - Dependencies
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-hourglass fa-w-12 "
+          data-icon="hourglass"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M360 64c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24 0 90.965 51.016 167.734 120.842 192C75.016 280.266 24 357.035 24 448c-13.255 0-24 10.745-24 24v16c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24 0-90.965-51.016-167.734-120.842-192C308.984 231.734 360 154.965 360 64z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </a>
+    </span>
+  </div>,
+]
+`;
+
+exports[`Storyshots Others/CommitStatus with no data 1`] = `
+Array [
+  <div>
+    <a
+      href="https://github.com/lowsky/dashboard/tree/<missing>"
+    >
+      <b>
+        &lt;missing&gt;
+      </b>
+    </a>
+  </div>,
+  <div>
+    <i>
+      
+    </i>
+      by  
+    <a
+      href="https://github.com/"
+    >
+      
+       
+      <span>
+        
+      </span>
+    </a>
+     
+    
+  </div>,
+  <div
+    className="statusline"
+  />,
+]
+`;
+
+exports[`Storyshots Others/Pages main 1`] = `
+<div
+  style={
+    Object {
+      "padding": "3em",
+    }
+  }
+>
+  <div
+    className="title"
+  >
+    <h1>
+      Getting started
+    </h1>
+  </div>
+  <div
+    className="content"
+  >
+    <p>
+      You can use the links above in the nav bar for different views:
+    </p>
+    <ul>
+      <li>
+        <strong>
+          Storybook
+        </strong>
+         shows all components.
+      </li>
+      <li>
+        <strong>
+          GraphQL + Relay
+        </strong>
+         - fetches all information from a locally installed relay server. 
+        <b>
+          Note:
+        </b>
+        <i>
+          This needs a backend server / currently implemented as lambda function...
+        </i>
+      </li>
+      <li>
+        <strong>
+          RESTFul Demo
+        </strong>
+         - just fetches info from Github's public open API via Rest calls.
+      </li>
+    </ul>
+    <p>
+      This demo was just to figure out, how to setup mixing 
+      <b>
+        Relay
+      </b>
+       and 
+      <b>
+        regular
+      </b>
+       react components.
+    </p>
+    <h4
+      className="is-size-4"
+    >
+      Examples
+    </h4>
+    <ul>
+      <li>
+        <strong>
+          Rest
+        </strong>
+         based:  
+        <a
+          href="./restful/lowsky/dashboard"
+        >
+          <b>
+            lowsky/dashboard
+          </b>
+        </a>
+      </li>
+      <li>
+        <strong>
+          Relay
+        </strong>
+         based  
+        <a
+          href="./relay/lowsky/dashboard"
+        >
+          <b>
+            lowsky/dashboard
+          </b>
+        </a>
+         
+        <span>
+          or
+        </span>
+         
+        <br />
+        <a
+          href="./relay/lowsky/spotify-graphql-server"
+        >
+          <b>
+            lowsky/spotify-graphql-server
+          </b>
+        </a>
+      </li>
+    </ul>
+    <h4
+      className="is-size-4"
+    >
+      How to start the local server
+    </h4>
+    <p>
+      After installing the dependencies via 
+      <code>
+        npm install
+      </code>
+       you also need to configure GitHub authentication token in the 
+      <code>
+        server/.env
+      </code>
+       file, then simply run the local graphql server via and web app via
+      <code>
+        yarn run dev
+      </code>
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Others/Pages relay 1`] = `
+<div>
+  delayed loading ...
+</div>
+`;
+
+exports[`Storyshots Others/Pages restful 1`] = `
+<div
+  className="content"
+>
+  <div
+    className="box"
+  >
+    <div
+      className="column"
+    >
+      <h1
+        className="title is-3"
+      >
+        <span
+          className="has-text-grey-light"
+        >
+          Repository
+        </span>
+      </h1>
+      <h3
+        className="subTitle is-3"
+      >
+        <a
+          href="https://github.com/lowsky/dashboard"
+        >
+          <strong>
+            lowsky
+             / 
+            dashboard
+          </strong>
+          <span
+            className="icon"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-github fa-w-16 "
+              data-icon="github"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 496 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </span>
+        </a>
+      </h3>
+    </div>
+    <div
+      className="card"
+    >
+      <div
+        className="card-content"
+      >
+        <div
+          className="media"
+        >
+          <div
+            className="media-left"
+          >
+            <figure
+              className="image is-48x48"
+            >
+              <img
+                alt="avatar"
+                src="//lorempixel.com/200/200/cats/lorempixel/"
+              />
+            </figure>
+          </div>
+          <div
+            className="media-content"
+          >
+            <p
+              className="title is-4"
+            >
+              lowsky
+            </p>
+            <p
+              className="subtitle is-6"
+            />
+          </div>
+        </div>
+        <div
+          className="content"
+        >
+          Owner
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+    >
+      <table
+        className="table is-bordered is-striped is-hoverable"
+      >
+        <thead>
+          <tr>
+            <th
+              className="is-narrow"
+            >
+              <span
+                className="fas fa-code-branch"
+              />
+              <span>
+                Branch
+              </span>
+            </th>
+            <th>
+              Commit
+            </th>
+          </tr>
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`Storyshots Others/Repo fake data 1`] = `
+<div
+  className="column"
+>
+  <h1
+    className="title is-3"
+  >
+    <span
+      className="has-text-grey-light"
+    >
+      Repository
+    </span>
+  </h1>
+  <h3
+    className="subTitle is-3"
+  >
+    <a
+      href="https://github.com/login/demo-repo"
+    >
+      <strong>
+        login
+         / 
+        demo-repo
+      </strong>
+      <span
+        className="icon"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-github fa-w-16 "
+          data-icon="github"
+          data-prefix="fab"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 496 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </span>
+    </a>
+  </h3>
+</div>
+`;
+
+exports[`Storyshots Others/User with avatar 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-left"
+      >
+        <figure
+          className="image is-48x48"
+        >
+          <img
+            alt="avatar"
+            src="https://avatars2.githubusercontent.com/u/217931?v=3"
+          />
+        </figure>
+      </div>
+      <div
+        className="media-content"
+      >
+        <p
+          className="title is-4"
+        >
+          login
+        </p>
+        <p
+          className="subtitle is-6"
+        >
+          company
+        </p>
+      </div>
+    </div>
+    <div
+      className="content"
+    >
+      Owner
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Others/User without avatar 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-left"
+      >
+        <figure
+          className="image is-48x48"
+        >
+          <img
+            alt="avatar"
+            src="/octicon-git-branch.svg"
+          />
+        </figure>
+      </div>
+      <div
+        className="media-content"
+      >
+        <p
+          className="title is-4"
+        >
+          login
+        </p>
+        <p
+          className="subtitle is-6"
+        >
+          company
+        </p>
+      </div>
+    </div>
+    <div
+      className="content"
+    >
+      Owner
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Others/UserRepo with user and repo 1`] = `
+Array [
+  <div
+    className="column"
+  >
+    <h1
+      className="title is-3"
+    >
+      <span
+        className="has-text-grey-light"
+      >
+        Repository
+      </span>
+    </h1>
+    <h3
+      className="subTitle is-3"
+    >
+      <a
+        href="https://github.com/undefined/demo-repo"
+      >
+        <strong>
+           / 
+          demo-repo
+        </strong>
+        <span
+          className="icon"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-github fa-w-16 "
+            data-icon="github"
+            data-prefix="fab"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 496 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </span>
+      </a>
+    </h3>
+  </div>,
+  <div
+    className="column"
+  >
+    <div
+      className="card"
+    >
+      <div
+        className="card-content"
+      >
+        <div
+          className="media"
+        >
+          <div
+            className="media-left"
+          >
+            <figure
+              className="image is-48x48"
+            >
+              <img
+                alt="avatar"
+                src="/octicon-git-branch.svg"
+              />
+            </figure>
+          </div>
+          <div
+            className="media-content"
+          >
+            <p
+              className="title is-4"
+            >
+              ?
+            </p>
+            <p
+              className="subtitle is-6"
+            />
+          </div>
+        </div>
+        <div
+          className="content"
+        >
+          Owner
+        </div>
+      </div>
+    </div>
+    <table
+      className="table is-bordered is-striped is-hoverable"
+    >
+      <thead>
+        <tr>
+          <th
+            className="is-narrow"
+          >
+            <span
+              className="fas fa-code-branch"
+            />
+            <span>
+              Branch
+            </span>
+          </th>
+          <th>
+            Commit
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a
+              href="https://github.com/lowsky/dashboard/tree/branch-x"
+            >
+              branch-x
+            </a>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-github fa-w-16 "
+              data-icon="github"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 496 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </td>
+          <td>
+            <div>
+              <a
+                href="https://github.com/lowsky/dashboard/tree/no-sha"
+              >
+                <b>
+                  no-message
+                </b>
+              </a>
+            </div>
+            <div>
+              <i>
+                no-date
+              </i>
+                by  
+              <a
+                href="https://github.com/"
+              >
+                
+                 
+                <span>
+                  
+                </span>
+              </a>
+               
+              <a
+                href="mailto:me@work"
+              >
+                ?My-Name
+              </a>
+            </div>
+            <div
+              className="statusline"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>,
+]
+`;

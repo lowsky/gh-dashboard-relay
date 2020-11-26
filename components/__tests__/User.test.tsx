@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import renderer from 'react-test-renderer';
+import User from "../User";
 
-import User from '../User';
 
 describe('User component', () => {
     it('should render without crashing', () => {
@@ -12,12 +12,12 @@ describe('User component', () => {
     });
 
     it('should render as expected', () => {
-        const props = {
+        const user = {
             avatar_url: 'www.avatar.url',
             login: 'login',
             company: 'comp',
         };
-        const appContainer = renderer.create(<User {...props} />).toJSON();
+        const appContainer = renderer.create(<User user={user} />).toJSON();
         expect(appContainer).toMatchSnapshot();
     });
 });

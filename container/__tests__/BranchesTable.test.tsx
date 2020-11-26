@@ -14,8 +14,7 @@ describe('BranchesTable component', () => {
     });
 
     it('should render as expected', () => {
-        const props = { branches: [{}] };
-        // @ts-ignore
+        const props = { repo: {branches: [{}] }};
         const appContainer = renderer.create(<BranchesTable {...props} />).toJSON();
         expect(appContainer).toMatchSnapshot();
     });

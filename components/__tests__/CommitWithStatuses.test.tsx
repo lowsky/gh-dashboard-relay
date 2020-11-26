@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import CommitWithStatuses from '../CommitWithStatuses';
 import renderer from 'react-test-renderer';
+import CommitWithStatuses from "../CommitWithStatuses";
 
 export const status = {
     target_url: 'target_url',
@@ -33,7 +33,6 @@ describe('CommitWithStatuses component', () => {
         const props = {
             commit,
         };
-        // @ts-ignore
         const appContainer = renderer.create(<CommitWithStatuses {...props} />).toJSON();
         expect(appContainer).toMatchSnapshot();
     });
