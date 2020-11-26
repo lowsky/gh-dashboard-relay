@@ -9,6 +9,5 @@ module.exports = {
         '../restinpeace/*.story.@(js|jsx|ts|tsx|mdx)',
         '../container/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    presets: ['storybook-addon-deps/preset-explorer', 'storybook-addon-deps/preset'],
     addons: ['@storybook/addon-essentials'],
 };
