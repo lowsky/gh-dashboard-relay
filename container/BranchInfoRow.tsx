@@ -21,7 +21,6 @@ const BranchInfoRow:React.FC<BranchInfoRowProps> = ({ branch }) => {
                 <FontAwesomeIcon icon={faGithub} />
             </td>
             <td>
-                {/* @ts-ignore*/}
                 <CommitWithStatuses commit={lastCommit} />
             </td>
         </tr>
