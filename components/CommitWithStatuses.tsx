@@ -20,21 +20,22 @@ function icon4context(context = '', avatar_url: string) {
 }
 
 function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) {
-    // const StatusIcon: React.FC<{ type: string }> = ({ type }) => <FontAwesomeIcon icon={type} classname={`statusicon`} />;
-
+    const style = {
+        verticalAlign: 'top'
+    };
     if (status === 'success') {
-        return <FontAwesomeIcon icon={faCheckCircle} />;
+        return <FontAwesomeIcon style={style} icon={faCheckCircle} />;
     }
     if (status === 'pending') {
-        return <FontAwesomeIcon icon={faHourglass}  />
+        return <FontAwesomeIcon style={style} icon={faHourglass} />
     }
     if (status === 'failure') {
-        return <FontAwesomeIcon icon={faExclamationCircle } />
+        return <FontAwesomeIcon style={style} icon={faExclamationCircle } />
     }
     if (status === 'error') {
-        return <FontAwesomeIcon icon={faTimes } />
+        return <FontAwesomeIcon style={style} icon={faTimes } />
     }
-    return <span>?{status} </span>;
+    return <span>{status}</span>;
 }
 
 function status2color(status) {
@@ -54,16 +55,20 @@ function status2color(status) {
 }
 
 const renderStatus = ({ target_url, avatar_url, context, description, state }, idx) => (
-    <span key={idx}>
-        <a
-            className="commitLink"
-            href={target_url}
-            style={{ color: status2color(state) }}
-            title={context + ' ' + description}>
+    <a key={idx}
+        className="commitLink"
+        href={target_url}
+        style={{ color: status2color(state),
+            //display: 'flex',
+            // flexDirection: 'row',
+            //justifyContent: 'start',
+            //alignItems: 'center'
+        }}
+        title={context + ' ' + description}>
             {icon4context(context, avatar_url)}
             {icon4status(state)}
-        </a>
-    </span>
+        {' '}
+    </a>
 );
 
 export interface CommitWithStatusProps {

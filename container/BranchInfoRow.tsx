@@ -17,7 +17,7 @@ const BranchInfoRow:React.FC<BranchInfoRowProps> = ({ branch }) => {
     return (
         <tr key={name}>
             <td>
-                <a href={githubBranchSrc}>{name}</a>
+                <a href={githubBranchSrc}>{name}</a>{' '}
                 <FontAwesomeIcon icon={faGithub} />
             </td>
             <td>

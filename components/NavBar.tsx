@@ -19,11 +19,20 @@ export class NavBar extends React.Component {
             <nav className="navbar" aria-label="main navigation">
                 <div className="navbar-brand">
                     <span className="navbar-item">
-                        Dashboard
+                        <Link href="/">Dashboard</Link>
                     </span>
                     <span className="navbar-item">
-                        <Link href="/">Home</Link>
+                        <Link href="/relay/lowsky/dashboard">GraphQL+Relay</Link>
                     </span>
+                    <span className="navbar-item">
+                            <a href="/story-book/index.html">Storybook</a>
+                    </span>
+                    <span className="navbar-item">
+                            <a href="https://github.com/lowsky/dashboard/">
+                                <FontAwesomeIcon icon={faGithub} />
+                            </a>
+                        </span>
+
                     <a
                         role="button"
                         className={'navbar-burger ' + (this.state.burgerActive ? 'is-active' : '')}
