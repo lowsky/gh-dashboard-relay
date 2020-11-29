@@ -13,7 +13,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo  }) => {
     <table className="table is-bordered is-striped is-hoverable">
       <thead>
                 <tr>
-                    <th className="is-narrow">
+                    <th>
                         <span className="fas fa-code-branch" />
                         <span>Branch</span>
                     </th>
