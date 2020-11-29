@@ -40,27 +40,24 @@ Array [
   <div
     className="statusline"
   >
-    <span>
-      <a
-        className="commitLink"
-        href="target_url"
-        style={
-          Object {
-            "color": "inherit",
-          }
+    <a
+      className="commitLink"
+      href="target_url"
+      style={
+        Object {
+          "color": "inherit",
         }
-        title="context description"
-      >
-        <span>
-          context
-        </span>
-        <span>
-          ?
-          state
-           
-        </span>
-      </a>
-    </span>
+      }
+      title="context description"
+    >
+      <span>
+        context
+      </span>
+      <span>
+        state
+      </span>
+       
+    </a>
   </div>,
 ]
 `;

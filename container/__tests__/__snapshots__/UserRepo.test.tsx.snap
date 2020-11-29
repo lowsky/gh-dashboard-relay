@@ -97,9 +97,7 @@ Array [
     >
       <thead>
         <tr>
-          <th
-            className="is-narrow"
-          >
+          <th>
             <span
               className="fas fa-code-branch"
             />
