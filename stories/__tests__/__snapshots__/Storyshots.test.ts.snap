@@ -12,6 +12,7 @@ exports[`Storyshots Others/BranchInfoRow with info 1`] = `
         >
           branch-x
         </a>
+         
         <svg
           aria-hidden="true"
           className="svg-inline--fa fa-github fa-w-16 "
@@ -76,9 +77,7 @@ exports[`Storyshots Others/BranchesTable with one branch 1`] = `
 >
   <thead>
     <tr>
-      <th
-        className="is-narrow"
-      >
+      <th>
         <span
           className="fas fa-code-branch"
         />
@@ -99,6 +98,7 @@ exports[`Storyshots Others/BranchesTable with one branch 1`] = `
         >
           branch-x
         </a>
+         
         <svg
           aria-hidden="true"
           className="svg-inline--fa fa-github fa-w-16 "
@@ -164,7 +164,7 @@ Array [
       href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
     >
       <b>
-        Merge pull request #287 from lowsky/greenkeeper/jsdom-pin-9.11.0
+        dummy-data! Merge pull request #1234 from lowsky/a-new-feature
       </b>
     </a>
   </div>,
@@ -193,142 +193,42 @@ Array [
   <div
     className="statusline"
   >
-    <span>
-      <a
-        className="commitLink"
-        href="https://www.chromatic.com/build?appId=5afab010f1d19900240b5469"
+    <a
+      className="commitLink"
+      href="https://www.github.com/lowsky/dashboard"
+      style={
+        Object {
+          "color": "green",
+        }
+      }
+      title="only some demo dummy demo data"
+    >
+      <span>
+        only some demo
+      </span>
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-check-circle fa-w-16 "
+        data-icon="check-circle"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
         style={
           Object {
-            "color": "green",
+            "verticalAlign": "top",
           }
         }
-        title="chromatic ui tests No changes."
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <img
-          alt="chromatic ui tests"
-          className="contextlogo"
-          height={24}
-          src="https://avatars1.githubusercontent.com/oa/581325?s=40&u=3d11470b9117a9024372113ecd1fc682b02395b8&v=4"
-          width={24}
+        <path
+          d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+          fill="currentColor"
+          style={Object {}}
         />
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-check-circle fa-w-16 "
-          data-icon="check-circle"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </a>
-    </span>
-    <span>
-      <a
-        className="commitLink"
-        href="https://circleci.com/gh/lowsky/dashboard/763?utm_campaign=vcs-integration-link&utm_medium=referral&utm_source=github-build-link"
-        style={
-          Object {
-            "color": "green",
-          }
-        }
-        title="ci/circleci Your tests passed on CircleCI!"
-      >
-        <span>
-          ci/circleci
-        </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-check-circle fa-w-16 "
-          data-icon="check-circle"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </a>
-    </span>
-    <span>
-      <a
-        className="commitLink"
-        href="https://www.bithound.io/github/lowsky/dashboard/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e/files?status=passing"
-        style={
-          Object {
-            "color": "green",
-          }
-        }
-        title="bitHound - Code No failing files."
-      >
-        <span>
-          bitHound - Code
-        </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-check-circle fa-w-16 "
-          data-icon="check-circle"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </a>
-    </span>
-    <span>
-      <a
-        className="commitLink"
-        href="https://www.bithound.io/github/lowsky/dashboard/master"
-        style={
-          Object {
-            "color": "orange",
-          }
-        }
-        title="bitHound - Dependencies null"
-      >
-        <span>
-          bitHound - Dependencies
-        </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-hourglass fa-w-12 "
-          data-icon="hourglass"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 384 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M360 64c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24 0 90.965 51.016 167.734 120.842 192C75.016 280.266 24 357.035 24 448c-13.255 0-24 10.745-24 24v16c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24 0-90.965-51.016-167.734-120.842-192C308.984 231.734 360 154.965 360 64z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </a>
-    </span>
+      </svg>
+       
+    </a>
   </div>,
 ]
 `;
@@ -603,9 +503,7 @@ exports[`Storyshots Others/Pages restful 1`] = `
       >
         <thead>
           <tr>
-            <th
-              className="is-narrow"
-            >
+            <th>
               <span
                 className="fas fa-code-branch"
               />
@@ -865,9 +763,7 @@ Array [
     >
       <thead>
         <tr>
-          <th
-            className="is-narrow"
-          >
+          <th>
             <span
               className="fas fa-code-branch"
             />
@@ -888,6 +784,7 @@ Array [
             >
               branch-x
             </a>
+             
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-github fa-w-16 "
