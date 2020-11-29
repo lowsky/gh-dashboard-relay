@@ -1,7 +1,7 @@
 {
   "name": "dashboard",
-  "version": "1.0.0",
-  "description": "A web app showing the states of all (feature) branches and links to running docker containers for each feature.",
+  "version": "2.0.0",
+  "description": "A web site showing the build states of all (feature) branches on one page.",
   "repository": {
     "type": "git",
     "url": "https://github.com/lowsky/dashboard.git"
@@ -17,20 +17,13 @@
     "node": ">=12.1"
   },
   "scripts": {
-    "_postinstall": "cd server ; yarn",
-    "_dev": "npm-run-all --parallel start:server start",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:server": "cd server ; yarn run start",
-    "_build:cra": "react-scripts build",
     "build:relay": "relay-compiler --src . --schema schema/schema.graphql --language typescript --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' '**/schema/**' --include '**/container/**' '**/components/**' '**/pages/**' '**/relay/**' '**/queries/**' ",
-    "_build": "yarn run build:relay ; npm-run-all --parallel build:server build:storybook build:cra ; yarn run chromatic-test",
     "vercel-build": " yarn run vercel-build:without-chromatic ; yarn run chromatic-test",
-    "vercel-build:without-chromatic": "yarn run build:relay ; npm-run-all --parallel build:storybook; yarn run build",
-    "_build:server": "cd server ; yarn run build",
+    "vercel-build:without-chromatic": "yarn run build:relay ; yarn run build:storybook; yarn run build",
     "_lint": "eslint .",
-    "_test": "react-scripts test --no-cache ",
     "coverage": "npm run test -- --coverage --coveragePathIgnorePatterns=src/relay/__generated__",
     "test:ci": "mkdir -p test-reports ; yarn run test:circleci",
     "test:vis": "start-server-and-test 'yarn run storybook -- --quiet --ci' 9009 'cypress run --record'",
@@ -67,7 +60,6 @@
     "@fortawesome/free-brands-svg-icons": "5.15.1",
     "@fortawesome/free-solid-svg-icons": "5.15.1",
     "@fortawesome/react-fontawesome": "0.1.13",
-    "@graphql-tools/mock": "7.0.0",
     "@graphql-tools/schema": "7.1.0",
     "@storybook/addon-actions": "6.1.8",
     "@storybook/addon-essentials": "6.1.8",
@@ -82,8 +74,6 @@
     "enzyme-adapter-react-16": "1.15.5",
     "graphql": "15.4.0",
     "npm-run-all": "4.1.5",
-    "prop-types": "15.7.2",
-    "react-is": "17.0.1",
     "react-relay": "10.1.0",
     "react-router-dom": "5.2.0",
     "relay-compiler": "10.1.0",
