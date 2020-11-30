@@ -61,7 +61,7 @@
     "@fortawesome/free-brands-svg-icons": "5.15.1",
     "@fortawesome/free-solid-svg-icons": "5.15.1",
     "@fortawesome/react-fontawesome": "0.1.13",
-    "@graphql-tools/schema": "7.1.0",
+    "@graphql-tools/schema": "7.1.2",
     "@storybook/addon-actions": "6.1.9",
     "@storybook/addon-essentials": "6.1.9",
     "@storybook/addon-links": "6.1.9",
