@@ -82,6 +82,6 @@
     "relay-compiler": "10.1.1",
     "relay-compiler-language-typescript": "13.0.2",
     "ts-jest": "26.4.4",
-    "typescript": "4.1.2"
+    "typescript": "4.1.3"
   }
 }
