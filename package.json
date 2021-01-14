@@ -43,7 +43,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "apollo-server-micro": "2.19.0",
+    "apollo-server-micro": "2.19.2",
     "bulma": "0.9.1",
     "github-api": "lowsky/github-api#supportInUsedInBrowser",
     "graphql": "15.4.0",
