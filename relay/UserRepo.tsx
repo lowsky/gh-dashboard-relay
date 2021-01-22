@@ -1,5 +1,4 @@
-import { createFragmentContainer } from 'react-relay';
-import { graphql } from "react-relay";
+import { createFragmentContainer, graphql } from 'react-relay';
 
 import UserRepo from '../container/UserRepo';
 

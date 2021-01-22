@@ -15,8 +15,7 @@ export interface RepoProps {
     repo?: RepoType;
 }
 
-const Repo: React.FC<RepoProps> = (props) => {
-  const { repo: { name= '?', owner = {} } = {} } = props;
+const Repo: React.FC<RepoProps> = ({ repo: { name= '?', owner = {} } = {} }) => {
   return (
     <div className="column">
       <h1 className="title is-3">

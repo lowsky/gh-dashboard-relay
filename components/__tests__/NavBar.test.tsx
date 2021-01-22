@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import renderer from 'react-test-renderer';
-
 import { BrowserRouter as Router } from 'react-router-dom';
-import { NavBar } from "../NavBar";
+
+import { NavBar } from '../NavBar';
 
 describe('NavBar component', () => {
     it('should render without crashing', () => {

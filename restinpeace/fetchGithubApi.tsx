@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
-import { GithubBranch } from "../lib/types/resolvers";
+
+import { GithubBranch } from '../lib/types/resolvers';
 
 export interface Commit {
     sha: string;

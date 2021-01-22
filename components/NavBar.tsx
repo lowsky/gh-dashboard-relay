@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export class NavBar extends React.Component {
     state = { burgerActive: false };
@@ -25,13 +25,13 @@ export class NavBar extends React.Component {
                         <Link href="/relay/lowsky/dashboard">GraphQL+Relay</Link>
                     </span>
                     <span className="navbar-item">
-                            <a href="/story-book/index.html">Storybook</a>
+                        <a href="/story-book/index.html">Storybook</a>
                     </span>
                     <span className="navbar-item">
-                            <a href="https://github.com/lowsky/dashboard/">
-                                <FontAwesomeIcon icon={faGithub} />
-                            </a>
-                        </span>
+                        <a href="https://github.com/lowsky/dashboard/">
+                            <FontAwesomeIcon icon={faGithub} />
+                        </a>
+                    </span>
 
                     <a
                         role="button"

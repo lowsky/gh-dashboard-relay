@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import {
     faCheckCircle,
     faHourglass,
@@ -9,8 +7,9 @@ import {
     faTimes,
 }  from '@fortawesome/free-solid-svg-icons'
 
+import { GithubCommit } from '../lib/types/resolvers';
+
 import './CommitWithStatuses.module.css';
-import { GithubCommit } from "../lib/types/resolvers";
 
 function icon4context(context = '', avatar_url: string) {
     if (avatar_url) {
@@ -58,12 +57,7 @@ const renderStatus = ({ target_url, avatar_url, context, description, state }, i
     <a key={idx}
         className="commitLink"
         href={target_url}
-        style={{ color: status2color(state),
-            //display: 'flex',
-            // flexDirection: 'row',
-            //justifyContent: 'start',
-            //alignItems: 'center'
-        }}
+        style={{ color: status2color(state) }}
         title={context + ' ' + description}>
             {icon4context(context, avatar_url)}
             {icon4status(state)}

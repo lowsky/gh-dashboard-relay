@@ -9,6 +9,7 @@ export const pages = [
     'branchestable--with-one-branch',
 ];
 
+
 describe('VisualRegression', () => {
     // eslint-disable-next-line array-callback-return
     pages.map((path) => {
@@ -28,11 +29,6 @@ describe('VisualRegression', () => {
             doScreenshot(filename);
 
             cy.matchScreenshot(flags.join('_'));
-
-            // snapshot name will be the test title
-
-            // NO
-            // cy.pause();
         });
     });
 });

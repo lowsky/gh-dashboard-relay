@@ -13,15 +13,6 @@ export interface UserRepoProps {
     };
 }
 
-/*
-export interface Repo {
-    user?: UserWithErrorMessage;
-    repo?: {
-        name: string;
-        branches: BranchesWithErrorMessage;
-    };
-}
-*/
 let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github }) => {
     const { Repo, User, BranchTable } = useContext(UILibContext);
 

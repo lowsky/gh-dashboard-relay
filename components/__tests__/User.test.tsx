@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import renderer from 'react-test-renderer';
-import User from "../User";
+
+import User from '../User';
 
 
 describe('User component', () => {

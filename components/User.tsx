@@ -10,8 +10,7 @@ export interface UserProps {
     user?: User;
 }
 
-const User: React.FC<UserProps> = (props) => {
-    const { user = {} } = props;
+const User: React.FC<UserProps> = ({ user = {} }) => {
     const { avatar_url = '/octicon-git-branch.svg', login = '?', company } = user;
 
     return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import renderer from 'react-test-renderer';
-import CommitWithStatuses from "../CommitWithStatuses";
+
+import CommitWithStatuses from '../CommitWithStatuses';
 
 export const status = {
     target_url: 'target_url',

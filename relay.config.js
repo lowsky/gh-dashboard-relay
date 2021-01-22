@@ -5,5 +5,5 @@ module.exports = {
     src: './src/relay',
     language: 'typescript',
     schema: './src/relay/data/schema.graphql',
-    exclude: ['**/node_modules/**', '**/__mocks__/**', '**/__generatedx__/**'],
+    exclude: ['**/node_modules/**', '**/__mocks__/**'],
 };

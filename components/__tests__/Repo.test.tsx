@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import Repo from "../Repo";
+
+import Repo from '../Repo';
 
 
 describe('Repo component', () => {

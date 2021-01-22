@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import UserRepo, { UserRepoProps } from "../UserRepo";
-import UILibContext from "../../components/UILibContext";
-import { UILibPureComponents } from "../../components";
+
+import UserRepo, { UserRepoProps } from '../UserRepo';
+import UILibContext from '../../components/UILibContext';
+import { UILibPureComponents } from '../../components';
 
 const user = {
     avatar_url: '',
