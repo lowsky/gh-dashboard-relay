@@ -80,7 +80,7 @@
     "react-relay": "10.1.3",
     "react-router-dom": "5.2.0",
     "relay-compiler": "10.1.3",
-    "relay-compiler-language-typescript": "13.0.2",
+    "relay-compiler-language-typescript": "13.0.6",
     "ts-jest": "26.5.1",
     "typescript": "4.1.3"
   }
