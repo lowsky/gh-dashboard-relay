@@ -55,8 +55,6 @@
     "whatwg-fetch": "3.6.2"
   },
   "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/plugin-transform-typescript": "7.12.1",
     "@fortawesome/fontawesome-svg-core": "1.2.34",
     "@fortawesome/free-brands-svg-icons": "5.15.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
@@ -68,7 +66,6 @@
     "@storybook/addon-storyshots": "6.1.21",
     "@storybook/react": "6.1.21",
     "@types/react": "17.0.3",
-    "babel-loader": "8.2.2",
     "babel-plugin-relay": "11.0.0",
     "chromatic": "5.7.0",
     "enzyme": "3.11.0",
