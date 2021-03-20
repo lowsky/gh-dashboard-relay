@@ -1,32 +1,27 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 
 import BranchInfoRow from '../BranchInfoRow';
-
-Enzyme.configure({ adapter: new Adapter() });
+import UILibContext from '../../components/UILibContext';
+import { UILibPureComponents } from '../../components';
 
 describe('BranchInfoRow component', () => {
     const BRANCH_NAME = 'someBranchName';
     const branch = {
         name: BRANCH_NAME,
     };
-    const dashComp = shallow(<BranchInfoRow branch={branch} />);
 
-    it('should render to a <tr> without className per default', () => {
-        expect(dashComp.type()).toBe('tr');
+    it('should render without crashing', () => {
+        const tbody = document.createElement('tbody');
+        ReactDOM.render(<BranchInfoRow branch={branch} />, tbody);
     });
 
-    it('should have 2 columns', () => {
-        const columns = dashComp.find('td');
-
-        expect(columns).toHaveLength(2);
-    });
-
-    it('first column should contain a link with text containing the branchName', () => {
-        const firstColumn = dashComp.childAt(0);
-        const aLink = firstColumn.find('a');
-
-        expect(aLink.props().children).toBe(BRANCH_NAME);
+    it('should render as expected', () => {
+        const appContainer = renderer.create(
+            <UILibContext.Provider value={UILibPureComponents}>
+                <BranchInfoRow branch={branch} />
+            </UILibContext.Provider>).toJSON();
+        expect(appContainer).toMatchSnapshot();
     });
 });
