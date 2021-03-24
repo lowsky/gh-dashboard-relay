@@ -74,7 +74,7 @@
     "npm-run-all": "4.1.5",
     "react-relay": "11.0.0",
     "react-router-dom": "5.2.0",
-    "relay-compiler": "11.0.0",
+    "relay-compiler": "11.0.1",
     "relay-compiler-language-typescript": "13.0.6",
     "ts-jest": "26.5.4",
     "typescript": "4.2.3"
