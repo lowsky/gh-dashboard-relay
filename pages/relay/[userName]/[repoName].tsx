@@ -1,15 +1,14 @@
 import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
 import { loadQuery, usePreloadedQuery } from 'react-relay/hooks';
-import { initEnvironment } from '../../../lib/relay';
 
-import GithubQuery from '../../../queries/relayPage';
-//import { WarningMissingURLParams } from '../src/routes';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
+import { UILibWithRelaySupport } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import UserRepo from '../../../relay/UserRepo';
-import { UILibWithRelaySupport } from '../../../components';
+import { initEnvironment } from '../../../lib/relay';
+import GithubQuery from '../../../queries/relayPage';
+import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
 
 const RelayRoot = () => {
     const router = useRouter();
@@ -31,22 +30,19 @@ const RelayRoot = () => {
 
     return (
         <ErrorBoundaryWithRetry
-            fallback={({ error }) => {
-                console.error('Failure while rendering in relay root container:', error);
-                return (
-                    <div className="notification has-text-danger">
-                        Error! While trying to load data from the server: {JSON.stringify(error)}
-                    </div>
-                );
-            }}>
-            <Suspense fallback={<ContentLoadingFallback/>}>
+            fallback={({ error }) => (
+                <div className="notification has-text-danger">
+                    Error! While trying to load data from the server: {JSON.stringify(error)}
+                </div>
+            )}>
+            <Suspense fallback={<ContentLoadingFallback />}>
                 <ShowUserRepoContent preloadedQuery={preloadedQuery} />
             </Suspense>
         </ErrorBoundaryWithRetry>
     );
 };
 
-function ShowUserRepoContent({preloadedQuery}) {
+function ShowUserRepoContent({ preloadedQuery }) {
     // Immediately load the query as our app starts. For a real app, we'd move this
     // into our routing configuration, preloading data ShowUserRepoConentition to new routes.
     const data = usePreloadedQuery(GithubQuery, preloadedQuery);
@@ -89,6 +85,5 @@ export async function getStaticProps() {
   }
 }
  */
-
 
 export default RelayRoot;
