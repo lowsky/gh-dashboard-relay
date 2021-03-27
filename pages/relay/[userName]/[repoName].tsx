@@ -1,15 +1,15 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { fetchQuery } from "react-relay";
-import { useRouter } from "next/router";
-import { initEnvironment } from "../../../lib/relay";
+import React, { Suspense } from 'react';
+import { useRouter } from 'next/router';
+import { loadQuery, usePreloadedQuery } from 'react-relay/hooks';
+import { initEnvironment } from '../../../lib/relay';
 
-import GithubQuery from "../../../queries/relayPage";
-import UserRepo from "../../../relay/UserRepo";
+import GithubQuery from '../../../queries/relayPage';
 //import { WarningMissingURLParams } from '../src/routes';
-import { UILibWithRelaySupport } from "../../../components";
-import UILibContext from "../../../components/UILibContext";
-import { WarningMissingURLParams } from "../../../container/NavBarWithRouting";
+import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
+import UILibContext from '../../../components/UILibContext';
+import UserRepo from '../../../relay/UserRepo';
+import { UILibWithRelaySupport } from '../../../components';
 
 const RelayRoot = () => {
     const router = useRouter();
@@ -19,73 +19,57 @@ const RelayRoot = () => {
     };
     const environment = initEnvironment();
 
-    const [{ github, error }, setGithub] = useState({
-      github:null,
-      error: ""
-    });
-
-    useEffect(() => {
-        const runQuery = async () => {
-            try {
-                const queryProps = await fetchQuery(environment, GithubQuery, {
-          userName: userName ?? "lowsky",
-          repoName: repoName ?? "dashboard"
-                });
-                //const initialRecords = environment.getStore().getSource().toJSON();
-                // initEnvironment(initialRecords);
-
-                // @ts-ignore
-                setGithub({
-                  github: queryProps.github
-                });
-            } catch (error) {
-                setGithub({
-                    // @ts-ignore
-                    github: null,
-                    error
-                });
-            }
-        };
-
-        if (environment) {
-            if (userName) {
-                runQuery();
-            }
-        }
-    }, [userName, repoName]);
-
     if (!userName || !repoName) {
         return WarningMissingURLParams;
     }
 
-    if (error) {
-        console.error("Failure while rendering in relay root container:", error);
-        return (
-          <div className="notification has-text-danger">
-              Error! While trying to load data from the server: {JSON.stringify(error)}
-          </div>
-        );
+    if (!global.window) {
+        return <h1>SSR rendering</h1>;
     }
 
-    if (github) {
-        return (
-          <UILibContext.Provider value={UILibWithRelaySupport}>
-              <div className="box">
-                  <UserRepo github={github}/>
-              </div>
-          </UILibContext.Provider>
-        );
-    }
+    const preloadedQuery = loadQuery(environment, GithubQuery, { userName, repoName });
 
     return (
-      <div className="box">
-      <span className="icon is-large ">
-          <i className="fas fa-spinner fa-pulse"/>
-      </span>
-          Loading ...
-      </div>
+        <ErrorBoundaryWithRetry
+            fallback={({ error }) => {
+                console.error('Failure while rendering in relay root container:', error);
+                return (
+                    <div className="notification has-text-danger">
+                        Error! While trying to load data from the server: {JSON.stringify(error)}
+                    </div>
+                );
+            }}>
+            <Suspense fallback={<ContentLoadingFallback/>}>
+                <ShowUserRepoContent preloadedQuery={preloadedQuery} />
+            </Suspense>
+        </ErrorBoundaryWithRetry>
     );
 };
+
+function ShowUserRepoContent({preloadedQuery}) {
+    // Immediately load the query as our app starts. For a real app, we'd move this
+    // into our routing configuration, preloading data ShowUserRepoConentition to new routes.
+    const data = usePreloadedQuery(GithubQuery, preloadedQuery);
+
+    return (
+        <UILibContext.Provider value={UILibWithRelaySupport}>
+            <div className="box">
+                <UserRepo github={data.github} />
+            </div>
+        </UILibContext.Provider>
+    );
+}
+
+function ContentLoadingFallback() {
+    return (
+        <div className="box">
+            <span className="icon is-large ">
+                <i className="fas fa-spinner fa-pulse" />
+            </span>
+            Loading ...
+        </div>
+    );
+}
 
 /*
 export async function getStaticProps() {
