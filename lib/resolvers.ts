@@ -22,7 +22,6 @@ export const resolvers = {
             const { ownerUsername, reponame } = branch; // info has been added while loading
             return getCommitsForRepo(ownerUsername, reponame, branch.sha)
                 .then((list) => {
-                    console.log({ list });
 
                     return list[0];
                 })
