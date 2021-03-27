@@ -22,15 +22,14 @@ export const resolvers = {
             const { ownerUsername, reponame } = branch; // info has been added while loading
             return getCommitsForRepo(ownerUsername, reponame, branch.sha)
                 .then((list) => {
-
                     return list[0];
                 })
                 .then((commit) => {
-                    console.error(commit.commit);
-
                     const lastCom = {
                         ...commit,
+                        // @ts-ignore
                         message: commit.commit.message,
+                        // @ts-ignore
                         date: commit.commit.committer.date,
                     };
                     return lastCom;
@@ -76,11 +75,12 @@ export const resolvers = {
         commits: (repo) => {
             return getCommitsForRepo(repo.owner?.login, repo.name).then((commitList) => {
                 return commitList.map((commit) => {
-                    console.log(commit.commit);
                     return {
                         ...commit,
+                        // @ts-ignore
                         message: commit.commit.message,
-                        // date: commit.commit.commiter.date,
+                        // @ts-ignore
+                        date: commit.commit.committer.date,
                     };
                 });
             });
@@ -88,7 +88,6 @@ export const resolvers = {
     },
     Query: {
         github: () => {
-            console.log("dude");
             return {};
         },
         user: (_, { username }) => {
