@@ -1,157 +1,61 @@
-import Github from 'github-api';
-import { GithubRepo, GithubStatus, GithubBranch } from './types/resolvers';
+import { Octokit } from '@octokit/rest';
+
+import { GithubRepo, GithubStatus, GithubBranch, GithubUser, GithubCommit } from './types/resolvers';
 
 const { GITHUB_TOKEN } = process.env;
-console.log({ GITHUB_TOKEN });
 
-const github = new Github({
-    token: GITHUB_TOKEN,
-    auth: 'oauth',
+const octo = new Octokit({
+    auth: GITHUB_TOKEN,
 });
 
-export const getUser = (username) => {
-    let user = github.getUser();
-    return new Promise((resolve, reject) => {
-        user.show(username, (err, user) => {
-            if (user) {
-                resolve(user);
-            } else {
-                reject(err);
-            }
-        });
-    });
+export const getUser = async (username): Promise<GithubUser> => {
+    const { data } = await octo.users.getByUsername({ username });
+    return convertItsIdToString(data);
 };
 
-export const getReposForUser = (username): Promise<Array<GithubRepo>> => {
-    let user = github.getUser();
-    return new Promise((resolve, reject) => {
-        user.userRepos(username, (err, repos) => {
-            if (repos) {
-                resolve(repos);
-            } else {
-                reject(err);
-            }
-        });
-    });
+export const getReposForUser = async (username): Promise<Array<GithubRepo>> => {
+    const repos = await octo.repos.listForUser({ username });
+    return repos.data.map((r) => ({
+        ...convertItsIdToString(r),
+        owner: convertItsIdToString(r.owner),
+    }));
 };
 
-type RestGithubCommit = {
-    // author?: Maybe<UserOrCommitAuthor>;
-    date?: string;
-    message?: string;
-    sha?: string;
-    url?: string;
-    commit: {
-        message?: string;
-        committer: {
-            date?: string;
-        };
+export const getCommitsForRepo = async (
+    username: string,
+    reponame: string,
+    sha?: string
+): Promise<Array<GithubCommit>> => {
+    const commits = await octo.repos.listCommits({ sha, owner: username, repo: reponame });
+    return convertItsIdToString(commits.data);
+};
+
+export const getBranchesForRepo = async (username, reponame): Promise<Array<GithubBranch>> => {
+    const branches = await octo.repos.listBranches({
+        owner: username,
+        repo: reponame,
+    });
+    return branches.data;
+};
+
+export const getRepoForUser = async (username, reponame): Promise<GithubRepo> => {
+    const { data } = await octo.repos.get({ repo: reponame, owner: username });
+    return { ...convertItsIdToString(data), owner: convertItsIdToString(data.owner) };
+};
+
+export const getStatusesForRepo = async (username, reponame, sha): Promise<Array<GithubStatus>> => {
+    const statuses = await octo.repos.listCommitStatusesForRef({
+        ref: sha,
+        repo: reponame,
+        owner: username,
+    });
+
+    return statuses.data;
+};
+
+function convertItsIdToString(obj: any & { id: number }): any & { id: String } {
+    return {
+        ...obj,
+        id: String(obj.id),
     };
-    // status?: Maybe<Array<Maybe<GithubStatus>>>;
-    // tree?: Maybe<GithubTree>;
-};
-export const getCommitsForRepo = (username, reponame, sha?: string): Promise<Array<RestGithubCommit>> => {
-    const repo = github.getRepo(username, reponame);
-    const params = { perpage: 1, sha };
-
-    return new Promise((resolve, reject) => {
-        repo.getCommits(params, (err, commits) => {
-            if (commits) {
-                resolve(commits);
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
-
-let getBranchesLastCommits = (repo, branchNames) => {
-    return branchNames.map(
-        (name) =>
-            new Promise((resolve, reject) => {
-                repo.getRef('heads/' + name, (err, sha) => {
-                    if (sha) {
-                        resolve({ name, sha });
-                    } else {
-                        reject(err);
-                    }
-                });
-            })
-    );
-};
-
-export const getBranchesForRepo = (username, reponame): Promise<Array<GithubBranch>> => {
-    let repo = github.getRepo(username, reponame);
-    return new Promise((resolve, reject) => {
-        repo.listBranches((err, branches) => {
-            if (branches) {
-                resolve(Promise.all(getBranchesLastCommits(repo, branches)));
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
-
-export const getRepoForUser = (username, reponame) => {
-    let repo = github.getRepo(username, reponame);
-    return new Promise((resolve, reject) => {
-        repo.show((err, repo) => {
-            if (repo) {
-                resolve(repo);
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
-
-export const getIssuesForRepo = (username, reponame) => {
-    let issues = github.getIssues(username, reponame);
-    return new Promise((resolve, reject) => {
-        issues.list({}, (err, issues) => {
-            if (issues) {
-                resolve(issues);
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
-
-export const getCommentsForIssue = (username, reponame, issue) => {
-    let issues = github.getIssues(username, reponame);
-    return new Promise((resolve, reject) => {
-        issues.getComments(issue, (err, comments) => {
-            if (comments) {
-                resolve(comments);
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
-
-export const getTreeForRepo = (username, reponame, tree) => {
-    return new Promise((resolve, reject) => {
-        github.getRepo(username, reponame).getTree(tree, (err, result) => {
-            if (result) {
-                resolve(result);
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
-
-export const getStatusesForRepo = (username, reponame, sha): Promise<GithubStatus> => {
-    return new Promise((resolve, reject) => {
-        github.getRepo(username, reponame).getStatuses(sha, (err, result) => {
-            if (result) {
-                resolve(result);
-            } else {
-                reject(err);
-            }
-        });
-    });
-};
+}
