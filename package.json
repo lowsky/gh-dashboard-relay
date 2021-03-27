@@ -43,7 +43,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@octokit/graphql-schema": "10.32.1",
+    "@octokit/graphql-schema": "10.34.0",
     "@octokit/rest": "^18.3.5",
     "@octokit/types": "^6.12.2",
     "apollo-server-micro": "2.22.1",
