@@ -10,18 +10,14 @@ const octo = new Octokit({
 
 export const getUser = async (username): Promise<GithubUser> => {
     const { data } = await octo.users.getByUsername({ username });
-    return { ...data, id: String(data.id) };
+    return convertItsIdToString(data);
 };
 
 export const getReposForUser = async (username): Promise<Array<GithubRepo>> => {
     const repos = await octo.repos.listForUser({ username });
     return repos.data.map((r) => ({
-        ...r,
-        id: String(r.id),
-        owner: {
-            ...r.owner,
-            id: String(r.owner.id),
-        },
+        ...convertItsIdToString(r),
+        owner: convertItsIdToString(r.owner),
     }));
 };
 
@@ -31,8 +27,7 @@ export const getCommitsForRepo = async (
     sha?: string
 ): Promise<Array<GithubCommit>> => {
     const commits = await octo.repos.listCommits({ sha, owner: username, repo: reponame });
-    // @ts-ignore id is number instead of string ...
-    return commits.data;
+    return convertItsIdToString(commits.data);
 };
 
 export const getBranchesForRepo = async (username, reponame): Promise<Array<GithubBranch>> => {
@@ -45,7 +40,7 @@ export const getBranchesForRepo = async (username, reponame): Promise<Array<Gith
 
 export const getRepoForUser = async (username, reponame): Promise<GithubRepo> => {
     const { data } = await octo.repos.get({ repo: reponame, owner: username });
-    return { ...data, id: String(data.id), owner: { ...data.owner, id: String(data.owner.id) } };
+    return { ...convertItsIdToString(data), owner: convertItsIdToString(data.owner) };
 };
 
 export const getStatusesForRepo = async (username, reponame, sha): Promise<Array<GithubStatus>> => {
@@ -57,3 +52,10 @@ export const getStatusesForRepo = async (username, reponame, sha): Promise<Array
 
     return statuses.data;
 };
+
+function convertItsIdToString(obj: any & { id: number }): any & { id: String } {
+    return {
+        ...obj,
+        id: String(obj.id),
+    };
+}
