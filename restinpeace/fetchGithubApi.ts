@@ -1,6 +1,8 @@
-import 'whatwg-fetch';
+import { Octokit } from '@octokit/rest';
 
 import { GithubBranch } from '../lib/types/resolvers';
+
+const octo = new Octokit();
 
 export interface Commit {
     sha: string;
@@ -13,15 +15,16 @@ export interface BranchesWithErrorMessage extends Branches {
     loading?: Boolean;
     message?: string;
 }
+
 /**
- * Fetch the branches info for given repo directly per 'REST' from GitHub.
+ * Fetch the branches info for a given repo
  *
- * @param repo <userName>/<repoName>, like lowsky/dashboard
+ * @param owner user's login name, e.g lowsky
+ * @param repo repo's name
  */
-export const fetchRepoBranches = async (repo: String): Promise<BranchesWithErrorMessage> => {
-    let url = `https://api.github.com/repos/${repo}/branches`; // eslint-disable-line quotes
-    let response = await fetch(url);
-    return response.json();
+export const fetchRepoBranches = async (owner: string, repo: string): Promise<BranchesWithErrorMessage> => {
+    const branches = await octo.repos.listBranches({ owner, repo });
+    return branches.data;
 };
 
 interface User {
@@ -35,12 +38,11 @@ export interface UserWithErrorMessage extends User {
 }
 
 /**
- * Fetch the user info for a given login directly per 'REST' from GitHub.
+ * Fetch the user info for a given login
  *
- * @param login user's login name, e.g lowsky
+ * @param username user's login name, e.g lowsky
  */
-export const fetchUser = async (login: String): Promise<UserWithErrorMessage> => {
-    let url = `https://api.github.com/users/${login}`; // eslint-disable-line quotes
-    let response = await fetch(url);
-    return response.json();
+export const fetchUser = async (username: string): Promise<UserWithErrorMessage> => {
+    const byUsername = await octo.users.getByUsername({ username });
+    return byUsername.data;
 };

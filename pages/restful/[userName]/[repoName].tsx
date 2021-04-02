@@ -61,7 +61,7 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
                     storeErrorMsg('User: ' + ex.message);
-                    console.log('fetching user info failed', ex);
+                    console.error('fetching user info failed', ex);
                 }
             });
         return () => {
@@ -72,7 +72,7 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchRepoBranches(userName + '/' + repoName)
+        fetchRepoBranches(userName , repoName)
             .then((branches) => {
                 if (!ignoreDownloadedData) {
                     if (branches.message) {
@@ -88,8 +88,8 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
             })
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
-                    storeErrorMsg('Repo: ' + ex.message);
-                    console.log('fetching branches info failed', ex);
+                    storeErrorMsg('Repository: ' + ex.message);
+                    console.error('fetching branches info failed', ex);
                 }
             });
 
