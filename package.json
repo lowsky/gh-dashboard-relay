@@ -53,8 +53,7 @@
     "next-images": "1.7.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-router-config": "5.1.1",
-    "whatwg-fetch": "3.6.2"
+    "react-router-config": "5.1.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.35",
