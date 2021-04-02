@@ -19,13 +19,15 @@ let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github }) => {
     if (!github) return null;
 
     const { user, repo } = github;
-
+    console.log({ github });
     return (
         <React.Fragment>
-            <Repo repo={repo} />
+            {!user && <p>User not found.</p>}
+            {repo && <Repo repo={repo} />}
+            {user && !repo && <p>Repo not found.</p>}
             <div className="column">
-            <User user={user} />
-                <BranchTable repo={repo} />
+                {user && <User user={user} />}
+                {repo && <BranchTable repo={repo} />}
             </div>
         </React.Fragment>
     );
