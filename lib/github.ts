@@ -4,7 +4,7 @@ import { GithubRepo, GithubStatus, GithubBranch, GithubUser, GithubCommit } from
 
 const { GITHUB_TOKEN } = process.env;
 
-const octo = new Octokit({
+export const octo = new Octokit({
     auth: GITHUB_TOKEN,
 });
 
