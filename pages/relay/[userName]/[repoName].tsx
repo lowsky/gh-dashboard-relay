@@ -7,16 +7,29 @@ import { UILibWithRelaySupport } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import UserRepo from '../../../relay/UserRepo';
 import { initEnvironment } from '../../../lib/relay';
+import {
+    relayPageQuery,
+    relayPageQueryResponse,
+    relayPageQueryVariables,
+} from '../../../queries/__generated__/relayPageQuery.graphql';
 import GithubQuery from '../../../queries/relayPage';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
+import { UserRepoProps } from '../../../container/UserRepo';
+
+function singleArgOrDefault(value: string | string[], defaultValue: string) {
+    if (value === null || value === undefined) {
+        return defaultValue;
+    }
+    if (typeof value === 'string') {
+        return value;
+    }
+    return String(value);
+}
 
 const RelayRoot = () => {
     const router = useRouter();
-    const { userName, repoName } = router?.query ?? {
-        userName: 'lowsky',
-        repoName: 'dashboard',
-    };
-    const environment = initEnvironment();
+    const repoName = singleArgOrDefault(router?.query?.repoName, 'dashboard');
+    const userName = singleArgOrDefault(router?.query?.username, 'lowsky');
 
     if (!userName || !repoName) {
         return WarningMissingURLParams;
@@ -26,7 +39,10 @@ const RelayRoot = () => {
         return <h1>SSR rendering</h1>;
     }
 
-    const preloadedQuery = loadQuery(environment, GithubQuery, { userName, repoName });
+    const environment = initEnvironment();
+
+    const variables : relayPageQueryVariables = { userName, repoName };
+    const preloadedQuery = loadQuery<relayPageQuery>(environment, GithubQuery, variables);
 
     return (
         <ErrorBoundaryWithRetry
@@ -45,12 +61,14 @@ const RelayRoot = () => {
 function ShowUserRepoContent({ preloadedQuery }) {
     // Immediately load the query as our app starts. For a real app, we'd move this
     // into our routing configuration, preloading data ShowUserRepoConentition to new routes.
-    const data = usePreloadedQuery(GithubQuery, preloadedQuery);
+    const data: relayPageQueryResponse = usePreloadedQuery<relayPageQuery>(GithubQuery, preloadedQuery);
 
+    // @ts-ignore
+    const github: UserRepoProps["github"] = data.github;
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
             <div className="box">
-                <UserRepo github={data.github} />
+                <UserRepo github={github} />
             </div>
         </UILibContext.Provider>
     );
@@ -66,24 +84,5 @@ function ContentLoadingFallback() {
         </div>
     );
 }
-
-/*
-export async function getStaticProps() {
-  const params = {}
-  const environment = initEnvironment()
-  const queryProps = await fetchQuery(environment, GithubQuery, {
-    userName: params?.userName ?? "lowsky",
-    repoName: params?.repoName ?? "dashboard"
-  })
-  const initialRecords = environment.getStore().getSource().toJSON()
-
-  return {
-    props: {
-      ...queryProps,
-      initialRecords,
-    },
-  }
-}
- */
 
 export default RelayRoot;

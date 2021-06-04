@@ -1,17 +1,9 @@
 import { createFragmentContainer, graphql } from 'react-relay';
 import React from 'react';
 
-import BranchInfoRow from '../container/BranchInfoRow';
-import { fakeCommitWithStatuses } from './CommitWithStatuses';
+import BranchInfoRow, { BranchInfoRowProps } from '../container/BranchInfoRow';
 
-export const fakeBranchInfo = {
-    name: 'fake',
-    lastCommit: {
-        ...fakeCommitWithStatuses,
-    },
-};
-
-export default createFragmentContainer((props) => <BranchInfoRow {...props} />, {
+export default createFragmentContainer<BranchInfoRowProps>((props) => <BranchInfoRow {...props} />, {
     branch: graphql`
         fragment BranchInfoRow_branch on GithubBranch {
             name

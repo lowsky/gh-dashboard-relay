@@ -1,8 +1,5 @@
-import { Octokit } from '@octokit/rest';
-
 import { GithubBranch } from '../lib/types/resolvers';
-
-const octo = new Octokit();
+import { octo } from '../lib/github';
 
 export interface Commit {
     sha: string;
@@ -23,8 +20,9 @@ export interface BranchesWithErrorMessage extends Branches {
  * @param repo repo's name
  */
 export const fetchRepoBranches = async (owner: string, repo: string): Promise<BranchesWithErrorMessage> => {
-    const branches = await octo.repos.listBranches({ owner, repo });
-    return branches.data;
+    const listBranches = octo.repos.listBranches({ owner, repo });
+    const branches = await listBranches;
+    return await branches.data;
 };
 
 interface User {
@@ -43,6 +41,8 @@ export interface UserWithErrorMessage extends User {
  * @param username user's login name, e.g lowsky
  */
 export const fetchUser = async (username: string): Promise<UserWithErrorMessage> => {
-    const byUsername = await octo.users.getByUsername({ username });
-    return byUsername.data;
+    // @ts-ignore
+    return octo.users.getByUsername({ username }).then((byUsername) => {
+        return byUsername.data;
+    });
 };
