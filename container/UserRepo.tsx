@@ -19,7 +19,6 @@ let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github }) => {
     if (!github) return null;
 
     const { user, repo } = github;
-    console.log({ github });
     return (
         <React.Fragment>
             {!user && <p>User not found.</p>}

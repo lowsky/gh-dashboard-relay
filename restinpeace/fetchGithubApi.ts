@@ -22,7 +22,6 @@ export interface BranchesWithErrorMessage extends Branches {
 export const fetchRepoBranches = async (owner: string, repo: string): Promise<BranchesWithErrorMessage> => {
     const listBranches = octo.repos.listBranches({ owner, repo });
     const branches = await listBranches;
-    console.log(branches);
     return await branches.data;
 };
 
