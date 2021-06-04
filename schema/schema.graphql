@@ -21,7 +21,9 @@ type GithubAPI {
 }
 
 type GithubBranch {
-    name: String
+    ownerUsername: String
+    reponame: String
+    name: String!
     lastCommit: GithubCommit
 }
 

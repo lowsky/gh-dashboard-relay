@@ -1,6 +1,8 @@
 import { GraphQLResolveInfo } from 'graphql';
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
@@ -12,67 +14,41 @@ export type Scalars = {
   Float: number;
 };
 
-export type Query = {
-  __typename?: 'Query';
-  github?: Maybe<GithubApi>;
-  repo?: Maybe<GithubRepo>;
+export type GithubApi = {
+  __typename?: 'GithubAPI';
   user?: Maybe<GithubUser>;
+  repo?: Maybe<GithubRepo>;
 };
 
 
-export type QueryRepoArgs = {
-  name: Scalars['String'];
-  ownerUsername: Scalars['String'];
-};
-
-
-export type QueryUserArgs = {
+export type GithubApiUserArgs = {
   username: Scalars['String'];
 };
 
-export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;
 
-/** The Github API */
-export type GithubApi = {
-  __typename?: 'GithubAPI';
-  repo?: Maybe<GithubRepo>;
-  user?: Maybe<GithubUser>;
-};
-
-
-/** The Github API */
 export type GithubApiRepoArgs = {
   name: Scalars['String'];
   ownerUsername: Scalars['String'];
-};
-
-
-/** The Github API */
-export type GithubApiUserArgs = {
-  username: Scalars['String'];
 };
 
 export type GithubBranch = {
   __typename?: 'GithubBranch';
   ownerUsername?: Maybe<Scalars['String']>;
   reponame?: Maybe<Scalars['String']>;
-  sha?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
   lastCommit?: Maybe<GithubCommit>;
-  name?: Maybe<Scalars['String']>;
 };
 
 export type GithubCommit = {
   __typename?: 'GithubCommit';
-  author?: Maybe<UserOrCommitAuthor>;
-  date?: Maybe<Scalars['String']>;
-  message?: Maybe<Scalars['String']>;
   sha?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
+  author?: Maybe<UserOrCommitAuthor>;
+  message?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
   status?: Maybe<Array<Maybe<GithubStatus>>>;
   tree?: Maybe<GithubTree>;
 };
 
-/** Commit author that is not associated with a Github acount */
 export type GithubCommitAuthor = {
   __typename?: 'GithubCommitAuthor';
   email?: Maybe<Scalars['String']>;
@@ -81,16 +57,11 @@ export type GithubCommitAuthor = {
 
 export type GithubRepo = {
   __typename?: 'GithubRepo';
-  branches?: Maybe<Array<Maybe<GithubBranch>>>;
-  commits?: Maybe<Array<Maybe<GithubCommit>>>;
   id?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
+  commits?: Maybe<Array<Maybe<GithubCommit>>>;
+  branches?: Maybe<Array<Maybe<GithubBranch>>>;
   owner?: Maybe<GithubUser>;
-};
-
-
-export type GithubRepoBranchesArgs = {
-  limit?: Maybe<Scalars['Int']>;
 };
 
 
@@ -98,16 +69,19 @@ export type GithubRepoCommitsArgs = {
   limit?: Maybe<Scalars['Int']>;
 };
 
-/** Status of a commit */
+
+export type GithubRepoBranchesArgs = {
+  limit?: Maybe<Scalars['Int']>;
+};
+
 export type GithubStatus = {
   __typename?: 'GithubStatus';
-  context?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
   state?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   target_url?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
   avatar_url?: Maybe<Scalars['String']>;
+  context?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars['String']>;
 };
 
 export type GithubTree = {
@@ -117,27 +91,27 @@ export type GithubTree = {
 
 export type GithubTreeEntry = {
   __typename?: 'GithubTreeEntry';
-  last_commit?: Maybe<GithubCommit>;
   path?: Maybe<Scalars['String']>;
+  last_commit?: Maybe<GithubCommit>;
 };
 
 export type GithubUser = {
   __typename?: 'GithubUser';
-  avatar_url?: Maybe<Scalars['String']>;
-  company?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
   login?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  company?: Maybe<Scalars['String']>;
+  avatar_url?: Maybe<Scalars['String']>;
   repos?: Maybe<Array<Maybe<GithubRepo>>>;
 };
 
-/** APIs exposed as GraphQL */
 export type GraphQl_Github_Api = {
   __typename?: 'GraphQL_github_API';
   github?: Maybe<GithubApi>;
 };
 
-export type WithIndex<TObject> = TObject & Record<string, any>;
-export type ResolversObject<TObject> = WithIndex<TObject>;
+export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;
+
+
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
@@ -201,7 +175,7 @@ export type TypeResolveFn<TTypes, TParent = {}, TContext = {}> = (
   info: GraphQLResolveInfo
 ) => Maybe<TTypes> | Promise<Maybe<TTypes>>;
 
-export type IsTypeOfResolverFn<T = {}> = (obj: T, info: GraphQLResolveInfo) => boolean | Promise<boolean>;
+export type IsTypeOfResolverFn<T = {}, TContext = {}> = (obj: T, context: TContext, info: GraphQLResolveInfo) => boolean | Promise<boolean>;
 
 export type NextResolverFn<T> = () => Promise<T>;
 
@@ -214,12 +188,9 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 ) => TResult | Promise<TResult>;
 
 /** Mapping between all available schema types and the resolvers types */
-export type ResolversTypes = ResolversObject<{
-  String: ResolverTypeWrapper<Scalars['String']>;
-  Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  Query: ResolverTypeWrapper<{}>;
-  UserOrCommitAuthor: ResolversTypes['GithubCommitAuthor'] | ResolversTypes['GithubUser'];
+export type ResolversTypes = {
   GithubAPI: ResolverTypeWrapper<GithubApi>;
+  String: ResolverTypeWrapper<Scalars['String']>;
   GithubBranch: ResolverTypeWrapper<GithubBranch>;
   GithubCommit: ResolverTypeWrapper<Omit<GithubCommit, 'author'> & { author?: Maybe<ResolversTypes['UserOrCommitAuthor']> }>;
   GithubCommitAuthor: ResolverTypeWrapper<GithubCommitAuthor>;
@@ -229,16 +200,15 @@ export type ResolversTypes = ResolversObject<{
   GithubTree: ResolverTypeWrapper<GithubTree>;
   GithubTreeEntry: ResolverTypeWrapper<GithubTreeEntry>;
   GithubUser: ResolverTypeWrapper<GithubUser>;
-  GraphQL_github_API: ResolverTypeWrapper<GraphQl_Github_Api>;
-}>;
+  GraphQL_github_API: ResolverTypeWrapper<{}>;
+  UserOrCommitAuthor: ResolversTypes['GithubCommitAuthor'] | ResolversTypes['GithubUser'];
+  Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+};
 
 /** Mapping between all available schema types and the resolvers parents */
-export type ResolversParentTypes = ResolversObject<{
-  String: Scalars['String'];
-  Boolean: Scalars['Boolean'];
-  Query: {};
-  UserOrCommitAuthor: ResolversParentTypes['GithubCommitAuthor'] | ResolversParentTypes['GithubUser'];
+export type ResolversParentTypes = {
   GithubAPI: GithubApi;
+  String: Scalars['String'];
   GithubBranch: GithubBranch;
   GithubCommit: Omit<GithubCommit, 'author'> & { author?: Maybe<ResolversParentTypes['UserOrCommitAuthor']> };
   GithubCommitAuthor: GithubCommitAuthor;
@@ -248,99 +218,89 @@ export type ResolversParentTypes = ResolversObject<{
   GithubTree: GithubTree;
   GithubTreeEntry: GithubTreeEntry;
   GithubUser: GithubUser;
-  GraphQL_github_API: GraphQl_Github_Api;
-}>;
+  GraphQL_github_API: {};
+  UserOrCommitAuthor: ResolversParentTypes['GithubCommitAuthor'] | ResolversParentTypes['GithubUser'];
+  Boolean: Scalars['Boolean'];
+};
 
-export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  github?: Resolver<Maybe<ResolversTypes['GithubAPI']>, ParentType, ContextType>;
-  repo?: Resolver<Maybe<ResolversTypes['GithubRepo']>, ParentType, ContextType, RequireFields<QueryRepoArgs, 'name' | 'ownerUsername'>>;
-  user?: Resolver<Maybe<ResolversTypes['GithubUser']>, ParentType, ContextType, RequireFields<QueryUserArgs, 'username'>>;
-}>;
-
-export type UserOrCommitAuthorResolvers<ContextType = any, ParentType extends ResolversParentTypes['UserOrCommitAuthor'] = ResolversParentTypes['UserOrCommitAuthor']> = ResolversObject<{
-  __resolveType: TypeResolveFn<'GithubCommitAuthor' | 'GithubUser', ParentType, ContextType>;
-}>;
-
-export type GithubApiResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubAPI'] = ResolversParentTypes['GithubAPI']> = ResolversObject<{
-  repo?: Resolver<Maybe<ResolversTypes['GithubRepo']>, ParentType, ContextType, RequireFields<GithubApiRepoArgs, 'name' | 'ownerUsername'>>;
+export type GithubApiResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubAPI'] = ResolversParentTypes['GithubAPI']> = {
   user?: Resolver<Maybe<ResolversTypes['GithubUser']>, ParentType, ContextType, RequireFields<GithubApiUserArgs, 'username'>>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  repo?: Resolver<Maybe<ResolversTypes['GithubRepo']>, ParentType, ContextType, RequireFields<GithubApiRepoArgs, 'name' | 'ownerUsername'>>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubBranchResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubBranch'] = ResolversParentTypes['GithubBranch']> = ResolversObject<{
+export type GithubBranchResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubBranch'] = ResolversParentTypes['GithubBranch']> = {
   ownerUsername?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   reponame?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  sha?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastCommit?: Resolver<Maybe<ResolversTypes['GithubCommit']>, ParentType, ContextType>;
-  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubCommitResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubCommit'] = ResolversParentTypes['GithubCommit']> = ResolversObject<{
-  author?: Resolver<Maybe<ResolversTypes['UserOrCommitAuthor']>, ParentType, ContextType>;
-  date?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+export type GithubCommitResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubCommit'] = ResolversParentTypes['GithubCommit']> = {
   sha?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  author?: Resolver<Maybe<ResolversTypes['UserOrCommitAuthor']>, ParentType, ContextType>;
+  message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  date?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   status?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubStatus']>>>, ParentType, ContextType>;
   tree?: Resolver<Maybe<ResolversTypes['GithubTree']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubCommitAuthorResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubCommitAuthor'] = ResolversParentTypes['GithubCommitAuthor']> = ResolversObject<{
+export type GithubCommitAuthorResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubCommitAuthor'] = ResolversParentTypes['GithubCommitAuthor']> = {
   email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubRepoResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubRepo'] = ResolversParentTypes['GithubRepo']> = ResolversObject<{
-  branches?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubBranch']>>>, ParentType, ContextType, RequireFields<GithubRepoBranchesArgs, never>>;
-  commits?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubCommit']>>>, ParentType, ContextType, RequireFields<GithubRepoCommitsArgs, never>>;
+export type GithubRepoResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubRepo'] = ResolversParentTypes['GithubRepo']> = {
   id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  commits?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubCommit']>>>, ParentType, ContextType, RequireFields<GithubRepoCommitsArgs, never>>;
+  branches?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubBranch']>>>, ParentType, ContextType, RequireFields<GithubRepoBranchesArgs, never>>;
   owner?: Resolver<Maybe<ResolversTypes['GithubUser']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubStatus'] = ResolversParentTypes['GithubStatus']> = ResolversObject<{
-  context?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+export type GithubStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubStatus'] = ResolversParentTypes['GithubStatus']> = {
   state?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   target_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  avatar_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  context?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updated_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  avatar_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubTreeResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubTree'] = ResolversParentTypes['GithubTree']> = ResolversObject<{
+export type GithubTreeResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubTree'] = ResolversParentTypes['GithubTree']> = {
   entries?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubTreeEntry']>>>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubTreeEntryResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubTreeEntry'] = ResolversParentTypes['GithubTreeEntry']> = ResolversObject<{
-  last_commit?: Resolver<Maybe<ResolversTypes['GithubCommit']>, ParentType, ContextType>;
+export type GithubTreeEntryResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubTreeEntry'] = ResolversParentTypes['GithubTreeEntry']> = {
   path?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  last_commit?: Resolver<Maybe<ResolversTypes['GithubCommit']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GithubUserResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubUser'] = ResolversParentTypes['GithubUser']> = ResolversObject<{
-  avatar_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  company?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+export type GithubUserResolvers<ContextType = any, ParentType extends ResolversParentTypes['GithubUser'] = ResolversParentTypes['GithubUser']> = {
   login?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  company?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  avatar_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   repos?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubRepo']>>>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
 
-export type GraphQl_Github_ApiResolvers<ContextType = any, ParentType extends ResolversParentTypes['GraphQL_github_API'] = ResolversParentTypes['GraphQL_github_API']> = ResolversObject<{
+export type GraphQl_Github_ApiResolvers<ContextType = any, ParentType extends ResolversParentTypes['GraphQL_github_API'] = ResolversParentTypes['GraphQL_github_API']> = {
   github?: Resolver<Maybe<ResolversTypes['GithubAPI']>, ParentType, ContextType>;
-  __isTypeOf?: IsTypeOfResolverFn<ParentType>;
-}>;
+};
 
-export type Resolvers<ContextType = any> = ResolversObject<{
-  Query?: QueryResolvers<ContextType>;
-  UserOrCommitAuthor?: UserOrCommitAuthorResolvers;
+export type UserOrCommitAuthorResolvers<ContextType = any, ParentType extends ResolversParentTypes['UserOrCommitAuthor'] = ResolversParentTypes['UserOrCommitAuthor']> = {
+  __resolveType: TypeResolveFn<'GithubCommitAuthor' | 'GithubUser', ParentType, ContextType>;
+};
+
+export type Resolvers<ContextType = any> = {
   GithubAPI?: GithubApiResolvers<ContextType>;
   GithubBranch?: GithubBranchResolvers<ContextType>;
   GithubCommit?: GithubCommitResolvers<ContextType>;
@@ -351,7 +311,8 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   GithubTreeEntry?: GithubTreeEntryResolvers<ContextType>;
   GithubUser?: GithubUserResolvers<ContextType>;
   GraphQL_github_API?: GraphQl_Github_ApiResolvers<ContextType>;
-}>;
+  UserOrCommitAuthor?: UserOrCommitAuthorResolvers<ContextType>;
+};
 
 
 /**
