@@ -8,13 +8,12 @@ import {
 } from './github';
 import {
     GithubApiResolvers,
-    GithubUserResolvers,
     GithubBranchResolvers,
     GithubCommitAuthorResolvers,
     GithubCommitResolvers,
     GithubRepoResolvers,
-} from '../schema/generated/resolvers';
-import { QueryResolvers } from './types/resolvers';
+    GithubUserResolvers,
+} from './types/resolvers';
 
 const githubResolver: GithubApiResolvers = {
     user: (_, { username }) => {
@@ -73,7 +72,7 @@ const githubRepoResolver : GithubRepoResolvers = {
     },
 };
 
-const queryResolver: QueryResolvers = {
+const queryResolver = {
     github: () => {
         return {};
     },
@@ -81,29 +80,30 @@ const queryResolver: QueryResolvers = {
 
 const githubBranchResolver: GithubBranchResolvers = {
     lastCommit: (branch) => {
-        const { ownerUsername, reponame } = branch; // info has been added while loading
-        return getCommitsForRepo(ownerUsername, reponame, branch.sha)
+        // @ts-ignore
+        const { ownerUsername, reponame, sha } = branch; // info has been added while loading
+        return getCommitsForRepo(ownerUsername, reponame, sha)
             .then((list) => {
                 // console.log('commits for repos:',{ list });
 
                 return list[0];
             })
             .then((commit) => {
-                const lastCom = {
+                return {
                     ...commit,
                     // @ts-ignore
                     message: commit.commit.message,
                     // @ts-ignore
                     date: commit.commit.committer.date,
                 };
-                return lastCom;
             });
     },
 };
 
 const githubCommitResolver: GithubCommitResolvers = {
     status: (commit) => {
-        const { username, reponame } = grabUsernameAndReponameFromURL(commit.url);
+        // @ts-ignore
+        const { username, reponame } = grabUsernameAndReponameFromURL(commit.url); // url was added in parent object
         const { sha } = commit;
         return getStatusesForRepo(username, reponame, sha) ?? [];
     },
