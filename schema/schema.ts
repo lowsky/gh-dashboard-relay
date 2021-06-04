@@ -6,20 +6,32 @@ export const githubSchemaGraphql = `
 #
 type Query {
     github: GithubAPI
+    user(
+        # Username of the user
+        username: String!
+    ): GithubUser
+    repo(
+        # Name of the repo
+        name: String!
+
+        # Username of the owner
+        ownerUsername: String!
+    ): GithubRepo
+
 }
 
 # The Github API
 type GithubAPI {
     user(
-    # Username of the user
-    username: String!
+        # Username of the user
+        username: String!
     ): GithubUser
     repo(
-    # Name of the repo
-    name: String!
+        # Name of the repo
+        name: String!
 
-    # Username of the owner
-    ownerUsername: String!
+        # Username of the owner
+        ownerUsername: String!
     ): GithubRepo
 }
 
@@ -43,36 +55,11 @@ type GithubCommitAuthor {
     name: String
 }
 
-type GithubIssue {
-    id: Int
-    state: String
-    title: String
-    body: String
-    user: GithubUser
-    assignee: GithubUser
-    closed_by: GithubUser
-    labels: [GithubIssueLabelType]
-    commentCount: Int
-    comments: [GithubIssueCommentType]
-}
-
-type GithubIssueCommentType {
-    id: Int
-    body: String
-    user: GithubUser
-}
-
-type GithubIssueLabelType {
-    url: String
-    name: String
-    color: String
-}
-
 type GithubRepo {
     id: String
     name: String
     commits(limit: Int): [GithubCommit]
-    issues(limit: Int): [GithubIssue]
+    #issues(limit: Int): [GithubIssue]
     branches(limit: Int): [GithubBranch]
     owner: GithubUser
 }
