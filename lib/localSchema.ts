@@ -1,6 +1,3 @@
-import { makeExecutableSchema } from '@graphql-tools/schema';
-import { resolvers } from './resolvers';
-
 // Construct a schema, using GraphQL schema language
 export const typeDefs = `
     # This file was generated based on ".graphqlconfig". Do not edit manually.
@@ -25,7 +22,7 @@ export const typeDefs = `
         sha: String
 
         lastCommit: GithubCommit
-        name: String
+        name: String!
     }
 
     type GithubCommit {
@@ -68,15 +65,6 @@ export const typeDefs = `
         # "updated_at": "2020-06-29T08:37:19Z",
     }
 
-    #type GithubTree {
-    #    entries: [GithubTreeEntry]
-    #}
-
-    #type GithubTreeEntry {
-    #    last_commit: GithubCommit
-    #    path: String
-    #}
-
     type GithubUser {
         avatar_url: String
         company: String
@@ -85,8 +73,3 @@ export const typeDefs = `
         repos: [GithubRepo]
     }
 `;
-
-export const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers,
-});
