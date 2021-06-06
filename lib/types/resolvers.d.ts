@@ -46,6 +46,7 @@ export type GithubCommit = {
   message?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   status?: Maybe<Array<Maybe<GithubStatus>>>;
+  associatedPullRequests?: Maybe<Array<Maybe<PullRequest>>>;
 };
 
 export type GithubCommitAuthor = {
@@ -98,6 +99,13 @@ export type GraphQl_Github_Api = {
 };
 
 export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;
+
+export type PullRequest = {
+  __typename?: 'PullRequest';
+  title?: Maybe<Scalars['String']>;
+  number: Scalars['Int'];
+  url?: Maybe<Scalars['String']>;
+};
 
 
 
@@ -188,6 +196,7 @@ export type ResolversTypes = {
   GithubUser: ResolverTypeWrapper<GithubUser>;
   GraphQL_github_API: ResolverTypeWrapper<{}>;
   UserOrCommitAuthor: ResolversTypes['GithubCommitAuthor'] | ResolversTypes['GithubUser'];
+  PullRequest: ResolverTypeWrapper<PullRequest>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
 
@@ -204,6 +213,7 @@ export type ResolversParentTypes = {
   GithubUser: GithubUser;
   GraphQL_github_API: {};
   UserOrCommitAuthor: ResolversParentTypes['GithubCommitAuthor'] | ResolversParentTypes['GithubUser'];
+  PullRequest: PullRequest;
   Boolean: Scalars['Boolean'];
 };
 
@@ -227,6 +237,7 @@ export type GithubCommitResolvers<ContextType = any, ParentType extends Resolver
   message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   date?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   status?: Resolver<Maybe<Array<Maybe<ResolversTypes['GithubStatus']>>>, ParentType, ContextType>;
+  associatedPullRequests?: Resolver<Maybe<Array<Maybe<ResolversTypes['PullRequest']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -272,6 +283,13 @@ export type UserOrCommitAuthorResolvers<ContextType = any, ParentType extends Re
   __resolveType: TypeResolveFn<'GithubCommitAuthor' | 'GithubUser', ParentType, ContextType>;
 };
 
+export type PullRequestResolvers<ContextType = any, ParentType extends ResolversParentTypes['PullRequest'] = ResolversParentTypes['PullRequest']> = {
+  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = any> = {
   GithubAPI?: GithubApiResolvers<ContextType>;
   GithubBranch?: GithubBranchResolvers<ContextType>;
@@ -282,6 +300,7 @@ export type Resolvers<ContextType = any> = {
   GithubUser?: GithubUserResolvers<ContextType>;
   GraphQL_github_API?: GraphQl_Github_ApiResolvers<ContextType>;
   UserOrCommitAuthor?: UserOrCommitAuthorResolvers<ContextType>;
+  PullRequest?: PullRequestResolvers<ContextType>;
 };
 
 

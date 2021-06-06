@@ -25,7 +25,6 @@ type GithubBranch {
     reponame: String
     name: String!
     lastCommit: GithubCommit
-    associatedPullRequests: [PullRequest]
 }
 
 type GithubCommit {
@@ -34,6 +33,7 @@ type GithubCommit {
     message: String
     date: String
     status: [GithubStatus]
+    associatedPullRequests: [PullRequest]
 }
 
 # Commit author that is not associated with a Github acount
