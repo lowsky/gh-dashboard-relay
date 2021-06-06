@@ -25,6 +25,7 @@ type GithubBranch {
     reponame: String
     name: String!
     lastCommit: GithubCommit
+    associatedPullRequests: [PullRequest]
 }
 
 type GithubCommit {
@@ -82,3 +83,9 @@ type GraphQL_github_API {
 }
 
 union UserOrCommitAuthor = GithubCommitAuthor | GithubUser
+
+type PullRequest {
+    title: String
+    number: Int!
+    url: String
+}
