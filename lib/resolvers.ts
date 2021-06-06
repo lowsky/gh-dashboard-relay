@@ -1,4 +1,5 @@
 import {
+    fetchRepoPullRequestsAssociatedWithCommit,
     getBranchesForRepo,
     getCommitsForRepo,
     getRepoForUser,
@@ -95,9 +96,11 @@ const githubBranchResolver: GithubBranchResolvers = {
                     message: commit.commit.message,
                     // @ts-ignore
                     date: commit.commit.committer.date,
+                    ownerUsername,
+                    reponame,
                 };
             });
-    },
+    }
 };
 
 const githubCommitResolver: GithubCommitResolvers = {
@@ -107,6 +110,11 @@ const githubCommitResolver: GithubCommitResolvers = {
         const { sha } = commit;
         return getStatusesForRepo(username, reponame, sha) ?? [];
     },
+    associatedPullRequests: async (commit) => {
+        // @ts-ignore
+        const { sha, ownerUsername, reponame } = commit;
+        return fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha)
+    }
 };
 
 export const resolvers = {
