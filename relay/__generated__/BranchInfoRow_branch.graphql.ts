@@ -5,7 +5,7 @@
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type BranchInfoRow_branch = {
-    readonly name: string | null;
+    readonly name: string;
     readonly lastCommit: {
         readonly " $fragmentRefs": FragmentRefs<"CommitWithStatuses_commit">;
     } | null;
