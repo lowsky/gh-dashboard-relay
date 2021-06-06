@@ -93,8 +93,8 @@ export type GithubUser = {
   repos?: Maybe<Array<Maybe<GithubRepo>>>;
 };
 
-export type GraphQl_Github_Api = {
-  __typename?: 'GraphQL_github_API';
+export type Query = {
+  __typename?: 'Query';
   github?: Maybe<GithubApi>;
 };
 
@@ -194,7 +194,7 @@ export type ResolversTypes = {
   Int: ResolverTypeWrapper<Scalars['Int']>;
   GithubStatus: ResolverTypeWrapper<GithubStatus>;
   GithubUser: ResolverTypeWrapper<GithubUser>;
-  GraphQL_github_API: ResolverTypeWrapper<{}>;
+  Query: ResolverTypeWrapper<{}>;
   UserOrCommitAuthor: ResolversTypes['GithubCommitAuthor'] | ResolversTypes['GithubUser'];
   PullRequest: ResolverTypeWrapper<PullRequest>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
@@ -211,7 +211,7 @@ export type ResolversParentTypes = {
   Int: Scalars['Int'];
   GithubStatus: GithubStatus;
   GithubUser: GithubUser;
-  GraphQL_github_API: {};
+  Query: {};
   UserOrCommitAuthor: ResolversParentTypes['GithubCommitAuthor'] | ResolversParentTypes['GithubUser'];
   PullRequest: PullRequest;
   Boolean: Scalars['Boolean'];
@@ -275,7 +275,7 @@ export type GithubUserResolvers<ContextType = any, ParentType extends ResolversP
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
-export type GraphQl_Github_ApiResolvers<ContextType = any, ParentType extends ResolversParentTypes['GraphQL_github_API'] = ResolversParentTypes['GraphQL_github_API']> = {
+export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   github?: Resolver<Maybe<ResolversTypes['GithubAPI']>, ParentType, ContextType>;
 };
 
@@ -298,7 +298,7 @@ export type Resolvers<ContextType = any> = {
   GithubRepo?: GithubRepoResolvers<ContextType>;
   GithubStatus?: GithubStatusResolvers<ContextType>;
   GithubUser?: GithubUserResolvers<ContextType>;
-  GraphQL_github_API?: GraphQl_Github_ApiResolvers<ContextType>;
+  Query?: QueryResolvers<ContextType>;
   UserOrCommitAuthor?: UserOrCommitAuthorResolvers<ContextType>;
   PullRequest?: PullRequestResolvers<ContextType>;
 };

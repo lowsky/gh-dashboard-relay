@@ -151,7 +151,7 @@ return {
         "storageKey": null
       }
     ],
-    "type": "GraphQL_github_API",
+    "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
