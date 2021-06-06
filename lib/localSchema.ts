@@ -19,7 +19,6 @@ export const typeDefs = `
     type GithubBranch {
         ownerUsername: String
         reponame: String
-        sha: String
 
         lastCommit: GithubCommit
         name: String!
