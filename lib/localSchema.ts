@@ -5,10 +5,6 @@ export const typeDefs = `
 # source: http://localhost:3000/graphql
 # timestamp: Sun Feb 25 2018 02:36:17 GMT+0100 (CET)
 
-schema {
-    query: GraphQL_github_API
-}
-
 # The Github API
 type GithubAPI {
     user(
@@ -72,7 +68,7 @@ type GithubUser {
     repos: [GithubRepo]
 }
 
-type GraphQL_github_API {
+type Query {
     github: GithubAPI
 }
 
