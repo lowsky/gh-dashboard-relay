@@ -19,9 +19,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "echo you may want to run `yarn dev` for local development... ;  next start",
     "build:relay": "relay-compiler --src . --schema schema/schema.graphql --language typescript --watchman false --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' '**/schema/**' --include '**/container/**' '**/components/**' '**/pages/**' '**/relay/**' '**/queries/**'",
-    "codegen": "graphql-codegen --config schema/codegen.yml",
+    "codegen": "node schema/wrapGraphQLSchema ; graphql-codegen --config schema/codegen.yml",
     "vercel-build": " yarn run vercel-build:without-chromatic ; yarn run chromatic-test",
     "vercel-build:without-chromatic": "yarn run build:relay ; yarn run build:storybook; yarn run build",
     "_lint": "eslint .",
