@@ -34,7 +34,6 @@ type GithubCommit {
     message: String
     date: String
     status: [GithubStatus]
-    tree: GithubTree
 }
 
 # Commit author that is not associated with a Github acount
@@ -59,15 +58,6 @@ type GithubStatus {
     avatar_url: String
     context: String
     updated_at: String
-}
-
-type GithubTree {
-    entries: [GithubTreeEntry]
-}
-
-type GithubTreeEntry {
-    path: String
-    last_commit: GithubCommit
 }
 
 type GithubUser {
