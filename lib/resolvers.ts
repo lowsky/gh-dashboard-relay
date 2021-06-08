@@ -115,7 +115,11 @@ const githubCommitResolver: GithubCommitResolvers = {
     associatedPullRequests: async (commit) => {
         // @ts-ignore
         const { sha, ownerUsername, reponame } = commit;
-        return fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha)
+        const prs = await fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha);
+        return prs.map((pr) => ({
+            ...pr,
+            url: pr.html_url,
+        }));
     }
 };
 
