@@ -9,6 +9,9 @@ export default createFragmentContainer<BranchInfoRowProps>((props) => <BranchInf
             name
             lastCommit {
                 ...CommitWithStatuses_commit
+                associatedPullRequests {
+                    ...PullRequestInfo_pullRequest
+                }
             }
         }
     `,
