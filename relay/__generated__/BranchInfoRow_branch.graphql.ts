@@ -7,6 +7,9 @@ import { FragmentRefs } from "relay-runtime";
 export type BranchInfoRow_branch = {
     readonly name: string;
     readonly lastCommit: {
+        readonly associatedPullRequests: ReadonlyArray<{
+            readonly " $fragmentRefs": FragmentRefs<"PullRequestInfo_pullRequest">;
+        } | null> | null;
         readonly " $fragmentRefs": FragmentRefs<"CommitWithStatuses_commit">;
     } | null;
     readonly " $refType": "BranchInfoRow_branch";
@@ -41,6 +44,22 @@ const node: ReaderFragment = {
       "plural": false,
       "selections": [
         {
+          "alias": null,
+          "args": null,
+          "concreteType": "PullRequest",
+          "kind": "LinkedField",
+          "name": "associatedPullRequests",
+          "plural": true,
+          "selections": [
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "PullRequestInfo_pullRequest"
+            }
+          ],
+          "storageKey": null
+        },
+        {
           "args": null,
           "kind": "FragmentSpread",
           "name": "CommitWithStatuses_commit"
@@ -52,5 +71,5 @@ const node: ReaderFragment = {
   "type": "GithubBranch",
   "abstractKey": null
 };
-(node as any).hash = '63a94145a0e0c902e3ffeee712c071db';
+(node as any).hash = 'd5e0d3fa886bcbf2013204ef7fa963a8';
 export default node;
