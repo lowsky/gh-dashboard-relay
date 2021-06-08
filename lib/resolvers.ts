@@ -82,7 +82,9 @@ const queryResolver = {
 const githubBranchResolver: GithubBranchResolvers = {
     lastCommit: (branch) => {
         // @ts-ignore
-        const { ownerUsername, reponame, sha } = branch; // info has been added while loading
+        const { ownerUsername, reponame, commit } = branch; // info has been added while loading
+
+        const { sha } = commit;
         return getCommitsForRepo(ownerUsername, reponame, sha)
             .then((list) => {
                 // console.log('commits for repos:',{ list });
