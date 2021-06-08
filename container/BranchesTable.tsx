@@ -17,6 +17,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo  }) => {
                         <span className="fas fa-code-branch" />
                         <span>Branch</span>
                     </th>
+                    <th>PR</th>
                     <th>Commit</th>
                 </tr>
             </thead>
