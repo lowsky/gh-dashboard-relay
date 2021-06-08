@@ -88,7 +88,7 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
             })
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
-                    storeErrorMsg('Repository: ' + ex.message);
+                    storeErrorMsg('Repo: Branches: ' + ex.message);
                     console.error('fetching branches info failed', ex);
                 }
             });
