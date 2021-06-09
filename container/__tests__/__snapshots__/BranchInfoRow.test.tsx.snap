@@ -27,6 +27,7 @@ exports[`BranchInfoRow component should render as expected 1`] = `
       />
     </svg>
   </td>
+  <td />
   <td>
     <div>
       <a

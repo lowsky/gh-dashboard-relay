@@ -15,6 +15,9 @@ exports[`BranchesTable component should render as expected 1`] = `
         </span>
       </th>
       <th>
+        PR
+      </th>
+      <th>
         Commit
       </th>
     </tr>
