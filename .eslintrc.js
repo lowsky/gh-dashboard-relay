@@ -1,20 +1,13 @@
 module.exports = {
-    extends: [
-        'eslint-config-react-app',
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'prettier/react',
-        'prettier'
-    ],
+    extends: ['next', 'prettier'],
     settings: {
-        "react": {
-            "version": "detect", // React version. "detect" automatically picks the version you have installed.
-        }
+        react: {
+            version: 'detect', // React version. "detect" automatically picks the version you have installed.
+        },
     },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
-        'react/prop-types': 1,
-        'prettier/prettier': 1,
+        /*
         'graphql/template-strings': [
             2,
             {
@@ -26,6 +19,7 @@ module.exports = {
                 // tagName is set for you to Relay.QL ...
             },
         ],
+         */
         'no-undef': 1,
         'no-console': 0,
     },
