@@ -11,8 +11,8 @@ export interface BranchInfoRowProps {
 }
 
 const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch }) => {
-    const { name, lastCommit = {} } = branch;
-    const { associatedPullRequests } = lastCommit;
+    const { name, lastCommit } = branch;
+    const { associatedPullRequests } = lastCommit ?? {};
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
     const { CommitWithStatuses } = useContext(UILibContext);
 
@@ -26,9 +26,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch }) => {
                     <PullRequestInfo key={idx} pullRequest={pr} />
                 ))}
             </td>
-            <td>
-                <CommitWithStatuses commit={lastCommit} />
-            </td>
+            <td>{lastCommit &&<CommitWithStatuses commit={lastCommit} />}</td>
         </tr>
     );
 };

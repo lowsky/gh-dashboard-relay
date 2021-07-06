@@ -10,15 +10,21 @@ import {
 import {
     GithubApiResolvers,
     GithubBranchResolvers,
+    GithubCommitAuthor,
     GithubCommitAuthorResolvers,
     GithubCommitResolvers,
     GithubRepoResolvers,
+    GithubUser,
     GithubUserResolvers,
 } from './types/resolvers';
 
 const githubResolver: GithubApiResolvers = {
-    user: (_, { username }) => {
-        return getUser(username);
+    user: async (_, { username }) => {
+        try {
+            return await getUser(username);
+        } catch (err) {
+            return {};
+        }
     },
     repo: (_, { ownerUsername, name }) => {
         return getRepoForUser(ownerUsername, name);
@@ -30,7 +36,10 @@ const githubUserResolver: GithubUserResolvers = {
         return String(user.id);
     },
     repos: (user) => {
-        return getReposForUser(user.login);
+        if(user.login) {
+            return getReposForUser(user.login);
+        }
+        return null;
     },
 };
 const githubCommitAuthorResolver: GithubCommitAuthorResolvers = {
@@ -59,7 +68,11 @@ const githubRepoResolver: GithubRepoResolvers = {
             });
     },
     commits: (repo) => {
-        return getCommitsForRepo(repo.owner?.login, repo.name).then((commitList) => {
+        const { owner, name } = repo;
+        if (!owner?.login || !name) {
+            return null;
+        }
+        return getCommitsForRepo(owner.login, name).then((commitList) => {
             return commitList.map((commit) => {
                 return {
                     ...commit,
@@ -86,12 +99,11 @@ const githubBranchResolver: GithubBranchResolvers = {
         // @ts-ignore
         const { ownerUsername, reponame, commit } = branch; // info has been added while loading
         const { sha } = commit;
-        return getCommitsForRepo(ownerUsername, reponame, sha)
-            .then((list) => {
-                // console.log('commits for repos:',{ list });
-
-                return list[0];
-            })
+        if (!ownerUsername || !reponame) {
+            return null;
+        }
+        return getCommitsForRepo(ownerUsername, reponame, sha) //
+            .then((commits) => commits[0])
             .then((commit) => {
                 // @ts-ignore
                 const message = commit.commit.message;
@@ -113,11 +125,16 @@ const githubCommitResolver: GithubCommitResolvers = {
         // @ts-ignore
         const { username, reponame } = grabUsernameAndReponameFromURL(commit.url); // url was added in parent object
         const { sha } = commit;
+        if(!sha) return null;
+
         return getStatusesForRepo(username, reponame, sha) ?? [];
     },
     associatedPullRequests: async (commit) => {
         // @ts-ignore
         const { sha, ownerUsername, reponame } = commit;
+        if (!sha) {
+            return null;
+        }
         const prs = await fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha);
         return prs.map((pr) => ({
             ...pr,
@@ -130,13 +147,7 @@ export const resolvers = {
     GithubCommit: githubCommitResolver,
     GithubBranch: githubBranchResolver,
     UserOrCommitAuthor: {
-        __resolveType(obj) {
-            console.log(obj);
-            if (obj.__typename === 'GithubUser' || obj.login) {
-                return 'GithubUser';
-            }
-            return 'GithubCommitAuthor';
-        },
+        __resolveType: (obj: GithubCommitAuthor | GithubUser) => obj.__typename,
     },
     GithubUser: githubUserResolver,
     GithubCommitAuthor: githubCommitAuthorResolver,

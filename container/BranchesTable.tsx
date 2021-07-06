@@ -23,7 +23,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo  }) => {
             </thead>
             <tbody>
                 {(repo?.branches || []).map((branch, idx) => (
-                  <BranchInfoRow key={idx} branch={branch} />
+                    branch && <BranchInfoRow key={idx} branch={branch} />
                 ))}
             </tbody>
         </table>

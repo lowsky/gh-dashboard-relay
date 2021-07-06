@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import UserRepo  from '../../../container/UserRepo';
+import UserRepo from '../../../container/UserRepo';
 
-import { fetchRepoBranches, fetchUser } from '../../../restinpeace/fetchGithubApi';
+import { fetchRepoBranches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
 import lastCommitMock from '../../../restinpeace/lastCommitMock.json';
 
 import { UILibPureComponents } from '../../../components';
@@ -17,11 +17,13 @@ export default function RestfulPage() {
 
 export function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
-        owner: userName,
         name: repoName,
         branches: [],
     });
-    const [user, storeUser] = useState({ userName });
+    const [user, storeUser] = useState<User>({
+        login: userName,
+        avatar_url: '',
+    });
     const [errorMsg, storeErrorMsg] = useState('');
 
     useEffect(() => {
@@ -30,11 +32,6 @@ export function RestfulMain({ userName, repoName }) {
         fetchUser(userName)
             .then((user) => {
                 if (!ignoreDownloadedData) {
-                    if (user.message) {
-                        throw new Error(user.message);
-                    }
-                    // TODO needs adaption
-                    // @ts-ignore
                     storeUser(user);
                 }
             })
@@ -55,14 +52,10 @@ export function RestfulMain({ userName, repoName }) {
         fetchRepoBranches(userName, repoName)
             .then((branches) => {
                 if (!ignoreDownloadedData) {
-                    if (branches.message) {
-                        throw new Error(branches.message);
-                    }
-                    // @ts-ignore
                     storeRepo({
-                        owner: { login: userName },
                         name: repoName,
-                        branches: branches.map((b) => ({ ...b, lastCommit: lastCommitMock })),
+                        // @ts-ignore needs to be fixed / investigated
+                        branches: branches.map((b) => ({ ...b, lastCommit: lastCommitMock })) ?? [],
                     });
                 }
             })
@@ -82,10 +75,7 @@ export function RestfulMain({ userName, repoName }) {
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
-                    {
-                        // @ts-ignore
-                        <UserRepo github={{ user, repo }} />
-                    }
+                    <UserRepo github={{ user, repo }} />
                 </div>
                 {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
             </div>

@@ -1,8 +1,7 @@
+/* eslint-disable no-undef */
+
 import { Octokit } from '@octokit/rest';
-import {
-    GetResponseTypeFromEndpointMethod,
-    GetResponseDataTypeFromEndpointMethod,
-} from "@octokit/types";
+import { GetResponseTypeFromEndpointMethod, GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 
 import { GithubRepo, GithubStatus, GithubBranch, GithubUser, GithubCommit } from './types/resolvers';
 
@@ -13,12 +12,17 @@ export const octo = new Octokit({
     auth: GITHUB_TOKEN,
 });
 
-export const getUser = async (username): Promise<GithubUser> => {
-    const { data } = await octo.users.getByUsername({ username });
-    return convertItsIdToString(data);
+export const getUser = async (username:string): Promise<GithubUser> => {
+    try {
+        const { data } = await octo.users.getByUsername({ username });
+        return convertItsIdToString(data);
+    } catch (err) {
+        console.log(err);
+    }
+    return {};
 };
 
-export const getReposForUser = async (username): Promise<Array<GithubRepo>> => {
+export const getReposForUser = async (username:string): Promise<Array<GithubRepo>> => {
     const repos = await octo.repos.listForUser({ username });
     return repos.data.map((r) => ({
         ...convertItsIdToString(r),

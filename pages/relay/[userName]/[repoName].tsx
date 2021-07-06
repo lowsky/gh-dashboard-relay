@@ -15,7 +15,7 @@ import GithubQuery from '../../../queries/relayPage';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
 import { UserRepoProps } from '../../../container/UserRepo';
 
-function singleArgOrDefault(value: string | string[], defaultValue: string) {
+function singleArgOrDefault(value?: string | string[] | null, defaultValue?: string) {
     if (value === null || value === undefined) {
         return defaultValue;
     }
@@ -27,8 +27,8 @@ function singleArgOrDefault(value: string | string[], defaultValue: string) {
 
 const RelayRoot = () => {
     const router = useRouter();
-    const repoName = singleArgOrDefault(router?.query?.repoName, 'dashboard');
-    const userName = singleArgOrDefault(router?.query?.username, 'lowsky');
+    const repoName = singleArgOrDefault(router?.query?.repoName) ?? '';
+    const userName = singleArgOrDefault(router?.query?.username) ?? '';
 
     if (typeof window === 'undefined') {
         return <h1>SSR rendering</h1>;

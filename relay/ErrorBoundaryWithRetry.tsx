@@ -6,8 +6,8 @@ import React from 'react';
 export default class ErrorBoundaryWithRetry extends React.Component<{ fallback: any }> {
     state = { error: null };
 
-    static getDerivedStateFromError(error) {
-        return { error: error };
+    static getDerivedStateFromError(error:Error) {
+        return { error };
     }
 
     render() {
