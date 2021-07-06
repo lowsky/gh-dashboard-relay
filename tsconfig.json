@@ -20,6 +20,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": false,
     "strict": true,
+    "noImplicitAny": false,
     "target": "esnext"
   },
   "exclude": [
