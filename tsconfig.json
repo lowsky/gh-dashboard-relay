@@ -19,7 +19,7 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": false,
-    "strict": false,
+    "strict": true,
     "target": "esnext"
   },
   "exclude": [
