@@ -38,7 +38,7 @@ const githubCommitAuthorResolver: GithubCommitAuthorResolvers = {
     // name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
 };
 
-const githubRepoResolver : GithubRepoResolvers = {
+const githubRepoResolver: GithubRepoResolvers = {
     branches: (repo, { limit }) => {
         const reponame = repo.name;
         const ownerUsername = repo.owner?.login;
@@ -63,8 +63,10 @@ const githubRepoResolver : GithubRepoResolvers = {
             return commitList.map((commit) => {
                 return {
                     ...commit,
+                    // info is part of REST response:
                     // @ts-ignore
                     message: commit.commit.message,
+                    // info is part of REST response:
                     // @ts-ignore
                     date: commit.commit.committer.date,
                 };
@@ -83,7 +85,6 @@ const githubBranchResolver: GithubBranchResolvers = {
     lastCommit: (branch) => {
         // @ts-ignore
         const { ownerUsername, reponame, commit } = branch; // info has been added while loading
-
         const { sha } = commit;
         return getCommitsForRepo(ownerUsername, reponame, sha)
             .then((list) => {
@@ -92,17 +93,19 @@ const githubBranchResolver: GithubBranchResolvers = {
                 return list[0];
             })
             .then((commit) => {
+                // @ts-ignore
+                const message = commit.commit.message;
+                // @ts-ignore
+                const date = commit.commit.committer?.date;
                 return {
                     ...commit,
-                    // @ts-ignore
-                    message: commit.commit.message,
-                    // @ts-ignore
-                    date: commit.commit.committer.date,
+                    message,
+                    date,
                     ownerUsername,
                     reponame,
                 };
             });
-    }
+    },
 };
 
 const githubCommitResolver: GithubCommitResolvers = {
@@ -120,12 +123,11 @@ const githubCommitResolver: GithubCommitResolvers = {
             ...pr,
             url: pr.html_url,
         }));
-    }
+    },
 };
 
 export const resolvers = {
     GithubCommit: githubCommitResolver,
-
     GithubBranch: githubBranchResolver,
     UserOrCommitAuthor: {
         __resolveType(obj) {

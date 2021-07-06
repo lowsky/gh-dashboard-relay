@@ -6,6 +6,7 @@ import {
 
 import { GithubRepo, GithubStatus, GithubBranch, GithubUser, GithubCommit } from './types/resolvers';
 
+// @ts-ignore
 const { GITHUB_TOKEN } = process.env;
 
 export const octo = new Octokit({
@@ -63,19 +64,17 @@ function convertItsIdToString(obj: any & { id: number }): any & { id: String } {
         id: String(obj.id),
     };
 }
-
-
 type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpointMethod<
     typeof octo.repos.listPullRequestsAssociatedWithCommit
-    >;
+>;
 export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDataTypeFromEndpointMethod<
     typeof octo.repos.listPullRequestsAssociatedWithCommit
-    >;
+>;
 
 /**
  * Fetch the PR info for a given repo
  *
- * @param owner user's login name, e.g lowsky
+ * @param owner user's login name, e.g. lowsky
  * @param repo repo's name
  * @param commit_sha
  */

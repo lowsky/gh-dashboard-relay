@@ -1,50 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import UserRepo from '../../../container/UserRepo';
+import UserRepo  from '../../../container/UserRepo';
 
-import { fetchRepoBranches, fetchUser, BranchesWithErrorMessage, UserWithErrorMessage } from '../../../restinpeace/fetchGithubApi';
+import { fetchRepoBranches, fetchUser } from '../../../restinpeace/fetchGithubApi';
 import lastCommitMock from '../../../restinpeace/lastCommitMock.json';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
-import { Spinner } from "../../../components/Spinner";
-
-
-const defaultRepoName = 'dashboard';
-const defaultOwnerLogin = 'lowsky';
-
-const user: UserWithErrorMessage =
-    {
-        avatar_url: '//lorempixel.com/200/200/cats/lorempixel/',
-        login: defaultOwnerLogin,
-    };
-
-let branches: BranchesWithErrorMessage = [];
-
-const githubData = {
-    repo: {
-        owner: { login: defaultOwnerLogin },
-        name: defaultRepoName,
-        branches,
-        loading: false,
-    },
-    user,
-    errorMsg: '',
-};
 
 export default function RestfulPage() {
     const router = useRouter();
-    const { userName , repoName } = router.query;
-
-    // @ts-ignore
-    return <RestfulMain userName={userName} repoName={repoName}/>;
+    const { userName, repoName } = router.query;
+    return <RestfulMain userName={userName} repoName={repoName} />;
 }
 
-export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRepoName }) {
-    const [repo, storeRepo] = useState(githubData.repo);
-    const [user, storeUser] = useState<UserWithErrorMessage>(githubData.user);
-    const [errorMsg, storeErrorMsg] = useState(githubData.errorMsg);
+export function RestfulMain({ userName, repoName }) {
+    const [repo, storeRepo] = useState({
+        owner: userName,
+        name: repoName,
+        branches: [],
+    });
+    const [user, storeUser] = useState({ userName });
+    const [errorMsg, storeErrorMsg] = useState('');
 
     useEffect(() => {
         let ignoreDownloadedData = false;
@@ -55,6 +33,8 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
                     if (user.message) {
                         throw new Error(user.message);
                     }
+                    // TODO needs adaption
+                    // @ts-ignore
                     storeUser(user);
                 }
             })
@@ -72,7 +52,7 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchRepoBranches(userName , repoName)
+        fetchRepoBranches(userName, repoName)
             .then((branches) => {
                 if (!ignoreDownloadedData) {
                     if (branches.message) {
@@ -102,13 +82,13 @@ export function RestfulMain({ userName = defaultOwnerLogin, repoName = defaultRe
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
-                    {(user.loading || repo.loading) && <Spinner />}
-                    {<UserRepo github={{ user, repo }} />}
+                    {
+                        // @ts-ignore
+                        <UserRepo github={{ user, repo }} />
+                    }
                 </div>
                 {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
             </div>
         </UILibContext.Provider>
     );
 }
-
-

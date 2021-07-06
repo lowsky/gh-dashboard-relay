@@ -1,11 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faCheckCircle,
-    faHourglass,
-    faExclamationCircle,
-    faTimes,
-}  from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faHourglass, faExclamationCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { GithubCommit } from '../lib/types/resolvers';
 
@@ -20,19 +15,19 @@ function icon4context(context = '', avatar_url: string) {
 
 function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) {
     const style = {
-        verticalAlign: 'top'
+        verticalAlign: 'top',
     };
     if (status === 'success') {
         return <FontAwesomeIcon style={style} icon={faCheckCircle} />;
     }
     if (status === 'pending') {
-        return <FontAwesomeIcon style={style} icon={faHourglass} />
+        return <FontAwesomeIcon style={style} icon={faHourglass} />;
     }
     if (status === 'failure') {
-        return <FontAwesomeIcon style={style} icon={faExclamationCircle } />
+        return <FontAwesomeIcon style={style} icon={faExclamationCircle} />;
     }
     if (status === 'error') {
-        return <FontAwesomeIcon style={style} icon={faTimes } />
+        return <FontAwesomeIcon style={style} icon={faTimes} />;
     }
     return <span>{status}</span>;
 }
@@ -69,14 +64,13 @@ export interface CommitWithStatusProps {
     commit?: GithubCommit;
 }
 let CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
-    const { sha = '<missing>', date = '', message = '<missing>', status = [],
-      } = commit;
+    const { sha = '<missing>', date = '', message = '<missing>', status = [] } = commit;
     const author = {
         login: '',
         name: '',
         email: '',
         avatar_url: '',
-        ...commit.author
+        ...commit.author,
     };
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 

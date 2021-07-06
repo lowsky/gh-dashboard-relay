@@ -8,13 +8,13 @@ describe('BranchesTable component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');
         let repo = {
-            branches: []
+            branches: [],
         };
         ReactDOM.render(<BranchesTable repo={repo} />, div);
     });
 
     it('should render as expected', () => {
-        const props = { repo: {branches: [{}] }};
+        const props = { repo: {} };
         const appContainer = renderer.create(<BranchesTable {...props} />).toJSON();
         expect(appContainer).toMatchSnapshot();
     });

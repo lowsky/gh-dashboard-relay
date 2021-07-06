@@ -4,7 +4,6 @@ import IndexPage from '../pages';
 import { RestfulMain } from '../pages/restful/[userName]/[repoName]';
 
 const RelayPage = lazy(() => import('../pages/relay/[userName]/[repoName]'));
-//const RestfulPage = lazy(() => import('../pages/restful/[userName]/[repoName]'));
 
 const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
 

@@ -2,6 +2,8 @@ import React from 'react';
 
 import CommitWithStatuses from './CommitWithStatuses';
 
+import moreStatus from '../restinpeace/lastCommitMock';
+
 const userWithoutAvatar = {
     login: 'login',
     id: '1234',
@@ -29,8 +31,6 @@ const commitData = {
         },
     },
 };
-
-const moreStatus = require('../restinpeace/lastCommitMock');
 
 export default {
     title: 'Others/CommitStatus',
