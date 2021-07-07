@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
 import { loadQuery, usePreloadedQuery } from 'react-relay/hooks';
 
-import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import { UILibWithRelaySupport } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import UserRepo from '../../../relay/UserRepo';
@@ -16,7 +15,7 @@ import GithubQuery from '../../../queries/relayPage';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
 import { UserRepoProps } from '../../../container/UserRepo';
 
-function singleArgOrDefault(value: string | string[], defaultValue: string) {
+function singleArgOrDefault(value?: string | string[] | null, defaultValue?: string) {
     if (value === null || value === undefined) {
         return defaultValue;
     }
@@ -28,20 +27,16 @@ function singleArgOrDefault(value: string | string[], defaultValue: string) {
 
 const RelayRoot = () => {
     const router = useRouter();
-    const repoName = singleArgOrDefault(router?.query?.repoName, 'dashboard');
-    const userName = singleArgOrDefault(router?.query?.username, 'lowsky');
+    const repoName = singleArgOrDefault(router?.query?.repoName) ?? '';
+    const userName = singleArgOrDefault(router?.query?.username) ?? '';
 
-    if (!userName || !repoName) {
-        return WarningMissingURLParams;
-    }
-
-    if (!global.window) {
+    if (typeof window === 'undefined') {
         return <h1>SSR rendering</h1>;
     }
 
     const environment = initEnvironment();
 
-    const variables : relayPageQueryVariables = { userName, repoName };
+    const variables: relayPageQueryVariables = { userName, repoName };
     const preloadedQuery = loadQuery<relayPageQuery>(environment, GithubQuery, variables);
 
     return (
@@ -58,13 +53,14 @@ const RelayRoot = () => {
     );
 };
 
+// @ts-ignore
 function ShowUserRepoContent({ preloadedQuery }) {
     // Immediately load the query as our app starts. For a real app, we'd move this
-    // into our routing configuration, preloading data ShowUserRepoConentition to new routes.
+    // into our routing configuration, preloading data ShowUserRepoContent to new routes.
     const data: relayPageQueryResponse = usePreloadedQuery<relayPageQuery>(GithubQuery, preloadedQuery);
 
     // @ts-ignore
-    const github: UserRepoProps["github"] = data.github;
+    const github: UserRepoProps['github'] = data.github; // relay interface looks different, need further inspection
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
             <div className="box">

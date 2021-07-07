@@ -28,36 +28,6 @@ exports[`BranchInfoRow component should render as expected 1`] = `
     </svg>
   </td>
   <td />
-  <td>
-    <div>
-      <a
-        href="https://github.com/lowsky/dashboard/tree/<missing>"
-      >
-        <b>
-          &lt;missing&gt;
-        </b>
-      </a>
-    </div>
-    <div>
-      <i>
-        
-      </i>
-        by  
-      <a
-        href="https://github.com/"
-      >
-        
-         
-        <span>
-          
-        </span>
-      </a>
-       
-      
-    </div>
-    <div
-      className="statusline"
-    />
-  </td>
+  <td />
 </tr>
 `;

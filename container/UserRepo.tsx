@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 
-import { BranchesWithErrorMessage, UserWithErrorMessage } from '../restinpeace/fetchGithubApi';
+import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
 import UILibContext from '../components/UILibContext';
 
 export interface UserRepoProps {
     github?: {
-        user?: UserWithErrorMessage;
+        user?: UserType;
         repo?: {
             name: string;
-            branches: BranchesWithErrorMessage;
+            branches: Branches;
         };
     };
 }

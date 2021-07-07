@@ -428,12 +428,11 @@ exports[`Storyshots Others/Pages restful 1`] = `
         className="subTitle is-3"
       >
         <a
-          href="https://github.com/lowsky/dashboard"
+          href="https://github.com/undefined/?"
         >
           <strong>
-            lowsky
              / 
-            dashboard
+            ?
           </strong>
           <span
             className="icon"
@@ -479,7 +478,7 @@ exports[`Storyshots Others/Pages restful 1`] = `
               >
                 <img
                   alt="avatar"
-                  src="//lorempixel.com/200/200/cats/lorempixel/"
+                  src=""
                 />
               </figure>
             </div>
@@ -489,7 +488,7 @@ exports[`Storyshots Others/Pages restful 1`] = `
               <p
                 className="title is-4"
               >
-                lowsky
+                ?
               </p>
               <p
                 className="subtitle is-6"
