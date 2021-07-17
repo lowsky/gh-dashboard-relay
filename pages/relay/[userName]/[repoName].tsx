@@ -27,8 +27,7 @@ function singleArgOrDefault(value?: string | string[] | null, defaultValue?: str
 
 const RelayRoot = () => {
     const router = useRouter();
-    const repoName = singleArgOrDefault(router?.query?.repoName) ?? '';
-    const userName = singleArgOrDefault(router?.query?.username) ?? '';
+    const { userName, repoName } = router.query;
 
     if (typeof window === 'undefined') {
         return <h1>SSR rendering</h1>;
@@ -36,7 +35,10 @@ const RelayRoot = () => {
 
     const environment = initEnvironment();
 
-    const variables: relayPageQueryVariables = { userName, repoName };
+    const variables: relayPageQueryVariables = {
+        userName: singleArgOrDefault(userName) ?? '',
+        repoName: singleArgOrDefault(repoName) ?? '',
+    };
     const preloadedQuery = loadQuery<relayPageQuery>(environment, GithubQuery, variables);
 
     return (
@@ -53,7 +55,6 @@ const RelayRoot = () => {
     );
 };
 
-// @ts-ignore
 function ShowUserRepoContent({ preloadedQuery }) {
     // Immediately load the query as our app starts. For a real app, we'd move this
     // into our routing configuration, preloading data ShowUserRepoContent to new routes.

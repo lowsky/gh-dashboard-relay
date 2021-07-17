@@ -18,6 +18,7 @@ export default function RestfulPage() {
 export function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
         name: repoName,
+        owner: { login: userName },
         branches: [],
     });
     const [user, storeUser] = useState<User>({
@@ -54,6 +55,7 @@ export function RestfulMain({ userName, repoName }) {
                 if (!ignoreDownloadedData) {
                     storeRepo({
                         name: repoName,
+                        owner: { login: userName },
                         // @ts-ignore needs to be fixed / investigated
                         branches: branches.map((b) => ({ ...b, lastCommit: lastCommitMock })) ?? [],
                     });

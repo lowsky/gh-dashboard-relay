@@ -1,8 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faHourglass, faExclamationCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import { GithubCommit, GithubStatus, Maybe } from '../lib/types/resolvers';
+import { GithubCommit, Maybe } from '../lib/types/resolvers';
+import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 
 import './CommitWithStatuses.module.css';
 
@@ -72,7 +73,8 @@ const Status = ({ target_url, avatar_url, context, description, state }: StatusP
 export interface CommitWithStatusProps {
     commit?: GithubCommit;
 }
-let CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
+
+const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
     const { sha = '<missing>', date = '', message = '<missing>', status = [] } = commit;
     const author = {
         login: '',
@@ -82,18 +84,6 @@ let CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
         ...commit.author,
     };
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
-
-    const onlyTakeFirstStatusPerContext = (statuses: Maybe<GithubStatus>[] = []): GithubStatus[] => {
-        const foundContexts = new Map();
-        const filteredStatuses = statuses.reduce((acc, item) => {
-            if (!item?.context || foundContexts.get(item?.context)) {
-                return acc;
-            }
-            acc.set(item.context, item);
-            return acc;
-        }, new Map());
-        return [...filteredStatuses.values()];
-    };
 
     return (
         <>
@@ -117,7 +107,7 @@ let CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
             </div>
             <div className="statusline">
                 {status &&
-                    onlyTakeFirstStatusPerContext(status) //
+                    removeExtraStatusesForSameContext(status) //
                         .map((status, idx) => <Status key={idx} {...status} />)}
             </div>
         </>
