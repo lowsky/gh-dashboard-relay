@@ -3,20 +3,38 @@ import { ApolloServer } from 'apollo-server-micro';
 
 import { typeDefs } from "../../lib/localSchema";
 import { resolvers } from '../../lib/resolvers';
+import {
+    ApolloServerPluginLandingPageDisabled,
+    ApolloServerPluginLandingPageGraphQLPlayground,
+} from 'apollo-server-core';
 
-const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+// will be stored here for re-use
+let server: ApolloServer | null = null;
 
-    debug: true,
-    introspection: true,
-});
+async function getGraphqlServer() {
+    const apolloServer = new ApolloServer({
+        typeDefs,
+        resolvers,
+        debug: true,
+        introspection: true,
+        plugins: [
+            process.env.NODE_ENV === 'production'
+                ? ApolloServerPluginLandingPageDisabled()
+                : ApolloServerPluginLandingPageGraphQLPlayground(),
+        ],
+    });
 
-const handler = server.createHandler({
+    await apolloServer.start();
+    return apolloServer;
+}
 
-    path: '/api/graphql',
-});
-
+const handler = async (req: IncomingMessage, res: ServerResponse) => {
+    const apolloServer: ApolloServer = server || (await getGraphqlServer());
+    server = apolloServer;
+    return apolloServer.createHandler({
+        path: '/api/graphql',
+    })(req, res);
+};
 
 export const config = {
     api: {
