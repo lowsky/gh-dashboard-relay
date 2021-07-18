@@ -1,9 +1,11 @@
 import 'bulma/css/bulma.css';
 
-import { RelayEnvironmentProvider, loadQuery, usePreloadedQuery } from 'react-relay/hooks';
+import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { useEnvironment } from '../lib/relay';
 
 import { NavBar } from '../components/NavBar';
+
+import './main.css'
 
 export default function App({ Component, pageProps }) {
     const environment = useEnvironment(pageProps.initialRecords);
