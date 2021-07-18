@@ -51,6 +51,7 @@
     "bulma": "0.9.3",
     "graphql": "15.5.1",
     "is-plain-object": "5.0.0",
+    "micro": "9.3.4",
     "next": "11.0.1",
     "next-images": "1.8.1",
     "react": "17.0.2",

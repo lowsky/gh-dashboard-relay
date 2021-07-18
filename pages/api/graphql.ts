@@ -1,3 +1,4 @@
+import { IncomingMessage, ServerResponse } from 'http'
 import { ApolloServer } from 'apollo-server-micro';
 
 import { typeDefs } from "../../lib/localSchema";
@@ -9,7 +10,6 @@ const server = new ApolloServer({
 
     debug: true,
     introspection: true,
-    playground: true,
 });
 
 const handler = server.createHandler({
