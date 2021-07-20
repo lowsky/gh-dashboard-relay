@@ -15,7 +15,7 @@ async function getGraphqlServer() {
     const apolloServer = new ApolloServer({
         typeDefs,
         resolvers,
-        debug: true,
+        debug: process.env.NODE_ENV !== 'production',
         introspection: true,
         plugins: [
             process.env.NODE_ENV === 'production'
