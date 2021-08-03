@@ -72,7 +72,7 @@
     "@graphql-codegen/typescript-operations": "1.18.4",
     "@graphql-codegen/typescript-resolvers": "1.20.0",
     "@graphql-tools/schema": "8.0.1",
-    "@octokit/types": "6.19.0",
+    "@octokit/types": "6.23.0",
     "@storybook/addon-actions": "6.3.6",
     "@storybook/addon-essentials": "6.3.6",
     "@storybook/addon-links": "6.3.6",
