@@ -3662,10 +3662,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-11.0.0.tgz#7ddbe41152d46b614d1f3f7f0672cfb721eb93f1"
   integrity sha512-D5JNxDhkcPSIMZc2j3N/fh61399O309ph9RVmzbF+Fsyvepsqy7FirFKcJ2CMfYxE/kb8ZD/Xdzs3CYZEiQc4w==
 
-"@types/relay-runtime@11.0.1":
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-11.0.1.tgz#4aa5afa44f9915e2a4a50de82b772b0a2bc8c4a4"
-  integrity sha512-RQ4WbSKtlqfBhEnSQ9cdaJTYN4Zk5Z9LpRrL/GRrSNlWjwP+5onEtQwoNR/8jekdRXj0jL+tYIXdGnz5238U9A==
+"@types/relay-runtime@11.0.2":
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-11.0.2.tgz#3e7a1371c13ee731288c751a53e7392c6afff2b5"
+  integrity sha512-GDw27MCYF45medCb0Ug08EPJVHA/K0yNKZ4N4LOGMaclUnLmzZJz9w6ja6pZMhBT84PQ9wsPZbHRPyXl57Am1Q==
 
 "@types/scheduler@*":
   version "0.16.1"
