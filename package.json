@@ -107,6 +107,6 @@
     "relay-compiler-language-typescript": "14.0.0",
     "ts-jest": "27.0.3",
     "typescript": "4.3.5",
-    "webpack": "5.45.1"
+    "webpack": "5.48.0"
   }
 }
