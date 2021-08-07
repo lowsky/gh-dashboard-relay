@@ -18,6 +18,8 @@ async function getGraphqlServer() {
         debug: true,
         introspection: true,
         plugins: [
+            // process will be used while build time ...
+            // eslint-disable-next-line no-undef
             process.env.NODE_ENV === 'production'
                 ? ApolloServerPluginLandingPageDisabled()
                 : ApolloServerPluginLandingPageGraphQLPlayground(),

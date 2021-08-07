@@ -7,6 +7,7 @@ module.exports = {
     },
     plugins: ['graphql', 'react', 'prettier'],
     rules: {
+        'import/no-anonymous-default-export': 'off',
         /*
         'graphql/template-strings': [
             2,

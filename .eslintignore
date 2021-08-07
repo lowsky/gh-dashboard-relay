@@ -17,3 +17,6 @@ server/lambda
 
 cypress/support/
 eval-reg-suit/
+stuff/
+
+stories
