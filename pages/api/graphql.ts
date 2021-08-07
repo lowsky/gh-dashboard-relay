@@ -15,8 +15,8 @@ async function getGraphqlServer() {
     const apolloServer = new ApolloServer({
         typeDefs,
         resolvers,
-        debug: true,
-        introspection: true,
+        debug: false,
+        introspection: false,
         plugins: [
             // process will be used while build time ...
             // eslint-disable-next-line no-undef
