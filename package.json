@@ -61,10 +61,10 @@
     "utf-8-validate": "5.0.5"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "1.2.35",
-    "@fortawesome/free-brands-svg-icons": "5.15.3",
-    "@fortawesome/free-solid-svg-icons": "5.15.3",
-    "@fortawesome/react-fontawesome": "0.1.14",
+    "@fortawesome/fontawesome-svg-core": "1.2.36",
+    "@fortawesome/free-brands-svg-icons": "5.15.4",
+    "@fortawesome/free-solid-svg-icons": "5.15.4",
+    "@fortawesome/react-fontawesome": "0.1.15",
     "@graphql-codegen/cli": "2.0.1",
     "@graphql-codegen/typescript": "2.0.0",
     "@graphql-codegen/typescript-document-nodes": "2.0.0",
