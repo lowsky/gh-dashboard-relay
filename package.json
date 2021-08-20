@@ -44,7 +44,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@octokit/graphql-schema": "10.60.1",
+    "@octokit/graphql-schema": "10.63.0",
     "@octokit/rest": "18.9.1",
     "apollo-server-micro": "3.1.2",
     "bufferutil": "4.0.3",
