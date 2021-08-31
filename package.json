@@ -70,7 +70,7 @@
     "@graphql-codegen/typescript-document-nodes": "2.1.2",
     "@graphql-codegen/typescript-operations": "2.1.2",
     "@graphql-codegen/typescript-resolvers": "2.1.2",
-    "@graphql-tools/schema": "8.1.2",
+    "@graphql-tools/schema": "8.2.0",
     "@octokit/types": "6.26.0",
     "@storybook/addon-actions": "6.3.7",
     "@storybook/addon-essentials": "6.3.7",
