@@ -4,12 +4,15 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
+interface STATE {
+    burgerActive: boolean
+}
+
 export class NavBar extends React.Component {
-    state = { burgerActive: false };
+    state: STATE = { burgerActive: false };
 
     toggleNavbar = () => {
-        this.setState(state => ({
-            // @ts-ignore
+        this.setState((state: STATE) => ({
             burgerActive: !state.burgerActive,
         }));
     };
@@ -22,14 +25,14 @@ export class NavBar extends React.Component {
                         <Link href="/">Dashboard</Link>
                     </span>
                     <span className="navbar-item">
-                        <Link href="/relay/lowsky/dashboard">GraphQL+Relay</Link>
+                        <Link href="/relay/lowsky/dashboard">GraphQL+Relay Demo</Link>
                     </span>
                     <span className="navbar-item">
                         <a href="/story-book/index.html">Storybook</a>
                     </span>
                     <span className="navbar-item">
                         <a href="https://github.com/lowsky/dashboard/">
-                            <FontAwesomeIcon icon={faGithub} />
+                            <FontAwesomeIcon width="1rem" size={'1x'} icon={faGithub} />
                         </a>
                     </span>
 
@@ -51,7 +54,7 @@ export class NavBar extends React.Component {
                     aria-expanded="false">
                     <div className="navbar-start">
                         <span className="navbar-item">
-                            <Link href="/relay/lowsky/dashboard">GraphQL + Relay Demo</Link>
+                            <Link href="/relay/lowsky/dashboard">GraphQL+Relay Demo</Link>
                         </span>
                         <span className="navbar-item">
                             <Link href="/restful/lowsky/dashboard">RESTful Demo</Link>
@@ -62,8 +65,7 @@ export class NavBar extends React.Component {
                         <span className="navbar-item">
                             <a href="https://github.com/lowsky/dashboard/">
                                 <span>
-                                    <FontAwesomeIcon icon={faGithub} />
-                                    &nbsp; Github Repo
+                                    <FontAwesomeIcon icon={faGithub} width="1rem" /> Github Repo
                                 </span>
                             </a>
                         </span>
