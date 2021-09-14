@@ -27,7 +27,7 @@ exports[`NavBar component should render as expected 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
       >
-        GraphQL+Relay
+        GraphQL+Relay Demo
       </a>
     </span>
     <span
@@ -47,13 +47,14 @@ exports[`NavBar component should render as expected 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-github fa-w-16 "
+          className="svg-inline--fa fa-github fa-w-16 fa-1x "
           data-icon="github"
           data-prefix="fab"
           focusable="false"
           role="img"
           style={Object {}}
           viewBox="0 0 496 512"
+          width="1rem"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -99,7 +100,7 @@ exports[`NavBar component should render as expected 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
-          GraphQL + Relay Demo
+          GraphQL+Relay Demo
         </a>
       </span>
       <span
@@ -138,6 +139,7 @@ exports[`NavBar component should render as expected 1`] = `
               role="img"
               style={Object {}}
               viewBox="0 0 496 512"
+              width="1rem"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -146,7 +148,7 @@ exports[`NavBar component should render as expected 1`] = `
                 style={Object {}}
               />
             </svg>
-              Github Repo
+             Github Repo
           </span>
         </a>
       </span>
