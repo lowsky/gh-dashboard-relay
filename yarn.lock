@@ -2603,10 +2603,10 @@
   resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-10.0.0.tgz#db4335de99509021f501fc4e026e6ff495fe1e62"
   integrity sha512-k1iO2zKuEjjRS1EJb4FwSLk+iF6EGp+ZV0OMRViQoWhQ1fZTk9hg1xccZII5uyYoiqcbC73MRBmT45y1vp2PPg==
 
-"@octokit/openapi-types@^10.2.1":
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-10.2.1.tgz#825a705e617be3043394101256bd7b5b04c4e249"
-  integrity sha512-IN33Fmzjw2AQEXOsfuInddirTQOO5l7lKcbfPIUPPdJqj1D5bdUiqgu/SmOdGrv1Lx+Pxqq2h3dYRNogKm0v9w==
+"@octokit/openapi-types@^10.2.2":
+  version "10.2.2"
+  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-10.2.2.tgz#6c1c839d7d169feabaf1d2a69c79439c75d979cd"
+  integrity sha512-EVcXQ+ZrC04cg17AMg1ofocWMxHDn17cB66ZHgYc0eUwjFtxS0oBzkyw2VqIrHBwVgtfoYrq1WMQfQmMjUwthw==
 
 "@octokit/openapi-types@^9.3.0":
   version "9.3.0"
@@ -2679,12 +2679,12 @@
     "@octokit/plugin-request-log" "^1.0.4"
     "@octokit/plugin-rest-endpoint-methods" "^5.9.0"
 
-"@octokit/types@6.28.0":
-  version "6.28.0"
-  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-6.28.0.tgz#7d422e4b40cb45d2ef5740b956aa1a9505c3811a"
-  integrity sha512-DjJNi19QVDeQmWGM+Yd+59ILFFp75O8JncQOKJL38HpwbgId0Yfy3ngDpK5UpNM43wtlwje4SbtKPwlMnyicbQ==
+"@octokit/types@6.28.1":
+  version "6.28.1"
+  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-6.28.1.tgz#ab990d1fe952226055e81c7650480e6bacfb877c"
+  integrity sha512-XlxDoQLFO5JnFZgKVQTYTvXRsQFfr/GwDUU108NJ9R5yFPkA2qXhTJjYuul3vE4eLXP40FA2nysOu2zd6boE+w==
   dependencies:
-    "@octokit/openapi-types" "^10.2.1"
+    "@octokit/openapi-types" "^10.2.2"
 
 "@octokit/types@^6.0.3", "@octokit/types@^6.13.0", "@octokit/types@^6.16.1", "@octokit/types@^6.23.0":
   version "6.23.0"
