@@ -5,7 +5,7 @@ module.exports = {
             version: 'detect', // React version. "detect" automatically picks the version you have installed.
         },
     },
-    plugins: ['graphql', 'react', 'prettier'],
+    plugins: ['graphql', 'prettier'],
     rules: {
         'import/no-anonymous-default-export': 'off',
         /*
