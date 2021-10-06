@@ -304,7 +304,7 @@ exports[`Storyshots Others/Pages main 1`] = `
         <strong>
           GraphQL + Relay
         </strong>
-         - fetches all information from a locally installed relay server. 
+         - fetches all information from a locally installed relay server.
         <b>
           Note:
         </b>
@@ -320,11 +320,11 @@ exports[`Storyshots Others/Pages main 1`] = `
       </li>
     </ul>
     <p>
-      This demo was just to figure out, how to setup mixing 
+      This demo was just to figure out, how to setup mixing
       <b>
         Relay
       </b>
-       and 
+       and
       <b>
         regular
       </b>
@@ -382,11 +382,11 @@ exports[`Storyshots Others/Pages main 1`] = `
       How to start the local server
     </h4>
     <p>
-      After installing the dependencies via 
+      After installing the dependencies via
       <code>
         npm install
       </code>
-       you also need to configure GitHub authentication token in the 
+       you also need to configure GitHub authentication token in the
       <code>
         server/.env
       </code>
@@ -399,13 +399,16 @@ exports[`Storyshots Others/Pages main 1`] = `
 </div>
 `;
 
-exports[`Storyshots Others/Pages relay 1`] = `
-<div>
-  delayed loading ...
+exports[`Storyshots Others/Pages Relay 1`] = `
+<div
+  className="notification has-text-danger"
+>
+  Error! While trying to load data from the server: 
+  {"name":"Invariant Violation","framesToPop":1}
 </div>
 `;
 
-exports[`Storyshots Others/Pages restful 1`] = `
+exports[`Storyshots Others/Pages Restful 1`] = `
 <div
   className="content"
 >
@@ -428,11 +431,12 @@ exports[`Storyshots Others/Pages restful 1`] = `
         className="subTitle is-3"
       >
         <a
-          href="https://github.com/undefined/?"
+          href="https://github.com/lowsky/dashboard"
         >
           <strong>
+            lowsky
              / 
-            ?
+            dashboard
           </strong>
           <span
             className="icon"
@@ -488,7 +492,7 @@ exports[`Storyshots Others/Pages restful 1`] = `
               <p
                 className="title is-4"
               >
-                ?
+                lowsky
               </p>
               <p
                 className="subtitle is-6"
