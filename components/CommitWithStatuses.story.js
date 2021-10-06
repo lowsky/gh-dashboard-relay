@@ -37,9 +37,17 @@ export default {
     component: CommitWithStatuses,
 };
 
-export const WithData = () => <CommitWithStatuses commit={moreStatus} user={commitData.user} />;
+export const WithData = (props) => <CommitWithStatuses  {...props} />;
+WithData.args = {
+    commit: moreStatus,
+    user:commitData.user
+}
 
-export const WithNoData = () => <CommitWithStatuses />;
+export const WithNoData = (props) => <CommitWithStatuses {...props} />;
+WithNoData.args = {
+    commit: undefined,
+    user: undefined
+}
 
 WithData.storyName = 'with data';
 

@@ -62,10 +62,13 @@ export default {
     component: UserRepo,
 };
 
-export const WithUserAndRepo = () => (
+export const WithUserAndRepo = (props) => (
     <UILibContext.Provider value={UILibPureComponents}>
-        <UserRepo {...userRepo} />
+        <UserRepo {...props} />
     </UILibContext.Provider>
 );
+WithUserAndRepo.args = {
+    ...userRepo
+}
 
 WithUserAndRepo.storyName = 'with user and repo';

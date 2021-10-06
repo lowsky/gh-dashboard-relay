@@ -43,14 +43,17 @@ export default {
     title: 'Others/BranchInfoRow',
     component: BranchInfoRow,
 };
-export const WithInfo = () => (
+export const WithInfo = (props) => (
     <UILibContext.Provider value={UILibPureComponents}>
         <table width={400}>
             <tbody>
-                <BranchInfoRow {...branchInfo} />
+                <BranchInfoRow {...props} />
             </tbody>
         </table>
     </UILibContext.Provider>
 );
+WithInfo.args = {
+    ...branchInfo
+}
 
 WithInfo.storyName = 'with info';

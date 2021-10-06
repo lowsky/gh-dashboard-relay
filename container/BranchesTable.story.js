@@ -44,9 +44,13 @@ export default {
     component: BranchesTable,
 };
 
-export const WithOneBranch = () => (
+export const WithOneBranch = (props) => (
     <UILibContext.Provider value={UILibPureComponents}>
-        <BranchesTable repo={{ branches: [branchInfo] }} />
+        <BranchesTable {...props} />
     </UILibContext.Provider>
 );
+WithOneBranch.args = {
+    repo: { branches: [branchInfo] }
+};
+
 WithOneBranch.storyName = 'with one branch';

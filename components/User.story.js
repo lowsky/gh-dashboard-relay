@@ -17,10 +17,15 @@ export default {
     component: User,
 };
 
-export const WithoutAvatar = () => <User user={userWithoutAvatar} />;
+export const WithoutAvatar = (props) => <User {...props} />;
+WithoutAvatar.args = {
+    user: userWithoutAvatar
+}
 
-export const WithAvatar = () => <User user={userWithAvatar} />;
-
+export const WithAvatar = (props) => <User {...props} />;
+WithAvatar.args = {
+    user: userWithAvatar
+}
 WithoutAvatar.storyName = 'without avatar';
 
 WithAvatar.storyName = 'with avatar';
