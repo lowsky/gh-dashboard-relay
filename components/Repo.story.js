@@ -54,6 +54,9 @@ export default {
     component: Repo,
 };
 
-export const FakeData = () => <Repo {...repo} />;
+export const FakeData = (props) => <Repo {...props} />;
+FakeData.args = {
+    repo: repo.repo
+}
 
 FakeData.storyName = 'fake data';

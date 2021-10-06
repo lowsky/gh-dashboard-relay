@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from 'react';
 import IndexPage from '../pages';
 import { RestfulMain } from '../pages/restful/[userName]/[repoName]';
 
-const RelayPage = lazy(() => import('../pages/relay/[userName]/[repoName]'));
+import { RelayRootMain } from'../pages/relay/[userName]/[repoName]';
 
 const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
 
@@ -16,19 +16,22 @@ export const Main = () => <IndexPage />;
 
 Main.storyName = 'main';
 
-export const Restful = () => <RestfulMain />;
-
-Restful.storyName = 'restful';
-
+export const Restful = (props) => <RestfulMain {...props} />;
 Restful.parameters = {
     chromatic: { disable: true },
 };
+Restful.args = {
+    userName: "lowsky",
+    repoName: "dashboard"
+};
 
-const params = { repoName: 'dashboard' };
-export const Relay = () => <RelayPage match={params} />;
-
-Relay.storyName = 'relay';
-
+export const Relay = (props) => {
+    return <RelayRootMain {...props} />;
+};
+Relay.args = {
+    userName: "lowsky",
+    repoName: "dashboard"
+};
 Relay.parameters = {
     chromatic: { disable: true },
 };
