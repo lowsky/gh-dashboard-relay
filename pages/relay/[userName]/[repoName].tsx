@@ -28,9 +28,13 @@ function singleArgOrDefault(value?: string | string[] | null, defaultValue?: str
 const RelayRoot = () => {
     const router = useRouter();
     const { userName, repoName } = router.query;
+    return <RelayRootMain userName={userName} repoName={repoName} />;
+}
+
+export const RelayRootMain = ({ userName, repoName }) => {
 
     if (typeof window === 'undefined') {
-        return <h1>SSR rendering</h1>;
+        return <h1>SSR rendering ... no client-side fetching of data. Plz enable javascript.</h1>;
     }
 
     const environment = initEnvironment();
