@@ -33,7 +33,8 @@
     "test:circleci": "TEST_REPORT_FILENAME=test-reports/jest-junit.xml npm test -- --ci --testResultsProcessor=./node_modules/jest-junit-reporter --all --watch=false --watchAll=false --forceExit",
     "chromatic-test": "chromatic --exit-zero-on-changes -d public/story-book --ci --allow-console-errors --exit-once-uploaded '*'",
     "storybook": "start-storybook -p 9009",
-    "build:storybook": "build-storybook -o public/story-book --quiet"
+    "build:storybook.orig": "build-storybook -o public/story-book --quiet",
+    "build:storybook": "mkdir -p public/story-book ; echo >public/story-book/index.html currently disabled"
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
