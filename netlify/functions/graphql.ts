@@ -1,15 +1,9 @@
-// import { Handler } from "@netlify/functions";
 import { ApolloServer } from 'apollo-server-lambda';
-//const  formatError =require('apollo-errors')
 
 import { typeDefs } from '../../lib/localSchema';
 import { resolvers } from '../../lib/resolvers';
-// const xxx = require('apollo-server-core')
-//import { ApolloServerPluginLandingPageDisabled, ApolloServerPluginLandingPageGraphQLPlayground,
-//} from 'apollo-server-core';
 
-const isLocalDev = true;
-
+const isLocalDev =  process.env.NODE_ENV === 'development';
 
 // will be stored here for re-use
 // let server: ApolloServer | null = null;
@@ -27,9 +21,9 @@ const lambda = new ApolloServer({
 //exports.handler = instana.wrap((event, context, callback) => {
 const handler = (event, context, callback) => {
 
-    console.error('    - ----- - -- - tracccce.')
+    console.info('    - ----- - -- - tracccce.')
 
-    // @ts-ignore
+    // @ts-expect-error not used yet...
     const callbackFilter = function (error, output) {
         if (error) {
             console.error(error);
@@ -39,7 +33,6 @@ const handler = (event, context, callback) => {
         }
 
         console.log('Environment: ', process && process.env && process.env.NODE_ENV);
-        isLocalDev && console.log('Environment: LOCAL? ', isLocalDev);
 
         isLocalDev && console.log('result', output);
         callback(error, output);
@@ -48,18 +41,11 @@ const handler = (event, context, callback) => {
 
     const handler = lambda.createHandler();
 
-    isLocalDev && console.info('handler created');
-/*
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ message: "Hello Graphql World" }),
-    };
 
- */
     isLocalDev && console.info('handler created');
 
     try {
-        // @ts-ignore
+        // @ts-expect-error not used yet...: Type mismatch
         // return handler(event, context, callbackFilter);
         return handler(event, context);
     }
@@ -67,7 +53,7 @@ const handler = (event, context, callback) => {
         console.error(e);
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: "Hello Graphql World" + e }),
+            body: JSON.stringify({ message: "Hello Graphql World, sorry an error: " + e }),
         };
     }
 
