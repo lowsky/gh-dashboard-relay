@@ -7,29 +7,20 @@ import { resolvers } from '../../lib/resolvers';
 // const xxx = require('apollo-server-core')
 //import { ApolloServerPluginLandingPageDisabled, ApolloServerPluginLandingPageGraphQLPlayground,
 //} from 'apollo-server-core';
-import {
-    // ApolloServerPluginLandingPageDisabled,
-    ApolloServerPluginLandingPageGraphQLPlayground,
-} from 'apollo-server-core';
 
 const isLocalDev = true;
 
 
 // will be stored here for re-use
 // let server: ApolloServer | null = null;
-
 // const instana = require('@instana/aws-lambda');
 
 const lambda = new ApolloServer({
     typeDefs,
     resolvers,
-    // formatError,
 
     debug: isLocalDev,
     introspection: isLocalDev,
-    plugins: [
-        ApolloServerPluginLandingPageGraphQLPlayground(),
-    ]
 });
 
 
