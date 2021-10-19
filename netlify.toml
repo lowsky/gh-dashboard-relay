@@ -1,6 +1,7 @@
 [build]
   Command = "yarn run build"
   publish   = "out_publish"
+  functions = "netlify/functions"
   ignore = "git log --oneline -1 | grep 'Update dependency @types/'"
 
 [build.environment]
