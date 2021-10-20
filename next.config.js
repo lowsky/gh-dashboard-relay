@@ -9,6 +9,16 @@ module.exports = {
     }
     return config
   },
+  typescript: {
+    /* workaround for non-matching type definitions when
+       mixing apollo 2/3 ...
+     */
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   // Target must be serverless (for use with netlify)
   target: "serverless",
 };

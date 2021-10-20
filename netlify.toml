@@ -1,8 +1,8 @@
 [build]
   Command = "yarn run build"
-  functions = "out_functions"
   publish   = "out_publish"
+  functions = "netlify/functions"
   ignore = "git log --oneline -1 | grep 'Update dependency @types/'"
 
 [build.environment]
-  YARN_FLAGS = "--pure-lockfile --verbose"
+  YARN_FLAGS = "--pure-lockfile"

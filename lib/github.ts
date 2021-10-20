@@ -17,7 +17,7 @@ export const getUser = async (username:string): Promise<GithubUser> => {
         const { data } = await octo.users.getByUsername({ username });
         return convertItsIdToString(data);
     } catch (err) {
-        console.log(err);
+        console.log('get User ', username, err);
     }
     return {};
 };
