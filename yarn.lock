@@ -4969,7 +4969,7 @@ apollo-server-core@^2.25.2:
     subscriptions-transport-ws "^0.9.19"
     uuid "^8.0.0"
 
-apollo-server-core@^3.3.0:
+apollo-server-core@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.4.0.tgz#a7a492522132472361cd5ff7c6fc32aef37385b5"
   integrity sha512-CbQTgoeijCdfaTFq3DHBrnWtat1M/SlPxS365iy2fb2/p4zbYatOA/S0RON7PMGp2gcMnopvOtokJIOxbNN/YA==
@@ -5033,14 +5033,14 @@ apollo-server-lambda@2.25.2:
     apollo-server-types "^0.9.0"
     graphql-tools "^4.0.8"
 
-apollo-server-micro@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-3.3.0.tgz#02aeed4e130f418d896371bb120c51c399c1e27d"
-  integrity sha512-PTyTgre87Yh89fwml9pCdac60vlmByLYaUqdGtZMG8Z6GQ4tGMo7cUYPMK+FbNFr8/27oOxK8CvEAF3ogAYlCw==
+apollo-server-micro@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-3.4.0.tgz#ebe7200ecdc78d1647db781c7dfa749511bdd17f"
+  integrity sha512-Q3AiT3sT8LdisTV7GHPSvSZj/m0YmqRL4DwAe8Wf2p1VXe8tlUR+mqSNCsfQjXsBXSTQ8GuGIEpUuAzEaaus/w==
   dependencies:
     "@hapi/accept" "^5.0.2"
-    apollo-server-core "^3.3.0"
-    apollo-server-types "^3.2.0"
+    apollo-server-core "^3.4.0"
+    apollo-server-types "^3.3.0"
     type-is "^1.6.18"
 
 apollo-server-plugin-base@^0.13.0:
@@ -5066,7 +5066,7 @@ apollo-server-types@^0.9.0:
     apollo-server-caching "^0.7.0"
     apollo-server-env "^3.1.0"
 
-apollo-server-types@^3.2.0, apollo-server-types@^3.3.0:
+apollo-server-types@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/apollo-server-types/-/apollo-server-types-3.3.0.tgz#20448e2c88e2045764a5fe82ab66069e79c4a834"
   integrity sha512-m+GyuXyuZ7YdZO1NIMJdJoOKsocCPx/WRVzBjDegYxNcAa/lDvNYU3hFyX87UGXt8Xsd9VIHxdhO88S6jkgCmw==
