@@ -48,7 +48,7 @@
     "@octokit/graphql-schema": "10.73.0",
     "@octokit/rest": "18.11.4",
     "apollo-server-lambda": "2.25.2",
-    "apollo-server-micro": "3.3.0",
+    "apollo-server-micro": "3.4.0",
     "bufferutil": "4.0.4",
     "bulma": "0.9.3",
     "graphql": "15.6.0",
