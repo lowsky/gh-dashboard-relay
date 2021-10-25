@@ -3,7 +3,8 @@ import { ApolloServer } from 'apollo-server-micro';
 
 import { typeDefs } from "../../lib/localSchema";
 import { resolvers } from '../../lib/resolvers';
-// not working with core 2.2 version : import { ApolloServerPluginLandingPageDisabled, ApolloServerPluginLandingPageGraphQLPlayground, } from 'apollo-server-core';
+
+const isLocalDev =  process.env.NODE_ENV === 'development';
 
 // will be stored here for re-use
 let server: ApolloServer | null = null;
@@ -12,13 +13,8 @@ async function getGraphqlServer() {
     const apolloServer = new ApolloServer({
         typeDefs,
         resolvers,
-        debug: false,
-        introspection: false,
-        plugins: [
-            // process will be used while build time ...
-            // eslint-disable-next-line no-undef
-            // process.env.NODE_ENV === 'production' ? ApolloServerPluginLandingPageDisabled() : ApolloServerPluginLandingPageGraphQLPlayground(),
-        ],
+        debug: isLocalDev,
+        introspection: isLocalDev,
     });
 
     await apolloServer.start();
