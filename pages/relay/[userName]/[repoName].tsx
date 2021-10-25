@@ -15,7 +15,7 @@ import GithubQuery from '../../../queries/relayPage';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
 import { UserRepoProps } from '../../../container/UserRepo';
 
-function singleArgOrDefault(value?: string | string[] | null, defaultValue?: string) {
+function singleArgOrDefault(value: string | string[] , defaultValue?: string) {
     if (value === null || value === undefined) {
         return defaultValue;
     }
@@ -28,14 +28,17 @@ function singleArgOrDefault(value?: string | string[] | null, defaultValue?: str
 const RelayRoot = () => {
     const router = useRouter();
     const { userName, repoName } = router.query;
-    return <RelayRootMain userName={userName} repoName={repoName} />;
+
+    if(userName && repoName) {
+        if (typeof window === 'undefined') {
+            return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
+        }
+        return <RelayRootMain userName={userName} repoName={repoName} />;
+    }
+    return <ContentLoadingFallback />
 }
 
 export const RelayRootMain = ({ userName, repoName }) => {
-
-    if (typeof window === 'undefined') {
-        return <h1>SSR rendering ... no client-side fetching of data. Plz enable javascript.</h1>;
-    }
 
     const environment = initEnvironment();
 
@@ -43,8 +46,9 @@ export const RelayRootMain = ({ userName, repoName }) => {
         userName: singleArgOrDefault(userName) ?? '',
         repoName: singleArgOrDefault(repoName) ?? '',
     };
-    const preloadedQuery = loadQuery<relayPageQuery>(environment, GithubQuery, variables);
 
+
+    const preloadedQuery = userName && repoName && loadQuery<relayPageQuery>(environment, GithubQuery, variables);
     return (
         <ErrorBoundaryWithRetry
             fallback={({ error }) => (
@@ -52,9 +56,8 @@ export const RelayRootMain = ({ userName, repoName }) => {
                     Error! While trying to load data from the server: {JSON.stringify(error)}
                 </div>
             )}>
-            <Suspense fallback={<ContentLoadingFallback />}>
-                <ShowUserRepoContent preloadedQuery={preloadedQuery} />
-            </Suspense>
+            <Suspense fallback={<ContentLoadingFallback />}>{preloadedQuery && <ShowUserRepoContent preloadedQuery={preloadedQuery} />
+            }</Suspense>
         </ErrorBoundaryWithRetry>
     );
 };
