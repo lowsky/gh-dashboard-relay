@@ -3,22 +3,32 @@
  */
 import React from 'react';
 
-export default class ErrorBoundaryWithRetry extends React.Component<{ fallback: any }> {
+type State = { error?: Error | null };
+
+export default class ErrorBoundaryWithRetry extends React.Component<{ fallback?:any }, State> {
     state = { error: null };
 
-    static getDerivedStateFromError(error:Error) {
+    static getDerivedStateFromError(error: Error) {
         return { error };
     }
 
     render() {
         const { children, fallback } = this.props;
         const { error } = this.state;
+
         if (error) {
             if (typeof fallback === 'function') {
                 return fallback({ error });
             }
-            return fallback;
+
+            return (
+                <div className='notification has-text-danger'>
+                    Error! While trying to load data from the server:
+                    <br/>
+                    {JSON.stringify(error)}
+                </div>
+            );
         }
         return children;
     }
-}
+};
