@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 
 import IndexPage from '../pages';
 import { RestfulMain } from '../pages/restful/[userName]/[repoName]';
