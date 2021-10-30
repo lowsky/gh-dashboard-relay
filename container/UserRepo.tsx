@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
 import UILibContext from '../components/UILibContext';
 
-export type DoMergePR = (num: number) => Promise<void>;
+export type DoMergePR = (num: number) => Promise<unknown>;
 
 export type UserRepoProps = {
     readonly doMergePR?: DoMergePR,

@@ -2,13 +2,14 @@ import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
-import { UserRepoProps } from '../../../container/UserRepo';
+import { DoMergePR, UserRepoProps } from '../../../container/UserRepo';
 import UILibContext from '../../../components/UILibContext';
 import { UILibWithRelaySupport } from '../../../components';
 import UserRepo from '../../../relay/UserRepo';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
 import GithubQuery from '../../../queries/relayPage';
 import { relayPageQuery, relayPageQueryVariables } from '../../../queries/__generated__/relayPageQuery.graphql';
+import { mergePullRequest } from '../../../lib/github';
 
 function singleArgOrDefault(value: string | string[], defaultValue?: string) {
     if (value === null || value === undefined) {
@@ -47,15 +48,26 @@ export const RelayRootMain = ({ userName, repoName }) => {
 
     const data = useLazyLoadQuery<relayPageQuery>(GithubQuery, variables);
 
-    return <ShowUserRepoContent data={data} />;
+    const doMergePR: DoMergePR = async (num) => {
+        if (repoName && userName) {
+            return await mergePullRequest({
+                owner: userName,
+                repo: repoName,
+                pull_number: num,
+            });
+        }
+        return;
+    };
+
+    return <ShowUserRepoContent data={data} doMergePR={doMergePR} />;
 };
 
-function ShowUserRepoContent({ data }) {
+function ShowUserRepoContent({ data, doMergePR }) {
     const github: UserRepoProps['github'] = data.github;
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
             <div className="box">
-                <UserRepo github={github} />
+                <UserRepo github={github} doMergePR={doMergePR} />
             </div>
         </UILibContext.Provider>
     );
