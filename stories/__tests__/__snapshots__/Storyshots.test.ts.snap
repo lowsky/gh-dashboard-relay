@@ -272,15 +272,6 @@ Array [
 ]
 `;
 
-exports[`Storyshots Others/Pages Relay 1`] = `
-<div
-  className="notification has-text-danger"
->
-  Error! While trying to load data from the server: 
-  {"name":"Invariant Violation","framesToPop":1}
-</div>
-`;
-
 exports[`Storyshots Others/Pages Restful 1`] = `
 <div
   className="content"
