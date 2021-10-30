@@ -3,17 +3,20 @@ import React, { useContext } from "react";
 import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
 import UILibContext from '../components/UILibContext';
 
-export interface UserRepoProps {
-    github?: {
-        user?: UserType;
-        repo?: {
-            name: string;
-            branches: Branches;
+export type DoMergePR = (num: number) => Promise<void>;
+
+export type UserRepoProps = {
+    readonly doMergePR?: DoMergePR,
+    readonly github?: {
+        readonly user?: UserType;
+        readonly repo?: {
+            readonly name: string;
+            readonly branches: Branches;
         };
     };
 }
 
-let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github }) => {
+let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github, doMergePR }) => {
     const { Repo, User, BranchTable } = useContext(UILibContext);
 
     if (!github) return null;
@@ -26,7 +29,7 @@ let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github }) => {
             {user && !repo && <p>Repo not found.</p>}
             <div className="column">
                 {user && <User user={user} />}
-                {repo && <BranchTable repo={repo} />}
+                {repo && <BranchTable repo={repo} doMergePR={doMergePR} />}
             </div>
         </React.Fragment>
     );
