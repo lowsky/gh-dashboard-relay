@@ -77,7 +77,7 @@ export function RestfulMain({ userName, repoName }) {
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
-                    <UserRepo github={{ user, repo }} />
+                    <UserRepo github={{ user, repo }} doMergePR={async() => {}}/>
                 </div>
                 {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
             </div>

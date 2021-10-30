@@ -272,15 +272,6 @@ Array [
 ]
 `;
 
-exports[`Storyshots Others/Pages Relay 1`] = `
-<div
-  className="notification has-text-danger"
->
-  Error! While trying to load data from the server: 
-  {"name":"Invariant Violation","framesToPop":1}
-</div>
-`;
-
 exports[`Storyshots Others/Pages Restful 1`] = `
 <div
   className="content"
@@ -420,8 +411,34 @@ exports[`Storyshots Others/Pages main 1`] = `
     className="title"
   >
     <h1>
-      Getting started
+      What is it?
     </h1>
+  </div>
+  <div
+    className="content"
+  >
+    <p>
+      The goal of this demo was to compare a 
+      <strong>
+        Relay based GraphQL
+      </strong>
+       and 
+      <strong>
+        regular Rest
+      </strong>
+       approach for fetching data in a web client.
+    </p>
+    <p>
+      Additionally, is contains a solution for mixing 
+      <strong>
+        Relay
+      </strong>
+       and 
+      <strong>
+        normal React
+      </strong>
+       components.
+    </p>
   </div>
   <div
     className="content"
@@ -441,9 +458,9 @@ exports[`Storyshots Others/Pages main 1`] = `
           GraphQL + Relay
         </strong>
          - fetches all information from a locally installed relay server. 
-        <b>
+        <strong>
           Note:
-        </b>
+        </strong>
         <i>
           This needs a backend server / currently implemented as lambda function...
         </i>
@@ -455,17 +472,6 @@ exports[`Storyshots Others/Pages main 1`] = `
          - just fetches info from Github's public open API via Rest calls.
       </li>
     </ul>
-    <p>
-      This demo was just to figure out, how to setup mixing 
-      <b>
-        Relay
-      </b>
-       and 
-      <b>
-        regular
-      </b>
-       react components.
-    </p>
     <h4
       className="is-size-4"
     >
@@ -474,42 +480,45 @@ exports[`Storyshots Others/Pages main 1`] = `
     <ul>
       <li>
         <strong>
-          Rest
+          lowsky/dashboard:
         </strong>
-         based:  
         <a
           href="./restful/lowsky/dashboard"
         >
-          <b>
-            lowsky/dashboard
-          </b>
+          <strong>
+            Rest
+          </strong>
         </a>
-      </li>
-      <li>
-        <strong>
-          Relay
-        </strong>
-         based  
+        or
         <a
           href="./relay/lowsky/dashboard"
         >
-          <b>
-            lowsky/dashboard
-          </b>
+          <strong>
+            GraphQL Relay
+          </strong>
         </a>
-         
-        <span>
-          or
-        </span>
-         
-        <br />
+        based
+      </li>
+      <li>
+        <strong>
+          lowsky/spotify-graphql-server:
+        </strong>
+        <a
+          href="./restful/lowsky/spotify-graphql-server"
+        >
+          <strong>
+            Rest
+          </strong>
+        </a>
+        or
         <a
           href="./relay/lowsky/spotify-graphql-server"
         >
-          <b>
-            lowsky/spotify-graphql-server
-          </b>
+          <strong>
+            GraphQL Relay
+          </strong>
         </a>
+        based
       </li>
     </ul>
     <h4

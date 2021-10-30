@@ -28,4 +28,4 @@ export const UILibDummy : UILib = {
   values as default, instead of the real UILib variants (Pure/Relay)
   while this context is already imported by some of these components.
  */
-export default React.createContext(UILibDummy);
+export default React.createContext<UILib>(UILibDummy);

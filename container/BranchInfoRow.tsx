@@ -5,12 +5,14 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import UILibContext from '../components/UILibContext';
 import { GithubBranch } from "../lib/types/resolvers";
 import PullRequestInfo from '../relay/PullRequestInfo';
+import { DoMergePR } from './UserRepo';
 
 export interface BranchInfoRowProps {
-  branch: GithubBranch;
+    branch: GithubBranch;
+    doMergePR?: DoMergePR
 }
 
-const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch }) => {
+const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
     const { name, lastCommit } = branch;
     const { associatedPullRequests } = lastCommit ?? {};
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
@@ -22,8 +24,8 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch }) => {
                 <a href={githubBranchSrc}>{name}</a> <FontAwesomeIcon icon={faGithub} />
             </td>
             <td>
-                {associatedPullRequests?.map?.((pr, idx) => (
-                    <PullRequestInfo key={idx} pullRequest={pr} />
+                {associatedPullRequests?.filter?.(Boolean).map?.((pr, idx) => (
+                    pr && <PullRequestInfo key={idx} pullRequest={pr} doMergePR={doMergePR} />
                 ))}
             </td>
             <td>{lastCommit &&<CommitWithStatuses commit={lastCommit} />}</td>

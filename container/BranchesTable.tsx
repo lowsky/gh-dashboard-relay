@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 
-import UILibContext from '../components/UILibContext';
 import { GithubRepo } from "../lib/types/resolvers";
+import UILibContext, { UILib } from '../components/UILibContext';
+import { DoMergePR } from './UserRepo';
 
 export interface BranchesTableProps {
-  repo?: GithubRepo
+    repo?: GithubRepo;
+    doMergePR?: DoMergePR;
 }
-const BranchesTable: React.FC<BranchesTableProps> = ({ repo  }) => {
-  const { BranchInfoRow } = useContext(UILibContext);
+const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
+    const { BranchInfoRow } = useContext<UILib>(UILibContext) as UILib;
 
   return (
     <table className="table is-bordered is-striped is-hoverable">
@@ -22,9 +24,9 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo  }) => {
                 </tr>
             </thead>
             <tbody>
-                {(repo?.branches || []).map((branch, idx) => (
-                    branch && <BranchInfoRow key={idx} branch={branch} />
-                ))}
+                {(repo?.branches || []).map(
+                    (branch, idx) => branch && <BranchInfoRow key={idx} branch={branch} doMergePR={doMergePR} />
+                )}
             </tbody>
         </table>
     );

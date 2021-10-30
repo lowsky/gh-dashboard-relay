@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 import { Octokit } from '@octokit/rest';
-import { GetResponseTypeFromEndpointMethod, GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
+import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
 
 import { GithubRepo, GithubStatus, GithubBranch, GithubUser, GithubCommit } from './types/resolvers';
 
@@ -75,6 +75,7 @@ export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDa
     typeof octo.repos.listPullRequestsAssociatedWithCommit
 >;
 
+export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof octo.pulls.merge>;
 /**
  * Fetch the PR info for a given repo
  *
@@ -87,3 +88,28 @@ export const fetchRepoPullRequestsAssociatedWithCommit = async (owner: string, r
     return pulls.data;
 };
 
+export const mergePullRequest = ({
+    owner,
+    repo,
+    pull_number,
+    sha,
+    merge_method = 'rebase',
+}: {
+    owner: string;
+    repo: string;
+    pull_number: number;
+    sha?: string;
+    merge_method?: 'rebase' | 'merge';
+}) : Promise<MergePullRequestsResponseDataType> => {
+
+    const result = octo.pulls.merge({
+        owner,
+        repo,
+        merge_method,
+        sha,
+        pull_number,
+    });
+    console.log({ result });
+    // @ts-ignore
+    return result;
+};

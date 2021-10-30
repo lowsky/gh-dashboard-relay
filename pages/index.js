@@ -1,7 +1,17 @@
 const indexPageContent = () => (
   <div style={{ padding: '3em' }}>
     <div className="title">
-      <h1>Getting started</h1>
+      <h1>What is it?</h1>
+    </div>
+    <div className="content">
+      <p>
+        The goal of this demo was to compare a <strong>Relay based GraphQL</strong> and <strong>regular
+        Rest</strong> approach for fetching data in a web client.
+      </p>
+      <p>
+        Additionally, is contains a solution for mixing <strong>Relay
+      </strong> and <strong>normal React</strong> components.
+      </p>
     </div>
     <div className="content">
       <p>You can use the links above in the nav bar for different views:</p>
@@ -10,36 +20,39 @@ const indexPageContent = () => (
           <strong>Storybook</strong> shows all components.
         </li>
         <li>
-          <strong>GraphQL + Relay</strong> - fetches all information from a locally installed relay server. <b>Note:</b>
+          <strong>GraphQL + Relay</strong> - fetches all information from a locally installed relay server. <strong>Note:</strong>
           <i>This needs a backend server / currently implemented as lambda function...</i>
         </li>
         <li>
           <strong>RESTFul Demo</strong> - just fetches info from Github&apos;s public open API via Rest calls.
         </li>
       </ul>
-      <p>
-        This demo was just to figure out, how to setup mixing <b>Relay</b> and <b>regular</b> react components.
-      </p>
       <h4 className="is-size-4">Examples</h4>
       <ul>
         <li>
-          <strong>Rest</strong> based: &nbsp;
+          <strong>lowsky/dashboard:</strong>
           <a href="./restful/lowsky/dashboard">
-            <b>lowsky/dashboard</b>
+            <strong>Rest</strong>
           </a>
+          or
+          <a href="./relay/lowsky/dashboard">
+            <strong>GraphQL Relay</strong>
+          </a>
+          based
         </li>
         <li>
-          <strong>Relay</strong> based &nbsp;
-          <a href="./relay/lowsky/dashboard">
-            <b>lowsky/dashboard</b>
-          </a>&nbsp;
-          <span>or</span>&nbsp;
-          <br />
-          <a href="./relay/lowsky/spotify-graphql-server">
-            <b>lowsky/spotify-graphql-server</b>
+          <strong>lowsky/spotify-graphql-server:</strong>
+          <a href="./restful/lowsky/spotify-graphql-server">
+            <strong>Rest</strong>
           </a>
+          or
+          <a href="./relay/lowsky/spotify-graphql-server">
+            <strong>GraphQL Relay</strong>
+          </a>
+          based
         </li>
       </ul>
+
       <h4 className="is-size-4">How to start the local server</h4>
       <p>
         After installing the dependencies via <code>npm install</code> you also need to configure GitHub
