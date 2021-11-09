@@ -69,7 +69,20 @@ type GithubUser {
 }
 
 type Query {
+    # @deprecated
     github: GithubAPI
+    
+    user(
+        # Username of the user
+        username: String!
+    ): GithubUser
+    repo(
+        # Name of the repo
+        name: String!
+
+        # Username of the owner
+        ownerUsername: String!
+    ): GithubRepo
 }
 
 union UserOrCommitAuthor = GithubCommitAuthor | GithubUser
