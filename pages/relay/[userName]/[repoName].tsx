@@ -80,7 +80,7 @@ function ShowUserRepoContent({ userData, repoData, doMergePR }) {
     );
 }
 
-function ContentLoadingFallback() {
+export function ContentLoadingFallback() {
     return (
         <div className="box">
             <span className="icon is-large ">
