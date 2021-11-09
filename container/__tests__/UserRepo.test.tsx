@@ -12,10 +12,8 @@ const user = {
 };
 const repo = {
     branches: [],
-    name: 'name'
+    name: 'name',
 };
-const github = { user, repo };
-
 describe('UserRepo component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');
@@ -24,13 +22,17 @@ describe('UserRepo component', () => {
 
     it('should render as expected', () => {
         const props: UserRepoProps = {
-            github
+            user,
+            repo,
         };
 
-        const appContainer = renderer.create(
-          <UILibContext.Provider value={UILibPureComponents}>
-              <UserRepo {...props} />
-          </UILibContext.Provider>).toJSON();
+        const appContainer = renderer
+            .create(
+                <UILibContext.Provider value={UILibPureComponents}>
+                    <UserRepo {...props} />
+                </UILibContext.Provider>
+            )
+            .toJSON();
         expect(appContainer).toMatchSnapshot();
     });
 });

@@ -7,21 +7,16 @@ export type DoMergePR = (num: number) => Promise<unknown>;
 
 export type UserRepoProps = {
     readonly doMergePR?: DoMergePR,
-    readonly github?: {
-        readonly user?: UserType;
-        readonly repo?: {
-            readonly name: string;
-            readonly branches: Branches;
-        };
+    readonly user?: UserType;
+    readonly repo?: {
+        readonly name: string;
+        readonly branches: Branches;
     };
 }
 
-let UserRepo: React.FunctionComponent<UserRepoProps> = ({ github, doMergePR }) => {
+const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergePR }) => {
     const { Repo, User, BranchTable } = useContext(UILibContext);
 
-    if (!github) return null;
-
-    const { user, repo } = github;
     return (
         <React.Fragment>
             {!user && <p>User not found.</p>}
