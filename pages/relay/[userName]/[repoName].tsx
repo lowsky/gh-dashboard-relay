@@ -7,9 +7,10 @@ import UILibContext from '../../../components/UILibContext';
 import { UILibWithRelaySupport } from '../../../components';
 import UserRepo from '../../../relay/UserRepo';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
-import GithubQuery from '../../../queries/relayPage';
-import { relayPageQuery, relayPageQueryVariables } from '../../../queries/__generated__/relayPageQuery.graphql';
+import { repoQuery, userQuery } from '../../../queries/relayPage';
 import { mergePullRequest } from '../../../lib/github';
+import { relayPageUserQuery } from '../../../queries/__generated__/relayPageUserQuery.graphql';
+import { relayPageRepoQuery } from '../../../queries/__generated__/relayPageRepoQuery.graphql';
 
 function singleArgOrDefault(value: string | string[], defaultValue?: string) {
     if (value === null || value === undefined) {
@@ -45,8 +46,8 @@ export const RelayRootMain = ({ userName, repoName }) => {
         userName: singleArgOrDefault(userName) ?? '',
         repoName: singleArgOrDefault(repoName) ?? '',
     };
-
-    const data = useLazyLoadQuery<relayPageQuery>(GithubQuery, variables);
+    const userData = useLazyLoadQuery<relayPageUserQuery>(userQuery, variables);
+    const repoData = useLazyLoadQuery<relayPageRepoQuery>(repoQuery, variables);
 
     const doMergePR: DoMergePR = async (num) => {
         if (repoName && userName) {
@@ -59,15 +60,16 @@ export const RelayRootMain = ({ userName, repoName }) => {
         return;
     };
 
-    return <ShowUserRepoContent data={data} doMergePR={doMergePR} />;
+    return <ShowUserRepoContent userData={userData} repoData={repoData} doMergePR={doMergePR} />;
 };
 
-function ShowUserRepoContent({ data, doMergePR }) {
-    const github: UserRepoProps['github'] = data.github;
+function ShowUserRepoContent({ userData, repoData, doMergePR }) {
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
-            <div className="box">
-                <UserRepo github={github} doMergePR={doMergePR} />
+            <div className="content">
+                <div className="box">
+                    <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
+                </div>
             </div>
         </UILibContext.Provider>
     );
