@@ -22,7 +22,7 @@ const Repo: React.FC<RepoProps> = ({ repo: { name= '?', owner = {} } = {} }) => 
         <span className="has-text-grey-light">Repository</span>
       </h1>
       <h3 className="subTitle is-3">
-        <a href={`https://github.com/${owner.login}/${name}`}>
+        <a href={`https://github.com/${owner.login}/${name}`} rel="noopener noreferrer nofollow">
           <strong>
             {owner && owner.login} / {name}
           </strong>

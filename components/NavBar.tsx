@@ -31,7 +31,7 @@ export class NavBar extends React.Component {
                         <a href="/story-book/index.html">Storybook</a>
                     </span>
                     <span className="navbar-item">
-                        <a href="https://github.com/lowsky/dashboard/">
+                        <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
                             <FontAwesomeIcon width="1rem" size={'1x'} icon={faGithub} />
                         </a>
                     </span>
@@ -57,7 +57,7 @@ export class NavBar extends React.Component {
                             <Link href="/restful/lowsky/dashboard">RESTful Demo</Link>
                         </span>
                         <span className="navbar-item">
-                            <a href="https://github.com/lowsky/dashboard/">
+                            <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
                                 <span>
                                     <FontAwesomeIcon icon={faGithub} width="1rem" /> Github Repo
                                 </span>

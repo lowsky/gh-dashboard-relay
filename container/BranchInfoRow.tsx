@@ -21,7 +21,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
     return (
         <tr key={name}>
             <td>
-                <a href={githubBranchSrc}>{name}</a> <FontAwesomeIcon icon={faGithub} />
+                <a href={githubBranchSrc} rel="noopener noreferrer nofollow">{name}</a> <FontAwesomeIcon icon={faGithub} />
             </td>
             <td>
                 {associatedPullRequests?.filter?.(Boolean).map?.((pr, idx) => (
