@@ -1,17 +1,20 @@
 import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
-import { useLazyLoadQuery } from 'react-relay/hooks';
+import { RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay/hooks';
 
-import { DoMergePR, UserRepoProps } from '../../../container/UserRepo';
+import { DoMergePR } from '../../../container/UserRepo';
 import UILibContext from '../../../components/UILibContext';
 import { UILibWithRelaySupport } from '../../../components';
 import UserRepo from '../../../relay/UserRepo';
 import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
-import GithubQuery from '../../../queries/relayPage';
-import { relayPageQuery, relayPageQueryVariables } from '../../../queries/__generated__/relayPageQuery.graphql';
+import { repoQuery, userQuery } from '../../../queries/relayPage';
 import { mergePullRequest } from '../../../lib/github';
+import { useEnvironment } from '../../../lib/relay';
+import { relayPageUserQuery } from '../../../queries/__generated__/relayPageUserQuery.graphql';
+import { relayPageRepoQuery } from '../../../queries/__generated__/relayPageRepoQuery.graphql';
+import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 
-function singleArgOrDefault(value: string | string[], defaultValue?: string) {
+function singleArgOrDefault(value: string | string[], defaultValue: string) {
     if (value === null || value === undefined) {
         return defaultValue;
     }
@@ -22,6 +25,7 @@ function singleArgOrDefault(value: string | string[], defaultValue?: string) {
 }
 
 const RelayRoot = () => {
+    const environment = useEnvironment({});
     const router = useRouter();
     const { userName, repoName } = router.query;
 
@@ -30,23 +34,25 @@ const RelayRoot = () => {
             return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
         }
         return (
-            <ErrorBoundaryWithRetry>
-                <Suspense fallback={<ContentLoadingFallback />}>
-                    <RelayRootMain userName={userName} repoName={repoName} />
-                </Suspense>
-            </ErrorBoundaryWithRetry>
+            <RelayEnvironmentProvider environment={environment}>
+                <ErrorBoundaryWithRetry>
+                    <Suspense fallback={<ContentLoadingFallback />}>
+                        <RelayRootMain userName={userName} repoName={repoName} />
+                    </Suspense>
+                </ErrorBoundaryWithRetry>
+            </RelayEnvironmentProvider>
         );
     }
-    return <ContentLoadingFallback />;
+    return <WarningMissingURLParams />;
 };
 
 export const RelayRootMain = ({ userName, repoName }) => {
-    const variables: relayPageQueryVariables = {
-        userName: singleArgOrDefault(userName) ?? '',
-        repoName: singleArgOrDefault(repoName) ?? '',
+    const variables = {
+        userName: singleArgOrDefault(userName, ''),
+        repoName: singleArgOrDefault(repoName, ''),
     };
-
-    const data = useLazyLoadQuery<relayPageQuery>(GithubQuery, variables);
+    const userData = useLazyLoadQuery<relayPageUserQuery>(userQuery, variables);
+    const repoData = useLazyLoadQuery<relayPageRepoQuery>(repoQuery, variables);
 
     const doMergePR: DoMergePR = async (num) => {
         if (repoName && userName) {
@@ -59,21 +65,22 @@ export const RelayRootMain = ({ userName, repoName }) => {
         return;
     };
 
-    return <ShowUserRepoContent data={data} doMergePR={doMergePR} />;
+    return <ShowUserRepoContent userData={userData} repoData={repoData} doMergePR={doMergePR} />;
 };
 
-function ShowUserRepoContent({ data, doMergePR }) {
-    const github: UserRepoProps['github'] = data.github;
+function ShowUserRepoContent({ userData, repoData, doMergePR }) {
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
-            <div className="box">
-                <UserRepo github={github} doMergePR={doMergePR} />
+            <div className="content">
+                <div className="box">
+                    <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
+                </div>
             </div>
         </UILibContext.Provider>
     );
 }
 
-function ContentLoadingFallback() {
+export function ContentLoadingFallback() {
     return (
         <div className="box">
             <span className="icon is-large ">

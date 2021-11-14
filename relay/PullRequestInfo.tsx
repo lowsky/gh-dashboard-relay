@@ -19,7 +19,7 @@ export const PullRequestInfo = ({ pullRequest, doMergePR }: PullRequestInfoProps
 
     return (
         <>
-            <a href={pullRequest.url ?? ''} title={pullRequest.title ?? ''}>
+            <a href={pullRequest.url ?? ''} title={pullRequest.title ?? ''} rel="noopener noreferrer nofollow">
                 #{pullRequest.number}
             </a>
             {doMergePR && <button onClick={() => doMergePR(pullRequest.number)}>

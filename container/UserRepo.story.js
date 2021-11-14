@@ -51,10 +51,8 @@ const repo = {
 };
 
 const userRepo = {
-    github: {
-        user: userWithAvatar.user,
-        repo: repo.repo,
-    },
+    user: userWithAvatar.user,
+    repo: repo.repo,
 };
 
 export default {

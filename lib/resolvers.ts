@@ -92,6 +92,7 @@ const queryResolver = {
     github: () => {
         return {};
     },
+    ...githubResolver
 };
 
 const githubBranchResolver: GithubBranchResolvers = {

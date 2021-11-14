@@ -27,11 +27,15 @@ export class NavBar extends React.Component {
                     <span className="navbar-item">
                         <Link href="/relay/lowsky/dashboard">GraphQL+Relay Demo</Link>
                     </span>
+                    {
+                        /*
+                        <span className="navbar-item">
+                            <a href="/story-book/index.html">Storybook</a>
+                        </span>
+                         */
+                    }
                     <span className="navbar-item">
-                        <a href="/story-book/index.html">Storybook</a>
-                    </span>
-                    <span className="navbar-item">
-                        <a href="https://github.com/lowsky/dashboard/">
+                        <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
                             <FontAwesomeIcon width="1rem" size={'1x'} icon={faGithub} />
                         </a>
                     </span>
@@ -54,16 +58,10 @@ export class NavBar extends React.Component {
                     aria-expanded="false">
                     <div className="navbar-start">
                         <span className="navbar-item">
-                            <Link href="/relay/lowsky/dashboard">GraphQL+Relay Demo</Link>
-                        </span>
-                        <span className="navbar-item">
                             <Link href="/restful/lowsky/dashboard">RESTful Demo</Link>
                         </span>
                         <span className="navbar-item">
-                            <a href="/story-book/index.html">Storybook</a>
-                        </span>
-                        <span className="navbar-item">
-                            <a href="https://github.com/lowsky/dashboard/">
+                            <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
                                 <span>
                                     <FontAwesomeIcon icon={faGithub} width="1rem" /> Github Repo
                                 </span>

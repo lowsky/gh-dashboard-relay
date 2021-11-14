@@ -18,6 +18,7 @@ exports[`Repo component should render as expected 1`] = `
   >
     <a
       href="https://github.com/owner-login/name,"
+      rel="noopener noreferrer nofollow"
     >
       <strong>
         owner-login

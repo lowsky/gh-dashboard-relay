@@ -8,12 +8,20 @@ import lastCommitMock from '../../../restinpeace/lastCommitMock.json';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
+import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 
 export default function RestfulPage() {
     const router = useRouter();
     const { userName, repoName } = router.query;
-    return <RestfulMain userName={userName} repoName={repoName} />;
-}
+    if (userName && repoName) {
+        if (typeof window === 'undefined') {
+            return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
+        }
+        return <RestfulMain userName={userName} repoName={repoName} />;
+    }
+    return <WarningMissingURLParams />;
+};
+
 
 export function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
@@ -77,7 +85,7 @@ export function RestfulMain({ userName, repoName }) {
         <UILibContext.Provider value={UILibPureComponents}>
             <div className="content">
                 <div className="box">
-                    <UserRepo github={{ user, repo }} doMergePR={async() => {}}/>
+                    <UserRepo user={user} repo={repo} />
                 </div>
                 {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
             </div>

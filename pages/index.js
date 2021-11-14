@@ -38,7 +38,11 @@ const indexPageContent = () => (
           <a href="./relay/lowsky/dashboard">
             <strong>GraphQL Relay</strong>
           </a>
-          based
+          based,
+          or
+          <a href="./side-by-side/lowsky/dashboard">
+            <strong>side-by-side</strong>
+          </a>
         </li>
         <li>
           <strong>lowsky/spotify-graphql-server:</strong>
@@ -49,7 +53,11 @@ const indexPageContent = () => (
           <a href="./relay/lowsky/spotify-graphql-server">
             <strong>GraphQL Relay</strong>
           </a>
-          based
+          based,
+          or
+          <a href="./side-by-side/lowsky/spotify-graphql-server">
+            <strong>side-by-side</strong>
+          </a>
         </li>
       </ul>
 
