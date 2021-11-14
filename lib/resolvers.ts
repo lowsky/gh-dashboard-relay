@@ -2,6 +2,7 @@ import {
     fetchRepoPullRequestsAssociatedWithCommit,
     getBranchesForRepo,
     getCommitsForRepo,
+    getLastCommit,
     getRepoForUser,
     getReposForUser,
     getStatusesForRepo,
@@ -103,22 +104,8 @@ const githubBranchResolver: GithubBranchResolvers = {
         if (!ownerUsername || !reponame) {
             return null;
         }
-        return getCommitsForRepo(ownerUsername, reponame, sha) //
-            .then((commits) => commits[0])
-            .then((commit) => {
-                // @ts-ignore
-                const message = commit.commit.message;
-                // @ts-ignore
-                const date = commit.commit.committer?.date;
-                return {
-                    ...commit,
-                    message,
-                    date,
-                    ownerUsername,
-                    reponame,
-                };
-            });
-    },
+        return getLastCommit(ownerUsername, reponame, sha);
+    }
 };
 
 const githubCommitResolver: GithubCommitResolvers = {

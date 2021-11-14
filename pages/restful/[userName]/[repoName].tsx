@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 import UserRepo from '../../../container/UserRepo';
 
 import { fetchRepoBranches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
-import lastCommitMock from '../../../restinpeace/lastCommitMock.json';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import { getLastCommit } from '../../../lib/github';
 
 export default function RestfulPage() {
     const router = useRouter();
@@ -20,8 +20,7 @@ export default function RestfulPage() {
         return <RestfulMain userName={userName} repoName={repoName} />;
     }
     return <WarningMissingURLParams />;
-};
-
+}
 
 export function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
@@ -61,11 +60,25 @@ export function RestfulMain({ userName, repoName }) {
         fetchRepoBranches(userName, repoName)
             .then((branches) => {
                 if (!ignoreDownloadedData) {
-                    storeRepo({
-                        name: repoName,
-                        owner: { login: userName },
-                        // @ts-ignore needs to be fixed / investigated
-                        branches: branches.map((b) => ({ ...b, lastCommit: lastCommitMock })) ?? [],
+                    let branchesWithCommitProms = branches.map((branch) => {
+                        console.log({ branch });
+                        // @ts-ignore
+                        const { sha } = branch.commit;
+                        return getLastCommit(userName, repoName, sha).then((com) => ({
+                            ...branch,
+                            lastCommit: com,
+                        }));
+                    });
+
+                    Promise.all(branchesWithCommitProms).then((branchesWithCommit) => {
+                        console.log(branchesWithCommit);
+                        console.log(branchesWithCommit?.[0]);
+                        storeRepo({
+                            name: repoName,
+                            owner: { login: userName },
+                            // @ts-ignore needs to be fixed / investigated
+                            branches: branchesWithCommit ?? [],
+                        });
                     });
                 }
             })

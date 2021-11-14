@@ -3,7 +3,7 @@
 import { Octokit } from '@octokit/rest';
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
 
-import { GithubRepo, GithubStatus, GithubBranch, GithubUser, GithubCommit } from './types/resolvers';
+import { GithubBranch, GithubCommit, GithubRepo, GithubStatus, GithubUser } from './types/resolvers';
 
 // @ts-ignore
 const { GITHUB_TOKEN } = process.env;
@@ -62,7 +62,7 @@ export const getStatusesForRepo = async (username, reponame, sha): Promise<Array
     return statuses.data;
 };
 
-function convertItsIdToString(obj: any & { id: number }): any & { id: String } {
+export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: String } {
     return {
         ...obj,
         id: String(obj.id),
@@ -76,6 +76,7 @@ export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDa
 >;
 
 export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof octo.pulls.merge>;
+
 /**
  * Fetch the PR info for a given repo
  *
@@ -109,7 +110,24 @@ export const mergePullRequest = ({
         sha,
         pull_number,
     });
-    console.log({ result });
     // @ts-ignore
     return result;
 };
+
+export function getLastCommit(ownerUsername: string, reponame: string, sha) {
+    return getCommitsForRepo(ownerUsername, reponame, sha) //
+        .then((commits) => commits[0])
+        .then((commit) => {
+            // @ts-ignore
+            const message = commit.commit.message;
+            // @ts-ignore
+            const date = commit.commit.committer?.date;
+            return {
+                ...commit,
+                message,
+                date,
+                ownerUsername,
+                reponame,
+            };
+        });
+}
