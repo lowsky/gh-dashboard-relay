@@ -5,6 +5,7 @@ Array [
   <div>
     <a
       href="https://github.com/lowsky/dashboard/tree/<missing>"
+      rel="noopener noreferrer nofollow"
     >
       <b>
         some-message,
@@ -18,6 +19,7 @@ Array [
       by  
     <a
       href="https://github.com/login"
+      rel="noopener noreferrer nofollow"
     >
       <img
         alt="avatar"
@@ -33,6 +35,7 @@ Array [
      
     <a
       href="mailto:email"
+      rel="noopener noreferrer nofollow"
     >
       ?name
     </a>

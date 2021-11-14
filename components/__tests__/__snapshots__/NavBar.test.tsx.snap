@@ -34,16 +34,8 @@ exports[`NavBar component should render as expected 1`] = `
       className="navbar-item"
     >
       <a
-        href="/story-book/index.html"
-      >
-        Storybook
-      </a>
-    </span>
-    <span
-      className="navbar-item"
-    >
-      <a
         href="https://github.com/lowsky/dashboard/"
+        rel="noopener noreferrer nofollow"
       >
         <svg
           aria-hidden="true"
@@ -96,17 +88,6 @@ exports[`NavBar component should render as expected 1`] = `
         className="navbar-item"
       >
         <a
-          href="/relay/lowsky/dashboard"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          GraphQL+Relay Demo
-        </a>
-      </span>
-      <span
-        className="navbar-item"
-      >
-        <a
           href="/restful/lowsky/dashboard"
           onClick={[Function]}
           onMouseEnter={[Function]}
@@ -118,16 +99,8 @@ exports[`NavBar component should render as expected 1`] = `
         className="navbar-item"
       >
         <a
-          href="/story-book/index.html"
-        >
-          Storybook
-        </a>
-      </span>
-      <span
-        className="navbar-item"
-      >
-        <a
           href="https://github.com/lowsky/dashboard/"
+          rel="noopener noreferrer nofollow"
         >
           <span>
             <svg
