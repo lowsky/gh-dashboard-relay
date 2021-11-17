@@ -3,6 +3,7 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
+
 import { FragmentRefs } from "relay-runtime";
 export type PullRequestInfo_pullRequest = {
     readonly title: string | null;
@@ -12,7 +13,7 @@ export type PullRequestInfo_pullRequest = {
 };
 export type PullRequestInfo_pullRequest$data = PullRequestInfo_pullRequest;
 export type PullRequestInfo_pullRequest$key = {
-    readonly " $data"?: PullRequestInfo_pullRequest$data;
+    readonly " $data"?: PullRequestInfo_pullRequest$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"PullRequestInfo_pullRequest">;
 };
 

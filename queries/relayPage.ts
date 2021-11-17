@@ -11,7 +11,7 @@ export const userQuery = graphql`
 export const repoQuery = graphql`
     query relayPageRepoQuery($userName: String!, $repoName: String!) {
         repo(ownerUsername: $userName, name: $repoName) {
-            ...UserRepo_repo @arguments(userName: $userName, repoName: $repoName)
+            ...UserRepo_repo @arguments(ownerUsername: $userName, name: $repoName)
         }
     }
 `;

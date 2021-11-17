@@ -3,6 +3,7 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
+
 import { FragmentRefs } from "relay-runtime";
 export type CommitWithStatuses_commit = {
     readonly sha: string | null;
@@ -20,7 +21,7 @@ export type CommitWithStatuses_commit = {
 };
 export type CommitWithStatuses_commit$data = CommitWithStatuses_commit;
 export type CommitWithStatuses_commit$key = {
-    readonly " $data"?: CommitWithStatuses_commit$data;
+    readonly " $data"?: CommitWithStatuses_commit$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"CommitWithStatuses_commit">;
 };
 

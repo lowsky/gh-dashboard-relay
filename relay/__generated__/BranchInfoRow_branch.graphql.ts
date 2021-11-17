@@ -3,6 +3,7 @@
 // @ts-nocheck
 
 import { ReaderFragment } from "relay-runtime";
+
 import { FragmentRefs } from "relay-runtime";
 export type BranchInfoRow_branch = {
     readonly name: string;
@@ -16,7 +17,7 @@ export type BranchInfoRow_branch = {
 };
 export type BranchInfoRow_branch$data = BranchInfoRow_branch;
 export type BranchInfoRow_branch$key = {
-    readonly " $data"?: BranchInfoRow_branch$data;
+    readonly " $data"?: BranchInfoRow_branch$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"BranchInfoRow_branch">;
 };
 

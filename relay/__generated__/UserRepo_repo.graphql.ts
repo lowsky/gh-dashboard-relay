@@ -11,7 +11,7 @@ export type UserRepo_repo = {
 };
 export type UserRepo_repo$data = UserRepo_repo;
 export type UserRepo_repo$key = {
-    readonly " $data"?: UserRepo_repo$data;
+    readonly " $data"?: UserRepo_repo$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"UserRepo_repo">;
 };
 
@@ -22,12 +22,12 @@ const node: ReaderFragment = {
     {
       "defaultValue": "dashboard",
       "kind": "LocalArgument",
-      "name": "repoName"
+      "name": "name"
     },
     {
       "defaultValue": "lowsky",
       "kind": "LocalArgument",
-      "name": "userName"
+      "name": "ownerUsername"
     }
   ],
   "kind": "Fragment",
@@ -48,5 +48,5 @@ const node: ReaderFragment = {
   "type": "GithubRepo",
   "abstractKey": null
 };
-(node as any).hash = '7069ebc4d183ee16fbf4c13dec8ad520';
+(node as any).hash = '5f639afe230a5fee7d7db096050d8506';
 export default node;

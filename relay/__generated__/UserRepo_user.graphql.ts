@@ -11,7 +11,7 @@ export type UserRepo_user = {
 };
 export type UserRepo_user$data = UserRepo_user;
 export type UserRepo_user$key = {
-    readonly " $data"?: UserRepo_user$data;
+    readonly " $data"?: UserRepo_user$data | undefined;
     readonly " $fragmentRefs": FragmentRefs<"UserRepo_user">;
 };
 

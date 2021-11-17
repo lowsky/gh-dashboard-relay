@@ -27,7 +27,7 @@ query relayPageRepoQuery(
   $repoName: String!
 ) {
   repo(ownerUsername: $userName, name: $repoName) {
-    ...UserRepo_repo_3YBi4U
+    ...UserRepo_repo_3KzBEb
   }
 }
 
@@ -74,7 +74,7 @@ fragment Repo_repo on GithubRepo {
   }
 }
 
-fragment UserRepo_repo_3YBi4U on GithubRepo {
+fragment UserRepo_repo_3KzBEb on GithubRepo {
   ...Repo_repo
   ...BranchesTable_repo
 }
@@ -129,18 +129,7 @@ return {
         "plural": false,
         "selections": [
           {
-            "args": [
-              {
-                "kind": "Variable",
-                "name": "repoName",
-                "variableName": "repoName"
-              },
-              {
-                "kind": "Variable",
-                "name": "userName",
-                "variableName": "userName"
-              }
-            ],
+            "args": (v2/*: any*/),
             "kind": "FragmentSpread",
             "name": "UserRepo_repo"
           }
@@ -322,14 +311,14 @@ return {
     ]
   },
   "params": {
-    "cacheID": "31ab947a2847b6363bddf4299da7d9d7",
+    "cacheID": "62e4bca18b0bc652f89e8b0ad8e0401b",
     "id": null,
     "metadata": {},
     "name": "relayPageRepoQuery",
     "operationKind": "query",
-    "text": "query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo_3YBi4U\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo_3YBi4U on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n"
+    "text": "query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo_3KzBEb\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo_3KzBEb on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n"
   }
 };
 })();
-(node as any).hash = 'e18c24866f11cf79bb228149bfe39982';
+(node as any).hash = '7520f5a2854b2c02852ef6129c66844a';
 export default node;
