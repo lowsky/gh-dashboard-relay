@@ -1,9 +1,24 @@
 [![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)  ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
 [![Netlify Status(main)](https://api.netlify.com/api/v1/badges/23113b55-4107-426a-94c0-e2db95956157/deploy-status)](https://app.netlify.com/sites/github-dashboard/deploys)
 
+## Stack
+
+* GraphQL
+* Next.js
+* Netlify/Vercel
+* ApolloServer
+* Relay.js
+* Bulma.io CSS
+* React
+* Storybook
+* Chromatic
+* Typescript
+* Jest
+* Storyshots
+
 ## Purpose
 
-This web app lists the `(feature) branches` of a GitHub repository with its
+List the `(feature) branches` of a GitHub repository with its
 
 -   last commit's build status
 -   last commit's linked PR
