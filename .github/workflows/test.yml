@@ -1,6 +1,8 @@
 name: 'unit tests'
 on:
   pull_request:
+    branches:
+    - main
   push:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -11,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v1
+    - name: run tests...
+      uses: actions/checkout@v1
+      with:
+        node-version: '14.x'
     - run: yarn
     - run: yarn test
