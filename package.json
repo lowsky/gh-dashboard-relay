@@ -22,7 +22,7 @@
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
     "build:relay": "relay-compiler",
     "build:resolvers": "node schema/wrapGraphQLSchema && graphql-codegen --config schema/codegen.yml",
-    "codegen" : "yarn run build:relay && yarn run build:resolvers",
+    "codegen": "yarn run build:relay && yarn run build:resolvers",
     "vercel-build": "yarn run vercel-build:without-chromatic && yarn run chromatic-test",
     "vercel-build:without-chromatic": "yarn run codegen && yarn run build:storybook && yarn run build",
     "lint": "eslint .",
@@ -40,9 +40,11 @@
   "relay": {
     "src": ".",
     "language": "typescript",
-    "exclude":[ "/.next/**" ,
+    "exclude": [
+      "/.next/**",
       "**/stuff/**",
-      "**/node_modules/**", "**/test/" ,
+      "**/node_modules/**",
+      "**/test/",
       "**/__generated__/**"
     ],
     "schema": "./schema/schema.graphql"
@@ -88,7 +90,6 @@
     "@storybook/addon-links": "6.4.9",
     "@storybook/addon-storyshots": "6.4.9",
     "@storybook/react": "6.4.9",
-    "@types/react": "17.0.38",
     "@types/react-dom": "17.0.11",
     "@types/react-relay": "11.0.3",
     "@types/relay-runtime": "12.0.1",
@@ -97,7 +98,7 @@
     "babel-eslint": "10.1.0",
     "babel-plugin-relay": "13.0.0",
     "chromatic": "6.3.3",
-    "eslint": "7.32.0",
+    "eslint": "8.6.0",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-graphql": "4.0.0",
