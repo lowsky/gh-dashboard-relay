@@ -20,7 +20,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
-    "build:relay": "relay-compiler --src . --schema schema/schema.graphql --language typescript --watchman false --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' '**/schema/**' --include '**/container/**' '**/components/**' '**/relay/**' '**/queries/**'",
+    "build:relay": "relay-compiler",
     "build:resolvers": "node schema/wrapGraphQLSchema && graphql-codegen --config schema/codegen.yml",
     "codegen" : "yarn run build:relay && yarn run build:resolvers",
     "vercel-build": "yarn run vercel-build:without-chromatic && yarn run chromatic-test",
@@ -36,6 +36,16 @@
     "storybook": "start-storybook -p 9009",
     "_build:storybook.orig": "build-storybook -o public/story-book --quiet",
     "build:storybook": "mkdir -p public/story-book && echo >public/story-book/index.html currently disabled"
+  },
+  "relay": {
+    "src": ".",
+    "language": "typescript",
+    "exclude":[ "/.next/**" ,
+      "**/stuff/**",
+      "**/node_modules/**", "**/test/" ,
+      "**/__generated__/**"
+    ],
+    "schema": "./schema/schema.graphql"
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
@@ -98,7 +108,7 @@
     "npm-run-all": "4.1.5",
     "prettier": "2.5.1",
     "react-relay": "13.0.0",
-    "relay-compiler": "12.0.0",
+    "relay-compiler": "13.0.0",
     "relay-compiler-language-typescript": "15.0.0",
     "ts-jest": "27.1.2",
     "typescript": "4.5.4",
