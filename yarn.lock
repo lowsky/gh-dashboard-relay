@@ -4198,10 +4198,10 @@
   resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-11.0.2.tgz#3e7a1371c13ee731288c751a53e7392c6afff2b5"
   integrity sha512-GDw27MCYF45medCb0Ug08EPJVHA/K0yNKZ4N4LOGMaclUnLmzZJz9w6ja6pZMhBT84PQ9wsPZbHRPyXl57Am1Q==
 
-"@types/relay-runtime@12.0.2":
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-12.0.2.tgz#2d4162a23753f1ee27014a61d95a26ccae02dcc3"
-  integrity sha512-TXHpHL4VFjCQfBDTXA8A7NMkANXRRNJISM/LewfwtqEKjaikFrPj70LLI/JVWthLcdQMhp0hw5RtO57i6gEcvw==
+"@types/relay-runtime@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@types/relay-runtime/-/relay-runtime-13.0.0.tgz#d0009275522ff826f2e4dab40419f2db58417ecf"
+  integrity sha512-yzv6F8EZPWA2rtfFP2qMluS8tsz1q4lfdYxLegCshdAjX5uqxTR2pAliATj9wrzD6OMZF4fl9aU+Y+zmSfm2EA==
 
 "@types/scheduler@*":
   version "0.16.2"
@@ -13596,6 +13596,15 @@ relay-runtime@13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-13.0.0.tgz#a00a419d9e86dbce255c4c73706924b2913f8bbc"
   integrity sha512-CMUk5DKXdQBj31Av2fj4AgSZ0UkTqKLArt5UImxRg0Ff7TJ46UAYh2j6omZEUTN9FJqjwbwoGdpqOdaCU9eS2A==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fbjs "^3.0.2"
+    invariant "^2.2.4"
+
+relay-runtime@13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-13.0.1.tgz#7e59a07c3b4e8c58d04bc94f6f978822d4128ffb"
+  integrity sha512-n/+J8PFfLFPVUcz9OG/z2i+adnfk0INwlTkVTw0V6KJe9NI9plc5eRCJwzzwspT4pdCkis5Lcjzvzp4H+0zn8g==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.2"
