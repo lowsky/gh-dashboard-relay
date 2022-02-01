@@ -1,24 +1,5 @@
-.statusline {
-    display: flex;
-    flex-direction: row;
-    margin-top: 0.5rem;
-}
-
-.commit_avatar {
-    vertical-align: middle;
-    width: 32px;
-    height: 32px;
-}
-
-.contextlogo {
+.contextLogo {
+    display: inline;
     vertical-align: top;
 }
 
-.statusicon {
-    vertical-align: top;
-    margin-left: -0.5em;
-    margin-top: -0.5em;
-    padding-right: 0.25em;
-    background: white;
-    z-index: 4;
-}

@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { Icon, Link, Td, Tr } from '@chakra-ui/react';
 
-import UILibContext from '../components/UILibContext';
+import UILibContext, { UILib } from '../components/UILibContext';
 import { GithubBranch } from '../lib/types/resolvers';
+// @ts-ignore
+import PullRequestInfo from '../relay/PullRequestInfo';
 import { DoMergePR } from './UserRepo';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
@@ -12,27 +15,36 @@ export interface BranchInfoRowProps {
     doMergePR?: DoMergePR;
 }
 
+// @ts-ignore
 const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
-    const { name, lastCommit } = branch;
+    // @ts-ignore
+    const { name, lastCommit } = branch ?? {};
+    // @ts-ignore
     const { associatedPullRequests } = lastCommit ?? {};
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
-    const { CommitWithStatuses, PullRequestInfo } = useContext(UILibContext);
+    // @ts-ignore
+    const { CommitWithStatuses, PullRequestInfo } = useContext<UILib>(UILibContext);
 
     return (
-        <tr key={name}>
-            <td>
-                <a href={githubBranchSrc} rel="noopener noreferrer nofollow">
-                    {name}
-                </a>{' '}
-                <FontAwesomeIcon icon={faGithub as IconProp} />
-            </td>
-            <td>
+        <Tr key={name}>
+            <Td>
+                {name && (
+                    <Link href={githubBranchSrc} rel="noopener noreferrer nofollow" isExternal>
+                        {name ?? '-'}
+                    </Link>
+                )}
+                <Icon>
+                    <FontAwesomeIcon icon={faGithub as IconProp} />
+                </Icon>
+            </Td>
+            <Td>
                 {associatedPullRequests
                     ?.filter?.(Boolean)
                     .map?.((pr, idx) => pr && <PullRequestInfo key={idx} pullRequest={pr} doMergePR={doMergePR} />)}
-            </td>
-            <td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</td>
-        </tr>
+            </Td>
+
+            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</Td>
+        </Tr>
     );
 };
 

@@ -6,6 +6,7 @@ import { DoMergePR } from '../container/UserRepo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Button, Icon, Link } from '@chakra-ui/react';
 
 export type PullRequestInfoProps = {
     pullRequest: PullRequestData;
@@ -37,23 +38,26 @@ export default function PullRequestInfo({ pullRequest, doMergePR }: PullRequestI
 
     return (
         <>
-            <a href={pullRequest.url ?? ''} title={pullRequest.title ?? ''} rel="noopener noreferrer nofollow">
+            <Link href={pullRequest.url ?? ''} title={pullRequest.title ?? ''} rel="noopener noreferrer nofollow">
                 #{pullRequest.number}
-            </a>
+            </Link>
             {doMergePR && (
-                <button onClick={() => setMergeRequest(doMergePR(pullRequest.number))} disabled={!!mergeRequest}>
+                <Button
+                    size={'xs'}
+                    onClick={() => setMergeRequest(doMergePR(pullRequest.number))}
+                    disabled={!!mergeRequest}>
                     Rebase&Merge
-                </button>
+                </Button>
             )}
             {!!error && (
-                <>
+                <Icon>
                     <FontAwesomeIcon icon={faExclamationTriangle as IconProp} size="1x" />
-                </>
+                </Icon>
             )}
             {!!mergeRequest && (
-                <>
+                <Icon>
                     <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
-                </>
+                </Icon>
             )}
         </>
     );
