@@ -17,7 +17,7 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
     const { avatar_url = '/octicon-git-branch.svg', login = '?', company } = user;
 
     return (
-        <Card px={4} py={4}>
+        <Card p={4} m={4}>
             <CardContent>
                 <Avatar src={avatar_url} alt="avatar" />
             </CardContent>

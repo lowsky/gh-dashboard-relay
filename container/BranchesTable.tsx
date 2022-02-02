@@ -13,7 +13,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
     const { BranchInfoRow } = useContext<UILib>(UILibContext) as UILib;
 
     return (
-        <Table>
+        <Table size="sm" variant="striped">
             <Thead>
                 <Tr>
                     <Th>
