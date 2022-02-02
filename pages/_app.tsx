@@ -1,6 +1,5 @@
 import { NavBar } from '../components/NavBar';
 
-import 'bulma/css/bulma.css';
 import './main.css';
 
 import * as React from 'react';
