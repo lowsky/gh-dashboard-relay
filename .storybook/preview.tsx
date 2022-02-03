@@ -7,7 +7,4 @@ export const parameters = {
     nextRouter: {
         Provider: RouterContext.Provider,
     },
-    _chakra: {
-        environment: 'window',
-    },
 };

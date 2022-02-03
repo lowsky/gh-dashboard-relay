@@ -1,4 +1,6 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["relay"]
+  "plugins": ["relay",
+    "storybook-css-modules-preset"
+  ]
 }
