@@ -1,29 +1,37 @@
 import React, { Suspense } from 'react';
 
 import IndexPage from '../pages';
-import { RestfulMain } from '../pages/restful/[userName]/[repoName]';
+import RestfulPage from '../pages/restful/[userName]/[repoName]';
 
 // temporary disabled import { RelayRootMain } from'../pages/relay/[userName]/[repoName]';
 
-const withSuspenseFallback = (storyFn) => <Suspense fallback={<div>delayed loading ...</div>}>{storyFn()}</Suspense>;
-
 export default {
     title: 'Others/Pages',
-    decorators: [withSuspenseFallback],
 };
 
 export const Main = () => <IndexPage />;
 
-Main.storyName = 'main';
-
-export const Restful = (props) => <RestfulMain {...props} />;
+export const Restful = (props) => <RestfulPage {...props} />;
 Restful.parameters = {
     storyshots: { disable: true },
-    chromatic: { disable: true },
+    chromatic: { disable: false },
 };
+
 Restful.args = {
-    userName: "lowsky",
-    repoName: "dashboard"
+    userName: 'lowsky',
+    repoName: 'dashboard',
+};
+
+Restful.story = {
+    parameters: {
+        nextRouter: {
+            path: '/profile/[userName]/[repoName]',
+            query: {
+                userName: 'lowsky',
+                repoName: 'dashboard',
+            },
+        },
+    },
 };
 
 /* this does currently not work at all, and need

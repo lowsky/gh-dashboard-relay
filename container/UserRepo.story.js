@@ -65,8 +65,7 @@ export const WithUserAndRepo = (props) => (
         <UserRepo {...props} />
     </UILibContext.Provider>
 );
-WithUserAndRepo.args = {
-    ...userRepo
-}
 
-WithUserAndRepo.storyName = 'with user and repo';
+WithUserAndRepo.args = {
+    ...userRepo,
+};

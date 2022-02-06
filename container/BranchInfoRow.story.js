@@ -35,7 +35,17 @@ const commitData = {
 const branchInfo = {
     branch: {
         name: 'branch-x',
-        lastCommit: commitData.commit,
+        lastCommit: {
+            //
+            ...commitData.commit,
+            associatedPullRequests: [
+                {
+                    title: 'title',
+                    number: 42,
+                    url: 'url',
+                },
+            ],
+        },
     },
 };
 
@@ -43,6 +53,7 @@ export default {
     title: 'Others/BranchInfoRow',
     component: BranchInfoRow,
 };
+
 export const WithInfo = (props) => (
     <UILibContext.Provider value={UILibPureComponents}>
         <table width={400}>
@@ -52,8 +63,5 @@ export const WithInfo = (props) => (
         </table>
     </UILibContext.Provider>
 );
-WithInfo.args = {
-    ...branchInfo
-}
 
-WithInfo.storyName = 'with info';
+WithInfo.args = { ...branchInfo };
