@@ -2,12 +2,13 @@ import React from 'react';
 
 import User from './User';
 
-const userWithoutAvatar = {
+export const userWithoutAvatar = {
     login: 'login',
     id: '1234',
     company: 'company',
 };
-const userWithAvatar = {
+
+export const userWithAvatar = {
     ...userWithoutAvatar,
     avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
 };
@@ -18,14 +19,13 @@ export default {
 };
 
 export const WithoutAvatar = (props) => <User {...props} />;
+
 WithoutAvatar.args = {
     user: userWithoutAvatar
 }
 
 export const WithAvatar = (props) => <User {...props} />;
+
 WithAvatar.args = {
     user: userWithAvatar
 }
-WithoutAvatar.storyName = 'without avatar';
-
-WithAvatar.storyName = 'with avatar';

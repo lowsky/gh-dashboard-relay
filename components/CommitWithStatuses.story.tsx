@@ -2,19 +2,10 @@ import React from 'react';
 
 import CommitWithStatuses from './CommitWithStatuses';
 
-import moreStatus from '../restinpeace/lastCommitMock';
+import moreStatus from '../restinpeace/lastCommitMock.json';
+import { userWithAvatar, userWithoutAvatar } from './User.story';
 
-const userWithoutAvatar = {
-    login: 'login',
-    id: '1234',
-    company: 'company',
-};
-const userWithAvatar = {
-    ...userWithoutAvatar,
-    avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
-};
-
-const commitData = {
+export const commitData = {
     user: {
         ...userWithoutAvatar,
         avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
@@ -25,12 +16,12 @@ const commitData = {
         message: 'no-message',
         status: [],
         author: {
-            ...userWithAvatar.user,
+            ...userWithAvatar,
             email: 'me@work',
             name: 'My-Name',
         },
     },
-};
+} as const;
 
 export default {
     title: 'Others/CommitStatus',
@@ -38,17 +29,15 @@ export default {
 };
 
 export const WithData = (props) => <CommitWithStatuses  {...props} />;
+
 WithData.args = {
     commit: moreStatus,
     user:commitData.user
 }
 
 export const WithNoData = (props) => <CommitWithStatuses {...props} />;
+
 WithNoData.args = {
     commit: undefined,
     user: undefined
 }
-
-WithData.storyName = 'with data';
-
-WithNoData.storyName = 'with no data';
