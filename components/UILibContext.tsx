@@ -2,6 +2,7 @@ import React from 'react';
 
 import { UserProps } from './User';
 import { RepoProps } from './Repo';
+import { PullRequestInfoProps } from './PullRequestInfo';
 import { BranchesTableProps } from '../container/BranchesTable';
 import { BranchInfoRowProps } from '../container/BranchInfoRow';
 import { CommitWithStatusProps } from './CommitWithStatuses';
@@ -12,6 +13,7 @@ export interface UILib {
   BranchTable: React.FC<BranchesTableProps>;
   BranchInfoRow: React.FC<BranchInfoRowProps>;
   CommitWithStatuses: React.FC<CommitWithStatusProps>;
+  PullRequestInfo: React.FC<PullRequestInfoProps>;
 }
 
 /* Dummy components avoids crashes caused by undefined components */
@@ -21,6 +23,7 @@ export const UILibDummy : UILib = {
    BranchTable: () => null,
    BranchInfoRow: () => null,
    CommitWithStatuses: () => null,
+   PullRequestInfo: () => null,
 };
 
 /*
