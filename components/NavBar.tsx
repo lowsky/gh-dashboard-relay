@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 interface STATE {
-    burgerActive: boolean
+    burgerActive: boolean;
 }
 
 export class NavBar extends React.Component {
@@ -28,12 +28,10 @@ export class NavBar extends React.Component {
                         <Link href="/relay/lowsky/dashboard">GraphQL+Relay Demo</Link>
                     </span>
                     {
-                        /*
                         <span className="navbar-item">
                             <a href="/story-book/index.html">Storybook</a>
                         </span>
-                         */
-                    }
+                     }
                     <span className="navbar-item">
                         <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
                             <FontAwesomeIcon width="1rem" size={'1x'} icon={faGithub} />

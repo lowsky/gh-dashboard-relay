@@ -8,22 +8,22 @@ import { BranchInfoRowProps } from '../container/BranchInfoRow';
 import { CommitWithStatusProps } from './CommitWithStatuses';
 
 export interface UILib {
-  User: React.FC<UserProps>;
-  Repo: React.FC<RepoProps>;
-  BranchTable: React.FC<BranchesTableProps>;
-  BranchInfoRow: React.FC<BranchInfoRowProps>;
-  CommitWithStatuses: React.FC<CommitWithStatusProps>;
-  PullRequestInfo: React.FC<PullRequestInfoProps>;
+    User: React.FC<UserProps>;
+    Repo: React.FC<RepoProps>;
+    BranchTable: React.FC<BranchesTableProps>;
+    BranchInfoRow: React.FC<BranchInfoRowProps>;
+    CommitWithStatuses: React.FC<CommitWithStatusProps>;
+    PullRequestInfo: React.FC<PullRequestInfoProps>;
 }
 
 /* Dummy components avoids crashes caused by undefined components */
-export const UILibDummy : UILib = {
-   User: () => null,
-   Repo: () => null,
-   BranchTable: () => null,
-   BranchInfoRow: () => null,
-   CommitWithStatuses: () => null,
-   PullRequestInfo: () => null,
+export const UILibDummy: UILib = {
+    User: () => null,
+    Repo: () => null,
+    BranchTable: () => null,
+    BranchInfoRow: () => null,
+    CommitWithStatuses: () => null,
+    PullRequestInfo: () => null,
 };
 
 /*

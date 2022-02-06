@@ -9,7 +9,6 @@ export const pages = [
     'branchestable--with-one-branch',
 ];
 
-
 describe('VisualRegression', () => {
     // eslint-disable-next-line array-callback-return
     pages.map((path) => {

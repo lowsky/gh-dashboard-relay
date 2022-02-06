@@ -5,7 +5,7 @@ import React from 'react';
 
 type State = { error?: Error | null };
 
-export default class ErrorBoundaryWithRetry extends React.Component<{ fallback?:any }, State> {
+export default class ErrorBoundaryWithRetry extends React.Component<{ fallback?: any }, State> {
     state = { error: null };
 
     static getDerivedStateFromError(error: Error) {
@@ -22,13 +22,13 @@ export default class ErrorBoundaryWithRetry extends React.Component<{ fallback?:
             }
 
             return (
-                <div className='notification has-text-danger'>
+                <div className="notification has-text-danger">
                     Error! While trying to load data from the server:
-                    <br/>
+                    <br />
                     {JSON.stringify(error)}
                 </div>
             );
         }
         return children;
     }
-};
+}

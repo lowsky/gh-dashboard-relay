@@ -18,10 +18,13 @@ describe('BranchInfoRow component', () => {
     });
 
     it('should render as expected', () => {
-        const appContainer = renderer.create(
-            <UILibContext.Provider value={UILibPureComponents}>
-                <BranchInfoRow branch={branch} />
-            </UILibContext.Provider>).toJSON();
+        const appContainer = renderer
+            .create(
+                <UILibContext.Provider value={UILibPureComponents}>
+                    <BranchInfoRow branch={branch} />
+                </UILibContext.Provider>
+            )
+            .toJSON();
         expect(appContainer).toMatchSnapshot();
     });
 });

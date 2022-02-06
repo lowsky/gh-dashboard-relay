@@ -19,8 +19,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
-    "build:relay": "relay-compiler && prettier -w relay/__generated__",
+    "build:relay": "relay-compiler && prettier -w relay/__generated__ queries/__generated__",
     "build:resolvers": "node schema/wrapGraphQLSchema && graphql-codegen --config schema/codegen.yml",
     "codegen": "yarn run build:relay && yarn run build:resolvers",
     "vercel-build": "yarn run vercel-build:without-chromatic && yarn run chromatic-test",

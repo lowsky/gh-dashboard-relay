@@ -12,7 +12,7 @@ export const octo = new Octokit({
     auth: GITHUB_TOKEN,
 });
 
-export const getUser = async (username:string): Promise<GithubUser> => {
+export const getUser = async (username: string): Promise<GithubUser> => {
     try {
         const { data } = await octo.users.getByUsername({ username });
         return convertItsIdToString(data);
@@ -22,7 +22,7 @@ export const getUser = async (username:string): Promise<GithubUser> => {
     return {};
 };
 
-export const getReposForUser = async (username:string): Promise<Array<GithubRepo>> => {
+export const getReposForUser = async (username: string): Promise<Array<GithubRepo>> => {
     const repos = await octo.repos.listForUser({ username });
     return repos.data.map((r) => ({
         ...convertItsIdToString(r),
@@ -84,8 +84,13 @@ export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointM
  * @param repo repo's name
  * @param commit_sha
  */
-export const fetchRepoPullRequestsAssociatedWithCommit = async (owner: string, repo: string, commit_sha: string): Promise<ListPullRequestsAssociatedWithCommitResponseDataType> => {
-    const pulls: ListPullRequestsAssociatedWithCommitResponseType = await octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
+export const fetchRepoPullRequestsAssociatedWithCommit = async (
+    owner: string,
+    repo: string,
+    commit_sha: string
+): Promise<ListPullRequestsAssociatedWithCommitResponseDataType> => {
+    const pulls: ListPullRequestsAssociatedWithCommitResponseType =
+        await octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
     return pulls.data;
 };
 
@@ -101,8 +106,7 @@ export const mergePullRequest = ({
     pull_number: number;
     sha?: string;
     merge_method?: 'rebase' | 'merge';
-}) : Promise<MergePullRequestsResponseDataType> => {
-
+}): Promise<MergePullRequestsResponseDataType> => {
     const result = octo.pulls.merge({
         owner,
         repo,

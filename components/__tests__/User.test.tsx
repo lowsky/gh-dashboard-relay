@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 
 import User from '../User';
 
-
 describe('User component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');

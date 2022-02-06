@@ -1,10 +1,10 @@
-import { IncomingMessage, ServerResponse } from 'http'
+import { IncomingMessage, ServerResponse } from 'http';
 import { ApolloServer } from 'apollo-server-micro';
 
-import { typeDefs } from "../../lib/localSchema";
+import { typeDefs } from '../../lib/localSchema';
 import { resolvers } from '../../lib/resolvers';
 
-const isLocalDev =  process.env.NODE_ENV === 'development';
+const isLocalDev = process.env.NODE_ENV === 'development';
 
 // will be stored here for re-use
 let server: ApolloServer | null = null;
@@ -33,6 +33,6 @@ export const config = {
     api: {
         bodyParser: false,
     },
-}
+};
 
 export default handler;

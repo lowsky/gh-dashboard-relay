@@ -1,6 +1,5 @@
-
-    // Auto-generated, instead of using a webpack-loader...
-    // Just wrapping schema/schema.graphql
+// Auto-generated, instead of using a webpack-loader...
+// Just wrapping schema/schema.graphql
 export const typeDefs = `
 # The Github API
 type GithubAPI {
@@ -91,4 +90,3 @@ type PullRequest {
 }
 
 `;
-    

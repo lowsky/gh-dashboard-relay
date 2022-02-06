@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer';
 
 import Repo from '../Repo';
 
-
 describe('Repo component', () => {
     it('should render without crashing', () => {
         const div = document.createElement('div');

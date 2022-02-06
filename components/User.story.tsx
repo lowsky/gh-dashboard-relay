@@ -21,11 +21,11 @@ export default {
 export const WithoutAvatar = (props) => <User {...props} />;
 
 WithoutAvatar.args = {
-    user: userWithoutAvatar
-}
+    user: userWithoutAvatar,
+};
 
 export const WithAvatar = (props) => <User {...props} />;
 
 WithAvatar.args = {
-    user: userWithAvatar
-}
+    user: userWithAvatar,
+};

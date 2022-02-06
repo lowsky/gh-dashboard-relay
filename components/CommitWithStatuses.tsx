@@ -103,7 +103,11 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                     <span>{author.login}</span>
                 </a>
                 &nbsp;
-                {author.email && <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">{'?' + author.name}</a>}
+                {author.email && (
+                    <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">
+                        {author.name ?? '?'}
+                    </a>
+                )}
             </div>
             <div className="statusline">
                 {status &&

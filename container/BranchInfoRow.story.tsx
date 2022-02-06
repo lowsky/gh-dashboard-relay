@@ -29,7 +29,7 @@ WithInfo.args = {
             ...WithData.args.commit,
             associatedPullRequests: [
                 {
-                    ...DefaultPR.args.pullRequest
+                    ...DefaultPR.args.pullRequest,
                 },
             ],
         },

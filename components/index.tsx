@@ -16,7 +16,7 @@ import RelayUser from '../relay/User';
 import PurePullRequestInfo from './PullRequestInfo';
 import RelayPullRequestInfo from '../relay/PullRequestInfo';
 
-import { UILib } from "./UILibContext";
+import { UILib } from './UILibContext';
 
 export const UILibPureComponents: UILib = {
     User: PureUser,
@@ -27,7 +27,7 @@ export const UILibPureComponents: UILib = {
     PullRequestInfo: PurePullRequestInfo,
 };
 
-export const UILibWithRelaySupport : UILib = {
+export const UILibWithRelaySupport: UILib = {
     // @ts-ignore
     User: RelayUser,
     // @ts-ignore

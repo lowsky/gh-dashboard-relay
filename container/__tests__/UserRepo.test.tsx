@@ -8,7 +8,7 @@ import { UILibPureComponents } from '../../components';
 
 const user = {
     avatar_url: '',
-    login:'dude'
+    login: 'dude',
 };
 const repo = {
     branches: [],
