@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import { GithubCommit, Maybe } from '../lib/types/resolvers';
+import { GithubCommit, GithubCommitAuthor, GithubUser, Maybe, UserOrCommitAuthor } from '../lib/types/resolvers';
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 
 import './CommitWithStatuses.module.css';
@@ -60,11 +60,7 @@ interface StatusProps {
 }
 
 const Status = ({ target_url, avatar_url, context, description, state }: StatusProps) => (
-    <a
-        className="commitLink"
-        href={target_url ?? ''}
-        style={{ color: status2color(state) }}
-        title={context + ' ' + description}>
+    <a href={target_url ?? ''} style={{ color: status2color(state) }} title={context + ' ' + description}>
         {icon4context(context, avatar_url)}
         {icon4status(state)}{' '}
     </a>
@@ -75,38 +71,49 @@ export interface CommitWithStatusProps {
 }
 
 const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
-    const { sha = '<missing>', date = '', message = '<missing>', status = [] } = commit;
-    const author = {
-        login: '',
-        name: '',
-        email: '',
-        avatar_url: '',
-        ...commit.author,
-    };
+    const { author, sha, date = '-?-', message = '-?-', status = [] } = commit;
+
+    function isGithubUser(author: UserOrCommitAuthor | undefined): author is GithubUser {
+        return typeof (author as GithubUser)?.login !== 'undefined';
+    }
+    function isGithubCommitAuthor(author: UserOrCommitAuthor | undefined): author is GithubCommitAuthor {
+        return typeof (author as GithubCommitAuthor)?.email !== 'undefined';
+    }
+
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
+
+    let mainMessage = message?.split('\n\n', 1);
 
     return (
         <>
             <div>
                 <a href={githubCommit} rel="noopener noreferrer nofollow">
-                    <b>{message?.split('\n\n', 1)}</b>
+                    <strong>{mainMessage}</strong>
                 </a>
             </div>
             <div>
                 <i>{date}</i>
-                &nbsp; by &nbsp;
-                <a href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
-                    {author.avatar_url && (
-                        <img className="commit_avatar" width={32} src={author.avatar_url} alt="avatar" />
-                    )}
-                    &nbsp;
-                    <span>{author.login}</span>
-                </a>
-                &nbsp;
-                {author.email && (
-                    <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">
-                        {author.name ?? '?'}
-                    </a>
+                {author && isGithubUser(author) && (
+                    <>
+                        &nbsp;by&nbsp;
+                        <a href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
+                            {author.avatar_url && (
+                                <img className="commit_avatar" width={32} src={author.avatar_url} alt="avatar" />
+                            )}
+                            &nbsp;
+                            <span>{author.login}</span>
+                        </a>
+                        &nbsp;
+                    </>
+                )}
+                {author && isGithubCommitAuthor(author) && (
+                    <>
+                        &nbsp;by&nbsp;
+                        <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">
+                            {author.name ?? '?'}
+                        </a>
+                        &nbsp;
+                    </>
                 )}
             </div>
             <div className="statusline">
