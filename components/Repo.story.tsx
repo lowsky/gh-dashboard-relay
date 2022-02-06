@@ -1,14 +1,8 @@
 import React from 'react';
 
 import Repo from './Repo';
-import { userWithAvatar } from './User.story';
-import { branchInfo_data } from '../container/BranchInfoRow.story';
-
-export const repo_data = {
-    owner: userWithAvatar,
-    name: 'demo-repo',
-    branches: [branchInfo_data.branch],
-} as const;
+import { WithAvatar } from './User.story';
+import { WithOneBranch } from '../container/BranchesTable.story';
 
 export default {
     title: 'Others/Repo',
@@ -18,5 +12,9 @@ export default {
 export const FakeData = (props) => <Repo {...props} />;
 
 FakeData.args = {
-    repo: repo_data,
+    repo: {
+        owner: WithAvatar.args.user,
+        name: 'demo-repo',
+        ...WithOneBranch.args.repo,
+    },
 };

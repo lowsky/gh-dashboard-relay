@@ -2,13 +2,8 @@ import UILibContext from '../components/UILibContext';
 import UserRepo from '../container/UserRepo';
 
 import { UILibPureComponents } from '../components';
-import { userWithAvatar } from '../components/User.story';
-import { repo_data } from '../components/Repo.story';
-
-const userRepo = {
-    user: userWithAvatar,
-    repo: repo_data,
-};
+import { WithAvatar } from '../components/User.story';
+import { FakeData } from '../components/Repo.story';
 
 export default {
     title: 'Others/UserRepo',
@@ -22,5 +17,6 @@ export const WithUserAndRepo = (props) => (
 );
 
 WithUserAndRepo.args = {
-    ...userRepo,
+    user: WithAvatar.args.user,
+    repo: { ...FakeData.args.repo },
 };

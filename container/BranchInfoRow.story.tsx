@@ -3,22 +3,9 @@ import React from 'react';
 import BranchInfoRow from '../container/BranchInfoRow';
 import UILibContext from '../components/UILibContext';
 import { UILibPureComponents } from '../components';
-import { commitData } from '../components/CommitWithStatuses.story';
-import { pullRequestData_default } from '../components/PullRequestInfo.story';
 
-export const branchInfo_data = {
-    branch: {
-        name: 'branch-x',
-        lastCommit: {
-            ...commitData.commit,
-            associatedPullRequests: [
-                {
-                    ...pullRequestData_default
-                },
-            ],
-        },
-    },
-};
+import { WithData } from '../components/CommitWithStatuses.story';
+import { Default as DefaultPR } from '../components/PullRequestInfo.story';
 
 export default {
     title: 'Others/BranchInfoRow',
@@ -35,4 +22,16 @@ export const WithInfo = (props) => (
     </UILibContext.Provider>
 );
 
-WithInfo.args = { ...branchInfo_data };
+WithInfo.args = {
+    branch: {
+        name: 'branch-x',
+        lastCommit: {
+            ...WithData.args.commit,
+            associatedPullRequests: [
+                {
+                    ...DefaultPR.args.pullRequest
+                },
+            ],
+        },
+    },
+};

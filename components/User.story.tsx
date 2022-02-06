@@ -2,13 +2,13 @@ import React from 'react';
 
 import User from './User';
 
-export const userWithoutAvatar = {
+const userWithoutAvatar = {
     login: 'login',
     id: '1234',
     company: 'company',
 };
 
-export const userWithAvatar = {
+const userWithAvatar = {
     ...userWithoutAvatar,
     avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
 };

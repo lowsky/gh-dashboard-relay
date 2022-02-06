@@ -5,7 +5,7 @@ import BranchesTable from './BranchesTable';
 import { UILibPureComponents } from '../components';
 
 import UILibContext from '../components/UILibContext';
-import { branchInfo_data } from './BranchInfoRow.story';
+import { WithInfo } from './BranchInfoRow.story';
 
 export default {
     title: 'Others/BranchesTable',
@@ -19,5 +19,11 @@ export const WithOneBranch = (props) => (
 );
 
 WithOneBranch.args = {
-    repo: { branches: [branchInfo_data] }
+    repo: {
+        branches: [
+            {
+                ...WithInfo.args.branch,
+            },
+        ],
+    },
 };
