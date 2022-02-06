@@ -8,7 +8,7 @@ import { fetchRepoBranches, fetchUser, User } from '../../../restinpeace/fetchGi
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import { getLastCommit } from '../../../lib/github';
+import { fetchRepoPullRequestsAssociatedWithCommit, getLastCommit } from '../../../lib/github';
 
 export default function RestfulPage() {
     const router = useRouter();
@@ -61,13 +61,22 @@ export function RestfulMain({ userName, repoName }) {
             .then((branches) => {
                 if (!ignoreDownloadedData) {
                     let branchesWithCommitProms = branches.map((branch) => {
-                        console.log({ branch });
-                        // @ts-ignore
+                        // @ts-expect-error type-definition wrong: lastCommit/commit is swapped?!
                         const { sha } = branch.commit;
-                        return getLastCommit(userName, repoName, sha).then((com) => ({
-                            ...branch,
-                            lastCommit: com,
-                        }));
+                        return getLastCommit(userName, repoName, sha)
+                            .then((com) => ({
+                                ...branch,
+                                lastCommit: com,
+                            }))
+                            .then((branchWithCommit) =>
+                                fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha).then((pr) => ({
+                                    ...branchWithCommit,
+                                    lastCommit: {
+                                        ...branchWithCommit.lastCommit,
+                                        associatedPullRequests: pr,
+                                    },
+                                }))
+                            );
                     });
 
                     Promise.all(branchesWithCommitProms).then((branchesWithCommit) => {
