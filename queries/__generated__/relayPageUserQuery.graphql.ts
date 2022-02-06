@@ -1,44 +1,29 @@
+/**
+ * @generated SignedSource<<d48a5cc19200c26eb5d3c2c1af5026b6>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type relayPageUserQueryVariables = {
-    userName: string;
+export type relayPageUserQuery$variables = {
+  userName: string;
 };
-export type relayPageUserQueryResponse = {
-    readonly user: {
-        readonly " $fragmentRefs": FragmentRefs<"UserRepo_user">;
-    } | null;
+export type relayPageUserQueryVariables = relayPageUserQuery$variables;
+export type relayPageUserQuery$data = {
+  readonly user: {
+    readonly " $fragmentSpreads": FragmentRefs<"UserRepo_user">;
+  } | null;
 };
+export type relayPageUserQueryResponse = relayPageUserQuery$data;
 export type relayPageUserQuery = {
-    readonly response: relayPageUserQueryResponse;
-    readonly variables: relayPageUserQueryVariables;
+  variables: relayPageUserQueryVariables;
+  response: relayPageUserQuery$data;
 };
-
-
-
-/*
-query relayPageUserQuery(
-  $userName: String!
-) {
-  user(username: $userName) {
-    ...UserRepo_user_1blzqb
-  }
-}
-
-fragment UserRepo_user_1blzqb on GithubUser {
-  ...User_user
-}
-
-fragment User_user on GithubUser {
-  login
-  company
-  avatar_url
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = [
@@ -71,13 +56,7 @@ return {
         "plural": false,
         "selections": [
           {
-            "args": [
-              {
-                "kind": "Variable",
-                "name": "userName",
-                "variableName": "userName"
-              }
-            ],
+            "args": null,
             "kind": "FragmentSpread",
             "name": "UserRepo_user"
           }
@@ -129,14 +108,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3bcf2239e918913cf06bf05f9273bb54",
+    "cacheID": "dd75d5baef75ef2361678125cb79b6f7",
     "id": null,
     "metadata": {},
     "name": "relayPageUserQuery",
     "operationKind": "query",
-    "text": "query relayPageUserQuery(\n  $userName: String!\n) {\n  user(username: $userName) {\n    ...UserRepo_user_1blzqb\n  }\n}\n\nfragment UserRepo_user_1blzqb on GithubUser {\n  ...User_user\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n"
+    "text": "query relayPageUserQuery(\n  $userName: String!\n) {\n  user(username: $userName) {\n    ...UserRepo_user\n  }\n}\n\nfragment UserRepo_user on GithubUser {\n  ...User_user\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n"
   }
 };
 })();
-(node as any).hash = 'e3d22827560647b53b2974be4e1f3cc4';
+
+(node as any).hash = "fec89feb3f7efaa7c8ebbf058cb04224";
+
 export default node;

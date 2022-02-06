@@ -1,84 +1,30 @@
+/**
+ * @generated SignedSource<<7a62a742102f7805d42ceb9dabed9de7>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest } from "relay-runtime";
-
+import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type relayPageRepoQueryVariables = {
-    userName: string;
-    repoName: string;
+export type relayPageRepoQuery$variables = {
+  userName: string;
+  repoName: string;
 };
-export type relayPageRepoQueryResponse = {
-    readonly repo: {
-        readonly " $fragmentRefs": FragmentRefs<"UserRepo_repo">;
-    } | null;
+export type relayPageRepoQueryVariables = relayPageRepoQuery$variables;
+export type relayPageRepoQuery$data = {
+  readonly repo: {
+    readonly " $fragmentSpreads": FragmentRefs<"UserRepo_repo">;
+  } | null;
 };
+export type relayPageRepoQueryResponse = relayPageRepoQuery$data;
 export type relayPageRepoQuery = {
-    readonly response: relayPageRepoQueryResponse;
-    readonly variables: relayPageRepoQueryVariables;
+  variables: relayPageRepoQueryVariables;
+  response: relayPageRepoQuery$data;
 };
-
-
-
-/*
-query relayPageRepoQuery(
-  $userName: String!
-  $repoName: String!
-) {
-  repo(ownerUsername: $userName, name: $repoName) {
-    ...UserRepo_repo_3KzBEb
-  }
-}
-
-fragment BranchInfoRow_branch on GithubBranch {
-  name
-  lastCommit {
-    ...CommitWithStatuses_commit
-    associatedPullRequests {
-      ...PullRequestInfo_pullRequest
-    }
-  }
-}
-
-fragment BranchesTable_repo on GithubRepo {
-  branches {
-    ...BranchInfoRow_branch
-  }
-}
-
-fragment CommitWithStatuses_commit on GithubCommit {
-  sha
-  message
-  date
-  status {
-    context
-    description
-    state
-    target_url
-    updated_at
-    avatar_url
-  }
-}
-
-fragment PullRequestInfo_pullRequest on PullRequest {
-  title
-  number
-  url
-}
-
-fragment Repo_repo on GithubRepo {
-  name
-  owner {
-    login
-  }
-}
-
-fragment UserRepo_repo_3KzBEb on GithubRepo {
-  ...Repo_repo
-  ...BranchesTable_repo
-}
-*/
 
 const node: ConcreteRequest = (function(){
 var v0 = {
@@ -129,7 +75,7 @@ return {
         "plural": false,
         "selections": [
           {
-            "args": (v2/*: any*/),
+            "args": null,
             "kind": "FragmentSpread",
             "name": "UserRepo_repo"
           }
@@ -311,14 +257,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "62e4bca18b0bc652f89e8b0ad8e0401b",
+    "cacheID": "8c411b7bc8a039fd5bbdf2481a8761b6",
     "id": null,
     "metadata": {},
     "name": "relayPageRepoQuery",
     "operationKind": "query",
-    "text": "query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo_3KzBEb\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo_3KzBEb on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n"
+    "text": "query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n"
   }
 };
 })();
-(node as any).hash = '7520f5a2854b2c02852ef6129c66844a';
+
+(node as any).hash = "3db12a6ede26a85587d9f5a14be7e272";
+
 export default node;

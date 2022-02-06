@@ -1,52 +1,46 @@
+/**
+ * @generated SignedSource<<7d8b034192ed82151bacdcf3530b4544>>
+ * @lightSyntaxTransform
+ * @nogrep
+ */
+
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
 
-import { ReaderFragment } from "relay-runtime";
-
-import { FragmentRefs } from "relay-runtime";
-export type UserRepo_repo = {
-    readonly " $fragmentRefs": FragmentRefs<"Repo_repo" | "BranchesTable_repo">;
-    readonly " $refType": "UserRepo_repo";
+import { Fragment, ReaderFragment } from 'relay-runtime';
+import { FragmentRefs } from 'relay-runtime';
+export type UserRepo_repo$data = {
+    readonly ' $fragmentSpreads': FragmentRefs<'Repo_repo' | 'BranchesTable_repo'>;
+    readonly ' $fragmentType': 'UserRepo_repo';
 };
-export type UserRepo_repo$data = UserRepo_repo;
+export type UserRepo_repo = UserRepo_repo$data;
 export type UserRepo_repo$key = {
-    readonly " $data"?: UserRepo_repo$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"UserRepo_repo">;
+    readonly ' $data'?: UserRepo_repo$data;
+    readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_repo'>;
 };
-
-
 
 const node: ReaderFragment = {
-  "argumentDefinitions": [
-    {
-      "defaultValue": "dashboard",
-      "kind": "LocalArgument",
-      "name": "name"
-    },
-    {
-      "defaultValue": "lowsky",
-      "kind": "LocalArgument",
-      "name": "ownerUsername"
-    }
-  ],
-  "kind": "Fragment",
-  "metadata": null,
-  "name": "UserRepo_repo",
-  "selections": [
-    {
-      "args": null,
-      "kind": "FragmentSpread",
-      "name": "Repo_repo"
-    },
-    {
-      "args": null,
-      "kind": "FragmentSpread",
-      "name": "BranchesTable_repo"
-    }
-  ],
-  "type": "GithubRepo",
-  "abstractKey": null
+    argumentDefinitions: [],
+    kind: 'Fragment',
+    metadata: null,
+    name: 'UserRepo_repo',
+    selections: [
+        {
+            args: null,
+            kind: 'FragmentSpread',
+            name: 'Repo_repo',
+        },
+        {
+            args: null,
+            kind: 'FragmentSpread',
+            name: 'BranchesTable_repo',
+        },
+    ],
+    type: 'GithubRepo',
+    abstractKey: null,
 };
-(node as any).hash = '5f639afe230a5fee7d7db096050d8506';
+
+(node as any).hash = '5c0c0330f2c716e49b7d5cd4b55ca32e';
+
 export default node;
