@@ -410,6 +410,15 @@ exports[`Storyshots Others/NavBar Default 1`] = `
       className="navbar-item"
     >
       <a
+        href="/story-book/index.html"
+      >
+        Storybook
+      </a>
+    </span>
+    <span
+      className="navbar-item"
+    >
+      <a
         href="https://github.com/lowsky/dashboard/"
         rel="noopener noreferrer nofollow"
       >
@@ -529,7 +538,8 @@ exports[`Storyshots Others/Pages Main 1`] = `
       <strong>
         Relay based GraphQL
       </strong>
-       and 
+       and
+       
       <strong>
         regular Rest
       </strong>
@@ -544,7 +554,8 @@ exports[`Storyshots Others/Pages Main 1`] = `
       <strong>
         normal React
       </strong>
-       components.
+       
+      components.
     </p>
   </div>
   <div
@@ -564,7 +575,8 @@ exports[`Storyshots Others/Pages Main 1`] = `
         <strong>
           GraphQL + Relay
         </strong>
-         - fetches all information from a locally installed relay server. 
+         - fetches all information from a locally installed relay server.
+         
         <strong>
           Note:
         </strong>
