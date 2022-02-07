@@ -37,7 +37,7 @@ const githubUserResolver: GithubUserResolvers = {
         return String(user.id);
     },
     repos: (user) => {
-        if(user.login) {
+        if (user.login) {
             return getReposForUser(user.login);
         }
         return null;
@@ -93,7 +93,7 @@ const queryResolver = {
     github: () => {
         return {};
     },
-    ...githubResolver
+    ...githubResolver,
 };
 
 const githubBranchResolver: GithubBranchResolvers = {
@@ -105,7 +105,7 @@ const githubBranchResolver: GithubBranchResolvers = {
             return null;
         }
         return getLastCommit(ownerUsername, reponame, sha);
-    }
+    },
 };
 
 const githubCommitResolver: GithubCommitResolvers = {
@@ -113,7 +113,7 @@ const githubCommitResolver: GithubCommitResolvers = {
         // @ts-ignore
         const { username, reponame } = grabUsernameAndReponameFromURL(commit.url); // url was added in parent object
         const { sha } = commit;
-        if(!sha) return null;
+        if (!sha) return null;
 
         return getStatusesForRepo(username, reponame, sha) ?? [];
     },

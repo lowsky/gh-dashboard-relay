@@ -7,6 +7,7 @@ const userWithoutAvatar = {
     id: '1234',
     company: 'company',
 };
+
 const userWithAvatar = {
     ...userWithoutAvatar,
     avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
@@ -18,14 +19,13 @@ export default {
 };
 
 export const WithoutAvatar = (props) => <User {...props} />;
+
 WithoutAvatar.args = {
-    user: userWithoutAvatar
-}
+    user: userWithoutAvatar,
+};
 
 export const WithAvatar = (props) => <User {...props} />;
-WithAvatar.args = {
-    user: userWithAvatar
-}
-WithoutAvatar.storyName = 'without avatar';
 
-WithAvatar.storyName = 'with avatar';
+WithAvatar.args = {
+    user: userWithAvatar,
+};

@@ -1,6 +1,3 @@
-# source: http://localhost:3000/graphql
-# timestamp: Sun Feb 25 2018 02:36:17 GMT+0100 (CET)
-
 # The Github API
 type GithubAPI {
     user(
@@ -65,11 +62,13 @@ type GithubUser {
 }
 
 type Query {
+    # @deprecated
     github: GithubAPI
+
     user(
-          # Username of the user
-          username: String!
-      ): GithubUser
+        # Username of the user
+        username: String!
+    ): GithubUser
     repo(
         # Name of the repo
         name: String!

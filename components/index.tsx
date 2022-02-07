@@ -13,17 +13,21 @@ import RelayRepo from '../relay/Repo';
 import PureUser from './User';
 import RelayUser from '../relay/User';
 
-import { UILib } from "./UILibContext";
+import PurePullRequestInfo from './PullRequestInfo';
+import RelayPullRequestInfo from '../relay/PullRequestInfo';
 
-export const UILibPureComponents = {
+import { UILib } from './UILibContext';
+
+export const UILibPureComponents: UILib = {
     User: PureUser,
     Repo: PureRepo,
     BranchTable: PureBranchesTable,
     BranchInfoRow: PureBranchInfoRow,
     CommitWithStatuses: PureCommitWithStatuses,
+    PullRequestInfo: PurePullRequestInfo,
 };
 
-export const UILibWithRelaySupport : UILib = {
+export const UILibWithRelaySupport: UILib = {
     // @ts-ignore
     User: RelayUser,
     // @ts-ignore
@@ -34,4 +38,6 @@ export const UILibWithRelaySupport : UILib = {
     BranchInfoRow: RelayBranchInfoRow,
     // @ts-ignore
     CommitWithStatuses: RelayCommitWithStatuses,
+    // @ts-ignore
+    PullRequestInfo: RelayPullRequestInfo,
 };

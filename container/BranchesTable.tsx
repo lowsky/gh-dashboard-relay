@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { GithubRepo } from "../lib/types/resolvers";
+import { GithubRepo } from '../lib/types/resolvers';
 import UILibContext, { UILib } from '../components/UILibContext';
 import { DoMergePR } from './UserRepo';
 
@@ -11,9 +11,9 @@ export interface BranchesTableProps {
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
     const { BranchInfoRow } = useContext<UILib>(UILibContext) as UILib;
 
-  return (
-    <table className="table is-bordered is-striped is-hoverable">
-      <thead>
+    return (
+        <table className="table is-bordered is-striped is-hoverable">
+            <thead>
                 <tr>
                     <th>
                         <span className="fas fa-code-branch" />

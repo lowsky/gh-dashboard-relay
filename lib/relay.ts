@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 import { RecordMap } from 'relay-runtime/lib/store/RelayStoreTypes';
 
-let relayEnvironment:any;
+let relayEnvironment: any;
 
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise
-function fetchQuery(operation:any, variables:any) {
+function fetchQuery(operation: any, variables: any) {
     return fetch(process.env.NEXT_PUBLIC_RELAY_ENDPOINT ?? '/api/graphql', {
         method: 'POST',
         headers: {
@@ -45,6 +45,6 @@ export function initEnvironment(initialRecords?: RecordMap) {
     return relayEnvironment;
 }
 
-export function useEnvironment(initialRecords:RecordMap) {
+export function useEnvironment(initialRecords: RecordMap) {
     return useMemo(() => initEnvironment(initialRecords), [initialRecords]);
 }
