@@ -19,7 +19,7 @@ Restful.parameters = {
 
 Restful.args = {
     userName: 'lowsky',
-    repoName: 'dashboard',
+    repoName: 'test-repo',
 };
 
 Restful.story = {
@@ -28,7 +28,7 @@ Restful.story = {
             path: '/profile/[userName]/[repoName]',
             query: {
                 userName: 'lowsky',
-                repoName: 'dashboard',
+                repoName: 'test-repo',
             },
         },
     },
