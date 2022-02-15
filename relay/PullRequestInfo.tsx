@@ -1,8 +1,8 @@
 import { createFragmentContainer, graphql } from 'react-relay';
 
-import PullRequestInfo, { PullRequestInfoProps } from '../components/PullRequestInfo';
+import PullRequestInfo from '../components/PullRequestInfo';
 
-export default createFragmentContainer<PullRequestInfoProps>(PullRequestInfo, {
+export default createFragmentContainer(PullRequestInfo, {
     pullRequest: graphql`
         fragment PullRequestInfo_pullRequest on PullRequest {
             title
