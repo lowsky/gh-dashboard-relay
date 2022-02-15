@@ -4088,10 +4088,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-relay@11.0.3":
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-11.0.3.tgz#95097049203f2f814e1330453d037841a2a310e5"
-  integrity sha512-hgKmTCswmZclKOqju/3pcVgJG3FtNrwfLLq4wtpZuQ/UJAyVeQ90SS6GiGZBr6hDZmcxNMIQCNyJ0YK5eE9Ceg==
+"@types/react-relay@13.0.1":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-relay/-/react-relay-13.0.1.tgz#acc25817b29febdc6b251fa076ccbe6ee9b97b1f"
+  integrity sha512-nEjkbipJ84oOvjDz8X5bqkpaPjq3tpQekaS9P/3rlePIigttN3m3S6HMthKCeRWwXeKNdVqrMcmdPXI0TQly3g==
   dependencies:
     "@types/react" "*"
     "@types/relay-runtime" "*"
@@ -12671,16 +12671,16 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
-react-relay@13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-13.0.0.tgz#82e240ebeff9700dcd7c8f422019e66840b38c1f"
-  integrity sha512-np53H9dl9ozDOJsxkYj/g3dhlsJjkTZ6BULgZ28t69o9xHMrlJVY0sronzfTBpv9C2wpJD6Mlioj4jA1wfncTg==
+react-relay@13.1.1:
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-13.1.1.tgz#de8befce89c43aa034e2836ba727a63b20f45586"
+  integrity sha512-Y/NJ9P4D2wegYNJ1ti85usWFl3d2zKYy/eiOU4RCVG92IAWzVemHHT5SfZh8KzaIa/7KhBEMUSrXcyetcv7VMA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.2"
     invariant "^2.2.4"
     nullthrows "^1.1.1"
-    relay-runtime "13.0.0"
+    relay-runtime "13.1.1"
 
 react-router-dom@^6.0.0:
   version "6.2.1"
@@ -12949,15 +12949,6 @@ relay-runtime@12.0.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
-    invariant "^2.2.4"
-
-relay-runtime@13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-13.0.0.tgz#a00a419d9e86dbce255c4c73706924b2913f8bbc"
-  integrity sha512-CMUk5DKXdQBj31Av2fj4AgSZ0UkTqKLArt5UImxRg0Ff7TJ46UAYh2j6omZEUTN9FJqjwbwoGdpqOdaCU9eS2A==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fbjs "^3.0.2"
     invariant "^2.2.4"
 
 relay-runtime@13.1.1:
