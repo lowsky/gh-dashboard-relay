@@ -1,8 +1,8 @@
 import { createFragmentContainer, graphql } from 'react-relay';
 
-import UserRepo, { UserRepoProps } from '../container/UserRepo';
+import UserRepo from '../container/UserRepo';
 
-export default createFragmentContainer<UserRepoProps>(UserRepo, {
+export default createFragmentContainer(UserRepo, {
     user: graphql`
         fragment UserRepo_user on GithubUser {
             ...User_user

@@ -5,9 +5,7 @@ export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K]
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & {
-    [P in K]-?: NonNullable<T[P]>;
-};
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
     ID: string;
@@ -283,13 +281,13 @@ export type GithubRepoResolvers<
         Maybe<Array<Maybe<ResolversTypes['GithubBranch']>>>,
         ParentType,
         ContextType,
-        RequireFields<GithubRepoBranchesArgs, never>
+        Partial<GithubRepoBranchesArgs>
     >;
     commits?: Resolver<
         Maybe<Array<Maybe<ResolversTypes['GithubCommit']>>>,
         ParentType,
         ContextType,
-        RequireFields<GithubRepoCommitsArgs, never>
+        Partial<GithubRepoCommitsArgs>
     >;
     id?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
     name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;

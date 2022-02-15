@@ -1,9 +1,8 @@
 import { createFragmentContainer, graphql } from 'react-relay';
-import React from 'react';
 
-import BranchInfoRow, { BranchInfoRowProps } from '../container/BranchInfoRow';
+import BranchInfoRow from '../container/BranchInfoRow';
 
-export default createFragmentContainer<BranchInfoRowProps>((props) => <BranchInfoRow {...props} />, {
+export default createFragmentContainer(BranchInfoRow, {
     branch: graphql`
         fragment BranchInfoRow_branch on GithubBranch {
             name
