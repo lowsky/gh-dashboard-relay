@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface STATE {
     burgerActive: boolean;
@@ -31,10 +32,10 @@ export class NavBar extends React.Component {
                         <span className="navbar-item">
                             <a href="/story-book/index.html">Storybook</a>
                         </span>
-                     }
+                    }
                     <span className="navbar-item">
                         <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
-                            <FontAwesomeIcon width="1rem" size={'1x'} icon={faGithub} />
+                            <FontAwesomeIcon width="1rem" size={'1x'} icon={faGithub as IconProp} />
                         </a>
                     </span>
 
@@ -61,7 +62,7 @@ export class NavBar extends React.Component {
                         <span className="navbar-item">
                             <a href="https://github.com/lowsky/dashboard/" rel="noopener noreferrer nofollow">
                                 <span>
-                                    <FontAwesomeIcon icon={faGithub} width="1rem" /> Github Repo
+                                    <FontAwesomeIcon icon={faGithub as IconProp} width="1rem" /> Github Repo
                                 </span>
                             </a>
                         </span>

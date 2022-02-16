@@ -6,6 +6,7 @@ import { GithubCommit, GithubCommitAuthor, GithubUser, Maybe, UserOrCommitAuthor
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 
 import './CommitWithStatuses.module.css';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 function icon4context(context, avatar_url?: Maybe<string>) {
     if (avatar_url) {
@@ -21,16 +22,16 @@ function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) 
         verticalAlign: 'top',
     };
     if (status === 'success') {
-        return <FontAwesomeIcon style={style} icon={faCheckCircle} />;
+        return <FontAwesomeIcon style={style} icon={faCheckCircle as IconProp} />;
     }
     if (status === 'pending') {
-        return <FontAwesomeIcon style={style} icon={faHourglass} />;
+        return <FontAwesomeIcon style={style} icon={faHourglass as IconProp} />;
     }
     if (status === 'failure') {
-        return <FontAwesomeIcon style={style} icon={faExclamationCircle} />;
+        return <FontAwesomeIcon style={style} icon={faExclamationCircle as IconProp} />;
     }
     if (status === 'error') {
-        return <FontAwesomeIcon style={style} icon={faTimes} />;
+        return <FontAwesomeIcon style={style} icon={faTimes as IconProp} />;
     }
     return <span>{status}</span>;
 }

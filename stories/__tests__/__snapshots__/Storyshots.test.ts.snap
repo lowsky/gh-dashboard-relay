@@ -16,7 +16,7 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
          
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-github fa-w-16 "
+          className="svg-inline--fa fa-github "
           data-icon="github"
           data-prefix="fab"
           focusable="false"
@@ -92,7 +92,7 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-check-circle fa-w-16 "
+              className="svg-inline--fa fa-check-circle "
               data-icon="check-circle"
               data-prefix="fas"
               focusable="false"
@@ -154,7 +154,7 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
          
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-github fa-w-16 "
+          className="svg-inline--fa fa-github "
           data-icon="github"
           data-prefix="fab"
           focusable="false"
@@ -230,7 +230,7 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-check-circle fa-w-16 "
+              className="svg-inline--fa fa-check-circle "
               data-icon="check-circle"
               data-prefix="fas"
               focusable="false"
@@ -309,7 +309,7 @@ Array [
       </span>
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-check-circle fa-w-16 "
+        className="svg-inline--fa fa-check-circle "
         data-icon="check-circle"
         data-prefix="fas"
         focusable="false"
@@ -405,7 +405,7 @@ exports[`Storyshots Others/NavBar Default 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-github fa-w-16 fa-1x "
+          className="svg-inline--fa fa-github fa-1x "
           data-icon="github"
           data-prefix="fab"
           focusable="false"
@@ -471,7 +471,7 @@ exports[`Storyshots Others/NavBar Default 1`] = `
           <span>
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
+              className="svg-inline--fa fa-github "
               data-icon="github"
               data-prefix="fab"
               focusable="false"
@@ -699,7 +699,7 @@ exports[`Storyshots Others/Repo Fake Data 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-github fa-w-16 "
+          className="svg-inline--fa fa-github "
           data-icon="github"
           data-prefix="fab"
           focusable="false"
@@ -726,7 +726,7 @@ exports[`Storyshots Others/Spinner Default 1`] = `
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-spinner fa-w-16 fa-3x "
+    className="svg-inline--fa fa-spinner fa-3x "
     data-icon="spinner"
     data-prefix="fas"
     focusable="false"
@@ -867,7 +867,7 @@ Array [
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-github fa-w-16 "
+            className="svg-inline--fa fa-github "
             data-icon="github"
             data-prefix="fab"
             focusable="false"
@@ -965,7 +965,7 @@ Array [
              
             <svg
               aria-hidden="true"
-              className="svg-inline--fa fa-github fa-w-16 "
+              className="svg-inline--fa fa-github "
               data-icon="github"
               data-prefix="fab"
               focusable="false"
@@ -1041,7 +1041,7 @@ Array [
                 </span>
                 <svg
                   aria-hidden="true"
-                  className="svg-inline--fa fa-check-circle fa-w-16 "
+                  className="svg-inline--fa fa-check-circle "
                   data-icon="check-circle"
                   data-prefix="fas"
                   focusable="false"
