@@ -5,6 +5,7 @@ import { DoMergePR } from '../container/UserRepo';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export type PullRequestInfoProps = {
     pullRequest: PullRequestData;
@@ -46,12 +47,12 @@ export default function PullRequestInfo({ pullRequest, doMergePR }: PullRequestI
             )}
             {!!error && (
                 <>
-                    <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
+                    <FontAwesomeIcon icon={faExclamationTriangle as IconProp} size="1x" />
                 </>
             )}
             {!!mergeRequest && (
                 <>
-                    <FontAwesomeIcon icon={faSpinner} size="1x" />
+                    <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
                 </>
             )}
         </>

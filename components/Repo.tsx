@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export interface OwnerType {
     login?: string;
@@ -27,7 +28,7 @@ const Repo: React.FC<RepoProps> = ({ repo: { name = '?', owner = {} } = {} }) =>
                         {owner && owner.login} / {name}
                     </strong>
                     <span className="icon">
-                        <FontAwesomeIcon icon={faGithub} />
+                        <FontAwesomeIcon icon={faGithub as IconProp} />
                     </span>
                 </a>
             </h3>

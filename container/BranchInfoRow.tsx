@@ -5,6 +5,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import UILibContext from '../components/UILibContext';
 import { GithubBranch } from '../lib/types/resolvers';
 import { DoMergePR } from './UserRepo';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
@@ -23,7 +24,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
                 <a href={githubBranchSrc} rel="noopener noreferrer nofollow">
                     {name}
                 </a>{' '}
-                <FontAwesomeIcon icon={faGithub} />
+                <FontAwesomeIcon icon={faGithub as IconProp} />
             </td>
             <td>
                 {associatedPullRequests
