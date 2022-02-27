@@ -111,7 +111,6 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
             title="Vercel Deployment: has completed"
           >
             <span
-              alt="Vercel Deployment"
               className="chakra-avatar contextLogo css-owdzdv"
             >
               <svg
@@ -299,7 +298,6 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
             title="Vercel Deployment: has completed"
           >
             <span
-              alt="Vercel Deployment"
               className="chakra-avatar contextLogo css-owdzdv"
             >
               <svg
@@ -394,7 +392,6 @@ Array [
       title="Vercel Deployment: has completed"
     >
       <span
-        alt="Vercel Deployment"
         className="chakra-avatar contextLogo css-owdzdv"
       >
         <svg
@@ -551,7 +548,7 @@ exports[`Storyshots Others/NavBar Default 1`] = `
               aria-expanded={false}
               aria-haspopup="dialog"
               className="chakra-link css-1t6f37y"
-              href="https://github.com/lowsky/dashboard"
+              href="/restful/lowsky/dashboard"
               id="popover-trigger-1"
               onBlur={[Function]}
               onFocus={[Function]}
@@ -559,7 +556,7 @@ exports[`Storyshots Others/NavBar Default 1`] = `
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
-              Repo
+              REST-based Demo
             </a>
           </div>
           <div
@@ -570,7 +567,7 @@ exports[`Storyshots Others/NavBar Default 1`] = `
               aria-expanded={false}
               aria-haspopup="dialog"
               className="chakra-link css-1t6f37y"
-              href="/restful/lowsky/dashboard"
+              href="/story-book/index.html"
               id="popover-trigger-1"
               onBlur={[Function]}
               onFocus={[Function]}
@@ -578,7 +575,7 @@ exports[`Storyshots Others/NavBar Default 1`] = `
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
-              RESTful Demo
+              storybook
             </a>
           </div>
           <div
@@ -611,7 +608,6 @@ exports[`Storyshots Others/NavBar Default 1`] = `
               className="css-70qvj9"
             >
               <div
-                _spacing={7}
                 className="chakra-stack css-x9juev"
               >
                 <button
@@ -748,12 +744,12 @@ exports[`Storyshots Others/NavBar Default 1`] = `
       >
         <a
           className="chakra-link css-g2qvlg"
-          href="https://github.com/lowsky/dashboard"
+          href="/restful/lowsky/dashboard"
         >
           <p
             className="chakra-text css-y33gq0"
           >
-            Repo
+            REST-based Demo
           </p>
         </a>
         <div
@@ -778,12 +774,12 @@ exports[`Storyshots Others/NavBar Default 1`] = `
       >
         <a
           className="chakra-link css-g2qvlg"
-          href="/restful/lowsky/dashboard"
+          href="/story-book/index.html"
         >
           <p
             className="chakra-text css-y33gq0"
           >
-            RESTful Demo
+            storybook
           </p>
         </a>
         <div
@@ -843,7 +839,6 @@ exports[`Storyshots Others/NavBar Default 1`] = `
             className="css-70qvj9"
           >
             <div
-              _spacing={7}
               className="chakra-stack css-x9juev"
             >
               <button
@@ -1178,7 +1173,6 @@ exports[`Storyshots Others/User With Avatar 1`] = `
     className="css-0"
   >
     <span
-      alt="avatar"
       className="chakra-avatar css-1ruhx4w"
     >
       <svg
@@ -1228,7 +1222,6 @@ exports[`Storyshots Others/User Without Avatar 1`] = `
     className="css-0"
   >
     <span
-      alt="avatar"
       className="chakra-avatar css-1ruhx4w"
     >
       <svg
@@ -1329,7 +1322,6 @@ Array [
         className="css-0"
       >
         <span
-          alt="avatar"
           className="chakra-avatar css-1ruhx4w"
         >
           <svg
@@ -1508,7 +1500,6 @@ Array [
                 title="Vercel Deployment: has completed"
               >
                 <span
-                  alt="Vercel Deployment"
                   className="chakra-avatar contextLogo css-owdzdv"
                 >
                   <svg
