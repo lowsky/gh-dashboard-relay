@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import IndexPage from '../pages';
 import RestfulPage from '../pages/restful/[userName]/[repoName]';
