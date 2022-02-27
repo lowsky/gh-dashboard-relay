@@ -91,19 +91,17 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                     <strong>{mainMessage}</strong>
                 </a>
             </div>
-            <div>
+            <div className={styles.status}>
                 <i>{date}</i>
                 {author && isGithubUser(author) && (
                     <>
-                        &nbsp;by&nbsp;
+                        &nbsp;&nbsp;by
                         <a href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
                             {author.avatar_url && (
-                                <img className="commit_avatar" width={32} src={author.avatar_url} alt="avatar" />
+                                <img className={styles.commit_avatar} src={author.avatar_url} alt="avatar" />
                             )}
-                            &nbsp;
-                            <span>{author.login}</span>
+                            &nbsp;<span>{author.login}</span>
                         </a>
-                        &nbsp;
                     </>
                 )}
                 {author && isGithubCommitAuthor(author) && (
@@ -112,7 +110,6 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                         <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">
                             {author.name ?? '?'}
                         </a>
-                        &nbsp;
                     </>
                 )}
             </div>

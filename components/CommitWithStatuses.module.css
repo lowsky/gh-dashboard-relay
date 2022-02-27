@@ -6,5 +6,12 @@
 .statusLine {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
+.commit_avatar {
+    display:inline;
+    vertical-align: center;
+    width: 24px;
+    height: 24px;
+}
