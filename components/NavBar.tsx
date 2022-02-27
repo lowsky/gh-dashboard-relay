@@ -149,12 +149,12 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '/relay/lowsky/dashboard',
     },
     {
-        label: 'Repo',
-        href: 'https://github.com/lowsky/dashboard',
+        label: 'REST-based Demo',
+        href: '/restful/lowsky/dashboard',
     },
     {
-        label: 'RESTful Demo',
-        href: '/restful/lowsky/dashboard',
+        label: 'storybook',
+        href: '/story-book/index.html',
     },
     {
         label: 'Github Repo',
