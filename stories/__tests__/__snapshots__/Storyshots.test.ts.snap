@@ -49,7 +49,7 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
             rel="noopener noreferrer nofollow"
           >
             <strong>
-              dummy-data! Merge pull request #1234 from lowsky/a-new-feature
+              Merge pull request #1234 from lowsky/a-new-feature
             </strong>
           </a>
         </div>
@@ -65,7 +65,7 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
             <img
               alt="avatar"
               className="commit_avatar"
-              src="https://avatars2.githubusercontent.com/u/217931?v=3"
+              src="https://avatars2.githubusercontent.com/u/217931"
               width={32}
             />
              
@@ -85,11 +85,15 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
                 "color": "green",
               }
             }
-            title="only some demo dummy demo data"
+            title="Vercel Deployment: has completed"
           >
-            <span>
-              only some demo
-            </span>
+            <img
+              alt="Vercel Deployment"
+              className="contextlogo"
+              height={24}
+              src="https://avatars.githubusercontent.com/in/8329"
+              width={24}
+            />
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-check-circle "
@@ -111,7 +115,6 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
                 style={Object {}}
               />
             </svg>
-             
           </a>
         </div>
       </td>
@@ -187,7 +190,7 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
             rel="noopener noreferrer nofollow"
           >
             <strong>
-              dummy-data! Merge pull request #1234 from lowsky/a-new-feature
+              Merge pull request #1234 from lowsky/a-new-feature
             </strong>
           </a>
         </div>
@@ -203,7 +206,7 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
             <img
               alt="avatar"
               className="commit_avatar"
-              src="https://avatars2.githubusercontent.com/u/217931?v=3"
+              src="https://avatars2.githubusercontent.com/u/217931"
               width={32}
             />
              
@@ -223,11 +226,15 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
                 "color": "green",
               }
             }
-            title="only some demo dummy demo data"
+            title="Vercel Deployment: has completed"
           >
-            <span>
-              only some demo
-            </span>
+            <img
+              alt="Vercel Deployment"
+              className="contextlogo"
+              height={24}
+              src="https://avatars.githubusercontent.com/in/8329"
+              width={24}
+            />
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-check-circle "
@@ -249,7 +256,6 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
                 style={Object {}}
               />
             </svg>
-             
           </a>
         </div>
       </td>
@@ -266,7 +272,7 @@ Array [
       rel="noopener noreferrer nofollow"
     >
       <strong>
-        dummy-data! Merge pull request #1234 from lowsky/a-new-feature
+        Merge pull request #1234 from lowsky/a-new-feature
       </strong>
     </a>
   </div>,
@@ -282,7 +288,7 @@ Array [
       <img
         alt="avatar"
         className="commit_avatar"
-        src="https://avatars2.githubusercontent.com/u/217931?v=3"
+        src="https://avatars2.githubusercontent.com/u/217931"
         width={32}
       />
        
@@ -302,11 +308,15 @@ Array [
           "color": "green",
         }
       }
-      title="only some demo dummy demo data"
+      title="Vercel Deployment: has completed"
     >
-      <span>
-        only some demo
-      </span>
+      <img
+        alt="Vercel Deployment"
+        className="contextlogo"
+        height={24}
+        src="https://avatars.githubusercontent.com/in/8329"
+        width={24}
+      />
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-check-circle "
@@ -328,7 +338,6 @@ Array [
           style={Object {}}
         />
       </svg>
-       
     </a>
   </div>,
 ]
@@ -998,7 +1007,7 @@ Array [
                 rel="noopener noreferrer nofollow"
               >
                 <strong>
-                  dummy-data! Merge pull request #1234 from lowsky/a-new-feature
+                  Merge pull request #1234 from lowsky/a-new-feature
                 </strong>
               </a>
             </div>
@@ -1014,7 +1023,7 @@ Array [
                 <img
                   alt="avatar"
                   className="commit_avatar"
-                  src="https://avatars2.githubusercontent.com/u/217931?v=3"
+                  src="https://avatars2.githubusercontent.com/u/217931"
                   width={32}
                 />
                  
@@ -1034,11 +1043,15 @@ Array [
                     "color": "green",
                   }
                 }
-                title="only some demo dummy demo data"
+                title="Vercel Deployment: has completed"
               >
-                <span>
-                  only some demo
-                </span>
+                <img
+                  alt="Vercel Deployment"
+                  className="contextlogo"
+                  height={24}
+                  src="https://avatars.githubusercontent.com/in/8329"
+                  width={24}
+                />
                 <svg
                   aria-hidden="true"
                   className="svg-inline--fa fa-check-circle "
@@ -1060,7 +1073,6 @@ Array [
                     style={Object {}}
                   />
                 </svg>
-                 
               </a>
             </div>
           </td>
