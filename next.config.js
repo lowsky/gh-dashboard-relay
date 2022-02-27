@@ -1,5 +1,6 @@
 const { relay } = require('./package.json');
 module.exports = {
+    swcMinify: true,
     compiler: {
         relay,
     },
