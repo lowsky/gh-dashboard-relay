@@ -9,7 +9,12 @@ module.exports = {
         '../relay/*.story.@(js|jsx|ts|tsx|mdx)',
         '../stories/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    addons: ['@storybook/addon-essentials', '@chakra-ui/storybook-addon'],
+    addons: [
+        //
+        '@storybook/addon-essentials',
+        '@chakra-ui/storybook-addon',
+        'storybook-addon-next-router',
+    ],
     webpackFinal: async (config) => ({
         ...config,
         module: {

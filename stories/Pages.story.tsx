@@ -17,11 +17,6 @@ Restful.parameters = {
     chromatic: { disable: false },
 };
 
-Restful.args = {
-    userName: 'lowsky',
-    repoName: 'test-repo',
-};
-
 Restful.story = {
     parameters: {
         nextRouter: {

@@ -2,38 +2,58 @@
 
 exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
 <table
-  width={400}
+  className="chakra-table css-0"
+  role="table"
 >
-  <tbody>
-    <tr>
-      <td>
+  <tbody
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
         <a
+          className="chakra-link css-0"
           href="https://github.com/lowsky/dashboard/tree/branch-x"
           rel="noopener noreferrer nofollow"
+          target="_blank"
         >
           branch-x
         </a>
-         
         <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-github "
-          data-icon="github"
-          data-prefix="fab"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 496 512"
-          xmlns="http://www.w3.org/2000/svg"
+          className="chakra-icon css-onkibi"
+          focusable={false}
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-            fill="currentColor"
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-github "
+            data-icon="github"
+            data-prefix="fab"
+            focusable="false"
+            role="img"
             style={Object {}}
-          />
+            viewBox="0 0 496 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
         </svg>
       </td>
-      <td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
         <a
+          className="chakra-link css-0"
           href="https://github.com/lowsky/dashboard/pull/42"
           rel="noopener noreferrer nofollow"
           title="add PR info to branch table"
@@ -42,7 +62,10 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
           42
         </a>
       </td>
-      <td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
         <div>
           <a
             href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
@@ -76,7 +99,7 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
            
         </div>
         <div
-          className="statusline"
+          className="statusLine"
         >
           <a
             href="https://www.github.com/lowsky/dashboard"
@@ -87,13 +110,26 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
             }
             title="Vercel Deployment: has completed"
           >
-            <img
+            <span
               alt="Vercel Deployment"
-              className="contextlogo"
-              height={24}
-              src="https://avatars.githubusercontent.com/in/8329"
-              width={24}
-            />
+              className="chakra-avatar contextLogo css-owdzdv"
+            >
+              <svg
+                aria-label=" avatar"
+                className="chakra-avatar__svg css-16ite8i"
+                role="img"
+                viewBox="0 0 128 128"
+              >
+                <path
+                  d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-check-circle "
@@ -125,11 +161,19 @@ exports[`Storyshots Others/BranchInfoRow With Info 1`] = `
 
 exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
 <table
-  className="table is-bordered is-striped is-hoverable"
+  className="chakra-table css-0"
+  role="table"
 >
-  <thead>
-    <tr>
-      <th>
+  <thead
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <th
+        className="css-0"
+      >
         <span
           className="fas fa-code-branch"
         />
@@ -137,44 +181,67 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
           Branch
         </span>
       </th>
-      <th>
+      <th
+        className="css-0"
+      >
         PR
       </th>
-      <th>
+      <th
+        className="css-0"
+      >
         Commit
       </th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>
+  <tbody
+    className="css-0"
+  >
+    <tr
+      className="css-0"
+      role="row"
+    >
+      <td
+        className="css-0"
+        role="gridcell"
+      >
         <a
+          className="chakra-link css-0"
           href="https://github.com/lowsky/dashboard/tree/branch-x"
           rel="noopener noreferrer nofollow"
+          target="_blank"
         >
           branch-x
         </a>
-         
         <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-github "
-          data-icon="github"
-          data-prefix="fab"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 496 512"
-          xmlns="http://www.w3.org/2000/svg"
+          className="chakra-icon css-onkibi"
+          focusable={false}
+          viewBox="0 0 24 24"
         >
-          <path
-            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-            fill="currentColor"
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-github "
+            data-icon="github"
+            data-prefix="fab"
+            focusable="false"
+            role="img"
             style={Object {}}
-          />
+            viewBox="0 0 496 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
         </svg>
       </td>
-      <td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
         <a
+          className="chakra-link css-0"
           href="https://github.com/lowsky/dashboard/pull/42"
           rel="noopener noreferrer nofollow"
           title="add PR info to branch table"
@@ -183,7 +250,10 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
           42
         </a>
       </td>
-      <td>
+      <td
+        className="css-0"
+        role="gridcell"
+      >
         <div>
           <a
             href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
@@ -217,7 +287,7 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
            
         </div>
         <div
-          className="statusline"
+          className="statusLine"
         >
           <a
             href="https://www.github.com/lowsky/dashboard"
@@ -228,13 +298,26 @@ exports[`Storyshots Others/BranchesTable With One Branch 1`] = `
             }
             title="Vercel Deployment: has completed"
           >
-            <img
+            <span
               alt="Vercel Deployment"
-              className="contextlogo"
-              height={24}
-              src="https://avatars.githubusercontent.com/in/8329"
-              width={24}
-            />
+              className="chakra-avatar contextLogo css-owdzdv"
+            >
+              <svg
+                aria-label=" avatar"
+                className="chakra-avatar__svg css-16ite8i"
+                role="img"
+                viewBox="0 0 128 128"
+              >
+                <path
+                  d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-check-circle "
@@ -299,7 +382,7 @@ Array [
      
   </div>,
   <div
-    className="statusline"
+    className="statusLine"
   >
     <a
       href="https://www.github.com/lowsky/dashboard"
@@ -310,13 +393,26 @@ Array [
       }
       title="Vercel Deployment: has completed"
     >
-      <img
+      <span
         alt="Vercel Deployment"
-        className="contextlogo"
-        height={24}
-        src="https://avatars.githubusercontent.com/in/8329"
-        width={24}
-      />
+        className="chakra-avatar contextLogo css-owdzdv"
+      >
+        <svg
+          aria-label=" avatar"
+          className="chakra-avatar__svg css-16ite8i"
+          role="img"
+          viewBox="0 0 128 128"
+        >
+          <path
+            d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+            fill="currentColor"
+          />
+          <path
+            d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-check-circle "
@@ -361,181 +457,481 @@ Array [
     </i>
   </div>,
   <div
-    className="statusline"
+    className="statusLine"
   />,
 ]
 `;
 
 exports[`Storyshots Others/NavBar Default 1`] = `
-<nav
-  aria-label="main navigation"
-  className="navbar"
+<div
+  className="css-0"
 >
   <div
-    className="navbar-brand"
-  >
-    <span
-      className="navbar-item"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-      >
-        Dashboard
-      </a>
-    </span>
-    <span
-      className="navbar-item"
-    >
-      <a
-        href="/relay/lowsky/dashboard"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-      >
-        GraphQL+Relay Demo
-      </a>
-    </span>
-    <span
-      className="navbar-item"
-    >
-      <a
-        href="/story-book/index.html"
-      >
-        Storybook
-      </a>
-    </span>
-    <span
-      className="navbar-item"
-    >
-      <a
-        href="https://github.com/lowsky/dashboard/"
-        rel="noopener noreferrer nofollow"
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-github fa-1x "
-          data-icon="github"
-          data-prefix="fab"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 496 512"
-          width="1rem"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </a>
-    </span>
-    <a
-      aria-expanded="false"
-      aria-label="menu"
-      className="navbar-burger "
-      onClick={[Function]}
-      role="button"
-    >
-      <span
-        aria-hidden="true"
-      />
-      <span
-        aria-hidden="true"
-      />
-      <span
-        aria-hidden="true"
-      />
-    </a>
-  </div>
-  <div
-    aria-expanded="false"
-    aria-label="menu"
-    className="navbar-menu "
-    id="navMenu"
+    className="css-8lthux"
   >
     <div
-      className="navbar-start"
+      className="css-l8wc43"
     >
-      <span
-        className="navbar-item"
+      <button
+        aria-label="Toggle Navigation"
+        className="chakra-button css-198bfjk"
+        onClick={[Function]}
+        type="button"
       >
-        <a
-          href="/restful/lowsky/dashboard"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-w31a5m"
+          focusable={false}
+          viewBox="0 0 24 24"
         >
-          RESTful Demo
-        </a>
-      </span>
-      <span
-        className="navbar-item"
+          <path
+            d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        className="css-gmuwbf"
       >
-        <a
-          href="https://github.com/lowsky/dashboard/"
-          rel="noopener noreferrer nofollow"
+        Github Dashboard
+      </div>
+    </div>
+    <div
+      className="css-8k9ono"
+    >
+      <div
+        className="css-1t6irk0"
+      >
+        <div
+          className="chakra-stack css-1ss2m3q"
         >
-          <span>
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              width="1rem"
-              xmlns="http://www.w3.org/2000/svg"
+          <div
+            className="css-0"
+          >
+            <a
+              aria-controls="popover-content-1"
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="chakra-link css-1t6f37y"
+              href="/"
+              id="popover-trigger-1"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-             Github Repo
-          </span>
-        </a>
-      </span>
+              Dashboard
+            </a>
+          </div>
+          <div
+            className="css-0"
+          >
+            <a
+              aria-controls="popover-content-1"
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="chakra-link css-1t6f37y"
+              href="/relay/lowsky/dashboard"
+              id="popover-trigger-1"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              GraphQL+Relay Demo
+            </a>
+          </div>
+          <div
+            className="css-0"
+          >
+            <a
+              aria-controls="popover-content-1"
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="chakra-link css-1t6f37y"
+              href="https://github.com/lowsky/dashboard"
+              id="popover-trigger-1"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              Repo
+            </a>
+          </div>
+          <div
+            className="css-0"
+          >
+            <a
+              aria-controls="popover-content-1"
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="chakra-link css-1t6f37y"
+              href="/restful/lowsky/dashboard"
+              id="popover-trigger-1"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              RESTful Demo
+            </a>
+          </div>
+          <div
+            className="css-0"
+          >
+            <a
+              aria-controls="popover-content-1"
+              aria-expanded={false}
+              aria-haspopup="dialog"
+              className="chakra-link css-1t6f37y"
+              href="https://github.com/lowsky/dashboard"
+              id="popover-trigger-1"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              Github Repo
+            </a>
+          </div>
+        </div>
+        <div
+          className="css-1d46yoz"
+        >
+          <div
+            className="css-tyk25m"
+          >
+            <div
+              className="css-70qvj9"
+            >
+              <div
+                _spacing={7}
+                className="chakra-stack css-x9juev"
+              >
+                <button
+                  className="chakra-button css-5c2176"
+                  type="button"
+                >
+                  <svg
+                    className="chakra-icon css-onkibi"
+                    focusable={false}
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="5"
+                      />
+                      <path
+                        d="M12 1v2"
+                      />
+                      <path
+                        d="M12 21v2"
+                      />
+                      <path
+                        d="M4.22 4.22l1.42 1.42"
+                      />
+                      <path
+                        d="M18.36 18.36l1.42 1.42"
+                      />
+                      <path
+                        d="M1 12h2"
+                      />
+                      <path
+                        d="M21 12h2"
+                      />
+                      <path
+                        d="M4.22 19.78l1.42-1.42"
+                      />
+                      <path
+                        d="M18.36 5.64l1.42-1.42"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+  <div
+    className="chakra-collapse"
+    style={
+      Object {
+        "display": "none",
+        "height": "0px",
+        "opacity": 0,
+        "overflow": "hidden",
+      }
+    }
+  >
+    <div
+      className="chakra-stack css-tm2a1"
+    >
+      <div
+        className="chakra-stack css-17kdbol"
+      >
+        <a
+          className="chakra-link css-g2qvlg"
+          href="/"
+        >
+          <p
+            className="chakra-text css-y33gq0"
+          >
+            Dashboard
+          </p>
+        </a>
+        <div
+          className="chakra-collapse"
+          style={
+            Object {
+              "display": "none",
+              "height": "0px",
+              "marginTop": "0!important",
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="chakra-stack css-khmogt"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-17kdbol"
+      >
+        <a
+          className="chakra-link css-g2qvlg"
+          href="/relay/lowsky/dashboard"
+        >
+          <p
+            className="chakra-text css-y33gq0"
+          >
+            GraphQL+Relay Demo
+          </p>
+        </a>
+        <div
+          className="chakra-collapse"
+          style={
+            Object {
+              "display": "none",
+              "height": "0px",
+              "marginTop": "0!important",
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="chakra-stack css-khmogt"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-17kdbol"
+      >
+        <a
+          className="chakra-link css-g2qvlg"
+          href="https://github.com/lowsky/dashboard"
+        >
+          <p
+            className="chakra-text css-y33gq0"
+          >
+            Repo
+          </p>
+        </a>
+        <div
+          className="chakra-collapse"
+          style={
+            Object {
+              "display": "none",
+              "height": "0px",
+              "marginTop": "0!important",
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="chakra-stack css-khmogt"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-17kdbol"
+      >
+        <a
+          className="chakra-link css-g2qvlg"
+          href="/restful/lowsky/dashboard"
+        >
+          <p
+            className="chakra-text css-y33gq0"
+          >
+            RESTful Demo
+          </p>
+        </a>
+        <div
+          className="chakra-collapse"
+          style={
+            Object {
+              "display": "none",
+              "height": "0px",
+              "marginTop": "0!important",
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="chakra-stack css-khmogt"
+          />
+        </div>
+      </div>
+      <div
+        className="chakra-stack css-17kdbol"
+      >
+        <a
+          className="chakra-link css-g2qvlg"
+          href="https://github.com/lowsky/dashboard"
+        >
+          <p
+            className="chakra-text css-y33gq0"
+          >
+            Github Repo
+          </p>
+        </a>
+        <div
+          className="chakra-collapse"
+          style={
+            Object {
+              "display": "none",
+              "height": "0px",
+              "marginTop": "0!important",
+              "opacity": 0,
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="chakra-stack css-khmogt"
+          />
+        </div>
+      </div>
+      <div
+        className="css-1d46yoz"
+      >
+        <div
+          className="css-tyk25m"
+        >
+          <div
+            className="css-70qvj9"
+          >
+            <div
+              _spacing={7}
+              className="chakra-stack css-x9juev"
+            >
+              <button
+                className="chakra-button css-5c2176"
+                type="button"
+              >
+                <svg
+                  className="chakra-icon css-onkibi"
+                  focusable={false}
+                  viewBox="0 0 24 24"
+                >
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="5"
+                    />
+                    <path
+                      d="M12 1v2"
+                    />
+                    <path
+                      d="M12 21v2"
+                    />
+                    <path
+                      d="M4.22 4.22l1.42 1.42"
+                    />
+                    <path
+                      d="M18.36 18.36l1.42 1.42"
+                    />
+                    <path
+                      d="M1 12h2"
+                    />
+                    <path
+                      d="M21 12h2"
+                    />
+                    <path
+                      d="M4.22 19.78l1.42-1.42"
+                    />
+                    <path
+                      d="M18.36 5.64l1.42-1.42"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Others/Pages Main 1`] = `
 <div
-  style={
-    Object {
-      "padding": "3em",
-    }
-  }
+  className="css-1033rfx"
 >
   <div
-    className="title"
+    className="chakra-stack css-n21gh5"
   >
-    <h1>
+    <h1
+      className="chakra-heading css-0"
+    >
       What is it?
     </h1>
-  </div>
-  <div
-    className="content"
-  >
-    <p>
-      The goal of this demo was to compare a 
+    <p
+      className="chakra-text css-0"
+    >
+      The main goal was to compare a 
       <strong>
         Relay based GraphQL
       </strong>
-       and
-       
+       and 
       <strong>
         regular Rest
       </strong>
-       approach for fetching data in a web client.
+       
+      approach for fetching data in a web client.
     </p>
-    <p>
+    <p
+      className="chakra-text css-0"
+    >
       Additionally, is contains a solution for mixing 
       <strong>
         Relay
@@ -547,128 +943,144 @@ exports[`Storyshots Others/Pages Main 1`] = `
        
       components.
     </p>
-  </div>
-  <div
-    className="content"
-  >
-    <p>
+    <div
+      className="css-0"
+    >
       You can use the links above in the nav bar for different views:
-    </p>
-    <ul>
-      <li>
-        <strong>
-          Storybook
-        </strong>
-         shows all components.
-      </li>
-      <li>
-        <strong>
-          GraphQL + Relay
-        </strong>
-         - fetches all information from a locally installed relay server.
-         
-        <strong>
-          Note:
-        </strong>
-        <i>
-          This needs a backend server / currently implemented as lambda function...
-        </i>
-      </li>
-      <li>
-        <strong>
-          RESTFul Demo
-        </strong>
-         - just fetches info from Github's public open API via Rest calls.
-      </li>
-    </ul>
-    <h4
-      className="is-size-4"
+    </div>
+    <div
+      className="css-1etwb3r"
+    >
+      <ul>
+        <li>
+          <strong>
+            Storybook
+          </strong>
+           shows all components.
+        </li>
+        <li>
+          <strong>
+            GraphQL + Relay
+          </strong>
+           - fetches all information from a locally installed relay server. 
+          <strong>
+            Note:
+          </strong>
+          <i>
+            This needs a backend server / currently implemented as lambda function...
+          </i>
+        </li>
+        <li>
+          <strong>
+            RESTFul Demo
+          </strong>
+           - just fetches info from Github's public open API via Rest calls.
+        </li>
+      </ul>
+    </div>
+    <h3
+      className="chakra-heading css-0"
     >
       Examples
-    </h4>
-    <ul>
-      <li>
-        <strong>
+    </h3>
+    <div
+      className="css-1etwb3r"
+    >
+      <ul>
+        <li>
           lowsky/dashboard:
-        </strong>
-        <a
-          href="./restful/lowsky/dashboard"
-        >
-          <strong>
-            Rest
-          </strong>
-        </a>
-        or
-        <a
-          href="./relay/lowsky/dashboard"
-        >
-          <strong>
-            GraphQL Relay
-          </strong>
-        </a>
-        based, or
-        <a
-          href="./side-by-side/lowsky/dashboard"
-        >
-          <strong>
-            side-by-side
-          </strong>
-        </a>
-      </li>
-      <li>
-        <strong>
+          <a
+            className="chakra-link css-0"
+            href="./restful/lowsky/dashboard"
+          >
+            <strong>
+              Rest
+            </strong>
+          </a>
+          or
+          <a
+            className="chakra-link css-0"
+            href="./relay/lowsky/dashboard"
+          >
+            <strong>
+              GraphQL Relay
+            </strong>
+          </a>
+          based, or
+          <a
+            className="chakra-link css-0"
+            href="./side-by-side/lowsky/dashboard"
+          >
+            <strong>
+              side-by-side
+            </strong>
+          </a>
+        </li>
+        <li>
           lowsky/spotify-graphql-server:
-        </strong>
-        <a
-          href="./restful/lowsky/spotify-graphql-server"
-        >
-          <strong>
-            Rest
-          </strong>
-        </a>
-        or
-        <a
-          href="./relay/lowsky/spotify-graphql-server"
-        >
-          <strong>
-            GraphQL Relay
-          </strong>
-        </a>
-        based, or
-        <a
-          href="./side-by-side/lowsky/spotify-graphql-server"
-        >
-          <strong>
-            side-by-side
-          </strong>
-        </a>
-      </li>
-    </ul>
-    <h4
-      className="is-size-4"
+          <a
+            className="chakra-link css-0"
+            href="./restful/lowsky/spotify-graphql-server"
+          >
+            <strong>
+              Rest
+            </strong>
+          </a>
+          or
+          <a
+            className="chakra-link css-0"
+            href="./relay/lowsky/spotify-graphql-server"
+          >
+            <strong>
+              GraphQL Relay
+            </strong>
+          </a>
+          based, or
+          <a
+            className="chakra-link css-0"
+            href="./side-by-side/lowsky/spotify-graphql-server"
+          >
+            <strong>
+              side-by-side
+            </strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <h3
+      className="chakra-heading css-0"
     >
       How to start the local server
-    </h4>
-    <p>
+    </h3>
+    <div
+      className="css-0"
+    >
       After installing the dependencies via 
-      <code>
-        npm install
+      <code
+        className="chakra-code css-1baulvz"
+      >
+        yarn install
       </code>
        you also need to configure GitHub authentication token in the 
-      <code>
+      <code
+        className="chakra-code css-1baulvz"
+      >
         server/.env
       </code>
-       file, then simply run the local graphql server via and web app via
-      <code>
+       file, then simply run the local graphql server via and web app via 
+      <code
+        className="chakra-code css-1baulvz"
+      >
         yarn run dev
       </code>
-    </p>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Others/PullRequestInfo Default 1`] = `
 <a
+  className="chakra-link css-0"
   href="https://github.com/lowsky/dashboard/pull/42"
   rel="noopener noreferrer nofollow"
   title="add PR info to branch table"
@@ -680,21 +1092,18 @@ exports[`Storyshots Others/PullRequestInfo Default 1`] = `
 
 exports[`Storyshots Others/Repo Fake Data 1`] = `
 <div
-  className="column"
+  className="css-0"
 >
   <h1
-    className="title is-3"
+    className="chakra-heading css-0"
   >
-    <span
-      className="has-text-grey-light"
-    >
-      Repository
-    </span>
+    Repository
   </h1>
   <h3
-    className="subTitle is-3"
+    className="chakra-heading css-0"
   >
     <a
+      className="chakra-link css-0"
       href="https://github.com/login/demo-repo"
       rel="noopener noreferrer nofollow"
     >
@@ -703,8 +1112,10 @@ exports[`Storyshots Others/Repo Fake Data 1`] = `
          / 
         demo-repo
       </strong>
-      <span
-        className="icon"
+      <svg
+        className="chakra-icon css-onkibi"
+        focusable={false}
+        viewBox="0 0 24 24"
       >
         <svg
           aria-hidden="true"
@@ -723,124 +1134,138 @@ exports[`Storyshots Others/Repo Fake Data 1`] = `
             style={Object {}}
           />
         </svg>
-      </span>
+      </svg>
     </a>
   </h3>
 </div>
 `;
 
 exports[`Storyshots Others/Spinner Default 1`] = `
-<span
-  className="icon is-large"
+<div
+  aria-valuemax={100}
+  aria-valuemin={0}
+  className="chakra-progress css-120wkjd"
+  data-indeterminate=""
+  role="progressbar"
 >
   <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-spinner fa-3x "
-    data-icon="spinner"
-    data-prefix="fas"
-    focusable="false"
-    role="img"
-    style={Object {}}
-    viewBox="0 0 512 512"
-    xmlns="http://www.w3.org/2000/svg"
+    className="css-jf70f3"
+    viewBox="0 0 100 100"
   >
-    <path
-      d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-      fill="currentColor"
-      style={Object {}}
+    <circle
+      className="chakra-progress__track css-1bhxzgy"
+      cx={50}
+      cy={50}
+      r={42}
+      strokeWidth="10px"
+    />
+    <circle
+      className="chakra-progress__indicator css-tueqm1"
+      cx={50}
+      cy={50}
+      r={42}
+      strokeWidth="10px"
     />
   </svg>
-</span>
+</div>
 `;
 
 exports[`Storyshots Others/User With Avatar 1`] = `
 <div
-  className="card"
+  className="css-qxif6k"
 >
   <div
-    className="card-content"
+    className="css-0"
   >
-    <div
-      className="media"
+    <span
+      alt="avatar"
+      className="chakra-avatar css-1ruhx4w"
     >
-      <div
-        className="media-left"
+      <svg
+        aria-label=" avatar"
+        className="chakra-avatar__svg css-16ite8i"
+        role="img"
+        viewBox="0 0 128 128"
       >
-        <figure
-          className="image is-48x48"
-        >
-          <img
-            alt="avatar"
-            src="https://avatars2.githubusercontent.com/u/217931?v=3"
-          />
-        </figure>
-      </div>
-      <div
-        className="media-content"
-      >
-        <p
-          className="title is-4"
-        >
-          login
-        </p>
-        <p
-          className="subtitle is-6"
-        >
-          company
-        </p>
-      </div>
+        <path
+          d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+          fill="currentColor"
+        />
+        <path
+          d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div>
+      login
     </div>
-    <div
-      className="content"
+    <div>
+      company
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <h2
+      className="chakra-heading css-g5hezf"
     >
       Owner
-    </div>
+    </h2>
   </div>
 </div>
 `;
 
 exports[`Storyshots Others/User Without Avatar 1`] = `
 <div
-  className="card"
+  className="css-qxif6k"
 >
   <div
-    className="card-content"
+    className="css-0"
   >
-    <div
-      className="media"
+    <span
+      alt="avatar"
+      className="chakra-avatar css-1ruhx4w"
     >
-      <div
-        className="media-left"
+      <svg
+        aria-label=" avatar"
+        className="chakra-avatar__svg css-16ite8i"
+        role="img"
+        viewBox="0 0 128 128"
       >
-        <figure
-          className="image is-48x48"
-        >
-          <img
-            alt="avatar"
-            src="/octicon-git-branch.svg"
-          />
-        </figure>
-      </div>
-      <div
-        className="media-content"
-      >
-        <p
-          className="title is-4"
-        >
-          login
-        </p>
-        <p
-          className="subtitle is-6"
-        >
-          company
-        </p>
-      </div>
+        <path
+          d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+          fill="currentColor"
+        />
+        <path
+          d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    className="css-0"
+  >
+    <div>
+      login
     </div>
-    <div
-      className="content"
+    <div>
+      company
+    </div>
+  </div>
+  <div
+    className="css-0"
+  >
+    <h2
+      className="chakra-heading css-g5hezf"
     >
       Owner
-    </div>
+    </h2>
   </div>
 </div>
 `;
@@ -848,21 +1273,18 @@ exports[`Storyshots Others/User Without Avatar 1`] = `
 exports[`Storyshots Others/UserRepo With User And Repo 1`] = `
 Array [
   <div
-    className="column"
+    className="css-0"
   >
     <h1
-      className="title is-3"
+      className="chakra-heading css-0"
     >
-      <span
-        className="has-text-grey-light"
-      >
-        Repository
-      </span>
+      Repository
     </h1>
     <h3
-      className="subTitle is-3"
+      className="chakra-heading css-0"
     >
       <a
+        className="chakra-link css-0"
         href="https://github.com/login/demo-repo"
         rel="noopener noreferrer nofollow"
       >
@@ -871,8 +1293,10 @@ Array [
            / 
           demo-repo
         </strong>
-        <span
-          className="icon"
+        <svg
+          className="chakra-icon css-onkibi"
+          focusable={false}
+          viewBox="0 0 24 24"
         >
           <svg
             aria-hidden="true"
@@ -891,62 +1315,74 @@ Array [
               style={Object {}}
             />
           </svg>
-        </span>
+        </svg>
       </a>
     </h3>
   </div>,
   <div
-    className="column"
+    className="css-0"
   >
     <div
-      className="card"
+      className="css-qxif6k"
     >
       <div
-        className="card-content"
+        className="css-0"
       >
-        <div
-          className="media"
+        <span
+          alt="avatar"
+          className="chakra-avatar css-1ruhx4w"
         >
-          <div
-            className="media-left"
+          <svg
+            aria-label=" avatar"
+            className="chakra-avatar__svg css-16ite8i"
+            role="img"
+            viewBox="0 0 128 128"
           >
-            <figure
-              className="image is-48x48"
-            >
-              <img
-                alt="avatar"
-                src="https://avatars2.githubusercontent.com/u/217931?v=3"
-              />
-            </figure>
-          </div>
-          <div
-            className="media-content"
-          >
-            <p
-              className="title is-4"
-            >
-              login
-            </p>
-            <p
-              className="subtitle is-6"
-            >
-              company
-            </p>
-          </div>
+            <path
+              d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+              fill="currentColor"
+            />
+            <path
+              d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        className="css-0"
+      >
+        <div>
+          login
         </div>
-        <div
-          className="content"
+        <div>
+          company
+        </div>
+      </div>
+      <div
+        className="css-0"
+      >
+        <h2
+          className="chakra-heading css-g5hezf"
         >
           Owner
-        </div>
+        </h2>
       </div>
     </div>
     <table
-      className="table is-bordered is-striped is-hoverable"
+      className="chakra-table css-0"
+      role="table"
     >
-      <thead>
-        <tr>
-          <th>
+      <thead
+        className="css-0"
+      >
+        <tr
+          className="css-0"
+          role="row"
+        >
+          <th
+            className="css-0"
+          >
             <span
               className="fas fa-code-branch"
             />
@@ -954,44 +1390,67 @@ Array [
               Branch
             </span>
           </th>
-          <th>
+          <th
+            className="css-0"
+          >
             PR
           </th>
-          <th>
+          <th
+            className="css-0"
+          >
             Commit
           </th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>
+      <tbody
+        className="css-0"
+      >
+        <tr
+          className="css-0"
+          role="row"
+        >
+          <td
+            className="css-0"
+            role="gridcell"
+          >
             <a
+              className="chakra-link css-0"
               href="https://github.com/lowsky/dashboard/tree/branch-x"
               rel="noopener noreferrer nofollow"
+              target="_blank"
             >
               branch-x
             </a>
-             
             <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-github "
-              data-icon="github"
-              data-prefix="fab"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
+              className="chakra-icon css-onkibi"
+              focusable={false}
+              viewBox="0 0 24 24"
             >
-              <path
-                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-                fill="currentColor"
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-github "
+                data-icon="github"
+                data-prefix="fab"
+                focusable="false"
+                role="img"
                 style={Object {}}
-              />
+                viewBox="0 0 496 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
             </svg>
           </td>
-          <td>
+          <td
+            className="css-0"
+            role="gridcell"
+          >
             <a
+              className="chakra-link css-0"
               href="https://github.com/lowsky/dashboard/pull/42"
               rel="noopener noreferrer nofollow"
               title="add PR info to branch table"
@@ -1000,7 +1459,10 @@ Array [
               42
             </a>
           </td>
-          <td>
+          <td
+            className="css-0"
+            role="gridcell"
+          >
             <div>
               <a
                 href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
@@ -1034,7 +1496,7 @@ Array [
                
             </div>
             <div
-              className="statusline"
+              className="statusLine"
             >
               <a
                 href="https://www.github.com/lowsky/dashboard"
@@ -1045,13 +1507,26 @@ Array [
                 }
                 title="Vercel Deployment: has completed"
               >
-                <img
+                <span
                   alt="Vercel Deployment"
-                  className="contextlogo"
-                  height={24}
-                  src="https://avatars.githubusercontent.com/in/8329"
-                  width={24}
-                />
+                  className="chakra-avatar contextLogo css-owdzdv"
+                >
+                  <svg
+                    aria-label=" avatar"
+                    className="chakra-avatar__svg css-16ite8i"
+                    role="img"
+                    viewBox="0 0 128 128"
+                  >
+                    <path
+                      d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
                 <svg
                   aria-hidden="true"
                   className="svg-inline--fa fa-check-circle "
