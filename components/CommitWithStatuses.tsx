@@ -1,17 +1,18 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Avatar } from '@chakra-ui/react';
 
 import { GithubCommit, GithubCommitAuthor, GithubUser, Maybe, UserOrCommitAuthor } from '../lib/types/resolvers';
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 
-import './CommitWithStatuses.module.css';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import styles from './CommitWithStatuses.module.css';
 
 function icon4context(context, avatar_url?: Maybe<string>) {
     if (avatar_url) {
         return (
-            <img className="contextlogo" width={24} height={24} src={avatar_url} alt={context ?? 'unknown context'} />
+            <Avatar className={styles.contextLogo} w={6} h={6} src={avatar_url} alt={context ?? 'unknown context'} />
         );
     }
     return <span>{context ?? '-?-'}</span>;
@@ -117,7 +118,7 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                     </>
                 )}
             </div>
-            <div className="statusline">
+            <div className={styles.statusLine}>
                 {status &&
                     removeExtraStatusesForSameContext(status) //
                         .map((status, idx) => <Status key={idx} {...status} />)}

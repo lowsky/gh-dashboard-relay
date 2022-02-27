@@ -3,3 +3,8 @@
     vertical-align: top;
 }
 
+.statusLine {
+    display: flex;
+    flex-direction: row;
+}
+
