@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ['next', 'prettier'],
+    extends: ['next', 'prettier', 'plugin:storybook/recommended'],
     settings: {
         react: {
             version: 'detect', // React version. "detect" automatically picks the version you have installed.
