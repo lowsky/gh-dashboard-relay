@@ -6,6 +6,7 @@ import { UILibPureComponents } from '../components';
 
 import { WithData } from '../components/CommitWithStatuses.story';
 import { Default as DefaultPR } from '../components/PullRequestInfo.story';
+import { Table, Tbody } from '@chakra-ui/react';
 
 export default {
     title: 'Others/BranchInfoRow',
@@ -14,11 +15,11 @@ export default {
 
 export const WithInfo = (props) => (
     <UILibContext.Provider value={UILibPureComponents}>
-        <table width={400}>
-            <tbody>
+        <Table size="sm" variant="striped">
+            <Tbody>
                 <BranchInfoRow {...props} />
-            </tbody>
-        </table>
+            </Tbody>
+        </Table>
     </UILibContext.Provider>
 );
 
