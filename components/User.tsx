@@ -19,7 +19,7 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
     return (
         <Card p={4} m={4}>
             <CardContent>
-                <Avatar src={avatar_url} alt="avatar" />
+                <Avatar src={avatar_url} />
             </CardContent>
             <CardContent>
                 <div>{login}</div>

@@ -169,7 +169,7 @@ export function Navi() {
         <Box bg={useColorModeValue('white', 'gray.800')} px={4}>
             <Flex h={8} alignItems={'center'} justifyContent={'space-between'}>
                 <Flex alignItems={'center'}>
-                    <Stack direction={'row'} _spacing={7}>
+                    <Stack direction={'row'}>
                         <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
                     </Stack>
                 </Flex>
