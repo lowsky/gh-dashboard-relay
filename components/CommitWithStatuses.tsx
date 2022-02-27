@@ -61,9 +61,9 @@ interface StatusProps {
 }
 
 const Status = ({ target_url, avatar_url, context, description, state }: StatusProps) => (
-    <a href={target_url ?? ''} style={{ color: status2color(state) }} title={context + ' ' + description}>
+    <a href={target_url ?? ''} style={{ color: status2color(state) }} title={context + ': ' + description}>
         {icon4context(context, avatar_url)}
-        {icon4status(state)}{' '}
+        {icon4status(state)}
     </a>
 );
 

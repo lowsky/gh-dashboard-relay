@@ -1,18 +1,19 @@
 {
     "date": "2017-03-14T18:59:30Z",
     "sha": "bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e",
-    "message": "dummy-data! Merge pull request #1234 from lowsky/a-new-feature",
+    "message": "Merge pull request #1234 from lowsky/a-new-feature",
     "status": [
         {
             "state": "success",
-            "description": "dummy demo data",
+            "description": "has completed",
+            "avatar_url": "https://avatars.githubusercontent.com/in/8329",
             "target_url": "https://www.github.com/lowsky/dashboard",
-            "context": "only some demo",
+            "context": "Vercel Deployment",
             "updated_at": "2017-03-14T18:59:30Z"
         }
     ],
     "author": {
         "login": "lowsky",
-        "avatar_url": "https://avatars2.githubusercontent.com/u/217931?v=3"
+        "avatar_url": "https://avatars2.githubusercontent.com/u/217931"
     }
 }
