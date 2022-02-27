@@ -17,8 +17,8 @@
     "node": "14.x"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "rm -f .babelrc ; next dev",
+    "build": "rm -f .babelrc ; next build",
 
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
     "build:relay": "relay-compiler && prettier -w relay/__generated__ queries/__generated__",
@@ -27,7 +27,7 @@
     "vercel-build": "yarn run vercel-build:without-chromatic && yarn run chromatic-test",
     "vercel-build:without-chromatic": "yarn run codegen && yarn run build:storybook && yarn run build",
     "lint": "eslint .",
-    "test": "jest --cache",
+    "test": "cp .babelrc.for.jest.json .babelrc ; jest --cache",
     "coverage": "yarn run test --coverage",
     "_test:ci": "mkdir -p test-reports && yarn run test:circleci",
     "_test:vis": "start-server-and-test 'yarn run storybook -- --quiet --ci' 9009 'cypress run --record'",
@@ -46,6 +46,7 @@
       "**/stuff/**",
       "**/node_modules/**",
       "**/test/",
+      "**/__mocks__/",
       "**/__generated__/**"
     ],
     "schema": "./schema/schema.graphql"

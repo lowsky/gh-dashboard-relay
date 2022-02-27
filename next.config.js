@@ -1,4 +1,9 @@
+const { relay } = require('./package.json');
 module.exports = {
+    swcMinify: true,
+    compiler: {
+        relay,
+    },
     // Error: Cannot find module 'ts-tiny-invariant'
     // netlify is working on it...
     webpack: (config, { isServer }) => {
