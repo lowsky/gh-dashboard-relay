@@ -15,6 +15,10 @@ module.exports = {
         '@chakra-ui/storybook-addon',
         'storybook-addon-next-router',
     ],
+    core: { builder: 'webpack5' },
+    features: {
+        postcss: false,
+    },
     webpackFinal: async (config) => ({
         ...config,
         module: {
