@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Avatar } from '@chakra-ui/react';
+import { Avatar, Image } from '@chakra-ui/react';
 
 import { GithubCommit, GithubCommitAuthor, GithubUser, Maybe, UserOrCommitAuthor } from '../lib/types/resolvers';
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
@@ -18,6 +18,7 @@ function icon4context(context, avatar_url?: Maybe<string>) {
 
 function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) {
     const style = {
+        color: status2color(status),
         verticalAlign: 'top',
     };
     if (status === 'success') {
@@ -95,11 +96,9 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                 <i>{date}</i>
                 {author && isGithubUser(author) && (
                     <>
-                        &nbsp;&nbsp;by
+                        <span>&nbsp;&nbsp;by</span>
                         <a href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
-                            {author.avatar_url && (
-                                <img className={styles.commit_avatar} src={author.avatar_url} alt="avatar" />
-                            )}
+                            {author.avatar_url && <Image className={styles.commit_avatar} src={author.avatar_url} />}
                             &nbsp;<span>{author.login}</span>
                         </a>
                     </>
