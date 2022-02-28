@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Avatar, Heading } from '@chakra-ui/react';
-import { CardContent } from './CardWithUserDetails/CardContent';
-import { Card } from './CardWithUserDetails/Card';
+import { Avatar, Box, Flex } from '@chakra-ui/react';
 export interface User {
     avatar_url?: string;
     company?: string;
@@ -17,18 +15,16 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
     const { avatar_url = '/octicon-git-branch.svg', login = '?', company } = user;
 
     return (
-        <Card p={4} m={4}>
-            <CardContent>
+        <Flex flexDirection="column" gap="1rem" p="1rem">
+            <Flex gap="2rem" alignItems="center">
                 <Avatar src={avatar_url} />
-            </CardContent>
-            <CardContent>
-                <div>{login}</div>
-                <div>{company}</div>
-            </CardContent>
-            <CardContent>
-                <Heading fontSize="sm">{'Owner'}</Heading>
-            </CardContent>
-        </Card>
+                <Box>
+                    <strong>{login}</strong>
+                    <div>{company}</div>
+                </Box>
+            </Flex>
+            <div>Owner</div>
+        </Flex>
     );
 };
 

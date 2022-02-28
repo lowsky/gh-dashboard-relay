@@ -11,7 +11,7 @@
 
 .commit_avatar {
     display:inline;
-    vertical-align: center;
-    width: 24px;
-    height: 24px;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
 }

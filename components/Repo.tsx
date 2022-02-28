@@ -19,8 +19,8 @@ export interface RepoProps {
 
 const Repo: React.FC<RepoProps> = ({ repo: { name = '?', owner = {} } = {} }) => {
     return (
-        <Box>
-            <Heading as="h1" size={'lg'}>
+        <Box p={'1rem'}>
+            <Heading as="h1" size={'xl'}>
                 Repository
             </Heading>
             <Heading as="h3" size={'md'}>
@@ -28,7 +28,7 @@ const Repo: React.FC<RepoProps> = ({ repo: { name = '?', owner = {} } = {} }) =>
                     <strong>
                         {owner && owner.login} / {name}
                     </strong>
-                    <Icon>
+                    <Icon ml={1}>
                         <FontAwesomeIcon icon={faGithub as IconProp} />
                     </Icon>
                 </Link>

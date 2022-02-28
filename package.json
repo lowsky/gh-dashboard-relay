@@ -13,9 +13,7 @@
     "dashboard",
     "github"
   ],
-  "engines": {
-    "node": "14.x"
-  },
+  "engines": {},
   "scripts": {
     "dev": "rm -f .babelrc ; next dev",
     "build": "rm -f .babelrc ; next build",
