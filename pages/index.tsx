@@ -38,29 +38,29 @@ const indexPageContent = () => (
             <Box pl="1rem">
                 <ul>
                     <li>
-                        <>lowsky/dashboard:</>
+                        <span>lowsky/dashboard:</span>
                         <Link href="./restful/lowsky/dashboard">
                             <strong>Rest</strong>
                         </Link>
-                        or
+                        <span>or</span>
                         <Link href="./relay/lowsky/dashboard">
                             <strong>GraphQL Relay</strong>
                         </Link>
-                        based, or
+                        <span>based, or</span>
                         <Link href="./side-by-side/lowsky/dashboard">
                             <strong>side-by-side</strong>
                         </Link>
                     </li>
                     <li>
-                        <>lowsky/spotify-graphql-server:</>
+                        <span>lowsky/spotify-graphql-server:</span>
                         <Link href="./restful/lowsky/spotify-graphql-server">
                             <strong>Rest</strong>
                         </Link>
-                        or
+                        <span>or</span>
                         <Link href="./relay/lowsky/spotify-graphql-server">
                             <strong>GraphQL Relay</strong>
                         </Link>
-                        based, or
+                        <span>based, or</span>
                         <Link href="./side-by-side/lowsky/spotify-graphql-server">
                             <strong>side-by-side</strong>
                         </Link>
