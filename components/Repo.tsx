@@ -19,11 +19,11 @@ export interface RepoProps {
 
 const Repo: React.FC<RepoProps> = ({ repo: { name = '?', owner = {} } = {} }) => {
     return (
-        <Box p={'1rem'}>
-            <Heading as="h1" size={'xl'}>
+        <Box p={3}>
+            <Heading as="h1" variant="grey">
                 Repository
             </Heading>
-            <Heading as="h3" size={'md'}>
+            <Heading as="h3" size="md">
                 <Link href={`https://github.com/${owner.login}/${name}`} rel="noopener noreferrer nofollow">
                     <strong>
                         {owner && owner.login} / {name}

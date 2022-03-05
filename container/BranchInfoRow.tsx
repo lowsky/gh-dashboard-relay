@@ -28,7 +28,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
                         {name ?? '-'}
                     </Link>
                 )}
-                <Icon>
+                <Icon ml={1}>
                     <FontAwesomeIcon icon={faGithub as IconProp} />
                 </Icon>
             </Td>

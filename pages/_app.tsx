@@ -1,14 +1,15 @@
 import { NavBar } from '../components/NavBar';
 
-import './main.css';
-
 import * as React from 'react';
 
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { themeConfig } from '../components/theme';
+
+export const customTheme = extendTheme({ ...themeConfig });
 
 export default function App({ Component, pageProps }) {
     return (
-        <ChakraProvider>
+        <ChakraProvider theme={customTheme}>
             <header>
                 <NavBar />
             </header>

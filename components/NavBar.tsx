@@ -61,21 +61,16 @@ export function NavBar() {
 }
 
 const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
 
     return (
-        <Stack direction={'row'} spacing={4}>
+        <Stack direction="row" spacing={4} align="center">
             {NAV_ITEMS.map((navItem) => (
-                <Box key={navItem.label}>
+                <>
                     <Popover trigger={'hover'} placement={'bottom-start'}>
                         <PopoverTrigger>
                             <Link
-                                p={2}
                                 href={navItem.href ?? '#'}
-                                fontSize={'sm'}
-                                fontWeight={500}
-                                color={linkColor}
                                 _hover={{
                                     textDecoration: 'none',
                                     color: linkHoverColor,
@@ -84,7 +79,7 @@ const DesktopNav = () => {
                             </Link>
                         </PopoverTrigger>
                     </Popover>
-                </Box>
+                </>
             ))}
         </Stack>
     );
@@ -123,7 +118,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                     {children &&
                         children.map((child) => (
                             <Link key={child.label} py={2} href={child.href}>
-                                {child.label}
+                                <Text>{child.label}</Text>
                             </Link>
                         ))}
                 </Stack>
@@ -153,11 +148,11 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '/restful/lowsky/dashboard',
     },
     {
-        label: 'storybook',
+        label: 'Storybook',
         href: '/story-book/index.html',
     },
     {
-        label: 'Github Repo',
+        label: 'GitHub Repo',
         href: 'https://github.com/lowsky/dashboard',
     },
 ];

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Avatar, Box, Flex } from '@chakra-ui/react';
+import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
 export interface User {
     avatar_url?: string;
     company?: string;
@@ -16,10 +16,10 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
 
     return (
         <Flex flexDirection="column" gap="1rem" p="1rem">
-            <Flex gap="2rem" alignItems="center">
+            <Flex gap="1rem" alignItems="center">
                 <Avatar src={avatar_url} />
                 <Box>
-                    <strong>{login}</strong>
+                    <Text>{login}</Text>
                     <div>{company}</div>
                 </Box>
             </Flex>
