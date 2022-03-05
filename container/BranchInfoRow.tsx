@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Icon, Link, Td, Tr } from '@chakra-ui/react';
 
-import UILibContext from '../components/UILibContext';
+import UILibContext, { UILib } from '../components/UILibContext';
 import { GithubBranch } from '../lib/types/resolvers';
 import { DoMergePR } from './UserRepo';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
@@ -13,26 +14,32 @@ export interface BranchInfoRowProps {
 }
 
 const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
-    const { name, lastCommit } = branch;
+    const { name, lastCommit } = branch ?? {};
     const { associatedPullRequests } = lastCommit ?? {};
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
-    const { CommitWithStatuses, PullRequestInfo } = useContext(UILibContext);
+
+    const { CommitWithStatuses, PullRequestInfo } = useContext<UILib>(UILibContext);
 
     return (
-        <tr key={name}>
-            <td>
-                <a href={githubBranchSrc} rel="noopener noreferrer nofollow">
-                    {name}
-                </a>{' '}
-                <FontAwesomeIcon icon={faGithub as IconProp} />
-            </td>
-            <td>
-                {associatedPullRequests
-                    ?.filter?.(Boolean)
-                    .map?.((pr, idx) => pr && <PullRequestInfo key={idx} pullRequest={pr} doMergePR={doMergePR} />)}
-            </td>
-            <td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</td>
-        </tr>
+        <Tr key={name}>
+            <Td>
+                {name && (
+                    <Link href={githubBranchSrc} rel="noopener noreferrer nofollow" isExternal>
+                        {name ?? '-'}
+                    </Link>
+                )}
+                <Icon ml={1}>
+                    <FontAwesomeIcon icon={faGithub as IconProp} />
+                </Icon>
+            </Td>
+            <Td>
+                {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
+                    <PullRequestInfo key={idx} pullRequest={pr!} doMergePR={doMergePR} />
+                ))}
+            </Td>
+
+            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</Td>
+        </Tr>
     );
 };
 

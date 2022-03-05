@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Table, Thead, Tbody, Tr, Th } from '@chakra-ui/react';
 
 import { GithubRepo } from '../lib/types/resolvers';
 import UILibContext, { UILib } from '../components/UILibContext';
@@ -12,23 +13,24 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
     const { BranchInfoRow } = useContext<UILib>(UILibContext) as UILib;
 
     return (
-        <table className="table is-bordered is-striped is-hoverable">
-            <thead>
-                <tr>
-                    <th>
+        <Table size="sm" variant="striped">
+            <Thead>
+                <Tr>
+                    <Th>
                         <span className="fas fa-code-branch" />
                         <span>Branch</span>
-                    </th>
-                    <th>PR</th>
-                    <th>Commit</th>
-                </tr>
-            </thead>
-            <tbody>
+                    </Th>
+                    <Th>PR</Th>
+                    <Th>Commit</Th>
+                </Tr>
+            </Thead>
+            <Tbody>
                 {(repo?.branches || []).map(
+                    // @ts-ignore
                     (branch, idx) => branch && <BranchInfoRow key={idx} branch={branch} doMergePR={doMergePR} />
                 )}
-            </tbody>
-        </table>
+            </Tbody>
+        </Table>
     );
 };
 

@@ -1,24 +1,24 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { Avatar, Image, Link } from '@chakra-ui/react';
 
 import { GithubCommit, GithubCommitAuthor, GithubUser, Maybe, UserOrCommitAuthor } from '../lib/types/resolvers';
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 
-import './CommitWithStatuses.module.css';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import styles from './CommitWithStatuses.module.css';
 
 function icon4context(context, avatar_url?: Maybe<string>) {
     if (avatar_url) {
-        return (
-            <img className="contextlogo" width={24} height={24} src={avatar_url} alt={context ?? 'unknown context'} />
-        );
+        return <Avatar className={styles.contextLogo} w={6} h={6} src={avatar_url} />;
     }
     return <span>{context ?? '-?-'}</span>;
 }
 
 function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) {
     const style = {
+        color: status2color(status),
         verticalAlign: 'top',
     };
     if (status === 'success') {
@@ -88,23 +88,20 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
     return (
         <>
             <div>
-                <a href={githubCommit} rel="noopener noreferrer nofollow">
+                <Link href={githubCommit} rel="noopener noreferrer nofollow">
                     <strong>{mainMessage}</strong>
-                </a>
+                </Link>
             </div>
-            <div>
+
+            <div className={styles.status}>
                 <i>{date}</i>
                 {author && isGithubUser(author) && (
                     <>
-                        &nbsp;by&nbsp;
-                        <a href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
-                            {author.avatar_url && (
-                                <img className="commit_avatar" width={32} src={author.avatar_url} alt="avatar" />
-                            )}
-                            &nbsp;
-                            <span>{author.login}</span>
-                        </a>
-                        &nbsp;
+                        <span>&nbsp;&nbsp;by&nbsp;</span>
+                        <Link href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
+                            {author.avatar_url && <Image className={styles.commit_avatar} src={author.avatar_url} />}
+                            &nbsp;<span>{author.login}</span>
+                        </Link>
                     </>
                 )}
                 {author && isGithubCommitAuthor(author) && (
@@ -113,11 +110,10 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                         <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">
                             {author.name ?? '?'}
                         </a>
-                        &nbsp;
                     </>
                 )}
             </div>
-            <div className="statusline">
+            <div className={styles.statusLine}>
                 {status &&
                     removeExtraStatusesForSameContext(status) //
                         .map((status, idx) => <Status key={idx} {...status} />)}
