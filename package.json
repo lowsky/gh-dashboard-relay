@@ -58,7 +58,7 @@
   "homepage": ".",
   "dependencies": {
     "@chakra-ui/react": "1.8.6",
-    "@emotion/react": "11.8.1",
+    "@emotion/react": "11.8.2",
     "@emotion/styled": "11.8.1",
     "@octokit/graphql-schema": "10.73.0",
     "@octokit/rest": "18.12.0",
