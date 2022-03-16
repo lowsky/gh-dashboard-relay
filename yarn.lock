@@ -13548,10 +13548,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
-  integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
+prettier@2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.0.tgz#12f8f504c4d8ddb76475f441337542fa799207d4"
+  integrity sha512-m2FgJibYrBGGgQXNzfd0PuDGShJgRavjUoRCw1mZERIWVSXF0iLzLm+aOqTAbLnC3n6JzUhAA8uZnFVghHJ86A==
 
 "prettier@>=2.2.1 <=2.3.0":
   version "2.3.0"
@@ -14305,15 +14305,6 @@ relay-runtime@12.0.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
-    invariant "^2.2.4"
-
-relay-runtime@13.1.1:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-13.1.1.tgz#144bf0c147ec4099d722f76605b5dabd2854ffe1"
-  integrity sha512-JOYxhV/512dERkB999p2DHDTx2J9cU14tX4aHLNJPIC62QDHDkLu0qteY/33q/2RWU6JaoF8ScR4L4D+F3VnGQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fbjs "^3.0.2"
     invariant "^2.2.4"
 
 relay-runtime@13.2.0:

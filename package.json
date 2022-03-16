@@ -112,7 +112,7 @@
     "graphql": "15.8.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.5.1",
-    "prettier": "2.5.1",
+    "prettier": "2.6.0",
     "react-relay": "13.2.0",
     "relay-compiler": "13.2.0",
     "relay-compiler-language-typescript": "15.0.1",
