@@ -3320,7 +3320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:8.2.4, @graphql-tools/merge@npm:^8.2.1, @graphql-tools/merge@npm:^8.2.3":
+"@graphql-tools/merge@npm:8.2.4, @graphql-tools/merge@npm:^8.2.1":
   version: 8.2.4
   resolution: "@graphql-tools/merge@npm:8.2.4"
   dependencies:
@@ -3396,20 +3396,6 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 631e1816e14cce1c74087f54eea399b2a19038e12b49b37a84eccb103f4bccb9121b76761c5667ad26a69c0be118ac322cc1273ef167e810b42756ef02f01947
-  languageName: node
-  linkType: hard
-
-"@graphql-tools/schema@npm:8.3.2":
-  version: 8.3.2
-  resolution: "@graphql-tools/schema@npm:8.3.2"
-  dependencies:
-    "@graphql-tools/merge": ^8.2.3
-    "@graphql-tools/utils": ^8.6.2
-    tslib: ~2.3.0
-    value-or-promise: 1.0.11
-  peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: af5bd339ae9556800efd08776e39e0623b8b02b776518666617b1188be18594e25f9c1354866ea6e5e31f7c27f88f6f467d6de670df1097718c816f13413829f
   languageName: node
   linkType: hard
 
@@ -3508,7 +3494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:8.6.3, @graphql-tools/utils@npm:^8.1.1, @graphql-tools/utils@npm:^8.3.0, @graphql-tools/utils@npm:^8.5.1, @graphql-tools/utils@npm:^8.5.2, @graphql-tools/utils@npm:^8.6.2":
+"@graphql-tools/utils@npm:8.6.3, @graphql-tools/utils@npm:^8.1.1, @graphql-tools/utils@npm:^8.3.0, @graphql-tools/utils@npm:^8.5.1, @graphql-tools/utils@npm:^8.5.2":
   version: 8.6.3
   resolution: "@graphql-tools/utils@npm:8.6.3"
   dependencies:
@@ -9918,7 +9904,7 @@ __metadata:
     "@graphql-codegen/typescript-document-nodes": 2.2.8
     "@graphql-codegen/typescript-operations": 2.3.5
     "@graphql-codegen/typescript-resolvers": 2.6.1
-    "@graphql-tools/schema": 8.3.2
+    "@graphql-tools/schema": 8.3.3
     "@octokit/graphql-schema": 10.73.0
     "@octokit/rest": 18.12.0
     "@octokit/types": 6.34.0
