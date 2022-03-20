@@ -1,8 +1,0 @@
-# ? serving index.html should work automatically 
-/* /index.html 200
-
-/home /  301
-
-# This will redirect all paths under /jobs except the path above
-/relay/*    /  301
-/restful/*  /  301
