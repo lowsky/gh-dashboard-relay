@@ -4,4 +4,3 @@
   ignore = "git log --oneline -1 | grep 'Update dependency @types/'"
 
 [build.environment]
-  YARN_FLAGS = "--pure-lockfile"
