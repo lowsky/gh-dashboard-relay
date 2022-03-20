@@ -76,6 +76,7 @@
     "utf-8-validate": "5.0.9"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "7.17.0",
     "@chakra-ui/icons": "1.1.7",
     "@chakra-ui/storybook-addon": "1.0.3",
     "@chakra-ui/system": "1.11.2",
@@ -101,7 +102,6 @@
     "@types/relay-runtime": "13.0.2",
     "@typescript-eslint/eslint-plugin": "5.15.0",
     "@typescript-eslint/parser": "5.15.0",
-    "babel-eslint": "10.1.0",
     "babel-plugin-relay": "13.2.0",
     "chromatic": "6.5.3",
     "csstype": "3.0.11",
