@@ -1,5 +1,7 @@
 const { relay } = require('./package.json');
 module.exports = {
+    reactStrictMode: true,
+
     swcMinify: true,
     compiler: {
         relay,
