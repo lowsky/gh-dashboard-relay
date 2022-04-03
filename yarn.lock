@@ -6299,13 +6299,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-relay@npm:13.0.1":
-  version: 13.0.1
-  resolution: "@types/react-relay@npm:13.0.1"
+"@types/react-relay@npm:13.0.2":
+  version: 13.0.2
+  resolution: "@types/react-relay@npm:13.0.2"
   dependencies:
     "@types/react": "*"
     "@types/relay-runtime": "*"
-  checksum: c607c64d647212de1175e5e0630cfa4bb14a6bfe4393551bd34b521cf2ce7adce1bf38c9cac5191af5937074ee39f384f12e405bc3a0712237b5e9d5172f61c1
+  checksum: fc60d29ed2be3350051383958583b0da9328cef74f11da29456b5719b2cd04cdd343485cf77c4c9e835928572e36ad7c81fcd542e4e36b57707a94eb89985189
   languageName: node
   linkType: hard
 
@@ -9929,7 +9929,7 @@ __metadata:
     "@storybook/manager-webpack5": 6.4.19
     "@storybook/react": 6.4.19
     "@types/react-dom": 17.0.14
-    "@types/react-relay": 13.0.1
+    "@types/react-relay": 13.0.2
     "@types/relay-runtime": 13.0.3
     "@typescript-eslint/eslint-plugin": 5.15.0
     "@typescript-eslint/parser": 5.15.0
