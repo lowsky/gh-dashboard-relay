@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
 import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
 import UILibContext, { UILib } from '../components/UILibContext';
@@ -19,15 +19,23 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergeP
     const { Repo, User, BranchTable } = useContext<UILib>(UILibContext);
 
     return (
-        <React.Fragment>
-            {!user && <p>User not found.</p>}
+        <Flex gap="4" direction="column">
+            {!user && (
+                <Alert status="warning">
+                    <AlertIcon />
+                    User not found.
+                </Alert>
+            )}
+            {!repo && (
+                <Alert status="warning">
+                    <AlertIcon />
+                    Repo not found.
+                </Alert>
+            )}
             {repo && <Repo repo={repo} />}
-            {user && !repo && <p>Repo not found.</p>}
-            <Box>
-                {user && <User user={user} />}
-                {repo && <BranchTable repo={repo} doMergePR={doMergePR} />}
-            </Box>
-        </React.Fragment>
+            {user && <User user={user} />}
+            {repo && <BranchTable repo={repo} doMergePR={doMergePR} />}
+        </Flex>
     );
 };
 

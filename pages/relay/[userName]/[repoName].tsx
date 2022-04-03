@@ -71,11 +71,7 @@ export const RelayRootMain = ({ userName, repoName }) => {
 function ShowUserRepoContent({ userData, repoData, doMergePR }) {
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
-            <div className="content">
-                <div className="box">
-                    <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
-                </div>
-            </div>
+            <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
         </UILibContext.Provider>
     );
 }

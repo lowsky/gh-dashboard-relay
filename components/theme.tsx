@@ -17,11 +17,12 @@ export const themeConfig = {
         Heading: {
             baseStyle: {
                 fontWeight: 600,
-                marginBottom: '1em',
+                marginBottom: '0.5em',
+                marginTop: '0.5em',
                 color: 'grey.600',
             },
             variants: {
-                grey: { color: '#b5b5b5' },
+                grey: { color: '#999' },
             },
         },
     },

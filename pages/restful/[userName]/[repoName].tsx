@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { Alert, AlertIcon, Box } from '@chakra-ui/react';
 
 import UserRepo from '../../../container/UserRepo';
 
@@ -80,8 +81,6 @@ export function RestfulMain({ userName, repoName }) {
                     });
 
                     Promise.all(branchesWithCommitProms).then((branchesWithCommit) => {
-                        console.log(branchesWithCommit);
-                        console.log(branchesWithCommit?.[0]);
                         storeRepo({
                             name: repoName,
                             owner: { login: userName },
@@ -105,12 +104,15 @@ export function RestfulMain({ userName, repoName }) {
 
     return (
         <UILibContext.Provider value={UILibPureComponents}>
-            <div className="content">
-                <div className="box">
-                    <UserRepo user={user} repo={repo} />
-                </div>
-                {errorMsg && <div className="notification has-text-danger"> {errorMsg} </div>}
-            </div>
+            <Box>
+                <UserRepo user={user} repo={repo} />
+            </Box>
+            {errorMsg && (
+                <Alert status="error">
+                    <AlertIcon />
+                    {errorMsg}
+                </Alert>
+            )}
         </UILibContext.Provider>
     );
 }
