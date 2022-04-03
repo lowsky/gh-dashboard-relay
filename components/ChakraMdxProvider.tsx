@@ -25,7 +25,7 @@ const components = {
 export default function ChakraMdxProvider(props) {
     return (
         <MDXProvider components={components} disableParentContext>
-            <Box p="6">{props.children}</Box>
+            {props.children}
         </MDXProvider>
     );
 }
