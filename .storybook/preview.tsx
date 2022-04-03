@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { themeConfig } from '../components/theme';
 
