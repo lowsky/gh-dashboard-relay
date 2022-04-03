@@ -919,14 +919,14 @@ exports[`Storyshots Others/PullRequestInfo Default 1`] = `
 
 exports[`Storyshots Others/Repo Fake Data 1`] = `
 <div
-  className="css-1knigk4"
+  className="css-0"
 >
   <h1
     className="chakra-heading css-0"
   >
     Repository
   </h1>
-  <h3
+  <h2
     className="chakra-heading css-0"
   >
     <a
@@ -963,7 +963,7 @@ exports[`Storyshots Others/Repo Fake Data 1`] = `
         </svg>
       </svg>
     </a>
-  </h3>
+  </h2>
 </div>
 `;
 
@@ -999,7 +999,7 @@ exports[`Storyshots Others/Spinner Default 1`] = `
 
 exports[`Storyshots Others/User With Avatar 1`] = `
 <div
-  className="css-a9f489"
+  className="chakra-stack css-xerlbm"
 >
   <div
     className="css-rvp98e"
@@ -1044,7 +1044,7 @@ exports[`Storyshots Others/User With Avatar 1`] = `
 
 exports[`Storyshots Others/User Without Avatar 1`] = `
 <div
-  className="css-a9f489"
+  className="chakra-stack css-xerlbm"
 >
   <div
     className="css-rvp98e"
@@ -1088,16 +1088,18 @@ exports[`Storyshots Others/User Without Avatar 1`] = `
 `;
 
 exports[`Storyshots Others/UserRepo With User And Repo 1`] = `
-Array [
+<div
+  className="css-1kkt86i"
+>
   <div
-    className="css-1knigk4"
+    className="css-0"
   >
     <h1
       className="chakra-heading css-0"
     >
       Repository
     </h1>
-    <h3
+    <h2
       className="chakra-heading css-0"
     >
       <a
@@ -1134,245 +1136,241 @@ Array [
           </svg>
         </svg>
       </a>
-    </h3>
-  </div>,
+    </h2>
+  </div>
   <div
-    className="css-0"
+    className="chakra-stack css-xerlbm"
   >
     <div
-      className="css-a9f489"
+      className="css-rvp98e"
     >
-      <div
-        className="css-rvp98e"
+      <span
+        className="chakra-avatar css-1ruhx4w"
       >
-        <span
-          className="chakra-avatar css-1ruhx4w"
+        <svg
+          aria-label=" avatar"
+          className="chakra-avatar__svg css-16ite8i"
+          role="img"
+          viewBox="0 0 128 128"
         >
-          <svg
-            aria-label=" avatar"
-            className="chakra-avatar__svg css-16ite8i"
-            role="img"
-            viewBox="0 0 128 128"
-          >
-            <path
-              d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
-              fill="currentColor"
-            />
-            <path
-              d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <div
-          className="css-0"
+          <path
+            d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+            fill="currentColor"
+          />
+          <path
+            d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <div
+        className="css-0"
+      >
+        <p
+          className="chakra-text css-0"
         >
-          <p
-            className="chakra-text css-0"
-          >
-            login
-          </p>
-          <div>
-            company
-          </div>
+          login
+        </p>
+        <div>
+          company
         </div>
       </div>
-      <div>
-        Owner
-      </div>
     </div>
-    <table
-      className="chakra-table css-0"
-      role="table"
+    <div>
+      Owner
+    </div>
+  </div>
+  <table
+    className="chakra-table css-0"
+    role="table"
+  >
+    <thead
+      className="css-0"
     >
-      <thead
+      <tr
         className="css-0"
+        role="row"
       >
-        <tr
+        <th
           className="css-0"
-          role="row"
         >
-          <th
-            className="css-0"
-          >
-            <span
-              className="fas fa-code-branch"
-            />
-            <span>
-              Branch
-            </span>
-          </th>
-          <th
-            className="css-0"
-          >
-            PR
-          </th>
-          <th
-            className="css-0"
-          >
-            Commit
-          </th>
-        </tr>
-      </thead>
-      <tbody
+          <span
+            className="fas fa-code-branch"
+          />
+          <span>
+            Branch
+          </span>
+        </th>
+        <th
+          className="css-0"
+        >
+          PR
+        </th>
+        <th
+          className="css-0"
+        >
+          Commit
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="css-0"
+    >
+      <tr
         className="css-0"
+        role="row"
       >
-        <tr
+        <td
           className="css-0"
-          role="row"
+          role="gridcell"
         >
-          <td
-            className="css-0"
-            role="gridcell"
+          <a
+            className="chakra-link css-0"
+            href="https://github.com/lowsky/dashboard/tree/branch-x"
+            rel="noopener noreferrer nofollow"
+            target="_blank"
+          >
+            branch-x
+          </a>
+          <svg
+            className="chakra-icon css-1pt8ufy"
+            focusable={false}
+            viewBox="0 0 24 24"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-github "
+              data-icon="github"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 496 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </svg>
+        </td>
+        <td
+          className="css-0"
+          role="gridcell"
+        >
+          <div
+            className="chakra-stack css-owjkmg"
           >
             <a
               className="chakra-link css-0"
-              href="https://github.com/lowsky/dashboard/tree/branch-x"
+              href="https://github.com/lowsky/dashboard/pull/42"
               rel="noopener noreferrer nofollow"
-              target="_blank"
+              title="add PR info to branch table"
             >
-              branch-x
+              #
+              42
             </a>
-            <svg
-              className="chakra-icon css-1pt8ufy"
-              focusable={false}
-              viewBox="0 0 24 24"
+          </div>
+        </td>
+        <td
+          className="css-0"
+          role="gridcell"
+        >
+          <div>
+            <a
+              className="chakra-link css-0"
+              href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
+              rel="noopener noreferrer nofollow"
             >
+              <strong>
+                Merge pull request #1234 from lowsky/a-new-feature
+              </strong>
+            </a>
+          </div>
+          <div
+            className="status"
+          >
+            <i>
+              2017-03-14T18:59:30Z
+            </i>
+            <span>
+                by 
+            </span>
+            <a
+              className="chakra-link css-0"
+              href="https://github.com/lowsky"
+              rel="noopener noreferrer nofollow"
+            >
+              <img
+                className="commit_avatar css-0"
+                src="https://avatars2.githubusercontent.com/u/217931"
+              />
+               
+              <span>
+                lowsky
+              </span>
+            </a>
+          </div>
+          <div
+            className="statusLine"
+          >
+            <a
+              href="https://www.github.com/lowsky/dashboard"
+              style={
+                Object {
+                  "color": "green",
+                }
+              }
+              title="Vercel Deployment: has completed"
+            >
+              <span
+                className="chakra-avatar contextLogo css-owdzdv"
+              >
+                <svg
+                  aria-label=" avatar"
+                  className="chakra-avatar__svg css-16ite8i"
+                  role="img"
+                  viewBox="0 0 128 128"
+                >
+                  <path
+                    d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
               <svg
                 aria-hidden="true"
-                className="svg-inline--fa fa-github "
-                data-icon="github"
-                data-prefix="fab"
+                className="svg-inline--fa fa-check-circle "
+                data-icon="check-circle"
+                data-prefix="fas"
                 focusable="false"
                 role="img"
-                style={Object {}}
-                viewBox="0 0 496 512"
+                style={
+                  Object {
+                    "color": "green",
+                    "verticalAlign": "top",
+                  }
+                }
+                viewBox="0 0 512 512"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                  d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
                   fill="currentColor"
                   style={Object {}}
                 />
               </svg>
-            </svg>
-          </td>
-          <td
-            className="css-0"
-            role="gridcell"
-          >
-            <div
-              className="chakra-stack css-owjkmg"
-            >
-              <a
-                className="chakra-link css-0"
-                href="https://github.com/lowsky/dashboard/pull/42"
-                rel="noopener noreferrer nofollow"
-                title="add PR info to branch table"
-              >
-                #
-                42
-              </a>
-            </div>
-          </td>
-          <td
-            className="css-0"
-            role="gridcell"
-          >
-            <div>
-              <a
-                className="chakra-link css-0"
-                href="https://github.com/lowsky/dashboard/tree/bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e"
-                rel="noopener noreferrer nofollow"
-              >
-                <strong>
-                  Merge pull request #1234 from lowsky/a-new-feature
-                </strong>
-              </a>
-            </div>
-            <div
-              className="status"
-            >
-              <i>
-                2017-03-14T18:59:30Z
-              </i>
-              <span>
-                  by 
-              </span>
-              <a
-                className="chakra-link css-0"
-                href="https://github.com/lowsky"
-                rel="noopener noreferrer nofollow"
-              >
-                <img
-                  className="commit_avatar css-0"
-                  src="https://avatars2.githubusercontent.com/u/217931"
-                />
-                 
-                <span>
-                  lowsky
-                </span>
-              </a>
-            </div>
-            <div
-              className="statusLine"
-            >
-              <a
-                href="https://www.github.com/lowsky/dashboard"
-                style={
-                  Object {
-                    "color": "green",
-                  }
-                }
-                title="Vercel Deployment: has completed"
-              >
-                <span
-                  className="chakra-avatar contextLogo css-owdzdv"
-                >
-                  <svg
-                    aria-label=" avatar"
-                    className="chakra-avatar__svg css-16ite8i"
-                    role="img"
-                    viewBox="0 0 128 128"
-                  >
-                    <path
-                      d="M103,102.1388 C93.094,111.92 79.3504,118 64.1638,118 C48.8056,118 34.9294,111.768 25,101.7892 L25,95.2 C25,86.8096 31.981,80 40.6,80 L87.4,80 C96.019,80 103,86.8096 103,95.2 L103,102.1388 Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M63.9961647,24 C51.2938136,24 41,34.2938136 41,46.9961647 C41,59.7061864 51.2938136,70 63.9961647,70 C76.6985159,70 87,59.7061864 87,46.9961647 C87,34.2938136 76.6985159,24 63.9961647,24"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-check-circle "
-                  data-icon="check-circle"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  style={
-                    Object {
-                      "color": "green",
-                      "verticalAlign": "top",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
-                    fill="currentColor"
-                    style={Object {}}
-                  />
-                </svg>
-              </a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>,
-]
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
