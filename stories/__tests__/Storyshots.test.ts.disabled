@@ -1,0 +1,32 @@
+// This does not work anymore with react 18  :-/
+/*
+
+  console.error
+    Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:29404:5)
+      at new Toaster (node_modules/@chakra-ui/toast/dist/chakra-ui-toast.cjs.dev.js:532:12)
+      at Object.<anonymous> (node_modules/@chakra-ui/toast/dist/chakra-ui-toast.cjs.dev.js:537:13)
+
+ FAIL  stories/__tests__/Storyshots.test.ts (6.47 s)
+...
+
+
+
+  ● Storyshots › Commit With Statuses › With Data
+
+    TypeError: Cannot read property 'current' of undefined
+
+      at warnIfNotScopedWithMatchingAct (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14999:31)
+      at updateContainer (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:16413:7)
+      at create (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:17149:3)
+      at getRenderedTree (node_modules/@storybook/addon-storyshots/dist/ts3.9/frameworks/react/renderTree.js:24:16)
+      at node_modules/@storybook/addon-storyshots/dist/ts3.9/test-bodies.js:11:22
+      at Object.<anonymous> (node_modules/@storybook/addon-storyshots/dist/ts3.9/api/snapshotsTestsTemplate.js:47:20)
+
+*/
+import initStoryshots from '@storybook/addon-storyshots';
+
+initStoryshots();

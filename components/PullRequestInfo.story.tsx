@@ -3,7 +3,6 @@ import React from 'react';
 import PullRequestInfo, { PullRequestData } from './PullRequestInfo';
 
 export default {
-    title: 'Others/PullRequestInfo',
     component: PullRequestInfo,
 };
 

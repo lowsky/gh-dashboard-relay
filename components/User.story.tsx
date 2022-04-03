@@ -14,7 +14,6 @@ const userWithAvatar = {
 };
 
 export default {
-    title: 'Others/User',
     component: User,
 };
 

@@ -9,7 +9,6 @@ import { Default as DefaultPR } from '../components/PullRequestInfo.story';
 import { Table, Tbody } from '@chakra-ui/react';
 
 export default {
-    title: 'Others/BranchInfoRow',
     component: BranchInfoRow,
 };
 
