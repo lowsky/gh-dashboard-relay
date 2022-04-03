@@ -16,7 +16,6 @@ module.exports = {
         '@chakra-ui/storybook-addon',
         'storybook-addon-next-router',
     ],
-    core: { builder: 'webpack5' },
     // sb build bails missing some deps if missing
     typescript: { reactDocgen: false },
     features: {

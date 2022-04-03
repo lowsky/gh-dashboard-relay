@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IndexPage from '../pages';
+// temporary disabled, until mdx is setup for storybook properly: import IndexPage from '../pages/index.mdx';
 import RestfulPage from '../pages/restful/[userName]/[repoName]';
 
 // temporary disabled import { RelayRootMain } from'../pages/relay/[userName]/[repoName]';
@@ -9,7 +9,7 @@ export default {
     title: 'Others/Pages',
 };
 
-export const Main = () => <IndexPage />;
+// disabled, see above export const Main = () => <IndexPage />;
 
 export const Restful = (props) => <RestfulPage {...props} />;
 Restful.parameters = {
