@@ -1,7 +1,7 @@
 import { Spinner } from './Spinner';
 
 export default {
-    title: 'Others/Spinner',
+    component: Spinner,
 };
 
 export const Default = () => <Spinner />;

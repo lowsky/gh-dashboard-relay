@@ -8,7 +8,6 @@ import UILibContext from '../components/UILibContext';
 import { WithInfo } from './BranchInfoRow.story';
 
 export default {
-    title: 'Others/BranchesTable',
     component: BranchesTable,
 };
 

@@ -15,16 +15,11 @@ export const Restful = (props) => <RestfulPage {...props} />;
 Restful.parameters = {
     storyshots: { disable: true },
     chromatic: { disable: false },
-};
-
-Restful.story = {
-    parameters: {
-        nextRouter: {
-            path: '/profile/[userName]/[repoName]',
-            query: {
-                userName: 'lowsky',
-                repoName: 'test-repo',
-            },
+    nextRouter: {
+        path: '/profile/[userName]/[repoName]',
+        query: {
+            userName: 'lowsky',
+            repoName: 'test-repo',
         },
     },
 };

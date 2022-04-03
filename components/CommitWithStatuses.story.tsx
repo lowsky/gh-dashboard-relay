@@ -6,7 +6,6 @@ import moreStatus from '../restinpeace/lastCommitMock.json';
 import { WithoutAvatar } from './User.story';
 
 export default {
-    title: 'Others/CommitStatus',
     component: CommitWithStatuses,
 };
 

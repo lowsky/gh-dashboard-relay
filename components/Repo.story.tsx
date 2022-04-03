@@ -5,7 +5,6 @@ import { WithAvatar } from './User.story';
 import { WithOneBranch } from '../container/BranchesTable.story';
 
 export default {
-    title: 'Others/Repo',
     component: Repo,
 };
 
