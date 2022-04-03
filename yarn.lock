@@ -4021,7 +4021,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/react@npm:^2.1.1":
+"@mdx-js/react@npm:2.1.1":
   version: 2.1.1
   resolution: "@mdx-js/react@npm:2.1.1"
   dependencies:
@@ -10171,7 +10171,7 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": 2.6.1
     "@graphql-tools/schema": 8.3.6
     "@mdx-js/loader": 2.1.1
-    "@mdx-js/react": ^2.1.1
+    "@mdx-js/react": 2.1.1
     "@next/mdx": 12.1.4
     "@octokit/graphql-schema": 10.73.0
     "@octokit/rest": 18.12.0
