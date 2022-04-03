@@ -136,7 +136,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: 'Dashboard',
+        label: 'Home',
         href: '/',
     },
     {
@@ -172,17 +172,3 @@ export function Navi() {
         </Box>
     );
 }
-
-/* Inline #6 | http://localhost:9009/iframe.html?id=others-navbar--default&viewMode=story&args= */
-
-/*
-html {
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-.css-1yt6u0r {
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
-    color: rgb(50, 115, 220);
-}
-*/
