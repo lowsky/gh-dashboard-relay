@@ -68,7 +68,7 @@
     "apollo-server-lambda": "3.6.7",
     "apollo-server-micro": "3.6.7",
     "bufferutil": "4.0.6",
-    "framer-motion": "6.2.8",
+    "framer-motion": "6.2.9",
     "graphql": "15.8.0",
     "is-plain-object": "5.0.0",
     "micro": "9.3.4",
