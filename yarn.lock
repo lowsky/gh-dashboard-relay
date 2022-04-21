@@ -6463,12 +6463,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.0":
-  version: 18.0.0
-  resolution: "@types/react-dom@npm:18.0.0"
+"@types/react-dom@npm:18.0.2":
+  version: 18.0.2
+  resolution: "@types/react-dom@npm:18.0.2"
   dependencies:
     "@types/react": "*"
-  checksum: 0d8c9cb3e72aefe0dd2b58a49845a200369f01ae92f3f11f642e04efc95dfd1c9380b6592d4273dd6113fb8707947d15b66d56c75c41f39f28bd897f0c08dfa9
+  checksum: 2b0b138d8634ccfd8a86b17cb5414b122ee0cb6f650377d772f6008761a27e4c2531c08e3cab71aaa19b6893af6a508c664aa314db3ebcff5b8179173c9c9307
   languageName: node
   linkType: hard
 
@@ -10218,7 +10218,7 @@ __metadata:
     "@storybook/builder-webpack5": 6.4.22
     "@storybook/manager-webpack5": 6.4.22
     "@storybook/react": 6.4.22
-    "@types/react-dom": 18.0.0
+    "@types/react-dom": 18.0.2
     "@types/react-relay": 13.0.2
     "@types/relay-runtime": 13.0.3
     "@typescript-eslint/eslint-plugin": 5.19.0
