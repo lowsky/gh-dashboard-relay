@@ -10175,13 +10175,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:3.0.11, csstype@npm:^3.0.2":
-  version: 3.0.11
-  resolution: "csstype@npm:3.0.11"
-  checksum: 95e56abfe9ca219ae065acb4e43f61771a03170eed919127f558dfa168240867aba7629c8d98a201a0dd06d9a5ce82686f0570031c928516c61816adbc7c877f
-  languageName: node
-  linkType: hard
-
 "csstype@npm:3.0.9":
   version: 3.0.9
   resolution: "csstype@npm:3.0.9"
@@ -10189,10 +10182,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"csstype@npm:3.1.0":
+  version: 3.1.0
+  resolution: "csstype@npm:3.1.0"
+  checksum: 644e986cefab86525f0b674a06889cfdbb1f117e5b7d1ce0fc55b0423ecc58807a1ea42ecc75c4f18999d14fc42d1d255f84662a45003a52bb5840e977eb2ffd
+  languageName: node
+  linkType: hard
+
 "csstype@npm:^2.5.7":
   version: 2.6.20
   resolution: "csstype@npm:2.6.20"
   checksum: cb5d5ded49c3390909e93b20b285d4a63d0ba5b10294bdfbc4cf911f80e91d6cf367ea671f99f09570762535c14ea7074a2c7fa73f02008203f01328dea8968b
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.0.2":
+  version: 3.0.11
+  resolution: "csstype@npm:3.0.11"
+  checksum: 95e56abfe9ca219ae065acb4e43f61771a03170eed919127f558dfa168240867aba7629c8d98a201a0dd06d9a5ce82686f0570031c928516c61816adbc7c877f
   languageName: node
   linkType: hard
 
@@ -10253,7 +10260,7 @@ __metadata:
     babel-plugin-relay: 13.2.0
     bufferutil: 4.0.6
     chromatic: 6.5.4
-    csstype: 3.0.11
+    csstype: 3.1.0
     eslint: 8.15.0
     eslint-config-next: 12.1.6
     eslint-config-prettier: 8.5.0
