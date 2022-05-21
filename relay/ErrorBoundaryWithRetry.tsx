@@ -5,7 +5,10 @@ import React from 'react';
 
 type State = { error?: Error | null };
 
-export default class ErrorBoundaryWithRetry extends React.Component<{ fallback?: any }, State> {
+export default class ErrorBoundaryWithRetry extends React.Component<
+    { fallback?: any; children: React.ReactNode },
+    State
+> {
     state = { error: null };
 
     static getDerivedStateFromError(error: Error) {
