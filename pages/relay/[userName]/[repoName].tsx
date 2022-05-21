@@ -71,7 +71,10 @@ export const RelayRootMain = ({ userName, repoName }) => {
 function ShowUserRepoContent({ userData, repoData, doMergePR }) {
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
-            <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
+            {
+                // @ts-expect-error TS2786: 'UserRepo' cannot be used as a JSX component.
+                <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
+            }
         </UILibContext.Provider>
     );
 }
