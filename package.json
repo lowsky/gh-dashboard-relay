@@ -121,7 +121,7 @@
     "react-relay": "13.2.0",
     "relay-compiler": "13.2.0",
     "relay-compiler-language-typescript": "15.0.1",
-    "storybook-addon-next-router": "3.1.1",
+    "storybook-addon-next-router": "4.0.0",
     "ts-jest": "27.1.5",
     "typescript": "4.6.4",
     "webpack": "5.72.1"
