@@ -2,6 +2,8 @@
 // Just wrapping schema/schema.graphql
 export const typeDefs = `
 # The Github API
+directive @defer(if: Boolean, label: String) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
 type GithubAPI {
     user(
         # Username of the user
