@@ -1,20 +1,20 @@
-[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)  ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg) 
-[![Netlify Status(main)](https://api.netlify.com/api/v1/badges/23113b55-4107-426a-94c0-e2db95956157/deploy-status)](https://app.netlify.com/sites/github-dashboard/deploys)
+[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)
+![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg)
 
 ## Stack
 
-* GraphQL
-* Next.js
-* Netlify/Vercel
-* ApolloServer
-* Relay.js
-* Bulma.io CSS
-* React
-* Storybook
-* Chromatic
-* Typescript
-* Jest
-* Storyshots
+-   GraphQL
+-   Next.js
+-   Netlify/Vercel
+-   ApolloServer
+-   Relay.js
+-   Bulma.io CSS
+-   React
+-   Storybook
+-   Chromatic
+-   Typescript
+-   Jest
+-   Storyshots
 
 ## Purpose
 
@@ -26,7 +26,6 @@ List the `(feature) branches` of a GitHub repository with its
 
 The idea behind this was, to provide easy access to all feature branches before releasing them.
 So you can test a new version of a new feature before bringing it live.
-    
 
 Very old presentation at a Docker Meetup: Find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
 
@@ -36,15 +35,15 @@ After invoking this in a shell
 
     git clone https://github.com/lowsky/dashboard
     cd dashboard
-    
+
     # Install the dependencies of the react app and
     # installs the server's dependencies, too:
-    yarn 
-    
+    yarn
+
 then set up the `github-token` (see [Setup GitHub Token](#setupgithubtoken) ) before starting local dev mode via:
 
     yarn dev
-    
+
 This runs Next.js dev-mode which includes the endpoints for the graphql API.
 
 Open the home [http://localhost:3000](http://localhost:3000) with your browser.
@@ -53,33 +52,38 @@ Or **even better** the dashboard project page: [http://localhost:3000/relay/lows
 
 ### Built-in GraphQL-backend
 
-**GraphIql Playground:** [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql) 
+**GraphIql Playground:** [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql)
 
 for using and playing with different graphql queries, e.g.:
 (use this [link with query](http://localhost:3000/api/graphql?query=%7B%0A%20%20github%20%7B%0A%20%20%20%20user%28username%3A%20%22lowsky%22%29%20%7B%0A%20%20%20%20%20%20login%0A%20%20%20%20%20%20avatar_url%0A%20%20%20%20%7D%0A%20%20%20%20repo%28ownerUsername%3A%20%22lowsky%22%2C%20name%3A%20%22dashboard%22%29%20%7B%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20branches%7Bname%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
+
 ```graphql
 {
-  github {
-    user(username: "lowsky") {
-      login
-      avatar_url
+    github {
+        user(username: "lowsky") {
+            login
+            avatar_url
+        }
+        repo(ownerUsername: "lowsky", name: "dashboard") {
+            name
+            branches {
+                name
+            }
+        }
     }
-    repo(ownerUsername: "lowsky", name: "dashboard") {
-      name
-      branches{name}
-    }
-  }
 }
 ```
 
 Have fun!
 
 ### setupGithubToken
-You  **need to create your own github-token** (see https://github.com/settings/tokens/) and 
-store it locally in `.env` file 
+
+You **need to create your own github-token** (see https://github.com/settings/tokens/) and
+store it locally in `.env` file
 
     # create an .env file with this content ...
-   GITHUB_TOKEN=XXX
+
+GITHUB_TOKEN=XXX
 
     # ... and replace the XXX with your API key
     # typically something like ghp_....

@@ -1,6 +1,0 @@
-[build]
-  Command = "yarn run build"
-  publish = ".next"
-  ignore = "git log --oneline -1 | grep 'Update dependency @types/'"
-
-[build.environment]
