@@ -74,17 +74,43 @@ const githubRepoResolver: GithubRepoResolvers = {
             return null;
         }
         return getCommitsForRepo(owner.login, name).then((commitList) => {
-            return commitList.map((commit) => {
-                return {
-                    ...commit,
-                    // info is part of REST response:
+            // fix for the problem that REST response contained an object
+            //
+            if (Array.isArray(commitList))
+                return commitList.map((commit) => {
+                    return {
+                        ...commit,
+                        // info is part of REST response:
+                        // @ts-ignore
+                        message: commit.commit.message,
+                        // info is part of REST response:
+                        // @ts-ignore
+                        date: commit.commit.committer.date,
+                    };
+                });
+            else {
+                if (commitList['0']) {
+                    const c = commitList['0'];
+
+                    console.log('c=', c);
                     // @ts-ignore
-                    message: commit.commit.message,
-                    // info is part of REST response:
-                    // @ts-ignore
-                    date: commit.commit.committer.date,
-                };
-            });
+                    const commit = c.commit;
+                    console.log(commit);
+
+                    return [
+                        {
+                            // @ts-ignore
+                            ...commit,
+                            // info is part of REST response:
+                            // @ts-ignore
+                            message: commit.commit.message,
+                            // info is part of REST response:
+                            // @ts-ignore
+                            date: commit.commit.committer.date,
+                        },
+                    ];
+                } else return [];
+            }
         });
     },
 };
