@@ -9784,7 +9784,7 @@ __metadata:
     eslint-plugin-storybook: 0.5.12
     fetch-multipart-graphql: relay-tools/fetch-multipart-graphql
     framer-motion: 6.3.11
-    graphql: 16.0.0-rc.7.experimental-stream-defer.4
+    graphql: 16.5.0
     graphql-helix: 1.12.0
     identity-obj-proxy: 3.0.0
     jest: 28.1.0
@@ -12363,10 +12363,10 @@ fetch-multipart-graphql@relay-tools/fetch-multipart-graphql:
   languageName: node
   linkType: hard
 
-"graphql@npm:16.0.0-rc.7.experimental-stream-defer.4":
-  version: 16.0.0-rc.7.experimental-stream-defer.4
-  resolution: "graphql@npm:16.0.0-rc.7.experimental-stream-defer.4"
-  checksum: 5b912a7eabdb841f5188198c72ba5bc97d85e9137da39e1f293a13e533d71e313d2024fdcbe234e6c0123eb5272746decad911072fe3878a4b36390d5218b7ec
+"graphql@npm:16.5.0":
+  version: 16.5.0
+  resolution: "graphql@npm:16.5.0"
+  checksum: a82a926d085818934d04fdf303a269af170e79de943678bd2726370a96194f9454ade9d6d76c2de69afbd7b9f0b4f8061619baecbbddbe82125860e675ac219e
   languageName: node
   linkType: hard
 
