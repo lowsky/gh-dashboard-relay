@@ -68,7 +68,7 @@
     "@octokit/rest": "18.12.0",
     "fetch-multipart-graphql": "relay-tools/fetch-multipart-graphql",
     "framer-motion": "6.3.11",
-    "graphql": "16.0.0-rc.7.experimental-stream-defer.4",
+    "graphql": "16.5.0",
     "graphql-helix": "1.12.0",
     "next": "12.1.6",
     "react": "18.1.0",
