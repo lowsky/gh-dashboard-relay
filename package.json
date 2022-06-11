@@ -102,7 +102,7 @@
     "@types/relay-runtime": "13.0.3",
     "@typescript-eslint/eslint-plugin": "5.27.1",
     "@typescript-eslint/parser": "5.27.1",
-    "babel-plugin-relay": "13.2.0",
+    "babel-plugin-relay": "14.0.0",
     "chromatic": "6.5.6",
     "csstype": "3.1.0",
     "eslint": "8.17.0",
