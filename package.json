@@ -112,7 +112,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-storybook": "0.5.12",
     "identity-obj-proxy": "3.0.0",
-    "jest": "28.1.0",
+    "jest": "28.1.1",
     "prettier": "2.6.2",
     "react-relay": "13.2.0",
     "relay-compiler": "13.2.0",
