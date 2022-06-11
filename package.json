@@ -60,7 +60,7 @@
     "@chakra-ui/react": "2.1.2",
     "@emotion/react": "11.9.0",
     "@emotion/styled": "11.8.1",
-    "@envelop/core": "2.3.2",
+    "@envelop/core": "2.3.3",
     "@mdx-js/loader": "2.1.1",
     "@mdx-js/react": "2.1.1",
     "@next/mdx": "12.1.6",
