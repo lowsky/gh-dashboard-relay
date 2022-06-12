@@ -115,7 +115,7 @@
     "jest": "28.1.1",
     "prettier": "2.6.2",
     "react-relay": "14.0.0",
-    "relay-compiler": "13.2.0",
+    "relay-compiler": "14.0.0",
     "relay-compiler-language-typescript": "15.0.1",
     "storybook-addon-next-router": "4.0.0",
     "ts-jest": "28.0.4",
