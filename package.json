@@ -58,8 +58,8 @@
   "homepage": ".",
   "dependencies": {
     "@chakra-ui/react": "2.2.1",
-    "@emotion/react": "11.9.0",
-    "@emotion/styled": "11.8.1",
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
     "@envelop/core": "2.3.3",
     "@mdx-js/loader": "2.1.1",
     "@mdx-js/react": "2.1.1",
