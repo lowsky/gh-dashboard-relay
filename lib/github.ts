@@ -35,8 +35,12 @@ export const getCommitsForRepo = async (
     reponame: string,
     sha?: string
 ): Promise<Array<GithubCommit>> => {
-    const commits = await octo.repos.listCommits({ sha, owner: username, repo: reponame });
-    return convertItsIdToString(commits.data);
+    const commits = await octo.repos.listCommits({
+        sha,
+        owner: username,
+        repo: reponame,
+    });
+    return commits.data;
 };
 
 export const getBranchesForRepo = async (username, reponame): Promise<Array<GithubBranch>> => {

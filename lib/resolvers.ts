@@ -71,46 +71,22 @@ const githubRepoResolver: GithubRepoResolvers = {
     commits: (repo) => {
         const { owner, name } = repo;
         if (!owner?.login || !name) {
-            return null;
+            return [];
         }
         return getCommitsForRepo(owner.login, name).then((commitList) => {
             // fix for the problem that REST response contained an object
             //
-            if (Array.isArray(commitList))
-                return commitList.map((commit) => {
-                    return {
-                        ...commit,
-                        // info is part of REST response:
-                        // @ts-ignore
-                        message: commit.commit.message,
-                        // info is part of REST response:
-                        // @ts-ignore
-                        date: commit.commit.committer.date,
-                    };
-                });
-            else {
-                if (commitList['0']) {
-                    const c = commitList['0'];
-
-                    console.log('c=', c);
-                    // @ts-ignore
-                    const commit = c.commit;
-                    console.log(commit);
-
-                    return [
-                        {
-                            // @ts-ignore
-                            ...commit,
-                            // info is part of REST response:
-                            // @ts-ignore
-                            message: commit.commit.message,
-                            // info is part of REST response:
-                            // @ts-ignore
-                            date: commit.commit.committer.date,
-                        },
-                    ];
-                } else return [];
-            }
+            return commitList.slice(0, 1).map((commit) => {
+                return {
+                    ...commit,
+                    // info is part of REST response:
+                    // @ts-expect-error type-def is wrong, need to access this via commit inner field
+                    message: commit.commit.message,
+                    // info is part of REST response:
+                    // @ts-expect-error type-def is wrong, need to access this via commit inner field
+                    date: commit.commit?.committer?.date,
+                };
+            });
         });
     },
 };
@@ -123,20 +99,20 @@ const queryResolver = {
 };
 
 const githubBranchResolver: GithubBranchResolvers = {
-    lastCommit: (branch) => {
-        // @ts-ignore
+    lastCommit: async (branch) => {
+        // @ts-expect-error
         const { ownerUsername, reponame, commit } = branch; // info has been added while loading
         const { sha } = commit;
         if (!ownerUsername || !reponame) {
             return null;
         }
-        return getLastCommit(ownerUsername, reponame, sha);
+        return await getLastCommit(ownerUsername, reponame, sha);
     },
 };
 
 const githubCommitResolver: GithubCommitResolvers = {
     status: (commit) => {
-        // @ts-ignore
+        // @ts-expect-error
         const { username, reponame } = grabUsernameAndReponameFromURL(commit.url); // url was added in parent object
         const { sha } = commit;
         if (!sha) return null;
@@ -144,7 +120,7 @@ const githubCommitResolver: GithubCommitResolvers = {
         return getStatusesForRepo(username, reponame, sha) ?? [];
     },
     associatedPullRequests: async (commit) => {
-        // @ts-ignore
+        // @ts-expect-error
         const { sha, ownerUsername, reponame } = commit;
         if (!sha) {
             return null;
