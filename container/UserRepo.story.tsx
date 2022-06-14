@@ -5,6 +5,10 @@ import { UILibPureComponents } from '../components';
 import { WithAvatar } from '../components/User.story';
 import { FakeData } from '../components/Repo.story';
 
+export default {
+    component: UserRepo,
+};
+
 export const WithUserAndRepo = (props) => (
     <UILibContext.Provider value={UILibPureComponents}>
         <UserRepo {...props} />
