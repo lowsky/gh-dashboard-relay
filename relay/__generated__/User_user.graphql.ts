@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<64756b4356a98f9acfe3fba1294d450a>>
+ * @generated SignedSource<<c323356545b2405f21bb5e3e0779640c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,7 +16,6 @@ export type User_user$data = {
     readonly avatar_url: string | null;
     readonly ' $fragmentType': 'User_user';
 };
-export type User_user = User_user$data;
 export type User_user$key = {
     readonly ' $data'?: User_user$data;
     readonly ' $fragmentSpreads': FragmentRefs<'User_user'>;

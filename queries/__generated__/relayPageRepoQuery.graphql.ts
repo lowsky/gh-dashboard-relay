@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7a62a742102f7805d42ceb9dabed9de7>>
+ * @generated SignedSource<<1c6db69d3e484fc2353ebed264357ff1>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,15 +14,13 @@ export type relayPageRepoQuery$variables = {
     userName: string;
     repoName: string;
 };
-export type relayPageRepoQueryVariables = relayPageRepoQuery$variables;
 export type relayPageRepoQuery$data = {
     readonly repo: {
         readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_repo'>;
     } | null;
 };
-export type relayPageRepoQueryResponse = relayPageRepoQuery$data;
 export type relayPageRepoQuery = {
-    variables: relayPageRepoQueryVariables;
+    variables: relayPageRepoQuery$variables;
     response: relayPageRepoQuery$data;
 };
 

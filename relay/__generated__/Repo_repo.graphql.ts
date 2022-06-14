@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<336ba5b6b603b5a5876e8c89ea9830c4>>
+ * @generated SignedSource<<de20af192ecbaea815bcd96c68b9790b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,7 +17,6 @@ export type Repo_repo$data = {
     } | null;
     readonly ' $fragmentType': 'Repo_repo';
 };
-export type Repo_repo = Repo_repo$data;
 export type Repo_repo$key = {
     readonly ' $data'?: Repo_repo$data;
     readonly ' $fragmentSpreads': FragmentRefs<'Repo_repo'>;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7d8b034192ed82151bacdcf3530b4544>>
+ * @generated SignedSource<<748d7e9293b382d5b94387959dfeb9cf>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,7 +14,6 @@ export type UserRepo_repo$data = {
     readonly ' $fragmentSpreads': FragmentRefs<'Repo_repo' | 'BranchesTable_repo'>;
     readonly ' $fragmentType': 'UserRepo_repo';
 };
-export type UserRepo_repo = UserRepo_repo$data;
 export type UserRepo_repo$key = {
     readonly ' $data'?: UserRepo_repo$data;
     readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_repo'>;

@@ -221,6 +221,18 @@ export type ResolversParentTypes = {
     UserOrCommitAuthor: ResolversParentTypes['GithubCommitAuthor'] | ResolversParentTypes['GithubUser'];
 };
 
+export type DeferDirectiveArgs = {
+    if?: Maybe<Scalars['Boolean']>;
+    label?: Maybe<Scalars['String']>;
+};
+
+export type DeferDirectiveResolver<Result, Parent, ContextType = any, Args = DeferDirectiveArgs> = DirectiveResolverFn<
+    Result,
+    Parent,
+    ContextType,
+    Args
+>;
+
 export type GithubApiResolvers<
     ContextType = any,
     ParentType extends ResolversParentTypes['GithubAPI'] = ResolversParentTypes['GithubAPI']
@@ -367,4 +379,8 @@ export type Resolvers<ContextType = any> = {
     PullRequest?: PullRequestResolvers<ContextType>;
     Query?: QueryResolvers<ContextType>;
     UserOrCommitAuthor?: UserOrCommitAuthorResolvers<ContextType>;
+};
+
+export type DirectiveResolvers<ContextType = any> = {
+    defer?: DeferDirectiveResolver<any, any, ContextType>;
 };

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d48a5cc19200c26eb5d3c2c1af5026b6>>
+ * @generated SignedSource<<c1f86b4093c4fa9be4bfa48ce548b964>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,15 +13,13 @@ import { FragmentRefs } from 'relay-runtime';
 export type relayPageUserQuery$variables = {
     userName: string;
 };
-export type relayPageUserQueryVariables = relayPageUserQuery$variables;
 export type relayPageUserQuery$data = {
     readonly user: {
         readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_user'>;
     } | null;
 };
-export type relayPageUserQueryResponse = relayPageUserQuery$data;
 export type relayPageUserQuery = {
-    variables: relayPageUserQueryVariables;
+    variables: relayPageUserQuery$variables;
     response: relayPageUserQuery$data;
 };
 

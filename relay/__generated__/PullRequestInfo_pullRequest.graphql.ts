@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<27c254f3a116d9109b65924d162d0878>>
+ * @generated SignedSource<<eaa9386afcb1fbf1736065e3916b3dd7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -16,7 +16,6 @@ export type PullRequestInfo_pullRequest$data = {
     readonly url: string | null;
     readonly ' $fragmentType': 'PullRequestInfo_pullRequest';
 };
-export type PullRequestInfo_pullRequest = PullRequestInfo_pullRequest$data;
 export type PullRequestInfo_pullRequest$key = {
     readonly ' $data'?: PullRequestInfo_pullRequest$data;
     readonly ' $fragmentSpreads': FragmentRefs<'PullRequestInfo_pullRequest'>;

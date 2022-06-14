@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a4f5458aa69e8d109e269331fd7a8fba>>
+ * @generated SignedSource<<b25e29b461750ecf80b7a479faa11416>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,7 +14,6 @@ export type UserRepo_user$data = {
     readonly ' $fragmentSpreads': FragmentRefs<'User_user'>;
     readonly ' $fragmentType': 'UserRepo_user';
 };
-export type UserRepo_user = UserRepo_user$data;
 export type UserRepo_user$key = {
     readonly ' $data'?: UserRepo_user$data;
     readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_user'>;

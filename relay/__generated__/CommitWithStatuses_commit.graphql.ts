@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9222247d42ae40cb2f33286e50191d4d>>
+ * @generated SignedSource<<11e6955bc80066f80ee740e67bb4f392>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -24,7 +24,6 @@ export type CommitWithStatuses_commit$data = {
     } | null> | null;
     readonly ' $fragmentType': 'CommitWithStatuses_commit';
 };
-export type CommitWithStatuses_commit = CommitWithStatuses_commit$data;
 export type CommitWithStatuses_commit$key = {
     readonly ' $data'?: CommitWithStatuses_commit$data;
     readonly ' $fragmentSpreads': FragmentRefs<'CommitWithStatuses_commit'>;

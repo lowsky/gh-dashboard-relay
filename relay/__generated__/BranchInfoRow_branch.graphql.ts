@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6ad7e116198e77015d3d489c54e1bd48>>
+ * @generated SignedSource<<4403083a2b984b83d5780860c5190495>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,7 +20,6 @@ export type BranchInfoRow_branch$data = {
     } | null;
     readonly ' $fragmentType': 'BranchInfoRow_branch';
 };
-export type BranchInfoRow_branch = BranchInfoRow_branch$data;
 export type BranchInfoRow_branch$key = {
     readonly ' $data'?: BranchInfoRow_branch$data;
     readonly ' $fragmentSpreads': FragmentRefs<'BranchInfoRow_branch'>;
