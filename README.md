@@ -6,12 +6,12 @@
 -   GraphQL
 -   Next.js
 -   Netlify/Vercel
--   ApolloServer
+-   ~ApolloServer~ Helix, Envelop
 -   Relay.js
--   Bulma.io CSS
+-   ChakraUI ~Builma~
 -   React
 -   Storybook
--   Chromatic
+-   ~Chromatic~
 -   Typescript
 -   Jest
 -   Storyshots
