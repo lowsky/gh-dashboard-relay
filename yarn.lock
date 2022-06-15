@@ -4391,6 +4391,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/openapi-types@npm:^12.1.0":
+  version: 12.1.0
+  resolution: "@octokit/openapi-types@npm:12.1.0"
+  checksum: 449f21166d53bb6c88f9b01b45d8ac730aa4ce1aa4d8ca86fc7c06b552c94e7f01281c9a73b2902a4cd2e5ce88d24766e0338109d5aa35a8e0bfc514c6cfd2d7
+  languageName: node
+  linkType: hard
+
 "@octokit/plugin-paginate-rest@npm:^2.16.8":
   version: 2.17.0
   resolution: "@octokit/plugin-paginate-rest@npm:2.17.0"
@@ -4460,7 +4467,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:6.34.0, @octokit/types@npm:^6.0.3, @octokit/types@npm:^6.16.1, @octokit/types@npm:^6.34.0":
+"@octokit/types@npm:6.35.0":
+  version: 6.35.0
+  resolution: "@octokit/types@npm:6.35.0"
+  dependencies:
+    "@octokit/openapi-types": ^12.1.0
+  checksum: 0f1949aece03733d1a45a9ee1c2162f8f35d58814e66ed2e00929b0fbb7cb315625203bf748ea7cb855b20b1c794c7f1add7203508a186289f489b7fb1143924
+  languageName: node
+  linkType: hard
+
+"@octokit/types@npm:^6.0.3, @octokit/types@npm:^6.16.1, @octokit/types@npm:^6.34.0":
   version: 6.34.0
   resolution: "@octokit/types@npm:6.34.0"
   dependencies:
@@ -9795,7 +9811,7 @@ __metadata:
     "@next/mdx": 12.1.6
     "@octokit/graphql-schema": 10.73.0
     "@octokit/rest": 18.12.0
-    "@octokit/types": 6.34.0
+    "@octokit/types": 6.35.0
     "@storybook/addon-essentials": 6.5.9
     "@storybook/addon-storyshots": 6.5.9
     "@storybook/addons": 6.5.9
