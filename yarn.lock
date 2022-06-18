@@ -4046,15 +4046,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/loader@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@mdx-js/loader@npm:2.1.1"
+"@mdx-js/loader@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@mdx-js/loader@npm:2.1.2"
   dependencies:
     "@mdx-js/mdx": ^2.0.0
     source-map: ^0.7.0
   peerDependencies:
     webpack: ">=4"
-  checksum: 0834bc33e86d274a9ef55b8c5d3ad96c498779361f7daf4bc8f7e18ba3da6fbddf9ac0a2f4eb5854008daf8618932677bb4a8e0bb63dce8f09047324b917585e
+  checksum: 5fd8978b4835aa8bb94a1f9c3e753839001c8fb1cd2b1d4ed8f03dd17bc1c16c339cecade38dae11d4100cd8414ba0e6042b19a041eee63f25a8bb12c3e1ed54
   languageName: node
   linkType: hard
 
@@ -4110,15 +4110,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/react@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@mdx-js/react@npm:2.1.1"
+"@mdx-js/react@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@mdx-js/react@npm:2.1.2"
   dependencies:
     "@types/mdx": ^2.0.0
     "@types/react": ">=16"
   peerDependencies:
     react: ">=16"
-  checksum: e6f1f0a3a7afa893c107744309a5d2a8654a0643c119bbe3d5ec3ad2ba31cf371e94f3dfe7331eb3aa9f3f4582594ec3f7dd11fc909560e512f95b35335ed34e
+  checksum: c1114c683403565f45366f43b3e71cd41f4f1c3f73147f447ba2517906400760139f315fe23220a3d633433d77d9a0a95753bb256b2cec392fb5c4a02947f25e
   languageName: node
   linkType: hard
 
@@ -9806,8 +9806,8 @@ __metadata:
     "@graphql-codegen/typescript-operations": 2.4.2
     "@graphql-codegen/typescript-resolvers": 2.6.6
     "@graphql-tools/schema": 8.3.14
-    "@mdx-js/loader": 2.1.1
-    "@mdx-js/react": 2.1.1
+    "@mdx-js/loader": 2.1.2
+    "@mdx-js/react": 2.1.2
     "@next/mdx": 12.1.6
     "@octokit/graphql-schema": 10.73.0
     "@octokit/rest": 18.12.0
