@@ -110,7 +110,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-graphql": "4.0.0",
     "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-storybook": "0.5.12",
+    "eslint-plugin-storybook": "0.5.13",
     "identity-obj-proxy": "3.0.0",
     "jest": "28.1.1",
     "prettier": "2.7.1",
