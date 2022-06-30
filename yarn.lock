@@ -8945,16 +8945,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.6.4":
-  version: 6.6.4
-  resolution: "chromatic@npm:6.6.4"
+"chromatic@npm:6.7.0":
+  version: 6.7.0
+  resolution: "chromatic@npm:6.7.0"
   dependencies:
     "@types/webpack-env": ^1.17.0
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: 48f1fd5636b2de12223d93da6bd73bd932e26423d09789eec3e4bc983fe8bd7db0483abe06b4157b63bc352285b2f3bd2556fce0fcf819dccd14fc29a2672f59
+  checksum: 0e5ebc9d8c4f4d54a0dd256f7c509b375d76bfec08a78ca5cb7a18cea04d8c88071768a7d108b21f620143f7381819d66c32b8cc3828f9a2a04c032e3a460b57
   languageName: node
   linkType: hard
 
@@ -9864,7 +9864,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.30.0
     "@typescript-eslint/parser": 5.30.0
     babel-plugin-relay: 14.0.0
-    chromatic: 6.6.4
+    chromatic: 6.7.0
     csstype: 3.1.0
     eslint: 8.19.0
     eslint-config-next: 12.2.0
