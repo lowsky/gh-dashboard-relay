@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c323356545b2405f21bb5e3e0779640c>>
+ * @generated SignedSource<<1f1fa49dc84c8588a8923b89afca03fc>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,9 +11,9 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type User_user$data = {
-    readonly login: string | null;
-    readonly company: string | null;
     readonly avatar_url: string | null;
+    readonly company: string | null;
+    readonly login: string | null;
     readonly ' $fragmentType': 'User_user';
 };
 export type User_user$key = {

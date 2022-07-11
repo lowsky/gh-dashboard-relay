@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c1f86b4093c4fa9be4bfa48ce548b964>>
+ * @generated SignedSource<<590b5bbec383664947f12b7bdfee7de7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,8 +19,8 @@ export type relayPageUserQuery$data = {
     } | null;
 };
 export type relayPageUserQuery = {
-    variables: relayPageUserQuery$variables;
     response: relayPageUserQuery$data;
+    variables: relayPageUserQuery$variables;
 };
 
 const node: ConcreteRequest = (function () {

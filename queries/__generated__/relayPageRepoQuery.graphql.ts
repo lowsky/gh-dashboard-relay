@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1c6db69d3e484fc2353ebed264357ff1>>
+ * @generated SignedSource<<08e42d68667f5f34e0443ae83465a6ef>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,8 +11,8 @@
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type relayPageRepoQuery$variables = {
-    userName: string;
     repoName: string;
+    userName: string;
 };
 export type relayPageRepoQuery$data = {
     readonly repo: {
@@ -20,8 +20,8 @@ export type relayPageRepoQuery$data = {
     } | null;
 };
 export type relayPageRepoQuery = {
-    variables: relayPageRepoQuery$variables;
     response: relayPageRepoQuery$data;
+    variables: relayPageRepoQuery$variables;
 };
 
 const node: ConcreteRequest = (function () {

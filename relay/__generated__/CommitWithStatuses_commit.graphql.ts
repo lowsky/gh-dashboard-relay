@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<11e6955bc80066f80ee740e67bb4f392>>
+ * @generated SignedSource<<20fc1e8da2676c9a6010338bb83ee811>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,16 +11,16 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type CommitWithStatuses_commit$data = {
-    readonly sha: string | null;
-    readonly message: string | null;
     readonly date: string | null;
+    readonly message: string | null;
+    readonly sha: string | null;
     readonly status: ReadonlyArray<{
+        readonly avatar_url: string | null;
         readonly context: string | null;
         readonly description: string | null;
         readonly state: string | null;
         readonly target_url: string | null;
         readonly updated_at: string | null;
-        readonly avatar_url: string | null;
     } | null> | null;
     readonly ' $fragmentType': 'CommitWithStatuses_commit';
 };
