@@ -1,17 +1,24 @@
-import { createFragmentContainer, graphql } from 'react-relay';
+import { graphql, useFragment } from 'react-relay';
 
 import UserRepo from '../container/UserRepo';
 
-export default createFragmentContainer(UserRepo, {
-    user: graphql`
-        fragment UserRepo_user on GithubUser {
-            ...User_user
-        }
-    `,
-    repo: graphql`
-        fragment UserRepo_repo on GithubRepo {
-            ...Repo_repo
-            ...BranchesTable_repo
-        }
-    `,
-});
+export default function UserRepoFragmentContainer(props) {
+    const user = useFragment(
+        graphql`
+            fragment UserRepo_user on GithubUser {
+                ...User_user
+            }
+        `,
+        props.user
+    );
+    const repo = useFragment(
+        graphql`
+            fragment UserRepo_repo on GithubRepo {
+                ...Repo_repo
+                ...BranchesTable_repo
+            }
+        `,
+        props.repo
+    );
+    return <UserRepo user={user} repo={repo} />;
+}

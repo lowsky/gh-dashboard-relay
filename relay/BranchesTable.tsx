@@ -1,13 +1,18 @@
-import { createFragmentContainer, graphql } from 'react-relay';
+import { graphql, useFragment } from 'react-relay';
 
 import BranchesTable from '../container/BranchesTable';
 
-export default createFragmentContainer(BranchesTable, {
-    repo: graphql`
-        fragment BranchesTable_repo on GithubRepo {
-            branches {
-                ...BranchInfoRow_branch
+export default function BranchesTableFragmentContainer(props) {
+    const repo = useFragment(
+        graphql`
+            fragment BranchesTable_repo on GithubRepo {
+                branches {
+                    ...BranchInfoRow_branch
+                }
             }
-        }
-    `,
-});
+        `,
+        props.repo
+    );
+
+    return <BranchesTable repo={repo} />;
+}
