@@ -28,11 +28,10 @@ export interface User {
 /**
  * Fetch the user info for a given login
  *
- * @param username user's login name, e.g lowsky
+ * @param username user's login name, e.g. lowsky
  */
 export const fetchUser = async (username: string): Promise<User> => {
-    // @ts-ignore does not perfectly fit
     return octo.users.getByUsername({ username }).then((byUsername) => {
-        return byUsername.data;
+        return byUsername.data as User;
     });
 };

@@ -9,7 +9,7 @@ export interface User {
 }
 
 export interface UserProps {
-    user?: User;
+    user: Readonly<User>;
 }
 
 const User: React.FC<UserProps> = ({ user = {} }) => {
