@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { UserProps } from './User';
 import { RepoProps } from './Repo';
@@ -8,12 +8,18 @@ import { BranchInfoRowProps } from '../container/BranchInfoRow';
 import { CommitWithStatusProps } from './CommitWithStatuses';
 
 export interface UILib {
-    User: React.FC<UserProps>;
-    Repo: React.FC<RepoProps>;
-    BranchTable: React.FC<BranchesTableProps>;
-    BranchInfoRow: React.FC<BranchInfoRowProps>;
-    CommitWithStatuses: React.FC<CommitWithStatusProps>;
-    PullRequestInfo: React.FC<PullRequestInfoProps>;
+    User: React.ComponentType<UserProps> | React.ComponentType<UserProps & { relay?: string }>;
+    Repo: React.ComponentType<RepoProps> | React.ComponentType<RepoProps & { relay?: string }>;
+    BranchTable: React.ComponentType<BranchesTableProps> | React.ComponentType<BranchesTableProps & { relay?: string }>;
+    BranchInfoRow:
+        | React.ComponentType<BranchInfoRowProps>
+        | React.ComponentType<BranchInfoRowProps & { relay?: string }>;
+    CommitWithStatuses:
+        | React.ComponentType<CommitWithStatusProps>
+        | React.ComponentType<CommitWithStatusProps & { relay?: string }>;
+    PullRequestInfo:
+        | React.ComponentType<PullRequestInfoProps>
+        | React.ComponentType<PullRequestInfoProps & { relay?: string }>;
 }
 
 /* Dummy components avoids crashes caused by undefined components */
@@ -31,4 +37,8 @@ export const UILibDummy: UILib = {
   values as default, instead of the real UILib variants (Pure/Relay)
   while this context is already imported by some of these components.
  */
-export default React.createContext<UILib>(UILibDummy);
+const UILibContext = React.createContext<UILib>(UILibDummy);
+
+export default UILibContext;
+
+export const useUILib = () => useContext<UILib>(UILibContext);

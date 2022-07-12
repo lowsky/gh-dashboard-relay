@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Table, Thead, Tbody, Tr, Th } from '@chakra-ui/react';
+import React from 'react';
+import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 
 import { GithubRepo } from '../lib/types/resolvers';
-import UILibContext, { UILib } from '../components/UILibContext';
+import { useUILib } from '../components/UILibContext';
 import { DoMergePR } from './UserRepo';
 
 export interface BranchesTableProps {
@@ -10,7 +10,7 @@ export interface BranchesTableProps {
     doMergePR?: DoMergePR;
 }
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
-    const { BranchInfoRow } = useContext<UILib>(UILibContext) as UILib;
+    const { BranchInfoRow } = useUILib();
 
     return (
         <Table size="sm" variant="striped">
@@ -26,7 +26,6 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
             </Thead>
             <Tbody>
                 {(repo?.branches || []).map(
-                    // @ts-ignore
                     (branch, idx) => branch && <BranchInfoRow key={idx} branch={branch} doMergePR={doMergePR} />
                 )}
             </Tbody>

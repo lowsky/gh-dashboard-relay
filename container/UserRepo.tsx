@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
 import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
-import UILibContext, { UILib } from '../components/UILibContext';
+import { useUILib } from '../components/UILibContext';
 
 export type DoMergePR = (num: number) => Promise<unknown>;
 
@@ -16,7 +16,7 @@ export type UserRepoProps = {
 };
 
 const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergePR }) => {
-    const { Repo, User, BranchTable } = useContext<UILib>(UILibContext);
+    const { Repo, User, BranchTable } = useUILib();
 
     return (
         <Flex gap="4" direction="column">

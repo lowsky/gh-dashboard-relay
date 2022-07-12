@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr } from '@chakra-ui/react';
 
-import UILibContext, { UILib } from '../components/UILibContext';
+import { useUILib } from '../components/UILibContext';
 import { GithubBranch } from '../lib/types/resolvers';
 import { DoMergePR } from './UserRepo';
 
@@ -18,7 +18,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR }) => {
     const { associatedPullRequests } = lastCommit ?? {};
     const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
 
-    const { CommitWithStatuses, PullRequestInfo } = useContext<UILib>(UILibContext);
+    const { CommitWithStatuses, PullRequestInfo } = useUILib();
 
     return (
         <Tr key={name}>

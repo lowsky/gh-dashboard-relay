@@ -28,16 +28,10 @@ export const UILibPureComponents: UILib = {
 };
 
 export const UILibWithRelaySupport: UILib = {
-    // @ts-ignore
     User: RelayUser,
-    // @ts-ignore
     Repo: RelayRepo,
-    // @ts-ignore
     BranchTable: RelayBranchesTable,
-    // @ts-ignore
     BranchInfoRow: RelayBranchInfoRow,
-    // @ts-ignore
     CommitWithStatuses: RelayCommitWithStatuses,
-    // @ts-ignore
     PullRequestInfo: RelayPullRequestInfo,
 };
