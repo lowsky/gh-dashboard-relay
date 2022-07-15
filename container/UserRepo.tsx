@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
 import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
