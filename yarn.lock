@@ -9876,7 +9876,7 @@ __metadata:
     eslint-plugin-graphql: 4.0.0
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-storybook: 0.6.1
-    fetch-multipart-graphql: relay-tools/fetch-multipart-graphql
+    fetch-multipart-graphql: 3.1.0
     framer-motion: 6.4.3
     graphql: 16.5.0
     graphql-helix: 1.13.0
@@ -11437,10 +11437,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-fetch-multipart-graphql@relay-tools/fetch-multipart-graphql:
-  version: 3.0.0
-  resolution: "fetch-multipart-graphql@https://github.com/relay-tools/fetch-multipart-graphql.git#commit=70415873f83d4bcc6a2e6609506e60d67bb556ad"
-  checksum: 33e39dbe1f4eedd9177321891ce0a310531f3ac664994ae6151f098685da03700c2d90608c7d9411e3f67f437ed8e1825051adaac42aa483653a12ba28087b79
+"fetch-multipart-graphql@npm:3.1.0":
+  version: 3.1.0
+  resolution: "fetch-multipart-graphql@npm:3.1.0"
+  checksum: 0992a489254c9a80142a47928f2670ebcb317e9cef9d2a4fbbd03c489d40d02e99bbd03c25bc18800e9f1d934634398119ba29c9e1ed63b26a9cc7dac61d4050
   languageName: node
   linkType: hard
 
