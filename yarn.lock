@@ -8027,14 +8027,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-relay@npm:14.0.0":
-  version: 14.0.0
-  resolution: "babel-plugin-relay@npm:14.0.0"
+"babel-plugin-relay@npm:14.1.0":
+  version: 14.1.0
+  resolution: "babel-plugin-relay@npm:14.1.0"
   dependencies:
     babel-plugin-macros: ^2.0.0
     cosmiconfig: ^5.0.5
     graphql: 15.3.0
-  checksum: 732e836825d7a175e2192afeee72d47216d492ec841a9a83e65c292335dd791594dd78aff62241f28e87896323f9cde3022b185bfac8c2ce08165d20365211b5
+  checksum: cc24529dfa55c2212b098f5766cbd9fb30b05f06f9909dde99f98ca0e988b86ae6295686716793344081c144f1b86d33a0ab88dfcfa3c5372526b8bfe1756848
   languageName: node
   linkType: hard
 
@@ -9897,7 +9897,7 @@ __metadata:
     "@types/relay-runtime": 13.0.3
     "@typescript-eslint/eslint-plugin": 5.31.0
     "@typescript-eslint/parser": 5.31.0
-    babel-plugin-relay: 14.0.0
+    babel-plugin-relay: 14.1.0
     chromatic: 6.7.1
     csstype: 3.1.0
     eslint: 8.20.0
