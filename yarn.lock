@@ -10137,7 +10137,7 @@ __metadata:
     "@graphql-codegen/typescript-document-nodes": 2.3.2
     "@graphql-codegen/typescript-operations": 2.5.2
     "@graphql-codegen/typescript-resolvers": 2.7.2
-    "@graphql-tools/schema": 8.5.0
+    "@graphql-tools/schema": 8.5.1
     "@mdx-js/loader": 2.1.2
     "@mdx-js/react": 2.1.2
     "@next/mdx": 12.2.3
