@@ -2918,14 +2918,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@envelop/core@npm:2.4.0":
-  version: 2.4.0
-  resolution: "@envelop/core@npm:2.4.0"
+"@envelop/core@npm:2.4.1":
+  version: 2.4.1
+  resolution: "@envelop/core@npm:2.4.1"
   dependencies:
     "@envelop/types": 2.3.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 587e320e1099381026af4af58f7c18710bd1712ff490899b0261059bbd204f19deca8ad7e9d0f433baa8e27127d301029c05bfe655c3f9ea7085be1a4b8fdccb
+  checksum: 101435f8897d0d31648ccc5eccc7b4f7c2cbab0d6b476b6324b597745114d0b6aa0311a56d150a4203620a9004de3ab324f019f280244df0905d326e5580ccf1
   languageName: node
   linkType: hard
 
@@ -9869,7 +9869,7 @@ __metadata:
     "@chakra-ui/system": 2.2.1
     "@emotion/react": 11.10.0
     "@emotion/styled": 11.10.0
-    "@envelop/core": 2.4.0
+    "@envelop/core": 2.4.1
     "@fortawesome/fontawesome-svg-core": 1.3.0
     "@fortawesome/free-brands-svg-icons": 5.15.4
     "@fortawesome/free-solid-svg-icons": 5.15.4
