@@ -3157,23 +3157,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@envelop/core@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@envelop/core@npm:2.5.0"
+"@envelop/core@npm:2.6.0":
+  version: 2.6.0
+  resolution: "@envelop/core@npm:2.6.0"
   dependencies:
-    "@envelop/types": 2.3.1
+    "@envelop/types": 2.4.0
+    tslib: 2.4.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 69bf82ce49b1d31d931a27a952e844a51dca86013acde33eb19709f2670f3389bb31a61fd7843b1b1a3836eb69400bfffb6152558d3892b69484184532bacde3
+  checksum: 33e070de7f58bec5bd37c5c548bc7c4408b0f5f2b20b290bd5d9bb6b492cd1523458717cbb7a65fdf6963efaa449cf6fc238c8f7a48303ef135ea6750089d7e9
   languageName: node
   linkType: hard
 
-"@envelop/types@npm:2.3.1":
-  version: 2.3.1
-  resolution: "@envelop/types@npm:2.3.1"
+"@envelop/types@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@envelop/types@npm:2.4.0"
+  dependencies:
+    tslib: ^2.4.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 945a5e5a37d7ddce78b3f5ee9b5a51009ef3ecbda12341245c0558e46fc13aff548ad7d54deb0cad91487a874f1456ffd4786c928b45425ec153159ac6045d54
+  checksum: 16f4ca10325483c6f027664cecb2c672cf6edc3c5f6dae11098955b6e9b0004bd29db2b90b8f4323b75a6654e325c3294ee90857420f542df554ec0cfb97c0d2
   languageName: node
   linkType: hard
 
@@ -10495,7 +10498,7 @@ __metadata:
     "@chakra-ui/system": 2.2.9
     "@emotion/react": 11.10.0
     "@emotion/styled": 11.10.0
-    "@envelop/core": 2.5.0
+    "@envelop/core": 2.6.0
     "@fortawesome/fontawesome-svg-core": 1.3.0
     "@fortawesome/free-brands-svg-icons": 5.15.4
     "@fortawesome/free-solid-svg-icons": 5.15.4
