@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 0 # 👈 Required to retrieve git history, since v2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
       - run: yarn
       - uses: chromaui/action@v1
         with:

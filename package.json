@@ -67,7 +67,7 @@
     "@octokit/graphql-schema": "12.4.1",
     "@octokit/rest": "19.0.4",
     "fetch-multipart-graphql": "3.1.0",
-    "framer-motion": "7.3.4",
+    "framer-motion": "7.3.5",
     "graphql": "16.6.0",
     "graphql-helix": "1.13.0",
     "next": "12.3.0",
@@ -119,7 +119,7 @@
     "relay-compiler-language-typescript": "15.0.1",
     "storybook-addon-next-router": "4.0.0",
     "ts-jest": "29.0.0",
-    "typescript": "4.7.4",
+    "typescript": "4.8.3",
     "webpack": "5.74.0"
   },
   "packageManager": "yarn@3.2.3"
