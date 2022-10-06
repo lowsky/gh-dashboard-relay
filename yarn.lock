@@ -10709,7 +10709,7 @@ __metadata:
     eslint-plugin-graphql: 4.0.0
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-storybook: 0.6.4
-    fetch-multipart-graphql: 3.1.0
+    fetch-multipart-graphql: 3.1.1
     framer-motion: 7.5.2
     graphql: 16.6.0
     graphql-helix: 1.13.0
@@ -12334,10 +12334,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fetch-multipart-graphql@npm:3.1.0":
-  version: 3.1.0
-  resolution: "fetch-multipart-graphql@npm:3.1.0"
-  checksum: 0992a489254c9a80142a47928f2670ebcb317e9cef9d2a4fbbd03c489d40d02e99bbd03c25bc18800e9f1d934634398119ba29c9e1ed63b26a9cc7dac61d4050
+"fetch-multipart-graphql@npm:3.1.1":
+  version: 3.1.1
+  resolution: "fetch-multipart-graphql@npm:3.1.1"
+  checksum: 7f99dca25743743bc625f5e0bcad0f7647af112953baab6941f80e3cf94789ac9b27723566fbaa642b7735e2bb531ce1f7de49742cb333fb5118479bfb016a42
   languageName: node
   linkType: hard
 

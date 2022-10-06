@@ -66,7 +66,7 @@
     "@next/mdx": "12.3.1",
     "@octokit/graphql-schema": "12.9.1",
     "@octokit/rest": "19.0.4",
-    "fetch-multipart-graphql": "3.1.0",
+    "fetch-multipart-graphql": "3.1.1",
     "framer-motion": "7.5.2",
     "graphql": "16.6.0",
     "graphql-helix": "1.13.0",
