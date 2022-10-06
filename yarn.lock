@@ -3340,9 +3340,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:2.13.1":
-  version: 2.13.1
-  resolution: "@graphql-codegen/cli@npm:2.13.1"
+"@graphql-codegen/cli@npm:2.13.5":
+  version: 2.13.5
+  resolution: "@graphql-codegen/cli@npm:2.13.5"
   dependencies:
     "@babel/generator": ^7.18.13
     "@babel/template": ^7.18.10
@@ -3364,10 +3364,10 @@ __metadata:
     chalk: ^4.1.0
     chokidar: ^3.5.2
     cosmiconfig: ^7.0.0
-    cosmiconfig-typescript-loader: 4.0.0
+    cosmiconfig-typescript-loader: 4.1.1
     debounce: ^1.2.0
     detect-indent: ^6.0.0
-    graphql-config: ^4.3.5
+    graphql-config: 4.3.6
     inquirer: ^8.0.0
     is-glob: ^4.0.1
     json-to-pretty-yaml: ^1.2.2
@@ -3386,7 +3386,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 750c2a5f598def903842b8b91bbc4a4493703c1f0a2a2300af88b35cffce21128ccb4896e10a789dcdc9ed8076b89144a463da4772ccecf72d44645fc0ab67fe
+  checksum: aa80a4440657bad9ebc3dce6c7b22f843bff97b78c4b37808b6605bf7e2f3d7a227afa66d641284ffb914554147d07aab61ca27eec4551308a3909360191500b
   languageName: node
   linkType: hard
 
@@ -10299,7 +10299,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig-typescript-loader@npm:4.0.0, cosmiconfig-typescript-loader@npm:^4.0.0":
+"cosmiconfig-typescript-loader@npm:4.1.1":
+  version: 4.1.1
+  resolution: "cosmiconfig-typescript-loader@npm:4.1.1"
+  peerDependencies:
+    "@types/node": "*"
+    cosmiconfig: ">=7"
+    ts-node: ">=10"
+    typescript: ">=3"
+  checksum: a774961868f0406d0fd75e448c2e1a0ddb95de27d477fa325a37369a2cbd892cf4d639a109082cd886840dea7707ea9bed5c38a468b52de18400c4f1d495d35a
+  languageName: node
+  linkType: hard
+
+"cosmiconfig-typescript-loader@npm:^4.0.0":
   version: 4.0.0
   resolution: "cosmiconfig-typescript-loader@npm:4.0.0"
   peerDependencies:
@@ -10652,7 +10664,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": 6.2.0
     "@fortawesome/free-solid-svg-icons": 6.2.0
     "@fortawesome/react-fontawesome": 0.2.0
-    "@graphql-codegen/cli": 2.13.1
+    "@graphql-codegen/cli": 2.13.5
     "@graphql-codegen/typescript": 2.7.3
     "@graphql-codegen/typescript-document-nodes": 2.3.3
     "@graphql-codegen/typescript-operations": 2.5.3
@@ -13131,6 +13143,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-config@npm:4.3.6":
+  version: 4.3.6
+  resolution: "graphql-config@npm:4.3.6"
+  dependencies:
+    "@graphql-tools/graphql-file-loader": ^7.3.7
+    "@graphql-tools/json-file-loader": ^7.3.7
+    "@graphql-tools/load": ^7.5.5
+    "@graphql-tools/merge": ^8.2.6
+    "@graphql-tools/url-loader": ^7.9.7
+    "@graphql-tools/utils": ^8.6.5
+    cosmiconfig: 7.0.1
+    cosmiconfig-toml-loader: 1.0.0
+    cosmiconfig-typescript-loader: ^4.0.0
+    minimatch: 4.2.1
+    string-env-interpolation: 1.0.1
+    ts-node: ^10.8.1
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 528f69c2c3620b51fe3d609e65d13861bdc11ccfdfcb75d476f758dc6e3047c78117a260f69b5e7efa5f0b66da1980c352a8b4053532ffb3018377f784331e21
+  languageName: node
+  linkType: hard
+
 "graphql-config@npm:^3.0.2":
   version: 3.4.1
   resolution: "graphql-config@npm:3.4.1"
@@ -13149,29 +13184,6 @@ __metadata:
   peerDependencies:
     graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
   checksum: c1179d44b4fea53784ec7fa2cf56acbcfcd2886bd617fa847106b51471b8cd3b30daae0a0fb04a9c208cfde77f7783383dc5f5f094b22007c44455feceb5691a
-  languageName: node
-  linkType: hard
-
-"graphql-config@npm:^4.3.5":
-  version: 4.3.5
-  resolution: "graphql-config@npm:4.3.5"
-  dependencies:
-    "@graphql-tools/graphql-file-loader": ^7.3.7
-    "@graphql-tools/json-file-loader": ^7.3.7
-    "@graphql-tools/load": ^7.5.5
-    "@graphql-tools/merge": ^8.2.6
-    "@graphql-tools/url-loader": ^7.9.7
-    "@graphql-tools/utils": ^8.6.5
-    cosmiconfig: 7.0.1
-    cosmiconfig-toml-loader: 1.0.0
-    cosmiconfig-typescript-loader: ^4.0.0
-    minimatch: 4.2.1
-    string-env-interpolation: 1.0.1
-    ts-node: ^10.8.1
-    tslib: ^2.4.0
-  peerDependencies:
-    graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 0b8ca47263b12b228db72d9abb663ab8e02e01c677d9ffe08f7be651617fdc93ff2ff6c342465544df43dc4d507293a66b8fc2b8237c2628ebdbc5c74311b1d8
   languageName: node
   linkType: hard
 
