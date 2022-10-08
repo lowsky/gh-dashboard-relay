@@ -64,7 +64,7 @@
     "@mdx-js/loader": "2.1.3",
     "@mdx-js/react": "2.1.3",
     "@next/mdx": "12.3.1",
-    "@octokit/graphql-schema": "12.9.1",
+    "@octokit/graphql-schema": "12.11.0",
     "@octokit/rest": "19.0.4",
     "fetch-multipart-graphql": "3.1.1",
     "framer-motion": "7.5.2",
