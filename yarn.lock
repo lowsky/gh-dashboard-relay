@@ -10716,7 +10716,7 @@ __metadata:
     relay-compiler: 14.1.0
     relay-compiler-language-typescript: 15.0.1
     relay-runtime: 14.1.0
-    storybook-addon-next-router: 4.0.0
+    storybook-addon-next-router: 4.0.1
     ts-jest: 29.0.3
     typescript: 4.8.4
     webpack: 5.74.0
@@ -20692,11 +20692,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-next-router@npm:4.0.0":
-  version: 4.0.0
-  resolution: "storybook-addon-next-router@npm:4.0.0"
+"storybook-addon-next-router@npm:4.0.1":
+  version: 4.0.1
+  resolution: "storybook-addon-next-router@npm:4.0.1"
   dependencies:
-    tslib: ^2.3.0
+    tslib: 2.4.0
   peerDependencies:
     "@storybook/addon-actions": ^6.0.0
     "@storybook/addons": ^6.0.0
@@ -20704,7 +20704,7 @@ __metadata:
     next: ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 3e203fe069d41faa43a0274ecc09d60871b92457bd2c642ead0eeca792188241a658c4f52b7e8dcce8392569fd54192c1e384d7813e3f84a899d27cd22009c62
+  checksum: f83c5282046e7a2173329e136d6e38faac3e7e4b05a09e22def6f3b6c590a78d7c4fbb5847a225fca4baeea55ad9d2005f44fbd3be907c1d6eba1d859ecc7aac
   languageName: node
   linkType: hard
 
@@ -21620,7 +21620,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:~2.3.0":
+"tslib@npm:^2, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:~2.3.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
