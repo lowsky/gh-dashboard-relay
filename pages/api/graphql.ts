@@ -2,7 +2,7 @@
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { NextApiRequest, NextApiResponse } from 'next';
-
+import { execute, parse, subscribe, validate } from 'graphql';
 import {
     getGraphQLParameters,
     processRequest,
@@ -12,7 +12,7 @@ import {
     sendResult,
     shouldRenderGraphiQL,
 } from 'graphql-helix';
-import { envelop, useSchema } from '@envelop/core';
+import { envelop, useEngine, useSchema } from '@envelop/core';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
 import { typeDefs } from '../../lib/localSchema';
@@ -23,7 +23,7 @@ const isLocalDev = process.env.NODE_ENV === 'development';
 function getEnveloped(req) {
     const schema = makeExecutableSchema({ typeDefs, resolvers });
     const getEnveloped = envelop({
-        plugins: [useSchema(schema)],
+        plugins: [useSchema(schema), useEngine({ parse, validate, execute, subscribe })],
     });
 
     return getEnveloped({ req });
