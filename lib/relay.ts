@@ -1,23 +1,31 @@
 import { useMemo } from 'react';
-import { Environment, Network, RecordSource, Store } from 'relay-runtime';
+import { Environment, Network, Observable, RecordSource, Store } from 'relay-runtime';
 import { RecordMap } from 'relay-runtime/lib/store/RelayStoreTypes';
+
+import fetchMultipart from 'fetch-multipart-graphql';
 
 let relayEnvironment: any;
 
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise
-function fetchQuery(operation: any, variables: any) {
-    return fetch(process.env.NEXT_PUBLIC_RELAY_ENDPOINT ?? '/api/graphql', {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        }, // Add authentication and other headers here
-        body: JSON.stringify({
-            query: operation.text, // GraphQL text from input
-            variables,
-        }),
-    }).then((response) => response.json());
+function fetchQuery(operation, variables) {
+    return Observable.create((sink) => {
+        fetchMultipart(process.env.NEXT_PUBLIC_RELAY_ENDPOINT ?? '/api/graphql', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query: operation.text,
+                variables,
+            }),
+            credentials: 'same-origin',
+            onNext: (parts) => sink.next(parts),
+            onError: (err) => sink.error(err as Error), //wrap it later
+            onComplete: () => sink.complete(),
+        });
+    });
 }
 
 function createEnvironment() {
