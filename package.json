@@ -57,7 +57,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@chakra-ui/react": "2.3.5",
+    "@chakra-ui/react": "2.3.6",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@envelop/core": "3.0.1",
@@ -79,7 +79,7 @@
     "@babel/eslint-parser": "7.19.1",
     "@chakra-ui/icons": "2.0.11",
     "@chakra-ui/storybook-addon": "4.0.12",
-    "@chakra-ui/system": "2.2.12",
+    "@chakra-ui/system": "2.3.0",
     "@fortawesome/fontawesome-svg-core": "6.2.0",
     "@fortawesome/free-brands-svg-icons": "6.2.0",
     "@fortawesome/free-solid-svg-icons": "6.2.0",
