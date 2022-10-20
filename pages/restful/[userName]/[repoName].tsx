@@ -105,7 +105,7 @@ export function RestfulMain({ userName, repoName }) {
     return (
         <UILibContext.Provider value={UILibPureComponents}>
             <Box>
-                <UserRepo user={user} repo={repo} />
+                <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
             </Box>
             {errorMsg && (
                 <Alert status="error">
