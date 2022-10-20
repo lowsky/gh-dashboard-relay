@@ -17,5 +17,5 @@ export default function BranchInfoRowFragmentContainer(props) {
         `,
         props.branch
     );
-    return <BranchInfoRow branch={branch} />;
+    return <BranchInfoRow branch={branch} doMergePR={props.doMergePR} />;
 }

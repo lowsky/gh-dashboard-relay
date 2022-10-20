@@ -65,13 +65,27 @@ export const RelayRootMain = ({ userName, repoName }) => {
         return;
     };
 
-    return <ShowUserRepoContent userData={userData} repoData={repoData} doMergePR={doMergePR} />;
+    return (
+        <ShowUserRepoContent
+            userData={userData}
+            repoData={repoData}
+            doMergePR={doMergePR}
+            repoName={repoName}
+            userName={userName}
+        />
+    );
 };
 
-function ShowUserRepoContent({ userData, repoData, doMergePR }) {
+function ShowUserRepoContent({ userData, repoData, doMergePR, userName, repoName }) {
     return (
         <UILibContext.Provider value={UILibWithRelaySupport}>
-            <UserRepo user={userData.user} repo={repoData.repo} doMergePR={doMergePR} />
+            <UserRepo
+                user={userData.user}
+                repo={repoData.repo}
+                doMergePR={doMergePR}
+                repoName={repoName}
+                userName={userName}
+            />
         </UILibContext.Provider>
     );
 }

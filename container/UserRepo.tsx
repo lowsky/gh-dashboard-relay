@@ -6,16 +6,18 @@ import { useUILib } from '../components/UILibContext';
 
 export type DoMergePR = (num: number) => Promise<unknown>;
 
-export type UserRepoProps = {
-    readonly doMergePR?: DoMergePR;
-    readonly user?: UserType;
-    readonly repo?: {
+export type UserRepoProps = Readonly<{
+    doMergePR?: DoMergePR;
+    user?: UserType;
+    repo?: {
         readonly name: string;
         readonly branches: Branches;
     };
-};
+    userName: string;
+    repoName: string;
+}>;
 
-const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergePR }) => {
+const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergePR, userName, repoName }) => {
     const { Repo, User, BranchTable } = useUILib();
 
     return (
@@ -29,7 +31,10 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergeP
             {!repo && (
                 <Alert status="warning">
                     <AlertIcon />
-                    Repo not found.
+                    Repo not found:
+                    <a href={'https://github.com/' + userName + '/' + repoName}>
+                        {userName}/{repoName}
+                    </a>
                 </Alert>
             )}
             {repo && <Repo repo={repo} />}

@@ -22,7 +22,7 @@ import {
 const githubResolver: GithubApiResolvers = {
     user: async (_, { username }) => {
         try {
-            return await getUser(username);
+            return getUser(username);
         } catch (err) {
             return {};
         }

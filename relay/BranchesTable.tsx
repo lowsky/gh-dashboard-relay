@@ -14,5 +14,5 @@ export default function BranchesTableFragmentContainer(props) {
         props.repo
     );
 
-    return <BranchesTable repo={repo} />;
+    return <BranchesTable repo={repo} doMergePR={props.doMergePR} />;
 }
