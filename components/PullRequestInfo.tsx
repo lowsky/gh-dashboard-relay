@@ -4,7 +4,7 @@ import { Maybe } from '../lib/types/resolvers';
 import { DoMergePR } from '../container/UserRepo';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Button, Icon, Link, VStack } from '@chakra-ui/react';
 
@@ -21,12 +21,16 @@ export type PullRequestData = {
 
 export default function PullRequestInfo({ pullRequest, doMergePR }: PullRequestInfoProps) {
     const [mergeRequest, setMergeRequest] = useState<Promise<unknown>>();
+    const [isMerged, setIsMerged] = useState<boolean>(false);
     const [error, setError] = useState<string>();
 
     useEffect(() => {
         if (mergeRequest) {
             setError(undefined);
             mergeRequest
+                .then(() => {
+                    setIsMerged(true);
+                })
                 .catch((err) => {
                     return setError(err);
                 })
@@ -59,6 +63,11 @@ export default function PullRequestInfo({ pullRequest, doMergePR }: PullRequestI
             {!!mergeRequest && (
                 <Icon>
                     <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
+                </Icon>
+            )}
+            {!!isMerged && (
+                <Icon>
+                    <FontAwesomeIcon icon={faCheck as IconProp} size="1x" />
                 </Icon>
             )}
         </VStack>
