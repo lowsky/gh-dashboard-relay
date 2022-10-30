@@ -89,7 +89,7 @@
     "@graphql-codegen/typescript-document-nodes": "2.3.5",
     "@graphql-codegen/typescript-operations": "2.5.5",
     "@graphql-codegen/typescript-resolvers": "2.7.5",
-    "@graphql-tools/schema": "9.0.4",
+    "@graphql-tools/schema": "9.0.5",
     "@octokit/types": "8.0.0",
     "@storybook/addon-essentials": "6.5.12",
     "@storybook/addon-storyshots": "6.5.12",
