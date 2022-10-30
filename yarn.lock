@@ -3275,13 +3275,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@envelop/core@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@envelop/core@npm:3.0.2"
+"@envelop/core@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@envelop/core@npm:3.0.3"
   dependencies:
     "@envelop/types": 3.0.0
     tslib: 2.4.0
-  checksum: c7859a5415760dd4cf2e9e2658c39543d0a26c2983c6892792e5c46c1ea6c5a6c0c7e693ef031420867523c288c2443004324e4b3fd13fda9a319a69c682e534
+  checksum: 8a1d020f4f7991a284bbce6a0da3750c48aa893edd43d034b1b5b9348e3d4a82a979ec3fa1a5e094fa6692218cc6e4b642bacc7798c29f2a04b97258c962d032
   languageName: node
   linkType: hard
 
@@ -10690,7 +10690,7 @@ __metadata:
     "@chakra-ui/system": 2.3.0
     "@emotion/react": 11.10.4
     "@emotion/styled": 11.10.4
-    "@envelop/core": 3.0.2
+    "@envelop/core": 3.0.3
     "@fortawesome/fontawesome-svg-core": 6.2.0
     "@fortawesome/free-brands-svg-icons": 6.2.0
     "@fortawesome/free-solid-svg-icons": 6.2.0
