@@ -10771,7 +10771,7 @@ __metadata:
     eslint-plugin-graphql: 4.0.0
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-storybook: 0.6.7
-    framer-motion: 7.6.5
+    framer-motion: 7.6.6
     graphql: 16.0.0-rc.7.experimental-stream-defer.4
     graphql-helix: 1.13.0
     identity-obj-proxy: 3.0.0
@@ -12725,9 +12725,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:7.6.5":
-  version: 7.6.5
-  resolution: "framer-motion@npm:7.6.5"
+"framer-motion@npm:7.6.6":
+  version: 7.6.6
+  resolution: "framer-motion@npm:7.6.6"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": 10.13.1
@@ -12742,7 +12742,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: d9a288e009c6b0a7ab8f8d8d6761da2335697468863d5eceaa2cf09ded8f016690b6c7b3fa683f9d14c9bd50dc57c0586fd5c2063d5851520f6982669ad93a65
+  checksum: 2a243dbfb1ceeb2ca54e0113fdc2a388e3d74ae6aa232de6534c80d883b25f227c7ccd4f32b12545bff758bba723e3992407ddc45e859409411096ab90a3f709
   languageName: node
   linkType: hard
 
