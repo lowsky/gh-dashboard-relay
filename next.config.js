@@ -1,5 +1,8 @@
 const { relay } = require('./package.json');
 const withMDX = require('@next/mdx')({
+    experimental: {
+        mdxRs: true,
+    },
     extension: /\.mdx?$/,
     options: {
         providerImportSource: '@mdx-js/react',
@@ -9,7 +12,6 @@ const withMDX = require('@next/mdx')({
 module.exports = {
     reactStrictMode: true,
 
-    swcMinify: true,
     compiler: {
         relay,
     },
