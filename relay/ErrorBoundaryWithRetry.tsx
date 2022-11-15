@@ -3,10 +3,12 @@
  */
 import React from 'react';
 
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box } from '@chakra-ui/react';
+
 type State = { error?: Error | null };
 
 export default class ErrorBoundaryWithRetry extends React.Component<
-    { fallback?: any; children: React.ReactNode },
+    { fallback?: any; message?: string | null; children: React.ReactNode },
     State
 > {
     state = { error: null };
@@ -16,20 +18,36 @@ export default class ErrorBoundaryWithRetry extends React.Component<
     }
 
     render() {
-        const { children, fallback } = this.props;
+        const { children, message, fallback } = this.props;
         const { error } = this.state;
 
         if (error) {
-            if (typeof fallback === 'function') {
-                return fallback({ error });
-            }
+            if (message === null) return null;
 
+            if (typeof fallback === 'function') {
+                if (typeof fallback === 'function') {
+                    return fallback({ error });
+                }
+            }
             return (
-                <div className="notification has-text-danger">
-                    Error! While trying to load data from the server:
-                    <br />
-                    {JSON.stringify(error)}
-                </div>
+                <Alert status="error">
+                    <AlertIcon />
+                    <Box>
+                        <AlertTitle>Error! While trying to load data:</AlertTitle>
+                        {message && <AlertDescription>{message}</AlertDescription>}
+                        {!message && (
+                            <AlertDescription>
+                                Details:
+                                <pre>
+                                    {
+                                        // @ts-ignore
+                                        JSON.stringify(error, ' ', 2)
+                                    }
+                                </pre>
+                            </AlertDescription>
+                        )}
+                    </Box>
+                </Alert>
             );
         }
         return children;
