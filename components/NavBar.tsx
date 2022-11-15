@@ -5,7 +5,7 @@ import {
     Flex,
     Center,
     IconButton,
-    Link,
+    Link as ChakraLink,
     Popover,
     PopoverTrigger,
     Stack,
@@ -14,6 +14,8 @@ import {
     useColorModeValue,
     useDisclosure,
 } from '@chakra-ui/react';
+
+import Link from 'next/link';
 
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
@@ -66,18 +68,15 @@ const DesktopNav = () => {
     return (
         <Stack direction="row" spacing={4} align="center">
             {NAV_ITEMS.map((navItem) => (
-                    <Popover trigger={'hover'} placement={'bottom-start'} key={navItem.label}>
-                        <PopoverTrigger>
-                            <Link
-                                href={navItem.href ?? '#'}
-                                _hover={{
-                                    textDecoration: 'none',
-                                    color: linkHoverColor,
-                                }}>
+                <Popover trigger={'hover'} placement={'bottom-start'} key={navItem.label}>
+                    <PopoverTrigger>
+                        <Link passHref legacyBehavior href={navItem.href ?? '#'}>
+                            <ChakraLink _hover={{ textDecoration: 'none', color: linkHoverColor }}>
                                 {navItem.label}
-                            </Link>
-                        </PopoverTrigger>
-                    </Popover>
+                            </ChakraLink>
+                        </Link>
+                    </PopoverTrigger>
+                </Popover>
             ))}
         </Stack>
     );
@@ -97,13 +96,16 @@ const MobileNav = () => {
 const MobileNavItem = ({ label, children, href }: NavItem) => {
     const { isOpen, onToggle } = useDisclosure();
 
+    let color = useColorModeValue('gray.600', 'gray.200');
     return (
         <Stack spacing={4} onClick={children && onToggle}>
-            <Flex py={2} as={Link} href={href ?? '#'} justify={'space-between'} align={'center'}>
-                <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
-                    {label}
-                </Text>
-            </Flex>
+            {false && (
+                <Flex py={2} as={Link} href={href ?? '#'} justify={'space-between'} align={'center'}>
+                    <Text fontWeight={600} color={color}>
+                        {label}
+                    </Text>
+                </Flex>
+            )}
 
             <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
                 <Stack
@@ -115,9 +117,9 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                     align={'start'}>
                     {children &&
                         children.map((child) => (
-                            <Link key={child.label} py={2} href={child.href}>
+                            <ChakraLink key={child.label} py={2} href={child.href}>
                                 <Text>{child.label}</Text>
-                            </Link>
+                            </ChakraLink>
                         ))}
                 </Stack>
             </Collapse>
@@ -142,8 +144,12 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '/relay/lowsky/dashboard',
     },
     {
-        label: 'REST-based Demo',
+        label: 'REST-based dashboard',
         href: '/restful/lowsky/dashboard',
+    },
+    {
+        label: 'REST-based spotify...',
+        href: '/restful/lowsky/spotify-graphql-server',
     },
     {
         label: 'Storybook',
