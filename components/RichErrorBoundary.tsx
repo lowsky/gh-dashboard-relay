@@ -7,7 +7,7 @@ import { Alert, AlertDescription, AlertIcon, AlertTitle, Box } from '@chakra-ui/
 
 type State = { error?: Error | null };
 
-export default class ErrorBoundaryWithRetry extends React.Component<
+export default class RichErrorBoundary extends React.Component<
     { fallback?: any; message?: string | null; children: React.ReactNode },
     State
 > {

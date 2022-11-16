@@ -6,7 +6,8 @@ import { DoMergePR } from '../../../container/UserRepo';
 import UILibContext from '../../../components/UILibContext';
 import { UILibWithRelaySupport } from '../../../components';
 import UserRepo from '../../../relay/UserRepo';
-import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
+import RichErrorBoundary from '../../../components/RichErrorBoundary';
+import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
 import { repoQuery, userQuery } from '../../../queries/relayPage';
 import { mergePullRequest } from '../../../lib/github';
 import { useEnvironment } from '../../../lib/relay';
@@ -35,11 +36,11 @@ const RelayRoot = () => {
         }
         return (
             <RelayEnvironmentProvider environment={environment}>
-                <ErrorBoundaryWithRetry>
+                <RichErrorBoundary>
                     <Suspense fallback={<ContentLoadingFallback />}>
                         <RelayRootMain userName={userName} repoName={repoName} />
                     </Suspense>
-                </ErrorBoundaryWithRetry>
+                </RichErrorBoundary>
             </RelayEnvironmentProvider>
         );
     }
@@ -87,17 +88,6 @@ function ShowUserRepoContent({ userData, repoData, doMergePR, userName, repoName
                 userName={userName}
             />
         </UILibContext.Provider>
-    );
-}
-
-export function ContentLoadingFallback() {
-    return (
-        <div className="box">
-            <span className="icon is-large ">
-                <i className="fas fa-spinner fa-pulse" />
-            </span>
-            Loading ...
-        </div>
     );
 }
 
