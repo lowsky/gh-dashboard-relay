@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Alert, AlertIcon, Box } from '@chakra-ui/react';
+import Link from 'next/link';
+import { Alert, AlertIcon, Link as ChakraLink } from '@chakra-ui/react';
 
 import UserRepo from '../../../container/UserRepo';
 
@@ -18,7 +19,14 @@ export default function RestfulPage() {
         if (typeof window === 'undefined') {
             return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
         }
-        return <RestfulMain userName={userName} repoName={repoName} />;
+        return (
+            <>
+                <Link passHref legacyBehavior href={'/restful/lowsky'}>
+                    <ChakraLink>back to Menu</ChakraLink>
+                </Link>
+                <RestfulMain userName={userName} repoName={repoName} />
+            </>
+        );
     }
     return <WarningMissingURLParams />;
 }
@@ -104,9 +112,7 @@ export function RestfulMain({ userName, repoName }) {
 
     return (
         <UILibContext.Provider value={UILibPureComponents}>
-            <Box>
-                <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
-            </Box>
+            <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
             {errorMsg && (
                 <Alert status="error">
                     <AlertIcon />
