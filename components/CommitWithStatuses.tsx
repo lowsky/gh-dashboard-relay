@@ -12,7 +12,8 @@ export interface CommitWithStatusProps {
 }
 
 const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
-    const { author, sha, date = '-?-', message = '-?-', status = [] } = commit;
+    // @ts-ignore
+    const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
 
     const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
 
@@ -31,7 +32,7 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
                 <CommitterInfo author={author} />
             </div>
 
-            <CommitStatuses statuses={status} />
+            <CommitStatuses statuses={status ?? statuses} />
         </>
     );
 };
