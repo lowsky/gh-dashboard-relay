@@ -15,18 +15,23 @@ interface RepoType {
 
 export interface RepoProps {
     repo?: RepoType;
+    userName?: string;
+    repoName?: string;
 }
 
-const Repo: React.FC<RepoProps> = ({ repo: { name = '?', owner = {} } = {} }) => {
+const Repo: React.FC<RepoProps> = ({ repo, userName, repoName }) => {
+    const login = repo?.owner?.login ?? userName ?? 'unknown';
+    const name = repo?.name ?? repoName ?? 'unknown';
+
     return (
         <Box>
             <Heading as="h1" variant="grey" size="lg">
                 Repository
             </Heading>
             <Heading as="h2" size="md">
-                <Link href={`https://github.com/${owner.login}/${name}`} rel="noopener noreferrer nofollow">
+                <Link href={`https://github.com/${login}/${name}`} rel="noopener noreferrer nofollow">
                     <strong>
-                        {owner && owner.login} / {name}
+                        {login} / {name}
                     </strong>
                     <Icon ml={1}>
                         <FontAwesomeIcon icon={faGithub as IconProp} />
