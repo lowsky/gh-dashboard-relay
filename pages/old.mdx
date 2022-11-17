@@ -1,0 +1,47 @@
+# What is it?
+
+The main goal was to compare a
+**Relay based GraphQL** with
+a **Rest**
+client.
+
+Additionally, it contains a solution for
+**mixing Relay and normal React**
+components.
+
+**Main navigation:**
+You can use the links above for different views:
+
+-   **GraphQL + Relay**
+
+    -   fetches all information from a locally installed relay server.
+
+        **Note:**
+
+        _This needs a backend server / currently implemented as lambda function..._
+
+-   **RESTFul Demo**
+
+    -   just fetches info from Github&apos;s public open API via Rest calls.
+
+-   **Storybook**
+    shows all internal components.
+
+-   **GitHub Repo**
+    brings you to the source code.
+
+# Examples
+
+-   **lowsky/dashboard:** [**Rest**](./restful/lowsky/dashboard) or [**GraphQL Relay**](./relay/lowsky/dashboard) based, or [**side-by-side**](./side-by-side/lowsky/dashboard)
+-   **lowsky/spotify-graphql-server:** [**Rest**](./restful/lowsky/spotify-graphql-server) or [**GraphQL Relay**](./relay/lowsky/spotify-graphql-server) based, or [**side-by-side**](./side-by-side/lowsky/spotify-graphql-server)
+
+## How to start the local server
+
+After installing the dependencies via `yarn install`,
+
+you will also need to configure GitHub
+authentication token in the `server/.env` file,
+
+then simply run the local graphql server via and web app via `yarn run dev`
+
+see [getting started in the README](https://github.com/lowsky/dashboard#getting-started)

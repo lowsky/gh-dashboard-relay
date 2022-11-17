@@ -1,47 +1,18 @@
 # What is it?
 
-The main goal was to compare a
-**Relay based GraphQL** with
-a **Rest**
-client.
+The goal is to demonstrate the use of React Suspense:
 
-Additionally, it contains a solution for
-**mixing Relay and normal React**
-components.
+-   with **Relay based GraphQL** or **REST**
+
+It also shows how fine-tuning the loading can be used to have a water-fall via fetch-on-render or
+doing a wait-for-all approach
 
 **Main navigation:**
 You can use the links above for different views:
 
--   **GraphQL + Relay**
+# See
 
-    -   fetches all information from a locally installed relay server.
-
-        **Note:**
-
-        _This needs a backend server / currently implemented as lambda function..._
-
--   **RESTFul Demo**
-
-    -   just fetches info from Github&apos;s public open API via Rest calls.
-
--   **Storybook**
-    shows all internal components.
-
--   **GitHub Repo**
-    brings you to the source code.
-
-# Examples
-
--   **lowsky/dashboard:** [**Rest**](./restful/lowsky/dashboard) or [**GraphQL Relay**](./relay/lowsky/dashboard) based, or [**side-by-side**](./side-by-side/lowsky/dashboard)
--   **lowsky/spotify-graphql-server:** [**Rest**](./restful/lowsky/spotify-graphql-server) or [**GraphQL Relay**](./relay/lowsky/spotify-graphql-server) based, or [**side-by-side**](./side-by-side/lowsky/spotify-graphql-server)
-
-## How to start the local server
-
-After installing the dependencies via `yarn install`,
-
-you will also need to configure GitHub
-authentication token in the `server/.env` file,
-
-then simply run the local graphql server via and web app via `yarn run dev`
-
-see [getting started in the README](https://github.com/lowsky/dashboard#getting-started)
+-   [**Old approach**](./restful) for fetching all in a `useEffect()` way
+-   [**Load all with Suspend**](./wait-for-all) for fetching all in modern Promise-based way
+-   [**Optimised Suspend**](./waterfall) for fetching incrementally (waterfall) in modern Promise-based way
+-   [**Side-by-Side Compare**](./side-by-side) or wait-for-all or incrementally loading

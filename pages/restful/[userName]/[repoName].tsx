@@ -25,7 +25,10 @@ export default function RestfulPage() {
                 <Link passHref legacyBehavior href={'/restful/lowsky'}>
                     <ChakraLink>back to shortcut list</ChakraLink>
                 </Link>
-                <RestfulMain userName={userName} repoName={repoName} />
+
+                <UILibContext.Provider value={UILibPureComponents}>
+                    <RestfulMain userName={userName} repoName={repoName} />
+                </UILibContext.Provider>
             </>
         );
     }
@@ -38,6 +41,7 @@ export function RestfulMain({ userName, repoName }) {
         owner: { login: userName },
         branches: [] as Branches,
     });
+
     const [user, storeUser] = useState<User>({
         login: userName,
         avatar_url: '',
@@ -87,7 +91,7 @@ export function RestfulMain({ userName, repoName }) {
     }, [userName, repoName]);
 
     return (
-        <UILibContext.Provider value={UILibPureComponents}>
+        <>
             <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
 
             {errorMsg && (
@@ -96,6 +100,6 @@ export function RestfulMain({ userName, repoName }) {
                     {errorMsg}
                 </Alert>
             )}
-        </UILibContext.Provider>
+        </>
     );
 }
