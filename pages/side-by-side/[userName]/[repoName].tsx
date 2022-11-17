@@ -5,7 +5,8 @@ import Link from 'next/link';
 
 import styles from './side-by-side.module.css';
 
-import { RestfulMain } from '../../restful/[userName]/[repoName]';
+import { WaitForAll } from '../../wait-for-all/[userName]/[repoName]';
+import { WaterfallMain } from '../../waterfall/[userName]/[repoName]';
 
 export const SideBySide = () => {
     const router = useRouter();
@@ -23,7 +24,10 @@ export const SideBySide = () => {
             {userName && repoName && (
                 <div className={styles.sideBySide}>
                     <div className={styles.side}>
-                        <RestfulMain userName={userName} repoName={repoName} />
+                        <WaterfallMain userName={userName} repoName={repoName} />
+                    </div>
+                    <div className={styles.side}>
+                        <WaitForAll userName={userName} repoName={repoName} />
                     </div>
                 </div>
             )}
