@@ -40,17 +40,20 @@ export default function PullRequestInfo({ pullRequest, doMergePR }: PullRequestI
         }
     }, [mergeRequest]);
 
+    const { number, title, url } = pullRequest;
+
+
     return (
         <VStack>
-            <Link href={pullRequest.url ?? ''} title={pullRequest.title ?? ''} rel="noopener noreferrer nofollow">
-                #{pullRequest.number}
+            <Link href={url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
+                #{number}
             </Link>
             {doMergePR && (
                 <Button
                     ml={1}
                     size="xs"
                     variant="outline"
-                    onClick={() => setMergeRequest(doMergePR(pullRequest.number))}
+                    onClick={() => setMergeRequest(doMergePR(number))}
                     disabled={!!mergeRequest}>
                     Rebase&Merge
                 </Button>

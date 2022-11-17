@@ -18,7 +18,7 @@ export const SideBySide = () => {
     return (
         <div>
             <Link passHref legacyBehavior href={`/side-by-side/`}>
-                <ChakraLink>back to MENU</ChakraLink>
+                <ChakraLink>back to shortcut list</ChakraLink>
             </Link>
             {userName && repoName && (
                 <div className={styles.sideBySide}>
