@@ -5,12 +5,13 @@ import { Alert, AlertIcon, Link as ChakraLink } from '@chakra-ui/react';
 
 import UserRepo from '../../../container/UserRepo';
 
-import { fetchRepoBranches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
+import { Branches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import { fetchRepoPullRequestsAssociatedWithCommit, getLastCommit } from '../../../lib/github';
+
+import { fetchRepoBranchesWithCommitStatusAndPR } from '../../../restinpeace/UserRepo';
 
 export default function RestfulPage() {
     const router = useRouter();
@@ -22,7 +23,7 @@ export default function RestfulPage() {
         return (
             <>
                 <Link passHref legacyBehavior href={'/restful/lowsky'}>
-                    <ChakraLink>back to Menu</ChakraLink>
+                    <ChakraLink>back to shortcut list</ChakraLink>
                 </Link>
                 <RestfulMain userName={userName} repoName={repoName} />
             </>
@@ -35,7 +36,7 @@ export function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },
-        branches: [],
+        branches: [] as Branches,
     });
     const [user, storeUser] = useState<User>({
         login: userName,
@@ -55,7 +56,6 @@ export function RestfulMain({ userName, repoName }) {
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
                     storeErrorMsg('User: ' + ex.message);
-                    console.error('fetching user info failed', ex);
                 }
             });
         return () => {
@@ -66,42 +66,18 @@ export function RestfulMain({ userName, repoName }) {
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchRepoBranches(userName, repoName)
-            .then((branches) => {
-                if (!ignoreDownloadedData) {
-                    let branchesWithCommitProms = branches.map((branch) => {
-                        // @ts-expect-error type-definition wrong: lastCommit/commit is swapped?!
-                        const { sha } = branch.commit;
-                        return getLastCommit(userName, repoName, sha)
-                            .then((com) => ({
-                                ...branch,
-                                lastCommit: com,
-                            }))
-                            .then((branchWithCommit) =>
-                                fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha).then((pr) => ({
-                                    ...branchWithCommit,
-                                    lastCommit: {
-                                        ...branchWithCommit.lastCommit,
-                                        associatedPullRequests: pr,
-                                    },
-                                }))
-                            );
+        fetchRepoBranchesWithCommitStatusAndPR({ userName, repoName })
+            .then((branchesWithCommit) => {
+                if (!ignoreDownloadedData)
+                    storeRepo({
+                        name: repoName,
+                        owner: { login: userName },
+                        branches: branchesWithCommit.branches,
                     });
-
-                    Promise.all(branchesWithCommitProms).then((branchesWithCommit) => {
-                        storeRepo({
-                            name: repoName,
-                            owner: { login: userName },
-                            // @ts-ignore needs to be fixed / investigated
-                            branches: branchesWithCommit ?? [],
-                        });
-                    });
-                }
             })
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
                     storeErrorMsg('Repo: Branches: ' + ex.message);
-                    console.error('fetching branches info failed', ex);
                 }
             });
 
@@ -113,6 +89,7 @@ export function RestfulMain({ userName, repoName }) {
     return (
         <UILibContext.Provider value={UILibPureComponents}>
             <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
+
             {errorMsg && (
                 <Alert status="error">
                     <AlertIcon />

@@ -1,4 +1,3 @@
-import { GithubBranch } from '../lib/types/resolvers';
 import { octo } from '../lib/github';
 
 export interface Commit {
@@ -6,7 +5,10 @@ export interface Commit {
     url: string;
 }
 
-export type Branches = GithubBranch[];
+export type Branches = {
+    commit: { sha: string; url: string };
+    name: string;
+}[];
 
 /**
  * Fetch the branches for a given repo
