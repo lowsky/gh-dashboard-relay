@@ -9,6 +9,8 @@ export const customTheme = extendTheme({ ...themeConfig });
 
 import ChakraMdxProvider from '../components/ChakraMdxProvider';
 
+import { Director } from 'hitchcock';
+
 export default function App({ Component, pageProps }) {
     return (
         <ChakraProvider theme={customTheme}>
@@ -17,7 +19,12 @@ export default function App({ Component, pageProps }) {
             </header>
             <ChakraMdxProvider>
                 <Box p="5">
-                    <Component {...pageProps} />
+                    {!(typeof window === 'undefined') && (
+                        <Director>
+                            <Component {...pageProps} />
+                        </Director>
+                    )}
+                    {typeof window === 'undefined' && <Component {...pageProps} />}
                 </Box>
             </ChakraMdxProvider>
         </ChakraProvider>
