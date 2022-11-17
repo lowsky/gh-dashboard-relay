@@ -5,7 +5,12 @@ import Link from 'next/link';
 export default function Shortcuts() {
     return (
         <div>
-            <Heading>Shortcuts</Heading>
+            <Link passHref legacyBehavior href={'/'}>
+                <ChakraLink>back to main page</ChakraLink>
+            </Link>
+
+            <Heading> Side-by-Side: wait-for-all or incrementally loading</Heading>
+
             <ul>
                 <li>
                     <Link passHref legacyBehavior href={'/waterfall/lowsky/dashboard'}>
