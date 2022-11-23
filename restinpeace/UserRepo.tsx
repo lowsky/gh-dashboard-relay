@@ -22,17 +22,11 @@ export type UserRepoProps = Readonly<{
     fetchAllThen?: boolean;
 }>;
 
-const cache = createCache();
-
-// hitchcock has its own cache
-export const createResource = (args, hash) => {
-    const resource = createResourceViaHitchcock(args, hash);
+// hitchcock uses its own cache, so we ignore it here
+export const createResource = (args, ...hash) => {
+    const resource = createResourceViaHitchcock(args, ...hash);
     return { read: (_cache, args) => resource.read(args) };
 };
-
-const getUser = createResource(fetchUser, undefined);
-
-const userRepoHash = ({ userName, repoName }) => `${userName}/${repoName}/branches`;
 
 export async function fetchRepoBranchesWithCommitStatusAndPR({ userName, repoName }) {
     const branches = await fetchRepoBranches(userName, repoName);
@@ -62,7 +56,12 @@ export async function fetchRepoBranchesWithCommitStatusAndPR({ userName, repoNam
     };
 }
 
-const getBranches = createResource(fetchRepoBranchesWithCommitStatusAndPR, userRepoHash);
+const branchesFullInfoHash = (userName, repoName) => `${userName}/${repoName}/branches`;
+
+const getBranches = createResource(
+    ({ userName, repoName }) => fetchRepoBranchesWithCommitStatusAndPR({ userName, repoName }),
+    ({ userName, repoName }) => branchesFullInfoHash(userName, repoName)
+);
 
 async function fetchLastCommitStatuses(commit: {
     sha?: string | null | undefined;
@@ -86,8 +85,8 @@ export const UserRepoFetchAll: React.FunctionComponent<UserRepoProps> = ({ doMer
         <Flex gap="4" direction="column">
             <Repo userName={userName} repoName={repoName} />
 
-            <DelayedUser userName={userName} />
-            <DelayedBranchTable repoName={repoName} userName={userName} doMergePR={doMergePR} />
+            <LazyUser userName={userName} />
+            <LazyBranchTable repoName={repoName} userName={userName} doMergePR={doMergePR} />
         </Flex>
     );
 };
@@ -99,26 +98,35 @@ export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ doMe
 
             <Suspense fallback={<Spinner />}>
                 <RichErrorBoundary message={'User not found'}>
-                    <DelayedUser {...{ doMergePR, userName, repoName }} />
+                    <LazyUser userName={userName} />
                 </RichErrorBoundary>
             </Suspense>
 
             <Suspense fallback={<Spinner />}>
                 <RichErrorBoundary message={null}>
-                    <DelayedBranchTable repoName={repoName} userName={userName} doMergePR={doMergePR} />
+                    <LazyBranchTable repoName={repoName} userName={userName} doMergePR={doMergePR} />
                 </RichErrorBoundary>
             </Suspense>
         </Flex>
     );
 };
 
-const DelayedUser = ({ userName }) => {
+export default UserRepoWaterfall;
+
+// Provided by 'simple-cache-provider'
+const cache = createCache();
+
+// fetchUser = async (username: string): Promise<User>;
+
+export const getUser = createResource(fetchUser);
+
+const LazyUser = ({ userName }) => {
     const user = getUser.read(cache, userName);
 
     return <User user={user} />;
 };
 
-const DelayedBranchTable: React.FunctionComponent<{
+const LazyBranchTable: React.FunctionComponent<{
     userName: string;
     repoName: string;
     doMergePR?: DoMergePR;
@@ -127,5 +135,3 @@ const DelayedBranchTable: React.FunctionComponent<{
 
     return <BranchesTable doMergePR={doMergePR} repo={repo} />;
 };
-
-export default UserRepoWaterfall;
