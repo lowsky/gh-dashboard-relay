@@ -37,7 +37,7 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergeP
             )}
             {repo && <Repo repo={repo} />}
             {user && <User user={user} />}
-            {repo && <BranchesTable repo={repo} doMergePR={doMergePR} />}
+            {repo && <BranchTable repo={repo} doMergePR={doMergePR} />}
         </Flex>
     );
 };

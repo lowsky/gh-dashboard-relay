@@ -5,15 +5,16 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import InternalLink from "../../../components/InternalLink";
+import InternalLink from '../../../components/InternalLink';
 
 import UserRepo from '../../../container/UserRepo';
 import {
     Branches,
+    DoMergePR,
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
-    User
-} from "../../../restinpeace/github";
+    User,
+} from '../../../restinpeace/github';
 import { mergePullRequest } from '../../../lib/github';
 
 export default function RestfulPage() {
@@ -25,9 +26,7 @@ export default function RestfulPage() {
         }
         return (
             <>
-                <InternalLink href={'/restful'}>
-                    back to shortcut list
-                </InternalLink>
+                <InternalLink href={'/restful'}>back to shortcut list</InternalLink>
 
                 <UILibContext.Provider value={UILibPureComponents}>
                     <RestfulMain userName={userName} repoName={repoName} />
@@ -92,6 +91,17 @@ export function RestfulMain({ userName, repoName }) {
             ignoreDownloadedData = true;
         };
     }, [userName, repoName]);
+
+    const doMergePR: DoMergePR = async (num) => {
+        if (repoName && userName) {
+            return await mergePullRequest({
+                owner: userName,
+                repo: repoName,
+                pull_number: num,
+            });
+        }
+        return;
+    };
 
     return (
         <>
