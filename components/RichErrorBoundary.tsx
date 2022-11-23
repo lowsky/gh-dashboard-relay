@@ -1,5 +1,5 @@
 /**
- * from https://relay.dev/docs/guided-tour/rendering/error-states/
+ * based on https://relay.dev/docs/guided-tour/rendering/error-states/
  */
 import React from 'react';
 
@@ -40,8 +40,7 @@ export default class RichErrorBoundary extends React.Component<
                                 Details:
                                 <pre>
                                     {
-                                        // @ts-ignore
-                                        JSON.stringify(error, ' ', 2)
+                                        JSON.stringify(error, null, 2)
                                     }
                                 </pre>
                             </AlertDescription>
