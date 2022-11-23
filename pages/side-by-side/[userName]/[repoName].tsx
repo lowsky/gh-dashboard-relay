@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import React, { Suspense } from 'react';
 
 import { Spinner } from '../../../components/Spinner';
-import { WarningMissingURLParams } from "../../../container/NavBarWithRouting";
-import InternalLink from "../../../components/InternalLink";
+import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import InternalLink from '../../../components/InternalLink';
 
 import { WaitForAll } from '../../wait-for-all/[userName]/[repoName]';
 import { WaterfallMain } from '../../waterfall/[userName]/[repoName]';
@@ -16,12 +16,9 @@ export const SideBySide = () => {
     const router = useRouter();
     const { userName, repoName } = router.query;
     if (userName && repoName) {
-
         return (
             <div>
-                <InternalLink href={`/side-by-side/`}>
-                    back to shortcut list
-                </InternalLink>
+                <InternalLink href={`/side-by-side/`}>back to shortcut list</InternalLink>
 
                 {userName && repoName && (
                     <Suspense fallback={<Spinner />}>
