@@ -1,4 +1,4 @@
-import { Image, Link } from '@chakra-ui/react';
+import { Box, Image, Link } from '@chakra-ui/react';
 
 import { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from '../restinpeace/types';
 
@@ -12,8 +12,20 @@ export function CommitterInfo({ author }) {
             <span>&nbsp;&nbsp;by&nbsp;</span>
             {isGithubUser(author) && (
                 <Link href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
-                    {author.avatar_url && <Image className={styles.commit_avatar} src={author.avatar_url} />}
-                    &nbsp;<span>{author.login}</span>
+                    <Box display={'inline-flex'} alignItems={'center'}>
+                        {author.avatar_url && (
+                            <Image
+                                display="inline-flex"
+                                alignItems="center"
+                                className={styles.committer}
+                                borderRadius="full"
+                                boxSize="32px"
+                                alt="user avatar"
+                                src={author.avatar_url}
+                            />
+                        )}
+                        &nbsp;<span>{author.login}</span>
+                    </Box>
                 </Link>
             )}
             {isGithubCommitAuthor(author) && (

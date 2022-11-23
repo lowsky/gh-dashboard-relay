@@ -10,7 +10,16 @@ import styles from './CommitWithStatuses.module.css';
 
 function icon4context(context, avatar_url?: Maybe<string>) {
     if (avatar_url) {
-        return <Avatar className={styles.contextLogo} w={6} h={6} src={avatar_url} />;
+        return (
+            <Avatar
+                className={styles.contextLogo}
+                w={6}
+                h={6}
+                src={avatar_url}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+            />
+        );
     }
     return <span>{context ?? '-?-'}</span>;
 }
@@ -19,6 +28,8 @@ function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) 
     const style = {
         color: status2color(status),
         verticalAlign: 'top',
+        display: 'inline',
+        height: '16px',
     };
     if (status === 'success') {
         return <FontAwesomeIcon style={style} icon={faCheckCircle as IconProp} />;

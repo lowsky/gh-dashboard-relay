@@ -22,7 +22,7 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
     return (
         <>
             <div>
-                <Link href={githubCommit} rel="noopener noreferrer nofollow">
+                <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
                     <strong>{mainMessage}</strong>
                 </Link>
             </div>
