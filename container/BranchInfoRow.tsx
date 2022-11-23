@@ -20,17 +20,18 @@ export interface BranchInfoRowProps {
 
 const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userName, repoName, sha }) => {
     const { name, lastCommit } = branch ?? {};
-    let { associatedPullRequests } = lastCommit ?? {};
-    const githubBranchSrc = `https://github.com/lowsky/dashboard/tree/${name}`;
+    const { associatedPullRequests } = lastCommit ?? {};
+
+    const githubBranchSrc = `https://github.com/${userName}/${repoName}/tree/${name}`;
 
     const { CommitWithStatuses, PullRequestInfo } = useUILib();
 
     return (
         <Tr key={name}>
             <Td>
-                {name && (
+                {name && userName && repoName && (
                     <Link href={githubBranchSrc} rel="noopener noreferrer nofollow" isExternal>
-                        {name ?? '-'}
+                        {name}
                     </Link>
                 )}
                 <Icon ml={1}>

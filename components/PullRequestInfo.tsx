@@ -52,11 +52,11 @@ export default function PullRequestInfo({ pullRequest, doMergePR, userName, repo
     }, [mergeRequest]);
 
     // load on-demand, if no pullRequest given
-    const { number, title, url } = pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
+    const { number, title, url, html_url } = pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
 
     return (
         <VStack>
-            <Link href={url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
+            <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
                 #{number}
             </Link>
             {doMergePR && (
@@ -79,7 +79,7 @@ export default function PullRequestInfo({ pullRequest, doMergePR, userName, repo
                     <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
                 </Icon>
             )}
-            {!!isMerged && (
+            {isMerged && (
                 <Icon>
                     <FontAwesomeIcon icon={faCheck as IconProp} size="1x" />
                 </Icon>

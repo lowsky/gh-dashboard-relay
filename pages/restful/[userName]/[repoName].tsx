@@ -73,7 +73,7 @@ export function RestfulMain({ userName, repoName }) {
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchRepoBranchesWithCommitStatusAndPR({ userName, repoName })
+        fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName })
             .then((branchesWithCommit) => {
                 if (!ignoreDownloadedData)
                     storeRepo({
@@ -84,7 +84,7 @@ export function RestfulMain({ userName, repoName }) {
             })
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
-                    storeErrorMsg('Repo: Branches: ' + ex.message);
+                    storeErrorMsg('Error fetching Branches: ' + ex.message);
                 }
             });
 
@@ -95,7 +95,7 @@ export function RestfulMain({ userName, repoName }) {
 
     return (
         <>
-            <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
+            <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} doMergePR={doMergePR} />
 
             {errorMsg && (
                 <Alert status="error">

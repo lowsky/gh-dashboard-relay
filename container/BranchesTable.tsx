@@ -14,9 +14,7 @@ export interface BranchesTableProps {
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
     const { BranchInfoRow } = useUILib();
 
-    const repoName = repo?.name;
-    const userName = repo?.owner?.login;
-
+    const { branches, name, owner } = repo ?? {};
     return (
         <Table size="sm" variant="striped">
             <Thead>
@@ -30,8 +28,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
                 </Tr>
             </Thead>
             <Tbody>
-                {(repo?.branches || []).map((branch, idx) => {
-                    if (!branch?.lastCommit?.sha) return '0';
+                {(branches || []).map((branch, idx) => {
                     return (
                         branch && (
                             <Suspense
@@ -52,7 +49,9 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
                                     key={idx}
                                     branch={branch}
                                     doMergePR={doMergePR}
-                                    {...{ userName, repoName, sha: branch.lastCommit.sha }}
+                                    userName={owner?.login}
+                                    repoName={name}
+                                    sha={branch.lastCommit?.sha}
                                 />
                             </Suspense>
                         )
