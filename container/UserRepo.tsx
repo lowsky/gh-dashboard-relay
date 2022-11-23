@@ -1,11 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
-import { Branches, User as UserType } from '../restinpeace/fetchGithubApi';
 import { useUILib } from '../components/UILibContext';
-import { Spinner } from '../components/Spinner';
-
-export type DoMergePR = (num: number) => Promise<unknown>;
+import { Branches, DoMergePR, User as UserType } from '../restinpeace/github';
 
 export type UserRepoProps = Readonly<{
     doMergePR?: DoMergePR;
@@ -38,22 +35,9 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergeP
                     </a>
                 </Alert>
             )}
-
-            {repo && (
-                <Suspense fallback={<Spinner />}>
-                    <Repo repo={repo} />
-                </Suspense>
-            )}
-            {user && (
-                <Suspense fallback={<Spinner />}>
-                    <User user={user} />
-                </Suspense>
-            )}
-            {repo && (
-                <Suspense fallback={<Spinner />}>
-                    <BranchTable repo={repo} doMergePR={doMergePR} />
-                </Suspense>
-            )}
+            {repo && <Repo repo={repo} />}
+            {user && <User user={user} />}
+            {repo && <BranchTable repo={repo} doMergePR={doMergePR} />}
         </Flex>
     );
 };

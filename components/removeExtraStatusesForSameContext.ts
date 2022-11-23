@@ -1,4 +1,4 @@
-import { GithubStatus, Maybe } from '../lib/types/resolvers';
+import { GithubStatus, Maybe } from '../restinpeace/types';
 
 /**
  * Remove duplicate entries of states:
@@ -7,13 +7,15 @@ import { GithubStatus, Maybe } from '../lib/types/resolvers';
  * - Only the first status will be taken.
  */
 export function removeExtraStatusesForSameContext(statuses: Maybe<GithubStatus>[] = []): GithubStatus[] {
-    const filteredStatuses = statuses.reduce((acc, item) => {
-        if (!item?.context || acc.get(item?.context)) {
+    const filteredStatuses = statuses
+        .filter((item) => item?.context)
+        .reduce((acc, item) => {
+            if (acc.get(item!.context)) {
+                return acc;
+            }
+            acc.set(item!.context, item);
             return acc;
-        }
-        acc.set(item.context, item);
-        return acc;
-    }, new Map());
+        }, new Map());
 
     return [...filteredStatuses.values()];
 }

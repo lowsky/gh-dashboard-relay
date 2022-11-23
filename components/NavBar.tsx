@@ -5,7 +5,6 @@ import {
     Flex,
     Center,
     IconButton,
-    Link,
     Popover,
     PopoverTrigger,
     Stack,
@@ -17,6 +16,8 @@ import {
 
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
+import InternalLink from './InternalLink';
+
 export function NavBar() {
     const { isOpen, onToggle } = useDisclosure();
 
@@ -25,30 +26,30 @@ export function NavBar() {
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
                 color={useColorModeValue('gray.600', 'white')}
-                minH={'60px'}
+                minH="60px"
                 py={{ base: 2 }}
                 px={{ base: 4 }}
                 borderBottom={1}
-                borderStyle={'solid'}
+                borderStyle="solid"
                 borderColor={useColorModeValue('gray.200', 'gray.900')}
-                align={'center'}>
+                align="center">
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
-                    alignItems={'center'}
+                    alignItems="center"
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
                     <IconButton
                         onClick={onToggle}
                         icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
-                        variant={'ghost'}
-                        aria-label={'Toggle Navigation'}
+                        variant="ghost"
+                        aria-label="Toggle Navigation"
                     />
                     <Center>Github Dashboard</Center>
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Flex display={{ base: 'none', md: 'flex' }}>
                         <DesktopNav />
-                        <Navi />
+                        <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
@@ -61,74 +62,47 @@ export function NavBar() {
 }
 
 const DesktopNav = () => {
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
-
+    const color = useColorModeValue('gray.800', 'white');
     return (
         <Stack direction="row" spacing={4} align="center">
-            {NAV_ITEMS.map((navItem) => (
-                    <Popover trigger={'hover'} placement={'bottom-start'} key={navItem.label}>
-                        <PopoverTrigger>
-                            <Link
-                                href={navItem.href ?? '#'}
-                                _hover={{
-                                    textDecoration: 'none',
-                                    color: linkHoverColor,
-                                }}>
-                                {navItem.label}
-                            </Link>
-                        </PopoverTrigger>
-                    </Popover>
+            {NAV_ITEMS.map(({ href, label }) => (
+                <Popover trigger="hover" placement="bottom-start" key={label}>
+                    <PopoverTrigger>
+                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color }}>
+                            {label}
+                        </InternalLink>
+                    </PopoverTrigger>
+                </Popover>
             ))}
         </Stack>
     );
 };
 
-const MobileNav = () => {
-    return (
-        <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-            {NAV_ITEMS.map((navItem) => (
-                <MobileNavItem key={navItem.label} {...navItem} />
-            ))}
-            <Navi />
-        </Stack>
-    );
-};
+const MobileNav = () => (
+    <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
+        {NAV_ITEMS.map(({ href, label }) => (
+            <MobileNavItem key={label} label={label} href={href} />
+        ))}
+        <DarkLightThemeToggle />
+    </Stack>
+);
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
-    const { isOpen, onToggle } = useDisclosure();
+const MobileNavItem = ({ label, href }: NavItem) => {
+    const color = useColorModeValue('gray.600', 'gray.200');
 
     return (
-        <Stack spacing={4} onClick={children && onToggle}>
-            <Flex py={2} as={Link} href={href ?? '#'} justify={'space-between'} align={'center'}>
-                <Text fontWeight={600} color={useColorModeValue('gray.600', 'gray.200')}>
+        <Stack spacing={4}>
+            <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
+                <Text fontWeight={600} color={color}>
                     {label}
                 </Text>
             </Flex>
-
-            <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
-                <Stack
-                    mt={2}
-                    pl={4}
-                    borderLeft={1}
-                    borderStyle={'solid'}
-                    borderColor={useColorModeValue('gray.200', 'gray.700')}
-                    align={'start'}>
-                    {children &&
-                        children.map((child) => (
-                            <Link key={child.label} py={2} href={child.href}>
-                                <Text>{child.label}</Text>
-                            </Link>
-                        ))}
-                </Stack>
-            </Collapse>
         </Stack>
     );
 };
 
 interface NavItem {
     label: string;
-    subLabel?: string;
-    children?: Array<NavItem>;
     href?: string;
 }
 
@@ -138,31 +112,35 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '/',
     },
     {
-        label: 'GraphQL+Relay Demo',
-        href: '/relay/lowsky/dashboard',
+        label: 'React (old way)',
+        href: '/restful/facebook/react',
     },
     {
-        label: 'REST-based Demo',
-        href: '/restful/lowsky/dashboard',
+        label: 'React, (One Suspense)',
+        href: '/wait-for-all/facebook/react',
     },
     {
-        label: 'Storybook',
-        href: '/story-book/index.html',
+        label: 'React, Waterfall (2 Suspense)',
+        href: '/waterfall/facebook/react',
     },
     {
-        label: 'GitHub Repo',
+        label: 'Side-by-side',
+        href: '/side-by-side/lowsky/spotify-graphql-server',
+    },
+    {
+        label: 'GitHub',
         href: 'https://github.com/lowsky/dashboard',
     },
 ];
 
-export function Navi() {
+export function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
 
     return (
         <Box bg={useColorModeValue('white', 'gray.800')} px={4}>
-            <Flex h={8} alignItems={'center'} justifyContent={'space-between'}>
-                <Flex alignItems={'center'}>
-                    <Stack direction={'row'}>
+            <Flex h={8} alignItems="center" justifyContent="space-between">
+                <Flex alignItems="center">
+                    <Stack direction="row">
                         <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
                     </Stack>
                 </Flex>

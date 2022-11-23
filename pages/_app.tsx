@@ -1,9 +1,11 @@
-import { NavBar } from '../components/NavBar';
 
 import * as React from 'react';
 
 import { Box, ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { Director } from 'hitchcock';
+
 import { themeConfig } from '../components/theme';
+import { NavBar } from '../components/NavBar';
 
 export const customTheme = extendTheme({ ...themeConfig });
 
@@ -17,7 +19,13 @@ export default function App({ Component, pageProps }) {
             </header>
             <ChakraMdxProvider>
                 <Box p="5">
-                    <Component {...pageProps} />
+                    {!(typeof window === 'undefined') && (
+                        // inject the hitchcock debug-tool for the async fetching
+                        <Director>
+                            <Component {...pageProps} />
+                        </Director>
+                    )}
+                    {typeof window === 'undefined' && <Component {...pageProps} />}
                 </Box>
             </ChakraMdxProvider>
         </ChakraProvider>

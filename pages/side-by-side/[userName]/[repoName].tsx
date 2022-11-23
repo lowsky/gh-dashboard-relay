@@ -1,44 +1,47 @@
 import { useRouter } from 'next/router';
 import React, { Suspense } from 'react';
 
+import { Spinner } from '../../../components/Spinner';
+import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import InternalLink from '../../../components/InternalLink';
+
+import { WaitForAll } from '../../wait-for-all/[userName]/[repoName]';
+import { WaterfallMain } from '../../waterfall/[userName]/[repoName]';
+import { UILibPureComponents } from '../../../components';
+import UILibContext from '../../../components/UILibContext';
+
 import styles from './side-by-side.module.css';
-import { ContentLoadingFallback, RelayRootMain } from '../../relay/[userName]/[repoName]';
-import { RestfulMain } from '../../restful/[userName]/[repoName]';
-import { useEnvironment } from '../../../lib/relay';
-import ErrorBoundaryWithRetry from '../../../relay/ErrorBoundaryWithRetry';
-import { RelayEnvironmentProvider } from 'react-relay';
 
 export const SideBySide = () => {
     const router = useRouter();
     const { userName, repoName } = router.query;
+    if (userName && repoName) {
+        return (
+            <div>
+                <InternalLink href={`/side-by-side/`}>back to shortcut list</InternalLink>
 
-    const environment = useEnvironment({});
-
-    return (
-        <div>
-            <div className={styles.sideBySide}>
-                <div className={styles.side}>
-                    {!(typeof window === 'undefined') && (
-                        <RelayEnvironmentProvider environment={environment}>
-                            <ErrorBoundaryWithRetry>
-                                <Suspense fallback={<ContentLoadingFallback />}>
-                                    <RelayRootMain userName={userName} repoName={repoName} />
-                                </Suspense>
-                            </ErrorBoundaryWithRetry>
-                        </RelayEnvironmentProvider>
-                    )}
-                </div>
-                <div className={styles.side}>
-                    <RestfulMain userName={userName} repoName={repoName} />
-                </div>
-                {/*
-                LATER: might work either ... ?
-            <iframe className={styles.side} src={`/relay/${userName}/${repoName}`} frameBorder="0"></iframe>
-            <iframe className={styles.side} src={`/restful/${userName}/${repoName}`} frameBorder="0"></iframe>
-                 */}
+                {userName && repoName && (
+                    <Suspense fallback={<Spinner />}>
+                        <div className={styles.sideBySide}>
+                            <div className={styles.side}>
+                                <UILibContext.Provider value={UILibPureComponents}>
+                                    <WaterfallMain userName={userName} repoName={repoName} />
+                                </UILibContext.Provider>
+                            </div>
+                            <div className={styles.side}>
+                                <UILibContext.Provider value={UILibPureComponents}>
+                                    <WaitForAll userName={userName} repoName={repoName} />
+                                </UILibContext.Provider>
+                            </div>
+                        </div>
+                    </Suspense>
+                )}
             </div>
-        </div>
-    );
+        );
+    } else {
+        console.log('no username or repoName...');
+    }
+    return <WarningMissingURLParams />;
 };
 
 export default SideBySide;

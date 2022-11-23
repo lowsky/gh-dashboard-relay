@@ -1,9 +1,11 @@
-import React from 'react';
-import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
+import React, { Suspense } from 'react';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
-import { GithubRepo } from '../lib/types/resolvers';
+import { GithubRepo } from '../restinpeace/types';
+
 import { useUILib } from '../components/UILibContext';
-import { DoMergePR } from './UserRepo';
+import { Spinner } from '../components/Spinner';
+import { DoMergePR } from '../restinpeace/github';
 
 export interface BranchesTableProps {
     repo?: GithubRepo;
@@ -12,6 +14,7 @@ export interface BranchesTableProps {
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
     const { BranchInfoRow } = useUILib();
 
+    const { branches, name, owner } = repo ?? {};
     return (
         <Table size="sm" variant="striped">
             <Thead>
@@ -25,9 +28,35 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
                 </Tr>
             </Thead>
             <Tbody>
-                {(repo?.branches || []).map(
-                    (branch, idx) => branch && <BranchInfoRow key={idx} branch={branch} doMergePR={doMergePR} />
-                )}
+                {(branches || []).map((branch, idx) => {
+                    return (
+                        branch && (
+                            <Suspense
+                                fallback={
+                                    <Tr>
+                                        <Td>
+                                            <Spinner />
+                                        </Td>
+                                        <Td>
+                                            <Spinner />
+                                        </Td>
+                                        <Td>
+                                            <Spinner />
+                                        </Td>
+                                    </Tr>
+                                }>
+                                <BranchInfoRow
+                                    key={idx}
+                                    branch={branch}
+                                    doMergePR={doMergePR}
+                                    userName={owner?.login}
+                                    repoName={name}
+                                    sha={branch.lastCommit?.sha}
+                                />
+                            </Suspense>
+                        )
+                    );
+                })}
             </Tbody>
         </Table>
     );

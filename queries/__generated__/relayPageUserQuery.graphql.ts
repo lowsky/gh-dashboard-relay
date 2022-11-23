@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<590b5bbec383664947f12b7bdfee7de7>>
+ * @generated SignedSource<<8727ef1618352014339a1a08108df2ba>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -54,9 +54,14 @@ const node: ConcreteRequest = (function () {
                     plural: false,
                     selections: [
                         {
-                            args: null,
-                            kind: 'FragmentSpread',
-                            name: 'UserRepo_user',
+                            kind: 'Defer',
+                            selections: [
+                                {
+                                    args: null,
+                                    kind: 'FragmentSpread',
+                                    name: 'UserRepo_user',
+                                },
+                            ],
                         },
                     ],
                     storageKey: null,
@@ -80,25 +85,32 @@ const node: ConcreteRequest = (function () {
                     plural: false,
                     selections: [
                         {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: 'login',
-                            storageKey: null,
-                        },
-                        {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: 'company',
-                            storageKey: null,
-                        },
-                        {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: 'avatar_url',
-                            storageKey: null,
+                            if: null,
+                            kind: 'Defer',
+                            label: 'relayPageUserQuery$defer$UserRepo_user',
+                            selections: [
+                                {
+                                    alias: null,
+                                    args: null,
+                                    kind: 'ScalarField',
+                                    name: 'login',
+                                    storageKey: null,
+                                },
+                                {
+                                    alias: null,
+                                    args: null,
+                                    kind: 'ScalarField',
+                                    name: 'company',
+                                    storageKey: null,
+                                },
+                                {
+                                    alias: null,
+                                    args: null,
+                                    kind: 'ScalarField',
+                                    name: 'avatar_url',
+                                    storageKey: null,
+                                },
+                            ],
                         },
                     ],
                     storageKey: null,
@@ -106,16 +118,16 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: 'dd75d5baef75ef2361678125cb79b6f7',
+            cacheID: 'd29eaa0cd0e512430eac711ba6407a99',
             id: null,
             metadata: {},
             name: 'relayPageUserQuery',
             operationKind: 'query',
-            text: 'query relayPageUserQuery(\n  $userName: String!\n) {\n  user(username: $userName) {\n    ...UserRepo_user\n  }\n}\n\nfragment UserRepo_user on GithubUser {\n  ...User_user\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n',
+            text: 'query relayPageUserQuery(\n  $userName: String!\n) {\n  user(username: $userName) {\n    ...UserRepo_user @defer(label: "relayPageUserQuery$defer$UserRepo_user")\n  }\n}\n\nfragment UserRepo_user on GithubUser {\n  ...User_user\n}\n\nfragment User_user on GithubUser {\n  login\n  company\n  avatar_url\n}\n',
         },
     };
 })();
 
-(node as any).hash = 'fec89feb3f7efaa7c8ebbf058cb04224';
+(node as any).hash = 'f779467850171e8f96021d91c3c6f43c';
 
 export default node;

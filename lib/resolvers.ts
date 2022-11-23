@@ -15,6 +15,7 @@ import {
     GithubCommitAuthorResolvers,
     GithubCommitResolvers,
     GithubRepoResolvers,
+    GithubStatus,
     GithubUser,
     GithubUserResolvers,
 } from './types/resolvers';
@@ -110,15 +111,20 @@ const githubBranchResolver: GithubBranchResolvers = {
     },
 };
 
-const githubCommitResolver: GithubCommitResolvers = {
-    status: (commit) => {
-        // @ts-expect-error
-        const { username, reponame } = grabUsernameAndReponameFromURL(commit.url); // url was added in parent object
-        const { sha } = commit;
-        if (!sha) return null;
+export const commitStatusResolver = (commit) => {
+    const { sha, ownerUsername, reponame } = commit;
+    if (!sha) return Promise.resolve([] as Array<GithubStatus>);
 
-        return getStatusesForRepo(username, reponame, sha) ?? [];
-    },
+    return (
+        getStatusesForRepo(
+            ownerUsername, //username,
+            reponame,
+            sha
+        ) ?? []
+    );
+};
+export const githubCommitResolver: GithubCommitResolvers = {
+    status: commitStatusResolver,
     associatedPullRequests: async (commit) => {
         // @ts-expect-error
         const { sha, ownerUsername, reponame } = commit;
@@ -144,12 +150,4 @@ export const resolvers = {
     GithubRepo: githubRepoResolver,
     Query: queryResolver,
     GithubAPI: githubResolver,
-};
-
-const grabUsernameAndReponameFromURL = (url) => {
-    let array = url.split('https://api.github.com/repos/')[1].split('/');
-    return {
-        username: array[0],
-        reponame: array[1],
-    };
 };

@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Alert, AlertIcon, Box } from '@chakra-ui/react';
-
-import UserRepo from '../../../container/UserRepo';
-
-import { fetchRepoBranches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
+import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import { fetchRepoPullRequestsAssociatedWithCommit, getLastCommit } from '../../../lib/github';
+import InternalLink from '../../../components/InternalLink';
+
+import UserRepo from '../../../container/UserRepo';
+import {
+    Branches,
+    DoMergePR,
+    fetchRepoBranchesWithCommitStatusesAndPullRequests,
+    fetchUser,
+    User,
+} from '../../../restinpeace/github';
+import { mergePullRequest } from '../../../lib/github';
 
 export default function RestfulPage() {
     const router = useRouter();
@@ -18,7 +24,15 @@ export default function RestfulPage() {
         if (typeof window === 'undefined') {
             return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
         }
-        return <RestfulMain userName={userName} repoName={repoName} />;
+        return (
+            <>
+                <InternalLink href={'/restful'}>back to shortcut list</InternalLink>
+
+                <UILibContext.Provider value={UILibPureComponents}>
+                    <RestfulMain userName={userName} repoName={repoName} />
+                </UILibContext.Provider>
+            </>
+        );
     }
     return <WarningMissingURLParams />;
 }
@@ -27,8 +41,9 @@ export function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },
-        branches: [],
+        branches: [] as Branches,
     });
+
     const [user, storeUser] = useState<User>({
         login: userName,
         avatar_url: '',
@@ -47,7 +62,6 @@ export function RestfulMain({ userName, repoName }) {
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
                     storeErrorMsg('User: ' + ex.message);
-                    console.error('fetching user info failed', ex);
                 }
             });
         return () => {
@@ -58,42 +72,18 @@ export function RestfulMain({ userName, repoName }) {
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchRepoBranches(userName, repoName)
-            .then((branches) => {
-                if (!ignoreDownloadedData) {
-                    let branchesWithCommitProms = branches.map((branch) => {
-                        // @ts-expect-error type-definition wrong: lastCommit/commit is swapped?!
-                        const { sha } = branch.commit;
-                        return getLastCommit(userName, repoName, sha)
-                            .then((com) => ({
-                                ...branch,
-                                lastCommit: com,
-                            }))
-                            .then((branchWithCommit) =>
-                                fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha).then((pr) => ({
-                                    ...branchWithCommit,
-                                    lastCommit: {
-                                        ...branchWithCommit.lastCommit,
-                                        associatedPullRequests: pr,
-                                    },
-                                }))
-                            );
+        fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName })
+            .then((branchesWithCommit) => {
+                if (!ignoreDownloadedData)
+                    storeRepo({
+                        name: repoName,
+                        owner: { login: userName },
+                        branches: branchesWithCommit.branches,
                     });
-
-                    Promise.all(branchesWithCommitProms).then((branchesWithCommit) => {
-                        storeRepo({
-                            name: repoName,
-                            owner: { login: userName },
-                            // @ts-ignore needs to be fixed / investigated
-                            branches: branchesWithCommit ?? [],
-                        });
-                    });
-                }
             })
             .catch((ex) => {
                 if (!ignoreDownloadedData) {
-                    storeErrorMsg('Repo: Branches: ' + ex.message);
-                    console.error('fetching branches info failed', ex);
+                    storeErrorMsg('Error fetching Branches: ' + ex.message);
                 }
             });
 
@@ -102,17 +92,27 @@ export function RestfulMain({ userName, repoName }) {
         };
     }, [userName, repoName]);
 
+    const doMergePR: DoMergePR = async (num) => {
+        if (repoName && userName) {
+            return await mergePullRequest({
+                owner: userName,
+                repo: repoName,
+                pull_number: num,
+            });
+        }
+        return;
+    };
+
     return (
-        <UILibContext.Provider value={UILibPureComponents}>
-            <Box>
-                <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
-            </Box>
+        <>
+            <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} doMergePR={doMergePR} />
+
             {errorMsg && (
                 <Alert status="error">
                     <AlertIcon />
                     {errorMsg}
                 </Alert>
             )}
-        </UILibContext.Provider>
+        </>
     );
 }

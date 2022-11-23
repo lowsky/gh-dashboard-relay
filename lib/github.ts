@@ -122,7 +122,18 @@ export const mergePullRequest = ({
     return result;
 };
 
-export function getLastCommit(ownerUsername: string, reponame: string, sha) {
+export function getLastCommit(
+    ownerUsername: string,
+    reponame: string,
+    sha
+): Promise<
+    GithubCommit & {
+        message: string;
+        date: string;
+        ownerUsername: string;
+        reponame: string;
+    }
+> {
     return getCommitsForRepo(ownerUsername, reponame, sha) //
         .then((commits) => commits[0])
         .then((commit) => {

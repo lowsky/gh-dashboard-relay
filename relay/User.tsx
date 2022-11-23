@@ -2,7 +2,7 @@ import { useFragment, graphql } from 'react-relay';
 
 import User from '../components/User';
 
-export default function FragmentContainer(props) {
+export default function UserFragmentContainer(props) {
     const data = useFragment(
         graphql`
             fragment User_user on GithubUser {
@@ -14,5 +14,5 @@ export default function FragmentContainer(props) {
         props.user
     );
 
-    return <User user={data} />;
+    return <User {...props} user={data} />;
 }
