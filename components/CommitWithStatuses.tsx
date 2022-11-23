@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { GithubCommit } from '../lib/types/resolvers';
+import { GithubCommit } from '../restinpeace/types';
 import { CommitterInfo } from './CommitterInfo';
 
 import styles from './CommitWithStatuses.module.css';

@@ -1,6 +1,6 @@
 import { Image, Link } from '@chakra-ui/react';
 
-import { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from '../lib/types/resolvers';
+import { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from '../restinpeace/types';
 
 import styles from './CommitWithStatuses.module.css';
 

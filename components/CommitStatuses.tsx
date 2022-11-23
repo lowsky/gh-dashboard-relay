@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GithubStatus, Maybe } from '../lib/types/resolvers';
+import { GithubStatus, Maybe } from '../restinpeace/types';
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 import { Status } from './Status';
 
