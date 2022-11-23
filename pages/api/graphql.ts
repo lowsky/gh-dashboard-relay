@@ -18,8 +18,6 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import { typeDefs } from '../../lib/localSchema';
 import { resolvers } from '../../lib/resolvers';
 
-const isLocalDev = process.env.NODE_ENV === 'development';
-
 function getEnveloped(req) {
     const schema = makeExecutableSchema({ typeDefs, resolvers });
     const getEnveloped = envelop({
@@ -64,7 +62,6 @@ async function handleRequest(request: Request, res: NextApiResponse, parse, vali
         request,
         schema,
     });
-    isLocalDev && console.log({ result });
 
     await sendResult(result, res);
 }

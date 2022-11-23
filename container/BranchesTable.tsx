@@ -5,7 +5,7 @@ import { GithubRepo } from '../restinpeace/types';
 
 import { useUILib } from '../components/UILibContext';
 import { Spinner } from '../components/Spinner';
-import { DoMergePR } from './UserRepo';
+import { DoMergePR } from '../restinpeace/github';
 
 export interface BranchesTableProps {
     repo?: GithubRepo;

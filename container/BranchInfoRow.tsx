@@ -7,7 +7,7 @@ import { Icon, Link, Td, Tr } from '@chakra-ui/react';
 import { GithubBranch, Maybe } from '../restinpeace/types';
 import { Spinner } from '../components/Spinner';
 import { useUILib } from '../components/UILibContext';
-import { DoMergePR } from './UserRepo';
+import { DoMergePR } from '../restinpeace/github';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
