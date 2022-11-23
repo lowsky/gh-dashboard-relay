@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { Alert, AlertIcon, Link as ChakraLink } from '@chakra-ui/react';
 
 import UserRepo from '../../../container/UserRepo';
 
 import { Branches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
+import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import InternalLink from "../../../components/InternalLink";
 
 import { fetchRepoBranchesWithCommitStatusAndPR } from '../../../restinpeace/UserRepo';
 
@@ -22,9 +22,9 @@ export default function RestfulPage() {
         }
         return (
             <>
-                <Link passHref legacyBehavior href={'/restful/lowsky'}>
-                    <ChakraLink>back to shortcut list</ChakraLink>
-                </Link>
+                <InternalLink href={'/restful'}>
+                    back to shortcut list
+                </InternalLink>
 
                 <UILibContext.Provider value={UILibPureComponents}>
                     <RestfulMain userName={userName} repoName={repoName} />

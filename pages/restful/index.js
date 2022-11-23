@@ -1,33 +1,31 @@
 import React from 'react';
-import { Heading, Link as ChakraLink } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+
+import InternalLink from '../../components/InternalLink';
 
 export default function Shortcuts() {
     return (
         <div>
-            <Link passHref legacyBehavior href={'/'}>
-                <ChakraLink>back to main page</ChakraLink>
-            </Link>
+            <InternalLink href={'/'}>back to main page</InternalLink>
 
-            <Heading>Old approach for fetching all in one top-level in a useEffect()</Heading>
+            <Heading>Old way. All or nothing</Heading>
+            <Box mb={6}>Fetching all data in a top-level `useEffect()` + props-drilling</Box>
 
-            <ul>
-                <li>
-                    <Link passHref legacyBehavior href={'/restful/lowsky/dashboard'}>
-                        <ChakraLink>lowsky/dashboard</ChakraLink>
-                    </Link>
-                </li>
-                <li>
-                    <Link passHref legacyBehavior href={'/restful/lowsky/spotify-graphql-server'}>
-                        <ChakraLink>lowsky/spotify-graphql-server</ChakraLink>
-                    </Link>
-                </li>
-                <li>
-                    <Link passHref legacyBehavior href={'/restful/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
-                        <ChakraLink>lowsky/spotify-graphql-server-graphql-helix-envelop</ChakraLink>
-                    </Link>
-                </li>
-            </ul>
+            <UnorderedList>
+                <ListItem>
+                    <InternalLink href={'/restful/lowsky/dashboard'}>lowsky/dashboard</InternalLink>
+                </ListItem>
+                <ListItem>
+                    <InternalLink href={'/restful/lowsky/spotify-graphql-server'}>
+                        lowsky/spotify-graphql-server
+                    </InternalLink>
+                </ListItem>
+                <ListItem>
+                    <InternalLink href={'/restful/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
+                        lowsky/spotify-graphql-server-graphql-helix-envelop
+                    </InternalLink>
+                </ListItem>
+            </UnorderedList>
         </div>
     );
 }

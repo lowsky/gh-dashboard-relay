@@ -1,36 +1,33 @@
 import React from 'react';
-import { Heading, Link as ChakraLink } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+
+import InternalLink from '../../components/InternalLink';
 
 export default function Shortcuts() {
     return (
         <div>
-            <Link passHref legacyBehavior href={'/'}>
-                <ChakraLink>back to main page</ChakraLink>
-            </Link>
+            <InternalLink href={'/'}>back to main page</InternalLink>
 
-            <Heading> Side-by-Side: wait-for-all or incrementally loading</Heading>
+            <Heading>Optimised Suspense. Incremental</Heading>
+            <Box mb={6}>
+                Showing results incrementally (waterfall) as soon as they got loaded. (modern Promise-based way)
+            </Box>
 
-            <ul>
-                <li>
-                    <Link passHref legacyBehavior href={'/waterfall/lowsky/dashboard'}>
-                        <ChakraLink>lowsky/dashboard</ChakraLink>
-                    </Link>
-                </li>
-                <li>
-                    <Link passHref legacyBehavior href={'/waterfall/lowsky/spotify-graphql-server'}>
-                        <ChakraLink>lowsky/spotify-graphql-server</ChakraLink>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        passHref
-                        legacyBehavior
-                        href={'/waterfall/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
-                        <ChakraLink>lowsky/spotify-graphql-server-graphql-helix-envelop</ChakraLink>
-                    </Link>
-                </li>
-            </ul>
+            <UnorderedList>
+                <ListItem>
+                    <InternalLink href={'/waterfall/lowsky/dashboard'}>lowsky/dashboard</InternalLink>
+                </ListItem>
+                <ListItem>
+                    <InternalLink href={'/waterfall/lowsky/spotify-graphql-server'}>
+                        lowsky/spotify-graphql-server
+                    </InternalLink>
+                </ListItem>
+                <ListItem>
+                    <InternalLink href={'/waterfall/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
+                        lowsky/spotify-graphql-server-graphql-helix-envelop
+                    </InternalLink>
+                </ListItem>
+            </UnorderedList>
         </div>
     );
 }

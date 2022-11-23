@@ -1,7 +1,5 @@
-import Link from 'next/link';
 import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
-import { Link as ChakraLink } from '@chakra-ui/react';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
@@ -10,6 +8,7 @@ import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import UserRepoWaterfall from '../../../restinpeace/UserRepo';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
+import InternalLink from "../../../components/InternalLink";
 
 export default function WaterfallPage() {
     const router = useRouter();
@@ -21,9 +20,9 @@ export default function WaterfallPage() {
         }
         return (
             <>
-                <Link passHref legacyBehavior href={'/waterfall/lowsky'}>
-                    <ChakraLink>back to shortcut list</ChakraLink>
-                </Link>
+                <InternalLink href={'/waterfall'}>
+                    back to shortcut list
+                </InternalLink>
 
                 <UILibContext.Provider value={UILibPureComponents}>
                     <WaterfallMain userName={userName} repoName={repoName} />

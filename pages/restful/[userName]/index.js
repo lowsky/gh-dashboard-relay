@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heading, Link as ChakraLink } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Heading, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 export default function Shortcuts() {
     return (
@@ -9,19 +9,19 @@ export default function Shortcuts() {
 
             <ul>
                 <li>
-                    <Link passHref legacyBehavior href={'/restful/lowsky/dashboard'}>
-                        <ChakraLink>lowsky/dashboard</ChakraLink>
-                    </Link>
+                    <NextLink passHref legacyBehavior href={'/restful/lowsky/dashboard'}>
+                        <Link>lowsky/dashboard</Link>
+                    </NextLink>
                 </li>
                 <li>
-                    <Link passHref legacyBehavior href={'/restful/lowsky/spotify-graphql-server'}>
-                        <ChakraLink>lowsky/spotify-graphql-server</ChakraLink>
-                    </Link>
+                    <NextLink passHref legacyBehavior href={'/restful/lowsky/spotify-graphql-server'}>
+                        <Link>lowsky/spotify-graphql-server</Link>
+                    </NextLink>
                 </li>
                 <li>
-                    <Link passHref legacyBehavior href={'/restful/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
-                        <ChakraLink>lowsky/spotify-graphql-server-graphql-helix-envelop</ChakraLink>
-                    </Link>
+                    <NextLink passHref legacyBehavior href={'/restful/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
+                        <Link>lowsky/spotify-graphql-server-graphql-helix-envelop</Link>
+                    </NextLink>
                 </li>
             </ul>
         </div>

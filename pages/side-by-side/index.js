@@ -1,36 +1,31 @@
 import React from 'react';
-import { Heading, Link as ChakraLink } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+
+import InternalLink from '../../components/InternalLink';
 
 export default function Shortcuts() {
     return (
         <div>
-            <Link passHref legacyBehavior href={'/'}>
-                <ChakraLink>back to main page</ChakraLink>
-            </Link>
+            <InternalLink href={'/'}>back to main page</InternalLink>
 
-            <Heading>Load and wait for all via Suspend: Fetching all, Promise-based</Heading>
+            <Heading>Side-by-Side. Comparison: </Heading>
+            <Box mb={6}>Shows incrementally-loading | wait-for-all of same repository.</Box>
 
-            <ul>
-                <li>
-                    <Link passHref legacyBehavior href={'/side-by-side/lowsky/dashboard'}>
-                        <ChakraLink>lowsky/dashboard</ChakraLink>
-                    </Link>
-                </li>
-                <li>
-                    <Link passHref legacyBehavior href={'/side-by-side/lowsky/spotify-graphql-server'}>
-                        <ChakraLink>lowsky/spotify-graphql-server</ChakraLink>
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        passHref
-                        legacyBehavior
-                        href={'/side-by-side/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
-                        <ChakraLink>lowsky/spotify-graphql-server-graphql-helix-envelop</ChakraLink>
-                    </Link>
-                </li>
-            </ul>
+            <UnorderedList>
+                <ListItem>
+                    <InternalLink href={'/side-by-side/lowsky/dashboard'}>lowsky/dashboard</InternalLink>
+                </ListItem>
+                <ListItem>
+                    <InternalLink href={'/side-by-side/lowsky/spotify-graphql-server'}>
+                        lowsky/spotify-graphql-server
+                    </InternalLink>
+                </ListItem>
+                <ListItem>
+                    <InternalLink href={'/side-by-side/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
+                        lowsky/spotify-graphql-server-graphql-helix-envelop
+                    </InternalLink>
+                </ListItem>
+            </UnorderedList>
         </div>
     );
 }

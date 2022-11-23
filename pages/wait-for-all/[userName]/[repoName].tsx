@@ -1,11 +1,11 @@
-import Link from 'next/link';
 import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
-import { Link as ChakraLink } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import InternalLink from "../../../components/InternalLink";
 
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import { UserRepoFetchAll } from '../../../restinpeace/UserRepo';
@@ -21,9 +21,9 @@ export default function LoadAllThenPage() {
         }
         return (
             <>
-                <Link passHref legacyBehavior href={'/wait-for-all/lowsky'}>
-                    <ChakraLink>back to shortcut list</ChakraLink>
-                </Link>
+                <InternalLink passHref legacyBehavior href={'/wait-for-all'}>
+                    <Link>back to shortcut list</Link>
+                </InternalLink>
 
                 <UILibContext.Provider value={UILibPureComponents}>
                     <WaitForAll userName={userName} repoName={repoName} />
