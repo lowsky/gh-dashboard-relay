@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-
-import UserRepo from '../../../container/UserRepo';
-
-import { Branches, fetchUser, User } from '../../../restinpeace/fetchGithubApi';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import { UILibPureComponents } from '../../../components';
@@ -11,7 +7,14 @@ import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import InternalLink from "../../../components/InternalLink";
 
-import { fetchRepoBranchesWithCommitStatusAndPR } from '../../../restinpeace/UserRepo';
+import UserRepo from '../../../container/UserRepo';
+import {
+    Branches,
+    fetchRepoBranchesWithCommitStatusesAndPullRequests,
+    fetchUser,
+    User
+} from "../../../restinpeace/github";
+import { mergePullRequest } from '../../../lib/github';
 
 export default function RestfulPage() {
     const router = useRouter();

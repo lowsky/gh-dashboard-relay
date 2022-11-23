@@ -4,10 +4,10 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr } from '@chakra-ui/react';
 
-import { useUILib } from '../components/UILibContext';
-import { GithubBranch, Maybe } from '../lib/types/resolvers';
-import { DoMergePR } from './UserRepo';
+import { GithubBranch, Maybe } from '../restinpeace/types';
 import { Spinner } from '../components/Spinner';
+import { useUILib } from '../components/UILibContext';
+import { DoMergePR } from './UserRepo';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;

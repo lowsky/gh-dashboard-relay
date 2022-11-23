@@ -1,11 +1,16 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { Suspense } from 'react';
 
-import styles from './side-by-side.module.css';
+import { Spinner } from '../../../components/Spinner';
+import { WarningMissingURLParams } from "../../../container/NavBarWithRouting";
 import InternalLink from "../../../components/InternalLink";
 
 import { WaitForAll } from '../../wait-for-all/[userName]/[repoName]';
 import { WaterfallMain } from '../../waterfall/[userName]/[repoName]';
+import { UILibPureComponents } from '../../../components';
+import UILibContext from '../../../components/UILibContext';
+
+import styles from './side-by-side.module.css';
 
 export const SideBySide = () => {
     const router = useRouter();

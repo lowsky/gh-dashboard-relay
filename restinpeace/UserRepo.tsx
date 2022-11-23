@@ -3,17 +3,15 @@ import { Flex } from '@chakra-ui/react';
 import { createCache } from 'simple-cache-provider';
 import { createResource as createResourceViaHitchcock } from 'hitchcock';
 
-import { fetchRepoBranches, fetchUser } from './fetchGithubApi';
+import { DoMergePR, fetchRepoBranches, fetchUser } from './github';
 import { Spinner } from '../components/Spinner';
-import { getLastCommit } from '../lib/github';
+import { fetchRepoPullRequestsAssociatedWithCommit, getLastCommit } from '../lib/github';
 import { GithubStatus } from '../lib/types/resolvers';
 import { commitStatusResolver } from '../lib/resolvers';
 import RichErrorBoundary from '../components/RichErrorBoundary';
 import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from '../container/BranchesTable';
-
-export type DoMergePR = (num: number) => Promise<unknown>;
 
 export type UserRepoProps = Readonly<{
     doMergePR?: DoMergePR;

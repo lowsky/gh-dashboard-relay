@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-
-import RichErrorBoundary from '../../../components/RichErrorBoundary';
-import UserRepoWaterfall from '../../../restinpeace/UserRepo';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
+import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import InternalLink from "../../../components/InternalLink";
+
+import UserRepoWaterfall from '../../../container/LazyUserRepo';
 
 export default function WaterfallPage() {
     const router = useRouter();

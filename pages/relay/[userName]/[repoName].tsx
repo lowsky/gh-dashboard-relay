@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
 import { RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay/hooks';
 
-import { DoMergePR } from '../../../container/UserRepo';
 import UILibContext from '../../../components/UILibContext';
 import { UILibWithRelaySupport } from '../../../components';
 import UserRepo from '../../../relay/UserRepo';
@@ -14,6 +13,7 @@ import { useEnvironment } from '../../../lib/relay';
 import { relayPageUserQuery } from '../../../queries/__generated__/relayPageUserQuery.graphql';
 import { relayPageRepoQuery } from '../../../queries/__generated__/relayPageRepoQuery.graphql';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
+import { DoMergePR } from "../../../restinpeace/github";
 
 function singleArgOrDefault(value: string | string[], defaultValue: string) {
     if (value === null || value === undefined) {

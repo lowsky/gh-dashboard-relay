@@ -8,7 +8,8 @@ import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import InternalLink from "../../../components/InternalLink";
 
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
-import { UserRepoFetchAll } from '../../../restinpeace/UserRepo';
+
+import { UserRepoFetchAll } from '../../../container/LazyUserRepo';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
 
 export default function LoadAllThenPage() {

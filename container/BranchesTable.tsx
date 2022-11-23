@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
-import { GithubRepo } from '../lib/types/resolvers';
+import { GithubRepo } from '../restinpeace/types';
+
 import { useUILib } from '../components/UILibContext';
-import { DoMergePR } from './UserRepo';
 import { Spinner } from '../components/Spinner';
+import { DoMergePR } from './UserRepo';
 
 export interface BranchesTableProps {
     repo?: GithubRepo;

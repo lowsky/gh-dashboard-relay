@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-
-import { Maybe } from '../lib/types/resolvers';
-import { DoMergePR } from '../container/UserRepo';
-
+import { Button, Icon, Link, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Button, Icon, Link, VStack } from '@chakra-ui/react';
-import { createResource } from '../restinpeace/UserRepo';
-import { fetchRepoPullRequestsAssociatedWithCommit } from '../lib/github';
+
+import { Maybe } from '../restinpeace/types';
+import { DoMergePR, fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
+import { createResource } from "../restinpeace/reactCache";
+
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;
