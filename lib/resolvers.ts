@@ -1,13 +1,10 @@
 import {
     fetchRepoPullRequestsAssociatedWithCommit,
-    getBranchesForRepo,
     getCommitsForRepo,
     getLastCommit,
-    getRepoForUser,
-    getReposForUser,
     getStatusesForRepo,
-    getUser,
-} from './github';
+} from '../restinpeace/github';
+import { getBranchesForRepo, getRepoForUser, getReposForUser, getUser } from './github';
 import {
     GithubApiResolvers,
     GithubBranchResolvers,

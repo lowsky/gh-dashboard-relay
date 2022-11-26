@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
-
 import { Octokit } from '@octokit/rest';
-import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
+import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 
-import { GithubBranch, GithubCommit, GithubRepo, GithubStatus, GithubUser } from './types/resolvers';
+import { GithubBranch, GithubRepo, GithubUser } from './types/resolvers';
 
 // @ts-ignore
 const { GITHUB_TOKEN } = process.env;
@@ -30,19 +28,6 @@ export const getReposForUser = async (username: string): Promise<Array<GithubRep
     }));
 };
 
-export const getCommitsForRepo = async (
-    username: string,
-    reponame: string,
-    sha?: string
-): Promise<Array<GithubCommit>> => {
-    const commits = await octo.repos.listCommits({
-        sha,
-        owner: username,
-        repo: reponame,
-    });
-    return commits.data;
-};
-
 export const getBranchesForRepo = async (username, reponame): Promise<Array<GithubBranch>> => {
     const branches = await octo.repos.listBranches({
         owner: username,
@@ -56,47 +41,18 @@ export const getRepoForUser = async (username, reponame): Promise<GithubRepo> =>
     return { ...convertItsIdToString(data), owner: convertItsIdToString(data.owner) };
 };
 
-export const getStatusesForRepo = async (username, reponame, sha): Promise<Array<GithubStatus>> => {
-    const statuses = await octo.repos.listCommitStatusesForRef({
-        ref: sha,
-        repo: reponame,
-        owner: username,
-    });
-
-    return statuses.data;
-};
-
 export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: String } {
     return {
         ...obj,
         id: String(obj.id),
     };
 }
-type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpointMethod<
-    typeof octo.repos.listPullRequestsAssociatedWithCommit
->;
+
 export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDataTypeFromEndpointMethod<
     typeof octo.repos.listPullRequestsAssociatedWithCommit
 >;
 
 export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof octo.pulls.merge>;
-
-/**
- * Fetch the PR info for a given repo
- *
- * @param owner user's login name, e.g. lowsky
- * @param repo repo's name
- * @param commit_sha
- */
-export const fetchRepoPullRequestsAssociatedWithCommit = async (
-    owner: string,
-    repo: string,
-    commit_sha: string
-): Promise<ListPullRequestsAssociatedWithCommitResponseDataType> => {
-    const pulls: ListPullRequestsAssociatedWithCommitResponseType =
-        await octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
-    return pulls.data;
-};
 
 export const mergePullRequest = ({
     owner,
@@ -118,35 +74,6 @@ export const mergePullRequest = ({
         sha,
         pull_number,
     });
-    // @ts-ignore
+    // @ts-expect-error type is not exact matching - needs fix
     return result;
 };
-
-export function getLastCommit(
-    ownerUsername: string,
-    reponame: string,
-    sha
-): Promise<
-    GithubCommit & {
-        message: string;
-        date: string;
-        ownerUsername: string;
-        reponame: string;
-    }
-> {
-    return getCommitsForRepo(ownerUsername, reponame, sha) //
-        .then((commits) => commits[0])
-        .then((commit) => {
-            // @ts-ignore
-            const message = commit.commit.message;
-            // @ts-ignore
-            const date = commit.commit.committer?.date;
-            return {
-                ...commit,
-                message,
-                date,
-                ownerUsername,
-                reponame,
-            };
-        });
-}

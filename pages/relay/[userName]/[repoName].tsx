@@ -8,12 +8,11 @@ import UserRepo from '../../../relay/UserRepo';
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
 import { repoQuery, userQuery } from '../../../queries/relayPage';
-import { mergePullRequest } from '../../../lib/github';
+import { mergePullRequest, DoMergePR } from '../../../restinpeace/github';
 import { useEnvironment } from '../../../lib/relay';
 import { relayPageUserQuery } from '../../../queries/__generated__/relayPageUserQuery.graphql';
 import { relayPageRepoQuery } from '../../../queries/__generated__/relayPageRepoQuery.graphql';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import { DoMergePR } from "../../../restinpeace/github";
 
 function singleArgOrDefault(value: string | string[], defaultValue: string) {
     if (value === null || value === undefined) {

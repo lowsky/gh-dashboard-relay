@@ -5,6 +5,7 @@ import { Spinner } from '../components/Spinner';
 import {
     DoMergePR,
     fetchRepoBranchesWithCommitStatuses,
+    fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
 } from '../restinpeace/github';
 import RichErrorBoundary from '../components/RichErrorBoundary';
@@ -12,7 +13,7 @@ import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
-import { cache, createResource } from "../restinpeace/reactCache";
+import { cache, createResource } from '../restinpeace/reactCache';
 
 export type UserRepoProps = Readonly<{
     doMergePR?: DoMergePR;
@@ -20,11 +21,16 @@ export type UserRepoProps = Readonly<{
     repoName: string;
 }>;
 
-const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repoName}/br+stats`;
+const branchesWithStatusesInfoHash = (userName, repoName) => `br/${userName}/${repoName}`;
 
 const getBranches = createResource(
     ({ userName, repoName }) => fetchRepoBranchesWithCommitStatuses({ userName, repoName }),
     ({ userName, repoName }) => branchesWithStatusesInfoHash(userName, repoName)
+);
+
+const getBranchesFull = createResource(
+    ({ userName, repoName }) => fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }),
+    ({ userName, repoName }) => `br_full/${userName}/${repoName}/`
 );
 
 export const UserRepoFetchAll: React.FunctionComponent<UserRepoProps> = ({ doMergePR, userName, repoName }) => {
@@ -33,7 +39,7 @@ export const UserRepoFetchAll: React.FunctionComponent<UserRepoProps> = ({ doMer
             <Repo userName={userName} repoName={repoName} />
 
             <LazyUser userName={userName} />
-            <LazyBranchTable repoName={repoName} userName={userName} doMergePR={doMergePR} />
+            <LazyBranchTable repoName={repoName} userName={userName} doMergePR={doMergePR} loadAll />
         </Flex>
     );
 };
@@ -63,18 +69,21 @@ export default UserRepoWaterfall;
 // fetchUser = async (username: string): Promise<User>;
 export const getUser = createResource(fetchUser);
 
-const LazyUser = ({ userName }) => {
+export const LazyUser = ({ userName }) => {
     const user = getUser.read(cache, userName);
 
     return <User user={user} />;
 };
 
-const LazyBranchTable: React.FunctionComponent<{
+export const LazyBranchTable: React.FunctionComponent<{
     userName: string;
     repoName: string;
     doMergePR?: DoMergePR;
-}> = ({ doMergePR, userName, repoName }) => {
-    const repo = getBranches.read(cache, { userName, repoName });
+    loadAll?: boolean;
+}> = ({ doMergePR, userName, repoName, loadAll }) => {
+    const repo = loadAll
+        ? getBranchesFull.read(cache, { userName, repoName })
+        : getBranches.read(cache, { userName, repoName });
 
     return <BranchesTable doMergePR={doMergePR} repo={repo} />;
 };

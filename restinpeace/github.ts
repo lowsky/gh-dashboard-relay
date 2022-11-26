@@ -140,7 +140,7 @@ export type Branches = {
  * @param repo repo's name
  */
 export const fetchRepoBranches = async (owner: string, repo: string): Promise<Branches> => {
-    const listBranches = octo.repos.listBranches({owner, repo});
+    const listBranches = octo.repos.listBranches({ owner, repo });
     const branches = await listBranches;
     return await branches.data;
 };
@@ -156,18 +156,18 @@ export interface User {
  * @param username user's login name, e.g. lowsky
  */
 export const fetchUser = async (username: string): Promise<User> => {
-    return octo.users.getByUsername({username}).then((byUsername) => {
+    return octo.users.getByUsername({ username }).then((byUsername) => {
         return byUsername.data as User;
     });
 };
 
 export type DoMergePR = (num: number) => Promise<unknown>;
 
-export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({userName, repoName}) {
+export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }) {
     const branches = await fetchRepoBranches(userName, repoName);
 
     const branchesWithCommitProms = branches.map(async (branch) => {
-        const {sha} = branch.commit;
+        const { sha } = branch.commit;
 
         const lastCommit = await getLastCommit(userName, repoName, sha);
         const statuses = await fetchLastCommitStatuses(lastCommit);
@@ -186,15 +186,15 @@ export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({userNa
 
     return {
         name: repoName,
-        owner: {login: userName},
+        owner: { login: userName },
         branches: await Promise.all(branchesWithCommitProms),
     };
 }
-export async function fetchRepoBranchesWithCommitStatuses({userName, repoName}) {
+export async function fetchRepoBranchesWithCommitStatuses({ userName, repoName }) {
     const branches = await fetchRepoBranches(userName, repoName);
 
-    const branchesWithCommitProms = branches.map(async (branch) => {
-        const {sha} = branch.commit;
+    const branchesWithCommitProms = branches.reverse().map(async (branch) => {
+        const { sha } = branch.commit;
 
         const lastCommit = await getLastCommit(userName, repoName, sha);
         const statuses = await fetchLastCommitStatuses(lastCommit);
@@ -210,7 +210,7 @@ export async function fetchRepoBranchesWithCommitStatuses({userName, repoName}) 
 
     return {
         name: repoName,
-        owner: {login: userName},
+        owner: { login: userName },
         branches: await Promise.all(branchesWithCommitProms),
     };
 }
@@ -220,7 +220,7 @@ async function fetchLastCommitStatuses(commit: {
     ownerUsername: string;
     reponame: string;
 }) {
-    const {sha, ownerUsername, reponame} = commit;
+    const { sha, ownerUsername, reponame } = commit;
     if (sha) {
         return await fetchCommitStatuses({
             sha,

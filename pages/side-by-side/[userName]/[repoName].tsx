@@ -16,6 +16,10 @@ export const SideBySide = () => {
     const router = useRouter();
     const { userName, repoName } = router.query;
     if (userName && repoName) {
+        if (typeof window === 'undefined') {
+            return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
+        }
+
         return (
             <div>
                 <InternalLink href={`/side-by-side/`}>back to shortcut list</InternalLink>

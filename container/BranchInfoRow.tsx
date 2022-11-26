@@ -26,11 +26,12 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userNa
 
     const { CommitWithStatuses, PullRequestInfo } = useUILib();
 
+    let branchUrlValid = userName && repoName;
     return (
         <Tr key={name}>
             <Td>
-                {name && userName && repoName && (
-                    <Link href={githubBranchSrc} rel="noopener noreferrer nofollow" isExternal>
+                {name && (
+                    <Link href={branchUrlValid ? githubBranchSrc : ''} rel="noopener noreferrer nofollow" isExternal>
                         {name}
                     </Link>
                 )}
