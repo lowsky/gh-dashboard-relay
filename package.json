@@ -66,7 +66,7 @@
     "@next/mdx": "13.1.1",
     "@octokit/graphql-schema": "12.41.0",
     "@octokit/rest": "19.0.5",
-    "framer-motion": "7.10.3",
+    "framer-motion": "8.0.2",
     "graphql": "16.0.0-rc.7.experimental-stream-defer.4",
     "graphql-helix": "1.13.0",
     "meros": "1.2.1",
