@@ -11532,7 +11532,7 @@ __metadata:
     eslint-plugin-graphql: 4.0.0
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-storybook: 0.6.8
-    framer-motion: 8.0.2
+    framer-motion: 8.0.4
     graphql: 16.0.0-rc.7.experimental-stream-defer.4
     graphql-helix: 1.13.0
     hitchcock: 0.5.0
@@ -13551,21 +13551,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:8.0.2":
-  version: 8.0.2
-  resolution: "framer-motion@npm:8.0.2"
+"framer-motion@npm:8.0.4":
+  version: 8.0.4
+  resolution: "framer-motion@npm:8.0.4"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     "@motionone/dom": ^10.15.3
     hey-listen: ^1.0.8
-    tslib: 2.4.0
+    tslib: ^2.4.0
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 7c1df1b35d8b91f2458f2c9deb9f2af159d965e0d3e15f6535cd51bd9563ed22e28a407a8a3b6f21d76651bb109af98db1db9013967db03957583f9d949540c3
+  checksum: f8553bafc0747c980c4644b74648486f0059d08aa77dadb3e632fcf668960b66f96b15607d2a0e3e53c51b0cca73e1de11394c986a1fff9fee5a56ae1088566b
   languageName: node
   linkType: hard
 
