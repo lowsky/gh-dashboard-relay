@@ -15,7 +15,7 @@ export function LinkList({ rootPath }) {
         <UnorderedList>
             {links.map((link) => (
                 <ListItem key={link}>
-                    <InternalLink href={rootPath + link}>{link}</InternalLink>
+                    <InternalLink href={rootPath + '/' + link}>{link}</InternalLink>
                 </ListItem>
             ))}
         </UnorderedList>
