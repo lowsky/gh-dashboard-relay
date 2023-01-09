@@ -1,8 +1,5 @@
 const path = require('path');
 module.exports = {
-    core: {
-        builder: 'webpack5',
-    },
     stories: [
         '../components/*.story.@(js|jsx|ts|tsx|mdx)',
         '../container/*.story.@(js|jsx|ts|tsx|mdx)',
@@ -17,7 +14,12 @@ module.exports = {
         'storybook-addon-next-router',
     ],
     // sb build bails missing some deps if missing
-    typescript: { reactDocgen: false },
+    typescript: {
+        reactDocgen: false,
+    },
+    docs: {
+        autodocs: true,
+    },
     features: {
         postcss: false,
     },
@@ -46,5 +48,8 @@ module.exports = {
             },
         },
     }),
-    framework: '@storybook/react',
+    framework: {
+        name: '@storybook/nextjs',
+        options: {},
+    },
 };
