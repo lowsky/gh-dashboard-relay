@@ -14,15 +14,7 @@ import { relayPageUserQuery } from '../../../queries/__generated__/relayPageUser
 import { relayPageRepoQuery } from '../../../queries/__generated__/relayPageRepoQuery.graphql';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 
-function singleArgOrDefault(value: string | string[], defaultValue: string) {
-    if (value === null || value === undefined) {
-        return defaultValue;
-    }
-    if (typeof value === 'string') {
-        return value;
-    }
-    return String(value);
-}
+import { singleArgOrDefault } from '../../../components/singleArgOrDefault';
 
 const RelayRoot = () => {
     const environment = useEnvironment({});

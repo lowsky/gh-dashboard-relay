@@ -5,16 +5,30 @@ import { Link } from '@chakra-ui/react';
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import InternalLink from "../../../components/InternalLink";
+import InternalLink from '../../../components/InternalLink';
 
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 
 import { UserRepoFetchAll } from '../../../container/LazyUserRepo';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
+import { DoMergePR } from '../../../restinpeace/github';
+import { mergePullRequest } from '../../../lib/github';
+import { singleArgOrDefault } from '../../../components/singleArgOrDefault';
 
 export default function LoadAllThenPage() {
     const router = useRouter();
     const { userName, repoName } = router.query;
+
+    const doMergePR: DoMergePR = async (num) => {
+        if (repoName && userName) {
+            return await mergePullRequest({
+                owner: singleArgOrDefault(userName, ''),
+                repo: singleArgOrDefault(repoName, ''),
+                pull_number: num,
+            });
+        }
+        return;
+    };
 
     if (userName && repoName) {
         if (typeof window === 'undefined') {
@@ -27,7 +41,7 @@ export default function LoadAllThenPage() {
                 </InternalLink>
 
                 <UILibContext.Provider value={UILibPureComponents}>
-                    <WaitForAll userName={userName} repoName={repoName} />
+                    <WaitForAll userName={userName} repoName={repoName} doMergePR={doMergePR} />
                 </UILibContext.Provider>
             </>
         );
@@ -35,11 +49,11 @@ export default function LoadAllThenPage() {
     return <WarningMissingURLParams />;
 }
 
-export function WaitForAll({ userName, repoName }) {
+export function WaitForAll({ userName, repoName, doMergePR }) {
     return (
         <RichErrorBoundary>
             <Suspense fallback={<ContentLoadingFallback />}>
-                <UserRepoFetchAll repoName={repoName} userName={userName} />
+                <UserRepoFetchAll repoName={repoName} userName={userName} doMergePR={doMergePR} />
             </Suspense>
         </RichErrorBoundary>
     );
