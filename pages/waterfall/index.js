@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 import InternalLink from '../../components/InternalLink';
+import { LinkList } from '../../components/LinkList';
 
 export default function Shortcuts() {
     return (
@@ -13,21 +14,7 @@ export default function Shortcuts() {
                 Showing results incrementally (waterfall) as soon as they got loaded. (modern Promise-based way)
             </Box>
 
-            <UnorderedList>
-                <ListItem>
-                    <InternalLink href={'/waterfall/lowsky/dashboard'}>lowsky/dashboard</InternalLink>
-                </ListItem>
-                <ListItem>
-                    <InternalLink href={'/waterfall/lowsky/spotify-graphql-server'}>
-                        lowsky/spotify-graphql-server
-                    </InternalLink>
-                </ListItem>
-                <ListItem>
-                    <InternalLink href={'/waterfall/lowsky/spotify-graphql-server-graphql-helix-envelop'}>
-                        lowsky/spotify-graphql-server-graphql-helix-envelop
-                    </InternalLink>
-                </ListItem>
-            </UnorderedList>
+            <LinkList rootPath="/waterfall" />
         </div>
     );
 }
