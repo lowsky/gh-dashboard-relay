@@ -24,7 +24,7 @@
     "vercel-build": "yarn run codegen && yarn run build",
     "vercel-build:without-chromatic": "yarn run vercel-build",
     "lint": "eslint .",
-    "test": "cp .babelrc.for.jest.json .babelrc ; jest --cache",
+    "test": "jest --cache",
     "coverage": "yarn run test --coverage",
     "chromatic-test": "chromatic --exit-zero-on-changes -d public/story-book --ci --allow-console-errors --exit-once-uploaded '*'",
     "storybook": "storybook dev -p 9009",
