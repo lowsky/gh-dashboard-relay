@@ -119,7 +119,7 @@
     "relay-compiler": "14.1.0",
     "relay-compiler-language-typescript": "15.0.1",
     "storybook": "7.0.0-beta.34",
-    "ts-jest": "29.0.4",
+    "ts-jest": "29.0.5",
     "typescript": "4.9.4"
   },
   "packageManager": "yarn@3.3.1"
