@@ -5014,16 +5014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:8.1.0":
-  version: 8.1.0
-  resolution: "@octokit/types@npm:8.1.0"
-  dependencies:
-    "@octokit/openapi-types": ^14.0.0
-  checksum: 51bb6ba84843b3779265f29a22b6b42ed59ae872913471212ff6bcdb2cfb42559ca78068794dac3e791ea2070d70c64e54593f7d8eb474619e94336c8c49c799
-  languageName: node
-  linkType: hard
-
-"@octokit/types@npm:^8.0.0, @octokit/types@npm:^8.1.1":
+"@octokit/types@npm:8.2.1, @octokit/types@npm:^8.0.0, @octokit/types@npm:^8.1.1":
   version: 8.2.1
   resolution: "@octokit/types@npm:8.2.1"
   dependencies:
@@ -9679,7 +9670,7 @@ __metadata:
     "@next/mdx": 13.1.1
     "@octokit/graphql-schema": 12.41.1
     "@octokit/rest": 19.0.5
-    "@octokit/types": 8.1.0
+    "@octokit/types": 8.2.1
     "@storybook/addon-essentials": 7.0.0-beta.34
     "@storybook/addon-storyshots": 7.0.0-beta.34
     "@storybook/addons": 7.0.0-beta.34
@@ -16734,16 +16725,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.8.3":
-  version: 2.8.3
-  resolution: "prettier@npm:2.8.3"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 92f2ceb522d454370e02082aa74ad27388672f7cee8975028b59517c069fe643bdc73e322675c8faf2ff173d7a626d1a6389f26b474000308e793aa25fff46e5
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.8.0":
+"prettier@npm:2.8.3, prettier@npm:^2.8.0":
   version: 2.8.3
   resolution: "prettier@npm:2.8.3"
   bin:
