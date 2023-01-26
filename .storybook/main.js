@@ -7,49 +7,14 @@ module.exports = {
         '../relay/*.story.@(js|jsx|ts|tsx|mdx)',
         '../stories/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    addons: [
-        //
-        '@storybook/addon-essentials',
-        '@chakra-ui/storybook-addon',
-        'storybook-addon-next-router',
-    ],
-    // sb build bails missing some deps if missing
-    typescript: {
-        reactDocgen: false,
-    },
+    addons: ['@storybook/addon-essentials', '@chakra-ui/storybook-addon'],
     docs: {
         autodocs: true,
     },
-    features: {
-        postcss: false,
-    },
-    webpackFinal: async (config) => ({
-        ...config,
-        module: {
-            ...config.module,
-            rules: [
-                ...config.module.rules,
-                {
-                    type: 'javascript/auto',
-                    test: /\.mjs$/,
-                    include: /node_modules/,
-                },
-            ],
-        },
-        // Enable Docs pages
-        // https://github.com/storybookjs/storybook/issues/15253#issuecomment-951046559
-        resolve: {
-            ...config.resolve,
-            alias: {
-                ...config.resolve.alias,
-                // Resolve path issue for emotion v11
-                '@emotion/core': path.resolve('node_modules/@emotion/react'),
-                'emotion-theming': path.resolve('node_modules/@emotion/react'),
-            },
-        },
-    }),
     framework: {
         name: '@storybook/nextjs',
-        options: {},
+        options: {
+            fastRefresh: true,
+        },
     },
 };
