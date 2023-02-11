@@ -9,13 +9,15 @@ import { CommitStatuses } from './CommitStatuses';
 
 export interface CommitWithStatusProps {
     commit?: GithubCommit;
+    userName: string;
+    repoName: string;
 }
 
-const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
+const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userName, repoName }) => {
     // @ts-ignore
     const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
 
-    const githubCommit = `https://github.com/lowsky/dashboard/tree/${sha}`;
+    const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
 
     let mainMessage = message?.split('\n\n', 1);
 

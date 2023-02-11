@@ -13,8 +13,8 @@ export interface BranchInfoRowProps {
     branch: GithubBranch;
     doMergePR?: DoMergePR;
 
-    userName?: Maybe<string>;
-    repoName?: Maybe<string>;
+    userName: string;
+    repoName: string;
     sha?: Maybe<string>;
 }
 
@@ -50,7 +50,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userNa
                 </Suspense>
             </Td>
 
-            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</Td>
+            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} userName={userName} repoName={repoName} />}</Td>
         </Tr>
     );
 };
