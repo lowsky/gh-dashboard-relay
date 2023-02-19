@@ -1,13 +1,7 @@
-import { Octokit } from '@octokit/rest';
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
 
 import { GithubCommit, GithubStatus } from './types';
-
-const { GITHUB_TOKEN } = process.env;
-
-export const octo = new Octokit({
-    GITHUB_TOKEN,
-});
+import { octo } from '../lib/github';
 
 export const getCommitsForRepo = async (
     username: string,

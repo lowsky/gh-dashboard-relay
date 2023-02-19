@@ -13,8 +13,8 @@ export interface BranchInfoRowProps {
     branch: GithubBranch;
     doMergePR?: DoMergePR;
 
-    userName?: Maybe<string>;
-    repoName?: Maybe<string>;
+    userName: string;
+    repoName: string;
     sha?: Maybe<string>;
 }
 
@@ -27,6 +27,8 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userNa
     const { CommitWithStatuses, PullRequestInfo } = useUILib();
 
     let branchUrlValid = userName && repoName;
+
+    const main = name === 'master' || name === 'main';
     return (
         <Tr key={name}>
             <Td>
@@ -41,16 +43,17 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userNa
             </Td>
             <Td>
                 <Suspense fallback={<Spinner />}>
-                    {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
-                        <PullRequestInfo key={idx} pullRequest={pr!} doMergePR={doMergePR} />
-                    ))}
-                    {!associatedPullRequests && (
+                    {!main &&
+                        associatedPullRequests
+                            ?.filter?.(Boolean)
+                            .map((pr, idx) => <PullRequestInfo key={idx} pullRequest={pr!} doMergePR={doMergePR} />)}
+                    {!associatedPullRequests && !main && (
                         <PullRequestInfo userName={userName} repoName={repoName} sha={sha} doMergePR={doMergePR} />
                     )}
                 </Suspense>
             </Td>
 
-            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</Td>
+            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} userName={userName} repoName={repoName} />}</Td>
         </Tr>
     );
 };

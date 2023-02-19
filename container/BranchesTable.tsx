@@ -8,7 +8,7 @@ import { Spinner } from '../components/Spinner';
 import { DoMergePR } from '../restinpeace/github';
 
 export interface BranchesTableProps {
-    repo?: GithubRepo;
+    repo: GithubRepo;
     doMergePR?: DoMergePR;
 }
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
@@ -29,32 +29,18 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
             </Thead>
             <Tbody>
                 {(branches || []).map((branch, idx) => {
+                    if (branch === null) return null;
                     return (
-                        branch && (
-                            <Suspense
-                                fallback={
-                                    <Tr>
-                                        <Td>
-                                            <Spinner />
-                                        </Td>
-                                        <Td>
-                                            <Spinner />
-                                        </Td>
-                                        <Td>
-                                            <Spinner />
-                                        </Td>
-                                    </Tr>
-                                }>
-                                <BranchInfoRow
-                                    key={idx}
-                                    branch={branch}
-                                    doMergePR={doMergePR}
-                                    userName={owner?.login}
-                                    repoName={name}
-                                    sha={branch.lastCommit?.sha}
-                                />
-                            </Suspense>
-                        )
+                        <Suspense fallback={<SkeletonRow key={idx} />}>
+                            <BranchInfoRow
+                                key={idx}
+                                branch={branch}
+                                doMergePR={doMergePR}
+                                userName={owner?.login!}
+                                repoName={name!}
+                                sha={branch.lastCommit?.sha}
+                            />
+                        </Suspense>
                     );
                 })}
             </Tbody>
@@ -63,3 +49,17 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
 };
 
 export default BranchesTable;
+
+const SkeletonRow = () => (
+    <Tr>
+        <Td>
+            <Spinner />
+        </Td>
+        <Td>
+            <Spinner />
+        </Td>
+        <Td>
+            <Spinner />
+        </Td>
+    </Tr>
+);

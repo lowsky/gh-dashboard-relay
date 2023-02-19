@@ -3,11 +3,10 @@ import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 
 import { GithubBranch, GithubRepo, GithubUser } from './types/resolvers';
 
-// @ts-ignore
-const { GITHUB_TOKEN } = process.env;
+const NEXT_PUBLIC_GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 export const octo = new Octokit({
-    auth: GITHUB_TOKEN,
+    auth: NEXT_PUBLIC_GITHUB_TOKEN,
 });
 
 export const getUser = async (username: string): Promise<GithubUser> => {
