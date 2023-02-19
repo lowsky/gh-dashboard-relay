@@ -26,9 +26,11 @@ WithInfo.args = {
     branch: {
         name: 'branch-x',
         lastCommit: {
+            // @ts-expect-error exported args could be undefined
             ...WithData.args.commit,
             associatedPullRequests: [
                 {
+                    // @ts-expect-error exported args could be undefined
                     ...DefaultPR.args.pullRequest,
                 },
             ],

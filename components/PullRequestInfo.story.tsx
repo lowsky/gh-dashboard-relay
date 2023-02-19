@@ -1,19 +1,19 @@
-import React from 'react';
+import PullRequestInfo from './PullRequestInfo';
 
-import PullRequestInfo, { PullRequestData } from './PullRequestInfo';
+import { ComponentMeta, StoryObj } from '@storybook/react';
 
 export default {
     component: PullRequestInfo,
-};
+} as ComponentMeta<typeof PullRequestInfo>;
 
-const pullRequestData_default: PullRequestData = {
-    url: 'https://github.com/lowsky/dashboard/pull/42',
-    title: 'add PR info to branch table',
-    number: 42,
-};
+type Story = StoryObj<typeof PullRequestInfo>;
 
-export const Default = (props) => <PullRequestInfo {...props} />;
-
-Default.args = {
-    pullRequest: pullRequestData_default,
+export const Default: Story = {
+    args: {
+        pullRequest: {
+            url: 'https://github.com/lowsky/dashboard/pull/42',
+            title: 'add PR info to branch table',
+            number: 42,
+        },
+    },
 };

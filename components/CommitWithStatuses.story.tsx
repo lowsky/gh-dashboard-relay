@@ -1,27 +1,23 @@
-import React from 'react';
+import { ComponentMeta, StoryObj } from '@storybook/react';
 
 import CommitWithStatuses from './CommitWithStatuses';
 
 import moreStatus from '../restinpeace/lastCommitMock.json';
-import { WithoutAvatar } from './User.story';
 
 export default {
     component: CommitWithStatuses,
-};
+} as ComponentMeta<typeof CommitWithStatuses>;
 
-export const WithData = (props) => <CommitWithStatuses {...props} />;
+type Story = StoryObj<typeof CommitWithStatuses>;
 
-WithData.args = {
-    commit: moreStatus,
-    user: {
-        ...WithoutAvatar.args.user,
-        avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
+export const WithData: Story = {
+    args: {
+        commit: moreStatus,
     },
 };
 
-export const WithNoData = (props) => <CommitWithStatuses {...props} />;
-
-WithNoData.args = {
-    commit: undefined,
-    user: undefined,
+export const WithNoData: Story = {
+    args: {
+        commit: undefined,
+    },
 };

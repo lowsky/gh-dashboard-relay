@@ -1,30 +1,24 @@
-import React from 'react';
-
 import User from './User';
-
-const userWithoutAvatar = {
-    login: 'login',
-    id: '1234',
-    company: 'company',
-};
-
-const userWithAvatar = {
-    ...userWithoutAvatar,
-    avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
-};
 
 export default {
     component: User,
 };
 
-export const WithoutAvatar = (props) => <User {...props} />;
-
-WithoutAvatar.args = {
-    user: userWithoutAvatar,
+export const WithoutAvatar = {
+    args: {
+        user: {
+            login: 'login',
+            id: '1234',
+            company: 'company',
+        },
+    },
 };
 
-export const WithAvatar = (props) => <User {...props} />;
-
-WithAvatar.args = {
-    user: userWithAvatar,
+export const WithAvatar = {
+    args: {
+        user: {
+            ...WithoutAvatar.args.user,
+            avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
+        },
+    },
 };

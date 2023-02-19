@@ -4,4 +4,4 @@ export default {
     component: Spinner,
 };
 
-export const Default = () => <Spinner />;
+export const Default = {};
