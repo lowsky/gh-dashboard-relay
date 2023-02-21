@@ -10179,7 +10179,7 @@ __metadata:
     eslint-config-prettier: 8.6.0
     eslint-plugin-graphql: 4.0.0
     eslint-plugin-prettier: 4.2.1
-    eslint-plugin-storybook: 0.6.10
+    eslint-plugin-storybook: 0.6.11
     framer-motion: 9.0.7
     graphql: 16.0.0-rc.7.experimental-stream-defer.4
     graphql-yoga: 3.5.1
@@ -11291,9 +11291,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:0.6.10":
-  version: 0.6.10
-  resolution: "eslint-plugin-storybook@npm:0.6.10"
+"eslint-plugin-storybook@npm:0.6.11":
+  version: 0.6.11
+  resolution: "eslint-plugin-storybook@npm:0.6.11"
   dependencies:
     "@storybook/csf": ^0.0.1
     "@typescript-eslint/utils": ^5.45.0
@@ -11301,7 +11301,7 @@ __metadata:
     ts-dedent: ^2.2.0
   peerDependencies:
     eslint: ">=6"
-  checksum: e0f77a90542c119a85bac4e1466204c63a0bf540e1a7ee535461d823d73391f7c6dd658dedb6b9b7fd0829f2718dde6b9784a3ec451731b07c3ae94af00f53ed
+  checksum: efb85688041d4fd02be0cc51f07803acffaa54fdf61c21e9ae9eb18f26e6b8aec50911cfa71855ff4322b377b62cd53e7bf549faf60df4f20b8840171eab0029
   languageName: node
   linkType: hard
 
