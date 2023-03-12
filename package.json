@@ -60,7 +60,7 @@
     "@next/mdx": "13.1.6",
     "@octokit/graphql-schema": "13.7.0",
     "@octokit/rest": "19.0.7",
-    "framer-motion": "9.0.7",
+    "framer-motion": "10.2.4",
     "graphql": "16.0.0-rc.7.experimental-stream-defer.4",
     "graphql-yoga": "3.7.0",
     "meros": "1.2.1",
