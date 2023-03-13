@@ -10344,7 +10344,7 @@ __metadata:
     react-relay: 15.0.0
     relay-compiler: 15.0.0
     relay-compiler-language-typescript: 15.0.1
-    relay-runtime: 14.1.0
+    relay-runtime: 15.0.0
     simple-cache-provider: 0.10.0
     storybook: 7.0.0-rc.1
     ts-jest: 29.0.5
