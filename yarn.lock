@@ -10044,7 +10044,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-relay: 14.1.0
-    relay-compiler: 14.1.0
+    relay-compiler: 15.0.0
     relay-compiler-language-typescript: 15.0.1
     relay-runtime: 14.1.0
     simple-cache-provider: 0.10.0
@@ -17815,12 +17815,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:14.1.0":
-  version: 14.1.0
-  resolution: "relay-compiler@npm:14.1.0"
+"relay-compiler@npm:15.0.0":
+  version: 15.0.0
+  resolution: "relay-compiler@npm:15.0.0"
   bin:
     relay-compiler: cli.js
-  checksum: 2c7bf680c6e60e4436af56cc463e9c81389265bb5371ea7d54c0eb45c6af2bbccbe0d57eee838c499d9b7625330be0927d4deb1926ab8e8984a8f306f8ea0ccc
+  checksum: 8e452544d17ff433b933d89102e54eb99f8c76de4f0acc414f4a3df8aab73e2355cd40b87f93941af4204fdba98083018b9cca0525ba8e50c94fcf00fd33c886
   languageName: node
   linkType: hard
 
