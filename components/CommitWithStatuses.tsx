@@ -42,7 +42,7 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userNa
             </div>
 
             <Suspense fallback={<Spinner size={3} />}>
-                <CommitStatuses statuses={status ?? statuses} userName={userName} repoName={repoName} sha={sha} />
+                <CommitStatuses statuses={status ?? statuses} />
             </Suspense>
         </>
     );
