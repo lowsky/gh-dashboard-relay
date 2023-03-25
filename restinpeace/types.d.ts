@@ -14,6 +14,7 @@ export type GithubCommit = {
     message?: Maybe<string>;
     sha?: Maybe<string>;
     status?: Maybe<Array<Maybe<GithubStatus>>>;
+    statuses?: Maybe<Array<Maybe<GithubStatus>>>;
 };
 
 export type GithubCommitAuthor = {

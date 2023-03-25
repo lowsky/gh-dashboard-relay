@@ -21,7 +21,7 @@ import { UILib } from './UILibContext';
 export const UILibPureComponents: UILib = {
     User: PureUser,
     Repo: PureRepo,
-    BranchTable: PureBranchesTable,
+    BranchesTable: PureBranchesTable,
     BranchInfoRow: PureBranchInfoRow,
     CommitWithStatuses: PureCommitWithStatuses,
     PullRequestInfo: PurePullRequestInfo,
@@ -30,7 +30,7 @@ export const UILibPureComponents: UILib = {
 export const UILibWithRelaySupport: UILib = {
     User: RelayUser,
     Repo: RelayRepo,
-    BranchTable: RelayBranchesTable,
+    BranchesTable: RelayBranchesTable,
     BranchInfoRow: RelayBranchInfoRow,
     CommitWithStatuses: RelayCommitWithStatuses,
     PullRequestInfo: RelayPullRequestInfo,

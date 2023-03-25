@@ -1,3 +1,5 @@
+'use client'; // this directive should be at top of the file, before any imports.
+
 import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 

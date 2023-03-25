@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import InternalLink from '../components/InternalLink';
 
-export default function Shortcuts() {
+export default function Index() {
     return (
         <div>
             <Head>
@@ -32,15 +32,6 @@ export default function Shortcuts() {
                     incrementally loading and wait-for-all
                 </li>
             </ul>
-
-            <Container>
-                <a
-                    href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <Box>{'->'} to see how to instantly deploy this Next.js site to a public URL with Vercel.</Box>
-                </a>
-            </Container>
         </div>
     );
 }

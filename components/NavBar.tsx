@@ -1,9 +1,9 @@
 import {
     Box,
     Button,
+    Center,
     Collapse,
     Flex,
-    Center,
     IconButton,
     Popover,
     PopoverTrigger,
@@ -17,21 +17,28 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import InternalLink from './InternalLink';
+import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 
 export function NavBar() {
     const { isOpen, onToggle } = useDisclosure();
+    const { owner, repo } = useOwnerRepoFromUrl('facebook', 'react');
+
+    const backgroundColor = useColorModeValue('white', 'gray.800');
+    const borderColor = useColorModeValue('gray.200', 'gray.900');
+    const textColor = useColorModeValue('gray.600', 'white');
 
     return (
         <Box>
             <Flex
-                bg={useColorModeValue('white', 'gray.800')}
-                color={useColorModeValue('gray.600', 'white')}
+                bg={backgroundColor}
+                color={textColor}
                 minH="60px"
                 py={{ base: 2 }}
                 px={{ base: 4 }}
                 borderBottom={1}
                 borderStyle="solid"
-                borderColor={useColorModeValue('gray.200', 'gray.900')}
+                borderColor={borderColor}
                 align="center">
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
@@ -48,27 +55,28 @@ export function NavBar() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Flex display={{ base: 'none', md: 'flex' }}>
-                        <DesktopNav />
+                        <DesktopNav owner={owner} repo={repo} />
                         <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
-                <MobileNav />
+                <MobileNav owner={owner} repo={repo} />
             </Collapse>
         </Box>
     );
 }
 
-const DesktopNav = () => {
-    const color = useColorModeValue('gray.800', 'white');
+const DesktopNav = ({ owner, repo }) => {
+    const hoverColor = useColorModeValue('gray.800', 'white');
+
     return (
         <Stack direction="row" spacing={4} align="center">
-            {NAV_ITEMS.map(({ href, label }) => (
-                <Popover trigger="hover" placement="bottom-start" key={label}>
+            {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
+                <Popover trigger="hover" placement="bottom-start" key={href}>
                     <PopoverTrigger>
-                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color }}>
+                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color: hoverColor }}>
                             {label}
                         </InternalLink>
                     </PopoverTrigger>
@@ -78,10 +86,10 @@ const DesktopNav = () => {
     );
 };
 
-const MobileNav = () => (
+const MobileNav = ({ owner, repo }) => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-        {NAV_ITEMS.map(({ href, label }) => (
-            <MobileNavItem key={label} label={label} href={href} />
+        {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
+            <MobileNavItem key={href} label={label} href={href} />
         ))}
         <DarkLightThemeToggle />
     </Stack>
@@ -102,38 +110,66 @@ const MobileNavItem = ({ label, href }: NavItem) => {
 };
 
 interface NavItem {
-    label: string;
+    label: string | ReactNode;
     href?: string;
 }
 
-const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: 'Home',
-        href: '/',
-    },
-    {
-        label: 'React (old way)',
-        href: '/restful/facebook/react',
-    },
-    {
-        label: 'React, (One Suspense)',
-        href: '/wait-for-all/facebook/react',
-    },
-    {
-        label: 'React, Waterfall (2 Suspense)',
-        href: '/waterfall/facebook/react',
-    },
-    {
-        label: 'Side-by-side',
-        href: '/side-by-side/lowsky/spotify-graphql-server',
-    },
-    {
-        label: 'GitHub',
-        href: 'https://github.com/lowsky/dashboard',
-    },
-];
+function getNavItemsForRepo(owner, repo): NavItem[] {
+    const ownerRepo = owner + '/' + repo;
 
-export function DarkLightThemeToggle() {
+    return [
+        {
+            label: 'Home',
+            href: '/',
+        },
+        {
+            label: (
+                <span>
+                    {repo}
+                    <br />
+                    (old way)
+                </span>
+            ),
+            href: '/restful/' + ownerRepo,
+        },
+        {
+            label: (
+                <span>
+                    {repo}
+                    <br />
+                    (One Suspense)
+                </span>
+            ),
+            href: '/wait-for-all/' + ownerRepo,
+        },
+        {
+            label: (
+                <span>
+                    {repo}
+                    <br />
+                    Waterfall (2 Suspense)
+                </span>
+            ),
+            href: '/waterfall/' + ownerRepo,
+        },
+        {
+            label: (
+                <span>
+                    {repo}
+                    <br />
+                    side-by-side
+                </span>
+            ),
+            href: '/side-by-side/' + ownerRepo,
+        },
+        {
+            label: 'GitHub',
+            href: 'https://www.github.com/lowsky/react-suspense-meetup-demo',
+        },
+    ];
+}
+
+function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
 
     return (
@@ -147,4 +183,14 @@ export function DarkLightThemeToggle() {
             </Flex>
         </Box>
     );
+}
+
+function useOwnerRepoFromUrl(ownerFallback, repoFallback): { owner: string; repo: string } {
+    const router = useRouter();
+    const isRepoPage = /\/.*\/.*\/.*/.test(router.pathname);
+    const { userName, repoName } = router.query;
+
+    const [owner, repo] = isRepoPage ? [userName, repoName] : [ownerFallback, repoFallback];
+
+    return { owner, repo };
 }

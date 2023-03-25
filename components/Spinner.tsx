@@ -1,5 +1,6 @@
 import React from 'react';
 
-import { CircularProgress } from '@chakra-ui/react';
+import { CircularProgress, CircularProgressProps } from '@chakra-ui/react';
 
-export const Spinner = () => <CircularProgress isIndeterminate />;
+type Props = Pick<CircularProgressProps, 'size'>;
+export const Spinner = ({ size }: Props) => <CircularProgress isIndeterminate size={size} />;

@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
-import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 
 import { GithubRepo } from '../restinpeace/types';
 
+import { SkeletonRow } from './BranchInfoRow';
+
 import { useUILib } from '../components/UILibContext';
-import { Spinner } from '../components/Spinner';
 import { DoMergePR } from '../restinpeace/github';
 
 export interface BranchesTableProps {
@@ -49,17 +50,3 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
 };
 
 export default BranchesTable;
-
-const SkeletonRow = () => (
-    <Tr>
-        <Td>
-            <Spinner />
-        </Td>
-        <Td>
-            <Spinner />
-        </Td>
-        <Td>
-            <Spinner />
-        </Td>
-    </Tr>
-);

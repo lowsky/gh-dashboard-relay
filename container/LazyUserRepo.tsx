@@ -13,7 +13,7 @@ import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
-import { cache, createResource } from '../restinpeace/reactCache';
+import { cache, createResource } from '../cache/reactCache';
 
 export type UserRepoProps = Readonly<{
     doMergePR?: DoMergePR;
@@ -21,7 +21,7 @@ export type UserRepoProps = Readonly<{
     repoName: string;
 }>;
 
-const branchesWithStatusesInfoHash = (userName, repoName) => `br/${userName}/${repoName}`;
+const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repoName}/br+stats`;
 
 const getBranches = createResource(
     ({ userName, repoName }) => fetchRepoBranchesWithCommitStatuses({ userName, repoName }),
@@ -69,13 +69,13 @@ export default UserRepoWaterfall;
 // fetchUser = async (username: string): Promise<User>;
 export const getUser = createResource(fetchUser);
 
-export const LazyUser = ({ userName }) => {
+const LazyUser = ({ userName }) => {
     const user = getUser.read(cache, userName);
 
     return <User user={user} />;
 };
 
-export const LazyBranchTable: React.FunctionComponent<{
+const LazyBranchTable: React.FunctionComponent<{
     userName: string;
     repoName: string;
     doMergePR?: DoMergePR;

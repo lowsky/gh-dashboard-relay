@@ -5,6 +5,7 @@ import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameC
 import { Status } from './Status';
 
 import styles from './CommitWithStatuses.module.css';
+import { Spinner } from './Spinner';
 
 export const CommitStatuses: React.FC<{ statuses?: Maybe<Array<Maybe<GithubStatus>>> }> = ({ statuses }) => {
     if (statuses)
@@ -17,3 +18,5 @@ export const CommitStatuses: React.FC<{ statuses?: Maybe<Array<Maybe<GithubStatu
         );
     return null;
 };
+
+export const Skeleton = () => <Spinner size={6} />;

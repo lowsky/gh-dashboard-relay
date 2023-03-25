@@ -16,7 +16,7 @@ export type UserRepoProps = Readonly<{
 }>;
 
 const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergePR, userName, repoName }) => {
-    const { Repo, User, BranchTable } = useUILib();
+    const { Repo, User, BranchesTable } = useUILib();
 
     return (
         <Flex gap="4" direction="column">
@@ -37,7 +37,7 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergeP
             )}
             {repo && <Repo repo={repo} />}
             {user && <User user={user} />}
-            {repo && <BranchTable repo={repo} doMergePR={doMergePR} />}
+            {repo && <BranchesTable repo={repo} doMergePR={doMergePR} />}
         </Flex>
     );
 };

@@ -1,10 +1,8 @@
 import React, { Suspense } from 'react';
 import { useRouter } from 'next/router';
-import { Link } from '@chakra-ui/react';
 
 import { UILibPureComponents } from '../../../components';
 import UILibContext from '../../../components/UILibContext';
-import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import InternalLink from '../../../components/InternalLink';
 
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
@@ -30,30 +28,22 @@ export default function LoadAllThenPage() {
         return;
     };
 
-    if (userName && repoName) {
-        if (typeof window === 'undefined') {
-            return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
-        }
-        return (
-            <>
-                <InternalLink passHref legacyBehavior href={'/wait-for-all'}>
-                    <Link>back to shortcut list</Link>
-                </InternalLink>
+    return (
+        <>
+            <InternalLink href={`/wait-for-all/`}>back to shortcut list</InternalLink>
 
-                <UILibContext.Provider value={UILibPureComponents}>
-                    <WaitForAll userName={userName} repoName={repoName} doMergePR={doMergePR} />
-                </UILibContext.Provider>
-            </>
-        );
-    }
-    return <WarningMissingURLParams />;
+            <UILibContext.Provider value={UILibPureComponents}>
+                <WaitForAll userName={userName} repoName={repoName} doMergePR={doMergePR} />
+            </UILibContext.Provider>
+        </>
+    );
 }
 
 export function WaitForAll({ userName, repoName, doMergePR }) {
     return (
         <RichErrorBoundary>
             <Suspense fallback={<ContentLoadingFallback />}>
-                <UserRepoFetchAll repoName={repoName} userName={userName} doMergePR={doMergePR} />
+                {userName && repoName && <UserRepoFetchAll repoName={repoName} userName={userName} doMergePR={doMergePR} />}
             </Suspense>
         </RichErrorBoundary>
     );

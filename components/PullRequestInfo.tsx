@@ -6,7 +6,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { Maybe } from '../restinpeace/types';
 import { DoMergePR, fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
-import { createResource } from '../restinpeace/reactCache';
+import { createResource } from '../cache/reactCache';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;
@@ -55,7 +55,7 @@ export default function PullRequestInfo({ pullRequest, doMergePR, userName, repo
         pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
 
     return (
-        <VStack>
+        <VStack width="6em">
             <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
                 #{number}
             </Link>

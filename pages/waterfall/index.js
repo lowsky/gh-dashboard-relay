@@ -9,7 +9,7 @@ export default function Shortcuts() {
         <div>
             <InternalLink href={'/'}>back to main page</InternalLink>
 
-            <Heading>Optimised Suspense. Incremental</Heading>
+            <Heading>Optimised Suspense. Waterfall 🌊</Heading>
             <Box mb={6}>
                 Showing results incrementally (waterfall) as soon as they got loaded. (modern Promise-based way)
             </Box>

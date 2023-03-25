@@ -2,19 +2,20 @@ import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Icon, Link, Td, Tr } from '@chakra-ui/react';
+import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from '../restinpeace/types';
 import { Spinner } from '../components/Spinner';
 import { useUILib } from '../components/UILibContext';
 import { DoMergePR } from '../restinpeace/github';
+import { CommitWithStatusesSkeleton } from '../components/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
     doMergePR?: DoMergePR;
 
-    userName: string;
-    repoName: string;
+    userName?: Maybe<string>;
+    repoName?: Maybe<string>;
     sha?: Maybe<string>;
 }
 
@@ -26,7 +27,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userNa
 
     const { CommitWithStatuses, PullRequestInfo } = useUILib();
 
-    let branchUrlValid = userName && repoName;
+    const branchUrlValid = userName && repoName;
 
     const main = name === 'master' || name === 'main';
     return (
@@ -42,20 +43,44 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, doMergePR, userNa
                 </Icon>
             </Td>
             <Td>
-                <Suspense fallback={<Spinner />}>
+                <Suspense
+                    fallback={
+                        <VStack width="6em">
+                            <Spinner size={8} />
+                        </VStack>
+                    }>
                     {!main &&
                         associatedPullRequests
                             ?.filter?.(Boolean)
                             .map((pr, idx) => <PullRequestInfo key={idx} pullRequest={pr!} doMergePR={doMergePR} />)}
-                    {!associatedPullRequests && !main && (
+                    {!main &&
+                        !associatedPullRequests && (
                         <PullRequestInfo userName={userName} repoName={repoName} sha={sha} doMergePR={doMergePR} />
                     )}
                 </Suspense>
             </Td>
 
-            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} userName={userName} repoName={repoName} />}</Td>
+            <Td>
+                <Suspense fallback={<CommitWithStatusesSkeleton />}>
+                    {lastCommit && <CommitWithStatuses commit={lastCommit} userName={userName} repoName={repoName} />}
+                </Suspense>
+            </Td>
         </Tr>
     );
 };
 
 export default BranchInfoRow;
+
+export const SkeletonRow = () => (
+    <Tr>
+        <Td>
+            <Spinner />
+        </Td>
+        <Td>
+            <Spinner />
+        </Td>
+        <Td>
+            <Spinner />
+        </Td>
+    </Tr>
+);

@@ -10,7 +10,7 @@ import { CommitWithStatusProps } from './CommitWithStatuses';
 export interface UILib {
     User: React.ComponentType<UserProps> | React.ComponentType<UserProps & { relay?: string }>;
     Repo: React.ComponentType<RepoProps> | React.ComponentType<RepoProps & { relay?: string }>;
-    BranchTable: React.ComponentType<BranchesTableProps> | React.ComponentType<BranchesTableProps & { relay?: string }>;
+    BranchesTable: React.ComponentType<BranchesTableProps> | React.ComponentType<BranchesTableProps & { relay?: string }>;
     BranchInfoRow:
         | React.ComponentType<BranchInfoRowProps>
         | React.ComponentType<BranchInfoRowProps & { relay?: string }>;
@@ -22,11 +22,11 @@ export interface UILib {
         | React.ComponentType<PullRequestInfoProps & { relay?: string }>;
 }
 
-/* Dummy components avoids crashes caused by undefined components */
+/* Dummy components avoid crashes caused by undefined components */
 export const UILibDummy: UILib = {
     User: () => null,
     Repo: () => null,
-    BranchTable: () => null,
+    BranchesTable: () => null,
     BranchInfoRow: () => null,
     CommitWithStatuses: () => null,
     PullRequestInfo: () => null,

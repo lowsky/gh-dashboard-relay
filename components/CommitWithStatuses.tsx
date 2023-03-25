@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { GithubCommit } from '../restinpeace/types';
+import { GithubCommit, Maybe } from '../restinpeace/types';
 import { CommitterInfo } from './CommitterInfo';
+import { CommitStatuses } from './CommitStatuses';
+import { Spinner } from './Spinner';
 
 import styles from './CommitWithStatuses.module.css';
-import { CommitStatuses } from './CommitStatuses';
 
 export interface CommitWithStatusProps {
     commit?: GithubCommit;
-    userName: string;
-    repoName: string;
+    userName?: Maybe<string>;
+    repoName?: Maybe<string>;
 }
 
 const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userName, repoName }) => {
-    // @ts-ignore
-    const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
+    const {
+        author,
+        sha,
+        date = '-?-',
+        message = '-?-',
+        statuses,
+        status,
+    } = commit;
 
     const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
 
@@ -24,7 +31,7 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userNa
     return (
         <>
             <div>
-                <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
+                <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow" isExternal>
                     <strong>{mainMessage}</strong>
                 </Link>
             </div>
@@ -34,9 +41,13 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userNa
                 <CommitterInfo author={author} />
             </div>
 
-            <CommitStatuses statuses={status ?? statuses} />
+            <Suspense fallback={<Spinner size={3} />}>
+                <CommitStatuses statuses={status ?? statuses} userName={userName} repoName={repoName} sha={sha} />
+            </Suspense>
         </>
     );
 };
 
 export default CommitWithStatus;
+
+export const CommitWithStatusesSkeleton = () => <Spinner size={6} />;
