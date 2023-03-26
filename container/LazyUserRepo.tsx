@@ -64,18 +64,16 @@ export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ doMe
     );
 };
 
-export default UserRepoWaterfall;
-
 // fetchUser = async (username: string): Promise<User>;
 export const getUser = createResource(fetchUser);
 
-const LazyUser = ({ userName }) => {
+export const LazyUser = ({ userName }) => {
     const user = getUser.read(cache, userName);
 
     return <User user={user} />;
 };
 
-const LazyBranchTable: React.FunctionComponent<{
+export const LazyBranchTable: React.FunctionComponent<{
     userName: string;
     repoName: string;
     doMergePR?: DoMergePR;
