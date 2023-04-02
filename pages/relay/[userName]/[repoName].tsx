@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { useRouter } from 'next/router';
 import { RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay/hooks';
 
 import UILibContext from '../../../components/UILibContext';
@@ -12,36 +11,28 @@ import { mergePullRequest, DoMergePR } from '../../../restinpeace/github';
 import { useEnvironment } from '../../../lib/relay';
 import { relayPageUserQuery } from '../../../queries/__generated__/relayPageUserQuery.graphql';
 import { relayPageRepoQuery } from '../../../queries/__generated__/relayPageRepoQuery.graphql';
-import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-
-import { singleArgOrDefault } from '../../../components/singleArgOrDefault';
+import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 
 const RelayRoot = () => {
     const environment = useEnvironment({});
-    const router = useRouter();
-    const { userName, repoName } = router.query;
-
-    if (userName && repoName) {
-        if (typeof window === 'undefined') {
-            return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
-        }
-        return (
+    return (
+        <UserRepoFromUrlProvider>
             <RelayEnvironmentProvider environment={environment}>
                 <RichErrorBoundary>
                     <Suspense fallback={<ContentLoadingFallback />}>
-                        <RelayRootMain userName={userName} repoName={repoName} />
+                        <RelayRootMain />
                     </Suspense>
                 </RichErrorBoundary>
             </RelayEnvironmentProvider>
-        );
-    }
-    return <WarningMissingURLParams />;
+        </UserRepoFromUrlProvider>
+    );
 };
 
-export const RelayRootMain = ({ userName, repoName }) => {
+export const RelayRootMain = () => {
+    const { userName, repoName } = useUserRepo();
     const variables = {
-        userName: singleArgOrDefault(userName, ''),
-        repoName: singleArgOrDefault(repoName, ''),
+        userName,
+        repoName,
     };
     const userData = useLazyLoadQuery<relayPageUserQuery>(userQuery, variables);
     const repoData = useLazyLoadQuery<relayPageRepoQuery>(repoQuery, variables);
