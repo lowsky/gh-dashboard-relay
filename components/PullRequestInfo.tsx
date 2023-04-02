@@ -5,17 +5,14 @@ import { faSpinner, faCheck, faExclamationTriangle } from '@fortawesome/free-sol
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { Maybe } from '../restinpeace/types';
-import { DoMergePR, fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
+import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
 import { createResource } from '../cache/reactCache';
+import { useUserRepo } from './useUserRepoFromRoute';
+import { useDoMergePR } from '../pages/waterfall/[userName]/[repoName]';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;
-
-    userName?: Maybe<string>;
-    repoName?: Maybe<string>;
     sha?: Maybe<string>;
-
-    doMergePR?: DoMergePR;
 };
 
 export type PullRequestData = {
@@ -29,7 +26,10 @@ const getPR = createResource(
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
-export default function PullRequestInfo({ pullRequest, doMergePR, userName, repoName, sha }: PullRequestInfoProps) {
+export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
+    const { userName, repoName } = useUserRepo();
+    const doMergePR = useDoMergePR({ userName, repoName });
+
     const [mergeRequest, setMergeRequest] = useState<Promise<unknown>>();
     const [isMerged, setIsMerged] = useState<boolean>(false);
     const [error, setError] = useState<string>();

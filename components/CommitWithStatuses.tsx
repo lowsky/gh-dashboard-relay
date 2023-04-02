@@ -1,28 +1,22 @@
 import React, { Suspense } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { GithubCommit, Maybe } from '../restinpeace/types';
+import { GithubCommit } from '../restinpeace/types';
+import { useUserRepo } from './useUserRepoFromRoute';
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
 import { Spinner } from './Spinner';
 
 import styles from './CommitWithStatuses.module.css';
 
-export interface CommitWithStatusProps {
+export interface CommitWithStatusesProps {
     commit?: GithubCommit;
-    userName?: Maybe<string>;
-    repoName?: Maybe<string>;
 }
 
-const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userName, repoName }) => {
-    const {
-        author,
-        sha,
-        date = '-?-',
-        message = '-?-',
-        statuses,
-        status,
-    } = commit;
+const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) => {
+    const { userName, repoName } = useUserRepo();
+
+    const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
 
     const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
 
@@ -48,6 +42,6 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userNa
     );
 };
 
-export default CommitWithStatus;
+export default CommitWithStatuses;
 
 export const CommitWithStatusesSkeleton = () => <Spinner size={6} />;

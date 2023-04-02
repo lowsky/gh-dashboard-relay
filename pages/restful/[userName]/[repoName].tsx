@@ -1,39 +1,29 @@
 'use client'; // this directive should be at top of the file, before any imports.
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { Alert, AlertIcon } from '@chakra-ui/react';
-
-import { UILibPureComponents } from '../../../components';
-import UILibContext from '../../../components/UILibContext';
 import InternalLink from '../../../components/InternalLink';
 
 import UserRepo from '../../../container/UserRepo';
 import {
     Branches,
-    DoMergePR,
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
     User,
 } from '../../../restinpeace/github';
-import { mergePullRequest } from '../../../lib/github';
+import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 
 export default function RestfulPage() {
-    const router = useRouter();
-    const { userName, repoName } = router.query;
-
     return (
-        <>
+        <UserRepoFromUrlProvider>
             <InternalLink href={'/restful'}>back to repos</InternalLink>
-
-            <UILibContext.Provider value={UILibPureComponents}>
-                <RestfulMain userName={userName} repoName={repoName} />
-            </UILibContext.Provider>
-        </>
+            <RestfulMain />
+        </UserRepoFromUrlProvider>
     );
 }
 
-export function RestfulMain({ userName, repoName }) {
+export function RestfulMain() {
+    const { userName, repoName } = useUserRepo();
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },
@@ -88,20 +78,9 @@ export function RestfulMain({ userName, repoName }) {
         };
     }, [userName, repoName]);
 
-    const doMergePR: DoMergePR = async (num) => {
-        if (repoName && userName) {
-            return await mergePullRequest({
-                owner: userName,
-                repo: repoName,
-                pull_number: num,
-            });
-        }
-        return;
-    };
-
     return (
         <>
-            <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} doMergePR={doMergePR} />
+            <UserRepo user={user} repo={repo} />
 
             {errorMsg && (
                 <Alert status="error">

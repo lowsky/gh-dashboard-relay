@@ -1,21 +1,18 @@
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
+import { useUserRepo } from '../components/useUserRepoFromRoute';
+import { RepoType } from '../components/Repo';
 import { useUILib } from '../components/UILibContext';
-import { Branches, DoMergePR, User as UserType } from '../restinpeace/github';
+import { User as UserType } from '../restinpeace/github';
 
 export type UserRepoProps = Readonly<{
-    doMergePR?: DoMergePR;
     user?: UserType;
-    repo?: {
-        readonly name: string;
-        readonly branches: Branches;
-    };
-    userName: string;
-    repoName: string;
+    repo?: RepoType;
 }>;
 
-const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergePR, userName, repoName }) => {
+const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
+    const { userName, repoName } = useUserRepo();
     const { Repo, User, BranchesTable } = useUILib();
 
     return (
@@ -37,7 +34,7 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, doMergeP
             )}
             {repo && <Repo repo={repo} />}
             {user && <User user={user} />}
-            {repo && <BranchesTable repo={repo} doMergePR={doMergePR} />}
+            {repo && <BranchesTable repo={repo} />}
         </Flex>
     );
 };
