@@ -5,7 +5,7 @@ import { RepoProps } from './Repo';
 import { PullRequestInfoProps } from './PullRequestInfo';
 import { BranchesTableProps } from '../container/BranchesTable';
 import { BranchInfoRowProps } from '../container/BranchInfoRow';
-import { CommitWithStatusProps } from './CommitWithStatuses';
+import { CommitWithStatusesProps } from './CommitWithStatuses';
 
 export interface UILib {
     User: React.ComponentType<UserProps> | React.ComponentType<UserProps & { relay?: string }>;
@@ -15,8 +15,8 @@ export interface UILib {
         | React.ComponentType<BranchInfoRowProps>
         | React.ComponentType<BranchInfoRowProps & { relay?: string }>;
     CommitWithStatuses:
-        | React.ComponentType<CommitWithStatusProps>
-        | React.ComponentType<CommitWithStatusProps & { relay?: string }>;
+        | React.ComponentType<CommitWithStatusesProps>
+        | React.ComponentType<CommitWithStatusesProps & { relay?: string }>;
     PullRequestInfo:
         | React.ComponentType<PullRequestInfoProps>
         | React.ComponentType<PullRequestInfoProps & { relay?: string }>;

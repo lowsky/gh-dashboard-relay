@@ -22,5 +22,5 @@ export default function CommitFragmentContainer(props) {
         props.commit
     );
 
-    return <CommitWithStatus commit={commit} userName={props.userName} repoName={props.repoName} />;
+    return <CommitWithStatus commit={commit} />;
 }

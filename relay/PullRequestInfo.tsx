@@ -13,5 +13,5 @@ export default function PRFragmentContainer(props) {
         `,
         props.pullRequest
     );
-    return <PullRequestInfo pullRequest={pullRequest} doMergePR={props.doMergePR} />;
+    return <PullRequestInfo pullRequest={pullRequest} />;
 }

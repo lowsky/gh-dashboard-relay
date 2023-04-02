@@ -6,16 +6,14 @@ import { GithubRepo } from '../restinpeace/types';
 import { SkeletonRow } from './BranchInfoRow';
 
 import { useUILib } from '../components/UILibContext';
-import { DoMergePR } from '../restinpeace/github';
 
 export interface BranchesTableProps {
     repo: GithubRepo;
-    doMergePR?: DoMergePR;
 }
-const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
+const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
     const { BranchInfoRow } = useUILib();
 
-    const { branches, name, owner } = repo ?? {};
+    const { branches } = repo ?? {};
     return (
         <Table size="sm" variant="striped">
             <Thead>
@@ -33,14 +31,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo, doMergePR }) => {
                     if (branch === null) return null;
                     return (
                         <Suspense fallback={<SkeletonRow key={idx} />}>
-                            <BranchInfoRow
-                                key={idx}
-                                branch={branch}
-                                doMergePR={doMergePR}
-                                userName={owner?.login!}
-                                repoName={name!}
-                                sha={branch.lastCommit?.sha}
-                            />
+                            <BranchInfoRow key={idx} branch={branch} sha={branch.lastCommit?.sha} />
                         </Suspense>
                     );
                 })}

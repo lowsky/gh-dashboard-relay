@@ -24,9 +24,6 @@ export default function UserRepoFragmentContainer(props) {
         <UserRepo
             user={user}
             repo={repo}
-            doMergePR={props.doMergePR}
-            repoName={props.repoName}
-            userName={props.userName}
         />
     );
 }

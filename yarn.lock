@@ -8022,7 +8022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whatwg-node/fetch@npm:^0.8.0, @whatwg-node/fetch@npm:^0.8.2":
+"@whatwg-node/fetch@npm:^0.8.0":
   version: 0.8.2
   resolution: "@whatwg-node/fetch@npm:0.8.2"
   dependencies:
@@ -8035,7 +8035,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whatwg-node/fetch@npm:^0.8.4":
+"@whatwg-node/fetch@npm:^0.8.3, @whatwg-node/fetch@npm:^0.8.4":
   version: 0.8.4
   resolution: "@whatwg-node/fetch@npm:0.8.4"
   dependencies:
@@ -8077,12 +8077,12 @@ __metadata:
   linkType: hard
 
 "@whatwg-node/server@npm:^0.7.3":
-  version: 0.7.4
-  resolution: "@whatwg-node/server@npm:0.7.4"
+  version: 0.7.5
+  resolution: "@whatwg-node/server@npm:0.7.5"
   dependencies:
-    "@whatwg-node/fetch": ^0.8.2
+    "@whatwg-node/fetch": ^0.8.3
     tslib: ^2.3.1
-  checksum: 6bc57b77c03783c4bfdf89d309d7ae101c7aae179b73446a44e8dc7334ecf1330139b18ea6e1e619fb8cc9208f914f4c09f3dda8b918ef182681b88bba656da0
+  checksum: eaf67dc6c7988629abac9b11d7f95d267d9b83bb430192ab4af90f1c58950842148dd0b337a6e7d1930d061d6c404b7081a2cf0e64dbbc00029728fa035fb2ab
   languageName: node
   linkType: hard
 
@@ -10353,12 +10353,12 @@ __metadata:
     next: 13.2.4
     prettier: 2.8.7
     react: 18.2.0
+    react-cache: latest
     react-dom: 18.2.0
     react-relay: 15.0.0
     relay-compiler: 15.0.0
     relay-compiler-language-typescript: 15.0.1
     relay-runtime: 15.0.0
-    simple-cache-provider: 0.10.0
     storybook: 7.0.0-rc.1
     ts-jest: 29.0.5
     typescript: 4.9.5
@@ -17728,6 +17728,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cache@npm:latest":
+  version: 2.0.0-alpha.1
+  resolution: "react-cache@npm:2.0.0-alpha.1"
+  peerDependencies:
+    react: ^16.3.0-alpha.1
+  checksum: cfbe347eb81e7a32e1f02e8bc7aaec19a8448fc03f7696e98bd54bc2471bcc4f16b9540d5477e75a3daceeaa00a1e30bf6dfca95f4498b8b5c9452e9cf68589f
+  languageName: node
+  linkType: hard
+
 "react-clientside-effect@npm:^1.2.6":
   version: 1.2.6
   resolution: "react-clientside-effect@npm:1.2.6"
@@ -18846,15 +18855,6 @@ __metadata:
   version: 1.0.0
   resolution: "signedsource@npm:1.0.0"
   checksum: 64b2c8d7a48de9009cfd3aff62bb7c88abf3b8e0421f17ebb1d7f5ca9cc9c3ad10f5a1e3ae6cd804e4e6121c87b668202ae9057065f058ddfbf34ea65f63945d
-  languageName: node
-  linkType: hard
-
-"simple-cache-provider@npm:0.10.0":
-  version: 0.10.0
-  resolution: "simple-cache-provider@npm:0.10.0"
-  peerDependencies:
-    react: ^16.3.0-alpha.1
-  checksum: 42b815e2ecd644d4374dc62d8d1b2f05528a6a9bc5b5d06a7428973ed252efa4a790b5942324db166b753e96529a0e06ff8491a89c74ba7f14057cc7826ecef8
   languageName: node
   linkType: hard
 
