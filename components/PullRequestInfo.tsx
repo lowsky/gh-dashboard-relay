@@ -26,7 +26,7 @@ export type PullRequestData = {
 
 const getPR = createResource(
     ({ userName, repoName, sha }) => fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
-    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha}`
+    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
 export default function PullRequestInfo({ pullRequest, doMergePR, userName, repoName, sha }: PullRequestInfoProps) {
@@ -52,7 +52,7 @@ export default function PullRequestInfo({ pullRequest, doMergePR, userName, repo
 
     // load on-demand, if no pullRequest given
     const { number, title, url, html_url } =
-        pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
+        pullRequest ?? getPR.read({ userName, repoName, sha })?.find?.(Boolean) ?? {};
 
     return (
         <VStack width="6em">

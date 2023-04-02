@@ -1,10 +1,8 @@
-import { createCache } from 'simple-cache-provider';
+// if not using hitchcock, then we would need to
+// import { unstable_createResource } from 'react-cache';
+
 import { createResource as createResourceViaHitchcock } from 'hitchcock';
 
-export const cache = createCache();
-
-// hitchcock uses its own cache, so we ignore it here
 export const createResource = (args, ...hash) => {
-    const resource = createResourceViaHitchcock(args, ...hash);
-    return { read: (_cache, args) => resource.read(args) };
-}; // Provided by 'simple-cache-provider'
+    return createResourceViaHitchcock(args, ...hash);
+};

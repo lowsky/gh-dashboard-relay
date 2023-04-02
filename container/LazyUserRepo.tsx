@@ -13,13 +13,12 @@ import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
-import { cache, createResource } from '../cache/reactCache';
-
 export type UserRepoProps = Readonly<{
     doMergePR?: DoMergePR;
     userName: string;
     repoName: string;
 }>;
+import { createResource } from '../cache/reactCache';
 
 const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repoName}/br+stats`;
 
@@ -68,7 +67,7 @@ export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ doMe
 export const getUser = createResource(fetchUser);
 
 export const LazyUser = ({ userName }) => {
-    const user = getUser.read(cache, userName);
+    const user = getUser.read(userName);
 
     return <User user={user} />;
 };
@@ -79,9 +78,7 @@ export const LazyBranchTable: React.FunctionComponent<{
     doMergePR?: DoMergePR;
     loadAll?: boolean;
 }> = ({ doMergePR, userName, repoName, loadAll }) => {
-    const repo = loadAll
-        ? getBranchesFull.read(cache, { userName, repoName })
-        : getBranches.read(cache, { userName, repoName });
+    const repo = loadAll ? getBranchesFull.read({ userName, repoName }) : getBranches.read({ userName, repoName });
 
     return <BranchesTable doMergePR={doMergePR} repo={repo} />;
 };
