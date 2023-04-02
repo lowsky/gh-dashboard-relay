@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+
 import InternalLink from '../../../components/InternalLink';
 
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
