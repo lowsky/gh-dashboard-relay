@@ -64,7 +64,7 @@
     "@octokit/rest": "19.0.7",
     "framer-motion": "10.12.4",
     "graphql": "16.0.0-rc.7.experimental-stream-defer.4",
-    "graphql-yoga": "3.8.0",
+    "graphql-yoga": "3.9.1",
     "hitchcock": "0.5.0",
     "meros": "1.2.1",
     "next": "13.3.0",
