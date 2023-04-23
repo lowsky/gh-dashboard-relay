@@ -127,7 +127,7 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
                 <span>
                     {repo}
                     <br />
-                    (old way)
+                    old (via fetch+useState)
                 </span>
             ),
             href: '/restful/' + ownerRepo,
@@ -137,7 +137,17 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
                 <span>
                     {repo}
                     <br />
-                    (One Suspense)
+                    nextjs+rfc220
+                </span>
+            ),
+            href: '/next/' + ownerRepo,
+        },
+        {
+            label: (
+                <span>
+                    {repo}
+                    <br />
+                    all-in-once (1 Suspense)
                 </span>
             ),
             href: '/wait-for-all/' + ownerRepo,

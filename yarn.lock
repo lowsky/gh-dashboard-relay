@@ -10166,9 +10166,9 @@ __metadata:
     meros: 1.2.1
     next: 13.3.0
     prettier: 2.8.7
-    react: 18.2.0
+    react: next
     react-cache: latest
-    react-dom: 18.2.0
+    react-dom: next
     react-relay: 15.0.0
     relay-compiler: 15.0.0
     relay-compiler-language-typescript: 15.0.1
@@ -17696,15 +17696,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react-dom@npm:18.2.0"
+"react-dom@npm:next":
+  version: 18.3.0-next-c8369527e-20230420
+  resolution: "react-dom@npm:18.3.0-next-c8369527e-20230420"
   dependencies:
     loose-envify: ^1.1.0
-    scheduler: ^0.23.0
+    scheduler: 0.24.0-next-c8369527e-20230420
   peerDependencies:
-    react: ^18.2.0
-  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+    react: 18.3.0-next-c8369527e-20230420
+  checksum: e24ad1b9faa2fca6adb0f039912d4aed4a7562e060319ea419242d0acf4c62c59c2cbb42c7bebc4dd3b57ff6e0bc6596f9fabaaeefcf40583e5016cb586a3061
   languageName: node
   linkType: hard
 
@@ -17891,12 +17891,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
+"react@npm:next":
+  version: 18.3.0-next-c8369527e-20230420
+  resolution: "react@npm:18.3.0-next-c8369527e-20230420"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+  checksum: 35e290e8c2afa7389de12c4656a8b756b13a16d36bda247439cae99728c09b1cfed1b220fdf682461cd451de398f686a0178427fd1f70db9d1544fe609505f08
   languageName: node
   linkType: hard
 
@@ -18535,6 +18535,15 @@ __metadata:
     sass-embedded:
       optional: true
   checksum: 5d73a428588150f704016aa27397941bb9246cecd2ee083b573e95d969fc080ac6a16f2fe1cc64aca08f6e70da6f3c586ee68f0efc9f527fecc360e5f1c299ec
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:0.24.0-next-c8369527e-20230420":
+  version: 0.24.0-next-c8369527e-20230420
+  resolution: "scheduler@npm:0.24.0-next-c8369527e-20230420"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 2eed37a3cefc7a6fe48050a66abc2fffe582016f99f7f6ca63d7978e4ae789e884ed9da277f26c2eb28a94087dbd0504f7839c8a68d3bbfe3a76195d047b900c
   languageName: node
   linkType: hard
 
