@@ -54,7 +54,7 @@
   "analyze": true,
   "homepage": ".",
   "dependencies": {
-    "@chakra-ui/react": "2.5.5",
+    "@chakra-ui/react": "2.6.1",
     "@emotion/react": "11.10.8",
     "@emotion/styled": "11.10.8",
     "@mdx-js/loader": "2.3.0",
@@ -72,9 +72,9 @@
     "relay-runtime": "15.0.0"
   },
   "devDependencies": {
-    "@chakra-ui/icons": "2.0.18",
+    "@chakra-ui/icons": "2.0.19",
     "@chakra-ui/storybook-addon": "4.0.17",
-    "@chakra-ui/system": "2.5.5",
+    "@chakra-ui/system": "2.5.7",
     "@fortawesome/fontawesome-svg-core": "6.4.0",
     "@fortawesome/free-brands-svg-icons": "6.4.0",
     "@fortawesome/free-solid-svg-icons": "6.4.0",
