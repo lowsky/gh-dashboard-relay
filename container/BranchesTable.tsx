@@ -30,8 +30,8 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
                 {(branches || []).map((branch, idx) => {
                     if (branch === null) return null;
                     return (
-                        <Suspense fallback={<SkeletonRow key={idx} />}>
-                            <BranchInfoRow key={idx} branch={branch} sha={branch.lastCommit?.sha} />
+                        <Suspense fallback={<SkeletonRow />} key={idx}>
+                            <BranchInfoRow branch={branch} sha={branch.lastCommit?.sha} />
                         </Suspense>
                     );
                 })}
