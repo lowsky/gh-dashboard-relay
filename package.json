@@ -85,7 +85,7 @@
     "@graphql-codegen/typescript-operations": "3.0.4",
     "@graphql-codegen/typescript-resolvers": "3.2.1",
     "@graphql-tools/schema": "9.0.19",
-    "@octokit/types": "9.2.2",
+    "@octokit/types": "9.2.3",
     "@storybook/addon-essentials": "7.0.12",
     "@storybook/addon-mdx-gfm": "7.0.12",
     "@storybook/addon-storyshots": "7.0.12",

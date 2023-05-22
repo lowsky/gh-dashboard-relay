@@ -5412,10 +5412,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/openapi-types@npm:^17.1.2":
-  version: 17.1.2
-  resolution: "@octokit/openapi-types@npm:17.1.2"
-  checksum: 859516026a5a6c21d343608c29b137874cf5780adabf1e4a01d121dd1050c47e400f7723d179ed2fc691688d48c8740f70435107dd7bc4c51120447c52539cf7
+"@octokit/openapi-types@npm:^17.2.0":
+  version: 17.2.0
+  resolution: "@octokit/openapi-types@npm:17.2.0"
+  checksum: 29995e34f98d9d64ba234d64a7ae9486c66d2bb6ac0d30d9a42decdbb4b03b13e811769b1e1505a1748ff20c22d35724985e6c128cd11a3f14f8322201520093
   languageName: node
   linkType: hard
 
@@ -5488,12 +5488,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:9.2.2":
-  version: 9.2.2
-  resolution: "@octokit/types@npm:9.2.2"
+"@octokit/types@npm:9.2.3":
+  version: 9.2.3
+  resolution: "@octokit/types@npm:9.2.3"
   dependencies:
-    "@octokit/openapi-types": ^17.1.2
-  checksum: 6bbf7e55c167f683ee68430f07be5d22e9ab4db92645872887bb040e09bf419d629600b811b3e502d70f7dfb6c2c11dbbc6239e0612e9a0b994673aeb5100d8b
+    "@octokit/openapi-types": ^17.2.0
+  checksum: 6806413089f20a8302237ef85aa2e83bace7499e95fdc3db2d304f9e6dc6e87fb6766452f92e08ddf475046b69753e11beabaeff6733c38bdaf3e21dfd7d3341
   languageName: node
   linkType: hard
 
@@ -10153,7 +10153,7 @@ __metadata:
     "@next/mdx": 13.4.2
     "@octokit/graphql-schema": 14.5.0
     "@octokit/rest": 19.0.7
-    "@octokit/types": 9.2.2
+    "@octokit/types": 9.2.3
     "@storybook/addon-essentials": 7.0.12
     "@storybook/addon-mdx-gfm": 7.0.12
     "@storybook/addon-storyshots": 7.0.12
