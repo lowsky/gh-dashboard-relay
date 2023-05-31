@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useContext } from 'react';
 
 import { UserProps } from './User';
@@ -10,7 +12,9 @@ import { CommitWithStatusesProps } from './CommitWithStatuses';
 export interface UILib {
     User: React.ComponentType<UserProps> | React.ComponentType<UserProps & { relay?: string }>;
     Repo: React.ComponentType<RepoProps> | React.ComponentType<RepoProps & { relay?: string }>;
-    BranchesTable: React.ComponentType<BranchesTableProps> | React.ComponentType<BranchesTableProps & { relay?: string }>;
+    BranchesTable:
+        | React.ComponentType<BranchesTableProps>
+        | React.ComponentType<BranchesTableProps & { relay?: string }>;
     BranchInfoRow:
         | React.ComponentType<BranchInfoRowProps>
         | React.ComponentType<BranchInfoRowProps & { relay?: string }>;
@@ -39,6 +43,7 @@ export const UILibDummy: UILib = {
  */
 const UILibContext = React.createContext<UILib>(UILibDummy);
 
+export const UILib = UILibContext.Provider;
 export default UILibContext;
 
 export const useUILib = () => useContext<UILib>(UILibContext);

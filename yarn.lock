@@ -18337,14 +18337,14 @@ __metadata:
   linkType: hard
 
 "react-dom@npm:next":
-  version: 18.3.0-next-c8369527e-20230420
-  resolution: "react-dom@npm:18.3.0-next-c8369527e-20230420"
+  version: 18.3.0-canary-a1f97589f-20230526
+  resolution: "react-dom@npm:18.3.0-canary-a1f97589f-20230526"
   dependencies:
     loose-envify: ^1.1.0
-    scheduler: 0.24.0-next-c8369527e-20230420
+    scheduler: 0.24.0-canary-a1f97589f-20230526
   peerDependencies:
-    react: 18.3.0-next-c8369527e-20230420
-  checksum: e24ad1b9faa2fca6adb0f039912d4aed4a7562e060319ea419242d0acf4c62c59c2cbb42c7bebc4dd3b57ff6e0bc6596f9fabaaeefcf40583e5016cb586a3061
+    react: 18.3.0-canary-a1f97589f-20230526
+  checksum: c9f8f0d77005a68b87ca150d2d190c637f3f340607604e11e6d14876ed8d26adc0d19dfa237be4cb924e075dd2d9c650a333892b23870f1f9a9593777cb2516c
   languageName: node
   linkType: hard
 
@@ -18532,11 +18532,11 @@ __metadata:
   linkType: hard
 
 "react@npm:next":
-  version: 18.3.0-next-c8369527e-20230420
-  resolution: "react@npm:18.3.0-next-c8369527e-20230420"
+  version: 18.3.0-canary-a1f97589f-20230526
+  resolution: "react@npm:18.3.0-canary-a1f97589f-20230526"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 35e290e8c2afa7389de12c4656a8b756b13a16d36bda247439cae99728c09b1cfed1b220fdf682461cd451de398f686a0178427fd1f70db9d1544fe609505f08
+  checksum: 8023e517500856489bf5d6edc4c1216012a808d7b310a498d8fac4958516dffdcc6cde4b0c0cabcb81dd59c77130925341015b7cd5fb09031cbdc1834a9c12d9
   languageName: node
   linkType: hard
 
@@ -19211,12 +19211,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:0.24.0-next-c8369527e-20230420":
-  version: 0.24.0-next-c8369527e-20230420
-  resolution: "scheduler@npm:0.24.0-next-c8369527e-20230420"
+"scheduler@npm:0.24.0-canary-a1f97589f-20230526":
+  version: 0.24.0-canary-a1f97589f-20230526
+  resolution: "scheduler@npm:0.24.0-canary-a1f97589f-20230526"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 2eed37a3cefc7a6fe48050a66abc2fffe582016f99f7f6ca63d7978e4ae789e884ed9da277f26c2eb28a94087dbd0504f7839c8a68d3bbfe3a76195d047b900c
+  checksum: 26c8b7547c5325c687f87b5cde93db2e43e35361f484cceb7f1ea2468e88aaf944be66cf8f26737a1050c17c4cbf7f31398d018d34e56feccca849e267f296d5
   languageName: node
   linkType: hard
 
