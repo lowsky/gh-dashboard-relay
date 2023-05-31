@@ -12,12 +12,14 @@ export default function WaterfallPage() {
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href={'/waterfall'}>back to shortcut list</InternalLink>
-            <WaterfallMain />
+            <Suspense fallback={<ContentLoadingFallback />}>
+                <UserRepoWaterfall />
+            </Suspense>
         </UserRepoFromUrlProvider>
     );
 }
 
-export function WaterfallMain() {
+function WaterfallMain() {
     return (
         <RichErrorBoundary>
             <Suspense fallback={<ContentLoadingFallback />}>

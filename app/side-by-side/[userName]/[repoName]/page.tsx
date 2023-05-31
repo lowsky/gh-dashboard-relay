@@ -11,8 +11,11 @@ import { WaitForAll } from '../../../wait-for-all/[userName]/[repoName]/page';
 import { WaterfallMain } from '../../../waterfall/[userName]/[repoName]/page';
 
 import styles from './side-by-side.module.css';
+import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
+import { UserRepoFetchAll, UserRepoWaterfall } from '../../../../container/LazyUserRepo';
+import RichErrorBoundary from '../../../../components/RichErrorBoundary';
 
-export function SideBySide(props) {
+function SideBySide(props) {
     const { userName, repoName } = props.params;
     return (
         <UserRepoFromUrlProvider>
@@ -29,7 +32,11 @@ export function SideBySide(props) {
                                 <InternalLink href={`/waterfall/${userName}/${repoName}`}>show only</InternalLink>
                             </HStack>
                         </Center>
-                        <WaterfallMain />
+                        <RichErrorBoundary>
+                            <Suspense fallback={<ContentLoadingFallback />}>
+                                <UserRepoWaterfall />
+                            </Suspense>
+                        </RichErrorBoundary>
                     </div>
                 </Suspense>
                 <Suspense fallback={<Spinner />}>
@@ -40,7 +47,11 @@ export function SideBySide(props) {
                                 <InternalLink href={`/wait-for-all/${userName}/${repoName}`}>show only</InternalLink>
                             </HStack>
                         </Center>
-                        <WaitForAll />
+                        <RichErrorBoundary>
+                            <Suspense fallback={<ContentLoadingFallback />}>
+                                <UserRepoFetchAll />
+                            </Suspense>
+                        </RichErrorBoundary>
                     </div>
                 </Suspense>
             </div>

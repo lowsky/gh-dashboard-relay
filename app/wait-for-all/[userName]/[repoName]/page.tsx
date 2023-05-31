@@ -16,17 +16,11 @@ export default function LoadAllThenPage() {
             <p>
                 <InternalLink href={`/wait-for-all/`}>back to shortcut list</InternalLink>
             </p>
-            <WaitForAll />
+            <RichErrorBoundary>
+                <Suspense fallback={<ContentLoadingFallback />}>
+                    <UserRepoFetchAll />
+                </Suspense>
+            </RichErrorBoundary>
         </UserRepoFromUrlProvider>
-    );
-}
-
-export function WaitForAll() {
-    return (
-        <RichErrorBoundary>
-            <Suspense fallback={<ContentLoadingFallback />}>
-                <UserRepoFetchAll />
-            </Suspense>
-        </RichErrorBoundary>
     );
 }

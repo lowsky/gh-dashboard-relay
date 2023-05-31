@@ -23,7 +23,7 @@ export default function RestfulPage() {
     );
 }
 
-export function RestfulMain() {
+function RestfulMain() {
     const { userName, repoName } = useUserRepo();
     const [repo, storeRepo] = useState({
         name: repoName,
