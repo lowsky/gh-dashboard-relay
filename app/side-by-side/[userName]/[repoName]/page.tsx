@@ -7,8 +7,6 @@ import { Spinner } from '../../../../components/Spinner';
 import InternalLink from '../../../../components/InternalLink';
 
 import { UserRepoFromUrlProvider } from '../../../../components/useUserRepoFromRoute';
-import { WaitForAll } from '../../../wait-for-all/[userName]/[repoName]/page';
-import { WaterfallMain } from '../../../waterfall/[userName]/[repoName]/page';
 
 import styles from './side-by-side.module.css';
 import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';

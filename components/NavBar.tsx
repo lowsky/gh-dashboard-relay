@@ -24,7 +24,7 @@ import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
-    const { userName: owner, repoName: repo } = params ?? { userName: 'facebook', repoName: 'react' };
+    const { userName: owner, repoName: repo } = { userName: 'facebook', repoName: 'react', ...params };
     const { isOpen, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.800');

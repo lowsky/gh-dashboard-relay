@@ -2,7 +2,6 @@
 import React, { Suspense } from 'react';
 
 import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
-import RichErrorBoundary from '../../../../components/RichErrorBoundary';
 import InternalLink from '../../../../components/InternalLink';
 
 import { UserRepoWaterfall } from '../../../../container/LazyUserRepo';
@@ -16,15 +15,5 @@ export default function WaterfallPage() {
                 <UserRepoWaterfall />
             </Suspense>
         </UserRepoFromUrlProvider>
-    );
-}
-
-function WaterfallMain() {
-    return (
-        <RichErrorBoundary>
-            <Suspense fallback={<ContentLoadingFallback />}>
-                <UserRepoWaterfall />
-            </Suspense>
-        </RichErrorBoundary>
     );
 }
