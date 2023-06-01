@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem, UnorderedList } from '@chakra-ui/react';
+import { Heading, ListItem, UnorderedList } from '@chakra-ui/react';
 import InternalLink from './InternalLink';
 
 export function LinkList({ rootPath }) {
@@ -13,12 +13,16 @@ export function LinkList({ rootPath }) {
     ];
 
     return (
-        <UnorderedList>
-            {links.map((link) => (
-                <ListItem key={link}>
-                    <InternalLink href={rootPath + '/' + link}>{link}</InternalLink>
-                </ListItem>
-            ))}
-        </UnorderedList>
+        <>
+            <Heading size="1">Some example repos:</Heading>
+
+            <UnorderedList>
+                {links.map((link) => (
+                    <ListItem key={link}>
+                        <InternalLink href={rootPath + '/' + link}>{link}</InternalLink>
+                    </ListItem>
+                ))}
+            </UnorderedList>
+        </>
     );
 }

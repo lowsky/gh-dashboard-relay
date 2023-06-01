@@ -1,3 +1,5 @@
+'use client';
+
 import {
     Box,
     Button,
@@ -17,12 +19,13 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import InternalLink from './InternalLink';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import { ReactNode } from 'react';
 
 export function NavBar() {
+    const params = useParams();
+    const { userName: owner, repoName: repo } = { userName: 'facebook', repoName: 'react', ...params };
     const { isOpen, onToggle } = useDisclosure();
-    const { owner, repo } = useOwnerRepoFromUrl('facebook', 'react');
 
     const backgroundColor = useColorModeValue('white', 'gray.800');
     const borderColor = useColorModeValue('gray.200', 'gray.900');
@@ -195,12 +198,12 @@ function DarkLightThemeToggle() {
     );
 }
 
-function useOwnerRepoFromUrl(ownerFallback, repoFallback): { owner: string; repo: string } {
-    const router = useRouter();
-    const isRepoPage = /\/.*\/.*\/.*/.test(router.pathname);
-    const { userName, repoName } = router.query;
-
-    const [owner, repo] = isRepoPage ? [userName, repoName] : [ownerFallback, repoFallback];
-
-    return { owner, repo };
-}
+// function useOwnerRepoFromUrl(ownerFallback, repoFallback): { owner: string; repo: string } {
+//     const router = useRouter();
+//     const isRepoPage = /\/.*\/.*\/.*/.test(router.pathname);
+//     const { userName, repoName } = router.query;
+//
+//     const [owner, repo] = isRepoPage ? [userName, repoName] : [ownerFallback, repoFallback];
+//
+//     return { owner, repo };
+// }

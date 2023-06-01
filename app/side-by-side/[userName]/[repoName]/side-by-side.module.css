@@ -1,0 +1,7 @@
+.sideBySide {
+    display: flex;
+    flex-direction: row;
+}
+.side {
+    width: 50vw;
+}

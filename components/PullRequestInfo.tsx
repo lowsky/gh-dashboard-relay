@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import { Button, Icon, Link, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +9,8 @@ import { Maybe } from '../restinpeace/types';
 import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
 import { createResource } from '../cache/reactCache';
 import { useUserRepo } from './useUserRepoFromRoute';
-import { useDoMergePR } from '../pages/waterfall/[userName]/[repoName]';
+
+import { useDoMergePR } from './useDoMergePR';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;

@@ -22,7 +22,12 @@
     "strict": true,
     "noImplicitAny": false,
     "target": "esnext",
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [
     "node_modules"
@@ -31,6 +36,7 @@
     "next-env.d.ts",
     "**/*.ts",
     ".storybook/*.tsx",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ]
 }
