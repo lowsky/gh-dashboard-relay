@@ -7,7 +7,11 @@ module.exports = {
         '../relay/*.story.@(js|jsx|ts|tsx|mdx)',
         '../stories/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    addons: ['@storybook/addon-essentials', '@chakra-ui/storybook-addon', '@storybook/addon-mdx-gfm'],
+    addons: [
+        '@storybook/addon-essentials',
+        // currently not compatible '@chakra-ui/storybook-addon',
+        '@storybook/addon-mdx-gfm',
+    ],
     docs: {
         autodocs: true,
     },
