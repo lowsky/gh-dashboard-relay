@@ -60,7 +60,7 @@
     "@mdx-js/loader": "2.3.0",
     "@mdx-js/react": "2.3.0",
     "@next/mdx": "13.4.4",
-    "@octokit/graphql-schema": "14.8.0",
+    "@octokit/graphql-schema": "14.9.1",
     "@octokit/rest": "19.0.11",
     "framer-motion": "10.12.16",
     "graphql": "16.0.0-rc.7.experimental-stream-defer.4",
