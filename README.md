@@ -1,20 +1,20 @@
-[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)
+[![Chromatic](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml/badge.svg)](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml)[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)
 ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg)
 
 ## Stack
 
--   GraphQL
--   Next.js
--   Netlify/Vercel
--   ~ApolloServer~ Helix, Envelop
--   Relay.js
--   ChakraUI ~Builma~
+-   [GraphQL](https://graphql.org/)
+-   [Next.js](https://nextjs.org/)
+-   ~~[Netlify](https://www.netlify.com/)~~/[Vercel](https://vercel.com/)
+-   ~~[ApolloServer](https://www.apollographql.com/docs/apollo-server/)~~ [Helix](https://www.graphql-helix.com/), [Envelop](https://the-guild.dev/graphql/yoga-server), soon: [Yoga](https://the-guild.dev/graphql/yoga-server)
+-   [Relay](https://relay.dev/)
+-   [ChakraUI](https://chakra-ui.com/) ~~[Bulma](https://bulma.io/)~~
 -   React
--   Storybook
--   ~Chromatic~
--   Typescript
--   Jest
--   Storyshots
+-   [Storybook](https://storybook.js.org/)
+-   [Chromatic](https://storybook.js.org/)
+-   [Typescript](https://www.typescriptlang.org/)
+-   [Jest](https://jestjs.io/)
+-   [Storyshots](https://storybook.js.org/addons/@storybook/addon-storyshots)
 
 ## Purpose
 
@@ -23,6 +23,7 @@ List the `(feature) branches` of a GitHub repository with its
 -   last commit's build status
 -   last commit's linked PR
 -   last commit's commit message
+-   last commit's linked deployment
 
 The idea behind this was, to provide easy access to all feature branches before releasing them.
 So you can test a new version of a new feature before bringing it live.
