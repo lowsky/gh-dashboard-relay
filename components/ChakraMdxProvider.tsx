@@ -1,31 +1,50 @@
-import { MDXProvider } from '@mdx-js/react';
+'use client';
 import Image from 'next/image';
-import { Box, Code, Heading, Text, Link } from '@chakra-ui/react';
+import { Box as ChakraBox , Code as ChakraCode,
+    Heading, Text, Link } from '@chakra-ui/react';
 
-const ResponsiveImage = (props) => <Image alt={props.alt} layout="responsive" {...props} />;
-
-const ul = (props) => (
-    // need to add this padding, so the bullet points show up:
-    <Box pl="4">
-        <ul {...props}></ul>
-    </Box>
-);
-
-const components = {
-    img: ResponsiveImage,
-    h1: (props) => <Heading size="xl" as="h1" variant="grey" {...props} />,
-    h2: (props) => <Heading size="lg" as="h2" variant="grey" {...props} />,
-    h3: (props) => <Heading as="h3" {...props} />,
-    p: Text,
-    a: Link,
-    ul,
-    code: Code,
-};
-
-export default function ChakraMdxProvider(props) {
+export function Box({ children, ...props }) {
     return (
-        <MDXProvider components={components} disableParentContext>
-            {props.children}
-        </MDXProvider>
+        <ChakraBox  {...props}>
+            {children}
+        </ChakraBox>
+    );
+}
+
+export function H1({ children, ...props }) {
+    return (
+        <Heading size="xl" as="h1" variant="grey" {...props}>
+            {children}
+        </Heading>
+    );
+}
+
+export function H2({ children, ...props }) {
+    return (
+        <Heading size="lg" as="h2" variant="grey" {...props}>
+            {children}
+        </Heading>
+    );
+}
+
+export function H3(props) {
+    return <Heading size="md" as="h3" {...props} />;
+}
+
+export const P = ({ children, ...props }) => <Text pb="4" {...props}>
+    { children }
+</Text>;
+
+export const A = (props) => <Link {...props} />;
+
+export const Code = (props) => <ChakraCode {...props} />;
+
+export const ResponsiveImage = (props) => <Image alt={props.alt} layout="responsive" {...props} />;
+
+export function Ul(props) {
+    return (
+        <Box pl="4" pb="4">
+            <ul {...props}></ul>
+        </Box>
     );
 }

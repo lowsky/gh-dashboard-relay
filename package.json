@@ -57,8 +57,6 @@
     "@chakra-ui/react": "2.7.0",
     "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@mdx-js/loader": "2.3.0",
-    "@mdx-js/react": "2.3.0",
     "@next/mdx": "13.4.5",
     "@octokit/graphql-schema": "14.9.1",
     "@octokit/rest": "19.0.11",
