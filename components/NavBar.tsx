@@ -155,6 +155,10 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
 function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
 
+    // at the moment, the chakra theme support is not fully working -> disabling
+    if (true) {
+        return null;
+    }
     return (
         <Box bg={useColorModeValue('white', 'gray.800')} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">

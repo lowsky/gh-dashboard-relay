@@ -28,7 +28,7 @@ const getPR = createResource(
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
-export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
+export default async function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
     const { userName, repoName } = useUserRepo();
     const doMergePR = useDoMergePR({ userName, repoName });
 
@@ -54,7 +54,7 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
 
     // load on-demand, if no pullRequest given
     const { number, title, url, html_url } =
-        pullRequest ?? getPR.read({ userName, repoName, sha })?.find?.(Boolean) ?? {};
+        pullRequest ?? (await getPR.read({ userName, repoName, sha })?.find?.(Boolean)) ?? {};
 
     return (
         <VStack width="6em">
