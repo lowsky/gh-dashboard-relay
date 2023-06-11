@@ -76,9 +76,7 @@ const DesktopNav = ({ owner, repo }) => {
             <InternalLink href="/">Home</InternalLink>
 
             {owner && repo && (
-                <span>
-                    open <strong>{repo}</strong> via
-                </span>
+                    <strong>{repo}</strong>
             )}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
                 <InternalLink href={href ?? '#'}>{label}</InternalLink>
@@ -91,10 +89,11 @@ const DesktopNav = ({ owner, repo }) => {
 const MobileNav = ({ owner, repo }) => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
         <InternalLink href="/">Home</InternalLink>
+        <br/>
         {owner && repo && (
-            <span>
-                open <strong>{repo}</strong> via
-            </span>
+            <Text>
+                open <strong>{repo}</strong> via:
+            </Text>
         )}
         {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
             <MobileNavItem key={href} label={label} href={href} />
@@ -128,23 +127,23 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
     if (owner && repo)
         return [
             {
-                label: <span>classic (via fetch+useState)</span>,
-                href: '/restful/' + ownerRepo,
-            },
-            {
                 label: <span>Next.js+rfc220</span>,
                 href: '/next/' + ownerRepo,
             },
             {
-                label: <span>all-in-once (1 Suspense)</span>,
+                label: <span>Classic</span>,
+                href: '/restful/' + ownerRepo,
+            },
+            {
+                label: <span>Wait+for+all</span>,
                 href: '/wait-for-all/' + ownerRepo,
             },
             {
-                label: <span>Waterfall (2 Suspense)</span>,
+                label: <span>Incremental</span>,
                 href: '/waterfall/' + ownerRepo,
             },
             {
-                label: <span>side-by-side</span>,
+                label: <span>Comparison</span>,
                 href: '/side-by-side/' + ownerRepo,
             },
         ];
@@ -154,13 +153,14 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
 
 function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
+    const colorModeValue = useColorModeValue('white', 'gray.800');
 
     // at the moment, the chakra theme support is not fully working -> disabling
     if (true) {
         return null;
     }
     return (
-        <Box bg={useColorModeValue('white', 'gray.800')} px={4}>
+        <Box bg={colorModeValue} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Stack direction="row">
