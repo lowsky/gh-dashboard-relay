@@ -79,7 +79,7 @@ const DesktopNav = ({ owner, repo }) => {
                     <strong>{repo}</strong>
             )}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <InternalLink href={href ?? '#'}>{label}</InternalLink>
+                <InternalLink key={href} href={href ?? '#'}>{label}</InternalLink>
             ))}
             <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         </Stack>
