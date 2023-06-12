@@ -7,8 +7,6 @@ import {
     Collapse,
     Flex,
     IconButton,
-    Popover,
-    PopoverTrigger,
     Stack,
     Text,
     useColorMode,
@@ -24,7 +22,8 @@ import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
-    const { userName: owner, repoName: repo } = { userName: 'facebook', repoName: 'react', ...params };
+    // @ts-expect-error user/repoName does not exist on Record|null
+    const { userName: owner, repoName: repo } = params;
     const { isOpen, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.800');
@@ -72,28 +71,34 @@ export function NavBar() {
 }
 
 const DesktopNav = ({ owner, repo }) => {
-    const hoverColor = useColorModeValue('gray.800', 'white');
-
     return (
         <Stack direction="row" spacing={4} align="center">
+            <InternalLink href="/">Home</InternalLink>
+
+            {owner && repo && (
+                    <strong>{repo}</strong>
+            )}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <Popover trigger="hover" placement="bottom-start" key={href}>
-                    <PopoverTrigger>
-                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color: hoverColor }}>
-                            {label}
-                        </InternalLink>
-                    </PopoverTrigger>
-                </Popover>
+                <InternalLink key={href} href={href ?? '#'}>{label}</InternalLink>
             ))}
+            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         </Stack>
     );
 };
 
 const MobileNav = ({ owner, repo }) => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
+        <InternalLink href="/">Home</InternalLink>
+        <br/>
+        {owner && repo && (
+            <Text>
+                open <strong>{repo}</strong> via:
+            </Text>
+        )}
         {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
             <MobileNavItem key={href} label={label} href={href} />
         ))}
+        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         <DarkLightThemeToggle />
     </Stack>
 );
@@ -119,74 +124,43 @@ interface NavItem {
 
 function getNavItemsForRepo(owner, repo): NavItem[] {
     const ownerRepo = owner + '/' + repo;
+    if (owner && repo)
+        return [
+            {
+                label: <span>Next.js+rfc220</span>,
+                href: '/next/' + ownerRepo,
+            },
+            {
+                label: <span>Classic</span>,
+                href: '/restful/' + ownerRepo,
+            },
+            {
+                label: <span>Wait+for+all</span>,
+                href: '/wait-for-all/' + ownerRepo,
+            },
+            {
+                label: <span>Incremental</span>,
+                href: '/waterfall/' + ownerRepo,
+            },
+            {
+                label: <span>Comparison</span>,
+                href: '/side-by-side/' + ownerRepo,
+            },
+        ];
 
-    return [
-        {
-            label: 'Home',
-            href: '/',
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    old (via fetch+useState)
-                </span>
-            ),
-            href: '/restful/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    nextjs+rfc220
-                </span>
-            ),
-            href: '/next/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    all-in-once (1 Suspense)
-                </span>
-            ),
-            href: '/wait-for-all/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    Waterfall (2 Suspense)
-                </span>
-            ),
-            href: '/waterfall/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    side-by-side
-                </span>
-            ),
-            href: '/side-by-side/' + ownerRepo,
-        },
-        {
-            label: 'GitHub',
-            href: 'https://www.github.com/lowsky/react-suspense-meetup-demo',
-        },
-    ];
+    return [];
 }
 
 function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
+    const colorModeValue = useColorModeValue('white', 'gray.800');
 
+    // at the moment, the chakra theme support is not fully working -> disabling
+    if (true) {
+        return null;
+    }
     return (
-        <Box bg={useColorModeValue('white', 'gray.800')} px={4}>
+        <Box bg={colorModeValue} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Stack direction="row">

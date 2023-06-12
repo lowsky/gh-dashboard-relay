@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Heading, ListItem, UnorderedList } from '@chakra-ui/react';
 import InternalLink from './InternalLink';

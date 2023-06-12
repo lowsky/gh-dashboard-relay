@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { Box as ChakraBox , Code as ChakraCode,
-    Heading, Text, Link } from '@chakra-ui/react';
+    Heading, Text } from '@chakra-ui/react';
+
+import InternalLink from './InternalLink';
 
 export function Box({ children, ...props }) {
     return (
@@ -35,7 +37,7 @@ export const P = ({ children, ...props }) => <Text pb="4" {...props}>
     { children }
 </Text>;
 
-export const A = (props) => <Link {...props} />;
+export const A = (props) => <InternalLink {...props} />;
 
 export const Code = (props) => <ChakraCode {...props} />;
 

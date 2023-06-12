@@ -1,11 +1,8 @@
 'use client';
-import NextLink, { type LinkProps as NextLinkProps } from 'next/link';
-import { chakra } from '@chakra-ui/react';
+import React from 'react';
 
-// wrap the NextLink with Chakra UI's factory function
-const InternalLink = chakra<typeof NextLink, NextLinkProps>(NextLink, {
-    // ensure that you're forwarding all the required props for your case
-    shouldForwardProp: (prop) => ['href', 'target', 'children'].includes(prop),
-});
+import { Link, LinkProps } from '@chakra-ui/next-js';
 
-export default InternalLink;
+export default function InternalLink({ prefetch = false, ...props }: LinkProps) {
+    return <Link prefetch={prefetch} {...props} />;
+}
