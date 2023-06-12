@@ -22,8 +22,7 @@ import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
-    // @ts-expect-error user/repoName does not exist on Record|null
-    const { userName: owner, repoName: repo } = params;
+    const { userName: owner, repoName: repo } = params ?? {};
     const { isOpen, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.800');
@@ -75,11 +74,11 @@ const DesktopNav = ({ owner, repo }) => {
         <Stack direction="row" spacing={4} align="center">
             <InternalLink href="/">Home</InternalLink>
 
-            {owner && repo && (
-                    <strong>{repo}</strong>
-            )}
+            {owner && repo && <strong>{repo}</strong>}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <InternalLink key={href} href={href ?? '#'}>{label}</InternalLink>
+                <InternalLink key={href} href={href ?? '#'}>
+                    {label}
+                </InternalLink>
             ))}
             <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         </Stack>
@@ -89,7 +88,7 @@ const DesktopNav = ({ owner, repo }) => {
 const MobileNav = ({ owner, repo }) => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
         <InternalLink href="/">Home</InternalLink>
-        <br/>
+        <br />
         {owner && repo && (
             <Text>
                 open <strong>{repo}</strong> via:
