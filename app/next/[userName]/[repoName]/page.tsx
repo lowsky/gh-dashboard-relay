@@ -9,6 +9,8 @@ import { UserRepoFromUrlProvider } from '../../../../components/useUserRepoFromR
 import { UILibClientWrapper } from '../../../UILibClientWrapper';
 import InternalLink from '../../../../components/InternalLink';
 
+export const revalidate = 60;
+
 interface Props {
     userData: Promise<User>;
     repoData: Promise<RepoType>;
