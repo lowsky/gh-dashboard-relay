@@ -9812,7 +9812,7 @@ __metadata:
     eslint-plugin-storybook: 0.6.12
     framer-motion: 10.12.16
     graphql: 16.0.0-rc.7.experimental-stream-defer.4
-    graphql-yoga: 4.0.0
+    graphql-yoga: 4.0.1
     hitchcock: 0.5.0
     identity-obj-proxy: 3.0.0
     jest: 29.5.0
@@ -12166,9 +12166,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-yoga@npm:4.0.0":
-  version: 4.0.0
-  resolution: "graphql-yoga@npm:4.0.0"
+"graphql-yoga@npm:4.0.1":
+  version: 4.0.1
+  resolution: "graphql-yoga@npm:4.0.1"
   dependencies:
     "@envelop/core": ^4.0.0
     "@graphql-tools/executor": ^1.0.0
@@ -12179,11 +12179,11 @@ __metadata:
     "@whatwg-node/fetch": ^0.9.0
     "@whatwg-node/server": ^0.8.1
     dset: ^3.1.1
-    lru-cache: ^9.0.0
+    lru-cache: ^10.0.0
     tslib: ^2.5.2
   peerDependencies:
     graphql: ^15.2.0 || ^16.0.0
-  checksum: 609aec002bf52b874ed4eb1a4e28f7ea2dd137e142bc5573d0be2fe5f385d52abe70fc02cc5880d4001f99ad00215f1e942785f60bfc3070f1f6f3590be99e00
+  checksum: 9595a6ef0c5cfee5ace6547812c8c74f71adfe0509758761a37385afb75483aa93c18775e0e06fc1c901c78edccc021ffa5b10418b78c0dfddd7e39525d2cd7c
   languageName: node
   linkType: hard
 
@@ -14438,6 +14438,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "lru-cache@npm:10.0.0"
+  checksum: 18f101675fe283bc09cda0ef1e3cc83781aeb8373b439f086f758d1d91b28730950db785999cd060d3c825a8571c03073e8c14512b6655af2188d623031baf50
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^5.1.1":
   version: 5.1.1
   resolution: "lru-cache@npm:5.1.1"
@@ -14460,13 +14467,6 @@ __metadata:
   version: 7.14.1
   resolution: "lru-cache@npm:7.14.1"
   checksum: d72c6713c6a6d86836a7a6523b3f1ac6764768cca47ec99341c3e76db06aacd4764620e5e2cda719a36848785a52a70e531822dc2b33fb071fa709683746c104
-  languageName: node
-  linkType: hard
-
-"lru-cache@npm:^9.0.0":
-  version: 9.1.2
-  resolution: "lru-cache@npm:9.1.2"
-  checksum: d3415634be3908909081fc4c56371a8d562d9081eba70543d86871b978702fffd0e9e362b83921b27a29ae2b37b90f55675aad770a54ac83bb3e4de5049d4b15
   languageName: node
   linkType: hard
 
