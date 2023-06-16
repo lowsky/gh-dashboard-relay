@@ -9039,14 +9039,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:6.19.5":
-  version: 6.19.5
-  resolution: "chromatic@npm:6.19.5"
+"chromatic@npm:6.19.8":
+  version: 6.19.8
+  resolution: "chromatic@npm:6.19.8"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 90e81c5fcf2e95038e09004db4df7a12d8feaab6c0e1b8737779b3eb234312a98799a50fb7864ef90421713a4e20e22657209acc01923a415ba97b23e1670628
+  checksum: 3f80373d9e77d3363924c274c8b9465b5f0ff835b7fb4a753848e37068a4564fa67ab205a4cf89820cf136fdefd637b54730819a5c376406a87bf8737ddf03ac
   languageName: node
   linkType: hard
 
@@ -9802,7 +9802,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.59.11
     "@typescript-eslint/parser": 5.59.11
     babel-plugin-relay: 15.0.0
-    chromatic: 6.19.5
+    chromatic: 6.19.8
     csstype: 3.1.2
     eslint: 8.42.0
     eslint-config-next: 13.4.5
