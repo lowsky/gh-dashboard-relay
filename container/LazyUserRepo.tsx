@@ -1,16 +1,16 @@
 import React, { Suspense } from 'react';
 import { Flex } from '@chakra-ui/react';
 
-import { Spinner } from '../components/Spinner';
 import {
     fetchRepoBranchesWithCommitStatuses,
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
 } from '../restinpeace/github';
-import { useUserRepo } from '../components/useUserRepoFromRoute';
-import RichErrorBoundary from '../components/RichErrorBoundary';
-import Repo from '../components/Repo';
-import User from '../components/User';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import RichErrorBoundary from 'components/RichErrorBoundary';
+import { Spinner } from 'components/Spinner';
+import Repo from 'components/Repo';
+import User from 'components/User';
 import BranchesTable from './BranchesTable';
 
 import { createResource } from '../cache/reactCache';

@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import UILibContext from '../../../components/UILibContext';
-import { UILibPureComponents } from '../../../components';
+import UILibContext from 'components/UILibContext';
+import { UILibPureComponents } from 'components';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return <UILibContext.Provider value={UILibPureComponents}>{children}</UILibContext.Provider>;

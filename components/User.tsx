@@ -2,14 +2,14 @@ import React from 'react';
 
 import { Avatar, Box, Flex, Text, VStack } from '@chakra-ui/react';
 
-export interface User {
+export interface UserType {
     avatar_url?: string;
     company?: string;
     login?: string;
 }
 
 export interface UserProps {
-    user: Readonly<User>;
+    user: Readonly<UserType>;
 }
 
 const User: React.FC<UserProps> = ({ user = {} }) => {

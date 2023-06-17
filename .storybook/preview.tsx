@@ -4,7 +4,7 @@ import type { DecoratorFn } from '@storybook/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
 
-import { themeConfig } from '../components/theme';
+import { themeConfig } from 'components/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -16,6 +16,8 @@ export const parameters = {
     },
 };
 
+const DEFAULT_THEME = {};
+
 export const ChakraProviderDecorator: DecoratorFn = (Story, context) => {
     const {
         parameters: { chakra: chakraParams },
@@ -24,8 +26,8 @@ export const ChakraProviderDecorator: DecoratorFn = (Story, context) => {
         ? typeof chakraParams.theme === 'function'
             ? chakraParams.theme(context)
             : chakraParams.theme
-        : {}; // TODO What is the default theme?
-    // TODO const direction = useDirection(globalDirection || chakraTheme?.direction);
+        : DEFAULT_THEME; // TODO What is the default theme?
+    // LATER: const direction = useDirection(globalDirection || chakraTheme?.direction);
     const themeWithDirectionOverride = useMemo(() => extendTheme(chakraTheme), [chakraTheme]);
     return (
         <ChakraProvider {...chakraParams} theme={themeWithDirectionOverride}>

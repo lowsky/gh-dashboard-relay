@@ -2,7 +2,7 @@ import React from 'react';
 
 // temporarily disabled, until mdx is set-up for storybook properly: import IndexPage from '../pages/index.mdx';
 import RestfulPage from '../app/restful/[userName]/[repoName]/page';
-import { UserRepoFromUrlProvider } from '../components/useUserRepoFromRoute';
+import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 
 // temporary disabled import { RelayRootMain } from'../pages/relay/[userName]/[repoName]';
 

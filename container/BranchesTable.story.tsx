@@ -2,9 +2,9 @@ import React from 'react';
 
 import BranchesTable from './BranchesTable';
 
-import { UILibPureComponents } from '../components';
+import { UILibPureComponents } from 'components';
+import UILibContext from 'components/UILibContext';
 
-import UILibContext from '../components/UILibContext';
 import { WithInfo } from './BranchInfoRow.story';
 
 export default {

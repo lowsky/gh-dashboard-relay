@@ -3,9 +3,9 @@
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
-import { useUserRepo } from '../components/useUserRepoFromRoute';
-import { RepoType } from '../components/Repo';
-import { useUILib } from '../components/UILibContext';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import { RepoType } from 'components/Repo';
+import { useUILib } from 'components/UILibContext';
 import { User as UserType } from '../restinpeace/github';
 
 export type UserRepoProps = Readonly<{

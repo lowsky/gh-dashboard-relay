@@ -1,11 +1,11 @@
 'use client';
 import React, { Suspense } from 'react';
 
-import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
-import InternalLink from '../../../../components/InternalLink';
+import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
+import InternalLink from 'components/InternalLink';
 
 import { UserRepoWaterfall } from '../../../../container/LazyUserRepo';
-import { UserRepoFromUrlProvider } from '../../../../components/useUserRepoFromRoute';
+import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 
 export default function WaterfallPage() {
     return (

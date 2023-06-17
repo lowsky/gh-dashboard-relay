@@ -27,7 +27,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules"

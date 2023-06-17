@@ -3,11 +3,11 @@
 import React, { cache } from 'react';
 
 import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from '../../../../restinpeace/github';
-import { RepoType } from '../../../../components/Repo';
-import { AsyncUserRepo } from '../../../../container/AsyncUserRepo';
-import { UserRepoFromUrlProvider } from '../../../../components/useUserRepoFromRoute';
+import { RepoType } from 'components/Repo';
+import { AsyncUserRepo } from 'container/AsyncUserRepo';
+import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 import { UILibClientWrapper } from '../../../UILibClientWrapper';
-import InternalLink from '../../../../components/InternalLink';
+import InternalLink from 'components/InternalLink';
 
 export const revalidate = 60;
 

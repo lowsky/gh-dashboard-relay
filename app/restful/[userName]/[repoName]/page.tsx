@@ -3,16 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
-import InternalLink from '../../../../components/InternalLink';
-
-import UserRepo from '../../../../container/UserRepo';
+import InternalLink from 'components/InternalLink';
+import UserRepo from 'container/UserRepo';
+import { UserRepoFromUrlProvider, useUserRepo } from 'components/useUserRepoFromRoute';
 import {
     Branches,
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
     User,
 } from '../../../../restinpeace/github';
-import { UserRepoFromUrlProvider, useUserRepo } from '../../../../components/useUserRepoFromRoute';
 
 export default function RestfulPage() {
     return (

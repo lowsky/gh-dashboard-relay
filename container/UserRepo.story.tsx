@@ -1,9 +1,9 @@
-import UILibContext from '../components/UILibContext';
-import UserRepo from '../container/UserRepo';
+import UILibContext from 'components/UILibContext';
+import UserRepo from 'container/UserRepo';
 
-import { UILibPureComponents } from '../components';
-import { WithAvatar } from '../components/User.story';
-import { FakeData } from '../components/Repo.story';
+import { UILibPureComponents } from 'components';
+import { WithAvatar } from 'components/User.story';
+import { FakeData } from 'components/Repo.story';
 
 export default {
     component: UserRepo,

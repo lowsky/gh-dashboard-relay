@@ -5,10 +5,10 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from '../restinpeace/types';
-import { useUserRepo } from '../components/useUserRepoFromRoute';
-import { Spinner } from '../components/Spinner';
-import { useUILib } from '../components/UILibContext';
-import { CommitWithStatusesSkeleton } from '../components/CommitWithStatuses';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import { Spinner } from 'components/Spinner';
+import { useUILib } from 'components/UILibContext';
+import { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;

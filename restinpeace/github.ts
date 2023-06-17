@@ -16,11 +16,12 @@ export const getCommitsForRepo = async (
     return commits.data;
 };
 
-export const getStatusesForRepo = async (username, reponame, sha): Promise<Array<GithubStatus>> => {
-    const statuses = await octo.repos.listCommitStatusesForRef({
+export const getStatusesForRepo = async (owner, repo, sha): Promise<Array<GithubStatus>> => {
+    let repos = octo.repos;
+    const statuses = await repos.listCommitStatusesForRef({
         ref: sha,
-        repo: reponame,
-        owner: username,
+        repo,
+        owner,
     });
 
     return statuses.data;
@@ -65,15 +66,15 @@ export const mergePullRequest = ({
     sha?: string;
     merge_method?: 'rebase' | 'merge';
 }): Promise<MergePullRequestsResponseDataType> => {
-    const result = octo.pulls.merge({
-        owner,
-        repo,
-        merge_method,
-        sha,
-        pull_number,
-    });
-    // @ts-expect-error type is not exact matching - needs fix
-    return result;
+    return octo.pulls
+        .merge({
+            owner,
+            repo,
+            merge_method,
+            sha,
+            pull_number,
+        })
+        .then((response) => response.data);
 };
 
 export type DoMergePR = (num: number) => Promise<unknown>;
@@ -147,6 +148,7 @@ export const fetchRepoBranches = async (owner: string, repo: string): Promise<Br
 
 export interface User {
     login: string;
+    company: string|null;
     avatar_url: string;
 }
 
@@ -156,9 +158,7 @@ export interface User {
  * @param username user's login name, e.g. lowsky
  */
 export const fetchUser = async (username: string): Promise<User> =>
-    await octo.users.getByUsername({ username }).then((byUsername) => {
-        return byUsername.data;
-    });
+    await octo.users.getByUsername({ username }).then((response) => response.data);
 
 export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({
     userName,

@@ -2,12 +2,11 @@
 import React, { Suspense } from 'react';
 import { Flex } from '@chakra-ui/react';
 
-import RichErrorBoundary from '../components/RichErrorBoundary';
-import { Spinner } from '../components/Spinner';
+import RichErrorBoundary from 'components/RichErrorBoundary';
+import { Spinner } from 'components/Spinner';
+import Repo, { RepoType } from 'components/Repo';
+import User, { UserType } from 'components/User';
 
-import { type User as UserType } from '../restinpeace/github';
-import Repo, { RepoType } from '../components/Repo';
-import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
 interface Props {
