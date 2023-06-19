@@ -2932,21 +2932,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/storybook-addon@npm:4.0.17":
-  version: 4.0.17
-  resolution: "@chakra-ui/storybook-addon@npm:4.0.17"
+"@chakra-ui/storybook-addon@npm:5.0.0":
+  version: 5.0.0
+  resolution: "@chakra-ui/storybook-addon@npm:5.0.0"
   peerDependencies:
-    "@chakra-ui/react": 0.0.0-dev-20230112160451
-    "@storybook/addons": ">=6.4"
-    "@storybook/api": ">=6.4"
-    "@storybook/components": ">=6.4"
+    "@chakra-ui/react": ">=2.0.0"
+    "@storybook/components": ">=7.0.12"
+    "@storybook/manager-api": ">=7.0.12"
+    "@storybook/preview-api": ">=7.0.12"
     react: ">=16.8.x"
   peerDependenciesMeta:
     react:
       optional: true
     react-dom:
       optional: true
-  checksum: 20e425b3415baeaa9aed2b2bd1d5a829f01df280d7acd7c3f2f57cd382f13ef54f8b29df010cbe87a11201261ef786188942dc40538fa9779282d634669ef8b8
+  checksum: 3f98a33ca08f07ae865100276bdc1b6544cd285662eed91fa6f34911e7ac41e632825ea0acb0181217b2359f029d92461120c755bcabd5dc5b16e48ed7059f4c
   languageName: node
   linkType: hard
 
@@ -10064,7 +10064,7 @@ __metadata:
     "@chakra-ui/icons": 2.0.19
     "@chakra-ui/next-js": ^2.1.4
     "@chakra-ui/react": 2.7.0
-    "@chakra-ui/storybook-addon": 4.0.17
+    "@chakra-ui/storybook-addon": 5.0.0
     "@chakra-ui/system": 2.5.8
     "@emotion/react": 11.11.1
     "@emotion/styled": 11.11.0
