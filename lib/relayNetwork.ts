@@ -1,7 +1,7 @@
 import { FetchFunction, GraphQLResponse, Network, Observable } from 'relay-runtime';
 import { meros } from 'meros';
 
-import type { ExecutionPatchResult } from 'graphql-yoga';
+import type { ExecutionPatchResult } from 'graphql-ws';
 
 // Define a function that fetches the results of an operation (query/mutation/etc.)
 const fetchQuery: FetchFunction = (params, variables, _cacheConfig) => {
