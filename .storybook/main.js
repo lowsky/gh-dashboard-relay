@@ -9,7 +9,7 @@ module.exports = {
     ],
     addons: [
         '@storybook/addon-essentials',
-        // currently not compatible '@chakra-ui/storybook-addon',
+        '@chakra-ui/storybook-addon',
         '@storybook/addon-mdx-gfm',
     ],
     docs: {
