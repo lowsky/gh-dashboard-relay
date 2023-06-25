@@ -1,7 +1,7 @@
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
 
 import { GithubCommit, GithubStatus } from './types';
-import { octo } from '../lib/github';
+import { octo } from 'lib/github';
 
 export const getCommitsForRepo = async (
     username: string,
@@ -148,7 +148,7 @@ export const fetchRepoBranches = async (owner: string, repo: string): Promise<Br
 
 export interface User {
     login: string;
-    company: string|null;
+    company?: string|null;
     avatar_url: string;
 }
 

@@ -1,6 +1,6 @@
 import Repo from './Repo';
 import { WithAvatar } from './User.story';
-import { WithOneBranch } from '../container/BranchesTable.story';
+import { WithOneBranch } from 'container/BranchesTable.story';
 
 export default {
     component: Repo,

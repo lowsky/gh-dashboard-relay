@@ -5,9 +5,9 @@ import React, { useContext } from 'react';
 import { UserProps } from './User';
 import { RepoProps } from './Repo';
 import { PullRequestInfoProps } from './PullRequestInfo';
-import { BranchesTableProps } from '../container/BranchesTable';
-import { BranchInfoRowProps } from '../container/BranchInfoRow';
 import { CommitWithStatusesProps } from './CommitWithStatuses';
+import { BranchesTableProps } from 'container/BranchesTable';
+import { BranchInfoRowProps } from 'container/BranchInfoRow';
 
 export interface UILib {
     User: React.ComponentType<UserProps> | React.ComponentType<UserProps & { relay?: string }>;

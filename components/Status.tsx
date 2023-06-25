@@ -4,7 +4,7 @@ import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@forta
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Avatar } from '@chakra-ui/react';
 
-import { Maybe } from '../restinpeace/types';
+import { Maybe } from 'restinpeace/types';
 
 import styles from './CommitWithStatuses.module.css';
 

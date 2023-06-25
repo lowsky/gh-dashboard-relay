@@ -11,7 +11,7 @@ import {
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
     User,
-} from '../../../../restinpeace/github';
+} from 'restinpeace/github';
 
 export default function RestfulPage() {
     return (

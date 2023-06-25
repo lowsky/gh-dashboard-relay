@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import { Maybe } from '../restinpeace/types';
-import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
-import { createResource } from '../cache/reactCache';
+import { Maybe } from 'restinpeace/types';
+import { fetchRepoPullRequestsAssociatedWithCommit } from 'restinpeace/github';
+import { createResource } from 'cache/reactCache';
 import { useUserRepo } from './useUserRepoFromRoute';
 
 import { useDoMergePR } from './useDoMergePR';

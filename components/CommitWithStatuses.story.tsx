@@ -2,7 +2,7 @@ import { ComponentMeta, StoryObj } from '@storybook/react';
 
 import CommitWithStatuses from './CommitWithStatuses';
 
-import moreStatus from '../restinpeace/lastCommitMock.json';
+import moreStatus from 'restinpeace/lastCommitMock.json';
 
 export default {
     component: CommitWithStatuses,

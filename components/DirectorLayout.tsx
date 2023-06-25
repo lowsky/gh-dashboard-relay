@@ -3,7 +3,7 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-import CacheInspector from '../cache/CacheInspector';
+import CacheInspector from 'cache/CacheInspector';
 
 export default function DirectorLayout({ children }) {
     return (

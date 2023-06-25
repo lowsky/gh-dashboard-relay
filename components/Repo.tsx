@@ -4,7 +4,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Box, Heading, Icon, Link } from '@chakra-ui/react';
 
-import { Maybe } from '../restinpeace/types';
+import { Maybe } from 'restinpeace/types';
 import { useUserRepo } from './useUserRepoFromRoute';
 
 export interface OwnerType {

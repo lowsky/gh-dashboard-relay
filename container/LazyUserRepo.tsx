@@ -5,15 +5,16 @@ import {
     fetchRepoBranchesWithCommitStatuses,
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
-} from '../restinpeace/github';
+} from 'restinpeace/github';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import RichErrorBoundary from 'components/RichErrorBoundary';
 import { Spinner } from 'components/Spinner';
 import Repo from 'components/Repo';
 import User from 'components/User';
-import BranchesTable from './BranchesTable';
 
-import { createResource } from '../cache/reactCache';
+import BranchesTable from 'container/BranchesTable';
+
+import { createResource } from 'cache/reactCache';
 
 const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repoName}/br+stats`;
 
