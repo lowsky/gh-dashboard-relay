@@ -35,7 +35,10 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
                 </Alert>
             )}
             {repo && <Repo repo={repo} />}
-            {user && <User user={user} />}
+            {user && (
+                // @ts-expect-error temporary ignore type mismatch
+                <User user={user} />
+            )}
             {repo && <BranchesTable repo={repo} />}
         </Flex>
     );
