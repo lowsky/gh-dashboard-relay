@@ -1,4 +1,3 @@
-const path = require('path');
 module.exports = {
     stories: [
         '../components/*.story.@(js|jsx|ts|tsx|mdx)',
@@ -9,9 +8,12 @@ module.exports = {
     ],
     addons: [
         '@storybook/addon-essentials',
-        // currently not compatible '@chakra-ui/storybook-addon',
+        '@chakra-ui/storybook-addon',
         '@storybook/addon-mdx-gfm',
     ],
+    features: {
+        emotionAlias: false,
+    },
     docs: {
         autodocs: true,
     },

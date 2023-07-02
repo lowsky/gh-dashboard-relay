@@ -3,15 +3,15 @@
 import React, { Suspense } from 'react';
 import { Center, Heading, HStack } from '@chakra-ui/react';
 
-import { Spinner } from '../../../../components/Spinner';
-import InternalLink from '../../../../components/InternalLink';
+import { Spinner } from 'components/Spinner';
+import InternalLink from 'components/InternalLink';
 
-import { UserRepoFromUrlProvider } from '../../../../components/useUserRepoFromRoute';
+import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
+import RichErrorBoundary from 'components/RichErrorBoundary';
+import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
+import { UserRepoFetchAll, UserRepoWaterfall } from 'container/LazyUserRepo';
 
 import styles from './side-by-side.module.css';
-import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
-import { UserRepoFetchAll, UserRepoWaterfall } from '../../../../container/LazyUserRepo';
-import RichErrorBoundary from '../../../../components/RichErrorBoundary';
 
 function SideBySide(props) {
     const { userName, repoName } = props.params;

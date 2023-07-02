@@ -1,4 +1,4 @@
-import { GithubStatus, Maybe } from '../restinpeace/types';
+import { GithubStatus, Maybe } from 'restinpeace/types';
 
 /**
  * Remove duplicate entries of states:

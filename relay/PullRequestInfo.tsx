@@ -1,6 +1,6 @@
 import { graphql, useFragment } from 'react-relay';
 
-import PullRequestInfo from '../components/PullRequestInfo';
+import PullRequestInfo from 'components/PullRequestInfo';
 
 export default function PRFragmentContainer(props) {
     const pullRequest = useFragment(

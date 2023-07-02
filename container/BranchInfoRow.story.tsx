@@ -1,12 +1,12 @@
 import React from 'react';
-
-import BranchInfoRow from '../container/BranchInfoRow';
-import UILibContext from '../components/UILibContext';
-import { UILibPureComponents } from '../components';
-
-import { WithData } from '../components/CommitWithStatuses.story';
-import { Default as DefaultPR } from '../components/PullRequestInfo.story';
 import { Table, Tbody } from '@chakra-ui/react';
+
+import BranchInfoRow from 'container/BranchInfoRow';
+import UILibContext from 'components/UILibContext';
+import { UILibPureComponents } from 'components';
+
+import { WithData } from 'components/CommitWithStatuses.story';
+import { Default as DefaultPR } from 'components/PullRequestInfo.story';
 
 export default {
     component: BranchInfoRow,

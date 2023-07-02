@@ -1,6 +1,6 @@
 import { Box, Image, Link } from '@chakra-ui/react';
 
-import { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from '../restinpeace/types';
+import { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from 'restinpeace/types';
 
 import styles from './CommitWithStatuses.module.css';
 

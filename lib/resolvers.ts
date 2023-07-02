@@ -3,7 +3,7 @@ import {
     getCommitsForRepo,
     getLastCommit,
     getStatusesForRepo,
-} from '../restinpeace/github';
+} from 'restinpeace/github';
 import { getBranchesForRepo, getRepoForUser, getReposForUser, getUser } from './github';
 import {
     GithubApiResolvers,

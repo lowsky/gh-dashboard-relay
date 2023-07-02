@@ -1,4 +1,4 @@
-import { DoMergePR, mergePullRequest } from '../restinpeace/github';
+import { DoMergePR, mergePullRequest } from 'restinpeace/github';
 import { singleArgOrDefault } from './singleArgOrDefault';
 
 export const useDoMergePR = ({ userName, repoName }) => {

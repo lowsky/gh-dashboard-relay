@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
 import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 
-import { GithubRepo } from '../restinpeace/types';
+import { GithubRepo } from 'restinpeace/types';
 
 import { SkeletonRow } from './BranchInfoRow';
 
-import { useUILib } from '../components/UILibContext';
+import { useUILib } from 'components/UILibContext';
 
 export interface BranchesTableProps {
     repo: GithubRepo;

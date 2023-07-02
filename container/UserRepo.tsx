@@ -3,10 +3,10 @@
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
-import { useUserRepo } from '../components/useUserRepoFromRoute';
-import { RepoType } from '../components/Repo';
-import { useUILib } from '../components/UILibContext';
-import { User as UserType } from '../restinpeace/github';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import { RepoType } from 'components/Repo';
+import { useUILib } from 'components/UILibContext';
+import { User as UserType } from 'restinpeace/github';
 
 export type UserRepoProps = Readonly<{
     user?: UserType;
@@ -35,7 +35,10 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
                 </Alert>
             )}
             {repo && <Repo repo={repo} />}
-            {user && <User user={user} />}
+            {user && (
+                // @ts-expect-error temporary ignore type mismatch
+                <User user={user} />
+            )}
             {repo && <BranchesTable repo={repo} />}
         </Flex>
     );

@@ -2,8 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { createYoga } from 'graphql-yoga';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
-import { typeDefs } from '../../lib/localSchema';
-import { resolvers } from '../../lib/resolvers';
+import { typeDefs } from 'lib/localSchema';
+import { resolvers } from 'lib/resolvers';
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 

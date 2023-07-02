@@ -2,12 +2,11 @@
 
 import React, { cache } from 'react';
 
-import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from '../../../../restinpeace/github';
-import { RepoType } from '../../../../components/Repo';
-import { AsyncUserRepo } from '../../../../container/AsyncUserRepo';
-import { UserRepoFromUrlProvider } from '../../../../components/useUserRepoFromRoute';
-import { UILibClientWrapper } from '../../../UILibClientWrapper';
-import InternalLink from '../../../../components/InternalLink';
+import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
+import { RepoType } from 'components/Repo';
+import { AsyncUserRepo } from 'container/AsyncUserRepo';
+import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
+import InternalLink from 'components/InternalLink';
 
 export const revalidate = 60;
 
@@ -37,12 +36,10 @@ export default async function Page(props) {
             </p>
 
             <UserRepoFromUrlProvider>
-              <UILibClientWrapper>
-                    {
-                        // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-                        <ReactNext userData={userData} repoData={repoData} />
-                    }
-              </UILibClientWrapper>
+                {
+                    // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
+                    <ReactNext userData={userData} repoData={repoData} />
+                }
             </UserRepoFromUrlProvider>
         </>
     );
@@ -50,7 +47,7 @@ export default async function Page(props) {
 
 async function ReactNext({ repoData, userData }: Props) {
     // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-    return <AsyncUserRepo userData={userData}  repoData={repoData}/>;
+    return <AsyncUserRepo userData={userData} repoData={repoData} />;
 }
 
 const fetchUserPromise: (userName) => Promise<User> = cache(async (userName) => {

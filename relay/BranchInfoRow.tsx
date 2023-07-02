@@ -1,6 +1,6 @@
 import { graphql, useFragment } from 'react-relay';
 
-import BranchInfoRow from '../container/BranchInfoRow';
+import BranchInfoRow from 'container/BranchInfoRow';
 
 export default function BranchInfoRowFragmentContainer(props) {
     const branch = useFragment(

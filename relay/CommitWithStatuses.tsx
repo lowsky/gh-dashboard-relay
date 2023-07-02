@@ -1,6 +1,6 @@
 import { graphql, useFragment } from 'react-relay';
 
-import CommitWithStatus from '../components/CommitWithStatuses';
+import CommitWithStatus from 'components/CommitWithStatuses';
 
 export default function CommitFragmentContainer(props) {
     const commit = useFragment(

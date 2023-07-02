@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { GithubCommit } from '../restinpeace/types';
+import { GithubCommit } from 'restinpeace/types';
 import { useUserRepo } from './useUserRepoFromRoute';
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';

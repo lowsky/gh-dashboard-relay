@@ -1,6 +1,6 @@
 import { graphql, useFragment } from 'react-relay';
 
-import UserRepo from '../container/UserRepo';
+import UserRepo from 'container/UserRepo';
 
 export default function UserRepoFragmentContainer(props) {
     const user = useFragment(

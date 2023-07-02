@@ -5,25 +5,21 @@ import React, { useContext } from 'react';
 import { UserProps } from './User';
 import { RepoProps } from './Repo';
 import { PullRequestInfoProps } from './PullRequestInfo';
-import { BranchesTableProps } from '../container/BranchesTable';
-import { BranchInfoRowProps } from '../container/BranchInfoRow';
 import { CommitWithStatusesProps } from './CommitWithStatuses';
+import { BranchesTableProps } from 'container/BranchesTable';
+import { BranchInfoRowProps } from 'container/BranchInfoRow';
+
+type WithOptionalRelay<Props> =
+    | React.ComponentType<Props> //
+    | React.ComponentType<Props & { relay?: string }>;
 
 export interface UILib {
-    User: React.ComponentType<UserProps> | React.ComponentType<UserProps & { relay?: string }>;
-    Repo: React.ComponentType<RepoProps> | React.ComponentType<RepoProps & { relay?: string }>;
-    BranchesTable:
-        | React.ComponentType<BranchesTableProps>
-        | React.ComponentType<BranchesTableProps & { relay?: string }>;
-    BranchInfoRow:
-        | React.ComponentType<BranchInfoRowProps>
-        | React.ComponentType<BranchInfoRowProps & { relay?: string }>;
-    CommitWithStatuses:
-        | React.ComponentType<CommitWithStatusesProps>
-        | React.ComponentType<CommitWithStatusesProps & { relay?: string }>;
-    PullRequestInfo:
-        | React.ComponentType<PullRequestInfoProps>
-        | React.ComponentType<PullRequestInfoProps & { relay?: string }>;
+    User: WithOptionalRelay<UserProps>;
+    Repo: WithOptionalRelay<RepoProps>;
+    BranchesTable: WithOptionalRelay<BranchesTableProps>;
+    BranchInfoRow: WithOptionalRelay<BranchInfoRowProps>;
+    CommitWithStatuses: WithOptionalRelay<CommitWithStatusesProps>;
+    PullRequestInfo: WithOptionalRelay<PullRequestInfoProps>;
 }
 
 /* Dummy components avoid crashes caused by undefined components */
