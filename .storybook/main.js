@@ -1,4 +1,3 @@
-const path = require('path');
 module.exports = {
     stories: [
         '../components/*.story.@(js|jsx|ts|tsx|mdx)',
@@ -12,6 +11,9 @@ module.exports = {
         '@chakra-ui/storybook-addon',
         '@storybook/addon-mdx-gfm',
     ],
+    features: {
+        emotionAlias: false,
+    },
     docs: {
         autodocs: true,
     },
