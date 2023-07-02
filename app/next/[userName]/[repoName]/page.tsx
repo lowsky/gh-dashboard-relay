@@ -6,7 +6,6 @@ import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } f
 import { RepoType } from 'components/Repo';
 import { AsyncUserRepo } from 'container/AsyncUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
-import { UILibClientWrapper } from 'components/UILibClientWrapper';
 import InternalLink from 'components/InternalLink';
 
 export const revalidate = 60;
@@ -37,12 +36,10 @@ export default async function Page(props) {
             </p>
 
             <UserRepoFromUrlProvider>
-                <UILibClientWrapper>
-                    {
-                        // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-                        <ReactNext userData={userData} repoData={repoData} />
-                    }
-                </UILibClientWrapper>
+                {
+                    // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
+                    <ReactNext userData={userData} repoData={repoData} />
+                }
             </UserRepoFromUrlProvider>
         </>
     );
