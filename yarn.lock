@@ -5212,13 +5212,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/graphql-schema@npm:14.13.1":
-  version: 14.13.1
-  resolution: "@octokit/graphql-schema@npm:14.13.1"
+"@octokit/graphql-schema@npm:14.19.1":
+  version: 14.19.1
+  resolution: "@octokit/graphql-schema@npm:14.19.1"
   dependencies:
     graphql: ^16.0.0
     graphql-tag: ^2.10.3
-  checksum: 97dd0dfb8ce5a13fbd009c2bc3b34ee3f7710a3a17f3da2d77b84f49d3ffc5e13c8106ce4dfb32a752859008dd51eb62905b04d8b5c50f78862cd1b010c05c0c
+  checksum: 30f95665392650fad3ba30956cbc4daddec5842ec3d374416b6fba4b867236f6aebcae1b1b79281056dcf438202ca933fa21614a81e8dafaf7f1ef9122f6f73f
   languageName: node
   linkType: hard
 
@@ -10058,7 +10058,7 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": 4.0.1
     "@graphql-tools/schema": 10.0.0
     "@next/mdx": 13.4.7
-    "@octokit/graphql-schema": 14.13.1
+    "@octokit/graphql-schema": 14.19.1
     "@octokit/rest": 19.0.13
     "@octokit/types": 10.0.0
     "@storybook/addon-essentials": 7.0.23
