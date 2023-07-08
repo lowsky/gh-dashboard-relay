@@ -20,10 +20,5 @@ export default function UserRepoFragmentContainer(props) {
         `,
         props.repo
     );
-    return (
-        <UserRepo
-            user={user}
-            repo={repo}
-        />
-    );
+    return <UserRepo user={user} repo={repo} />;
 }

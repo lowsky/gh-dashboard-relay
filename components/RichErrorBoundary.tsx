@@ -38,11 +38,7 @@ export default class RichErrorBoundary extends React.Component<
                         {!message && (
                             <AlertDescription>
                                 Details:
-                                <pre>
-                                    {
-                                        JSON.stringify(error, null, 2)
-                                    }
-                                </pre>
+                                <pre>{JSON.stringify(error, null, 2)}</pre>
                             </AlertDescription>
                         )}
                     </Box>
