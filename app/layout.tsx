@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
 
 import EmotionRootStyleRegistry from './EmotionRootStyleRegistry';
 import { NavBar } from 'components/NavBar';
@@ -10,7 +10,7 @@ import { NavBar } from 'components/NavBar';
 const inter = Inter({
     subsets: ['latin'],
     display: 'swap',
-})
+});
 
 export const metadata: Metadata = {
     title: 'GH branch dashboard',

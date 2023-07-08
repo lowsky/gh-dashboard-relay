@@ -40,52 +40,53 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
         if (mergeRequest) {
             setError(undefined);
             mergeRequest
-              .then(() => {
-                  setIsMerged(true);
-              })
-              .catch((err) => {
-                  return setError(err);
-              })
-              .finally(() => {
-                  return setMergeRequest(undefined);
-              });
+                .then(() => {
+                    setIsMerged(true);
+                })
+                .catch((err) => {
+                    return setError(err);
+                })
+                .finally(() => {
+                    return setMergeRequest(undefined);
+                });
         }
     }, [mergeRequest]);
 
     // load on-demand, if no pullRequest given
     const { number, title, url, html_url } =
-    pullRequest ?? (getPR.read({ userName, repoName, sha })?.find?.(Boolean)) ?? {};
+        pullRequest ?? getPR.read({ userName, repoName, sha })?.find?.(Boolean) ?? {};
 
     return (
-      <VStack width="6em">
-          <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
-              #{number}
-          </Link>
-          {doMergePR && !isMerged && (
-            <Button
-              ml={1}
-              size="xs"
-              variant="outline"
-              onClick={() => setMergeRequest(doMergePR(number))}
-              disabled={!!mergeRequest}>
-                Rebase&Merge
-            </Button>
-          )}
-          {!!error && (
-            <Icon>
-                <FontAwesomeIcon icon={faExclamationTriangle as IconProp} size="1x" />
-            </Icon>
-          )}
-          {!!mergeRequest && (
-            <Icon>
-                <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
-            </Icon>
-          )}
-          {isMerged && (
-            <Icon>
-                <FontAwesomeIcon icon={faCheck as IconProp} size="1x" />
-            </Icon>
-          )}
-      </VStack>
+        <VStack width="6em">
+            <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
+                #{number}
+            </Link>
+            {doMergePR && !isMerged && (
+                <Button
+                    ml={1}
+                    size="xs"
+                    variant="outline"
+                    onClick={() => setMergeRequest(doMergePR(number))}
+                    disabled={!!mergeRequest}
+                >
+                    Rebase&Merge
+                </Button>
+            )}
+            {!!error && (
+                <Icon>
+                    <FontAwesomeIcon icon={faExclamationTriangle as IconProp} size="1x" />
+                </Icon>
+            )}
+            {!!mergeRequest && (
+                <Icon>
+                    <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
+                </Icon>
+            )}
+            {isMerged && (
+                <Icon>
+                    <FontAwesomeIcon icon={faCheck as IconProp} size="1x" />
+                </Icon>
+            )}
+        </VStack>
     );
 }

@@ -6,12 +6,7 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
 import { UserRepoFromUrlProvider, useUserRepo } from 'components/useUserRepoFromRoute';
-import {
-    Branches,
-    fetchRepoBranchesWithCommitStatusesAndPullRequests,
-    fetchUser,
-    User,
-} from 'restinpeace/github';
+import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 
 export default function RestfulPage() {
     return (

@@ -27,9 +27,7 @@ export default function EmotionRootStyleRegistry({ children }: { children: JSX.E
 
     return (
         <CacheProvider value={cache}>
-            <ChakraUIWrapper>
-                {children}
-            </ChakraUIWrapper>
+            <ChakraUIWrapper>{children}</ChakraUIWrapper>
         </CacheProvider>
     );
 }

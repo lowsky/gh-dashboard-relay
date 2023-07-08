@@ -1,16 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { Box as ChakraBox , Code as ChakraCode,
-    Heading, Text } from '@chakra-ui/react';
+import { Box as ChakraBox, Code as ChakraCode, Heading, Text } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
 
 export function Box({ children, ...props }) {
-    return (
-        <ChakraBox  {...props}>
-            {children}
-        </ChakraBox>
-    );
+    return <ChakraBox {...props}>{children}</ChakraBox>;
 }
 
 export function H1({ children, ...props }) {
@@ -33,9 +28,11 @@ export function H3(props) {
     return <Heading size="md" as="h3" {...props} />;
 }
 
-export const P = ({ children, ...props }) => <Text pb="4" {...props}>
-    { children }
-</Text>;
+export const P = ({ children, ...props }) => (
+    <Text pb="4" {...props}>
+        {children}
+    </Text>
+);
 
 export const A = (props) => <InternalLink {...props} />;
 

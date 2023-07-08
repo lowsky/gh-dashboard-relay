@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { CircularProgress, CircularProgressProps , Text} from '@chakra-ui/react';
+import { CircularProgress, CircularProgressProps, Text } from '@chakra-ui/react';
 
 type Props = Pick<CircularProgressProps, 'size'> & { label?: string };
 
