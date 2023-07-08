@@ -127,7 +127,7 @@ export interface Commit {
     url: string;
 }
 
-type Branch = {
+export type Branch = {
     commit: Commit;
     name: string;
 };

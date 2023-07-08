@@ -1,4 +1,4 @@
-[![Chromatic](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml/badge.svg)](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml)[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/dashboard/badge.svg)](https://snyk.io/test/github/lowsky/dashboard)
+[![Chromatic](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml/badge.svg)](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml)[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/gh-dashboard-relay/badge.svg)](https://snyk.io/test/github/lowsky/gh-dashboard-relay)
 ![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg)
 
 ## Stack
@@ -18,12 +18,12 @@
 
 ## Purpose
 
-List the `(feature) branches` of a GitHub repository with its
+List the `(feature) branches` of a GitHub repository with its `last commit's`
 
--   last commit's build status
--   last commit's linked PR
--   last commit's commit message
--   last commit's linked deployment
+-   build status
+-   linked PR
+-   commit message and author
+-   linked deployment
 
 The idea behind this was, to provide easy access to all feature branches before releasing them.
 So you can test a new version of a new feature before bringing it live.
@@ -34,8 +34,8 @@ Very old presentation at a Docker Meetup: Find the [slides here](https://github.
 
 After invoking this in a shell
 
-    git clone https://github.com/lowsky/dashboard
-    cd dashboard
+    git clone https://github.com/lowsky/gh-dashboard-relay
+    cd gh-dashboard-relay
 
     # Install the dependencies of the react app and
     # installs the server's dependencies, too:
@@ -49,7 +49,7 @@ This runs Next.js dev-mode which includes the endpoints for the graphql API.
 
 Open the home [http://localhost:3000](http://localhost:3000) with your browser.
 
-Or **even better** the dashboard project page: [http://localhost:3000/relay/lowsky/dashboard](http://localhost:3000/relay/lowsky/dashboard)
+Or **even better** the dashboard project page: [http://localhost:3000/relay/lowsky/gh-dashboard-relay](http://localhost:3000/relay/lowsky/gh-dashboard-relay)
 
 ### Built-in GraphQL-backend
 

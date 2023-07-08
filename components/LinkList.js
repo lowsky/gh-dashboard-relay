@@ -6,7 +6,7 @@ import InternalLink from './InternalLink';
 export function LinkList({ rootPath }) {
     const links = [
         'lowsky/react-suspense-meetup-demo',
-        'lowsky/dashboard',
+        'lowsky/gh-dashboard-relay',
         'lowsky/spotify-graphql-server',
         'lowsky/spotify-graphql-server-graphql-yoga',
         'lowsky/spotify-graphql-server-graphql-helix-envelop',
