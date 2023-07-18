@@ -92,7 +92,7 @@
     "@storybook/nextjs": "^7.0.20",
     "@storybook/react": "^7.0.20",
     "@types/react-relay": "14.1.4",
-    "@types/relay-runtime": "14.1.11",
+    "@types/relay-runtime": "14.1.12",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "babel-plugin-relay": "15.0.0",
