@@ -1,10 +1,12 @@
 import PullRequestInfo from './PullRequestInfo';
 
-import { ComponentMeta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof PullRequestInfo> = {
     component: PullRequestInfo,
-} as ComponentMeta<typeof PullRequestInfo>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof PullRequestInfo>;
 

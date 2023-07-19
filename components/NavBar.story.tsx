@@ -1,11 +1,16 @@
-import { ComponentMeta, StoryObj } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import { NavBar } from './NavBar';
 
-export default {
+const meta: Meta<typeof NavBar> = {
     component: NavBar,
-} as ComponentMeta<typeof NavBar>;
+};
 
-type Story = StoryObj<typeof NavBar>;
+export default meta;
 
-export const Default: Story = {};
+type Story = Meta<typeof NavBar>;
+
+export const Default: Story = {
+    args: {
+    }
+};

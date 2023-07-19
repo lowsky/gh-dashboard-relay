@@ -1,21 +1,25 @@
+import { Meta, StoryObj } from "@storybook/react";
+
 import UILibContext from 'components/UILibContext';
 import UserRepo from 'container/UserRepo';
 
 import { UILibPureComponents } from 'components';
 import { WithAvatar } from 'components/User.story';
 import { FakeData } from 'components/Repo.story';
+import { User } from "../restinpeace/github";
+import { RepoType } from "../components/Repo";
 
-export default {
+const meta: Meta<typeof UserRepo> = {
     component: UserRepo,
+    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };
+export default meta;
 
-export const WithUserAndRepo = (props) => (
-    <UILibContext.Provider value={UILibPureComponents}>
-        <UserRepo {...props} />
-    </UILibContext.Provider>
-);
+type Story = StoryObj<typeof UserRepo>
 
-WithUserAndRepo.args = {
-    user: WithAvatar.args.user,
-    repo: { ...FakeData.args.repo },
+export const WithUserAndRepo: Story = {
+    args: {
+        user: WithAvatar.args!.user as Readonly<User>,
+        repo: { ...FakeData.args!.repo } as RepoType,
+    },
 };
