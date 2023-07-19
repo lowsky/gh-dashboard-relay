@@ -8,32 +8,35 @@ import { UILibPureComponents } from 'components';
 import { WithData } from 'components/CommitWithStatuses.story';
 import { Default as DefaultPR } from 'components/PullRequestInfo.story';
 
-export default {
+import { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta<typeof BranchInfoRow> = {
     component: BranchInfoRow,
+    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };
+export default meta;
 
-export const WithInfo = (props) => (
-    <UILibContext.Provider value={UILibPureComponents}>
-        <Table size="sm" variant="striped">
-            <Tbody>
-                <BranchInfoRow {...props} />
-            </Tbody>
-        </Table>
-    </UILibContext.Provider>
-);
+type Story = StoryObj<typeof BranchInfoRow>;
 
-WithInfo.args = {
-    branch: {
-        name: 'branch-x',
-        lastCommit: {
-            // @ts-expect-error exported args could be undefined
-            ...WithData.args.commit,
-            associatedPullRequests: [
-                {
-                    // @ts-expect-error exported args could be undefined
-                    ...DefaultPR.args.pullRequest,
-                },
-            ],
-        },
+export const WithInfo: Story = {
+    args: {
+        branch: {
+            name: 'branch-x',
+            lastCommit: {
+                ...WithData.args!.commit,
+                associatedPullRequests: [
+                    {
+                        ...DefaultPR.args.pullRequest,
+                    },
+                ],
+            },
+        }
     },
+    decorators: [
+        (story) => (
+            <Table size="sm" variant="striped">
+                <Tbody>{story()}</Tbody>
+            </Table>
+        ),
+    ],
 };

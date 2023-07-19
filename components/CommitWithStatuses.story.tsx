@@ -1,12 +1,14 @@
-import { ComponentMeta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import CommitWithStatuses from './CommitWithStatuses';
 
 import moreStatus from 'restinpeace/lastCommitMock.json';
 
-export default {
+const meta: Meta<typeof CommitWithStatuses> = {
     component: CommitWithStatuses,
-} as ComponentMeta<typeof CommitWithStatuses>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof CommitWithStatuses>;
 

@@ -1,23 +1,28 @@
 import User from './User';
 
-export default {
+import { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta<typeof User> = {
     component: User,
 };
 
-export const WithoutAvatar = {
+export default meta;
+
+type Story = StoryObj<typeof User>;
+
+export const WithoutAvatar: Story = {
     args: {
         user: {
             login: 'login',
-            id: '1234',
             company: 'company',
         },
     },
 };
 
-export const WithAvatar = {
+export const WithAvatar: Story = {
     args: {
         user: {
-            ...WithoutAvatar.args.user,
+            ...WithoutAvatar.args!.user,
             avatar_url: 'https://avatars2.githubusercontent.com/u/217931?v=3',
         },
     },
