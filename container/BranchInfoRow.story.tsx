@@ -5,8 +5,8 @@ import BranchInfoRow from 'container/BranchInfoRow';
 import UILibContext from 'components/UILibContext';
 import { UILibPureComponents } from 'components';
 
-import { WithData } from 'components/CommitWithStatuses.story';
-import { Default as DefaultPR } from 'components/PullRequestInfo.story';
+import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses.story';
+import { Default as DefaultPRStory } from 'components/PullRequestInfo.story';
 
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -23,14 +23,14 @@ export const WithInfo: Story = {
         branch: {
             name: 'branch-x',
             lastCommit: {
-                ...WithData.args!.commit,
+                ...CommitWithDataStory.args!.commit,
                 associatedPullRequests: [
                     {
-                        ...DefaultPR.args.pullRequest,
+                        ...DefaultPRStory.args!.pullRequest!,
                     },
                 ],
             },
-        }
+        },
     },
     decorators: [
         (story) => (
