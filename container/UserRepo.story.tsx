@@ -20,6 +20,6 @@ type Story = StoryObj<typeof UserRepo>
 export const WithUserAndRepo: Story = {
     args: {
         user: WithAvatar.args!.user as Readonly<User>,
-        repo: { ...FakeData.args.repo } as RepoType,
+        repo: { ...FakeData.args!.repo } as RepoType,
     },
 };
