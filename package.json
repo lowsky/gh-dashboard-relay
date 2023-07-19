@@ -86,7 +86,6 @@
     "@graphql-tools/schema": "10.0.0",
     "@octokit/types": "11.1.0",
     "@storybook/addon-essentials": "7.1.0",
-    "@storybook/addon-mdx-gfm": "7.1.0",
     "@storybook/addon-storyshots": "7.1.0",
     "@storybook/addons": "7.1.0",
     "@storybook/nextjs": "^7.0.20",

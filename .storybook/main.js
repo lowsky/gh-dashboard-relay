@@ -9,7 +9,6 @@ module.exports = {
     addons: [
         '@storybook/addon-essentials',
         '@chakra-ui/storybook-addon',
-        '@storybook/addon-mdx-gfm',
     ],
     features: {
         emotionAlias: false,
@@ -20,6 +19,7 @@ module.exports = {
     framework: {
         name: '@storybook/nextjs',
         options: {
+
             fastRefresh: true,
         },
     },
