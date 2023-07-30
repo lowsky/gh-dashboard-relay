@@ -1,7 +1,6 @@
 import { RouterContext } from 'next/dist/shared/lib/router-context';
-import { extendTheme } from '@chakra-ui/react';
 
-import { themeConfig } from 'components/theme';
+import { customTheme } from 'components/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,6 +8,6 @@ export const parameters = {
         Provider: RouterContext.Provider,
     },
     chakra: {
-        theme: extendTheme({ ...themeConfig }),
+        theme: customTheme,
     },
 };
