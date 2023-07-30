@@ -1,5 +1,5 @@
 import { mode } from '@chakra-ui/theme-tools';
-import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { extendTheme, StyleFunctionProps, ThemeConfig } from "@chakra-ui/react";
 
 const config: ThemeConfig = {
     initialColorMode: 'system',
@@ -14,13 +14,13 @@ https://chakra-ui.com/docs/styled-system/theming/customize-theme#customizing-com
 const themeConfig = {
     config,
     components: {
-        Link: {
+        Link: (props: Record<string, any> | StyleFunctionProps) => ({
             baseStyle: {
                 fontSize: 'md',
                 fontWeight: 400,
-                color: 'base', // to inherit a-link color
+                color: mode('#2069e0', '#5290f4')(props),
             },
-        },
+        }),
         Heading: {
             baseStyle: {
                 fontWeight: 600,
@@ -32,18 +32,13 @@ const themeConfig = {
                 grey: { color: '#999' },
             },
         },
-    },
+    }
+    //})
+    ,
     styles: {
-        global: (props) => ({
-            body: {
-                fontFamily: 'body',
-                fontWeight: 'normal',
-                color: mode('gray.700', 'whiteAlpha.900')(props),
-                bg: mode('white', 'gray.800')(props),
-                lineHeight: 'base',
-            },
+        global: (props: Record<string, any> | StyleFunctionProps) => ({
             a: {
-                color: mode('#3273dc', 'blue.200')(props),
+                color: mode('#2069e0', '#5290f4')(props),
                 _hover: {
                     textDecoration: 'underline',
                 },
