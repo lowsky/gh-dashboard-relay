@@ -1,4 +1,6 @@
 'use client';
+import { ReactNode } from 'react';
+import { useParams } from 'next/navigation';
 
 import {
     Box,
@@ -17,8 +19,6 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import InternalLink from './InternalLink';
-import { useParams } from 'next/navigation';
-import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
@@ -156,10 +156,6 @@ function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
     const colorModeValue = useColorModeValue('white', 'gray.800');
 
-    // at the moment, the chakra theme support is not fully working -> disabling
-    if (true) {
-        return null;
-    }
     return (
         <Box bg={colorModeValue} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
