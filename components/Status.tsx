@@ -1,54 +1,13 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faExclamationCircle, faHourglass, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Avatar } from '@chakra-ui/react';
+import { Avatar, AvatarBadge } from '@chakra-ui/react';
 
 import { Maybe } from 'restinpeace/types';
 
-import styles from './CommitWithStatuses.module.css';
+type StatusType = 'success' | 'pending' | 'failure' | 'error' | any;
 
-function icon4context(context, avatar_url?: Maybe<string>) {
-    if (avatar_url) {
-        return (
-            <Avatar
-                className={styles.contextLogo}
-                w={6}
-                h={6}
-                src={avatar_url}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-            />
-        );
-    }
-    return <span>{context ?? '-?-'}</span>;
-}
-
-function icon4status(status: 'success' | 'pending' | 'failure' | 'error' | any) {
-    const style = {
-        color: status2color(status),
-        verticalAlign: 'top',
-        display: 'inline',
-        height: '16px',
-    };
+function status2color(status: StatusType) {
     if (status === 'success') {
-        return <FontAwesomeIcon style={style} icon={faCheckCircle as IconProp} />;
-    }
-    if (status === 'pending') {
-        return <FontAwesomeIcon style={style} icon={faHourglass as IconProp} />;
-    }
-    if (status === 'failure') {
-        return <FontAwesomeIcon style={style} icon={faExclamationCircle as IconProp} />;
-    }
-    if (status === 'error') {
-        return <FontAwesomeIcon style={style} icon={faTimes as IconProp} />;
-    }
-    return <span>{status}</span>;
-}
-
-function status2color(status) {
-    if (status === 'success') {
-        return 'green';
+        return 'green.500';
     }
     if (status === 'pending') {
         return 'orange';
@@ -71,8 +30,14 @@ interface StatusProps {
 }
 
 export const Status = ({ target_url, avatar_url, context, description, state }: StatusProps) => (
-    <a href={target_url ?? ''} style={{ color: status2color(state) }} title={context + ': ' + description}>
-        {icon4context(context, avatar_url)}
-        {icon4status(state)}
+    <a href={target_url ?? ''} title={context + ': ' + description}>
+        <Avatar
+            size="xs"
+            name={context ?? ''}
+            src={avatar_url ?? undefined}
+            loading="lazy"
+            referrerPolicy="no-referrer">
+            <AvatarBadge boxSize="1.25em" bg={status2color(state)} placement="top-end" />
+        </Avatar>
     </a>
 );
