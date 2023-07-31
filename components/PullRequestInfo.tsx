@@ -67,7 +67,7 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
                     size="xs"
                     variant="outline"
                     onClick={() => setMergeRequest(doMergePR(number))}
-                    disabled={!!mergeRequest}
+                    isDisabled={!!mergeRequest}
                 >
                     Rebase&Merge
                 </Button>
