@@ -4,7 +4,7 @@ coverage
 public
 .circleci
 build
-.storybook/
+!.storybook
 storybook-static/
 
 #for react-app-rewired
