@@ -15,7 +15,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
 
     const { branches } = repo ?? {};
     return (
-        <Table size="sm" variant="striped">
+        <Table size="sm" variant="simple">
             <Thead>
                 <Tr>
                     <Th>
