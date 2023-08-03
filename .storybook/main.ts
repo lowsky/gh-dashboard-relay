@@ -1,10 +1,10 @@
-import { StorybookConfig } from "@storybook/nextjs";
+import { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
     stories: [
         '../components/*.story.@(js|jsx|ts|tsx|mdx)',
         '../container/*.story.@(js|jsx|ts|tsx|mdx)',
-        '../stories/*.story.@(js|jsx|ts|tsx|mdx)',
+        '../app/**/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
     addons: [
         '@storybook/addon-essentials',
@@ -14,7 +14,7 @@ const config: StorybookConfig = {
         autodocs: true,
     },
     core: {
-        disableTelemetry:true,
+        disableTelemetry: true,
     },
     framework: {
         name: '@storybook/nextjs',
