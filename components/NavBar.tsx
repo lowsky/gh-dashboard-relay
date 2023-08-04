@@ -1,6 +1,6 @@
 'use client';
 import { ReactNode } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 
 import {
     Box,
@@ -72,13 +72,17 @@ export function NavBar() {
 }
 
 const DesktopNav = ({ owner, repo }) => {
+    const pathname = usePathname();
     return (
         <Stack direction="row" spacing={4} align="center">
             <InternalLink href="/">Home</InternalLink>
-
             {owner && repo && <strong>{repo}</strong>}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <InternalLink key={href} href={href ?? '#'}>
+                <InternalLink
+                    key={href}
+                    href={href ?? '#'}
+                    fontWeight={pathname === href ? 'bold' : ''}
+                    textDecoration={pathname === href ? 'underline' : ''}>
                     {label}
                 </InternalLink>
             ))}

@@ -1,5 +1,11 @@
 name: 'Chromatic'
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -11,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'yarn'
       - run: yarn
       - uses: chromaui/action@v1
         with:
