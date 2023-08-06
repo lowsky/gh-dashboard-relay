@@ -2,10 +2,10 @@ import React, { Suspense } from 'react';
 import { Link, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
 
 import { GithubCommit } from 'restinpeace/types';
-import { useUserRepo } from './useUserRepoFromRoute';
+import { useUserRepo } from '../useUserRepoFromRoute';
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
-import { Spinner } from './Spinner';
+import { Spinner } from '../Spinner';
 
 import styles from './CommitWithStatuses.module.css';
 

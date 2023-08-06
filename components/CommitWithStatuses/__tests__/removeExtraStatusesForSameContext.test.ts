@@ -1,8 +1,8 @@
 import { removeExtraStatusesForSameContext } from '../removeExtraStatusesForSameContext';
-import { GithubStatus } from '../../lib/types/resolvers';
+import { GithubStatus } from 'lib/types/resolvers';
 
-describe('remove Extra Statuses For Same Context', function () {
-    it('should only return the first status when there are two with same context', function () {
+describe('remove Extra Statuses For Same Context', () => {
+    it('should only return the first status when there are two with same context', () => {
         const context = 'context_1';
         const st1: GithubStatus = {
             state: 'pending',

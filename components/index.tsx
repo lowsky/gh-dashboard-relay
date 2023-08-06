@@ -4,7 +4,7 @@ import RelayBranchInfoRow from 'relay/BranchInfoRow';
 import PureBranchesTable from 'container/BranchesTable';
 import RelayBranchesTable from 'relay/BranchesTable';
 
-import PureCommitWithStatuses from './CommitWithStatuses';
+import PureCommitWithStatuses from './CommitWithStatuses/CommitWithStatuses';
 import RelayCommitWithStatuses from 'relay/CommitWithStatuses';
 
 import PureRepo from './Repo';

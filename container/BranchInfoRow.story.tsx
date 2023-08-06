@@ -5,7 +5,7 @@ import BranchInfoRow from 'container/BranchInfoRow';
 import UILibContext from 'components/UILibContext';
 import { UILibPureComponents } from 'components';
 
-import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses.story';
+import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses/CommitWithStatuses.story';
 import { Default as DefaultPRStory } from 'components/PullRequestInfo.story';
 
 import { Meta, StoryObj } from '@storybook/react';

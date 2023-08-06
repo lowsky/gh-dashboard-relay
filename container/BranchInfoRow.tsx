@@ -7,7 +7,7 @@ import { GithubBranch, Maybe } from 'restinpeace/types';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import { Spinner } from 'components/Spinner';
 import { useUILib } from 'components/UILibContext';
-import { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses';
+import { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;

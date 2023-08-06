@@ -5,7 +5,7 @@ import React, { useContext } from 'react';
 import { UserProps } from './User';
 import { RepoProps } from './Repo';
 import { PullRequestInfoProps } from './PullRequestInfo';
-import { CommitWithStatusesProps } from './CommitWithStatuses';
+import { CommitWithStatusesProps } from './CommitWithStatuses/CommitWithStatuses';
 import { BranchesTableProps } from 'container/BranchesTable';
 import { BranchInfoRowProps } from 'container/BranchInfoRow';
 
