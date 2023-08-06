@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from 'restinpeace/types';
@@ -37,7 +36,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                     </Link>
                 )}
                 <Icon ml={1}>
-                    <FontAwesomeIcon icon={faGithub as IconProp} />
+                    <FontAwesomeIcon icon={faGithub} />
                 </Icon>
             </Td>
             <Td>
