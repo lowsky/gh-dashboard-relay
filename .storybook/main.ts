@@ -11,7 +11,7 @@ const config: StorybookConfig = {
         '@chakra-ui/storybook-addon',
     ],
     docs: {
-        autodocs: true,
+        autodocs: false,
     },
     core: {
         disableTelemetry: true,
