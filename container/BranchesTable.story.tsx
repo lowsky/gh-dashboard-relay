@@ -1,13 +1,13 @@
 import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import BranchesTable from './BranchesTable';
 
-import { UILibPureComponents } from 'components';
 import UILibContext from 'components/UILibContext';
+import { UILibPureComponents } from "components/UILibPureComponents";
 
 import { WithInfo } from './BranchInfoRow.story';
 
-import { Meta, StoryObj } from '@storybook/react';
 import { GithubBranch, Maybe } from '../restinpeace/types';
 
 const meta: Meta<typeof BranchesTable> = {
