@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Box, Heading, Icon, Link } from '@chakra-ui/react';
 
 import { Maybe } from 'restinpeace/types';
@@ -37,7 +36,7 @@ const Repo: React.FC<RepoProps> = ({ repo }) => {
                         {login} / {name}
                     </strong>
                     <Icon ml={1}>
-                        <FontAwesomeIcon icon={faGithub as IconProp} />
+                        <FontAwesomeIcon icon={faGithub} />
                     </Icon>
                 </Link>
             </Heading>

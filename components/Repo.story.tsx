@@ -1,8 +1,8 @@
+import { Meta, StoryObj } from '@storybook/react';
+
 import Repo from './Repo';
 import { WithAvatar } from './User.story';
 import { WithOneBranch } from 'container/BranchesTable.story';
-
-import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Repo> = {
     component: Repo,

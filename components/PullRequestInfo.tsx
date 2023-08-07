@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Button, Icon, Link, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import { Maybe } from 'restinpeace/types';
 import { fetchRepoPullRequestsAssociatedWithCommit } from 'restinpeace/github';
@@ -74,17 +73,17 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
             )}
             {!!error && (
                 <Icon>
-                    <FontAwesomeIcon icon={faExclamationTriangle as IconProp} size="1x" />
+                    <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
                 </Icon>
             )}
             {!!mergeRequest && (
                 <Icon>
-                    <FontAwesomeIcon icon={faSpinner as IconProp} size="1x" />
+                    <FontAwesomeIcon icon={faSpinner} size="1x" />
                 </Icon>
             )}
             {isMerged && (
                 <Icon>
-                    <FontAwesomeIcon icon={faCheck as IconProp} size="1x" />
+                    <FontAwesomeIcon icon={faCheck} size="1x" />
                 </Icon>
             )}
         </VStack>

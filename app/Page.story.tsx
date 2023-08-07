@@ -1,9 +1,9 @@
 import React from "react";
-
 import { StoryObj } from "@storybook/react";
+
 import IndexPage from "./page.mdx";
-import { UILibPureComponents } from "components";
 import UILibContext from "components/UILibContext";
+import { UILibPureComponents } from "components/UILibPureComponents";
 
 export default {
     title: 'Pages/Main',
