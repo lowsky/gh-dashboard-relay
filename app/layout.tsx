@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 
 import EmotionRootStyleRegistry from './EmotionRootStyleRegistry';
 import ColorModeScriptClient from './ColorModeScriptClient';
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={inter.className}>
             <body>
                 <noscript>You need to enable JavaScript to run this app.</noscript>
+                <NextTopLoader />
                 <ColorModeScriptClient />
                 <EmotionRootStyleRegistry>
                     <>
