@@ -16,9 +16,7 @@ export default meta;
 export const UserRepo: StoryObj<typeof Page> = {
     args: {},
     parameters: {
-        /*
         chromatic: { disable: true },
-         */
         nextjs: {
             appDirectory: true,
             navigation: {
