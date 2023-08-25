@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faCheck, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 import { Maybe } from 'restinpeace/types';
-import { fetchRepoPullRequestsAssociatedWithCommit } from 'restinpeace/github';
+import { getAuthorizedGitHub } from 'restinpeace/github';
 import { createResource } from 'cache/reactCache';
 import { useUserRepo } from './useUserRepoFromRoute';
 
@@ -23,7 +23,7 @@ export type PullRequestData = {
 };
 
 const getPR = createResource(
-    ({ userName, repoName, sha }) => fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
+    ({ userName, repoName, sha }) => getAuthorizedGitHub().fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 

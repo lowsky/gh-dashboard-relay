@@ -1,11 +1,7 @@
 import React, { Suspense } from 'react';
 import { Flex } from '@chakra-ui/react';
 
-import {
-    fetchRepoBranchesWithCommitStatuses,
-    fetchRepoBranchesWithCommitStatusesAndPullRequests,
-    fetchUser,
-} from 'restinpeace/github';
+import { getAuthorizedGitHub } from 'restinpeace/github';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import RichErrorBoundary from 'components/RichErrorBoundary';
 import { Spinner } from 'components/Spinner';
@@ -16,15 +12,18 @@ import BranchesTable from 'container/BranchesTable';
 
 import { createResource } from 'cache/reactCache';
 
+const authorizedGitHub = getAuthorizedGitHub();
+
 const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repoName}/br+stats`;
 
 const getBranches = createResource(
-    ({ userName, repoName }) => fetchRepoBranchesWithCommitStatuses({ userName, repoName }),
+    ({ userName, repoName }) => authorizedGitHub.fetchRepoBranchesWithCommitStatuses({ userName, repoName }),
     ({ userName, repoName }) => branchesWithStatusesInfoHash(userName, repoName)
 );
 
 const getBranchesFull = createResource(
-    ({ userName, repoName }) => fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }),
+    ({ userName, repoName }) =>
+        authorizedGitHub.fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }),
     ({ userName, repoName }) => `br_full/${userName}/${repoName}/`
 );
 
@@ -58,8 +57,7 @@ export const UserRepoWaterfall = () => {
     );
 };
 
-// fetchUser = async (username: string): Promise<User>;
-export const getUser = createResource(fetchUser);
+export const getUser = createResource(authorizedGitHub.fetchUser);
 
 export const LazyUser = () => {
     const { userName } = useUserRepo();

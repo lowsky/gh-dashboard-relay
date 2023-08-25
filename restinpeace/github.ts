@@ -65,7 +65,13 @@ export function getAuthorizedGitHub(octoOptional?: Octokit) {
         return statuses.data;
     };
 
-    const mergePullRequest = ({
+    const mergePullRequest: ({ owner, repo, pull_number, sha, merge_method }: {
+        owner: string;
+        repo: string;
+        pull_number: number;
+        sha?: string;
+        merge_method?: "rebase" | "merge"
+    }) => Promise<MergePullRequestsResponseDataType> = ({
         owner,
         repo,
         pull_number,
@@ -304,43 +310,3 @@ export function getAuthorizedGitHub(octoOptional?: Octokit) {
         getUser,
     };
 }
-
-const authorizedGitHub = getAuthorizedGitHub(defaultOcto);
-
-/** @deprecated */
-export const getStatusesForRepo = authorizedGitHub.getStatusesForRepo;
-/** @deprecated */
-export const fetchRepoPullRequestsAssociatedWithCommit = authorizedGitHub.fetchRepoPullRequestsAssociatedWithCommit;
-/** @deprecated */
-export const mergePullRequest = authorizedGitHub.mergePullRequest;
-/** @deprecated */
-export const getLastCommit = authorizedGitHub.getLastCommit;
-/** @deprecated */
-export const fetchCommitStatuses = authorizedGitHub.fetchCommitStatuses;
-
-/**
- * Fetch the branches for a given repo
- *
- * @param owner user's login name, e.g. lowsky
- * @param repo repo's name
- * @deprecated
- */
-export const fetchRepoBranches = authorizedGitHub.fetchRepoBranches;
-
-/**
- * Fetch the user info for a given login
- *
- * @param username user's login name, e.g. lowsky
- * @deprecated
- */
-export const fetchUser = authorizedGitHub.fetchUser;
-/** @deprecated */
-export const fetchRepoBranchesWithCommitStatusesAndPullRequests =
-    authorizedGitHub.fetchRepoBranchesWithCommitStatusesAndPullRequests;
-/** @deprecated */
-export const fetchRepoBranchesWithCommitStatuses = authorizedGitHub.fetchRepoBranchesWithCommitStatuses;
-/** @deprecated */
-export const fetchLastCommitStatuses = authorizedGitHub.fetchLastCommitStatuses;
-
-/** @deprecated */
-export const getCommitsForRepo = authorizedGitHub.getCommitsForRepo;
