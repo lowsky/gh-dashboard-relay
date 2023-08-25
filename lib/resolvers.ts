@@ -1,10 +1,7 @@
 import {
-    fetchRepoPullRequestsAssociatedWithCommit,
-    getCommitsForRepo,
-    getLastCommit,
-    getStatusesForRepo,
+    getAuthorizedGitHub
 } from 'restinpeace/github';
-import { getBranchesForRepo, getRepoForUser, getReposForUser, getUser } from './github';
+import { octo } from './github';
 import {
     GithubApiResolvers,
     GithubBranchResolvers,
@@ -20,13 +17,13 @@ import {
 const githubResolver: GithubApiResolvers = {
     user: async (_, { username }) => {
         try {
-            return getUser(username);
+            return getAuthorizedGitHub(octo).getUser(username);
         } catch (err) {
             return {};
         }
     },
     repo: (_, { ownerUsername, name }) => {
-        return getRepoForUser(ownerUsername, name);
+        return getAuthorizedGitHub(octo).getRepoForUser(ownerUsername, name);
     },
 };
 
@@ -36,7 +33,7 @@ const githubUserResolver: GithubUserResolvers = {
     },
     repos: (user) => {
         if (user.login) {
-            return getReposForUser(user.login);
+            return getAuthorizedGitHub(octo).getReposForUser(user.login);
         }
         return null;
     },
@@ -50,7 +47,8 @@ const githubRepoResolver: GithubRepoResolvers = {
     branches: (repo, { limit }) => {
         const reponame = repo.name;
         const ownerUsername = repo.owner?.login;
-        return getBranchesForRepo(ownerUsername || '', reponame || '')
+        return getAuthorizedGitHub(octo)
+            .getBranchesForRepo(ownerUsername || '', reponame || '')
             .then((branches) => {
                 // add repo referenceData
                 return branches.map((b) => ({
@@ -71,7 +69,9 @@ const githubRepoResolver: GithubRepoResolvers = {
         if (!owner?.login || !name) {
             return [];
         }
-        return getCommitsForRepo(owner.login, name).then((commitList) => {
+        return getAuthorizedGitHub(octo)
+            .getCommitsForRepo(owner.login, name)
+            .then((commitList) => {
             // fix for the problem that REST response contained an object
             //
             return commitList.slice(0, 1).map((commit) => {
@@ -104,7 +104,7 @@ const githubBranchResolver: GithubBranchResolvers = {
         if (!ownerUsername || !reponame) {
             return null;
         }
-        return await getLastCommit(ownerUsername, reponame, sha);
+        return await getAuthorizedGitHub(octo).getLastCommit(ownerUsername, reponame, sha);
     },
 };
 
@@ -113,7 +113,7 @@ export const commitStatusResolver = (commit) => {
     if (!sha) return Promise.resolve([] as Array<GithubStatus>);
 
     return (
-        getStatusesForRepo(
+        getAuthorizedGitHub(octo).getStatusesForRepo(
             ownerUsername, //username,
             reponame,
             sha
@@ -128,7 +128,11 @@ export const githubCommitResolver: GithubCommitResolvers = {
         if (!sha) {
             return null;
         }
-        const prs = await fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha);
+        const prs = await getAuthorizedGitHub(octo).fetchRepoPullRequestsAssociatedWithCommit(
+            ownerUsername,
+            reponame,
+            sha
+        );
         return prs.map((pr) => ({
             ...pr,
             url: pr.html_url,

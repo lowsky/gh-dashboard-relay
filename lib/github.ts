@@ -1,5 +1,4 @@
 import { Octokit } from '@octokit/rest';
-import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
 
 import { GithubBranch, GithubRepo, GithubUser } from './types/resolvers';
 
@@ -46,33 +45,3 @@ export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: St
         id: String(obj.id),
     };
 }
-
-export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDataTypeFromEndpointMethod<
-    typeof octo.repos.listPullRequestsAssociatedWithCommit
->;
-
-export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof octo.pulls.merge>;
-
-export const mergePullRequest = ({
-    owner,
-    repo,
-    pull_number,
-    sha,
-    merge_method = 'rebase',
-}: {
-    owner: string;
-    repo: string;
-    pull_number: number;
-    sha?: string;
-    merge_method?: 'rebase' | 'merge';
-}): Promise<MergePullRequestsResponseDataType> => {
-    const result = octo.pulls.merge({
-        owner,
-        repo,
-        merge_method,
-        sha,
-        pull_number,
-    });
-    // @ts-expect-error type is not exact matching - needs fix
-    return result;
-};

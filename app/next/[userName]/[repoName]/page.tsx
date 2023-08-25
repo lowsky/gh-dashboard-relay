@@ -2,7 +2,8 @@
 
 import React, { cache } from 'react';
 
-import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
+import { getAuthorizedGitHub, User } from 'restinpeace/github';
+
 import { RepoType } from 'components/Repo';
 import { AsyncUserRepo } from 'container/AsyncUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
@@ -52,17 +53,20 @@ async function ReactNext({ repoData, userData }: Props) {
 
 const fetchUserPromise: (userName) => Promise<User> = cache(async (userName) => {
     // await delay(500);
-    return fetchUser(userName);
+    return getAuthorizedGitHub().fetchUser(userName);
 });
+
 const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = cache(async ({ userName, repoName }) => {
     // await delay(500);
     return fetchRepoBranchesWithCommitStatusesAndPullRequestsProm({ userName, repoName });
 });
 
 const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = cache(async ({ userName, repoName }) =>
-    fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }).then((branchesWithCommit) => ({
-        name: repoName,
-        owner: { login: userName },
-        branches: branchesWithCommit.branches,
-    }))
+    getAuthorizedGitHub()
+        .fetchRepoBranchesWithCommitStatuses({ userName, repoName })
+        .then((branchesWithCommit) => ({
+            name: repoName,
+            owner: { login: userName },
+            branches: branchesWithCommit.branches,
+        }))
 );

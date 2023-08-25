@@ -6,7 +6,7 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
 import { UserRepoFromUrlProvider, useUserRepo } from 'components/useUserRepoFromRoute';
-import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
+import { Branches, User, getAuthorizedGitHub } from 'restinpeace/github';
 
 export default function RestfulPage() {
     return (
@@ -34,7 +34,8 @@ function RestfulMain() {
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchUser(userName)
+        getAuthorizedGitHub()
+            .fetchUser(userName)
             .then((user) => {
                 if (!ignoreDownloadedData) {
                     storeUser(user);
@@ -53,7 +54,8 @@ function RestfulMain() {
     useEffect(() => {
         let ignoreDownloadedData = false;
 
-        fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName })
+        getAuthorizedGitHub()
+            .fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName })
             .then((branchesWithCommit) => {
                 if (!ignoreDownloadedData)
                     storeRepo({
