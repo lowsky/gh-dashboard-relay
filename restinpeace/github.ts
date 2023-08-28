@@ -28,8 +28,7 @@ type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpo
     typeof defaultOcto.repos.listPullRequestsAssociatedWithCommit
 >;
 
-export type ListPullRequestsAssociatedWithCommitResponseDataType = ListPullRequestsAssociatedWithCommitResponseType;
-['data'];
+export type ListPullRequestsAssociatedWithCommitResponseDataType = ListPullRequestsAssociatedWithCommitResponseType['data'];
 
 export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof defaultOcto.pulls.merge>;
 
@@ -270,21 +269,13 @@ export function getAuthorizedGitHub(octoOptional?: Octokit) {
         return [];
     }
 
-
-    /**
-     * Fetch the PR info for a given repo
-     *
-     * @param owner user's login name, e.g. lowsky
-     * @param repo repo's name
-     * @param commit_sha
-     */
     const fetchRepoPullRequestsAssociatedWithCommit = async (
         owner: string,
         repo: string,
         commit_sha: string
     ): Promise<ListPullRequestsAssociatedWithCommitResponseDataType> => {
         const pulls: ListPullRequestsAssociatedWithCommitResponseType = await
-             octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
+                octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
         return pulls.data;
     };
 
