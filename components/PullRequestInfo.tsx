@@ -23,7 +23,8 @@ export type PullRequestData = {
 };
 
 const getPR = createResource(
-    ({ userName, repoName, sha }) => getAuthorizedGitHub().fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
+    ({ userName, repoName, sha }) =>
+        getAuthorizedGitHub().fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
@@ -55,6 +56,9 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
     const { number, title, url, html_url } =
         pullRequest ?? getPR.read({ userName, repoName, sha })?.find?.(Boolean) ?? {};
 
+    if (!number || !url) {
+        return null;
+    }
     return (
         <VStack width="6em">
             <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
@@ -66,8 +70,7 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
                     size="xs"
                     variant="outline"
                     onClick={() => setMergeRequest(doMergePR(number))}
-                    isDisabled={!!mergeRequest}
-                >
+                    isDisabled={!!mergeRequest}>
                     Rebase&Merge
                 </Button>
             )}
