@@ -8,6 +8,7 @@ import EmotionRootStyleRegistry from './EmotionRootStyleRegistry';
 import ColorModeScriptClient from './ColorModeScriptClient';
 
 import { NavBar } from 'components/NavBar';
+import WarningGitHubRateLimiting from 'components/WarningGitHubRateLimiting';
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <EmotionRootStyleRegistry>
                     <>
                         <NavBar />
+                        <WarningGitHubRateLimiting/>
                         <div>{children}</div>
                     </>
                 </EmotionRootStyleRegistry>
