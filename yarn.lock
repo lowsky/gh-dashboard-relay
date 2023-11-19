@@ -8109,13 +8109,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-relay@npm:14.1.5":
-  version: 14.1.5
-  resolution: "@types/react-relay@npm:14.1.5"
+"@types/react-relay@npm:14.1.7":
+  version: 14.1.7
+  resolution: "@types/react-relay@npm:14.1.7"
   dependencies:
     "@types/react": "*"
     "@types/relay-runtime": "*"
-  checksum: 9c112027833e47f8c185987779ccdbf9832fc3937552a9ec83ba3d253795454d2285f579dbdba45b922121847a8884a624702b8e77adab7d11cfe6311c3bd172
+  checksum: bddd6883fda51feff6a82d5b123ef825d11bce6a1e5b353f7531090119b38c52fa122a25cff4bf46d2b30d32fef1cea09b454aa4ed219e48010efe4647932229
   languageName: node
   linkType: hard
 
@@ -10964,7 +10964,7 @@ __metadata:
     "@storybook/addons": 7.4.2
     "@storybook/nextjs": ^7.0.20
     "@storybook/react": ^7.0.20
-    "@types/react-relay": 14.1.5
+    "@types/react-relay": 14.1.7
     "@types/relay-runtime": 14.1.13
     "@typescript-eslint/eslint-plugin": 6.7.0
     "@typescript-eslint/parser": 6.7.0
