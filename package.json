@@ -61,7 +61,7 @@
     "@next/mdx": "13.4.19",
     "@octokit/graphql-schema": "14.42.0",
     "@octokit/rest": "20.0.2",
-    "framer-motion": "10.16.4",
+    "framer-motion": "10.16.5",
     "graphql": "16.8.1",
     "graphql-yoga": "4.0.4",
     "hitchcock": "0.5.0",
