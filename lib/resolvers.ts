@@ -1,6 +1,4 @@
-import {
-    getAuthorizedGitHub
-} from 'restinpeace/github';
+import { getAuthorizedGitHub } from 'restinpeace/github';
 import { octo } from './github';
 import {
     GithubApiResolvers,
@@ -72,20 +70,20 @@ const githubRepoResolver: GithubRepoResolvers = {
         return getAuthorizedGitHub(octo)
             .getCommitsForRepo(owner.login, name)
             .then((commitList) => {
-            // fix for the problem that REST response contained an object
-            //
-            return commitList.slice(0, 1).map((commit) => {
-                return {
-                    ...commit,
-                    // info is part of REST response:
-                    // @ts-expect-error type-def is wrong, need to access this via commit inner field
-                    message: commit.commit.message,
-                    // info is part of REST response:
-                    // @ts-expect-error type-def is wrong, need to access this via commit inner field
-                    date: commit.commit?.committer?.date,
-                };
+                // fix for the problem that REST response contained an object
+                //
+                return commitList.slice(0, 1).map((commit) => {
+                    return {
+                        ...commit,
+                        // info is part of REST response:
+                        // @ts-expect-error type-def is wrong, need to access this via commit inner field
+                        message: commit.commit.message,
+                        // info is part of REST response:
+                        // @ts-expect-error type-def is wrong, need to access this via commit inner field
+                        date: commit.commit?.committer?.date,
+                    };
+                });
             });
-        });
     },
 };
 

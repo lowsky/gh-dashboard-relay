@@ -11,6 +11,5 @@ export default meta;
 type Story = Meta<typeof NavBar>;
 
 export const Default: Story = {
-    args: {
-    }
+    args: {},
 };

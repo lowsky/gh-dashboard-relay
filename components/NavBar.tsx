@@ -82,7 +82,8 @@ const DesktopNav = ({ owner, repo }) => {
                     key={href}
                     href={href ?? '#'}
                     fontWeight={pathname === href ? 'bold' : ''}
-                    textDecoration={pathname === href ? 'underline' : ''}>
+                    textDecoration={pathname === href ? 'underline' : ''}
+                >
                     {label}
                 </InternalLink>
             ))}

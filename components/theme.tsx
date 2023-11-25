@@ -20,12 +20,11 @@ const themeConfig = {
             },
         }),
         Heading: {
-            baseStyle: (props: StyleFunctionProps) =>({
+            baseStyle: (props: StyleFunctionProps) => ({
                 fontWeight: 'semibold',
                 marginBottom: '0.5em',
                 marginTop: '0.5em',
-                color:
-                    mode('var(--chakra-colors-gray-700)', 'var(--chakra-colors-gray-400)')(props),
+                color: mode('var(--chakra-colors-gray-700)', 'var(--chakra-colors-gray-400)')(props),
             }),
             variants: {
                 grey: (props: StyleFunctionProps) => ({

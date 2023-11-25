@@ -1,15 +1,14 @@
-import React from "react";
-import { StoryObj } from "@storybook/react";
+import React from 'react';
+import { StoryObj } from '@storybook/react';
 
-import IndexPage from "./page.mdx";
-import UILibContext from "components/UILibContext";
-import { UILibPureComponents } from "components/UILibPureComponents";
+import IndexPage from './page.mdx';
+import UILibContext from 'components/UILibContext';
+import { UILibPureComponents } from 'components/UILibPureComponents';
 
 export default {
     title: 'Pages/Main',
     component: IndexPage,
-    decorators: [
-      (story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>]
+    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };
 
 export const Index: StoryObj<typeof IndexPage> = {
@@ -32,7 +31,7 @@ export const Index: StoryObj<typeof IndexPage> = {
             appDirectory: true,
             navigation: {
                 //pathname: '/restful/[userName]/[repoName]',
-                pathname: "/restful/lowsky/test-repo",
+                pathname: '/restful/lowsky/test-repo',
                 segments: [
                     ['userName', 'lowsky'],
                     ['repoName', 'test-repo'],
