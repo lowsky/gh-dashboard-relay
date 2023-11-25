@@ -4,7 +4,7 @@ const config = {
     tabWidth: 4,
     bracketSpacing: true,
     singleQuote: true,
-    jsxBracketSameLine: true,
+    bracketSameLine: true,
     printWidth: 120,
     overrides: [
         {

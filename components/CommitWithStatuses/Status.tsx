@@ -36,8 +36,7 @@ export const Status = ({ target_url, avatar_url, context, description, state }: 
             name={context ?? ''}
             src={avatar_url ?? undefined}
             loading="lazy"
-            referrerPolicy="no-referrer"
-        >
+            referrerPolicy="no-referrer">
             <AvatarBadge boxSize="1.25em" bg={status2color(state)} placement="top-end" />
         </Avatar>
     </a>

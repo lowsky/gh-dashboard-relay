@@ -46,8 +46,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                             <VStack width="6em">
                                 <Spinner size={8} />
                             </VStack>
-                        }
-                    >
+                        }>
                         {associatedPullRequests
                             ?.filter?.(Boolean)
                             .map((pr, idx) => <PullRequestInfo key={idx} pullRequest={pr!} />)}
