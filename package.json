@@ -23,6 +23,7 @@
     "build:relay": "relay-compiler && prettier -w relay/__generated__ queries/__generated__",
     "build:resolvers": "node schema/wrapGraphQLSchema && graphql-codegen --config schema/codegen.yml",
     "codegen": "yarn run build:relay && yarn run build:resolvers",
+    "format": "prettier . --cache -l -w",
     "vercel-build": "yarn run codegen && yarn run build",
     "vercel-build:without-chromatic": "yarn run vercel-build",
     "lint": "eslint .",
@@ -51,7 +52,6 @@
     "url": "https://github.com/lowsky/dashboard/issues"
   },
   "private": true,
-  "analyze": true,
   "homepage": ".",
   "dependencies": {
     "@chakra-ui/next-js": "^2.1.4",
