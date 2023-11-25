@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import RestfulPage from 'app/restful/[userName]/[repoName]/page';
 import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from "components/UILibPureComponents";
+import { UILibPureComponents } from 'components/UILibPureComponents';
 
 const meta: Meta<typeof RestfulPage> = {
     title: 'Pages/Restful',

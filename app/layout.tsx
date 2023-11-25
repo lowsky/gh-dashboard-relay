@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <EmotionRootStyleRegistry>
                     <>
                         <NavBar />
-                        <WarningGitHubRateLimiting/>
+                        <WarningGitHubRateLimiting />
                         <div>{children}</div>
                     </>
                 </EmotionRootStyleRegistry>

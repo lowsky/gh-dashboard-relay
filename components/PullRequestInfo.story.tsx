@@ -17,6 +17,6 @@ export const Default: Story = {
             title: 'add PR info to branch table',
             number: 42,
         },
-        sha: '72b14d30d'
+        sha: '72b14d30d',
     },
 };

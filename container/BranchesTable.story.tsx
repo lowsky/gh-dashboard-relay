@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import BranchesTable from './BranchesTable';
 
 import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from "components/UILibPureComponents";
+import { UILibPureComponents } from 'components/UILibPureComponents';
 
 import { WithInfo } from './BranchInfoRow.story';
 

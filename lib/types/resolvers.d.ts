@@ -228,7 +228,7 @@ export type ResolversParentTypes = {
 
 export type GithubApiResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubAPI'] = ResolversParentTypes['GithubAPI']
+    ParentType extends ResolversParentTypes['GithubAPI'] = ResolversParentTypes['GithubAPI'],
 > = {
     repo?: Resolver<
         Maybe<ResolversTypes['GithubRepo']>,
@@ -247,7 +247,7 @@ export type GithubApiResolvers<
 
 export type GithubBranchResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubBranch'] = ResolversParentTypes['GithubBranch']
+    ParentType extends ResolversParentTypes['GithubBranch'] = ResolversParentTypes['GithubBranch'],
 > = {
     lastCommit?: Resolver<Maybe<ResolversTypes['GithubCommit']>, ParentType, ContextType>;
     name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -258,7 +258,7 @@ export type GithubBranchResolvers<
 
 export type GithubCommitResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubCommit'] = ResolversParentTypes['GithubCommit']
+    ParentType extends ResolversParentTypes['GithubCommit'] = ResolversParentTypes['GithubCommit'],
 > = {
     associatedPullRequests?: Resolver<Maybe<Array<Maybe<ResolversTypes['PullRequest']>>>, ParentType, ContextType>;
     author?: Resolver<Maybe<ResolversTypes['UserOrCommitAuthor']>, ParentType, ContextType>;
@@ -271,7 +271,7 @@ export type GithubCommitResolvers<
 
 export type GithubCommitAuthorResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubCommitAuthor'] = ResolversParentTypes['GithubCommitAuthor']
+    ParentType extends ResolversParentTypes['GithubCommitAuthor'] = ResolversParentTypes['GithubCommitAuthor'],
 > = {
     email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
     name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -280,7 +280,7 @@ export type GithubCommitAuthorResolvers<
 
 export type GithubRepoResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubRepo'] = ResolversParentTypes['GithubRepo']
+    ParentType extends ResolversParentTypes['GithubRepo'] = ResolversParentTypes['GithubRepo'],
 > = {
     branches?: Resolver<
         Maybe<Array<Maybe<ResolversTypes['GithubBranch']>>>,
@@ -302,7 +302,7 @@ export type GithubRepoResolvers<
 
 export type GithubStatusResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubStatus'] = ResolversParentTypes['GithubStatus']
+    ParentType extends ResolversParentTypes['GithubStatus'] = ResolversParentTypes['GithubStatus'],
 > = {
     avatar_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
     context?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -315,7 +315,7 @@ export type GithubStatusResolvers<
 
 export type GithubUserResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['GithubUser'] = ResolversParentTypes['GithubUser']
+    ParentType extends ResolversParentTypes['GithubUser'] = ResolversParentTypes['GithubUser'],
 > = {
     avatar_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
     company?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -327,7 +327,7 @@ export type GithubUserResolvers<
 
 export type PullRequestResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['PullRequest'] = ResolversParentTypes['PullRequest']
+    ParentType extends ResolversParentTypes['PullRequest'] = ResolversParentTypes['PullRequest'],
 > = {
     number?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
     title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -337,7 +337,7 @@ export type PullRequestResolvers<
 
 export type QueryResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
+    ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query'],
 > = {
     github?: Resolver<Maybe<ResolversTypes['GithubAPI']>, ParentType, ContextType>;
     repo?: Resolver<
@@ -356,7 +356,7 @@ export type QueryResolvers<
 
 export type UserOrCommitAuthorResolvers<
     ContextType = any,
-    ParentType extends ResolversParentTypes['UserOrCommitAuthor'] = ResolversParentTypes['UserOrCommitAuthor']
+    ParentType extends ResolversParentTypes['UserOrCommitAuthor'] = ResolversParentTypes['UserOrCommitAuthor'],
 > = {
     __resolveType: TypeResolveFn<'GithubCommitAuthor' | 'GithubUser', ParentType, ContextType>;
 };

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import Page from 'app/waterfall/[userName]/[repoName]/page';
 import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from "components/UILibPureComponents";
+import { UILibPureComponents } from 'components/UILibPureComponents';
 
 const meta: Meta<typeof Page> = {
     title: 'Pages/Waterfall',

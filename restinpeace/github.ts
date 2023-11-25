@@ -28,7 +28,8 @@ type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpo
     typeof defaultOcto.repos.listPullRequestsAssociatedWithCommit
 >;
 
-export type ListPullRequestsAssociatedWithCommitResponseDataType = ListPullRequestsAssociatedWithCommitResponseType['data'];
+export type ListPullRequestsAssociatedWithCommitResponseDataType =
+    ListPullRequestsAssociatedWithCommitResponseType['data'];
 
 export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof defaultOcto.pulls.merge>;
 
@@ -64,12 +65,18 @@ export function getAuthorizedGitHub(octoOptional?: Octokit) {
         return statuses.data;
     };
 
-    const mergePullRequest: ({ owner, repo, pull_number, sha, merge_method }: {
+    const mergePullRequest: ({
+        owner,
+        repo,
+        pull_number,
+        sha,
+        merge_method,
+    }: {
         owner: string;
         repo: string;
         pull_number: number;
         sha?: string;
-        merge_method?: "rebase" | "merge"
+        merge_method?: 'rebase' | 'merge';
     }) => Promise<MergePullRequestsResponseDataType> = ({
         owner,
         repo,
@@ -274,11 +281,10 @@ export function getAuthorizedGitHub(octoOptional?: Octokit) {
         repo: string,
         commit_sha: string
     ): Promise<ListPullRequestsAssociatedWithCommitResponseDataType> => {
-        const pulls: ListPullRequestsAssociatedWithCommitResponseType = await
-                octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
+        const pulls: ListPullRequestsAssociatedWithCommitResponseType =
+            await octo.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha });
         return pulls.data;
     };
-
 
     return {
         fetchLastCommitStatuses,

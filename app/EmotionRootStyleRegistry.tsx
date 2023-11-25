@@ -9,7 +9,7 @@ import React from 'react';
 export default function EmotionRootStyleRegistry({ children }: { children: React.ReactNode }) {
     return (
         <CacheProvider>
-              <ChakraUIWrapper>{children}</ChakraUIWrapper>
+            <ChakraUIWrapper>{children}</ChakraUIWrapper>
         </CacheProvider>
     );
 }

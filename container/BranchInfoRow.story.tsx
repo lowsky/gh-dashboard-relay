@@ -4,11 +4,10 @@ import { Table, Tbody } from '@chakra-ui/react';
 
 import BranchInfoRow from 'container/BranchInfoRow';
 import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from "components/UILibPureComponents";
+import { UILibPureComponents } from 'components/UILibPureComponents';
 
 import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses/CommitWithStatuses.story';
 import { Default as DefaultPRStory } from 'components/PullRequestInfo.story';
-
 
 const meta: Meta<typeof BranchInfoRow> = {
     component: BranchInfoRow,
