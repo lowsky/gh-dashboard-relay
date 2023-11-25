@@ -1,5 +1,5 @@
 # http://EditorConfig.org
-
+# Stop the editor from looking for .editorconfig files in the parent directories
 root = true
 
 [*]
@@ -7,12 +7,14 @@ end_of_line = lf
 insert_final_newline = true
 indent_style = space
 indent_size = 4
-trim_trailing_whitespace = true
+# Caveat: Prettier won’t trim trailing whitespace inside template strings, but your editor might.
+# trim_trailing_whitespace = true
 
 # Matches multiple files with brace expansion notation
 # Set default charset
 [*.html]
 charset = utf-8
+indent_size = 2
 
 [*.js]
 charset = utf-8
