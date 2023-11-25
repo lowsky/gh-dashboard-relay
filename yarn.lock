@@ -11570,7 +11570,7 @@ __metadata:
     eslint-plugin-storybook: 0.6.15
     framer-motion: 10.16.4
     graphql: 16.8.1
-    graphql-yoga: 4.0.4
+    graphql-yoga: 4.0.5
     hitchcock: 0.5.0
     identity-obj-proxy: 3.0.0
     jest: 29.7.0
@@ -14057,9 +14057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-yoga@npm:4.0.4":
-  version: 4.0.4
-  resolution: "graphql-yoga@npm:4.0.4"
+"graphql-yoga@npm:4.0.5":
+  version: 4.0.5
+  resolution: "graphql-yoga@npm:4.0.5"
   dependencies:
     "@envelop/core": ^4.0.0
     "@graphql-tools/executor": ^1.0.0
@@ -14074,7 +14074,7 @@ __metadata:
     tslib: ^2.5.2
   peerDependencies:
     graphql: ^15.2.0 || ^16.0.0
-  checksum: d8a91db51a2c67c07540d3db2f2261454d5b759da469b1f8703da4aa742b1b57726ddb1de56566b40d830e37b95016436d0c4306697f25fd16e5c51ab3137e3a
+  checksum: f86617b2a73314631fa19253fb6fd208de7f9befba19bcbe228f8c85df7f741b191de0b0f83f7e2e8f9a13add0325d980b3416cd3566bcc2c2fdca8ef0ab8a48
   languageName: node
   linkType: hard
 
