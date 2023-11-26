@@ -10571,14 +10571,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:7.6.0":
-  version: 7.6.0
-  resolution: "chromatic@npm:7.6.0"
+"chromatic@npm:9.1.0":
+  version: 9.1.0
+  resolution: "chromatic@npm:9.1.0"
   bin:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 5f473385cc2c152b43487646803a213f0dc3fcf9f7755a051040e31b5f8e67486b8a80fff3bbe0752bdb0e41851ff965b587f122938b35acf5c5eba1d3d1b9e4
+  checksum: 4fe6dc7e7011edc655e9a21f496f91679710e37466ffdd3d10debbe87c35af54ccff4eeff1be3bf21a0c03b9871d17b6853083276bd1e71b44b5ec85f22a3bcc
   languageName: node
   linkType: hard
 
@@ -11352,7 +11352,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 6.12.0
     "@typescript-eslint/parser": 6.12.0
     babel-plugin-relay: 15.0.0
-    chromatic: 7.6.0
+    chromatic: 9.1.0
     csstype: 3.1.2
     eslint: 8.54.0
     eslint-config-next: 13.5.6
@@ -20541,11 +20541,11 @@ __metadata:
 
 "typescript@patch:typescript@5.3.2#~builtin<compat/typescript>":
   version: 5.3.2
-  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=f3b441"
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c034461079fbfde3cb584ddee52afccb15b6e32a0ce186d0b2719968786f7ca73e1b07f71fac4163088790b16811c6ccf79680de190664ef66ff0ba9c1fe4a23
+  checksum: 47b2e63418ea7ef7dd0bf359ee41c6fca852c680826089269c5d03673ead471e052b172561f377f9e51212054e5f0fe19dd58085ff7db7b168449a6af704c784
   languageName: node
   linkType: hard
 
