@@ -8339,10 +8339,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/nprogress@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@types/nprogress@npm:0.2.0"
-  checksum: 561384775008ae58111f038f8f9468b3de8987cd753feef9bf6d07af0e1343390d492a078bb08a7b53ac7370208e31e06ac069cb852c435d49f5fe218e9769c4
+"@types/nprogress@npm:^0.2.1":
+  version: 0.2.3
+  resolution: "@types/nprogress@npm:0.2.3"
+  checksum: 2bd96ba1167f548e8f898ae8a790b6501a5422217621c9b8ea75962f3e8473f0e371058b79d83e04e80a6bfee2d66fc6612cdb28296648007b35d3c2a6d64e5c
   languageName: node
   linkType: hard
 
@@ -11368,7 +11368,7 @@ __metadata:
     jest: 29.7.0
     meros: 1.3.0
     next: 13.4.19
-    nextjs-toploader: 1.4.2
+    nextjs-toploader: 1.6.4
     prettier: 3.1.0
     react: next
     react-cache: latest
@@ -16767,18 +16767,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextjs-toploader@npm:1.4.2":
-  version: 1.4.2
-  resolution: "nextjs-toploader@npm:1.4.2"
+"nextjs-toploader@npm:1.6.4":
+  version: 1.6.4
+  resolution: "nextjs-toploader@npm:1.6.4"
   dependencies:
-    "@types/nprogress": ^0.2.0
+    "@types/nprogress": ^0.2.1
     nprogress: ^0.2.0
     prop-types: ^15.8.1
   peerDependencies:
     next: ">= 6.0.0"
     react: ">= 16.0.0"
     react-dom: ">= 16.0.0"
-  checksum: dab1d3327791fe772d63ab1cad56c0bc6071e72339cd85cfa03a668485490604acd70ddd9744c084323f95abcc495e6ee5e135a19fd5f45ae09b744202f4ba7d
+  checksum: 43801c844494f508b31a02e202dc3f063e9ded5968edff0ed298118b2c5ad3f2bc200712ca3c693fe27fe5acb5363646c10e937710e3a27ba2fe284fd31a0665
   languageName: node
   linkType: hard
 
@@ -20541,11 +20541,11 @@ __metadata:
 
 "typescript@patch:typescript@5.3.2#~builtin<compat/typescript>":
   version: 5.3.2
-  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=f3b441"
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: c034461079fbfde3cb584ddee52afccb15b6e32a0ce186d0b2719968786f7ca73e1b07f71fac4163088790b16811c6ccf79680de190664ef66ff0ba9c1fe4a23
+  checksum: 47b2e63418ea7ef7dd0bf359ee41c6fca852c680826089269c5d03673ead471e052b172561f377f9e51212054e5f0fe19dd58085ff7db7b168449a6af704c784
   languageName: node
   linkType: hard
 
