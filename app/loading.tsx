@@ -1,5 +1,5 @@
-import { Spinner } from 'components/Spinner';
+import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
 
 export default function Loading() {
-    return <Spinner label="Loading page" />;
+    return <ContentLoadingFallback />;
 }

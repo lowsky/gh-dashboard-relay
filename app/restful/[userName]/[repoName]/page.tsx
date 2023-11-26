@@ -8,6 +8,8 @@ import UserRepo from 'container/UserRepo';
 import { UserRepoFromUrlProvider, useUserRepo } from 'components/useUserRepoFromRoute';
 import { Branches, User, getAuthorizedGitHub } from 'restinpeace/github';
 
+export const revalidate = 10;
+
 export default function RestfulPage() {
     return (
         <UserRepoFromUrlProvider>

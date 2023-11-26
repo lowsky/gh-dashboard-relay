@@ -1,4 +1,4 @@
-// do not activate 'use client' ! - using react cache and async data loading works only on server side
+// do not add 'use client' here, because it is using React cache, and the async data loading works only on the server side
 
 import React, { cache } from 'react';
 

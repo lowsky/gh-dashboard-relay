@@ -1,3 +1,5 @@
+'use client';
+
 import { VStack, Flex, Container } from '@chakra-ui/react';
 import { Spinner } from './Spinner';
 
