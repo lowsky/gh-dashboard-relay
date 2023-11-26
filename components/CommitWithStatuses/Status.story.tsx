@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Status } from './Status';
-import moreStatus from "restinpeace/lastCommitMock.json";
+import moreStatus from 'restinpeace/lastCommitMock.json';
 
 const meta: Meta<typeof Status> = {
     component: Status,
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof Status>;
 
 export const Default: Story = {
     args: {
-        ... moreStatus.status[0]
+        ...moreStatus.status[0],
     },
 };

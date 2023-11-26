@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import Page from 'app/wait-for-all/[userName]/[repoName]/page';
 import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from "components/UILibPureComponents";
+import { UILibPureComponents } from 'components/UILibPureComponents';
 
 const meta: Meta<typeof Page> = {
     title: 'Pages/Wait-for-all',

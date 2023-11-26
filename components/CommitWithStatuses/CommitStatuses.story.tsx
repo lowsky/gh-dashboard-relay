@@ -13,11 +13,10 @@ type Story = StoryObj<typeof CommitStatuses>;
 
 export const WithData: Story = {
     args: {
-        statuses: moreStatus.status
+        statuses: moreStatus.status,
     },
 };
 
 export const WithNoData: Story = {
-    args: {
-    },
+    args: {},
 };

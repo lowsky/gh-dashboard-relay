@@ -6,9 +6,11 @@
 -   [GraphQL](https://graphql.org/)
 -   [Next.js](https://nextjs.org/)
 -   ~~[Netlify](https://www.netlify.com/)~~/[Vercel](https://vercel.com/)
--   ~~[ApolloServer](https://www.apollographql.com/docs/apollo-server/)~~ [Helix](https://www.graphql-helix.com/), [Envelop](https://the-guild.dev/graphql/yoga-server), soon: [Yoga](https://the-guild.dev/graphql/yoga-server)
+-   GraphQL server
+    -   ~~[ApolloServer](https://www.apollographql.com/docs/apollo-server/)~~ [Helix](https://www.graphql-helix.com/),
+    -   ~~[Envelop](https://the-guild.dev/graphql/yoga-server)~~ [Yoga](https://the-guild.dev/graphql/yoga-server)
 -   [Relay](https://relay.dev/)
--   [ChakraUI](https://chakra-ui.com/) ~~[Bulma](https://bulma.io/)~~
+-   ~~[Bulma](https://bulma.io/)~~ [ChakraUI](https://chakra-ui.com/)
 -   React
 -   [Storybook](https://storybook.js.org/)
 -   [Chromatic](https://storybook.js.org/)
