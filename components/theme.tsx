@@ -14,11 +14,11 @@ https://chakra-ui.com/docs/styled-system/theming/customize-theme#customizing-com
 const themeConfig = {
     config,
     components: {
-        Link: (props: StyleFunctionProps) => ({
-            baseStyle: {
-                color: mode('#2069e0', '#5290f4')(props),
-            },
-        }),
+        Link: {
+            baseStyle: (props: StyleFunctionProps) => ({
+                color: mode('#102FAF', '#5890ec')(props),
+            }),
+        },
         Heading: {
             baseStyle: (props: StyleFunctionProps) => ({
                 fontWeight: 'semibold',
@@ -36,7 +36,7 @@ const themeConfig = {
     styles: {
         global: (props: StyleFunctionProps) => ({
             a: {
-                color: mode('#2069e0', '#5290f4')(props),
+                color: mode('#102FAF', '#5890ec')(props),
                 _hover: {
                     textDecoration: 'underline',
                 },
