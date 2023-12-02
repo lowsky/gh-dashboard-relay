@@ -97,7 +97,7 @@
     "babel-plugin-relay": "16.0.0",
     "chromatic": "10.0.0",
     "csstype": "3.1.2",
-    "eslint": "8.54.0",
+    "eslint": "8.55.0",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-graphql": "4.0.0",
