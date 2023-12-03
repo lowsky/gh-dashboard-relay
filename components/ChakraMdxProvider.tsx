@@ -1,36 +1,40 @@
 'use client';
-import Image from 'next/image';
-import { Box as ChakraBox, Code as ChakraCode, Heading, Text } from '@chakra-ui/react';
+import {Image, ImageProps} from '@chakra-ui/next-js';
+import { Box as ChakraBox, Code as ChakraCode, Heading, List, Text } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
+import { HeadingProps } from '@chakra-ui/layout/dist/heading';
+import { BoxProps } from '@chakra-ui/layout/dist/box';
+import { TextProps } from '@chakra-ui/layout/dist/text';
+import { ListProps } from '@chakra-ui/layout/dist/list';
 
-export function Box({ children, ...props }) {
-    return <ChakraBox {...props}>{children}</ChakraBox>;
+export function Box(props: BoxProps) {
+    return <ChakraBox {...props}>{props.children}</ChakraBox>;
 }
 
-export function H1({ children, ...props }) {
+export function H1(props: HeadingProps) {
     return (
         <Heading size="xl" as="h1" variant="grey" {...props}>
-            {children}
+            {props.children}
         </Heading>
     );
 }
 
-export function H2({ children, ...props }) {
+export function H2(props: HeadingProps) {
     return (
         <Heading size="lg" as="h2" variant="grey" {...props}>
-            {children}
+            {props.children}
         </Heading>
     );
 }
 
-export function H3(props) {
+export function H3(props: HeadingProps) {
     return <Heading size="md" as="h3" {...props} />;
 }
 
-export const P = ({ children, ...props }) => (
+export const P = (props: TextProps) => (
     <Text pb="4" {...props}>
-        {children}
+        {props.children}
     </Text>
 );
 
@@ -38,12 +42,14 @@ export const A = (props) => <InternalLink {...props} />;
 
 export const Code = (props) => <ChakraCode {...props} />;
 
-export const ResponsiveImage = (props) => <Image alt={props.alt} layout="responsive" {...props} />;
+export const ResponsiveImage = (props: ImageProps) => (
+    <Image {...props} />
+);
 
-export function Ul(props) {
+export function Ul(props: ListProps) {
     return (
         <Box pl="4" pb="4">
-            <ul {...props}></ul>
+            <List as="ul" {...props}></List>
         </Box>
     );
 }
