@@ -8353,13 +8353,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-relay@npm:16.0.4":
-  version: 16.0.4
-  resolution: "@types/react-relay@npm:16.0.4"
+"@types/react-relay@npm:16.0.5":
+  version: 16.0.5
+  resolution: "@types/react-relay@npm:16.0.5"
   dependencies:
     "@types/react": "npm:*"
     "@types/relay-runtime": "npm:*"
-  checksum: 9501a68c5a1576189d84bbee39b511e14075b308f00d40413614b2059e42255d615c9470c9ca93ead1469b8e30dc663b54c298c7657566091d6ed154e6138736
+  checksum: 526015f7841c81713a34125dec0c3355ad4539872f24c8702bce17f22999b7d289ecf46444de82d5a6556fb73125ae9c33d58394767a7ecf5eaaabc534e73cf7
   languageName: node
   linkType: hard
 
@@ -11327,7 +11327,7 @@ __metadata:
     "@storybook/addons": "npm:7.6.3"
     "@storybook/nextjs": "npm:^7.0.20"
     "@storybook/react": "npm:^7.0.20"
-    "@types/react-relay": "npm:16.0.4"
+    "@types/react-relay": "npm:16.0.5"
     "@types/relay-runtime": "npm:14.1.19"
     "@typescript-eslint/eslint-plugin": "npm:6.13.1"
     "@typescript-eslint/parser": "npm:6.13.1"
@@ -11353,7 +11353,7 @@ __metadata:
     react: "npm:next"
     react-cache: "npm:latest"
     react-dom: "npm:next"
-    react-relay: "npm:16.0.0"
+    react-relay: "npm:16.1.0"
     relay-compiler: "npm:16.0.0"
     relay-compiler-language-typescript: "npm:15.0.1"
     relay-runtime: "npm:16.0.0"
@@ -18387,18 +18387,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:16.0.0":
-  version: 16.0.0
-  resolution: "react-relay@npm:16.0.0"
+"react-relay@npm:16.1.0":
+  version: 16.1.0
+  resolution: "react-relay@npm:16.1.0"
   dependencies:
     "@babel/runtime": "npm:^7.0.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:16.0.0"
+    relay-runtime: "npm:16.1.0"
   peerDependencies:
     react: ^16.9.0 || ^17 || ^18
-  checksum: ae43aef143b11eb444999dfb21accd712cd1b7887427691c9e3e4f601ebba1dbf97306df28aff79768947eb21981690f4b59ae2d38f2abc86afa59b062fd2cff
+  checksum: 6c4746e88366a01a69d30c2910f05809715adc5fe684dff749c44f56e79ae56f4f1132c5a5e77a50dfa9c9f6a8e03868a82ff38d0b6ca15662a0727e6e1b2815
   languageName: node
   linkType: hard
 
@@ -18792,6 +18792,17 @@ __metadata:
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
   checksum: 033e3f0449db2f8c5e9b46e9ab8cbabe923538fc72b959106ea727fc5431d9d5397274c10bb1eada30169679ce2c036701bb4fbc77c918722b2918dc98188e52
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:16.1.0":
+  version: 16.1.0
+  resolution: "relay-runtime@npm:16.1.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.0.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+  checksum: 1abb8f62f297f77c09694c091c86894058b884fcf93da74c38a465cbfc40a8e4400a2a9642cafe3733dd728de468bfd73d70759ad07fade63a2f37c2c334eceb
   languageName: node
   linkType: hard
 
