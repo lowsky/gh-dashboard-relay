@@ -95,7 +95,7 @@
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
     "babel-plugin-relay": "16.0.0",
-    "chromatic": "10.0.0",
+    "chromatic": "10.2.0",
     "csstype": "3.1.2",
     "eslint": "8.55.0",
     "eslint-config-next": "14.0.4",
