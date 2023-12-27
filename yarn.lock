@@ -6007,13 +6007,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/graphql-schema@npm:14.45.0":
-  version: 14.45.0
-  resolution: "@octokit/graphql-schema@npm:14.45.0"
+"@octokit/graphql-schema@npm:14.46.0":
+  version: 14.46.0
+  resolution: "@octokit/graphql-schema@npm:14.46.0"
   dependencies:
     graphql: "npm:^16.0.0"
     graphql-tag: "npm:^2.10.3"
-  checksum: 9c02b3e47d05df6607034f0a89dec1344d5151ab7244c68af38e5dbaf4ef5085431dfaa4ecefe6acf37f300aff8b51fca34658b717cfde57f3e3e8c69343a7b2
+  checksum: 00da6fa9c766675ea7a061c869bb57e08fd5dc0f37c15436a2f27da0f20f67de057d1e6668c33b4c59861bc504795c3eacbe7af6c47b4b36647835170062c8ea
   languageName: node
   linkType: hard
 
@@ -6039,6 +6039,13 @@ __metadata:
   version: 19.0.2
   resolution: "@octokit/openapi-types@npm:19.0.2"
   checksum: e003a3b7471edfa970911252c19ce9331d935699cc1e91a1e151316b585c3b2f5251bc5ba137b7e14aed8a9b3890fdf67edc5cc5af4805bf4b44f5869544e678
+  languageName: node
+  linkType: hard
+
+"@octokit/openapi-types@npm:^19.1.0":
+  version: 19.1.0
+  resolution: "@octokit/openapi-types@npm:19.1.0"
+  checksum: ae8081f52b797b91a12d4f6cddc475699c9d34b06645b337adc77d30b583d8fe8506597a45c42f8f1a96bfb2a9d092cee257d8a65d718bfeed23a0d153448eea
   languageName: node
   linkType: hard
 
@@ -6109,12 +6116,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:12.3.0, @octokit/types@npm:^12.3.0":
-  version: 12.3.0
-  resolution: "@octokit/types@npm:12.3.0"
+"@octokit/types@npm:12.4.0":
+  version: 12.4.0
+  resolution: "@octokit/types@npm:12.4.0"
   dependencies:
-    "@octokit/openapi-types": "npm:^19.0.2"
-  checksum: 083f33d8df492ef4029b94b1b5ac5ac422bc5787fe6c086d4738007f207e2b8fa523a1397ecc902d808ba235ec7bf7e38f4659cae177d40002e43eadf3b6f3d8
+    "@octokit/openapi-types": "npm:^19.1.0"
+  checksum: b52b3fd8af307a1868846991f8376548a790814b20639dee1110271a768c0489081970df893ca2230f6285066003230d22f5877eeac90418971a475c79808241
   languageName: node
   linkType: hard
 
@@ -6124,6 +6131,15 @@ __metadata:
   dependencies:
     "@octokit/openapi-types": "npm:^18.0.0"
   checksum: c2b6e6a8c3ed5ecd5619e71ebc10676f928c16bce9665ec56661a79d998fb5a8f3796ff58311b41b63328c1976d2a45f7c6d8ef6f831629547fccbd601b98424
+  languageName: node
+  linkType: hard
+
+"@octokit/types@npm:^12.3.0":
+  version: 12.3.0
+  resolution: "@octokit/types@npm:12.3.0"
+  dependencies:
+    "@octokit/openapi-types": "npm:^19.0.2"
+  checksum: 083f33d8df492ef4029b94b1b5ac5ac422bc5787fe6c086d4738007f207e2b8fa523a1397ecc902d808ba235ec7bf7e38f4659cae177d40002e43eadf3b6f3d8
   languageName: node
   linkType: hard
 
@@ -11303,9 +11319,9 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": "npm:4.0.1"
     "@graphql-tools/schema": "npm:10.0.2"
     "@next/mdx": "npm:14.0.4"
-    "@octokit/graphql-schema": "npm:14.45.0"
+    "@octokit/graphql-schema": "npm:14.46.0"
     "@octokit/rest": "npm:20.0.2"
-    "@octokit/types": "npm:12.3.0"
+    "@octokit/types": "npm:12.4.0"
     "@storybook/addon-essentials": "npm:7.6.3"
     "@storybook/addon-storyshots": "npm:7.6.3"
     "@storybook/addons": "npm:7.6.3"
