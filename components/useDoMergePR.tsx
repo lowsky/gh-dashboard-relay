@@ -7,8 +7,8 @@ export const useDoMergePR: ({
 }: {
     userName: string;
     repoName: string;
-}) => (num: number) => Promise<unknown> = ({ userName, repoName }) => {
-    const doMergePR: (num: number) => (Promise<MergePullRequestsResponseDataType | undefined>) = async (num: number): Promise<MergePullRequestsResponseDataType | undefined> => {
+}) => (num: number) => Promise<MergePullRequestsResponseDataType | undefined> = ({ userName, repoName }) => {
+    return async (num: number): Promise<MergePullRequestsResponseDataType | undefined> => {
         if (repoName && userName) {
             return await getAuthorizedGitHub().mergePullRequest({
                 owner: singleArgOrDefault(userName, ''),
@@ -16,7 +16,5 @@ export const useDoMergePR: ({
                 pull_number: num,
             });
         }
-        return;
     };
-    return doMergePR;
 };

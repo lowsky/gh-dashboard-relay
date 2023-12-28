@@ -1,11 +1,12 @@
 module.exports = {
-    extends: ['next', 'prettier', 'plugin:storybook/recommended'],
+    extends: ['next', 'prettier', 'plugin:storybook/recommended','plugin:sonarjs/recommended'],
     settings: {
         react: {
             version: 'detect', // React version. "detect" automatically picks the version you have installed.
         },
     },
-    plugins: ['graphql', 'prettier'],
+    plugins: ['graphql', 'prettier', 'sonarjs'],
+
     rules: {
         'import/no-anonymous-default-export': 'off',
         /*
