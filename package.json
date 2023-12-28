@@ -68,7 +68,7 @@
     "meros": "1.3.0",
     "next": "13.4.19",
     "react-cache": "latest",
-    "relay-runtime": "16.0.0"
+    "relay-runtime": "16.1.0"
   },
   "devDependencies": {
     "@chakra-ui/icons": "2.1.1",
