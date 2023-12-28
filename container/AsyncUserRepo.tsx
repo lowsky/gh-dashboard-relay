@@ -18,39 +18,18 @@ export const AsyncUserRepo = async ({ userData, repoData }: Props) => {
     return (
         <Flex gap="4" direction="column">
             <Suspense fallback={<Spinner />}>
-                {
-                    // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-                    <LazyRepo repoData={repoData} />
-                }
+                    <Repo repo={await repoData} />
             </Suspense>
             <Suspense fallback={<Spinner />}>
                 <RichErrorBoundary message={'User not found'}>
-                    {
-                        // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-                        <LazyUser user={userData} />
-                    }
+                        <User user={await userData} />
                 </RichErrorBoundary>
             </Suspense>
             <Suspense fallback={<Spinner />}>
                 <RichErrorBoundary message={null /* ignore errors here*/}>
-                    {
-                        // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-                        <LazyBranchTable repo={repoData} />
-                    }
+                    <BranchesTable repo={await repoData} />
                 </RichErrorBoundary>
             </Suspense>
         </Flex>
     );
-};
-
-export const LazyRepo = async ({ repoData }) => {
-    return <Repo repo={await repoData} />;
-};
-
-export const LazyUser = async ({ user }) => {
-    return <User user={await user} />;
-};
-
-export const LazyBranchTable = async ({ repo }) => {
-    return <BranchesTable repo={await repo} />;
 };

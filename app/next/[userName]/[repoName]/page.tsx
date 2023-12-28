@@ -1,6 +1,6 @@
 // do not add 'use client' here, because it is using React cache, and the async data loading works only on the server side
 
-import React, { cache } from 'react';
+import React from 'react';
 
 import { getAuthorizedGitHub, User } from 'restinpeace/github';
 
@@ -37,10 +37,7 @@ export default async function Page(props) {
             </p>
 
             <UserRepoFromUrlProvider>
-                {
-                    // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-                    <ReactNext userData={userData} repoData={repoData} />
-                }
+                <ReactNext userData={userData} repoData={repoData} />
             </UserRepoFromUrlProvider>
         </>
     );
@@ -51,17 +48,17 @@ async function ReactNext({ repoData, userData }: Props) {
     return <AsyncUserRepo userData={userData} repoData={repoData} />;
 }
 
-const fetchUserPromise: (userName) => Promise<User> = cache(async (userName) => {
-    // await delay(500);
+const fetchUserPromise: (userName) => Promise<User> = (async (userName) => {
+    await delay(500);
     return getAuthorizedGitHub().fetchUser(userName);
 });
 
-const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = cache(async ({ userName, repoName }) => {
-    // await delay(500);
+const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = (async ({ userName, repoName }) => {
+    await delay(500);
     return fetchRepoBranchesWithCommitStatusesAndPullRequestsProm({ userName, repoName });
 });
 
-const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = cache(async ({ userName, repoName }) =>
+const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = (async ({ userName, repoName }) =>
     getAuthorizedGitHub()
         .fetchRepoBranchesWithCommitStatuses({ userName, repoName })
         .then((branchesWithCommit) => ({
