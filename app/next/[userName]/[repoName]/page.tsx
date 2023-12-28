@@ -9,14 +9,14 @@ import { AsyncUserRepo } from 'container/AsyncUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 import InternalLink from 'components/InternalLink';
 
-export const revalidate = 60;
+export const revalidate = 0; // opt out of route caching
 
 interface Props {
     userData: Promise<User>;
     repoData: Promise<RepoType>;
 }
 
-// @ts-ignore - not used in production
+// @ts-ignore do not use in production
 function delay(timeout) {
     return new Promise((resolve) => {
         setTimeout(resolve, timeout);
@@ -48,22 +48,21 @@ async function ReactNext({ repoData, userData }: Props) {
     return <AsyncUserRepo userData={userData} repoData={repoData} />;
 }
 
-const fetchUserPromise: (userName) => Promise<User> = (async (userName) => {
-    await delay(500);
+const fetchUserPromise: (userName) => Promise<User> = async (userName) => {
+    await delay(2000);
     return getAuthorizedGitHub().fetchUser(userName);
-});
+};
 
-const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = (async ({ userName, repoName }) => {
+const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = async ({ userName, repoName }) => {
     await delay(500);
     return fetchRepoBranchesWithCommitStatusesAndPullRequestsProm({ userName, repoName });
-});
+};
 
-const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = (async ({ userName, repoName }) =>
+const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = async ({ userName, repoName }) =>
     getAuthorizedGitHub()
         .fetchRepoBranchesWithCommitStatuses({ userName, repoName })
         .then((branchesWithCommit) => ({
             name: repoName,
             owner: { login: userName },
             branches: branchesWithCommit.branches,
-        }))
-);
+        }));

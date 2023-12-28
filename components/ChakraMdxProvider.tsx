@@ -1,12 +1,9 @@
 'use client';
-import {Image, ImageProps} from '@chakra-ui/next-js';
+import { Image, ImageProps } from '@chakra-ui/next-js';
 import { Box as ChakraBox, Code as ChakraCode, Heading, List, Text } from '@chakra-ui/react';
+import { HeadingProps, BoxProps, TextProps, ListProps } from '@chakra-ui/layout';
 
 import InternalLink from './InternalLink';
-import { HeadingProps } from '@chakra-ui/layout/dist/heading';
-import { BoxProps } from '@chakra-ui/layout/dist/box';
-import { TextProps } from '@chakra-ui/layout/dist/text';
-import { ListProps } from '@chakra-ui/layout/dist/list';
 
 export function Box(props: BoxProps) {
     return <ChakraBox {...props}>{props.children}</ChakraBox>;

@@ -170,13 +170,3 @@ function DarkLightThemeToggle() {
         </Box>
     );
 }
-
-// function useOwnerRepoFromUrl(ownerFallback, repoFallback): { owner: string; repo: string } {
-//     const router = useRouter();
-//     const isRepoPage = /\/.*\/.*\/.*/.test(router.pathname);
-//     const { userName, repoName } = router.query;
-//
-//     const [owner, repo] = isRepoPage ? [userName, repoName] : [ownerFallback, repoFallback];
-//
-//     return { owner, repo };
-// }

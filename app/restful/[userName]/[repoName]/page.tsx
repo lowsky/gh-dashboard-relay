@@ -10,17 +10,17 @@ import { Branches, User, getAuthorizedGitHub } from 'restinpeace/github';
 
 export const revalidate = 10;
 
-export default function RestfulPage() {
+export default function RestfulPage({ params }) {
+    const { userName, repoName } = params;
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href={'/restful'}>back to repos</InternalLink>
-            <RestfulMain />
+            <RestfulMain userName={userName} repoName={repoName} />
         </UserRepoFromUrlProvider>
     );
 }
 
-function RestfulMain() {
-    const { userName, repoName } = useUserRepo();
+function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },

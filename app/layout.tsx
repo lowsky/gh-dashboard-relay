@@ -6,9 +6,8 @@ import NextTopLoader from 'nextjs-toploader';
 
 import ChakraUIWrapper from './ChakraUIWrapper';
 import ColorModeScriptClient from './ColorModeScriptClient';
-
-import { NavBar } from 'components/NavBar';
 import WarningGitHubRateLimiting from 'components/WarningGitHubRateLimiting';
+import { NavBar } from 'components/NavBar';
 import { Box } from 'components/ChakraMdxProvider';
 
 // If loading a variable font, you don't need to specify the font weight
