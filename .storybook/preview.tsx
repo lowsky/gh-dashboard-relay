@@ -5,4 +5,7 @@ export const parameters = {
     chakra: {
         theme: customTheme,
     },
+    nextjs: {
+        appDirectory: true,
+    },
 };
