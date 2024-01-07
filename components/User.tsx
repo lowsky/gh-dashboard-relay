@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Avatar, Box, Flex, Text, VStack } from '@chakra-ui/react';
+import { Avatar, Heading, Box, Flex, Text, HStack } from '@chakra-ui/react';
 
 export interface UserType {
     avatar_url?: string;
@@ -16,16 +16,16 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
     const { avatar_url = '/octicon-git-branch.svg', login = '?', company } = user;
 
     return (
-        <VStack align="start">
+        <HStack align="center">
             <Flex gap="1rem" alignItems="center">
+                <Heading as={"h3"} size="sm">Owner</Heading>
                 <Avatar src={avatar_url} />
                 <Box>
                     <Text>{login}</Text>
-                    <div>{company}</div>
+                    <i>{company}</i>
                 </Box>
             </Flex>
-            <div>Owner</div>
-        </VStack>
+        </HStack>
     );
 };
 

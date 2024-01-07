@@ -18,9 +18,7 @@ const RelayRoot = () => {
 
     return (
         <UserRepoFromUrlProvider>
-            <p>
-                <InternalLink href={`/relay`}>back to shortcut list</InternalLink>
-            </p>
+            <InternalLink href="/relay">back to shortcut list</InternalLink>
 
             <RelayEnvironmentProvider environment={environment}>
                 <RichErrorBoundary>

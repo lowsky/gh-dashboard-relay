@@ -28,16 +28,12 @@ export default async function Page(props) {
     const { params } = props;
     const { userName, repoName } = params;
 
-    const userData: Promise<User> = fetchUserPromise(userName);
-    const repoData: Promise<RepoType> = fetchRepoBranches({ userName, repoName });
+    const userData = fetchUserPromise(userName);
+    const repoData = fetchRepoBranches({ userName, repoName });
 
-    // @ts-ignore
     return (
         <>
-            <p>
-                <InternalLink href={`/next`}>back to shortcut list</InternalLink>
-            </p>
-
+            <InternalLink href="/next">Back to shortcut list</InternalLink>
             <UserRepoFromUrlProvider>
                 {
                     // @ts-expect-error the async function ReactNext cannot be used as React component.
@@ -54,12 +50,12 @@ async function ReactNext({ repoData, userData, userName, repoName }: Props) {
 }
 
 const fetchUserPromise: (userName) => Promise<User> = async (userName) => {
-    await delay(2000);
+    await delay(200);
     return getAuthorizedGitHub().fetchUser(userName);
 };
 
 const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = async ({ userName, repoName }) => {
-    await delay(500);
+    await delay(200);
     return fetchRepoBranchesWithCommitStatusesAndPullRequestsProm({ userName, repoName });
 };
 

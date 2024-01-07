@@ -19,9 +19,7 @@ function SideBySide(props) {
     const { userName, repoName } = props.params;
     return (
         <UserRepoFromUrlProvider>
-            <p>
-                <InternalLink href="/side-by-side/">back to shortcut list</InternalLink>
-            </p>
+            <InternalLink href="/side-by-side">back to shortcut list</InternalLink>
 
             <div className={styles.sideBySide}>
                 <Suspense fallback={<Spinner />}>

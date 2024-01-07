@@ -14,7 +14,7 @@ export type UserRepoProps = Readonly<{
     repo?: RepoType;
 }>;
 
-const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
+const UserRepo: React.FC<UserRepoProps> = ({ user, repo }) => {
     const { userName, repoName } = useUserRepo();
     const { Repo, User, BranchesTable } = useUILib();
 

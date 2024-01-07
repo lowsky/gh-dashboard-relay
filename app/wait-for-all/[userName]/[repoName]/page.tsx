@@ -13,9 +13,7 @@ export const revalidate = 10;
 export default function LoadAllThenPage() {
     return (
         <UserRepoFromUrlProvider>
-            <p>
-                <InternalLink href={`/wait-for-all/`}>back to shortcut list</InternalLink>
-            </p>
+            <InternalLink href="/wait-for-all">back to shortcut list</InternalLink>
             <RichErrorBoundary>
                 <Suspense fallback={<ContentLoadingFallback />}>
                     <UserRepoFetchAll />
