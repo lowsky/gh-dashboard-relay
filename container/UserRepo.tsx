@@ -3,6 +3,7 @@
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
+import { RevalidateCacheButton } from 'components/RevalidateCacheButton';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import { RepoType } from 'components/Repo';
 import { useUILib } from 'components/UILibContext';
@@ -39,6 +40,8 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
                 // @ts-expect-error temporary ignore type mismatch
                 <User user={user} />
             )}
+            <RevalidateCacheButton pathPrefix="/restful" userName={userName} repoName={repoName} />
+
             {repo && <BranchesTable repo={repo} />}
         </Flex>
     );

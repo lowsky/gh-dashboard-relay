@@ -1,4 +1,5 @@
-// do not add 'use client' here, because it is using React cache, and the async data loading works only on the server side
+'use server'
+// async data loading works only on the server side
 
 import React from 'react';
 
@@ -9,11 +10,11 @@ import { AsyncUserRepo } from 'container/AsyncUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 import InternalLink from 'components/InternalLink';
 
-export const revalidate = 0; // opt out of route caching
-
 interface Props {
     userData: Promise<User>;
     repoData: Promise<RepoType>;
+    userName: string;
+    repoName: string;
 }
 
 // @ts-ignore do not use in production
@@ -40,16 +41,16 @@ export default async function Page(props) {
             <UserRepoFromUrlProvider>
                 {
                     // @ts-expect-error the async function ReactNext cannot be used as React component.
-                    <ReactNext userData={userData} repoData={repoData} />
+                    <ReactNext userData={userData} repoData={repoData} userName={userName} repoName={repoName}/>
                 }
             </UserRepoFromUrlProvider>
         </>
     );
 }
 
-async function ReactNext({ repoData, userData }: Props) {
+async function ReactNext({ repoData, userData, userName, repoName }: Props) {
     // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
-    return <AsyncUserRepo userData={userData} repoData={repoData} />;
+    return <AsyncUserRepo userData={userData} repoData={repoData} userName={userName} repoName={repoName}/>;
 }
 
 const fetchUserPromise: (userName) => Promise<User> = async (userName) => {
