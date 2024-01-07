@@ -5,7 +5,7 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
-import { UserRepoFromUrlProvider, useUserRepo } from 'components/useUserRepoFromRoute';
+import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 import { Branches, User, getAuthorizedGitHub } from 'restinpeace/github';
 
 export const revalidate = 10;
