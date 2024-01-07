@@ -12,7 +12,7 @@ export const revalidate = 10;
 export default function WaterfallPage() {
     return (
         <UserRepoFromUrlProvider>
-            <InternalLink href={'/waterfall'}>back to shortcut list</InternalLink>
+            <InternalLink href='/waterfall'>back to shortcut list</InternalLink>
             <Suspense fallback={<ContentLoadingFallback />}>
                 <UserRepoWaterfall />
             </Suspense>

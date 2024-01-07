@@ -20,7 +20,7 @@ function SideBySide(props) {
     return (
         <UserRepoFromUrlProvider>
             <p>
-                <InternalLink href={`/side-by-side/`}>back to shortcut list</InternalLink>
+                <InternalLink href="/side-by-side/">back to shortcut list</InternalLink>
             </p>
 
             <div className={styles.sideBySide}>

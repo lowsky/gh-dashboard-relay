@@ -30,6 +30,7 @@ export default async function Page(props) {
     const userData: Promise<User> = fetchUserPromise(userName);
     const repoData: Promise<RepoType> = fetchRepoBranches({ userName, repoName });
 
+    // @ts-ignore
     return (
         <>
             <p>
@@ -37,7 +38,10 @@ export default async function Page(props) {
             </p>
 
             <UserRepoFromUrlProvider>
-                <ReactNext userData={userData} repoData={repoData} />
+                {
+                    // @ts-expect-error the async function ReactNext cannot be used as React component.
+                    <ReactNext userData={userData} repoData={repoData} />
+                }
             </UserRepoFromUrlProvider>
         </>
     );

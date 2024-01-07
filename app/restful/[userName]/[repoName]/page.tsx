@@ -5,22 +5,27 @@ import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
-import { UserRepoFromUrlProvider, useUserRepo } from 'components/useUserRepoFromRoute';
+import { UserRepoFromUrlProvider, useUserRepoFromRouter } from 'components/useUserRepoFromRoute';
 import { Branches, User, getAuthorizedGitHub } from 'restinpeace/github';
 
 export const revalidate = 10;
 
-export default function RestfulPage({ params }) {
-    const { userName, repoName } = params;
+export default function RestfulPage() {
+    const { userName, repoName } = useUserRepoFromRouter();
     return (
         <UserRepoFromUrlProvider>
-            <InternalLink href={'/restful'}>back to repos</InternalLink>
-            <RestfulMain userName={userName} repoName={repoName} />
+            <InternalLink href="/restful">back to repos</InternalLink>
+            <RestfulMain userName={userName!} repoName={repoName!} />
         </UserRepoFromUrlProvider>
     );
 }
 
-function RestfulMain({ userName, repoName }) {
+interface RestfulMainProps {
+    repoName: string;
+    userName: string;
+}
+
+function RestfulMain({ repoName, userName }: RestfulMainProps) {
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },

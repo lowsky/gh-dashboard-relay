@@ -23,8 +23,13 @@ export function UserRepoFromUrlProvider({ children }: { children: ReactNode }) {
     return <UserRepoContext.Provider value={{ userName, repoName }}>{children}</UserRepoContext.Provider>;
 }
 
+type UserRepoPageParams ={
+    userName: string;
+    repoName: string;
+}
+
 export function useUserRepoFromRouter(): { repoName?: string; userName?: string } {
-    const { repoName, userName } = useParams() ?? {};
+    const { repoName, userName } = useParams<UserRepoPageParams>() ?? {};
 
     if (!userName || !repoName) return {};
 
