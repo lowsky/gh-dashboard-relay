@@ -5,6 +5,7 @@ const withMDX = require('@next/mdx')();
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'mdx'],
     experimental: {
+        forceSwcTransforms: true,
         mdxRs: true,
     },
 
