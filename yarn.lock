@@ -11519,7 +11519,7 @@ __metadata:
     react-relay: "npm:16.2.0"
     relay-compiler: "npm:16.1.0"
     relay-compiler-language-typescript: "npm:15.0.1"
-    relay-runtime: "npm:16.1.0"
+    relay-runtime: "npm:16.2.0"
     storybook: "npm:7.6.10"
     ts-jest: "npm:29.1.2"
     typescript: "npm:5.3.3"
@@ -18977,17 +18977,6 @@ __metadata:
     fbjs: "npm:^3.0.0"
     invariant: "npm:^2.2.4"
   checksum: f5d29b5c2f3c8a3438d43dcbc3022bd454c4ecbd4f0b10616df08bedc62d8aaa84f155f23e374053cf9f4a8238b93804e37a5b37ed9dc7ad01436d62d1b01d53
-  languageName: node
-  linkType: hard
-
-"relay-runtime@npm:16.1.0":
-  version: 16.1.0
-  resolution: "relay-runtime@npm:16.1.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.0.0"
-    fbjs: "npm:^3.0.2"
-    invariant: "npm:^2.2.4"
-  checksum: 1abb8f62f297f77c09694c091c86894058b884fcf93da74c38a465cbfc40a8e4400a2a9642cafe3733dd728de468bfd73d70759ad07fade63a2f37c2c334eceb
   languageName: node
   linkType: hard
 
