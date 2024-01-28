@@ -111,7 +111,7 @@
     "react": "next",
     "react-dom": "next",
     "react-relay": "16.2.0",
-    "relay-compiler": "16.1.0",
+    "relay-compiler": "16.2.0",
     "relay-compiler-language-typescript": "15.0.1",
     "storybook": "7.6.7",
     "ts-jest": "29.1.2",

@@ -11502,7 +11502,7 @@ __metadata:
     react-cache: "npm:latest"
     react-dom: "npm:next"
     react-relay: "npm:16.2.0"
-    relay-compiler: "npm:16.1.0"
+    relay-compiler: "npm:16.2.0"
     relay-compiler-language-typescript: "npm:15.0.1"
     relay-runtime: "npm:16.1.0"
     storybook: "npm:7.6.7"
@@ -18945,12 +18945,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:16.1.0":
-  version: 16.1.0
-  resolution: "relay-compiler@npm:16.1.0"
+"relay-compiler@npm:16.2.0":
+  version: 16.2.0
+  resolution: "relay-compiler@npm:16.2.0"
   bin:
     relay-compiler: cli.js
-  checksum: 24dc9f4ae3cc6b3c1ce323366205e317aabb4889c193c39ac487d6afbe372c52af7e953d3d13582c5aca70cb5567fd7c2c35b9def048a7c4f34b02572da41c87
+  checksum: 8d7a681dc0e8113f347fd38d6834893dd2e24f502dc480f0239c50122eac0029dbe2b947d3f8d655804df70a87a8a676df090508ee378b50a6b8d9ff75727d33
   languageName: node
   linkType: hard
 
