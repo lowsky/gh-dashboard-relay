@@ -22,6 +22,16 @@ const config: StorybookConfig = {
             fastRefresh: true,
         },
     },
+    webpackFinal: (baseConfig, _options) => {
+        baseConfig.resolve = {
+            ...(baseConfig.resolve ?? {}),
+            alias: {
+                ...(baseConfig.resolve?.alias ?? {}),
+                '@opentelemetry/api': 'next/dist/compiled/@opentelemetry/api',
+            },
+        };
+        return baseConfig;
+    },
 };
 
 export default config;
