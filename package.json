@@ -59,7 +59,7 @@
     "@emotion/react": "11.11.3",
     "@emotion/styled": "11.11.0",
     "@next/mdx": "14.0.4",
-    "@octokit/graphql-schema": "14.46.1",
+    "@octokit/graphql-schema": "14.50.0",
     "@octokit/rest": "20.0.2",
     "framer-motion": "11.0.3",
     "graphql": "16.8.1",
