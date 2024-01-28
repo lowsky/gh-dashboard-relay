@@ -14,6 +14,13 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
     const { BranchInfoRow } = useUILib();
 
     const { branches } = repo ?? {};
+    branches?.forEach(b=> {
+        console.info(`branch <strong> ${b?.name}</strong>`
+        );
+        console.log(b?.lastCommit?.statuses?.map(s=>{
+            console.log(`   ${s?.context} ${s?.description}`);
+        }))
+    })
     return (
         <Table size="sm" variant="striped">
             <Thead>
