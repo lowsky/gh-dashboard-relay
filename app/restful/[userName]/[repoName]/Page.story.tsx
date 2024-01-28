@@ -16,9 +16,9 @@ export default meta;
 export const UserRepo: StoryObj<typeof RestfulPage> = {
     args: {},
     parameters: {
-        /*
-        chromatic: { disable: true },
-         */
+        // Disables Chromatic's snapshotting on a story level
+        // This story is often running into API rate-limiting by GH
+        chromatic: { disableSnapshot: true },
         nextjs: {
             appDirectory: true,
             navigation: {
