@@ -6194,13 +6194,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/graphql-schema@npm:14.56.0":
-  version: 14.56.0
-  resolution: "@octokit/graphql-schema@npm:14.56.0"
+"@octokit/graphql-schema@npm:14.58.0":
+  version: 14.58.0
+  resolution: "@octokit/graphql-schema@npm:14.58.0"
   dependencies:
     graphql: "npm:^16.0.0"
     graphql-tag: "npm:^2.10.3"
-  checksum: 10c0/f1adfbc2684b179624579b3dd527b368793712b9af135fa22999443b8888a7cee676e2a89728687c3c52135593d690d51f9b660b24a70e9ad6302c77e25c0e9d
+  checksum: 10c0/e423c0394704ade3d5b425ac51a82cedf6316bfa38cb5e60228281f7a3fae2ab246b53b8bbdb4fb8c26281eca7ae441d1402676410cab90bb234bd09e2a0cd28
   languageName: node
   linkType: hard
 
@@ -6229,10 +6229,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/openapi-types@npm:^19.1.0":
-  version: 19.1.0
-  resolution: "@octokit/openapi-types@npm:19.1.0"
-  checksum: 10c0/ae8081f52b797b91a12d4f6cddc475699c9d34b06645b337adc77d30b583d8fe8506597a45c42f8f1a96bfb2a9d092cee257d8a65d718bfeed23a0d153448eea
+"@octokit/openapi-types@npm:^20.0.0":
+  version: 20.0.0
+  resolution: "@octokit/openapi-types@npm:20.0.0"
+  checksum: 10c0/5176dcc3b9d182ede3d446750cfa5cf31139624785a73fcf3511e3102a802b4d7cc45e999c27ed91d73fe8b7d718c8c406facb48688926921a71fe603b7db95d
   languageName: node
   linkType: hard
 
@@ -6303,12 +6303,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:12.5.0":
-  version: 12.5.0
-  resolution: "@octokit/types@npm:12.5.0"
+"@octokit/types@npm:12.6.0":
+  version: 12.6.0
+  resolution: "@octokit/types@npm:12.6.0"
   dependencies:
-    "@octokit/openapi-types": "npm:^19.1.0"
-  checksum: 10c0/113c6b7e6e90308ec42093b36914c940baf8e8929e09d0ec48183fc896c45f38d89a540b00df7a945614abad5dd03dcacdf1d3c48895bbe716db8c3b29dc9518
+    "@octokit/openapi-types": "npm:^20.0.0"
+  checksum: 10c0/0bea58bda46c93287f5a80a0e52bc60e7dc7136b8a38c3569d63d073fb9df4a56acdb9d9bdba9978f37c374a4a6e3e52886ef5b08cace048adb0012cacef942c
   languageName: node
   linkType: hard
 
@@ -11600,9 +11600,9 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": "npm:4.0.6"
     "@graphql-tools/schema": "npm:10.0.3"
     "@next/mdx": "npm:14.1.0"
-    "@octokit/graphql-schema": "npm:14.56.0"
+    "@octokit/graphql-schema": "npm:14.58.0"
     "@octokit/rest": "npm:20.0.2"
-    "@octokit/types": "npm:12.5.0"
+    "@octokit/types": "npm:12.6.0"
     "@storybook/addon-essentials": "npm:7.6.16"
     "@storybook/addon-storyshots": "npm:7.6.16"
     "@storybook/addons": "npm:7.6.16"
