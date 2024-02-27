@@ -56,7 +56,7 @@
   "dependencies": {
     "@chakra-ui/next-js": "2.2.0",
     "@chakra-ui/react": "2.8.2",
-    "@emotion/react": "11.11.3",
+    "@emotion/react": "11.11.4",
     "@emotion/styled": "11.11.0",
     "@next/mdx": "14.1.0",
     "@octokit/graphql-schema": "14.58.0",
