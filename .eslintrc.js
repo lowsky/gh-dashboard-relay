@@ -1,27 +1,31 @@
 module.exports = {
-    extends: ['next', 'prettier', 'plugin:storybook/recommended','plugin:sonarjs/recommended'],
+    extends: ['next', 'prettier', 'plugin:storybook/recommended', 'plugin:sonarjs/recommended'],
     settings: {
         react: {
-            version: 'detect', // React version. "detect" automatically picks the version you have installed.
+            version: 'detect',
         },
     },
-    plugins: ['graphql', 'prettier', 'sonarjs'],
-
+    plugins: ['@graphql-eslint', 'prettier', 'sonarjs'],
+    overrides: [
+        { files: ['*.ts*'], processor: '@graphql-eslint/graphql' },
+        {
+            files: ['*.graphql'],
+            parser: '@graphql-eslint/eslint-plugin',
+            plugins: ['@graphql-eslint'],
+            rules: {
+                '@graphql-eslint/description-style': 'warn',
+                '@graphql-eslint/require-description': 'off',
+                '@graphql-eslint/strict-id-in-types': 'off',
+                '@graphql-eslint/naming-convention': 'warn',
+            },
+            parserOptions: {
+                schema: './schema/schema.graphql',
+            },
+            extends: 'plugin:@graphql-eslint/schema-recommended',
+        },
+    ],
     rules: {
         'import/no-anonymous-default-export': 'off',
-        /*
-        'graphql/template-strings': [
-            2,
-            {
-                // Import default settings for your GraphQL client. Supported values:
-                // 'apollo', 'relay', 'lokka'
-                env: 'relay',
-                // Import your schema JSON here
-                schemaJson: require('./src/relay/data/schema.json'),
-                // tagName is set for you to Relay.QL ...
-            },
-        ],
-         */
         'no-undef': 1,
         'no-console': 0,
     },
