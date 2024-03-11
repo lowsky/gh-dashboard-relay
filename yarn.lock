@@ -6194,13 +6194,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/graphql-schema@npm:14.58.0":
-  version: 14.58.0
-  resolution: "@octokit/graphql-schema@npm:14.58.0"
+"@octokit/graphql-schema@npm:15.3.0":
+  version: 15.3.0
+  resolution: "@octokit/graphql-schema@npm:15.3.0"
   dependencies:
     graphql: "npm:^16.0.0"
     graphql-tag: "npm:^2.10.3"
-  checksum: 10c0/e423c0394704ade3d5b425ac51a82cedf6316bfa38cb5e60228281f7a3fae2ab246b53b8bbdb4fb8c26281eca7ae441d1402676410cab90bb234bd09e2a0cd28
+  checksum: 10c0/ebbcfb085a17e0bfb8b8304df82d92046366747146dae6b5e8358301c34e9d5a33bed65c703fa90ce7ad2355068cfda1acd81cd6810590620c75ce316243c988
   languageName: node
   linkType: hard
 
@@ -11592,7 +11592,7 @@ __metadata:
     "@graphql-eslint/eslint-plugin": "npm:^3.20.1"
     "@graphql-tools/schema": "npm:10.0.3"
     "@next/mdx": "npm:14.1.1"
-    "@octokit/graphql-schema": "npm:14.58.0"
+    "@octokit/graphql-schema": "npm:15.3.0"
     "@octokit/rest": "npm:20.0.2"
     "@octokit/types": "npm:12.6.0"
     "@storybook/addon-essentials": "npm:7.6.17"
