@@ -10838,12 +10838,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.0.0":
-  version: 11.0.0
-  resolution: "chromatic@npm:11.0.0"
+"chromatic@npm:11.1.0":
+  version: 11.1.0
+  resolution: "chromatic@npm:11.1.0"
   peerDependencies:
-    "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
-    "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
   peerDependenciesMeta:
     "@chromatic-com/cypress":
       optional: true
@@ -10853,7 +10853,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/edd92b3fb370c8d358cd587392686e83af34aec0e5d6592bfc637d6b6c1f670f3910ff572182192dcf1adf8e34384f785597dcdcb89196482f0c6fa55547d1bf
+  checksum: 10c0/3c45fedf7f28ec219b7130c734d94d00642696fb6db8f570e9ad35cb72c097e94e927ef89bb03eb251e8ae883fac7d8f326a1811cc342eeb41f75d3ab2b2a572
   languageName: node
   linkType: hard
 
@@ -11634,7 +11634,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.3.1"
     "@typescript-eslint/parser": "npm:7.3.1"
     babel-plugin-relay: "npm:16.2.0"
-    chromatic: "npm:11.0.0"
+    chromatic: "npm:11.1.0"
     csstype: "npm:3.1.3"
     eslint: "npm:8.57.0"
     eslint-config-next: "npm:14.1.1"
