@@ -11621,7 +11621,7 @@ __metadata:
     jest: "npm:29.7.0"
     meros: "npm:1.3.0"
     next: "npm:14.1.1"
-    nextjs-toploader: "npm:1.6.10"
+    nextjs-toploader: "npm:1.6.11"
     prettier: "npm:3.2.5"
     react: "npm:next"
     react-cache: "npm:latest"
@@ -17041,9 +17041,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextjs-toploader@npm:1.6.10":
-  version: 1.6.10
-  resolution: "nextjs-toploader@npm:1.6.10"
+"nextjs-toploader@npm:1.6.11":
+  version: 1.6.11
+  resolution: "nextjs-toploader@npm:1.6.11"
   dependencies:
     "@types/nprogress": "npm:^0.2.2"
     nprogress: "npm:^0.2.0"
@@ -17052,7 +17052,7 @@ __metadata:
     next: ">= 6.0.0"
     react: ">= 16.0.0"
     react-dom: ">= 16.0.0"
-  checksum: 10c0/11f8e50ffbc99d742d009d4f726d7275edffeea9db45884ff7aa416ca4c7eaf0c4a77c14038c3417b1bd69e3fd70715142d9233fcc960a767cc163e5b01c51d9
+  checksum: 10c0/02884ceccac931ff158c894e06500207f5407937d7930d133109a6eb395b7fd00f75fa9201d71f7d87bd40e7ff0ee7fa2a4ed1f1e677bd14e4bac1cdf35285a1
   languageName: node
   linkType: hard
 
@@ -20875,11 +20875,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>":
   version: 5.4.2
-  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=d69c25"
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/22e2f213c3ffe5960c5eaec6c95c04e01858fed57a94be250746f540b935b2c18c3c3fc80d3ab65d28c0aba1eb76284557ba3bf521d28caee811c44ba2b648f9
+  checksum: 10c0/fcf6658073d07283910d9a0e04b1d5d0ebc822c04dbb7abdd74c3151c7aa92fcddbac7d799404e358197222006ccdc4c0db219d223d2ee4ccd9e2b01333b49be
   languageName: node
   linkType: hard
 
