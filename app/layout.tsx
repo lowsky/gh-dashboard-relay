@@ -10,7 +10,7 @@ import WarningGitHubRateLimiting from 'components/WarningGitHubRateLimiting';
 import { NavBar } from 'components/NavBar';
 import { Box } from 'components/ChakraMdxProvider';
 
-// If loading a variable font, you don't need to specify the font weight
+// If loading a variable font, you don't need to specify the font weight.
 const inter = Inter({
     subsets: ['latin'],
     display: 'swap',

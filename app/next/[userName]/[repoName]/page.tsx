@@ -35,10 +35,7 @@ export default async function Page(props) {
         <>
             <InternalLink href="/next">Back to shortcut list</InternalLink>
             <UserRepoFromUrlProvider>
-                {
-                    // @ts-expect-error the async function ReactNext cannot be used as React component.
-                    <ReactNext userData={userData} repoData={repoData} userName={userName} repoName={repoName}/>
-                }
+                <ReactNext userData={userData} repoData={repoData} userName={userName} repoName={repoName}/>
             </UserRepoFromUrlProvider>
         </>
     );
