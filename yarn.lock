@@ -11396,7 +11396,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.1.3"
     eslint-plugin-sonarjs: "npm:0.24.0"
     eslint-plugin-storybook: "npm:0.8.0"
-    framer-motion: "npm:11.0.15"
+    framer-motion: "npm:11.0.23"
     graphql: "npm:16.8.1"
     graphql-yoga: "npm:5.2.0"
     hitchcock: "npm:0.5.0"
@@ -13369,9 +13369,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:11.0.15":
-  version: 11.0.15
-  resolution: "framer-motion@npm:11.0.15"
+"framer-motion@npm:11.0.23":
+  version: 11.0.23
+  resolution: "framer-motion@npm:11.0.23"
   dependencies:
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -13385,7 +13385,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/291a325790c8bf1eeeddd242cadee471359a26975814ff4f130bca46f0e413c38da439299370d556e31c7875fa575015a7f19fbc4f0829ea8c58cff97c9f5443
+  checksum: 10c0/0580429a1b06973f65e7845412f98710eeb376d03e6f90277e96a989ebe2f38758f6f9a66664e810cf1c7c8ffb95922094290317fae4535432a6d0c49216c767
   languageName: node
   linkType: hard
 
