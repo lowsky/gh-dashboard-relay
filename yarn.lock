@@ -4280,15 +4280,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:1.2.1":
-  version: 1.2.1
-  resolution: "@chromatic-com/storybook@npm:1.2.1"
+"@chromatic-com/storybook@npm:1.5.0":
+  version: 1.5.0
+  resolution: "@chromatic-com/storybook@npm:1.5.0"
   dependencies:
-    chromatic: "npm:^10.8.0"
+    chromatic: "npm:^11.4.0"
     filesize: "npm:^10.0.12"
     jsonfile: "npm:^6.1.0"
     react-confetti: "npm:^6.1.0"
-  checksum: 10c0/3054a0554e5c28f92d78ce21768eee15593a92b9664fe2a81342ad6d797928bd2f17db783d207d269e4efbba37705d9d5ecc037d4d3dc51c78f69ec5e62bef76
+    strip-ansi: "npm:^7.1.0"
+  checksum: 10c0/e1656e2f73756db0fc1e5dbc5367485f24d5e9d0643ff5259fe32fb42441b3c250250b208cf58cf1aa0a55334e59146b0ff9b8161c2838bd6ee2a8f36ccada58
   languageName: node
   linkType: hard
 
@@ -11501,7 +11502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.5.4":
+"chromatic@npm:11.5.4, chromatic@npm:^11.4.0":
   version: 11.5.4
   resolution: "chromatic@npm:11.5.4"
   peerDependencies:
@@ -11517,25 +11518,6 @@ __metadata:
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
   checksum: 10c0/39843e6e2d56fc041fa9163bea677e3b19657d08128c4366a71b9b312b7b1a879d21b248a8cad46fbc9899085143c3d72ed2bb62a3b49a20f22dae7a03d46172
-  languageName: node
-  linkType: hard
-
-"chromatic@npm:^10.8.0":
-  version: 10.9.6
-  resolution: "chromatic@npm:10.9.6"
-  peerDependencies:
-    "@chromatic-com/cypress": ^0.5.2 || ^1.0.0
-    "@chromatic-com/playwright": ^0.5.2 || ^1.0.0
-  peerDependenciesMeta:
-    "@chromatic-com/cypress":
-      optional: true
-    "@chromatic-com/playwright":
-      optional: true
-  bin:
-    chroma: dist/bin.js
-    chromatic: dist/bin.js
-    chromatic-cli: dist/bin.js
-  checksum: 10c0/73fc169cc23ae2ff45259d533c0129fda2cdcb1bc6269987b51fc79c01ed85b205fc46099768e522725b83ed343433a42572f8d95a30c04a51d0df9ccac67f7b
   languageName: node
   linkType: hard
 
@@ -12303,7 +12285,7 @@ __metadata:
     "@chakra-ui/react": "npm:2.8.2"
     "@chakra-ui/storybook-addon": "npm:5.1.0"
     "@chakra-ui/system": "npm:2.6.2"
-    "@chromatic-com/storybook": "npm:1.2.1"
+    "@chromatic-com/storybook": "npm:1.5.0"
     "@emotion/react": "npm:11.11.4"
     "@emotion/styled": "npm:11.11.5"
     "@fortawesome/fontawesome-svg-core": "npm:6.5.2"
@@ -21086,7 +21068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^7.0.1":
+"strip-ansi@npm:^7.0.1, strip-ansi@npm:^7.1.0":
   version: 7.1.0
   resolution: "strip-ansi@npm:7.1.0"
   dependencies:
