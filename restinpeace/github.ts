@@ -4,6 +4,7 @@ import { Octokit } from '@octokit/rest';
 import { GithubCommit, GithubStatus } from './types';
 
 import { getBranchesForRepo, getRepoForUser, getReposForUser, getUser, octo as defaultOcto } from 'lib/github';
+import { GithubBranch, GithubRepo, GithubUser } from '../lib/types/resolvers';
 
 export interface User {
     login: string;
@@ -33,12 +34,67 @@ export type ListPullRequestsAssociatedWithCommitResponseDataType =
 
 export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof defaultOcto.pulls.merge>;
 
+export type AuthorizedGitHub = {
+    fetchCommitStatuses: (commit: {
+        reponame: string;
+        ownerUsername: string;
+        sha: string
+    }) => Promise<Array<GithubStatus>>;
+    fetchLastCommitStatuses: (commit: {
+        sha?: string | null | undefined;
+        ownerUsername: string;
+        reponame: string
+    }) => Promise<Array<GithubStatus> | Array<never>>;
+    fetchRepoBranches: (owner: string, repo: string) => Promise<Branches>;
+    fetchRepoBranchesWithCommitStatuses: ({ userName, repoName }: { userName: string; repoName: string }) => Promise<{
+        owner: { login: string };
+        name: string;
+        branches: Awaited<Branch & { lastCommit: GithubCommit & { reponame: string; ownerUsername: string } }>[]
+    }>;
+    fetchRepoBranchesWithCommitStatusesAndPullRequests: ({ userName, repoName }: {
+        userName: string;
+        repoName: string
+    }) => Promise<{
+        owner: { login: string };
+        name: string;
+        branches: Awaited<Branch & {
+            lastCommit: GithubCommit & {
+                reponame: string;
+                ownerUsername: string;
+                statuses: Array<GithubStatus>;
+                associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType
+            }
+        }>[]
+    }>;
+    fetchRepoPullRequestsAssociatedWithCommit: (owner: string, repo: string, commit_sha: string) => Promise<ListPullRequestsAssociatedWithCommitResponseDataType>;
+    fetchUser: (username: string) => Promise<User>;
+    getBranchesForRepo: (username, reponame) => Promise<Array<GithubBranch>>;
+    getCommitsForRepo: (username: string, reponame: string, sha?: string) => Promise<Array<GithubCommit>>;
+    getLastCommit: (ownerUsername: string, reponame: string, sha) => Promise<GithubCommit & {
+        message: string;
+        date: string;
+        ownerUsername: string;
+        reponame: string
+    }>;
+    getRepoForUser: (username, reponame) => Promise<GithubRepo>;
+    getReposForUser: (username: string) => Promise<Array<GithubRepo>>;
+    getStatusesForRepo: (owner, repo, sha) => Promise<Array<GithubStatus>>;
+    getUser: (username: string) => Promise<GithubUser>;
+    mergePullRequest: ({ owner, repo, pull_number, sha, merge_method }: {
+        owner: string;
+        repo: string;
+        pull_number: number;
+        sha?: string;
+        merge_method?: 'rebase' | 'merge'
+    }) => Promise<MergePullRequestsResponseDataType>
+};
+
 /**
  * Factory, to make octokit injectable
  *
  * @param octoOptional
  */
-export function getAuthorizedGitHub(octoOptional?: Octokit) {
+export function getAuthorizedGitHub(octoOptional?: Octokit): AuthorizedGitHub {
     const octo = octoOptional ?? defaultOcto;
 
     const getCommitsForRepo = async (
@@ -238,7 +294,7 @@ export function getAuthorizedGitHub(octoOptional?: Octokit) {
     }> {
         const branches = await fetchRepoBranches(userName, repoName);
 
-        const branchesWithCommitProms = branches.reverse().map(async (branch) => {
+        const branchesWithCommitProms = branches?.reverse().map(async (branch) => {
             const { sha } = branch.commit;
 
             const lastCommit = await getLastCommit(userName, repoName, sha);
