@@ -13,25 +13,26 @@ import {
 } from './types/resolvers';
 
 const githubResolver: GithubApiResolvers = {
-    user: async (_, { username }) => {
+    user: async (_, { username }, context) => {
         try {
-            return getAuthorizedGitHub(octo).getUser(username);
+            const authorizedGitHub = context.getAuthorizedGitHub();
+            return authorizedGitHub.getUser(username);
         } catch (err) {
             return {};
         }
     },
-    repo: (_, { ownerUsername, name }) => {
-        return getAuthorizedGitHub(octo).getRepoForUser(ownerUsername, name);
+    repo: (_, { ownerUsername, name }, context) => {
+        return context.getAuthorizedGitHub().getRepoForUser(ownerUsername, name);
     },
 };
 
 const githubUserResolver: GithubUserResolvers = {
-    id: (user) => {
+    id: (user, _args, _context) => {
         return String(user.id);
     },
-    repos: (user) => {
+    repos: (user, _args, _context) => {
         if (user.login) {
-            return getAuthorizedGitHub(octo).getReposForUser(user.login);
+            return _context.getAuthorizedGitHub().getReposForUser(user.login);
         }
         return null;
     },
@@ -42,10 +43,10 @@ const githubCommitAuthorResolver: GithubCommitAuthorResolvers = {
 };
 
 const githubRepoResolver: GithubRepoResolvers = {
-    branches: (repo, { limit }) => {
+    branches: (repo, { limit }, _context) => {
         const reponame = repo.name;
         const ownerUsername = repo.owner?.login;
-        return getAuthorizedGitHub(octo)
+        return _context.getAuthorizedGitHub()
             .getBranchesForRepo(ownerUsername || '', reponame || '')
             .then((branches) => {
                 // add repo referenceData
@@ -62,12 +63,12 @@ const githubRepoResolver: GithubRepoResolvers = {
                 return branches;
             });
     },
-    commits: (repo) => {
+    commits: (repo,_args, _context) => {
         const { owner, name } = repo;
         if (!owner?.login || !name) {
             return [];
         }
-        return getAuthorizedGitHub(octo)
+        return _context.getAuthorizedGitHub()
             .getCommitsForRepo(owner.login, name)
             .then((commitList) => {
                 // fix for the problem that REST response contained an object
@@ -95,7 +96,7 @@ const queryResolver = {
 };
 
 const githubBranchResolver: GithubBranchResolvers = {
-    lastCommit: async (branch) => {
+    lastCommit: async (branch,_args, _context) => {
         // @ts-expect-error
         const { ownerUsername, reponame, commit } = branch; // info has been added while loading
         const { sha } = commit;
@@ -106,7 +107,7 @@ const githubBranchResolver: GithubBranchResolvers = {
     },
 };
 
-export const commitStatusResolver = (commit) => {
+export const commitStatusResolver = (commit,_args, _context) => {
     const { sha, ownerUsername, reponame } = commit;
     if (!sha) return Promise.resolve([] as Array<GithubStatus>);
 
@@ -120,7 +121,7 @@ export const commitStatusResolver = (commit) => {
 };
 export const githubCommitResolver: GithubCommitResolvers = {
     status: commitStatusResolver,
-    associatedPullRequests: async (commit) => {
+    associatedPullRequests: async (commit,_args, _context) => {
         // @ts-expect-error
         const { sha, ownerUsername, reponame } = commit;
         if (!sha) {
