@@ -77,10 +77,8 @@ const githubRepoResolver: GithubRepoResolvers = {
                     return {
                         ...commit,
                         // info is part of REST response:
-                        // @ts-expect-error type-def is wrong, need to access this via commit inner field
                         message: commit.commit.message,
                         // info is part of REST response:
-                        // @ts-expect-error type-def is wrong, need to access this via commit inner field
                         date: commit.commit?.committer?.date,
                     };
                 });
