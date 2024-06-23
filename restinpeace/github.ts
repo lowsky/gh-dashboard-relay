@@ -1,10 +1,12 @@
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
 import { Octokit } from '@octokit/rest';
 
-import { GithubCommit, GithubStatus } from './types';
+import type { GithubCommit, GithubStatus } from './types';
 
-import { getBranchesForRepo, getRepoForUser, getReposForUser, getUser, octo as defaultOcto } from 'lib/github';
-import { GithubBranch, GithubRepo, GithubUser } from '../lib/types/resolvers';
+import type { GithubBranch, GithubRepo, GithubUser } from '../lib/types/resolvers';
+
+// just to use it for typedef
+import { octo } from '../lib/github';
 
 export interface User {
     login: string;
@@ -26,13 +28,13 @@ export interface Commit {
 }
 
 type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpointMethod<
-    typeof defaultOcto.repos.listPullRequestsAssociatedWithCommit
+    typeof octo.repos.listPullRequestsAssociatedWithCommit
 >;
 
 export type ListPullRequestsAssociatedWithCommitResponseDataType =
     ListPullRequestsAssociatedWithCommitResponseType['data'];
 
-export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof defaultOcto.pulls.merge>;
+export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<typeof octo.pulls.merge>;
 
 export type AuthorizedGitHub = {
     fetchCommitStatuses: (commit: {
@@ -357,9 +359,32 @@ export function getAuthorizedGitHub(octoOptional?: Octokit): AuthorizedGitHub {
         getLastCommit,
         getStatusesForRepo,
         /**/
-        getBranchesForRepo,
-        getRepoForUser,
-        getReposForUser,
-        getUser,
+        getBranchesForRepo: async (username, reponame): Promise<Array<GithubBranch>> => {
+            const branches = await octo.repos.listBranches({
+                owner: username,
+                repo: reponame,
+            });
+            return branches.data;
+        },
+        getRepoForUser: async (username, reponame): Promise<GithubRepo> => {
+            const { data } = await octo.repos.get({ repo: reponame, owner: username });
+            return { ...convertItsIdToString(data), owner: convertItsIdToString(data.owner) };
+        },
+        getUser: async (username: string): Promise<GithubUser> => {
+            try {
+                const { data } = await octo.users.getByUsername({ username });
+                return convertItsIdToString(data);
+            } catch (err) {
+                console.log('get User ', username, err);
+            }
+            return {};
+        },
+    };
+}
+
+export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: String } {
+    return {
+        ...obj,
+        id: String(obj.id),
     };
 }
