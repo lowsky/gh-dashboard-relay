@@ -40,55 +40,76 @@ export type AuthorizedGitHub = {
     fetchCommitStatuses: (commit: {
         reponame: string;
         ownerUsername: string;
-        sha: string
+        sha: string;
     }) => Promise<Array<GithubStatus>>;
     fetchLastCommitStatuses: (commit: {
         sha?: string | null | undefined;
         ownerUsername: string;
-        reponame: string
+        reponame: string;
     }) => Promise<Array<GithubStatus> | Array<never>>;
     fetchRepoBranches: (owner: string, repo: string) => Promise<Branches>;
     fetchRepoBranchesWithCommitStatuses: ({ userName, repoName }: { userName: string; repoName: string }) => Promise<{
         owner: { login: string };
         name: string;
-        branches: Awaited<Branch & { lastCommit: GithubCommit & { reponame: string; ownerUsername: string } }>[]
+        branches: Awaited<Branch & { lastCommit: GithubCommit & { reponame: string; ownerUsername: string } }>[];
     }>;
-    fetchRepoBranchesWithCommitStatusesAndPullRequests: ({ userName, repoName }: {
+    fetchRepoBranchesWithCommitStatusesAndPullRequests: ({
+        userName,
+        repoName,
+    }: {
         userName: string;
-        repoName: string
+        repoName: string;
     }) => Promise<{
         owner: { login: string };
         name: string;
-        branches: Awaited<Branch & {
-            lastCommit: GithubCommit & {
-                reponame: string;
-                ownerUsername: string;
-                statuses: Array<GithubStatus>;
-                associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType
+        branches: Awaited<
+            Branch & {
+                lastCommit: GithubCommit & {
+                    reponame: string;
+                    ownerUsername: string;
+                    statuses: Array<GithubStatus>;
+                    associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType;
+                };
             }
-        }>[]
+        >[];
     }>;
-    fetchRepoPullRequestsAssociatedWithCommit: (owner: string, repo: string, commit_sha: string) => Promise<ListPullRequestsAssociatedWithCommitResponseDataType>;
+    fetchRepoPullRequestsAssociatedWithCommit: (
+        owner: string,
+        repo: string,
+        commit_sha: string
+    ) => Promise<ListPullRequestsAssociatedWithCommitResponseDataType>;
     fetchUser: (username: string) => Promise<User>;
     getBranchesForRepo: (username, reponame) => Promise<Array<GithubBranch>>;
     getCommitsForRepo: (username: string, reponame: string, sha?: string) => Promise<Array<GithubCommit>>;
-    getLastCommit: (ownerUsername: string, reponame: string, sha) => Promise<GithubCommit & {
-        message: string;
-        date: string;
-        ownerUsername: string;
-        reponame: string
-    }>;
+    getLastCommit: (
+        ownerUsername: string,
+        reponame: string,
+        sha
+    ) => Promise<
+        GithubCommit & {
+            message: string;
+            date: string;
+            ownerUsername: string;
+            reponame: string;
+        }
+    >;
     getRepoForUser: (username, reponame) => Promise<GithubRepo>;
     getReposForUser: (username: string) => Promise<Array<GithubRepo>>;
     getStatusesForRepo: (owner, repo, sha) => Promise<Array<GithubStatus>>;
     getUser: (username: string) => Promise<GithubUser>;
-    mergePullRequest: ({ owner, repo, pull_number, sha, merge_method }: {
+    mergePullRequest: ({
+        owner,
+        repo,
+        pull_number,
+        sha,
+        merge_method,
+    }: {
         owner: string;
         repo: string;
         pull_number: number;
         sha?: string;
-        merge_method?: 'rebase' | 'merge'
-    }) => Promise<MergePullRequestsResponseDataType>
+        merge_method?: 'rebase' | 'merge';
+    }) => Promise<MergePullRequestsResponseDataType>;
 };
 
 /**
@@ -96,8 +117,8 @@ export type AuthorizedGitHub = {
  *
  * @param octoOptional
  */
-export function getAuthorizedGitHub(octoOptional?: Octokit): AuthorizedGitHub {
-    const octo = octoOptional ?? defaultOcto;
+export function getAuthorizedGitHub(octoOptional: Octokit): AuthorizedGitHub {
+    const octo = octoOptional;
 
     const getCommitsForRepo = async (
         username: string,
