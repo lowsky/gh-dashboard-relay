@@ -15,8 +15,8 @@ type SystemContext = {
     res: NextApiResponse;
 };
 
-interface UserContext {
-    getAuthorizedGitHub: () => AuthorizedGitHub
+export interface UserContext {
+    getAuthorizedGitHub: () => AuthorizedGitHub;
 }
 
 export default createYoga<SystemContext, UserContext>({
