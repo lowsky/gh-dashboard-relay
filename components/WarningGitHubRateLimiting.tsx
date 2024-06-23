@@ -1,14 +1,29 @@
-'use client';
+'use client'; // using useState
 
-import React from 'react';
-import { Alert, AlertIcon } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { Alert, AlertDescription, AlertIcon } from '@chakra-ui/react';
+
+import { Login, Logout } from './Login';
+
+type FetchingUserInfo = {
+    name?: string;
+    loading?: true;
+    error?: string | unknown;
+} | null;
 
 export default function WarningGitHubRateLimiting() {
+    const [user, setUser] = useState<FetchingUserInfo>(null);
+
     return (
-        <Alert status="warning">
+        <Alert status={user?.loading ? 'loading' : user?.error ? 'error' : user?.name ? 'success' : 'info'}>
             <AlertIcon />
-            This demo might run into issues caused by GitHub rate-limiting, or limited permissions, sorry! Also, caches
-            do not get updated properly :-/
+            <AlertDescription>
+                {
+                    <>
+                        <Login /> to avoid GitHub rate-limiting and having access to your repositories!
+                    </>
+                }
+            </AlertDescription>
         </Alert>
     );
 }
