@@ -1,4 +1,5 @@
-'use client';
+'use client'; // because it uses useParams
+
 import { ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
@@ -61,7 +62,6 @@ export function NavBar() {
                     </Flex>
                 </Flex>
             </Flex>
-            <Login />
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav owner={owner} repo={repo} />
             </Collapse>
@@ -73,7 +73,6 @@ const DesktopNav = ({ owner, repo }) => {
     const pathname = usePathname();
     return (
         <Stack direction="row" spacing={4} align="center">
-            <Login />
             <InternalLink href="/">Home</InternalLink>
             {owner && repo && <strong>{repo}</strong>}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
@@ -169,23 +168,5 @@ function DarkLightThemeToggle() {
                 </Flex>
             </Flex>
         </Box>
-    );
-}
-
-const handleLogin = () => {
-    window.location.href = '/api/auth/login';
-};
-
-const handleLogout = () => {
-    document.cookie = 'access_token=; Max-Age=0; Path=/';
-    window.location.reload();
-};
-
-function Login() {
-    return (
-        <div>
-            <button onClick={handleLogin}>Login</button>
-            <button onClick={handleLogout}>Logout</button>
-        </div>
     );
 }
