@@ -13,7 +13,7 @@ import {
 } from './types/resolvers';
 import { UserContext } from 'pages/api/graphql';
 
-const githubResolver: GithubApiResolvers = {
+const githubResolver: GithubApiResolvers<UserContext> = {
     user: async (_, { username }, context) => {
         try {
             const authorizedGitHub = context.getAuthorizedGitHub();
@@ -27,27 +27,27 @@ const githubResolver: GithubApiResolvers = {
     },
 };
 
-const githubUserResolver: GithubUserResolvers = {
-    id: (user, _args, _context) => {
+const githubUserResolver: GithubUserResolvers<UserContext> = {
+    id: (user) => {
         return String(user.id);
     },
-    repos: (user, _args, _context) => {
+    repos: (user, _args, context) => {
         if (user.login) {
-            return _context.getAuthorizedGitHub().getReposForUser(user.login);
+            return context.getAuthorizedGitHub().getReposForUser(user.login);
         }
         return null;
     },
 };
-const githubCommitAuthorResolver: GithubCommitAuthorResolvers = {
+const githubCommitAuthorResolver: GithubCommitAuthorResolvers<UserContext> = {
     // email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
     // name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
 };
 
 const githubRepoResolver: GithubRepoResolvers<UserContext> = {
-    branches: (repo, { limit }, _context) => {
+    branches: (repo, { limit }, context) => {
         const reponame = repo.name;
         const ownerUsername = repo.owner?.login;
-        return _context
+        return context
             .getAuthorizedGitHub()
             .getBranchesForRepo(ownerUsername || '', reponame || '')
             .then((branches) => {
@@ -65,12 +65,12 @@ const githubRepoResolver: GithubRepoResolvers<UserContext> = {
                 return branches;
             });
     },
-    commits: (repo, _args, _context) => {
+    commits: (repo, _args, context) => {
         const { owner, name } = repo;
         if (!owner?.login || !name) {
             return [];
         }
-        return _context
+        return context
             .getAuthorizedGitHub()
             .getCommitsForRepo(owner.login, name)
             .then((commitList) => {
@@ -96,39 +96,39 @@ const queryResolver = {
     ...githubResolver,
 };
 
-const githubBranchResolver: GithubBranchResolvers = {
-    lastCommit: async (branch, _args, _context) => {
+const githubBranchResolver: GithubBranchResolvers<UserContext> = {
+    lastCommit: async (branch, _args, context) => {
         // @ts-expect-error
         const { ownerUsername, reponame, commit } = branch; // info has been added while loading
         const { sha } = commit;
         if (!ownerUsername || !reponame) {
             return null;
         }
-        return await _context.getAuthorizedGitHub().getLastCommit(ownerUsername, reponame, sha);
+        return await context.getAuthorizedGitHub().getLastCommit(ownerUsername, reponame, sha);
     },
 };
 
-export const commitStatusResolver = (commit, _args, _context) => {
+export const commitStatusResolver = (commit, _args, context) => {
     const { sha, ownerUsername, reponame } = commit;
     if (!sha) return Promise.resolve([] as Array<GithubStatus>);
 
     return (
-        _context.getAuthorizedGitHub().getStatusesForRepo(
+        context.getAuthorizedGitHub().getStatusesForRepo(
             ownerUsername, //username,
             reponame,
             sha
         ) ?? []
     );
 };
-export const githubCommitResolver: GithubCommitResolvers = {
+export const githubCommitResolver: GithubCommitResolvers<UserContext> = {
     status: commitStatusResolver,
-    associatedPullRequests: async (commit, _args, _context) => {
+    associatedPullRequests: async (commit, _args, context) => {
         // @ts-expect-error
         const { sha, ownerUsername, reponame } = commit;
         if (!sha) {
             return null;
         }
-        const prs = await _context
+        const prs = await context
             .getAuthorizedGitHub()
             .fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha);
         return prs;
