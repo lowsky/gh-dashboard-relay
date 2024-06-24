@@ -29,9 +29,11 @@ const getPR = createResource(
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
+export type DoMergePR = (num: number) => Promise<unknown>;
+
 export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
     const { userName, repoName } = useUserRepo();
-    const doMergePR: (num: number) => Promise<unknown> = useDoMergePR({ userName, repoName });
+    const doMergePR: DoMergePR = useDoMergePR({ userName, repoName });
 
     const [mergingInProgress, setMergingInProgress] = useState<Promise<unknown>>();
     const [isMerged, setIsMerged] = useState<boolean>(false);
