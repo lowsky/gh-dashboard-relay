@@ -1,5 +1,3 @@
-import { getAuthorizedGitHub } from 'restinpeace/github';
-import { octo } from './github';
 import {
     GithubApiResolvers,
     GithubBranchResolvers,
@@ -80,8 +78,10 @@ const githubRepoResolver: GithubRepoResolvers<UserContext> = {
                     return {
                         ...commit,
                         // info is part of REST response:
+                        // @ts-expect-error commit is a valid item.
                         message: commit.commit.message,
                         // info is part of REST response:
+                        // @ts-expect-error commit is a valid item.
                         date: commit.commit?.committer?.date,
                     };
                 });
