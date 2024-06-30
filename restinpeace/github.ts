@@ -10,7 +10,7 @@ import type { GithubCommitAuthor, GithubStatus, PullRequest } from './types';
 import type { GithubBranch, GithubCommit, GithubRepo, GithubUser } from '../lib/types/resolvers';
 
 // just to use it for typedef
-import { octo } from '../lib/github';
+import { octo } from 'lib/github';
 
 export interface User {
     login: string;
