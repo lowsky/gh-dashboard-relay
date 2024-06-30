@@ -1393,12 +1393,8 @@ type RestGithubCommitsListItem = {
 
 /**
  * Factory, to make octokit injectable
- *
- * @param octoOptional
  */
-export function getAuthorizedGitHub(octoOptional: Octokit): AuthorizedGitHub {
-    const octo = octoOptional;
-
+export function getAuthorizedGitHub(octo: Octokit): AuthorizedGitHub {
     const getCommitsForRepo = async (
         username: string,
         reponame: string,
@@ -1539,12 +1535,6 @@ export function getAuthorizedGitHub(octoOptional: Octokit): AuthorizedGitHub {
         pull_number,
         sha,
         merge_method = 'rebase',
-    }: {
-        owner: string;
-        repo: string;
-        pull_number: number;
-        sha?: string;
-        merge_method?: 'rebase' | 'merge';
     }): Promise<MergePullRequestsResponseDataType> => {
         const response = await octo.pulls.merge({
             owner,
