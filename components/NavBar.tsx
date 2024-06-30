@@ -149,6 +149,10 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
                 label: <span>Comparison</span>,
                 href: '/side-by-side/' + ownerRepo,
             },
+            {
+                label: <span>Relay GraphQL</span>,
+                href: '/relay/' + ownerRepo,
+            },
         ];
 
     return [];
