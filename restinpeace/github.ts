@@ -1283,15 +1283,19 @@ export interface AuthorizedGitHub {
     getRepoForUser: (username: string, reponame: string) => Promise<GithubRepo>;
     getStatusesForRepo: (owner: string, repo: string, sha: string) => Promise<GithubStatus[]>;
     getUser: (username: string) => Promise<GithubUser>;
-    mergePullRequest: {
-        (__0: {
-            merge_method?: undefined | 'merge' | 'rebase';
-            owner: string;
-            pull_number: number;
-            repo: string;
-            sha?: undefined | string;
-        }): Promise<{ merged: boolean; message: string; sha: string }>;
-    };
+    mergePullRequest: ({
+        merge_method,
+        owner,
+        pull_number,
+        repo,
+        sha,
+    }: {
+        merge_method?: undefined | 'merge' | 'rebase';
+        owner: string;
+        pull_number: number;
+        repo: string;
+        sha?: undefined | string;
+    }) => Promise<MergePullRequestsResponseDataType>;
 }
 
 type RestGithubCommitsListItem = {
@@ -1768,6 +1772,13 @@ export function getAuthorizedGitHub(octoOptional: Octokit): AuthorizedGitHub {
                 console.log('get User ', username, err);
             }
             return {};
+        },
+        getReposForUser: async (username: string): Promise<Array<GithubRepo>> => {
+            const repos = await octo.repos.listForUser({ username });
+            return repos.data.map((r) => ({
+                ...convertItsIdToString(r),
+                owner: convertItsIdToString(r.owner),
+            }));
         },
     };
 }
