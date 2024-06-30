@@ -7,7 +7,10 @@ import type { ExecutionPatchResult } from 'graphql-ws';
 const fetchQuery: FetchFunction = (params, variables, _cacheConfig) => {
     return Observable.create((sink) => {
         (async () => {
-            const response = await fetch('/api/graphql', {
+            // try accessing the graphql-endpoint on the server or client
+            // at a different URL:
+            const endpoint = typeof window === 'undefined' ? 'http://localhost:3000/api/graphql' : '/api/graphql';
+            const response = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
