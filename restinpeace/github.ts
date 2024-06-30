@@ -48,6 +48,7 @@ export interface AuthorizedGitHub {
         reponame: string;
     }) => Promise<GithubStatus[] | never[]>;
     fetchRepoBranches: (owner: string, repo: string) => Promise<Branches>;
+    getReposForUser: (username: string) => Promise<GithubRepo[]>;
     fetchRepoBranchesWithCommitStatuses: ({ userName, repoName }: { userName: string; repoName: string }) => Promise<{
         owner: { login: string };
         name: string;

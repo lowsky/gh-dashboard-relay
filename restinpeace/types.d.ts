@@ -51,6 +51,7 @@ export type PullRequest = {
     number: number;
     title?: Maybe<string>;
     html_url?: Maybe<string>;
+    head: Maybe<GithubGitTip>;
 };
 
 export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;
