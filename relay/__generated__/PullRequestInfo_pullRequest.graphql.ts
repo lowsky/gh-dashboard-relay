@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<51e81166805d7d9ea4b54d4f301ee7a4>>
+ * @generated SignedSource<<275157a056440ef4171929dd8c9bbbc7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,6 +11,9 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestInfo_pullRequest$data = {
+    readonly head: {
+        readonly sha: string;
+    };
     readonly html_url: string | null | undefined;
     readonly number: number;
     readonly title: string | null | undefined;
@@ -48,11 +51,29 @@ const node: ReaderFragment = {
             name: 'html_url',
             storageKey: null,
         },
+        {
+            alias: null,
+            args: null,
+            concreteType: 'GithubGitTip',
+            kind: 'LinkedField',
+            name: 'head',
+            plural: false,
+            selections: [
+                {
+                    alias: null,
+                    args: null,
+                    kind: 'ScalarField',
+                    name: 'sha',
+                    storageKey: null,
+                },
+            ],
+            storageKey: null,
+        },
     ],
     type: 'PullRequest',
     abstractKey: null,
 };
 
-(node as any).hash = 'd62c5446f2b2314b7f781cc50ef23bda';
+(node as any).hash = 'b8faa5cf2e317681fd2fc6a5dee8d3f3';
 
 export default node;

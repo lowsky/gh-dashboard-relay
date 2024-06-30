@@ -9,6 +9,9 @@ export default function PRFragmentContainer(props) {
                 title
                 number
                 html_url
+                head {
+                    sha
+                }
             }
         `,
         props.pullRequest
