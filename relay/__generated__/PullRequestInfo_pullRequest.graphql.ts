@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<51b4d98aaefd929a6905495b3c8120a7>>
+ * @generated SignedSource<<51e81166805d7d9ea4b54d4f301ee7a4>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,9 +11,9 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestInfo_pullRequest$data = {
+    readonly html_url: string | null | undefined;
     readonly number: number;
-    readonly title: string | null;
-    readonly url: string | null;
+    readonly title: string | null | undefined;
     readonly ' $fragmentType': 'PullRequestInfo_pullRequest';
 };
 export type PullRequestInfo_pullRequest$key = {
@@ -45,7 +45,7 @@ const node: ReaderFragment = {
             alias: null,
             args: null,
             kind: 'ScalarField',
-            name: 'url',
+            name: 'html_url',
             storageKey: null,
         },
     ],
@@ -53,6 +53,6 @@ const node: ReaderFragment = {
     abstractKey: null,
 };
 
-(node as any).hash = 'de2f3d1a0ae4ea5d8149d019de0b066d';
+(node as any).hash = 'd62c5446f2b2314b7f781cc50ef23bda';
 
 export default node;

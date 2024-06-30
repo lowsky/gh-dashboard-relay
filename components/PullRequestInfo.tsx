@@ -18,7 +18,7 @@ export type PullRequestInfoProps = {
 };
 
 export type PullRequestData = {
-    url?: Maybe<string>;
+    html_url?: Maybe<string>;
     title?: Maybe<string>;
     number: number;
 };
@@ -53,13 +53,13 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mergingInProgress]);
 
-    const { number, title, url, html_url } =
+    const { number, title, html_url } =
         pullRequest ??
         // load on-demand, if no pullRequest given
         getPR.read({ userName, repoName, sha })?.find?.(Boolean) ??
         {};
 
-    if (!number || !url) {
+    if (!number || !html_url) {
         return null;
     }
 
@@ -67,7 +67,7 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
 
     return (
         <VStack width="6em">
-            <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
+            <Link href={html_url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
                 <Icon mr={1}>
                     <FontAwesomeIcon icon={faCodePullRequest} />
                 </Icon>

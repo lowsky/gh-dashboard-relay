@@ -50,7 +50,7 @@ export type GithubUser = {
 export type PullRequest = {
     number: number;
     title?: Maybe<string>;
-    url?: Maybe<string>;
+    html_url?: Maybe<string>;
 };
 
 export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;

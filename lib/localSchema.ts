@@ -1,19 +1,18 @@
 // Auto-generated, instead of using a webpack-loader...
 // Just wrapping schema/schema.graphql
 export const typeDefs = `
-# The Github API
 directive @defer(if: Boolean, label: String) on FRAGMENT_SPREAD | INLINE_FRAGMENT
 
+"""
+The Github API
+"""
 type GithubAPI {
     user(
-        # Username of the user
         username: String!
     ): GithubUser
     repo(
-        # Name of the repo
         name: String!
 
-        # Username of the owner
         ownerUsername: String!
     ): GithubRepo
 }
@@ -34,7 +33,7 @@ type GithubCommit {
     associatedPullRequests: [PullRequest]
 }
 
-# Commit author that is not associated with a Github acount
+"""Commit author that is not associated with a Github account"""
 type GithubCommitAuthor {
     email: String
     name: String
@@ -48,7 +47,7 @@ type GithubRepo {
     owner: GithubUser
 }
 
-# Status of a commit
+"""Status of a commit"""
 type GithubStatus {
     state: String
     description: String
@@ -67,18 +66,15 @@ type GithubUser {
 }
 
 type Query {
-    # @deprecated
+    """@deprecated"""
     github: GithubAPI
 
     user(
-        # Username of the user
         username: String!
     ): GithubUser
     repo(
-        # Name of the repo
         name: String!
 
-        # Username of the owner
         ownerUsername: String!
     ): GithubRepo
 }
@@ -88,7 +84,7 @@ union UserOrCommitAuthor = GithubCommitAuthor | GithubUser
 type PullRequest {
     title: String
     number: Int!
-    url: String
+    html_url: String
 }
 
 `;

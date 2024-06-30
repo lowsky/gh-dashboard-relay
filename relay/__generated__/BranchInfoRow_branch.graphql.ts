@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8af03b5d3795314c2e0bdc5f46cc7b7e>>
+ * @generated SignedSource<<06109b425ce0f39481fdd7e979318753>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,12 +11,22 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type BranchInfoRow_branch$data = {
-    readonly lastCommit: {
-        readonly associatedPullRequests: ReadonlyArray<{
-            readonly ' $fragmentSpreads': FragmentRefs<'PullRequestInfo_pullRequest'>;
-        } | null> | null;
-        readonly ' $fragmentSpreads': FragmentRefs<'CommitWithStatuses_commit'>;
-    } | null;
+    readonly lastCommit:
+        | {
+              readonly associatedPullRequests:
+                  | ReadonlyArray<
+                        | {
+                              readonly ' $fragmentSpreads': FragmentRefs<'PullRequestInfo_pullRequest'>;
+                          }
+                        | null
+                        | undefined
+                    >
+                  | null
+                  | undefined;
+              readonly ' $fragmentSpreads': FragmentRefs<'CommitWithStatuses_commit'>;
+          }
+        | null
+        | undefined;
     readonly name: string;
     readonly ' $fragmentType': 'BranchInfoRow_branch';
 };

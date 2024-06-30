@@ -26,7 +26,7 @@ export const getReposForUser = async (username: string): Promise<Array<GithubRep
     }));
 };
 
-export const getBranchesForRepo = async (username, reponame): Promise<Array<GithubBranch>> => {
+export const getBranchesForRepo = async (username: string, reponame: string): Promise<Array<GithubBranch>> => {
     const branches = await octo.repos.listBranches({
         owner: username,
         repo: reponame,
@@ -34,12 +34,12 @@ export const getBranchesForRepo = async (username, reponame): Promise<Array<Gith
     return branches.data;
 };
 
-export const getRepoForUser = async (username, reponame): Promise<GithubRepo> => {
+export const getRepoForUser = async (username: string, reponame: string): Promise<GithubRepo> => {
     const { data } = await octo.repos.get({ repo: reponame, owner: username });
     return { ...convertItsIdToString(data), owner: convertItsIdToString(data.owner) };
 };
 
-export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: String } {
+export function convertItsIdToString<T>(obj: T & { id: number }): T & { id: string } {
     return {
         ...obj,
         id: String(obj.id),

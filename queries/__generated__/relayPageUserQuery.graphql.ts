@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<590b5bbec383664947f12b7bdfee7de7>>
+ * @generated SignedSource<<0f83982787423b2a931c0860455e398a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,9 +14,12 @@ export type relayPageUserQuery$variables = {
     userName: string;
 };
 export type relayPageUserQuery$data = {
-    readonly user: {
-        readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_user'>;
-    } | null;
+    readonly user:
+        | {
+              readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_user'>;
+          }
+        | null
+        | undefined;
 };
 export type relayPageUserQuery = {
     response: relayPageUserQuery$data;

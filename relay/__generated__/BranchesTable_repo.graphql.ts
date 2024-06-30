@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6f1ca081aad08a855219f6f202bc8bda>>
+ * @generated SignedSource<<b74feb75ae39c13e7d2daf9b8d152bce>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,9 +11,16 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type BranchesTable_repo$data = {
-    readonly branches: ReadonlyArray<{
-        readonly ' $fragmentSpreads': FragmentRefs<'BranchInfoRow_branch'>;
-    } | null> | null;
+    readonly branches:
+        | ReadonlyArray<
+              | {
+                    readonly ' $fragmentSpreads': FragmentRefs<'BranchInfoRow_branch'>;
+                }
+              | null
+              | undefined
+          >
+        | null
+        | undefined;
     readonly ' $fragmentType': 'BranchesTable_repo';
 };
 export type BranchesTable_repo$key = {

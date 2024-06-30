@@ -8,7 +8,7 @@ export default function PRFragmentContainer(props) {
             fragment PullRequestInfo_pullRequest on PullRequest {
                 title
                 number
-                url
+                html_url
             }
         `,
         props.pullRequest

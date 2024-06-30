@@ -81,5 +81,5 @@ union UserOrCommitAuthor = GithubCommitAuthor | GithubUser
 type PullRequest {
     title: String
     number: Int!
-    url: String
+    html_url: String
 }

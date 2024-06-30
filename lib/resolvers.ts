@@ -131,10 +131,7 @@ export const githubCommitResolver: GithubCommitResolvers = {
             reponame,
             sha
         );
-        return prs.map((pr) => ({
-            ...pr,
-            url: pr.html_url,
-        }));
+        return prs;
     },
 };
 

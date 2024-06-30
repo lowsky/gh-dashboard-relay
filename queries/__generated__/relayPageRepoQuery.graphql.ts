@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<08e42d68667f5f34e0443ae83465a6ef>>
+ * @generated SignedSource<<994c1725e4d4bd6da3448ae807ece134>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,9 +15,12 @@ export type relayPageRepoQuery$variables = {
     userName: string;
 };
 export type relayPageRepoQuery$data = {
-    readonly repo: {
-        readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_repo'>;
-    } | null;
+    readonly repo:
+        | {
+              readonly ' $fragmentSpreads': FragmentRefs<'UserRepo_repo'>;
+          }
+        | null
+        | undefined;
 };
 export type relayPageRepoQuery = {
     response: relayPageRepoQuery$data;
@@ -231,7 +234,7 @@ const node: ConcreteRequest = (function () {
                                                     alias: null,
                                                     args: null,
                                                     kind: 'ScalarField',
-                                                    name: 'url',
+                                                    name: 'html_url',
                                                     storageKey: null,
                                                 },
                                             ],
@@ -249,12 +252,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '8c411b7bc8a039fd5bbdf2481a8761b6',
+            cacheID: '7288f90136911b518a6ee04faeb791c9',
             id: null,
             metadata: {},
             name: 'relayPageRepoQuery',
             operationKind: 'query',
-            text: 'query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n',
+            text: 'query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  html_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n',
         },
     };
 })();
