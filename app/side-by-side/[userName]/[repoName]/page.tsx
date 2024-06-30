@@ -13,8 +13,6 @@ import { UserRepoFetchAll, UserRepoWaterfall } from 'container/LazyUserRepo';
 
 import styles from './side-by-side.module.css';
 
-export const revalidate = 10;
-
 function SideBySide(props) {
     const { userName, repoName } = props.params;
     return (

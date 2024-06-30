@@ -8,9 +8,6 @@ import UserRepo from 'container/UserRepo';
 import { UserRepoFromUrlProvider, useUserRepoFromRouter } from 'components/useUserRepoFromRoute';
 import { Branches, User, getAuthorizedGitHub } from 'restinpeace/github';
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 5
-
 export default function RestfulPage() {
     const { userName, repoName } = useUserRepoFromRouter();
     return (
