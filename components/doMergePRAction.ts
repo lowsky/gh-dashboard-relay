@@ -1,8 +1,6 @@
 'use server';
-import { Octokit } from '@octokit/rest';
-import { cookies } from 'next/headers';
-
-import { getAuthorizedGitHub, MergePullRequestsResponseDataType } from 'restinpeace/github';
+import { MergePullRequestsResponseDataType } from 'restinpeace/github';
+import { authorizedGH } from 'lib/authorizedGH';
 
 export default async function doMergePRAction(
     num: number,
@@ -10,12 +8,8 @@ export default async function doMergePRAction(
     repoName: string,
     sha: string
 ): Promise<MergePullRequestsResponseDataType | null> {
-    const access_token = cookies().get('access_token')?.value;
-    const octo = new Octokit({
-        auth: access_token,
-    });
     if (repoName && userName) {
-        return getAuthorizedGitHub(octo).mergePullRequest({
+        return (await authorizedGH()).mergePullRequest({
             owner: userName,
             repo: repoName,
             merge_method: 'rebase',
