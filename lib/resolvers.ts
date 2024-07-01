@@ -110,7 +110,7 @@ const githubBranchResolver: GithubBranchResolvers<UserContext> = {
 
 export const commitStatusResolver = (commit, _args, context) => {
     const { sha, ownerUsername, reponame } = commit;
-    if (!sha) return Promise.resolve([] as Array<GithubStatus>);
+    if (!sha) return [] as Array<GithubStatus>;
 
     return (
         context.getAuthorizedGitHub().getStatusesForRepo(
@@ -128,10 +128,7 @@ export const githubCommitResolver: GithubCommitResolvers<UserContext> = {
         if (!sha) {
             return null;
         }
-        const prs = await context
-            .getAuthorizedGitHub()
-            .fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha);
-        return prs;
+        return context.getAuthorizedGitHub().fetchRepoPullRequestsAssociatedWithCommit(ownerUsername, reponame, sha);
     },
 };
 
