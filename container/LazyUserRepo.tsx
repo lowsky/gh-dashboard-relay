@@ -44,7 +44,7 @@ export const UserRepoWaterfall = () => {
                 <Repo />
             </Suspense>
             <Suspense fallback={<Spinner />}>
-                <RichErrorBoundary message={'User not found'}>
+                <RichErrorBoundary message="User not found">
                     <LazyUser />
                 </RichErrorBoundary>
             </Suspense>

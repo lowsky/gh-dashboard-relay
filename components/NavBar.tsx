@@ -1,4 +1,5 @@
-'use client';
+'use client'; // because it uses useParams
+
 import { ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
@@ -61,7 +62,6 @@ export function NavBar() {
                     </Flex>
                 </Flex>
             </Flex>
-
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav owner={owner} repo={repo} />
             </Collapse>
@@ -148,6 +148,10 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
             {
                 label: <span>Comparison</span>,
                 href: '/side-by-side/' + ownerRepo,
+            },
+            {
+                label: <span>Relay GraphQL</span>,
+                href: '/relay/' + ownerRepo,
             },
         ];
 

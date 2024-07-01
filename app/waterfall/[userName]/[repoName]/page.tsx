@@ -7,7 +7,7 @@ import InternalLink from 'components/InternalLink';
 import { UserRepoWaterfall } from 'container/LazyUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 
-export default async function WaterfallPage() {
+export default function WaterfallPage() {
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href="/waterfall">back to shortcut list</InternalLink>

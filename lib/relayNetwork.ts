@@ -1,3 +1,4 @@
+'use client'
 import { FetchFunction, GraphQLResponse, Network, Observable } from 'relay-runtime';
 import { meros } from 'meros';
 

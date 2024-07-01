@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<994c1725e4d4bd6da3448ae807ece134>>
+ * @generated SignedSource<<9b69496fc548343dfcfaaa55cc0a5b1b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -55,6 +55,13 @@ const node: ConcreteRequest = (function () {
             args: null,
             kind: 'ScalarField',
             name: 'name',
+            storageKey: null,
+        },
+        v4 = {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'sha',
             storageKey: null,
         };
     return {
@@ -134,13 +141,7 @@ const node: ConcreteRequest = (function () {
                                     name: 'lastCommit',
                                     plural: false,
                                     selections: [
-                                        {
-                                            alias: null,
-                                            args: null,
-                                            kind: 'ScalarField',
-                                            name: 'sha',
-                                            storageKey: null,
-                                        },
+                                        v4 /*: any*/,
                                         {
                                             alias: null,
                                             args: null,
@@ -237,6 +238,16 @@ const node: ConcreteRequest = (function () {
                                                     name: 'html_url',
                                                     storageKey: null,
                                                 },
+                                                {
+                                                    alias: null,
+                                                    args: null,
+                                                    concreteType: 'GithubGitTip',
+                                                    kind: 'LinkedField',
+                                                    name: 'head',
+                                                    plural: false,
+                                                    selections: [v4 /*: any*/],
+                                                    storageKey: null,
+                                                },
                                             ],
                                             storageKey: null,
                                         },
@@ -252,12 +263,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '7288f90136911b518a6ee04faeb791c9',
+            cacheID: '063031c6a3b63f87bc1e9ded4681ca8f',
             id: null,
             metadata: {},
             name: 'relayPageRepoQuery',
             operationKind: 'query',
-            text: 'query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  html_url\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n',
+            text: 'query relayPageRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repo(ownerUsername: $userName, name: $repoName) {\n    ...UserRepo_repo\n  }\n}\n\nfragment BranchInfoRow_branch on GithubBranch {\n  name\n  lastCommit {\n    ...CommitWithStatuses_commit\n    associatedPullRequests {\n      ...PullRequestInfo_pullRequest\n    }\n  }\n}\n\nfragment BranchesTable_repo on GithubRepo {\n  branches {\n    ...BranchInfoRow_branch\n  }\n}\n\nfragment CommitWithStatuses_commit on GithubCommit {\n  sha\n  message\n  date\n  status {\n    context\n    description\n    state\n    target_url\n    updated_at\n    avatar_url\n  }\n}\n\nfragment PullRequestInfo_pullRequest on PullRequest {\n  title\n  number\n  html_url\n  head {\n    sha\n  }\n}\n\nfragment Repo_repo on GithubRepo {\n  name\n  owner {\n    login\n  }\n}\n\nfragment UserRepo_repo on GithubRepo {\n  ...Repo_repo\n  ...BranchesTable_repo\n}\n',
         },
     };
 })();
