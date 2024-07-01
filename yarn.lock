@@ -9259,10 +9259,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/relay-runtime@npm:14.1.24":
-  version: 14.1.24
-  resolution: "@types/relay-runtime@npm:14.1.24"
-  checksum: 10c0/daf39e8ea22b2c08a63ff88718e4f83589bccba5ee30c03af6d36376d7f20692270ca7249edc25edb0d4d17885984ccf0f62c2df99ba6b18427ef69d2812f764
+"@types/relay-runtime@npm:17.0.1":
+  version: 17.0.1
+  resolution: "@types/relay-runtime@npm:17.0.1"
+  checksum: 10c0/f6fd980b703f677f72a3fbf1d8aacdb8dc0694f640aa479b47680dedc33648cc8e8fa908b0637fde0026fe1d9b99cfab1a029e3a8719b884ad673c3ae9bd6c79
   languageName: node
   linkType: hard
 
@@ -12309,7 +12309,7 @@ __metadata:
     "@storybook/nextjs": "npm:8.1.11"
     "@storybook/react": "npm:^8.0.0"
     "@types/react-relay": "npm:16.0.6"
-    "@types/relay-runtime": "npm:14.1.24"
+    "@types/relay-runtime": "npm:17.0.1"
     "@typescript-eslint/eslint-plugin": "npm:7.15.0"
     "@typescript-eslint/parser": "npm:7.15.0"
     babel-plugin-relay: "npm:17.0.0"
@@ -12337,7 +12337,7 @@ __metadata:
     react-relay: "npm:17.0.0"
     relay-compiler: "npm:17.0.0"
     relay-compiler-language-typescript: "npm:15.0.1"
-    relay-runtime: "npm:16.2.0"
+    relay-runtime: "npm:17.0.0"
     storybook: "npm:8.1.11"
     ts-jest: "npm:29.1.5"
     typescript: "npm:5.5.3"
