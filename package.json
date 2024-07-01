@@ -68,7 +68,7 @@
     "meros": "1.3.0",
     "next": "14.2.4",
     "react-cache": "latest",
-    "relay-runtime": "16.2.0"
+    "relay-runtime": "17.0.0"
   },
   "devDependencies": {
     "@chakra-ui/icons": "2.1.1",
@@ -93,7 +93,7 @@
     "@storybook/nextjs": "8.1.11",
     "@storybook/react": "^8.0.0",
     "@types/react-relay": "16.0.6",
-    "@types/relay-runtime": "14.1.24",
+    "@types/relay-runtime": "17.0.1",
     "@typescript-eslint/eslint-plugin": "7.15.0",
     "@typescript-eslint/parser": "7.15.0",
     "babel-plugin-relay": "17.0.0",
