@@ -33,6 +33,7 @@ export type DoMergePR = (num: number) => Promise<unknown>;
 
 export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
     const { userName, repoName } = useUserRepo();
+    // @ts-expect-error number and sha is missing
     const doMergePR: DoMergePR = useDoMergePR({ userName, repoName });
 
     const [mergingInProgress, setMergingInProgress] = useState<Promise<unknown>>();

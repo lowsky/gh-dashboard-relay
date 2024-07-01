@@ -3,7 +3,6 @@ import { graphql, useFragment } from 'react-relay';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import PullRequestMerge, { type DoMergePR } from 'components/PullRequestMerge';
 import doMergePRAction from '../components/doMergePRAction';
-import { getAuthorizedGitHub } from '../restinpeace/github';
 
 export default function PRFragmentContainer(props) {
     const pullRequest = useFragment(

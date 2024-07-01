@@ -24,6 +24,7 @@ export const WithInfo: Story = {
             lastCommit: {
                 ...CommitWithDataStory.args!.commit,
                 associatedPullRequests: [
+                    // @ts-expect-error missing head
                     {
                         ...DefaultPRStory.args!.pullRequest!,
                     },
