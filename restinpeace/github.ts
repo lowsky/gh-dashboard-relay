@@ -1393,8 +1393,11 @@ type RestGithubCommitsListItem = {
 
 /**
  * Factory, to make octokit injectable
+ * @deprecated always use with an initialized octo given
  */
-export function getAuthorizedGitHub(octo: Octokit): AuthorizedGitHub {
+export function getAuthorizedGitHub(optionalOcto?: Octokit): AuthorizedGitHub {
+    // TODO replace with access-token
+    const octo = optionalOcto ?? new Octokit();
     const getCommitsForRepo = async (
         username: string,
         reponame: string,
