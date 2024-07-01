@@ -53,5 +53,9 @@ export type PullRequest = {
     html_url?: Maybe<string>;
     head: Maybe<GithubGitTip>;
 };
+export type GithubGitTip = {
+    label: string;
+    sha: string;
+};
 
 export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;
