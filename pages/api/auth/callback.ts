@@ -9,7 +9,7 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
+                Accept: 'application/json',
             },
             body: JSON.stringify({
                 client_id,
@@ -18,10 +18,11 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
             }),
         });
         const tokenData = await tokenResponse.json();
-        const access_token = tokenData.access_token;
-        if(access_token) {
+        const { access_token } = tokenData;
+        if (access_token) {
             res.setHeader('Set-Cookie', `access_token=${access_token}; HttpOnly; Path=/`);
-            res.redirect('/');
+            const original_url = req.query.original_url as string;
+            res.redirect(original_url ?? '/');
         }
     } catch (error) {
         console.error(error);
