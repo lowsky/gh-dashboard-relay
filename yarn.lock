@@ -19868,17 +19868,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:16.2.0":
-  version: 16.2.0
-  resolution: "relay-runtime@npm:16.2.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.0.0"
-    fbjs: "npm:^3.0.2"
-    invariant: "npm:^2.2.4"
-  checksum: 10c0/770dc36203a3d0a7c285ac446ac601cfa8a87da2af8ee9a9cc3c5533c506655e457b276bc40c6e0f274556dce258b2407a5d17e6582bbc9902af5f1dd9081c3a
-  languageName: node
-  linkType: hard
-
 "relay-runtime@npm:17.0.0":
   version: 17.0.0
   resolution: "relay-runtime@npm:17.0.0"
