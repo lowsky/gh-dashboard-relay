@@ -1,6 +1,8 @@
 import { graphql, useFragment } from 'react-relay';
 
-import PullRequestInfo from 'components/PullRequestInfo';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import PullRequestMerge, { type DoMergePR } from 'components/PullRequestMerge';
+import doMergePRAction from '../components/doMergePRAction';
 
 export default function PRFragmentContainer(props) {
     const pullRequest = useFragment(
@@ -9,9 +11,18 @@ export default function PRFragmentContainer(props) {
                 title
                 number
                 html_url
+                head {
+                    sha
+                }
             }
         `,
         props.pullRequest
     );
-    return <PullRequestInfo pullRequest={pullRequest} />;
+
+    const { userName, repoName } = useUserRepo();
+    const sha = pullRequest?.head?.sha;
+
+    const doMergePR1: DoMergePR = async () => doMergePRAction(pullRequest.number, userName, repoName, sha);
+
+    return <PullRequestMerge pullRequest={pullRequest} doMergePR={doMergePR1} />;
 }

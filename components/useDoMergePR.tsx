@@ -1,20 +1,21 @@
-import { getAuthorizedGitHub, MergePullRequestsResponseDataType } from 'restinpeace/github';
-import { singleArgOrDefault } from './singleArgOrDefault';
+import { MergePullRequestsResponseDataType } from 'restinpeace/github';
+import doMergePRAction from './doMergePRAction';
 
 export const useDoMergePR: ({
     userName,
     repoName,
+    num,
+    sha,
 }: {
     userName: string;
     repoName: string;
-}) => (num: number) => Promise<MergePullRequestsResponseDataType | undefined> = ({ userName, repoName }) => {
-    return async (num: number): Promise<MergePullRequestsResponseDataType | undefined> => {
-        if (repoName && userName) {
-            return await getAuthorizedGitHub().mergePullRequest({
-                owner: singleArgOrDefault(userName, ''),
-                repo: singleArgOrDefault(repoName, ''),
-                pull_number: num,
-            });
+    num: number;
+    sha: string;
+}) => () => Promise<null | MergePullRequestsResponseDataType> =
+    ({ userName, repoName, num, sha }) =>
+    () => {
+        if (repoName && userName && num && sha) {
+            return doMergePRAction(num, userName, repoName, sha);
         }
+        return Promise.resolve(null);
     };
-};

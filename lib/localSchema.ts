@@ -85,6 +85,12 @@ type PullRequest {
     title: String
     number: Int!
     html_url: String
+    head: GithubGitTip!
+}
+
+type GithubGitTip {
+    label: String!
+    sha: String!
 }
 
 `;

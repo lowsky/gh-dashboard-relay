@@ -1,14 +1,17 @@
-'use client';
+'use client'; // using useState
 
 import React from 'react';
-import { Alert, AlertIcon } from '@chakra-ui/react';
+import { Alert, AlertDescription, AlertIcon } from '@chakra-ui/react';
+
+import { Login } from './Login';
 
 export default function WarningGitHubRateLimiting() {
     return (
-        <Alert status="warning">
+        <Alert status="info">
             <AlertIcon />
-            This demo might run into issues caused by GitHub rate-limiting, or limited permissions, sorry! Also, caches
-            do not get updated properly :-/
+            <AlertDescription>
+                <Login /> to avoid GitHub rate-limiting and having access to your repositories!
+            </AlertDescription>
         </Alert>
     );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
+import { Link, Alert, AlertIcon, Flex, AlertDescription } from '@chakra-ui/react';
 
 import { RevalidateCacheButton } from 'components/RevalidateCacheButton';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
@@ -29,10 +29,15 @@ const UserRepo: React.FC<UserRepoProps> = ({ user, repo }) => {
             {!repo && (
                 <Alert status="warning">
                     <AlertIcon />
-                    Repo not found:
-                    <a href={'https://github.com/' + userName + '/' + repoName}>
-                        {userName}/{repoName}
-                    </a>
+                    <AlertDescription>
+                        Repo
+                        <br />
+                        <Link href={'https://github.com/' + userName + '/' + repoName}>
+                            {userName}/{repoName}
+                        </Link>
+                        <br />
+                        not found!
+                    </AlertDescription>
                 </Alert>
             )}
             {repo && <Repo repo={repo} />}
