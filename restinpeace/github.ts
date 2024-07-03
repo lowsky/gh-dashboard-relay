@@ -3,14 +3,11 @@ import {
     GetResponseTypeFromEndpointMethod,
     OctokitResponse,
 } from '@octokit/types';
-import { Octokit } from '@octokit/rest';
+import type { Octokit } from '@octokit/rest';
 
 import type { GithubCommitAuthor, GithubStatus, PullRequest } from './types';
 
 import type { GithubBranch, GithubCommit, GithubRepo, GithubUser } from '../lib/types/resolvers';
-
-// just to use it for typedef
-import { octo } from 'lib/github';
 
 export interface User {
     login: string;
@@ -30,7 +27,7 @@ export interface Commit {
 }
 
 type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpointMethod<
-    typeof octo.repos.listPullRequestsAssociatedWithCommit
+    Octokit['repos']['listPullRequestsAssociatedWithCommit']
 >;
 
 export type ListPullRequestsAssociatedWithCommitResponseDataType =
@@ -1762,7 +1759,7 @@ export function getAuthorizedGitHub(optionalOcto?: Octokit): AuthorizedGitHub {
                 const { data } = await octo.users.getByUsername({ username });
                 return convertItsIdToString(data);
             } catch (err) {
-                console.log('get User ', username, err);
+                console.error('getUser failed', username, err);
             }
             return {};
         },
