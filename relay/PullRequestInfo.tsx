@@ -20,7 +20,7 @@ export default function PRFragmentContainer(props) {
     );
 
     const { userName, repoName } = useUserRepo();
-    const sha = pullRequest.head.sha;
+    const sha = pullRequest?.head?.sha;
 
     const doMergePR1: DoMergePR = async () => doMergePRAction(pullRequest.number, userName, repoName, sha);
 

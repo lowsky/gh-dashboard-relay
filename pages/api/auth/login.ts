@@ -14,7 +14,9 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
         GH_BASIC_CLIENT_ID,
     } = process.env;
 
-    const gh_oauth_app_url = VERCEL_ENV === 'production' ? NEXT_PUBLIC_VERCEL_URL : VERCEL_BRANCH_URL;
+    const gh_oauth_app_url =
+        (VERCEL_ENV === 'production' ? NEXT_PUBLIC_VERCEL_URL : VERCEL_BRANCH_URL) ??
+        'http://localhost:3000/api/auth/callback';
 
     const original_url = _req.query['original_url'] as string | undefined;
     const redirect_uri_base = gh_oauth_app_url?.startsWith('http')
