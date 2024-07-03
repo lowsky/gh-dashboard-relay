@@ -4,11 +4,12 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
     const gh_oauth_app_url =
         // env variable: NEXT_PUBLIC_VERCEL_URL: the public, production url.
         (process.env.VERCEL_ENV === 'production'
-            ? // env variable: NEXT_PUBLIC_VERCEL_URL: the public, production url.
+            ? // if set in vercel's env
+              process.env.NEXT_GH_OAUTH_URL ?? // env variable: NEXT_PUBLIC_VERCEL_URL: the public, production url.
               process.env.NEXT_PUBLIC_VERCEL_URL
             : // The domain name of the generated Git branch URL. Example: *-git-*.vercel.app.
               // The value does not include the protocol scheme https://.
-              process.env.VERCEL_BRANCH_URL) ?? 'http://localhost:3000/api/auth/callback';
+              process.env.VERCEL_BRANCH_URL) ?? 'http://localhost:3000';
 
     const original_url = _req.query['original_url'] as string | undefined;
     const redirect_uri_base = gh_oauth_app_url?.startsWith('http')
