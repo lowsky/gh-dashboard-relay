@@ -15,12 +15,12 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
     const redirect_uri_base = gh_oauth_app_url?.startsWith('http')
         ? gh_oauth_app_url
         : `https://${gh_oauth_app_url}/api/auth/callback`;
-    const redirect_uri = redirect_uri_base + '?original_url=' + encodeURIComponent(original_url ?? '');
+    const redirect_uri = redirect_uri_base + encodeURIComponent('?original_url=' + original_url ?? '');
 
     // env variable: GitHub client id for authentication
     // for dev: https://github.com/settings/applications/2618861
     // for prod: https://github.com/settings/applications/2296539
-    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.GH_BASIC_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=repo&extra=true`;
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.GH_BASIC_CLIENT_ID}&scope=repo&redirect_uri=${redirect_uri}`;
 
     if (gh_oauth_app_url) {
         res.redirect(githubAuthUrl);
