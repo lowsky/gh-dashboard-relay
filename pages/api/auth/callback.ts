@@ -21,9 +21,13 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
         const { access_token } = tokenData;
         if (access_token) {
             res.setHeader('Set-Cookie', `access_token=${access_token}; HttpOnly; Path=/`);
+            const original_url = req.query.original_url as string;
+
+            console.log({ original_url });
+
+            res.redirect(original_url ?? '/');
         }
-        const original_url = req.query.original_url as string;
-        res.redirect(original_url ?? '/');
+        res.redirect('/error?no-token-in-payload');
     } catch (error) {
         console.error(error);
         res.status(500).send('Error during OAuth callback');
