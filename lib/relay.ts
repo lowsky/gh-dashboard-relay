@@ -3,6 +3,7 @@ import { Environment, RecordSource, Store } from 'relay-runtime';
 import { RecordMap } from 'relay-runtime/lib/store/RelayStoreTypes';
 
 import { network } from './relayNetwork';
+import { isServerSideRendering } from './isServerSideRendering';
 
 const STORE_ENTRIES = 150;
 const STORE_CACHE_RELEASE_TIME = 2 * 60 * 1000; // 2 mins
@@ -18,10 +19,6 @@ function createEnvironment() {
     return new Environment({
         network,
         store,
-        log(_event) {
-            // comment-out for logging:
-            // console.log(_event);
-        },
     });
 }
 
@@ -34,10 +31,14 @@ export function initEnvironment(initialRecords?: RecordMap) {
         environment.getStore().publish(new RecordSource(initialRecords));
     }
     // For SSG and SSR always create a new Relay environment
-    if (typeof window === 'undefined') return environment;
+    if (isServerSideRendering()) {
+        return environment;
+    }
 
     // Create the Relay environment once in the client
-    if (!relayEnvironment) relayEnvironment = environment;
+    if (!relayEnvironment) {
+        relayEnvironment = environment;
+    }
 
     return relayEnvironment;
 }

@@ -8,7 +8,7 @@ import { resolvers } from 'lib/resolvers';
 import { getAccessToken } from 'lib/session';
 import { AuthorizedGitHub, getAuthorizedGitHub } from 'restinpeace/github';
 
-const schema = makeExecutableSchema({ typeDefs, resolvers });
+export const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 type SystemContext = {
     req: NextApiRequest;
