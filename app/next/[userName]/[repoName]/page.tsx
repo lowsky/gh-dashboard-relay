@@ -1,18 +1,18 @@
-'use server'
+'use server';
 // async data loading works only on the server side
 
 import React from 'react';
 
-import { getAuthorizedGitHub, User } from 'restinpeace/github';
-
-import { RepoType } from 'components/Repo';
+import type { User } from 'restinpeace/github';
+import type { RepoType } from 'components/Repo';
+import { authorizedGH } from 'lib/authorizedGH';
 import UserRepo from 'container/UserRepo';
 
 interface Props {
-    userData: Promise<User>;
-    repoData: Promise<RepoType>;
-    userName: string;
-    repoName: string;
+    params: {
+        userName: string;
+        repoName: string;
+    };
 }
 
 // @ts-ignore do not use in production
@@ -22,7 +22,7 @@ function delay(timeout) {
     });
 }
 
-export default async function Page(props) {
+export default async function Page(props: Props) {
     const { params } = props;
     const { userName, repoName } = params;
 
