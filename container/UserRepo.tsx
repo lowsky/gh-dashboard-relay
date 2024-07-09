@@ -41,10 +41,7 @@ const UserRepo: React.FC<UserRepoProps> = ({ user, repo }) => {
                 </Alert>
             )}
             {repo && <Repo repo={repo} />}
-            {user && (
-                // @ts-expect-error temporary ignore type mismatch
-                <User user={user} />
-            )}
+            {user && <User user={user} />}
             <RevalidateCacheButton pathPrefix="/restful" userName={userName} repoName={repoName} />
 
             {repo && <BranchesTable repo={repo} />}

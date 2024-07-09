@@ -4,7 +4,7 @@ import { Avatar, Heading, Box, Flex, Text, HStack } from '@chakra-ui/react';
 
 export interface UserType {
     avatar_url?: string;
-    company?: string;
+    company?: string | null;
     login?: string;
 }
 
