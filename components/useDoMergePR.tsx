@@ -1,4 +1,5 @@
-import { MergePullRequestsResponseDataType } from 'restinpeace/github';
+import type { MergePullRequestsResponseDataType } from 'restinpeace/github';
+
 import doMergePRAction from './doMergePRAction';
 
 export const useDoMergePR: ({
