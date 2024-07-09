@@ -26,28 +26,23 @@ export default async function Page(props: Props) {
     const { params } = props;
     const { userName, repoName } = params;
 
-    const userData = fetchUserPromise(userName);
-    const repoData = fetchRepoBranches({ userName, repoName });
-}
+    const userData = await fetchUserPromise(userName);
+    const repoData = await fetchRepoBranches({ userName, repoName });
 
     return <UserRepo user={userData} repo={repoData} />;
 }
 
 const fetchUserPromise: (userName) => Promise<User> = async (userName) => {
     await delay(200);
-    return getAuthorizedGitHub().fetchUser(userName);
+    return (await authorizedGH()).fetchUser(userName);
 };
 
 const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = async ({ userName, repoName }) => {
-    await delay(200);
-    return fetchRepoBranchesWithCommitStatusesAndPullRequestsProm({ userName, repoName });
-};
-
-const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = async ({ userName, repoName }) =>
-    getAuthorizedGitHub()
+    return (await authorizedGH())
         .fetchRepoBranchesWithCommitStatuses({ userName, repoName })
         .then((branchesWithCommit) => ({
             name: repoName,
             owner: { login: userName },
             branches: branchesWithCommit.branches,
         }));
+};
