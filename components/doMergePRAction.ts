@@ -7,7 +7,7 @@ export default async function doMergePRAction(
     userName: string,
     repoName: string,
     sha: string
-): Promise<MergePullRequestsResponseDataType | null> {
+): Promise<MergePullRequestsResponseDataType> {
     if (repoName && userName) {
         return (await authorizedGH()).mergePullRequest({
             owner: userName,
@@ -17,5 +17,5 @@ export default async function doMergePRAction(
             sha,
         });
     }
-    return null;
+    throw new Error('repo name and owner naem are required');
 }

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 
 import { Maybe } from 'restinpeace/types';
-import { getAuthorizedGitHub } from 'restinpeace/github';
+import { getAuthorizedGitHub, type MergePullRequestsResponseDataType } from 'restinpeace/github';
 import { createResource } from 'cache/reactCache';
 import { useUserRepo } from './useUserRepoFromRoute';
 
@@ -29,14 +29,21 @@ const getPR = createResource(
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
-export type DoMergePR = (num: number) => Promise<unknown>;
+export type DoMergePR = () => Promise<MergePullRequestsResponseDataType>;
 
 export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
     const { userName, repoName } = useUserRepo();
-    // @ts-expect-error number and sha is missing
-    const doMergePR: DoMergePR = useDoMergePR({ userName, repoName });
 
-    const [mergingInProgress, setMergingInProgress] = useState<Promise<unknown>>();
+    const { number, title, html_url } =
+        pullRequest ??
+        // load on-demand, if no pullRequest given
+        getPR.read({ userName, repoName, sha })?.find?.(Boolean) ??
+        {};
+
+    // @ts-expect-error number and sha is missing
+    const doMergePR: DoMergePR = useDoMergePR({ userName, repoName, num: number, sha });
+
+    const [mergingInProgress, setMergingInProgress] = useState<Promise<MergePullRequestsResponseDataType>>();
     const [isMerged, setIsMerged] = useState<boolean>(false);
     const [errorObject, setErrorObject] = useState<Error>();
 
@@ -56,17 +63,11 @@ export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoPro
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mergingInProgress]);
 
-    const { number, title, html_url } =
-        pullRequest ??
-        // load on-demand, if no pullRequest given
-        getPR.read({ userName, repoName, sha })?.find?.(Boolean) ??
-        {};
-
     if (!number || !html_url) {
         return null;
     }
 
-    const triggerMerging = () => setMergingInProgress(doMergePR(number));
+    const triggerMerging = () => setMergingInProgress(doMergePR());
 
     return (
         <VStack width="6em">
