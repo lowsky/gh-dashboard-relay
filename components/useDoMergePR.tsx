@@ -1,4 +1,5 @@
-import { MergePullRequestsResponseDataType } from 'restinpeace/github';
+import type { MergePullRequestsResponseDataType } from 'restinpeace/github';
+
 import doMergePRAction from './doMergePRAction';
 
 export const useDoMergePR: ({
@@ -11,11 +12,7 @@ export const useDoMergePR: ({
     repoName: string;
     num: number;
     sha: string;
-}) => () => Promise<null | MergePullRequestsResponseDataType> =
+}) => () => Promise<MergePullRequestsResponseDataType> =
     ({ userName, repoName, num, sha }) =>
-    () => {
-        if (repoName && userName && num && sha) {
-            return doMergePRAction(num, userName, repoName, sha);
-        }
-        return Promise.resolve(null);
-    };
+    () =>
+        doMergePRAction(num, userName, repoName, sha);

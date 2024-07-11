@@ -3,7 +3,7 @@ import { Octokit } from '@octokit/rest';
 
 import type { GithubStatus } from './types';
 
-import type { GithubBranch, GithubCommit, GithubRepo, GithubUser } from '../lib/types/resolvers';
+import type { GithubBranch, GithubCommit, GithubRepo, GithubUser } from 'lib/types/resolvers';
 
 export interface User {
     login: string;
@@ -135,8 +135,7 @@ export function getAuthorizedGitHub(optionalOcto?: Octokit): AuthorizedGitHub {
     };
 
     const getStatusesForRepo = async (owner: string, repo: string, sha: string): Promise<Array<GithubStatus>> => {
-        let repos = octo.repos;
-        const statuses = await repos.listCommitStatusesForRef({
+        const statuses = await octo.repos.listCommitStatusesForRef({
             ref: sha,
             repo,
             owner,
@@ -369,7 +368,9 @@ export function getAuthorizedGitHub(optionalOcto?: Octokit): AuthorizedGitHub {
         getCommitsForRepo,
         getLastCommit,
         getStatusesForRepo,
-        /**/
+        /*
+         * for relay support only
+         */
         getBranchesForRepo: async (username, reponame): Promise<Array<GithubBranch>> => {
             const branches = await octo.repos.listBranches({
                 owner: username,
