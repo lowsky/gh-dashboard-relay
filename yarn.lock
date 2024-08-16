@@ -5825,6 +5825,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/merge@npm:^9.0.6":
+  version: 9.0.6
+  resolution: "@graphql-tools/merge@npm:9.0.6"
+  dependencies:
+    "@graphql-tools/utils": "npm:^10.5.4"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 10c0/827b1335ee89854b083aff819dc1b1004a6f87fe591c33441da83f6157ced091b511956297f7b8af2399be6a78522bd7dc492979990ac5cc29a2f9a375b6e6a9
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/optimize@npm:^2.0.0":
   version: 2.0.0
   resolution: "@graphql-tools/optimize@npm:2.0.0"
@@ -5877,17 +5889,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:10.0.4, @graphql-tools/schema@npm:^10.0.4":
-  version: 10.0.4
-  resolution: "@graphql-tools/schema@npm:10.0.4"
+"@graphql-tools/schema@npm:10.0.6":
+  version: 10.0.6
+  resolution: "@graphql-tools/schema@npm:10.0.6"
   dependencies:
-    "@graphql-tools/merge": "npm:^9.0.3"
-    "@graphql-tools/utils": "npm:^10.2.1"
+    "@graphql-tools/merge": "npm:^9.0.6"
+    "@graphql-tools/utils": "npm:^10.5.4"
     tslib: "npm:^2.4.0"
     value-or-promise: "npm:^1.0.12"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/991c54513df6d81962c0c6a283085c42446854dac59715e28d26a47dc4676ecd6c634f018dc5d9f60fdd5c922f6f28bf6f8a522e236ed1e3725c56bc5f7ec608
+  checksum: 10c0/13df05c6696dd7ce63f1e773ad7be633db1c2a98eeff9d9695307f6588f3a987906eef01f68b74cafb0d2ee36aabe790bca67bda21662f1117d5fabac110ca3a
   languageName: node
   linkType: hard
 
@@ -5902,6 +5914,20 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 10c0/b746c69cefb3b89fad13d56f0abb9e764efe1569836ea9ae5e5c510a6f0bce6e08f324b28aebcb5b2c11ba2ea1c308f18c204e322a188e254e2c7e426d3ccecb
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/schema@npm:^10.0.4":
+  version: 10.0.4
+  resolution: "@graphql-tools/schema@npm:10.0.4"
+  dependencies:
+    "@graphql-tools/merge": "npm:^9.0.3"
+    "@graphql-tools/utils": "npm:^10.2.1"
+    tslib: "npm:^2.4.0"
+    value-or-promise: "npm:^1.0.12"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 10c0/991c54513df6d81962c0c6a283085c42446854dac59715e28d26a47dc4676ecd6c634f018dc5d9f60fdd5c922f6f28bf6f8a522e236ed1e3725c56bc5f7ec608
   languageName: node
   linkType: hard
 
@@ -6016,6 +6042,20 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
   checksum: 10c0/b154aa0cfac7fa56a5ffe09d4c56dd4651f50a8139d4010bebca48b62ffdce3a07727010a2d0c1a2263bdf35a6a937f402db0dcc5a8f06b7009b34a66d84c012
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:^10.5.4":
+  version: 10.5.4
+  resolution: "@graphql-tools/utils@npm:10.5.4"
+  dependencies:
+    "@graphql-typed-document-node/core": "npm:^3.1.1"
+    cross-inspect: "npm:1.0.1"
+    dset: "npm:^3.1.2"
+    tslib: "npm:^2.4.0"
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 10c0/006d499d87eb5ee4680c43b6848de8a84e51c948d1ca18f98a062a405cf79472b14b93b97a77a1416d7e635f82e60583d432b3c0c2eaaf29eee322e18b8f651f
   languageName: node
   linkType: hard
 
@@ -11328,6 +11368,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cross-inspect@npm:1.0.1":
+  version: 1.0.1
+  resolution: "cross-inspect@npm:1.0.1"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10c0/2493ee47a801b46ede1c42ca6242b8d2059f7319b5baf23887bbaf46a6ea8e536d2e271d0990176c05092f67b32d084ffd8c93e7c1227eff4a06cceadb49af47
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -11487,7 +11536,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": "npm:4.2.3"
     "@graphql-codegen/typescript-resolvers": "npm:4.2.1"
     "@graphql-eslint/eslint-plugin": "npm:^3.20.1"
-    "@graphql-tools/schema": "npm:10.0.4"
+    "@graphql-tools/schema": "npm:10.0.6"
     "@next/mdx": "npm:14.2.5"
     "@octokit/graphql-schema": "npm:15.25.0"
     "@octokit/rest": "npm:21.0.1"
