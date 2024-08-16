@@ -8576,10 +8576,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/relay-runtime@npm:17.0.1":
-  version: 17.0.1
-  resolution: "@types/relay-runtime@npm:17.0.1"
-  checksum: 10c0/f6fd980b703f677f72a3fbf1d8aacdb8dc0694f640aa479b47680dedc33648cc8e8fa908b0637fde0026fe1d9b99cfab1a029e3a8719b884ad673c3ae9bd6c79
+"@types/relay-runtime@npm:17.0.4":
+  version: 17.0.4
+  resolution: "@types/relay-runtime@npm:17.0.4"
+  checksum: 10c0/d784d49413d4e9da90274bcf8949d8f522e94f4663569c4eb915ccd69581f5035114b27d17ccd347243aa97315774b30c127c8c0692860a116293ecf2376430a
   languageName: node
   linkType: hard
 
@@ -11559,7 +11559,7 @@ __metadata:
     "@storybook/nextjs": "npm:8.2.9"
     "@storybook/react": "npm:^8.0.0"
     "@types/react-relay": "npm:16.0.6"
-    "@types/relay-runtime": "npm:17.0.1"
+    "@types/relay-runtime": "npm:17.0.4"
     "@typescript-eslint/eslint-plugin": "npm:8.1.0"
     "@typescript-eslint/parser": "npm:8.1.0"
     babel-plugin-relay: "npm:17.0.0"
