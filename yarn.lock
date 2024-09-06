@@ -4199,16 +4199,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@chromatic-com/storybook@npm:1.6.1"
+"@chromatic-com/storybook@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@chromatic-com/storybook@npm:1.9.0"
   dependencies:
     chromatic: "npm:^11.4.0"
     filesize: "npm:^10.0.12"
     jsonfile: "npm:^6.1.0"
     react-confetti: "npm:^6.1.0"
     strip-ansi: "npm:^7.1.0"
-  checksum: 10c0/411a2c9f44542c4940e6452846f1c2b71f4529640cefcf60396c1eb0a16cd2a4d27ba648523c73a7ca9b5b64f2a67b19159281add6730d0a237336a3856c8f37
+  checksum: 10c0/c4b0fbfcb3394c2814e445471b1528179c2144d70d4a13c9a70545c2f2052c6366f73893b16e1490e658d43d905fc726bbb78d7c126c839a3c7ee3d8f3ad21c2
   languageName: node
   linkType: hard
 
@@ -11535,7 +11535,7 @@ __metadata:
     "@chakra-ui/react": "npm:2.8.2"
     "@chakra-ui/storybook-addon": "npm:5.1.0"
     "@chakra-ui/system": "npm:2.6.2"
-    "@chromatic-com/storybook": "npm:1.6.1"
+    "@chromatic-com/storybook": "npm:1.9.0"
     "@emotion/react": "npm:11.13.0"
     "@emotion/styled": "npm:11.13.0"
     "@fortawesome/fontawesome-svg-core": "npm:6.6.0"
