@@ -74,7 +74,7 @@
     "@chakra-ui/icons": "2.1.1",
     "@chakra-ui/storybook-addon": "5.1.0",
     "@chakra-ui/system": "2.6.2",
-    "@chromatic-com/storybook": "1.6.1",
+    "@chromatic-com/storybook": "1.9.0",
     "@fortawesome/fontawesome-svg-core": "6.6.0",
     "@fortawesome/free-brands-svg-icons": "6.6.0",
     "@fortawesome/free-solid-svg-icons": "6.6.0",
