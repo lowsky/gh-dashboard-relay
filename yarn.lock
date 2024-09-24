@@ -12017,7 +12017,7 @@ __metadata:
     react-relay: "npm:18.0.0"
     relay-compiler: "npm:17.0.0"
     relay-compiler-language-typescript: "npm:15.0.1"
-    relay-runtime: "npm:17.0.0"
+    relay-runtime: "npm:18.0.0"
     storybook: "npm:8.3.2"
     ts-jest: "npm:29.2.5"
     typescript: "npm:5.5.4"
