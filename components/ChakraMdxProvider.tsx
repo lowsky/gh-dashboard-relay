@@ -40,7 +40,7 @@ export const A = (props) => <InternalLink {...props} />;
 export const Code = (props) => <ChakraCode {...props} />;
 
 export const ResponsiveImage = (props: ImageProps) => (
-    // eslint-disable-next-line jsx-a11y/alt-text
+    // This rule does not exist: eslint-disable-next-line jsx-a11y/alt-text
     <Image {...props} />
 );
 
