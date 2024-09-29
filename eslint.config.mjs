@@ -30,6 +30,12 @@ export default [
             '**/stories',
             '**/out_publish',
             '.yarn',
+            // TEMP:
+            // minor, outdated files, only configuration:
+            '.prettierrc.js',
+            'next.config.js',
+            'jest.config.js',
+            // TEMP
         ],
     },
     ...compat.extends('next', 'prettier'),
