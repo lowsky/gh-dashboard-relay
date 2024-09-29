@@ -29,6 +29,7 @@ export default [
             '**/stuff/',
             '**/stories',
             '**/out_publish',
+            '.yarn',
         ],
     },
     ...compat.extends('next', 'prettier'),
