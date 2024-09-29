@@ -3,6 +3,8 @@ import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import ts from 'typescript-eslint';
 import prettierConfigRecommended from 'eslint-plugin-prettier/recommended';
+import reactHooks from 'eslint-plugin-react-hooks';
+import { fixupPluginRules } from '@eslint/compat';
 
 import { FlatCompat } from '@eslint/eslintrc';
 
@@ -72,6 +74,17 @@ export default [
             'import/no-anonymous-default-export': 'off',
             'no-undef': 1,
             'no-console': 0,
+        },
+    },
+    {
+        plugins: { 'react-hooks': fixupPluginRules(reactHooks) },
+    },
+    {
+        // Hint: files IS required
+        files: ['**/*.{js,jsx,tsx}'],
+        rules: {
+            'react-hooks/rules-of-hooks': 'error',
+            'react-hooks/exhaustive-deps': 'warn',
         },
     },
 ];
