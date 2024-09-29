@@ -38,7 +38,7 @@ export default [
             // TEMP
         ],
     },
-    ...compat.extends('next', 'prettier'),
+    ...compat.extends('prettier'),
     ...ts.configs.recommended,
     {
         // temporary until code get changed
