@@ -40,16 +40,17 @@ export default [
     },
     ...ts.configs.recommended,
     {
-        // temporary until code get changed
+        // TEMP: until all sources got fixed
         rules: { '@typescript-eslint/no-explicit-any': 'off' },
-    }, {
-        // TEMP: temporary until code get changed
+    },
+    {
+        // TEMP: until sources got changed
         rules: {
             // e.g.  If you want a type meaning "any value", you probably want `unknown` instead
             '@typescript-eslint/ban-ts-comment': 'off',
             '@typescript-eslint/no-empty-object-type': 'off',
             '@typescript-eslint/no-wrapper-object-types': 'warn',
-            '@typescript-eslint/no-unused-vars': 'off'
+            '@typescript-eslint/no-unused-vars': 'off',
         },
     },
     prettierConfigRecommended,
