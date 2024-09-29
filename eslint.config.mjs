@@ -3,6 +3,7 @@ import prettier from 'eslint-plugin-prettier';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
+import ts from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,6 +32,20 @@ export default [
         ],
     },
     ...compat.extends('next', 'prettier'),
+    ...ts.configs.recommended,
+    {
+        // temporary until code get changed
+        rules: { '@typescript-eslint/no-explicit-any': 'off' },
+    }, {
+        // TEMP: temporary until code get changed
+        rules: {
+            // e.g.  If you want a type meaning "any value", you probably want `unknown` instead
+            '@typescript-eslint/ban-ts-comment': 'off',
+            '@typescript-eslint/no-empty-object-type': 'off',
+            '@typescript-eslint/no-wrapper-object-types': 'warn',
+            '@typescript-eslint/no-unused-vars': 'off'
+        },
+    },
     {
         plugins: {
             prettier,
