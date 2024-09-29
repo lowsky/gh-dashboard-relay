@@ -1,4 +1,4 @@
-const { readFileSync, writeFileSync } = require('fs');
+import { readFileSync, writeFileSync } from 'node:fs';
 
 function packageSchema(schemaSourcePath, schemaTargetPath) {
     const schema = readFileSync(schemaSourcePath, { encoding: 'utf-8' });
