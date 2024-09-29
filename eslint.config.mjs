@@ -38,6 +38,7 @@ export default [
             // TEMP
         ],
     },
+    js.configs.recommended,
     ...ts.configs.recommended,
     {
         // TEMP: until all sources got fixed
