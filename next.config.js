@@ -9,6 +9,10 @@ const nextConfig = {
         mdxRs: true,
     },
 
+    // until yarn next lint does not know
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     reactStrictMode: true,
 
     compiler: {
