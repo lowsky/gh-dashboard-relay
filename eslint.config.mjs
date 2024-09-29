@@ -16,6 +16,7 @@ const compat = new FlatCompat({
     allConfig: js.configs.all,
 });
 
+/** @type {import('typescript-eslint').Config} */
 export default [
     {
         ignores: [
@@ -31,6 +32,7 @@ export default [
             '**/stuff/',
             '**/stories',
             '**/out_publish',
+            '.next/**',
             '.yarn',
             // TEMP:
             // minor, outdated files, only configuration:
