@@ -75,6 +75,8 @@
     "@chakra-ui/storybook-addon": "5.1.0",
     "@chakra-ui/system": "2.6.2",
     "@chromatic-com/storybook": "2.0.2",
+    "@eslint/eslintrc": "3.1.0",
+    "@eslint/js": "9.11.1",
     "@fortawesome/fontawesome-svg-core": "6.6.0",
     "@fortawesome/free-brands-svg-icons": "6.6.0",
     "@fortawesome/free-solid-svg-icons": "6.6.0",
@@ -116,7 +118,8 @@
     "relay-compiler-language-typescript": "15.0.1",
     "storybook": "8.3.2",
     "ts-jest": "29.2.5",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.7.0"
   },
   "packageManager": "yarn@4.5.0"
 }
