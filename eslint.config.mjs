@@ -3,7 +3,10 @@ import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import ts from 'typescript-eslint';
 import prettierConfigRecommended from 'eslint-plugin-prettier/recommended';
+import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import nextPlugin from '@next/eslint-plugin-next';
+
 import { fixupPluginRules } from '@eslint/compat';
 
 import { FlatCompat } from '@eslint/eslintrc';
@@ -42,6 +45,17 @@ export default [
             // TEMP
         ],
     },
+    {
+        files: ['**/*.{js,jsx,ts,tsx}'],
+        plugins: {
+            '@next/next': fixupPluginRules(nextPlugin),
+        },
+        rules: {
+            ...nextPlugin.configs.recommended.rules,
+            ...nextPlugin.configs['core-web-vitals'].rules,
+        },
+    },
+
     js.configs.recommended,
     ...ts.configs.recommended,
     {
@@ -62,16 +76,24 @@ export default [
     {
         // TEMP: Some outdated, not properly formatted sources exist
         rules: {
-            'prettier/prettier': 0,
+            'prettier/prettier': 1,
         },
     },
     {
-        settings: {
-            react: {
-                version: 'detect',
-            },
+        files: ['**/*.{jsx,tsx}'],
+        plugins: {
+            react: fixupPluginRules(reactPlugin),
         },
-
+        settings: { react: { version: 'detect' } },
+        rules: {
+            ...reactPlugin.configs.recommended.rules,
+            // TEMP: code needs adoptions:
+            'react/react-in-jsx-scope': 0,
+            'react/prop-types': 0,
+        },
+    },
+    {
+        // TEMP code will need adoptions:
         rules: {
             'import/no-anonymous-default-export': 'off',
             'no-undef': 1,
@@ -86,7 +108,7 @@ export default [
         files: ['**/*.{js,jsx,tsx}'],
         rules: {
             'react-hooks/rules-of-hooks': 'error',
-            'react-hooks/exhaustive-deps': 'warn',
+            'react-hooks/exhaustive-deps': 'error',
         },
     },
 ];
