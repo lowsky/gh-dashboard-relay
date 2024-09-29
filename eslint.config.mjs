@@ -1,4 +1,4 @@
-import prettier from 'eslint-plugin-prettier';
+import prettierConfigRecommended from 'eslint-plugin-prettier/recommended';
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,7 +38,6 @@ export default [
             // TEMP
         ],
     },
-    ...compat.extends('prettier'),
     ...ts.configs.recommended,
     {
         // temporary until code get changed
@@ -53,11 +52,14 @@ export default [
             '@typescript-eslint/no-unused-vars': 'off'
         },
     },
+    prettierConfigRecommended,
     {
-        plugins: {
-            prettier,
+        // TEMP: Some outdated, not properly formatted sources exist
+        rules: {
+            'prettier/prettier': 0,
         },
-
+    },
+    {
         settings: {
             react: {
                 version: 'detect',
