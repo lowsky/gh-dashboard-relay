@@ -1,7 +1,4 @@
-
-import parser from "@graphql-eslint/eslint-plugin";
 import prettier from "eslint-plugin-prettier";
-import sonarjs from "eslint-plugin-sonarjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
@@ -32,14 +29,10 @@ export default [{
     ],
 }, ...compat.extends(
     "next",
-    "prettier",
-    "plugin:storybook/recommended",
-    "plugin:sonarjs/recommended",
+    "prettier"
 ), {
     plugins: {
-        "@graphql-eslint": graphqlEslint,
         prettier,
-        sonarjs,
     },
 
     settings: {
@@ -52,34 +45,5 @@ export default [{
         "import/no-anonymous-default-export": "off",
         "no-undef": 1,
         "no-console": 0,
-    },
-}, {
-    files: ["**/*.ts*"],
-    processor: "@graphql-eslint/graphql",
-}, ...compat.extends("plugin:@graphql-eslint/schema-recommended").map(config => ({
-    ...config,
-    files: ["**/*.graphql"],
-})), {
-    files: ["**/*.graphql"],
-
-    plugins: {
-        "@graphql-eslint": graphqlEslint,
-    },
-
-    languageOptions: {
-        parser: parser,
-        ecmaVersion: 5,
-        sourceType: "script",
-
-        parserOptions: {
-            schema: "./schema/schema.graphql",
-        },
-    },
-
-    rules: {
-        "@graphql-eslint/description-style": "warn",
-        "@graphql-eslint/require-description": "off",
-        "@graphql-eslint/strict-id-in-types": "off",
-        "@graphql-eslint/naming-convention": "warn",
     },
 }];
