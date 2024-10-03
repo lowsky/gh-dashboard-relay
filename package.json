@@ -86,7 +86,7 @@
     "@graphql-codegen/typescript-resolvers": "4.2.1",
     "@graphql-eslint/eslint-plugin": "^3.20.1",
     "@graphql-tools/schema": "10.0.6",
-    "@octokit/types": "13.5.1",
+    "@octokit/types": "13.6.1",
     "@storybook/addon-essentials": "8.3.2",
     "@storybook/addon-storyshots": "7.6.17",
     "@storybook/addons": "7.6.17",
