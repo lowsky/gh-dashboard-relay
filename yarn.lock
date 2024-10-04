@@ -12024,7 +12024,7 @@ __metadata:
     react-cache: "npm:latest"
     react-dom: "npm:next"
     react-relay: "npm:18.0.0"
-    relay-compiler: "npm:17.0.0"
+    relay-compiler: "npm:18.1.0"
     relay-compiler-language-typescript: "npm:15.0.1"
     relay-runtime: "npm:18.0.0"
     storybook: "npm:8.3.2"
@@ -19698,12 +19698,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:17.0.0":
-  version: 17.0.0
-  resolution: "relay-compiler@npm:17.0.0"
+"relay-compiler@npm:18.1.0":
+  version: 18.1.0
+  resolution: "relay-compiler@npm:18.1.0"
   bin:
     relay-compiler: cli.js
-  checksum: 10c0/302998376e2c6f7a71d3c78d2e351578bea3217b121d8cb642b40be56ed7aba816aadcab2271f538dab055a4e05a453ce4d76e7a10dd64b88c1ccfe07dc29ac0
+  checksum: 10c0/c274538d9102f8d8eb8d7f09dfa4fd59c03e92866114cf46f9afb004984bb25f053d17f35056b5f8d1902ac15327381698574f5ee6df1faa2a3e50eb303bcaf7
   languageName: node
   linkType: hard
 
@@ -19715,17 +19715,6 @@ __metadata:
     fbjs: "npm:^3.0.0"
     invariant: "npm:^2.2.4"
   checksum: 10c0/f5d29b5c2f3c8a3438d43dcbc3022bd454c4ecbd4f0b10616df08bedc62d8aaa84f155f23e374053cf9f4a8238b93804e37a5b37ed9dc7ad01436d62d1b01d53
-  languageName: node
-  linkType: hard
-
-"relay-runtime@npm:17.0.0":
-  version: 17.0.0
-  resolution: "relay-runtime@npm:17.0.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.0.0"
-    fbjs: "npm:^3.0.2"
-    invariant: "npm:^2.2.4"
-  checksum: 10c0/fa05682b4f910f49611cd77898cf4bcbfac34023f7d1b91e85b9d8a5f2fb61617c993d4a9462edb04115aadaff4e0d325ccefd0ac7af1092e576321c5893172d
   languageName: node
   linkType: hard
 
