@@ -11227,9 +11227,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:11.10.4":
-  version: 11.10.4
-  resolution: "chromatic@npm:11.10.4"
+"chromatic@npm:11.12.5":
+  version: 11.12.5
+  resolution: "chromatic@npm:11.12.5"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -11242,7 +11242,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/b14b43f7ded1c6536fd2b0edf0d5d2da1a0f36083d14a87ce0c069db83f7c4896b483238164199976343748b5b846640b6914dcf523b9e9e698145fe74f52bcd
+  checksum: 10c0/4a083e4b12ebd0e1f04f944fef66c8345d0895e4c42e253cc4726328b13207553d860fbd5955804fbea806ae06a58d88f8ef845e6c90ce8ce2bc62f5660a3c8e
   languageName: node
   linkType: hard
 
@@ -12002,7 +12002,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.7.0"
     "@typescript-eslint/parser": "npm:8.7.0"
     babel-plugin-relay: "npm:18.0.0"
-    chromatic: "npm:11.10.4"
+    chromatic: "npm:11.12.5"
     csstype: "npm:3.1.3"
     eslint: "npm:9.11.1"
     eslint-config-next: "npm:14.2.13"
@@ -19715,17 +19715,6 @@ __metadata:
     fbjs: "npm:^3.0.0"
     invariant: "npm:^2.2.4"
   checksum: 10c0/f5d29b5c2f3c8a3438d43dcbc3022bd454c4ecbd4f0b10616df08bedc62d8aaa84f155f23e374053cf9f4a8238b93804e37a5b37ed9dc7ad01436d62d1b01d53
-  languageName: node
-  linkType: hard
-
-"relay-runtime@npm:17.0.0":
-  version: 17.0.0
-  resolution: "relay-runtime@npm:17.0.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.0.0"
-    fbjs: "npm:^3.0.2"
-    invariant: "npm:^2.2.4"
-  checksum: 10c0/fa05682b4f910f49611cd77898cf4bcbfac34023f7d1b91e85b9d8a5f2fb61617c993d4a9462edb04115aadaff4e0d325ccefd0ac7af1092e576321c5893172d
   languageName: node
   linkType: hard
 
