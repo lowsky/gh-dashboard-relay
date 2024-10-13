@@ -45,8 +45,7 @@ export default [
         },
     },
     {
-        files: ['**/__tests__/*',
-        '**/*.test.*'],
+        files: ['**/__tests__/*', '**/*.test.*'],
         languageOptions: {
             globals: {
                 ...globals.jest,

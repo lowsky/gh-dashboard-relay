@@ -2,7 +2,6 @@
 import { type FetchFunction, type GraphQLResponse, Network, Observable } from 'relay-runtime';
 import { meros } from 'meros';
 import { type ExecutionResult, graphql } from 'graphql';
-import type { ObjMap } from 'graphql/jsutils/ObjMap';
 import type { ExecutionPatchResult } from 'graphql-ws';
 
 import { schema } from 'pages/api/graphql';
