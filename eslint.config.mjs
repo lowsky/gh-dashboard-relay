@@ -45,6 +45,15 @@ export default [
         },
     },
     {
+        files: ['**/__tests__/*',
+        '**/*.test.*'],
+        languageOptions: {
+            globals: {
+                ...globals.jest,
+            },
+        },
+    },
+    {
         plugins: {
             '@next/next': fixupPluginRules(nextPlugin),
         },
