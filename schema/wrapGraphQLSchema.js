@@ -1,4 +1,4 @@
-const { readFileSync, writeFileSync } = require('fs');
+import { readFileSync, writeFileSync } from 'node:fs';
 
 function packageSchema(schemaSourcePath, schemaTargetPath) {
     const schema = readFileSync(schemaSourcePath, { encoding: 'utf-8' });
@@ -15,4 +15,6 @@ ${schema}
     console.log(`Wrapped schema from ${schemaSourcePath} into ${schemaTargetPath} . Use import it via: 
     import { typeDefs } from './${schemaTargetPath}' // adapt path!`);
 }
+
+// loads schema and writes new one wrapped to be loaded without any bundler config.
 packageSchema('schema/schema.graphql', 'lib/localSchema.ts');

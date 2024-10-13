@@ -20,7 +20,7 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
 
     const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
 
-    let mainMessage = message?.split('\n\n', 1);
+    const mainMessage = message?.split('\n\n', 1);
 
     return (
         <>

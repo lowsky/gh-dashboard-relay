@@ -4,14 +4,14 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
     const gh_oauth_app_url =
         // env variable: NEXT_PUBLIC_VERCEL_URL: the public, production url.
         (process.env.VERCEL_ENV === 'production'
-            ? // if set in vercel's env
-              process.env.NEXT_GH_OAUTH_URL ?? // env variable: NEXT_PUBLIC_VERCEL_URL: the public, production url.
-              process.env.NEXT_PUBLIC_VERCEL_URL
+            ? // if set in Vercel env
+              (process.env.NEXT_GH_OAUTH_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL)
             : // The domain name of the generated Git branch URL. Example: *-git-*.vercel.app.
               // The value does not include the protocol scheme https://.
-              process.env.VERCEL_BRANCH_URL) ?? 'http://localhost:3000/api/auth/callback';
+              // this will be checked and added below, if it is needed.
+              process.env.VERCEL_BRANCH_URL) ?? 'localhost:3000';
 
-    console.log('diagnosis');
+    console.log('diagnosis:');
     console.log('VERCEL_ENV', process.env.VERCEL_ENV);
     console.log('NEXT_GH_OAUTH_URL', process.env.NEXT_GH_OAUTH_URL);
     console.log('NEXT_PUBLIC_VERCEL_URL', process.env.NEXT_PUBLIC_VERCEL_URL);
@@ -34,9 +34,5 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
 
     console.log({ githubAuthUrl });
 
-    if (gh_oauth_app_url) {
-        res.redirect(githubAuthUrl);
-    } else {
-        console.error('Sorry, redirect-url-base on cannot be undefined, please check env: NEXT_PUBLIC_VERCEL_URL');
-    }
+    res.redirect(githubAuthUrl);
 }

@@ -19,5 +19,9 @@ export const RevalidateCacheButton = ({ pathPrefix, userName, repoName }: Revali
         await revalidateCache({ pathPrefix, userName, repoName });
         setLoading(false);
     };
-    return <Button onClick={onClick} isLoading={loading}>Update, revalidate Cache</Button>;
+    return (
+        <Button onClick={onClick} isLoading={loading}>
+            Update, revalidate Cache
+        </Button>
+    );
 };

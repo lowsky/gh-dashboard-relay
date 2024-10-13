@@ -1,5 +1,6 @@
-const { relay } = require('./package.json');
-const withMDX = require('@next/mdx')();
+import { relay } from './package.json';
+import nextMDX from '@next/mdx';
+const withMDX = nextMDX();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -9,6 +10,10 @@ const nextConfig = {
         mdxRs: true,
     },
 
+    // until yarn next lint does not know
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     reactStrictMode: true,
 
     compiler: {
@@ -16,4 +21,4 @@ const nextConfig = {
     },
 };
 
-module.exports = withMDX(nextConfig);
+export default withMDX(nextConfig);

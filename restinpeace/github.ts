@@ -401,7 +401,7 @@ export function getAuthorizedGitHub(optionalOcto?: Octokit): AuthorizedGitHub {
     };
 }
 
-export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: String } {
+export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: string } {
     return {
         ...obj,
         id: String(obj.id),
