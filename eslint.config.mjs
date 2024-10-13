@@ -7,6 +7,8 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import nextPlugin from '@next/eslint-plugin-next';
 
+import globals from 'globals';
+
 import { fixupPluginRules } from '@eslint/compat';
 
 import { FlatCompat } from '@eslint/eslintrc';
@@ -26,6 +28,21 @@ export default [
     {
         // also work on typescript files with extensions tsx
         files: ['**/*.{js,jsx,ts,tsx}'],
+    },
+    {
+        files: ['pages/api/**/*'],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+    },
+    {
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+            },
+        },
     },
     {
         plugins: {
