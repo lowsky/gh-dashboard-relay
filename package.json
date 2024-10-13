@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/lowsky/dashboard.git"
   },
+  "type": "module",
   "keywords": [
     "graphql",
     "relay",
