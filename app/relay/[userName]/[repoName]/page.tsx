@@ -19,7 +19,7 @@ const RelayRoot = () => {
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href="/relay">back to shortcut list</InternalLink>
-             {
+            {
                 // @ts-expect-error typemismatch cannot be used as a JSX component.
                 <RelayEnvironmentProvider environment={environment}>
                     <RichErrorBoundary>

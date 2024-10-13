@@ -22,7 +22,7 @@ const fetchQuery: FetchFunction = (params, variables, _cacheConfig) => {
                         getAuthorizedGitHub,
                     },
                 });
-                const value: ExecutionResult<ObjMap<unknown>, ObjMap<unknown>> = await graphqlOp;
+                const value: ExecutionResult = await graphqlOp;
                 const errors = value.errors ?? [];
                 // @ts-expect-error errors cannot be assigned to non-readonly field
                 sink.next({ ...value, data: value.data ?? {}, errors });
