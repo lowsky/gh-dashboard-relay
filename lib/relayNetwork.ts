@@ -2,7 +2,6 @@
 import { type FetchFunction, type GraphQLResponse, Network, Observable } from 'relay-runtime';
 import { meros } from 'meros';
 import { type ExecutionResult, graphql } from 'graphql';
-import type { ObjMap } from 'graphql/jsutils/ObjMap';
 import type { ExecutionPatchResult } from 'graphql-ws';
 
 import { schema } from 'pages/api/graphql';
@@ -22,7 +21,7 @@ const fetchQuery: FetchFunction = (params, variables, _cacheConfig) => {
                         getAuthorizedGitHub,
                     },
                 });
-                const value: ExecutionResult<ObjMap<unknown>, ObjMap<unknown>> = await graphqlOp;
+                const value: ExecutionResult = await graphqlOp;
                 const errors = value.errors ?? [];
                 // @ts-expect-error errors cannot be assigned to non-readonly field
                 sink.next({ ...value, data: value.data ?? {}, errors });

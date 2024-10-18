@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/lowsky/dashboard.git"
   },
+  "type": "module",
   "keywords": [
     "graphql",
     "relay",
@@ -18,14 +19,13 @@
   "engines": {},
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
     "build:relay": "relay-compiler && prettier -w relay/__generated__ queries/__generated__",
     "build:resolvers": "node schema/wrapGraphQLSchema && graphql-codegen --config schema/codegen.yml",
     "codegen": "yarn run build:relay && yarn run build:resolvers",
     "format": "prettier . --cache -l -w",
-    "vercel-build": "yarn run codegen && yarn run build",
-    "vercel-build:without-chromatic": "yarn run vercel-build",
+    "vercel-build:without-chromatic": "yarn run build",
     "lint": "eslint .",
     "test": "jest --cache",
     "coverage": "yarn run test --coverage",
@@ -75,6 +75,9 @@
     "@chakra-ui/storybook-addon": "5.1.0",
     "@chakra-ui/system": "2.6.2",
     "@chromatic-com/storybook": "2.0.2",
+    "@eslint/compat": "1.1.1",
+    "@eslint/eslintrc": "3.1.0",
+    "@eslint/js": "9.11.1",
     "@fortawesome/fontawesome-svg-core": "6.6.0",
     "@fortawesome/free-brands-svg-icons": "6.6.0",
     "@fortawesome/free-solid-svg-icons": "6.6.0",
@@ -103,6 +106,7 @@
     "eslint-config-next": "14.2.13",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-sonarjs": "2.0.2",
     "eslint-plugin-storybook": "0.8.0",
     "identity-obj-proxy": "3.0.0",
@@ -116,7 +120,8 @@
     "relay-compiler-language-typescript": "15.0.1",
     "storybook": "8.3.2",
     "ts-jest": "29.2.5",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.7.0"
   },
   "packageManager": "yarn@4.5.0"
 }
