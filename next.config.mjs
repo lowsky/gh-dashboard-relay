@@ -1,4 +1,4 @@
-import { relay } from './package.json';
+import pack from './package.json' with { type: 'json' };
 import nextMDX from '@next/mdx';
 const withMDX = nextMDX();
 
@@ -10,14 +10,14 @@ const nextConfig = {
         mdxRs: true,
     },
 
-    // until yarn next lint does not know
+    // until yarn next lint does not know how to use eslint9
     eslint: {
         ignoreDuringBuilds: true,
     },
     reactStrictMode: true,
 
     compiler: {
-        relay,
+        relay: pack.relay,
     },
 };
 
