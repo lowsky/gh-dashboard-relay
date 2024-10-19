@@ -90,7 +90,7 @@
     "@graphql-codegen/typescript-operations": "4.3.0",
     "@graphql-codegen/typescript-resolvers": "4.3.0",
     "@graphql-eslint/eslint-plugin": "^3.20.1",
-    "@graphql-tools/schema": "10.0.6",
+    "@graphql-tools/schema": "10.0.7",
     "@octokit/types": "13.6.1",
     "@storybook/addon-essentials": "8.3.6",
     "@storybook/addon-storyshots": "7.6.17",
