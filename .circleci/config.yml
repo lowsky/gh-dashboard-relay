@@ -50,4 +50,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - deploy
+      - deploy:
+          filters:
+            branches:
+              ignore: /main/
