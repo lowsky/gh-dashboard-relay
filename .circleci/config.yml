@@ -4,14 +4,16 @@ version: 2.1
 orbs:
   node: circleci/node@6.3.0
 jobs:
-  build:
+  deploy:
     # Install node dependencies and run tests
     executor: node/default
     resource_class: lowsky/selfhosted
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: yarn
+          check-cache: always
+          pkg-manager: yarn-berry
+          with-cache: false
       - run:
           name: Print node install help instructions
           command: |-
@@ -35,22 +37,6 @@ jobs:
           name: Run vercel build
           command: yarn vercel build
       - run:
-          name: Run ls .vercel
-          command: ls -la ~/project/.vercel
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .vercel
-
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    executor: node/default
-    resource_class: lowsky/selfhosted
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-      - run:
           name: Run ls
           command: ls -la ~/project
       - attach_workspace:
@@ -64,7 +50,4 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - deploy
