@@ -20,9 +20,8 @@
   "scripts": {
     "dev": "next dev",
     "circle:setup": "vercel link -y --repo --debug --project gh-dashboard-relay -t $VERCEL_TOKEN ; vercel -t $VERCEL_TOKEN pull",
-    "build": "mkdir -p public ; date > public/built.txt ; echo simulated build.",
     "circle:deploy": "vercel -y -t $VERCEL_TOKEN deploy --prebuilt",
-    "temp_dis_build": "yarn run codegen && yarn next build",
+    "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
     "build:relay": "relay-compiler && prettier -w relay/__generated__ queries/__generated__",
     "build:resolvers": "node schema/wrapGraphQLSchema && graphql-codegen --config schema/codegen.yml",
