@@ -19,6 +19,8 @@
   "engines": {},
   "scripts": {
     "dev": "next dev",
+    "circle:setup": "vercel link -y --repo --debug --project gh-dashboard-relay -t $VERCEL_TOKEN ; vercel -t $VERCEL_TOKEN pull",
+    "circle:deploy": "vercel -y -t $VERCEL_TOKEN deploy --prebuilt",
     "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
     "build:relay": "relay-compiler && prettier -w relay/__generated__ queries/__generated__",
@@ -121,7 +123,8 @@
     "storybook": "8.3.2",
     "ts-jest": "29.2.5",
     "typescript": "5.5.4",
-    "typescript-eslint": "8.7.0"
+    "typescript-eslint": "8.7.0",
+    "vercel": "37.11.0"
   },
   "packageManager": "yarn@4.5.0"
 }
