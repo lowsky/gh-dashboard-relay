@@ -19,7 +19,7 @@
   "engines": {},
   "scripts": {
     "dev": "next dev",
-    "circle:setup": "vercel link -y -d -t $VERCEL_TOKEN ; vercel -t $VERCEL_TOKEN pull",
+    "circle:setup": "vercel link -y --repo --debug --project gh-dashboard-relay -t $VERCEL_TOKEN ; vercel -t $VERCEL_TOKEN pull",
     "build": "mkdir -p public ; date > public/built.txt ; echo simulated build.",
     "circle:deploy": "vercel -y -t $VERCEL_TOKEN deploy --prebuilt",
     "temp_dis_build": "yarn run codegen && yarn next build",
