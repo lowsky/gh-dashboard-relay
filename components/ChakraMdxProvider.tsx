@@ -1,7 +1,16 @@
 'use client';
 import { Image, ImageProps } from '@chakra-ui/next-js';
-import { Box as ChakraBox, Code as ChakraCode, Heading, List, Text } from '@chakra-ui/react';
-import { HeadingProps, BoxProps, TextProps, ListProps } from '@chakra-ui/layout';
+import {
+    Box as ChakraBox,
+    Code as ChakraCode,
+    Heading,
+    List,
+    Text,
+    HeadingProps,
+    BoxProps,
+    TextProps,
+    ListProps,
+} from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
 
