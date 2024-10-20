@@ -11853,7 +11853,7 @@ __metadata:
     react: "npm:next"
     react-cache: "npm:latest"
     react-dom: "npm:next"
-    react-relay: "npm:18.0.0"
+    react-relay: "npm:18.1.0"
     relay-compiler: "npm:18.1.0"
     relay-compiler-language-typescript: "npm:15.0.1"
     relay-runtime: "npm:18.1.0"
@@ -19840,18 +19840,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:18.0.0":
-  version: 18.0.0
-  resolution: "react-relay@npm:18.0.0"
+"react-relay@npm:18.1.0":
+  version: 18.1.0
+  resolution: "react-relay@npm:18.1.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:18.0.0"
+    relay-runtime: "npm:18.1.0"
   peerDependencies:
     react: ^16.9.0 || ^17 || ^18
-  checksum: 10c0/613bd11f26eceb934a13dbf644ac9a670ee436e8785285611c3670c3ea9b16b37b61a0e12b0703a8fecc19f2d6b57be65e01bba4631f2ec1e81a2a90262ec98d
+  checksum: 10c0/d074092360ade1f202586c9023934e63c1d6f491a65eefa5a37ef31d243097fc7835683a91656a4f9c5e8493c08156a9c277a7e22f1e12530c95fa6ff3d05818
   languageName: node
   linkType: hard
 
