@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { Button } from '@chakra-ui/react';
 
-import { revalidateCache } from 'actions/doRevalidateCache';
+import { revalidateCache } from 'app/actions/doRevalidateCache';
 
 export default interface RevalidateCacheButtonProps {
     pathPrefix: string;
