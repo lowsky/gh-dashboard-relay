@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, use } from 'react';
+import React, { Suspense } from 'react';
 import { Center, Heading, HStack } from '@chakra-ui/react';
 
 import { Spinner } from 'components/Spinner';
@@ -13,15 +13,8 @@ import { UserRepoFetchAll, UserRepoWaterfall } from 'container/LazyUserRepo';
 
 import styles from './side-by-side.module.css';
 
-interface Props {
-    params: Promise<{
-        userName: string;
-        repoName: string;
-    }>;
-}
-
-function SideBySide({ params }: Props) {
-    const { userName, repoName } = use(params);
+function SideBySide(props) {
+    const { userName, repoName } = props.params;
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href="/side-by-side">back to shortcut list</InternalLink>

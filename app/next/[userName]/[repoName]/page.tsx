@@ -9,10 +9,10 @@ import { authorizedGH } from 'lib/authorizedGH';
 import UserRepo from 'container/UserRepo';
 
 interface Props {
-    params: Promise<{
+    params: {
         userName: string;
         repoName: string;
-    }>;
+    };
 }
 
 // @ts-ignore do not use in production
@@ -24,7 +24,7 @@ function delay(timeout) {
 
 export default async function Page(props: Props) {
     const { params } = props;
-    const { userName, repoName } = await params;
+    const { userName, repoName } = params;
 
     const userData = await fetchUserPromise(userName);
     const repoData = await fetchRepoBranches({ userName, repoName });
