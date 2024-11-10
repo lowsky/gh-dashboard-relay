@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<275157a056440ef4171929dd8c9bbbc7>>
+ * @generated SignedSource<<55a19d02e76a70d5966069414d57ef58>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestInfo_pullRequest$data = {
     readonly head: {

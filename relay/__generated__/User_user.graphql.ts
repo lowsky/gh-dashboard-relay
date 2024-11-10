@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f86fc24d4565fdeb001549d0c44d40fe>>
+ * @generated SignedSource<<4016617b55a1e135fcb9907b15d5071e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type User_user$data = {
     readonly avatar_url: string | null | undefined;

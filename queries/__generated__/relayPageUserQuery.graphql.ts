@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0f83982787423b2a931c0860455e398a>>
+ * @generated SignedSource<<48de716cbaf925682bb40eec15bd5ec7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest, Query } from 'relay-runtime';
+import { ConcreteRequest } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type relayPageUserQuery$variables = {
     userName: string;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<06109b425ce0f39481fdd7e979318753>>
+ * @generated SignedSource<<c4d18799ad2a4186e5e32e66227140c7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type BranchInfoRow_branch$data = {
     readonly lastCommit:

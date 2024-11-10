@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<5472c3dc55646736481b02154df7c70d>>
+ * @generated SignedSource<<049d0c4dc213090ec85da56b62d00169>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type CommitWithStatuses_commit$data = {
     readonly date: string | null | undefined;

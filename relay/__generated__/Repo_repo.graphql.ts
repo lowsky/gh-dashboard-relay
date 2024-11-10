@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<cadeed4b10d1079059f5be97e663c5ab>>
+ * @generated SignedSource<<d514187914a5a36c0c52e368d1a8275a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type Repo_repo$data = {
     readonly name: string | null | undefined;
