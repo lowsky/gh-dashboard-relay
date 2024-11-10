@@ -6,7 +6,6 @@ import UILibContext from 'components/UILibContext';
 import { UILibPureComponents } from 'components/UILibPureComponents';
 
 export default {
-    title: 'Pages/Main',
     component: IndexPage,
     decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };

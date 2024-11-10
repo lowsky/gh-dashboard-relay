@@ -6,7 +6,6 @@ import UILibContext from 'components/UILibContext';
 import { UILibPureComponents } from 'components/UILibPureComponents';
 
 const meta: Meta<typeof WaterfallPage> = {
-    title: 'Pages/Waterfall',
     component: WaterfallPage,
     decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };
