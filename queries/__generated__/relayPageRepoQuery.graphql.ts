@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9b69496fc548343dfcfaaa55cc0a5b1b>>
+ * @generated SignedSource<<92a09245da903c4fa645592936684dee>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { ConcreteRequest, Query } from 'relay-runtime';
+import { ConcreteRequest } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type relayPageRepoQuery$variables = {
     repoName: string;

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b25e29b461750ecf80b7a479faa11416>>
+ * @generated SignedSource<<7bdbcbd54976bf25c27e609073320575>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type UserRepo_user$data = {
     readonly ' $fragmentSpreads': FragmentRefs<'User_user'>;

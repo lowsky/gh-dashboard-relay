@@ -205,21 +205,21 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping of union types */
 export type ResolversUnionTypes<_RefType extends Record<string, unknown>> = {
-  UserOrCommitAuthor: ( GithubCommitAuthor ) | ( GithubUser );
+  UserOrCommitAuthor: ( GithubCommitAuthor ) | ( Omit<GithubUser, 'repos'> & { repos?: Maybe<Array<Maybe<_RefType['GithubRepo']>>> } );
 };
 
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
-  GithubAPI: ResolverTypeWrapper<GithubApi>;
-  GithubBranch: ResolverTypeWrapper<GithubBranch>;
+  GithubAPI: ResolverTypeWrapper<Omit<GithubApi, 'repo' | 'user'> & { repo?: Maybe<ResolversTypes['GithubRepo']>, user?: Maybe<ResolversTypes['GithubUser']> }>;
+  GithubBranch: ResolverTypeWrapper<Omit<GithubBranch, 'lastCommit'> & { lastCommit?: Maybe<ResolversTypes['GithubCommit']> }>;
   GithubCommit: ResolverTypeWrapper<Omit<GithubCommit, 'author'> & { author?: Maybe<ResolversTypes['UserOrCommitAuthor']> }>;
   GithubCommitAuthor: ResolverTypeWrapper<GithubCommitAuthor>;
   GithubGitTip: ResolverTypeWrapper<GithubGitTip>;
-  GithubRepo: ResolverTypeWrapper<GithubRepo>;
+  GithubRepo: ResolverTypeWrapper<Omit<GithubRepo, 'branches' | 'commits' | 'owner'> & { branches?: Maybe<Array<Maybe<ResolversTypes['GithubBranch']>>>, commits?: Maybe<Array<Maybe<ResolversTypes['GithubCommit']>>>, owner?: Maybe<ResolversTypes['GithubUser']> }>;
   GithubStatus: ResolverTypeWrapper<GithubStatus>;
-  GithubUser: ResolverTypeWrapper<GithubUser>;
+  GithubUser: ResolverTypeWrapper<Omit<GithubUser, 'repos'> & { repos?: Maybe<Array<Maybe<ResolversTypes['GithubRepo']>>> }>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   PullRequest: ResolverTypeWrapper<PullRequest>;
   Query: ResolverTypeWrapper<{}>;
@@ -230,14 +230,14 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
-  GithubAPI: GithubApi;
-  GithubBranch: GithubBranch;
+  GithubAPI: Omit<GithubApi, 'repo' | 'user'> & { repo?: Maybe<ResolversParentTypes['GithubRepo']>, user?: Maybe<ResolversParentTypes['GithubUser']> };
+  GithubBranch: Omit<GithubBranch, 'lastCommit'> & { lastCommit?: Maybe<ResolversParentTypes['GithubCommit']> };
   GithubCommit: Omit<GithubCommit, 'author'> & { author?: Maybe<ResolversParentTypes['UserOrCommitAuthor']> };
   GithubCommitAuthor: GithubCommitAuthor;
   GithubGitTip: GithubGitTip;
-  GithubRepo: GithubRepo;
+  GithubRepo: Omit<GithubRepo, 'branches' | 'commits' | 'owner'> & { branches?: Maybe<Array<Maybe<ResolversParentTypes['GithubBranch']>>>, commits?: Maybe<Array<Maybe<ResolversParentTypes['GithubCommit']>>>, owner?: Maybe<ResolversParentTypes['GithubUser']> };
   GithubStatus: GithubStatus;
-  GithubUser: GithubUser;
+  GithubUser: Omit<GithubUser, 'repos'> & { repos?: Maybe<Array<Maybe<ResolversParentTypes['GithubRepo']>>> };
   Int: Scalars['Int']['output'];
   PullRequest: PullRequest;
   Query: {};

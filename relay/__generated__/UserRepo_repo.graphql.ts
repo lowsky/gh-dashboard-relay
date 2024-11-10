@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f396160acd7b1430a88164d0a4f27cc8>>
+ * @generated SignedSource<<9b55e8b915b22012fe7005225e1a4aca>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type UserRepo_repo$data = {
     readonly ' $fragmentSpreads': FragmentRefs<'BranchesTable_repo' | 'Repo_repo'>;
