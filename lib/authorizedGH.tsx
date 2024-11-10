@@ -5,7 +5,7 @@ import { Octokit } from '@octokit/rest';
 import { AuthorizedGitHub, getAuthorizedGitHub } from 'restinpeace/github';
 
 export async function authorizedGH(): Promise<AuthorizedGitHub> {
-    const access_token = (await cookies()).get('access_token')?.value;
+    const access_token = cookies().get('access_token')?.value;
     const octo = new Octokit({
         auth: access_token,
     });
