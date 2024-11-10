@@ -6,7 +6,6 @@ import UILibContext from 'components/UILibContext';
 import { UILibPureComponents } from 'components/UILibPureComponents';
 
 const meta: Meta<typeof RestfulPage> = {
-    title: 'Pages/Restful',
     component: RestfulPage,
     decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };

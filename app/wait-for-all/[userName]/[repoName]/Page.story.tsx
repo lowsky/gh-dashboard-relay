@@ -6,7 +6,6 @@ import UILibContext from 'components/UILibContext';
 import { UILibPureComponents } from 'components/UILibPureComponents';
 
 const meta: Meta<typeof Page> = {
-    title: 'Pages/Wait-for-all',
     component: Page,
     decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
 };
