@@ -7,7 +7,7 @@ interface Props {
     children: ReactNode;
 }
 
-const WhenNotAuthenticated = async (props: Props) => {
+const WhenNotAuthenticated = (props: Props) => {
     const access_token = cookies().getAll('access_token') ?? [];
     const hasAccessToken = access_token.length > 0;
     return <>{!hasAccessToken && props.children}</>;
