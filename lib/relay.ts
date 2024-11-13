@@ -1,16 +1,15 @@
 import { useMemo } from 'react';
-import { Environment, RecordSource, Store } from 'relay-runtime';
+import { IEnvironment, Environment, INetwork, RecordSource, Store } from 'relay-runtime';
 import { RecordMap } from 'relay-runtime/lib/store/RelayStoreTypes';
 
 import { network } from './relayNetwork';
-import { isServerSideRendering } from './isServerSideRendering';
 
-const STORE_ENTRIES = 150;
-const STORE_CACHE_RELEASE_TIME = 2 * 60 * 1000; // 2 mins
+const STORE_ENTRIES = 250;
+const STORE_CACHE_RELEASE_TIME = 10 * 1000; // 10 seconds
 
-let relayEnvironment: any;
+const IS_SERVER = typeof window === typeof undefined;
 
-function createEnvironment() {
+function createEnvironment(network: INetwork): IEnvironment {
     const source = new RecordSource();
     const store = new Store(source, {
         gcReleaseBufferSize: STORE_ENTRIES,
@@ -19,30 +18,22 @@ function createEnvironment() {
     return new Environment({
         network,
         store,
+        isServer: IS_SERVER,
     });
 }
 
-export function initEnvironment(initialRecords?: RecordMap) {
-    const environment = relayEnvironment ?? createEnvironment();
+function initEnvironment(network: INetwork, initialRecords?: RecordMap): IEnvironment {
+    const environment = createEnvironment(network);
 
     // If your page has Next.js data fetching methods that use Relay, the initial records
     // will get hydrated here
     if (initialRecords) {
         environment.getStore().publish(new RecordSource(initialRecords));
     }
-    // For SSG and SSR always create a new Relay environment
-    if (isServerSideRendering()) {
-        return environment;
-    }
 
-    // Create the Relay environment once in the client
-    if (!relayEnvironment) {
-        relayEnvironment = environment;
-    }
-
-    return relayEnvironment;
+    return environment;
 }
 
-export function useEnvironment(initialRecords: RecordMap) {
-    return useMemo(() => initEnvironment(initialRecords), [initialRecords]);
+export function useEnvironment(initialRecords: RecordMap): IEnvironment {
+    return useMemo(() => initEnvironment(network(), initialRecords), [initialRecords]);
 }
