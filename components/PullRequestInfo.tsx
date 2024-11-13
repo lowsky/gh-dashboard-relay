@@ -1,20 +1,13 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { Icon, Link, VStack } from '@chakra-ui/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 import { Maybe } from 'restinpeace/types';
-import { getAuthorizedGitHub, type MergePullRequestsResponseDataType } from 'restinpeace/github';
-import { createResource } from 'cache/reactCache';
-import { useUserRepo } from './useUserRepoFromRoute';
-
-import { useDoMergePR } from './useDoMergePR';
-import { MergeButtonWithErrorStatus } from './MergeButtonWithErrorStatus';
+import PullRequestMerge from './PullRequestMerge';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;
     sha?: Maybe<string>;
+    userName?: Maybe<string>;
+    repoName?: Maybe<string>;
 };
 
 export type PullRequestData = {
@@ -23,72 +16,14 @@ export type PullRequestData = {
     number: number;
 };
 
-const getPR = createResource(
-    ({ userName, repoName, sha }) =>
-        getAuthorizedGitHub().fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
-    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
-);
-
-export type DoMergePR = () => Promise<MergePullRequestsResponseDataType>;
-
-export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
-    const { userName, repoName } = useUserRepo();
-
-    const { number, title, html_url } =
-        pullRequest ??
-        // load on-demand, if no pullRequest given
-        getPR.read({ userName, repoName, sha })?.find?.(Boolean) ??
-        {};
-
-    // @ts-expect-error number and sha is missing
-    const doMergePR: DoMergePR = useDoMergePR({ userName, repoName, num: number, sha });
-
-    const [mergingInProgress, setMergingInProgress] = useState<Promise<MergePullRequestsResponseDataType>>();
-    const [isMerged, setIsMerged] = useState<boolean>(false);
-    const [errorObject, setErrorObject] = useState<Error>();
-
-    function logAndSetError(errorObject: Error) {
-        console.error('Unsuccessful attempt to merge PR', pullRequest?.number, errorObject);
-        setErrorObject(errorObject);
+export default function PullRequestInfoClient({ pullRequest /*sha, userName, repoName*/ }: PullRequestInfoProps) {
+    if (pullRequest) {
+        return <PullRequestMerge pullRequest={pullRequest} />;
     }
-
-    useEffect(() => {
-        if (mergingInProgress) {
-            setErrorObject(undefined);
-            mergingInProgress
-                .then(() => setIsMerged(true))
-                .catch((err) => logAndSetError(err))
-                .finally(() => setMergingInProgress(undefined));
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [mergingInProgress]);
-
-    if (!number || !html_url) {
-        return null;
+    /* temporary disabled, could be implemented later, using some library to load data
+    if (sha && userName && repoName) {
+        return <PullRequestMerge sha={sha} userName={userName} repoName={repoName} />;
     }
-
-    const triggerMerging = () => setMergingInProgress(doMergePR());
-
-    return (
-        <VStack width="6em">
-            <Link href={html_url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
-                <Icon mr={1}>
-                    <FontAwesomeIcon icon={faCodePullRequest} />
-                </Icon>
-                {number}
-            </Link>
-            {isMerged && (
-                <Icon>
-                    <FontAwesomeIcon icon={faCheck} size="1x" />
-                </Icon>
-            )}
-            {!isMerged && (
-                <MergeButtonWithErrorStatus
-                    errorObject={errorObject}
-                    mergingInProgress={mergingInProgress}
-                    triggerMerging={triggerMerging}
-                />
-            )}
-        </VStack>
-    );
+    */
+    return null;
 }

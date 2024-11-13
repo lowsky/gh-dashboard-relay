@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 
 import { Icon, Link, VStack } from '@chakra-ui/react';
@@ -48,18 +49,28 @@ export default function PullRequestMerge(props: PullRequestInfoProps) {
 
     return (
         <VStack width="6em">
-            <Link href={html_url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
-                <Icon mr={1}>
-                    <FontAwesomeIcon icon={faCodePullRequest} />
-                </Icon>
-                {number}
-            </Link>
+            {html_url ? (
+                <Link href={html_url} title={title ?? '-no-title-'} rel="noopener noreferrer nofollow">
+                    <Icon mr={1}>
+                        <FontAwesomeIcon icon={faCodePullRequest} />
+                    </Icon>
+                    {number}
+                </Link>
+            ) : (
+                <span>
+                    <Icon mr={1}>
+                        <FontAwesomeIcon icon={faCodePullRequest} />
+                    </Icon>
+                    {number}
+                </span>
+            )}
+
             {isMerged && (
                 <Icon>
                     <FontAwesomeIcon icon={faCheck} size="1x" />
                 </Icon>
             )}
-            {!isMerged && doMergePR && (
+            {!isMerged && Boolean(doMergePR) && (
                 <MergeButtonWithErrorStatus
                     errorObject={errorObject}
                     mergingInProgress={mergingInProgress}
