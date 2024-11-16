@@ -4,15 +4,17 @@ import {
     Box as ChakraBox,
     Code as ChakraCode,
     Heading,
-    List,
     Text,
     HeadingProps,
     BoxProps,
     TextProps,
     ListProps,
+    OrderedList,
+    UnorderedList,
 } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
+import React from 'react';
 
 export function Box(props: BoxProps) {
     return <ChakraBox {...props}>{props.children}</ChakraBox>;
@@ -53,10 +55,18 @@ export const ResponsiveImage = (props: ImageProps) => (
     <Image {...props} />
 );
 
+export function Ol(props: ListProps) {
+    return (
+        <Box pl="4" pb="4">
+            <OrderedList {...props}></OrderedList>
+        </Box>
+    );
+}
+
 export function Ul(props: ListProps) {
     return (
         <Box pl="4" pb="4">
-            <List as="ul" {...props}></List>
+            <UnorderedList {...props}></UnorderedList>
         </Box>
     );
 }
