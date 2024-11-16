@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * based on https://relay.dev/docs/guided-tour/rendering/error-states/
  */

@@ -9,7 +9,7 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
             : // The domain name of the generated Git branch URL. Example: *-git-*.vercel.app.
               // The value does not include the protocol scheme https://.
               // this will be checked and added below, if it is needed.
-              process.env.VERCEL_BRANCH_URL) ?? 'localhost:3000';
+              process.env.VERCEL_BRANCH_URL) ?? 'http://localhost:3000/api/auth/callback';
 
     console.log('diagnosis:');
     console.log('VERCEL_ENV', process.env.VERCEL_ENV);

@@ -138,18 +138,6 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
                 href: '/restful/' + ownerRepo,
             },
             {
-                label: <span>Wait+for+all</span>,
-                href: '/wait-for-all/' + ownerRepo,
-            },
-            {
-                label: <span>Incremental</span>,
-                href: '/waterfall/' + ownerRepo,
-            },
-            {
-                label: <span>Comparison</span>,
-                href: '/side-by-side/' + ownerRepo,
-            },
-            {
                 label: <span>Relay GraphQL</span>,
                 href: '/relay/' + ownerRepo,
             },

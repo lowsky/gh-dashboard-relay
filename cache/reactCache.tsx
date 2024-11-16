@@ -1,8 +1,13 @@
-// if not using hitchcock, then we would need to
-// import { unstable_createResource } from 'react-cache';
+import { unstable_createResource } from 'react-cache';
 
-import { createResource as createResourceViaHitchcock } from 'hitchcock';
+/*
+from their reame:
 
-export const createResource = (args, ...hash) => {
-    return createResourceViaHitchcock(args, ...hash);
+**Use it at your own risk.**
+
+# No, Really, It Is Unstable
+*/
+
+export const createResource = (fetch, maybeHashInput) => {
+    return unstable_createResource(fetch, maybeHashInput);
 };

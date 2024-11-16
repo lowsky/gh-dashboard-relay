@@ -24,13 +24,12 @@ export default createYoga<SystemContext, UserContext>({
     logging: true,
     graphqlEndpoint: '/api/graphql',
     context: (initialContext): UserContext => {
-        const accessToken = getAccessToken(initialContext.req);
-        const octo = new Octokit({
-            auth: accessToken,
-        });
-
+        const auth = getAccessToken(initialContext.req);
         return {
-            getAuthorizedGitHub: () => getAuthorizedGitHub(octo),
+            getAuthorizedGitHub: () => {
+                const octo = new Octokit({ auth });
+                return getAuthorizedGitHub(octo);
+            },
         };
     },
 });

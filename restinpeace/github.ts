@@ -118,9 +118,11 @@ export interface AuthorizedGitHub {
  * Factory, to make octokit injectable
  * @deprecated always use with an initialized octo given
  */
-export function getAuthorizedGitHub(optionalOcto?: Octokit): AuthorizedGitHub {
-    // TODO replace with access-token
-    const octo = optionalOcto ?? new Octokit();
+export function getUnauthorizedGitHub(): AuthorizedGitHub {
+    return getAuthorizedGitHub(new Octokit());
+}
+
+export function getAuthorizedGitHub(octo: Octokit): AuthorizedGitHub {
     const getCommitsForRepo = async (
         username: string,
         reponame: string,

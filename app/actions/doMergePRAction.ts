@@ -17,5 +17,5 @@ export default async function doMergePRAction(
             sha,
         });
     }
-    throw new Error('repo name and owner naem are required');
+    throw new Error('repo name and owner name are required');
 }

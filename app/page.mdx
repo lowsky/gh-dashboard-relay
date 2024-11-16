@@ -12,14 +12,6 @@ React and React Server Components and Next.js App Router.
     Fetching asynchronously, on demand (not fully optimized)
 -   [Old way](/restful) **All or nothing:**
     Fetching all data in a top-level `useEffect()` + props-drilling
--   [With One Suspense](/wait-for-all)
-    **Global Spinner** Waiting until all data got fetched (modern Promise-based
-    way)
--   [Optimised Suspense](/waterfall)
-    **Incremental:** Showing results incrementally (waterfall) as soon as they got
-    loaded. (modern Promise-based way)
--   [Side-by-Side](/side-by-side)
-    **Comparison:** Show incremental loading and wait-for-all
 -   [GraphQL + Relay](/relay)
     **GraphQL + Relay**
     fetches all information from a running relay server (a lambda function)
@@ -29,12 +21,12 @@ Here you can find the [storybook](https://www.chromatic.com/library?appId=5afab0
 ## Tech stack
 
 -   nextjs - app router
+-   react server components
 -   relay
 -   graphql
 -   graphql-yoga
 -   graphql-tools
 -   GH octokit
--   react cache
 -   storybook
 
 ---

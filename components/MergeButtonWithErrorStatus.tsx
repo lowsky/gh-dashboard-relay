@@ -1,22 +1,47 @@
-import React from 'react';
-import { Button, Icon, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
-import { faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+'use client';
+import React, { useEffect, useState } from 'react';
 
-export function MergeButtonWithErrorStatus({
-    errorObject,
-    triggerMerging,
-    mergingInProgress,
-}: {
-    errorObject: Error | undefined;
-    triggerMerging: () => any;
-    mergingInProgress: Promise<unknown> | undefined;
-}) {
+import { Button, Icon, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
+import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { MergePullRequestsResponseDataType } from '../restinpeace/github';
+import { DoMergePR } from './PullRequestMerge';
+
+export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergePR }) {
+    const [mergingInProgress, setMergingInProgress] = useState<Promise<MergePullRequestsResponseDataType | null>>();
+    const [isMerged, setIsMerged] = useState(false);
+    const [errorObject, setErrorObject] = useState<Error>();
+
+    function logAndSetError(errorObject: Error) {
+        console.error('Unsuccessful attempt to merge PR', errorObject.message);
+        setErrorObject(errorObject);
+    }
+
+    useEffect(() => {
+        if (mergingInProgress) {
+            setErrorObject(undefined);
+            mergingInProgress
+                .then(() => setIsMerged(true))
+                .catch((err) => logAndSetError(err))
+                .finally(() => setMergingInProgress(undefined));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mergingInProgress]);
+
+    const triggerMerging = () => setMergingInProgress(doMergePR?.());
+
     const isError = Boolean(errorObject);
     const isMergingInProgress = Boolean(mergingInProgress);
+
     return (
         <>
-            {!isError && (
+            {isMerged && (
+                <Icon>
+                    <FontAwesomeIcon icon={faCheck} size="1x" />
+                </Icon>
+            )}
+
+            {!isMerged && Boolean(doMergePR) && !isError && (
                 <Button ml={1} size="xs" variant="outline" onClick={triggerMerging} isDisabled={isMergingInProgress}>
                     Rebase&Merge
                     {isMergingInProgress && (
