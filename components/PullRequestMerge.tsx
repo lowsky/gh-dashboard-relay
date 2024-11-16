@@ -1,10 +1,7 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 
 import { Icon, Link, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
+import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 
 import { MergeButtonWithErrorStatus } from './MergeButtonWithErrorStatus';
 import type { PullRequestData } from './PullRequestInfo';
@@ -21,31 +18,9 @@ export default function PullRequestMerge(props: PullRequestInfoProps) {
     const { pullRequest, doMergePR } = props;
     const { number, html_url, title } = pullRequest;
 
-    const [mergingInProgress, setMergingInProgress] = useState<Promise<MergePullRequestsResponseDataType | null>>();
-    const [isMerged, setIsMerged] = useState(false);
-    const [errorObject, setErrorObject] = useState<Error>();
-
-    function logAndSetError(errorObject: Error) {
-        console.error('Unsuccessful attempt to merge PR', number, errorObject.message);
-        setErrorObject(errorObject);
-    }
-
-    useEffect(() => {
-        if (mergingInProgress) {
-            setErrorObject(undefined);
-            mergingInProgress
-                .then(() => setIsMerged(true))
-                .catch((err) => logAndSetError(err))
-                .finally(() => setMergingInProgress(undefined));
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [mergingInProgress]);
-
-    if (!number || !html_url) {
+    if (!number) {
         return null;
     }
-
-    const triggerMerging = () => setMergingInProgress(doMergePR?.());
 
     return (
         <VStack width="6em">
@@ -65,16 +40,9 @@ export default function PullRequestMerge(props: PullRequestInfoProps) {
                 </span>
             )}
 
-            {isMerged && (
-                <Icon>
-                    <FontAwesomeIcon icon={faCheck} size="1x" />
-                </Icon>
-            )}
-            {!isMerged && Boolean(doMergePR) && (
+            {(
                 <MergeButtonWithErrorStatus
-                    errorObject={errorObject}
-                    mergingInProgress={mergingInProgress}
-                    triggerMerging={triggerMerging}
+                    doMergePR={doMergePR}
                 />
             )}
         </VStack>
