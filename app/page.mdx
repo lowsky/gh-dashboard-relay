@@ -7,14 +7,14 @@ React and React Server Components and Next.js App Router.
 
 ### Choose one of these different variants of data loading:
 
--   [Next based modern](/next)
-    **Next.js app router based:**
-    Fetching asynchronously, on demand (not fully optimized)
--   [Old way](/restful) **All or nothing:**
+1.   [GraphQL + Relay](/relay)
+    **GraphQL + Relay** - Using user's GH auth token!
+    Fetches all information from the running relay server
+2.   [Next based modern](/next)
+    **Next.js app:** GH-Rate-limited, partially SSR, fails on authentication
+3.   [Old way](/restful)
+    GH-Rate-limited _for comparison only_ old-style!
     Fetching all data in a top-level `useEffect()` + props-drilling
--   [GraphQL + Relay](/relay)
-    **GraphQL + Relay**
-    fetches all information from a running relay server (a lambda function)
 
 Here you can find the [storybook](https://www.chromatic.com/library?appId=5afab010f1d19900240b5469)
 

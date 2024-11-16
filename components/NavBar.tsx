@@ -130,16 +130,16 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
     if (owner && repo)
         return [
             {
-                label: <span>Next.js+rfc220</span>,
+                label: <span>Relay GraphQL</span>,
+                href: '/relay/' + ownerRepo,
+            },
+            {
+                label: <span>Next SSR</span>,
                 href: '/next/' + ownerRepo,
             },
             {
-                label: <span>Classic</span>,
+                label: <span>Old Style</span>,
                 href: '/restful/' + ownerRepo,
-            },
-            {
-                label: <span>Relay GraphQL</span>,
-                href: '/relay/' + ownerRepo,
             },
         ];
 
