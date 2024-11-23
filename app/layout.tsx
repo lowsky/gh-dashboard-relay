@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 
-import ChakraUIWrapper from './ChakraUIWrapper';
+import { Provider } from 'components/ui/provider';
 import ColorModeScriptClient from './ColorModeScriptClient';
 import WarningGitHubRateLimiting from 'components/WarningGitHubRateLimiting';
 import { NavBar } from 'components/NavBar';
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <noscript>You need to enable JavaScript to run this app.</noscript>
                 <NextTopLoader />
                 <ColorModeScriptClient />
-                <ChakraUIWrapper>
+                <Provider>
                     <NavBar />
                     <WhenSignedIn>
                         <Logout />
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         <WarningGitHubRateLimiting />
                     </WhenNotAuthenticated>
                     <Box p={4}>{children}</Box>
-                </ChakraUIWrapper>
+                </Provider>
             </body>
         </html>
     );
