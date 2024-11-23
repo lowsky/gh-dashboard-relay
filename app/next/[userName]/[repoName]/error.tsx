@@ -1,7 +1,8 @@
 'use client'; // Error components must be Client Components
 
-import { Alert, AlertDescription, AlertIcon, Button } from '@chakra-ui/react';
 import { useEffect } from 'react';
+import { Alert } from 'components/ui/alert';
+import { Button } from 'components/ui/button';
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
     useEffect(() => {
@@ -12,12 +13,9 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
     return (
         <div>
             <Alert status="error">
-                <AlertIcon />
-                <AlertDescription>
-                    <strong>Something went wrong:</strong>
-                    <br />
-                    {error?.message}
-                </AlertDescription>
+                <strong>Something went wrong:</strong>
+                <br />
+                {error?.message}
             </Alert>
             <br />
             <Button

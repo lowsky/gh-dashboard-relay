@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
 import { UserRepoFromUrlProvider, useUserRepoFromRouter } from 'components/useUserRepoFromRoute';
 import { Branches, User, getUnauthorizedGitHub } from 'restinpeace/github';
+
+import { Alert } from 'components/ui/alert';
 
 export default function RestfulPage() {
     const { userName, repoName } = useUserRepoFromRouter();
@@ -84,12 +85,7 @@ function RestfulMain({ repoName, userName }: RestfulMainProps) {
         <>
             <UserRepo user={user} repo={repo} />
 
-            {errorMsg && (
-                <Alert status="error">
-                    <AlertIcon />
-                    {errorMsg}
-                </Alert>
-            )}
+            {errorMsg && <Alert status="error">{errorMsg}</Alert>}
         </>
     );
 }

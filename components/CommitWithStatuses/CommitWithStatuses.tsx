@@ -11,7 +11,7 @@ import { CommitStatuses } from './CommitStatuses';
 import { Spinner } from '../Spinner';
 
 import styles from './CommitWithStatuses.module.css';
-import { PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
+import { PopoverBody, PopoverRoot, PopoverTrigger } from '../ui/popover';
 
 export interface CommitWithStatusesProps {
     commit?: GithubCommit;
@@ -41,7 +41,7 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
                     </div>
                 </PopoverBody>
             </PopoverRoot>
-            <Suspense fallback={<Spinner size={3} />}>
+            <Suspense fallback={<Spinner size="lg" />}>
                 <CommitStatuses statuses={status ?? statuses} />
             </Suspense>
         </>
@@ -50,4 +50,4 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
 
 export default CommitWithStatuses;
 
-export const CommitWithStatusesSkeleton = () => <Spinner size={6} />;
+export const CommitWithStatusesSkeleton = () => <Spinner size="xl" />;
