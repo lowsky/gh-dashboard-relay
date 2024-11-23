@@ -1,16 +1,16 @@
 'use client';
-import { Image, ImageProps } from '@chakra-ui/next-js';
+//import { Image, ImageProps } from '@chakra-ui/next-js';
 import {
     Box as ChakraBox,
     Code as ChakraCode,
     Heading,
     Text,
     HeadingProps,
+    Image,
+    ImageProps,
     BoxProps,
     TextProps,
-    ListProps,
-    OrderedList,
-    UnorderedList,
+    List,
 } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
@@ -22,7 +22,7 @@ export function Box(props: BoxProps) {
 
 export function H1(props: HeadingProps) {
     return (
-        <Heading size="xl" as="h1" variant="grey" {...props}>
+        <Heading size="xl" as="h1" colorPalette="grey" {...props}>
             {props.children}
         </Heading>
     );
@@ -30,7 +30,7 @@ export function H1(props: HeadingProps) {
 
 export function H2(props: HeadingProps) {
     return (
-        <Heading size="lg" as="h2" variant="grey" {...props}>
+        <Heading size="lg" as="h2" colorPalette="grey" {...props}>
             {props.children}
         </Heading>
     );
@@ -55,18 +55,18 @@ export const ResponsiveImage = (props: ImageProps) => (
     <Image {...props} />
 );
 
-export function Ol(props: ListProps) {
+export function Ol(props: List.RootProps) {
     return (
         <Box pl="4" pb="4">
-            <OrderedList {...props}></OrderedList>
+            <List.Root {...props}></List.Root>
         </Box>
     );
 }
 
-export function Ul(props: ListProps) {
+export function Ul(props: List.RootProps) {
     return (
         <Box pl="4" pb="4">
-            <UnorderedList {...props}></UnorderedList>
+            <List.Root {...props}></List.Root>
         </Box>
     );
 }

@@ -1,5 +1,8 @@
 import React, { Suspense } from 'react';
-import { Link, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
+import {
+    Link,
+    //    Popover, PopoverBody, PopoverContent, PopoverTrigger
+} from '@chakra-ui/react';
 
 import { GithubCommit } from 'restinpeace/types';
 import { useUserRepo } from '../useUserRepoFromRoute';
@@ -8,6 +11,7 @@ import { CommitStatuses } from './CommitStatuses';
 import { Spinner } from '../Spinner';
 
 import styles from './CommitWithStatuses.module.css';
+import { PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 
 export interface CommitWithStatusesProps {
     commit?: GithubCommit;
@@ -24,22 +28,19 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
 
     return (
         <>
-            <Popover trigger="hover">
+            <PopoverRoot>
                 <PopoverTrigger>
-                    <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow" isExternal>
+                    <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
                         <strong>{mainMessage}</strong>
                     </Link>
                 </PopoverTrigger>
-                <PopoverContent>
-                    <PopoverBody>
-                        <div className={styles.status}>
-                            <i>{date}</i>
-                            <CommitterInfo author={author} />
-                        </div>
-                    </PopoverBody>
-                </PopoverContent>
-            </Popover>
-
+                <PopoverBody>
+                    <div className={styles.status}>
+                        <i>{date}</i>
+                        <CommitterInfo author={author} />
+                    </div>
+                </PopoverBody>
+            </PopoverRoot>
             <Suspense fallback={<Spinner size={3} />}>
                 <CommitStatuses statuses={status ?? statuses} />
             </Suspense>

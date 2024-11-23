@@ -3,23 +3,13 @@
 import { ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
-import {
-    Box,
-    Button,
-    Center,
-    Collapse,
-    Flex,
-    IconButton,
-    Stack,
-    Text,
-    useColorMode,
-    useColorModeValue,
-    useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Button, Center, Collapsible, Flex, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
 
-import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdClose } from 'react-icons/md';
 
 import InternalLink from './InternalLink';
+import { useColorMode, useColorModeValue } from './ui/color-mode';
 
 export function NavBar() {
     const params = useParams();
@@ -49,7 +39,7 @@ export function NavBar() {
                     display={{ base: 'flex', md: 'none' }}>
                     <IconButton
                         onClick={onToggle}
-                        icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+                        icon={isOpen ? <MdClose w={3} h={3} /> : <GiHamburgerMenu w={5} h={5} />}
                         variant="ghost"
                         aria-label="Toggle Navigation"
                     />
@@ -62,9 +52,11 @@ export function NavBar() {
                     </Flex>
                 </Flex>
             </Flex>
-            <Collapse in={isOpen} animateOpacity>
-                <MobileNav owner={owner} repo={repo} />
-            </Collapse>
+            <Collapsible.Root in={isOpen}>
+                <Collapsible.Content>
+                    <MobileNav owner={owner} repo={repo} />
+                </Collapsible.Content>
+            </Collapsible.Root>
         </Box>
     );
 }
@@ -155,7 +147,7 @@ function DarkLightThemeToggle() {
             <Flex h={8} alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Stack direction="row">
-                        <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
+                        <Button onClick={toggleColorMode}>{colorMode === 'light' ? 'Moon' : '<SunIcon />'}</Button>
                     </Stack>
                 </Flex>
             </Flex>

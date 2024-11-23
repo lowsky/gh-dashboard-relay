@@ -1,18 +1,8 @@
+import { createSystem, defaultConfig } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
-import { extendTheme, StyleFunctionProps, ThemeConfig } from '@chakra-ui/react';
 
-const config: ThemeConfig = {
-    initialColorMode: 'system',
-    useSystemColorMode: true,
-};
-
-/*
-More background about theming:
-https://chakra-ui.com/docs/styled-system/theming/theme
-https://chakra-ui.com/docs/styled-system/theming/customize-theme#customizing-component-styles
- */
-const themeConfig = {
-    config,
+const theme = {
+    /*
     components: {
         Link: {
             baseStyle: (props: StyleFunctionProps) => ({
@@ -33,6 +23,8 @@ const themeConfig = {
             },
         },
     },
+    */
+    /*
     styles: {
         global: (props: StyleFunctionProps) => ({
             a: {
@@ -43,6 +35,11 @@ const themeConfig = {
             },
         }),
     },
+
+     */
 };
 
-export const customTheme = extendTheme({ ...themeConfig });
+//export const customTheme = extendTheme({ ...themeConfig });
+export const system = createSystem(defaultConfig, {
+    theme,
+});

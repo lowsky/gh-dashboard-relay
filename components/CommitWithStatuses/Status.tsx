@@ -1,7 +1,8 @@
 import React from 'react';
-import { Avatar, AvatarBadge } from '@chakra-ui/react';
 
 import { Maybe } from 'restinpeace/types';
+import { Avatar } from '../ui/avatar';
+import { Circle, Float } from '@chakra-ui/react';
 
 type StatusType = 'success' | 'pending' | 'failure' | 'error' | any;
 
@@ -37,7 +38,17 @@ export const Status = ({ target_url, avatar_url, context, description, state }: 
             src={avatar_url ?? undefined}
             loading="lazy"
             referrerPolicy="no-referrer">
-            <AvatarBadge boxSize="1.25em" bg={status2color(state)} placement="top-end" />
+            {
+                <Float placement="top-end" offsetX="1" offsetY="1">
+                    <Circle
+                        bg={status2color(state)}
+                        //_bg="green.500"
+                        size="1.25em"
+                        outline="0.2em solid"
+                        outlineColor="bg"
+                    />
+                </Float>
+            }
         </Avatar>
     </a>
 );

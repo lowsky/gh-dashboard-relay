@@ -1,6 +1,7 @@
 import React from 'react';
+import { Avatar } from './ui/avatar';
 
-import { Avatar, Heading, Box, Text, HStack } from '@chakra-ui/react';
+import { Heading, Box, Text, HStack } from '@chakra-ui/react';
 
 export interface UserType {
     avatar_url?: string;

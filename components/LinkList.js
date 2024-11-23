@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Heading, ListItem, UnorderedList } from '@chakra-ui/react';
+import { Heading, List } from '@chakra-ui/react';
+
 import InternalLink from './InternalLink';
 
 export function LinkList({ rootPath }) {
@@ -18,13 +19,13 @@ export function LinkList({ rootPath }) {
         <>
             <Heading size="1">Some example repos:</Heading>
 
-            <UnorderedList>
+            <List.Root>
                 {links.map((link) => (
-                    <ListItem key={link}>
+                    <List.Item key={link}>
                         <InternalLink href={rootPath + '/' + link}>{link}</InternalLink>
-                    </ListItem>
+                    </List.Item>
                 ))}
-            </UnorderedList>
+            </List.Root>
         </>
     );
 }
