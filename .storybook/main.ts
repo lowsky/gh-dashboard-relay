@@ -9,7 +9,10 @@ const config: StorybookConfig = {
         '../app/*.story.@(js|jsx|ts|tsx|mdx)',
         '../app/**/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    addons: ['@storybook/addon-essentials', '@chakra-ui/storybook-addon', '@chromatic-com/storybook'],
+    addons: [
+        '@storybook/addon-essentials',
+        // Later: '@storybook/addon-themes'
+    ],
     docs: {
         autodocs: false,
     },
