@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
+import { Table } from '@chakra-ui/react';
 
 import { GithubRepo } from 'restinpeace/types';
 
@@ -15,25 +15,25 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
 
     const { branches } = repo ?? {};
     return (
-        <Table size="sm" variant="striped">
-            <Thead>
-                <Tr>
-                    <Th>
+        <Table.Root size="sm" striped>
+            <Table.Header>
+                <Table.Row>
+                    <Table.ColumnHeader>
                         <span className="fas fa-code-branch" />
                         <span>Branch</span>
-                    </Th>
-                    <Th>PR</Th>
-                    <Th>Commit</Th>
-                </Tr>
-            </Thead>
-            <Tbody>
+                    </Table.ColumnHeader>
+                    <Table.ColumnHeader>PR</Table.ColumnHeader>
+                    <Table.ColumnHeader>Commit</Table.ColumnHeader>
+                </Table.Row>
+            </Table.Header>
+            <Table.Body>
                 {(branches ?? []).filter(Boolean).map((branch, idx) => (
                     <Suspense fallback={<SkeletonRow />} key={idx}>
                         <BranchInfoRow branch={branch!} sha={branch!.lastCommit?.sha} />
                     </Suspense>
                 ))}
-            </Tbody>
-        </Table>
+            </Table.Body>
+        </Table.Root>
     );
 };
 

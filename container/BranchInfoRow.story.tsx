@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import { Table, Tbody } from '@chakra-ui/react';
+import { Decorator, Meta, StoryObj } from '@storybook/react';
+import { Table } from '@chakra-ui/react';
 
 import BranchInfoRow from 'container/BranchInfoRow';
 import UILibContext from 'components/UILibContext';
@@ -9,9 +9,19 @@ import { UILibPureComponents } from 'components/UILibPureComponents';
 import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses/CommitWithStatuses.story';
 import { Default as DefaultPRStory } from 'components/PullRequestInfo.story';
 
+const wrapInTableBody = (story) => (
+    <Table.Root size="sm" striped>
+        <Table.Body>{story()}</Table.Body>
+    </Table.Root>
+);
+
+const wrapInPureUILib: Decorator = (story) => (
+    <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>
+);
+
 const meta: Meta<typeof BranchInfoRow> = {
     component: BranchInfoRow,
-    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
+    decorators: [wrapInTableBody, wrapInPureUILib],
 };
 export default meta;
 
@@ -32,11 +42,4 @@ export const WithInfo: Story = {
             },
         },
     },
-    decorators: [
-        (story) => (
-            <Table size="sm" variant="striped">
-                <Tbody>{story()}</Tbody>
-            </Table>
-        ),
-    ],
 };

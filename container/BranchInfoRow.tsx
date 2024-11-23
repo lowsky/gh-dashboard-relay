@@ -3,7 +3,7 @@
 import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
+import { Icon, Link, Table, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from 'restinpeace/types';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
@@ -30,18 +30,21 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
 
     const main = name === 'master' || name === 'main';
     return (
-        <Tr key={name}>
-            <Td>
+        <Table.Row key={name}>
+            <Table.Cell>
                 {name && (
-                    <Link href={branchUrlValid ? githubBranchSrc : ''} rel="noopener noreferrer nofollow" isExternal>
+                    <Link
+                        href={branchUrlValid ? githubBranchSrc : ''}
+                        rel="noopener noreferrer nofollow"
+                        target="_blank">
                         {name}
                     </Link>
                 )}
                 <Icon ml={1}>
                     <FontAwesomeIcon icon={faGithub} />
                 </Icon>
-            </Td>
-            <Td>
+            </Table.Cell>
+            <Table.Cell>
                 {!main && (
                     <Suspense
                         fallback={
@@ -55,29 +58,29 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                         {!associatedPullRequests && <PullRequestInfo sha={sha} />}
                     </Suspense>
                 )}
-            </Td>
+            </Table.Cell>
 
-            <Td>
+            <Table.Cell>
                 <Suspense fallback={<CommitWithStatusesSkeleton />}>
                     {lastCommit && <CommitWithStatuses commit={lastCommit} />}
                 </Suspense>
-            </Td>
-        </Tr>
+            </Table.Cell>
+        </Table.Row>
     );
 };
 
 export default BranchInfoRow;
 
 export const SkeletonRow = () => (
-    <Tr>
-        <Td>
+    <Table.Row>
+        <Table.Cell>
             <Spinner />
-        </Td>
-        <Td>
+        </Table.Cell>
+        <Table.Cell>
             <Spinner />
-        </Td>
-        <Td>
+        </Table.Cell>
+        <Table.Cell>
             <Spinner />
-        </Td>
-    </Tr>
+        </Table.Cell>
+    </Table.Row>
 );
