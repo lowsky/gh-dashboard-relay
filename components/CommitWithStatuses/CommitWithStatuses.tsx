@@ -1,9 +1,7 @@
 import React, { Suspense } from 'react';
-import {
-    Link,
-    //    Popover, PopoverBody, PopoverContent, PopoverTrigger
-} from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 
+import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { GithubCommit } from 'restinpeace/types';
 import { useUserRepo } from '../useUserRepoFromRoute';
 import { CommitterInfo } from './CommitterInfo';
@@ -11,7 +9,6 @@ import { CommitStatuses } from './CommitStatuses';
 import { Spinner } from '../Spinner';
 
 import styles from './CommitWithStatuses.module.css';
-import { PopoverBody, PopoverRoot, PopoverTrigger } from '../ui/popover';
 
 export interface CommitWithStatusesProps {
     commit?: GithubCommit;
@@ -34,13 +31,17 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
                         <strong>{mainMessage}</strong>
                     </Link>
                 </PopoverTrigger>
-                <PopoverBody>
-                    <div className={styles.status}>
-                        <i>{date}</i>
-                        <CommitterInfo author={author} />
-                    </div>
-                </PopoverBody>
+                <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverBody>
+                        <div className={styles.status}>
+                            <i>{date}</i>
+                            <CommitterInfo author={author} />
+                        </div>
+                    </PopoverBody>
+                </PopoverContent>
             </PopoverRoot>
+
             <Suspense fallback={<Spinner size="lg" />}>
                 <CommitStatuses statuses={status ?? statuses} />
             </Suspense>
