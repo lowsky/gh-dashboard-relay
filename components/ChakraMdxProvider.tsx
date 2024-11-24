@@ -58,7 +58,7 @@ export const ResponsiveImage = (props: ImageProps) => (
 export function Ol(props: List.RootProps) {
     return (
         <Box pl="4" pb="4">
-            <List.Root {...props}></List.Root>
+            <List.Root as="ol" {...props}></List.Root>
         </Box>
     );
 }
