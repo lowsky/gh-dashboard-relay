@@ -33,7 +33,7 @@ interface StatusProps {
 export const Status = ({ target_url, avatar_url, context, description, state }: StatusProps) => (
     <a href={target_url ?? ''} title={context + ': ' + description}>
         <Avatar
-            size="xs"
+            size="2xs"
             name={context ?? ''}
             src={avatar_url ?? undefined}
             loading="lazy"
