@@ -24,6 +24,7 @@ const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cache
                 }),
                 credentials: 'same-origin',
             });
+            // @ts-expect-error
             const parts = await meros<ExecutionPatchResult>(response);
 
             if (isAsyncIterable(parts)) {
@@ -35,6 +36,7 @@ const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cache
                     sink.next(part.body as GraphQLResponse);
                 }
             } else {
+                // @ts-expect-error
                 const promise = parts.json();
                 const value: any = await promise;
                 sink.next(value);

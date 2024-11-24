@@ -29,9 +29,12 @@ const Repo: React.FC<RepoProps> = ({ repo }) => {
 
     return (
         <Flex align="center" gap={4}>
-            <Heading as="h1" variant="grey" size="lg" margin={0}>
-                Repository
-            </Heading>
+            {
+                // @ts-expect-error variant does not exist
+                <Heading as="h1" variant="grey" size="lg" margin={0}>
+                    Repository
+                </Heading>
+            }
             <Heading as="h2" size="md" margin={0}>
                 <Link href={`https://github.com/${login}/${name}`} rel="noopener noreferrer nofollow">
                     <strong>

@@ -49,7 +49,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                     <Suspense
                         fallback={
                             <VStack width="6em">
-                                <Spinner size={8} />
+                                <Spinner size="lg" />
                             </VStack>
                         }>
                         {associatedPullRequests
