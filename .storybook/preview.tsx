@@ -2,11 +2,10 @@
 //import { withThemeByClassName } from '@storybook/addon-themes';
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
 import type { Decorator } from '@storybook/react';
+import { withThemeByClassName } from '@storybook/addon-themes';
+import type { Decorator, ReactRenderer } from '@storybook/react';
 
 export const decorators: Decorator[] = [
-    /*
-    LATER:
-
     withThemeByClassName<ReactRenderer>({
         defaultTheme: 'light',
         themes: {
@@ -14,8 +13,6 @@ export const decorators: Decorator[] = [
             dark: 'dark',
         },
     }),
-
-     */
     (Story) => (
         <ChakraProvider value={defaultSystem}>
             <Story />

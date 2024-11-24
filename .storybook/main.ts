@@ -9,10 +9,7 @@ const config: StorybookConfig = {
         '../app/*.story.@(js|jsx|ts|tsx|mdx)',
         '../app/**/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    addons: [
-        '@storybook/addon-essentials',
-        // Later: '@storybook/addon-themes'
-    ],
+    addons: ['@storybook/addon-essentials', '@storybook/addon-themes'],
     docs: {
         autodocs: false,
     },
