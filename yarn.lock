@@ -6455,6 +6455,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-themes@npm:8.4.4":
+  version: 8.4.4
+  resolution: "@storybook/addon-themes@npm:8.4.4"
+  dependencies:
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    storybook: ^8.4.4
+  checksum: 10c0/4e7660bda5369fafd8a493eb45af549c59e997e1270f864571fff7a0700b6caff5ddb1aa851c01ecd836513cead22caea944721b8f8a675993beb279809b36c3
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-toolbars@npm:8.4.4":
   version: 8.4.4
   resolution: "@storybook/addon-toolbars@npm:8.4.4"
@@ -11430,6 +11441,7 @@ __metadata:
     "@octokit/rest": "npm:21.0.2"
     "@octokit/types": "npm:13.6.1"
     "@storybook/addon-essentials": "npm:8.4.4"
+    "@storybook/addon-themes": "npm:8.4.4"
     "@storybook/nextjs": "npm:8.4.4"
     "@storybook/react": "npm:^8.0.0"
     "@types/react-relay": "npm:16.0.6"
