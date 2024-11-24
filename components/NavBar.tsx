@@ -45,13 +45,13 @@ export function NavBar() {
                     <Center>Github Dashboard</Center>
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Flex display={{ base: 'none', md: 'flex' }}>
+                    <Flex display={{ base: 'none', md: 'flex' }} gap={4}>
                         <DesktopNav owner={owner} repo={repo} />
                         <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
-            <Collapsible.Root in={open}>
+            <Collapsible.Root open={open}>
                 <Collapsible.Content>
                     <MobileNav owner={owner} repo={repo} />
                 </Collapsible.Content>
