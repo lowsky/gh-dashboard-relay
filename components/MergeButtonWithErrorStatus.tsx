@@ -73,14 +73,17 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                             </Icon>
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent>
-                        <PopoverBody background={'red'}>
-                            <Icon mr={1}>
-                                <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
-                            </Icon>
-                            <i>{errorObject?.message ?? 'unsuccessful.'}</i>
-                        </PopoverBody>
-                    </PopoverContent>
+                    {
+                        // @ts-expect-error snippet type error
+                        <PopoverContent>
+                            <PopoverBody background={'red'}>
+                                <Icon mr={1}>
+                                    <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
+                                </Icon>
+                                <i>{errorObject?.message ?? 'unsuccessful.'}</i>
+                            </PopoverBody>
+                        </PopoverContent>
+                    }
                 </PopoverRoot>
             )}
         </>

@@ -31,15 +31,20 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
                         <strong>{mainMessage}</strong>
                     </Link>
                 </PopoverTrigger>
-                <PopoverContent>
-                    <PopoverArrow />
-                    <PopoverBody>
-                        <div className={styles.status}>
-                            <i>{date}</i>
-                            <CommitterInfo author={author} />
-                        </div>
-                    </PopoverBody>
-                </PopoverContent>
+                {
+                    // @ts-expect-error snippet type error
+                    <PopoverContent>
+                        <PopoverBody>
+                            <PopoverArrow />
+                            <PopoverBody>
+                                <div className={styles.status}>
+                                    <i>{date}</i>
+                                    <CommitterInfo author={author} />
+                                </div>
+                            </PopoverBody>
+                        </PopoverBody>
+                    </PopoverContent>
+                }
             </PopoverRoot>
 
             <Suspense fallback={<Spinner size="lg" />}>
