@@ -7,7 +7,7 @@ import { Link, LinkProps } from '@chakra-ui/react';
 export default function InternalLink({
     prefetch = false,
     href,
-    variant = 'underline',
+    variant,
     ...props
 }: Omit<LinkProps, 'href'> & NextLinkProps): JSX.Element {
     return (
