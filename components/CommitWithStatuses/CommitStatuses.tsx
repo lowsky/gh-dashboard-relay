@@ -19,4 +19,4 @@ export const CommitStatuses: React.FC<{ statuses?: Maybe<Array<Maybe<GithubStatu
     return null;
 };
 
-export const Skeleton = () => <Spinner size={6} />;
+export const Skeleton = () => <Spinner size="lg" />;

@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-import { Button, Icon, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
+import { Button, Icon } from '@chakra-ui/react';
 import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { MergePullRequestsResponseDataType } from '../restinpeace/github';
 import { DoMergePR } from './PullRequestMerge';
+import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverBody } from './ui/popover';
 
 export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergePR }) {
     const [mergingInProgress, setMergingInProgress] = useState<Promise<MergePullRequestsResponseDataType | null>>();
@@ -42,7 +43,7 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
             )}
 
             {!isMerged && Boolean(doMergePR) && !isError && (
-                <Button ml={1} size="xs" variant="outline" onClick={triggerMerging} isDisabled={isMergingInProgress}>
+                <Button ml={1} size="xs" variant="outline" onClick={triggerMerging} disabled={isMergingInProgress}>
                     Rebase&Merge
                     {isMergingInProgress && (
                         <Icon>
@@ -52,7 +53,7 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                 </Button>
             )}
             {isError && (
-                <Popover trigger="hover">
+                <PopoverRoot>
                     <PopoverTrigger>
                         <Button
                             ml={1}
@@ -60,7 +61,7 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                             color={'red'}
                             variant="outline"
                             onClick={triggerMerging}
-                            isDisabled={!!mergingInProgress}>
+                            disabled={!!mergingInProgress}>
                             Rebase&Merge
                             {!!mergingInProgress && (
                                 <Icon>
@@ -72,15 +73,18 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                             </Icon>
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent>
-                        <PopoverBody background={'red'}>
-                            <Icon mr={1}>
-                                <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
-                            </Icon>
-                            <i>{errorObject?.message ?? 'unsuccessful.'}</i>
-                        </PopoverBody>
-                    </PopoverContent>
-                </Popover>
+                    {
+                        // @ts-expect-error snippet type error
+                        <PopoverContent>
+                            <PopoverBody background={'red'}>
+                                <Icon mr={1}>
+                                    <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
+                                </Icon>
+                                <i>{errorObject?.message ?? 'unsuccessful.'}</i>
+                            </PopoverBody>
+                        </PopoverContent>
+                    }
+                </PopoverRoot>
             )}
         </>
     );

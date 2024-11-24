@@ -3,30 +3,20 @@
 import { ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
-import {
-    Box,
-    Button,
-    Center,
-    Collapse,
-    Flex,
-    IconButton,
-    Stack,
-    Text,
-    useColorMode,
-    useColorModeValue,
-    useDisclosure,
-} from '@chakra-ui/react';
+import { Box, Center, Collapsible, Flex, Icon, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
 
-import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdClose } from 'react-icons/md';
 
 import InternalLink from './InternalLink';
+import { useColorModeValue, ColorModeButton } from './ui/color-mode';
 
 export function NavBar() {
     const params = useParams();
     const { userName: owner, repoName: repo } = params ?? {};
-    const { isOpen, onToggle } = useDisclosure();
+    const { open, onToggle } = useDisclosure();
 
-    const backgroundColor = useColorModeValue('white', 'gray.800');
+    const backgroundColor = useColorModeValue('white', 'gray.400');
     const borderColor = useColorModeValue('gray.200', 'gray.900');
     const textColor = useColorModeValue('gray.600', 'white');
 
@@ -47,24 +37,25 @@ export function NavBar() {
                     alignItems="center"
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
-                    <IconButton
-                        onClick={onToggle}
-                        icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
-                        variant="ghost"
-                        aria-label="Toggle Navigation"
-                    />
+                    <IconButton onClick={onToggle} variant="ghost" aria-label="Toggle Navigation">
+                        <Icon w={3} h={3}>
+                            {open ? <MdClose /> : <GiHamburgerMenu />}
+                        </Icon>
+                    </IconButton>
                     <Center>Github Dashboard</Center>
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Flex display={{ base: 'none', md: 'flex' }}>
+                    <Flex display={{ base: 'none', md: 'flex' }} gap={4}>
                         <DesktopNav owner={owner} repo={repo} />
                         <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
-            <Collapse in={isOpen} animateOpacity>
-                <MobileNav owner={owner} repo={repo} />
-            </Collapse>
+            <Collapsible.Root open={open}>
+                <Collapsible.Content>
+                    <MobileNav owner={owner} repo={repo} />
+                </Collapsible.Content>
+            </Collapsible.Root>
         </Box>
     );
 }
@@ -72,7 +63,7 @@ export function NavBar() {
 const DesktopNav = ({ owner, repo }) => {
     const pathname = usePathname();
     return (
-        <Stack direction="row" spacing={4} align="center">
+        <Stack direction="row" gap={4} align="center">
             <InternalLink href="/">Home</InternalLink>
             {owner && repo && <strong>{repo}</strong>}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
@@ -110,12 +101,15 @@ const MobileNavItem = ({ label, href }: NavItem) => {
     const color = useColorModeValue('gray.600', 'gray.200');
 
     return (
-        <Stack spacing={4}>
-            <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
-                <Text fontWeight={600} color={color}>
-                    {label}
-                </Text>
-            </Flex>
+        <Stack gap={4}>
+            {
+                // @ts-expect-error "as" won't work well with typescript
+                <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
+                    <Text fontWeight={600} color={color}>
+                        {label}
+                    </Text>
+                </Flex>
+            }
         </Stack>
     );
 };
@@ -147,15 +141,14 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
 }
 
 function DarkLightThemeToggle() {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const colorModeValue = useColorModeValue('white', 'gray.800');
+    const backgroundColor = useColorModeValue('white', 'gray.800');
 
     return (
-        <Box bg={colorModeValue} px={4}>
+        <Box bg={backgroundColor} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Stack direction="row">
-                        <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
+                        <ColorModeButton />
                     </Stack>
                 </Flex>
             </Flex>

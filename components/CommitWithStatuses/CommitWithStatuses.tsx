@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
-import { Link, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 
+import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { GithubCommit } from 'restinpeace/types';
 import { useUserRepo } from '../useUserRepoFromRoute';
 import { CommitterInfo } from './CommitterInfo';
@@ -24,23 +25,29 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
 
     return (
         <>
-            <Popover trigger="hover">
+            <PopoverRoot>
                 <PopoverTrigger>
-                    <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow" isExternal>
+                    <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
                         <strong>{mainMessage}</strong>
                     </Link>
                 </PopoverTrigger>
-                <PopoverContent>
-                    <PopoverBody>
-                        <div className={styles.status}>
-                            <i>{date}</i>
-                            <CommitterInfo author={author} />
-                        </div>
-                    </PopoverBody>
-                </PopoverContent>
-            </Popover>
+                {
+                    // @ts-expect-error snippet type error
+                    <PopoverContent>
+                        <PopoverBody>
+                            <PopoverArrow />
+                            <PopoverBody>
+                                <div className={styles.status}>
+                                    <i>{date}</i>
+                                    <CommitterInfo author={author} />
+                                </div>
+                            </PopoverBody>
+                        </PopoverBody>
+                    </PopoverContent>
+                }
+            </PopoverRoot>
 
-            <Suspense fallback={<Spinner size={3} />}>
+            <Suspense fallback={<Spinner size="lg" />}>
                 <CommitStatuses statuses={status ?? statuses} />
             </Suspense>
         </>
@@ -49,4 +56,4 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
 
 export default CommitWithStatuses;
 
-export const CommitWithStatusesSkeleton = () => <Spinner size={6} />;
+export const CommitWithStatusesSkeleton = () => <Spinner size="xl" />;

@@ -1,48 +1,34 @@
-import { mode } from '@chakra-ui/theme-tools';
-import { extendTheme, StyleFunctionProps, ThemeConfig } from '@chakra-ui/react';
+import { createSystem, defineConfig, defaultConfig, SystemConfig, defineRecipe } from '@chakra-ui/react';
 
-const config: ThemeConfig = {
-    initialColorMode: 'system',
-    useSystemColorMode: true,
-};
-
-/*
-More background about theming:
-https://chakra-ui.com/docs/styled-system/theming/theme
-https://chakra-ui.com/docs/styled-system/theming/customize-theme#customizing-component-styles
- */
-const themeConfig = {
-    config,
-    components: {
-        Link: {
-            baseStyle: (props: StyleFunctionProps) => ({
-                color: mode('#102FAF', '#5890ec')(props),
-            }),
-        },
-        Heading: {
-            baseStyle: (props: StyleFunctionProps) => ({
-                fontWeight: 'semibold',
-                marginBottom: '0.5em',
-                marginTop: '0.5em',
-                color: mode('var(--chakra-colors-gray-700)', 'var(--chakra-colors-gray-400)')(props),
-            }),
-            variants: {
-                grey: (props: StyleFunctionProps) => ({
-                    color: mode('var(--chakra-colors-gray-600)', 'var(--chakra-colors-gray-400)')(props),
-                }),
+const headingRecipe = defineRecipe({
+    base: {
+        color: 'grey.700',
+        fontWeight: 'semibold',
+    },
+    variants: {
+        grey: {
+            true: {
+                color: 'grey.200',
             },
         },
     },
-    styles: {
-        global: (props: StyleFunctionProps) => ({
-            a: {
-                color: mode('#102FAF', '#5890ec')(props),
-                _hover: {
-                    textDecoration: 'underline',
-                },
-            },
-        }),
-    },
-};
+});
 
-export const customTheme = extendTheme({ ...themeConfig });
+const config: SystemConfig = defineConfig({
+    theme: {
+        recipes: {
+            heading: headingRecipe,
+        },
+    },
+    globalCss: {
+        body: {
+            colorPalette: 'blue',
+        },
+        a: {
+            color: '#102FAF',
+            //dark mode: 5890ec ?
+        },
+    },
+});
+
+export const system = createSystem(defaultConfig, config);

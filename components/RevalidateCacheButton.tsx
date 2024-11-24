@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 
-import { Button } from '@chakra-ui/react';
-
 import { revalidateCache } from 'app/actions/doRevalidateCache';
+import { Button } from './ui/button';
 
 export default interface RevalidateCacheButtonProps {
     pathPrefix: string;
@@ -20,7 +19,7 @@ export const RevalidateCacheButton = ({ pathPrefix, userName, repoName }: Revali
         setLoading(false);
     };
     return (
-        <Button onClick={onClick} isLoading={loading}>
+        <Button onClick={onClick} loading={loading}>
             Update, revalidate Cache
         </Button>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Avatar } from './ui/avatar';
 
-import { Avatar, Heading, Box, Text, HStack } from '@chakra-ui/react';
+import { Heading, Box, Text, HStack } from '@chakra-ui/react';
 
 export interface UserType {
     avatar_url?: string;
@@ -20,7 +21,7 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
             <Heading as="h3" size="sm">
                 Owner
             </Heading>
-            <Avatar src={avatar_url} />
+            <Avatar src={avatar_url} size="xl" />
             <Box>
                 <Text>{login ?? '?'}</Text>
                 <i>{company}</i>

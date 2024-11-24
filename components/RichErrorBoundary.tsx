@@ -5,7 +5,7 @@
  */
 import React, { ReactNode } from 'react';
 
-import { Alert, AlertDescription, AlertIcon, AlertTitle, Box } from '@chakra-ui/react';
+import { Alert } from './ui/alert';
 
 type State = { error: Error | null };
 
@@ -32,18 +32,14 @@ export default class RichErrorBoundary extends React.Component<Props, State> {
                 return fallback({ error });
             }
             return (
-                <Alert status="error">
-                    <AlertIcon />
-                    <Box>
-                        <AlertTitle>Error! While trying to load data:</AlertTitle>
-                        {message && <AlertDescription>{message}</AlertDescription>}
-                        {!message && (
-                            <AlertDescription>
-                                Details:
-                                <pre>{JSON.stringify(error, null, 2)}</pre>
-                            </AlertDescription>
-                        )}
-                    </Box>
+                <Alert status="error" title="Error! While trying to load data:">
+                    {message && <span>{message}</span>}
+                    {!message && (
+                        <span>
+                            Details:
+                            <pre>{JSON.stringify(error, null, 2)}</pre>
+                        </span>
+                    )}
                 </Alert>
             );
         }
