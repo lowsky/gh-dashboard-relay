@@ -32,21 +32,10 @@ interface StatusProps {
 
 export const Status = ({ target_url, avatar_url, context, description, state }: StatusProps) => (
     <a href={target_url ?? ''} title={context + ': ' + description}>
-        <Avatar
-            size="2xs"
-            name={context ?? ''}
-            src={avatar_url ?? undefined}
-            loading="lazy"
-            referrerPolicy="no-referrer">
+        <Avatar size="2xs" name={context ?? ''} src={avatar_url ?? undefined} loading="lazy">
             {
                 <Float placement="top-end" offsetX="1" offsetY="1">
-                    <Circle
-                        bg={status2color(state)}
-                        //_bg="green.500"
-                        size="1.25em"
-                        outline="0.2em solid"
-                        outlineColor="bg"
-                    />
+                    <Circle bg={status2color(state)} size="1.25em" outline="0.2em solid" outlineColor="bg" />
                 </Float>
             }
         </Avatar>
