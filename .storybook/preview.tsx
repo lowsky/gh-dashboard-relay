@@ -1,6 +1,7 @@
-//import { system } from 'components/theme';
+import { system } from 'components/theme';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
+//import { defaultSystem } from '@chakra-ui/react';
 import type { Decorator, ReactRenderer } from '@storybook/react';
 
 export const decorators: Decorator[] = [
@@ -12,7 +13,8 @@ export const decorators: Decorator[] = [
         },
     }),
     (Story) => (
-        <ChakraProvider value={defaultSystem}>
+        //<ChakraProvider value={system}>
+        <ChakraProvider value={system}>
             <Story />
         </ChakraProvider>
     ),
@@ -20,10 +22,6 @@ export const decorators: Decorator[] = [
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
-    chakra: {
-        // LATER: move up into decoreator:+
-        // theme: customTheme,
-    },
     nextjs: {
         appDirectory: true,
     },
