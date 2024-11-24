@@ -16,7 +16,7 @@ export function NavBar() {
     const { userName: owner, repoName: repo } = params ?? {};
     const { open, onToggle } = useDisclosure();
 
-    const backgroundColor = useColorModeValue('white', 'gray.800');
+    const backgroundColor = useColorModeValue('white', 'gray.400');
     const borderColor = useColorModeValue('gray.200', 'gray.900');
     const textColor = useColorModeValue('gray.600', 'white');
 
@@ -102,11 +102,14 @@ const MobileNavItem = ({ label, href }: NavItem) => {
 
     return (
         <Stack gap={4}>
-            <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
-                <Text fontWeight={600} color={color}>
-                    {label}
-                </Text>
-            </Flex>
+            {
+                // @ts-expect-error "as" won't work well with typescript
+                <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
+                    <Text fontWeight={600} color={color}>
+                        {label}
+                    </Text>
+                </Flex>
+            }
         </Stack>
     );
 };
