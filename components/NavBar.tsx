@@ -3,18 +3,18 @@
 import { ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
-import { Box, Button, Center, Collapsible, Flex, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Button, Center, Collapsible, Flex, Icon, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 
 import InternalLink from './InternalLink';
-import { useColorMode, useColorModeValue } from './ui/color-mode';
+import { useColorMode, useColorModeValue, ColorModeButton } from './ui/color-mode';
 
 export function NavBar() {
     const params = useParams();
     const { userName: owner, repoName: repo } = params ?? {};
-    const { isOpen, onToggle } = useDisclosure();
+    const { open, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.800');
     const borderColor = useColorModeValue('gray.200', 'gray.900');
@@ -37,12 +37,11 @@ export function NavBar() {
                     alignItems="center"
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
-                    <IconButton
-                        onClick={onToggle}
-                        icon={isOpen ? <MdClose w={3} h={3} /> : <GiHamburgerMenu w={5} h={5} />}
-                        variant="ghost"
-                        aria-label="Toggle Navigation"
-                    />
+                    <IconButton onClick={onToggle} variant="ghost" aria-label="Toggle Navigation">
+                        <Icon w={3} h={3}>
+                            {open ? <MdClose /> : <GiHamburgerMenu />}
+                        </Icon>
+                    </IconButton>
                     <Center>Github Dashboard</Center>
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
@@ -52,7 +51,7 @@ export function NavBar() {
                     </Flex>
                 </Flex>
             </Flex>
-            <Collapsible.Root in={isOpen}>
+            <Collapsible.Root in={open}>
                 <Collapsible.Content>
                     <MobileNav owner={owner} repo={repo} />
                 </Collapsible.Content>
@@ -64,7 +63,7 @@ export function NavBar() {
 const DesktopNav = ({ owner, repo }) => {
     const pathname = usePathname();
     return (
-        <Stack direction="row" spacing={4} align="center">
+        <Stack direction="row" gap={4} align="center">
             <InternalLink href="/">Home</InternalLink>
             {owner && repo && <strong>{repo}</strong>}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
@@ -102,7 +101,7 @@ const MobileNavItem = ({ label, href }: NavItem) => {
     const color = useColorModeValue('gray.600', 'gray.200');
 
     return (
-        <Stack spacing={4}>
+        <Stack gap={4}>
             <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
                 <Text fontWeight={600} color={color}>
                     {label}
@@ -139,15 +138,14 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
 }
 
 function DarkLightThemeToggle() {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const colorModeValue = useColorModeValue('white', 'gray.800');
+    const backgroundColor = useColorModeValue('white', 'gray.800');
 
     return (
-        <Box bg={colorModeValue} px={4}>
+        <Box bg={backgroundColor} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Stack direction="row">
-                        <Button onClick={toggleColorMode}>{colorMode === 'light' ? 'Moon' : '<SunIcon />'}</Button>
+                        <ColorModeButton />
                     </Stack>
                 </Flex>
             </Flex>
