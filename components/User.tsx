@@ -21,7 +21,7 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
             <Heading as="h3" size="sm">
                 Owner
             </Heading>
-            <Avatar src={avatar_url} />
+            <Avatar src={avatar_url} size="xl" />
             <Box>
                 <Text>{login ?? '?'}</Text>
                 <i>{company}</i>
