@@ -1,6 +1,6 @@
-import { system } from 'components/theme';
+//import { system } from 'components/theme';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
 import type { Decorator, ReactRenderer } from '@storybook/react';
 
 export const decorators: Decorator[] = [

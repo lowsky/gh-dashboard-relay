@@ -3,13 +3,13 @@
 import { ReactNode } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 
-import { Box, Button, Center, Collapsible, Flex, Icon, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Center, Collapsible, Flex, Icon, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 
 import InternalLink from './InternalLink';
-import { useColorMode, useColorModeValue, ColorModeButton } from './ui/color-mode';
+import { useColorModeValue, ColorModeButton } from './ui/color-mode';
 
 export function NavBar() {
     const params = useParams();
