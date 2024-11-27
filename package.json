@@ -85,7 +85,7 @@
     "@graphql-codegen/typescript-operations": "4.4.0",
     "@graphql-codegen/typescript-resolvers": "4.4.1",
     "@graphql-eslint/eslint-plugin": "^4.0.0",
-    "@graphql-tools/schema": "10.0.9",
+    "@graphql-tools/schema": "10.0.10",
     "@octokit/types": "13.6.2",
     "@storybook/addon-essentials": "8.4.5",
     "@storybook/addon-themes": "8.4.5",
