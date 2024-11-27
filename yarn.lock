@@ -4483,8 +4483,8 @@ __metadata:
   linkType: hard
 
 "@graphql-eslint/eslint-plugin@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@graphql-eslint/eslint-plugin@npm:4.0.0"
+  version: 4.0.1
+  resolution: "@graphql-eslint/eslint-plugin@npm:4.0.1"
   dependencies:
     "@graphql-tools/code-file-loader": "npm:^8.0.0"
     "@graphql-tools/graphql-tag-pluck": "npm:8.3.4"
@@ -4497,7 +4497,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.44.0"
     graphql: ^16
-  checksum: 10c0/e451349f1d02193008c7657adee2b2d1cc82d74d7833359b562077232c14f711864b52008a966dcd7bfd4d4d8ce5d9b3e2d359e6413cd674544f4ddf29acdba3
+  checksum: 10c0/48176a2438db3e4c3882948730ae813d06a8ccdd818723193323224fea951362d63f56fa6aa404e12481e8675f4f5cbcfa3a425c61e483f8691db08a0a9513af
   languageName: node
   linkType: hard
 
