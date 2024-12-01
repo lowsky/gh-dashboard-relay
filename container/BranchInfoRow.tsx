@@ -1,9 +1,9 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { Icon, Link, Table, VStack } from '@chakra-ui/react';
+import { Link, Table, VStack } from '@chakra-ui/react';
+
+import { ClipboardIconButton, ClipboardRoot } from 'components/ui/clipboard';
 
 import { GithubBranch, Maybe } from 'restinpeace/types';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
@@ -33,16 +33,16 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
         <Table.Row key={name}>
             <Table.Cell>
                 {name && (
-                    <Link
-                        href={branchUrlValid ? githubBranchSrc : ''}
-                        rel="noopener noreferrer nofollow"
-                        target="_blank">
-                        {name}
-                    </Link>
+                    <ClipboardRoot value={name}>
+                        <Link
+                            href={branchUrlValid ? githubBranchSrc : ''}
+                            rel="noopener noreferrer nofollow"
+                            target="_blank">
+                            {name}
+                        </Link>
+                        <ClipboardIconButton />
+                    </ClipboardRoot>
                 )}
-                <Icon ml={1}>
-                    <FontAwesomeIcon icon={faGithub} />
-                </Icon>
             </Table.Cell>
             <Table.Cell>
                 {!main && (
@@ -58,6 +58,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                         {!associatedPullRequests && <PullRequestInfo sha={sha} />}
                     </Suspense>
                 )}
+                {main && <span>Main branch</span>}
             </Table.Cell>
 
             <Table.Cell>
