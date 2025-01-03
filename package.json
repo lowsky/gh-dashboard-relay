@@ -119,7 +119,7 @@
     "ts-jest": "29.2.5",
     "typescript": "5.7.2",
     "typescript-eslint": "8.19.0",
-    "vercel": "39.1.2"
+    "vercel": "39.2.5"
   },
   "packageManager": "yarn@4.5.3"
 }
