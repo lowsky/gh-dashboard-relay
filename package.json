@@ -56,7 +56,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "@chakra-ui/react": "3.2.4",
+    "@chakra-ui/react": "3.2.5",
     "@emotion/react": "11.14.0",
     "@next/mdx": "14.2.20",
     "@octokit/graphql-schema": "15.25.0",
