@@ -117,7 +117,7 @@
     "relay-compiler-language-typescript": "15.0.1",
     "storybook": "8.4.7",
     "ts-jest": "29.2.5",
-    "typescript": "5.7.2",
+    "typescript": "5.7.3",
     "typescript-eslint": "8.19.1",
     "vercel": "39.2.5"
   },
