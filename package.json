@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.3",
-    "@eslint/compat": "1.2.4",
+    "@eslint/compat": "1.2.5",
     "@eslint/eslintrc": "3.2.0",
     "@eslint/js": "9.19.0",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
