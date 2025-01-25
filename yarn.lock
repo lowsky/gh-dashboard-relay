@@ -5953,25 +5953,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/env@npm:14.2.21"
-  checksum: 10c0/67e5b740ded5c2a856d008c12c84db3e31d10b00d3b4820963d38dee19d7c1ca19efc8ddec95289de1454eba77008952bc7f84ebffa5f6577e2e0c4197dd90ee
+"@next/env@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/env@npm:14.2.23"
+  checksum: 10c0/00313ffbfa0ca990ec53a24ff007a114db95064034370f97ffa5733ca41d288e0d3b140e070bd07073db4da922a1ab93df84651cc61fc495572d7cdc65c10329
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:14.2.22":
-  version: 14.2.22
-  resolution: "@next/eslint-plugin-next@npm:14.2.22"
+"@next/eslint-plugin-next@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/eslint-plugin-next@npm:14.2.23"
   dependencies:
     glob: "npm:10.3.10"
-  checksum: 10c0/35a9e4e3fb25e4b46d16713177858619fb9be159c098f37ae3a64f17f710fe1ced7cd74bd54518dd12e2dc9874edc05c1fb9b4893e3dbe2c0623459b9c79830c
+  checksum: 10c0/a5dff445bc1827c03361517b3c0c6f869ee5b9477f4ce69d9fa9a2eb1908660c2ba24420eed941678e387eca070ea9df50f17e0ca3293f84f6cff1b3948ffec6
   languageName: node
   linkType: hard
 
-"@next/mdx@npm:14.2.22":
-  version: 14.2.22
-  resolution: "@next/mdx@npm:14.2.22"
+"@next/mdx@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/mdx@npm:14.2.23"
   dependencies:
     source-map: "npm:^0.7.0"
   peerDependencies:
@@ -5982,69 +5982,69 @@ __metadata:
       optional: true
     "@mdx-js/react":
       optional: true
-  checksum: 10c0/48e26b8339151dc935d692728f786e329cd80ab13c830e38bac5501cb9ea3a52b3aae18a1ae4b4ac64fd993d625786d5ddd0ff2fcdcf5162aa273cc23aa1183e
+  checksum: 10c0/21013e0b60f4525c2e0d14f7cff50cb31169954783fdba5e85f3c98043b01aaa5e2d6b79d70ab938b48443ed6d37af51be09be7b946d45e51ea5a607233fcf17
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-darwin-arm64@npm:14.2.21"
+"@next/swc-darwin-arm64@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-darwin-arm64@npm:14.2.23"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-x64@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-darwin-x64@npm:14.2.21"
+"@next/swc-darwin-x64@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-darwin-x64@npm:14.2.23"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-linux-arm64-gnu@npm:14.2.21"
+"@next/swc-linux-arm64-gnu@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-linux-arm64-gnu@npm:14.2.23"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-musl@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-linux-arm64-musl@npm:14.2.21"
+"@next/swc-linux-arm64-musl@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-linux-arm64-musl@npm:14.2.23"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-linux-x64-gnu@npm:14.2.21"
+"@next/swc-linux-x64-gnu@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-linux-x64-gnu@npm:14.2.23"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-musl@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-linux-x64-musl@npm:14.2.21"
+"@next/swc-linux-x64-musl@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-linux-x64-musl@npm:14.2.23"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-win32-arm64-msvc@npm:14.2.21"
+"@next/swc-win32-arm64-msvc@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-win32-arm64-msvc@npm:14.2.23"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-win32-ia32-msvc@npm:14.2.21"
+"@next/swc-win32-ia32-msvc@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-win32-ia32-msvc@npm:14.2.23"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@next/swc-win32-x64-msvc@npm:14.2.21":
-  version: 14.2.21
-  resolution: "@next/swc-win32-x64-msvc@npm:14.2.21"
+"@next/swc-win32-x64-msvc@npm:14.2.23":
+  version: 14.2.23
+  resolution: "@next/swc-win32-x64-msvc@npm:14.2.23"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -11155,7 +11155,7 @@ __metadata:
     "@graphql-codegen/typescript-resolvers": "npm:4.4.1"
     "@graphql-eslint/eslint-plugin": "npm:^4.0.0"
     "@graphql-tools/schema": "npm:10.0.16"
-    "@next/mdx": "npm:14.2.22"
+    "@next/mdx": "npm:14.2.23"
     "@octokit/graphql-schema": "npm:15.25.0"
     "@octokit/rest": "npm:21.1.0"
     "@octokit/types": "npm:13.7.0"
@@ -11171,7 +11171,7 @@ __metadata:
     chromatic: "npm:11.25.1"
     csstype: "npm:3.1.3"
     eslint: "npm:9.19.0"
-    eslint-config-next: "npm:14.2.22"
+    eslint-config-next: "npm:14.2.23"
     eslint-config-prettier: "npm:10.0.1"
     eslint-plugin-prettier: "npm:5.2.1"
     eslint-plugin-react-hooks: "npm:5.1.0"
@@ -11183,7 +11183,7 @@ __metadata:
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:29.7.0"
     meros: "npm:1.3.0"
-    next: "npm:14.2.21"
+    next: "npm:14.2.23"
     next-themes: "npm:^0.4.3"
     nextjs-toploader: "npm:3.7.15"
     prettier: "npm:3.4.2"
@@ -12268,11 +12268,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:14.2.22":
-  version: 14.2.22
-  resolution: "eslint-config-next@npm:14.2.22"
+"eslint-config-next@npm:14.2.23":
+  version: 14.2.23
+  resolution: "eslint-config-next@npm:14.2.23"
   dependencies:
-    "@next/eslint-plugin-next": "npm:14.2.22"
+    "@next/eslint-plugin-next": "npm:14.2.23"
     "@rushstack/eslint-patch": "npm:^1.3.3"
     "@typescript-eslint/eslint-plugin": "npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
     "@typescript-eslint/parser": "npm:^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0"
@@ -12288,7 +12288,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/693d5b9178e29a140a4adf7db6c4c072db1e5d12cc9d2723b10e350ebdef867af999ce87501b4fb85b4ab56b2e824acefdcc1943aae76f60426c7b15e3694e68
+  checksum: 10c0/6e9b53f004b109444ebdfe93d6286d3fa6739ee9285afc19e32b8b2f8b9a86a5fd4d1621fd0499cfb0f055c4ad856968a959f9b7217009f4687224e3f0a669a4
   languageName: node
   linkType: hard
 
@@ -16270,20 +16270,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:14.2.21":
-  version: 14.2.21
-  resolution: "next@npm:14.2.21"
+"next@npm:14.2.23":
+  version: 14.2.23
+  resolution: "next@npm:14.2.23"
   dependencies:
-    "@next/env": "npm:14.2.21"
-    "@next/swc-darwin-arm64": "npm:14.2.21"
-    "@next/swc-darwin-x64": "npm:14.2.21"
-    "@next/swc-linux-arm64-gnu": "npm:14.2.21"
-    "@next/swc-linux-arm64-musl": "npm:14.2.21"
-    "@next/swc-linux-x64-gnu": "npm:14.2.21"
-    "@next/swc-linux-x64-musl": "npm:14.2.21"
-    "@next/swc-win32-arm64-msvc": "npm:14.2.21"
-    "@next/swc-win32-ia32-msvc": "npm:14.2.21"
-    "@next/swc-win32-x64-msvc": "npm:14.2.21"
+    "@next/env": "npm:14.2.23"
+    "@next/swc-darwin-arm64": "npm:14.2.23"
+    "@next/swc-darwin-x64": "npm:14.2.23"
+    "@next/swc-linux-arm64-gnu": "npm:14.2.23"
+    "@next/swc-linux-arm64-musl": "npm:14.2.23"
+    "@next/swc-linux-x64-gnu": "npm:14.2.23"
+    "@next/swc-linux-x64-musl": "npm:14.2.23"
+    "@next/swc-win32-arm64-msvc": "npm:14.2.23"
+    "@next/swc-win32-ia32-msvc": "npm:14.2.23"
+    "@next/swc-win32-x64-msvc": "npm:14.2.23"
     "@swc/helpers": "npm:0.5.5"
     busboy: "npm:1.6.0"
     caniuse-lite: "npm:^1.0.30001579"
@@ -16324,7 +16324,7 @@ __metadata:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 10c0/b087ddbd7f0358393075080e9fefdfe4d436f42c42348f47c8bfcb052463976e767cef33d7816ddc1a1cdd5d729be3941db25f8bf4a4b12045aa72241d90298a
+  checksum: 10c0/76eb77263f6c8064fe01d7652dc4a877a265ddc4d34e57196361c9266488a9c0c0cd5428ec3496593a09face78e5f9b6ec556c8a4bc1a01194b3ba5f1aca1a4b
   languageName: node
   linkType: hard
 
