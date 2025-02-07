@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { Link, LinkProps } from '@chakra-ui/react';
@@ -9,7 +9,7 @@ export default function InternalLink({
     href,
     variant,
     ...props
-}: Omit<LinkProps, 'href'> & NextLinkProps): JSX.Element {
+}: Omit<LinkProps, 'href'> & NextLinkProps): ReactElement {
     return (
         <Link variant={variant} asChild>
             {

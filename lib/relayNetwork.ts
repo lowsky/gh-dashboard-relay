@@ -57,7 +57,6 @@ const serverSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
             });
             const value: ExecutionResult = await graphqlOp;
             const errors = value.errors;
-            // @ts-expect-error errors Type GraphQLError is not assignable to type PayloadError
             // Types of property locations are incompatible.
             sink.next({ ...value, data: value.data ?? {}, errors });
             sink.complete();
