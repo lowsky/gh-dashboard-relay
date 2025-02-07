@@ -7241,59 +7241,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
-  version: 15.7.5
-  resolution: "@types/prop-types@npm:15.7.5"
-  checksum: 10c0/648aae41423821c61c83823ae36116c8d0f68258f8b609bdbc257752dcd616438d6343d554262aa9a7edaee5a19aca2e028a74fa2d0f40fffaf2816bc7056857
-  languageName: node
-  linkType: hard
-
-"@types/react-relay@npm:18.2.0":
-  version: 18.2.0
-  resolution: "@types/react-relay@npm:18.2.0"
-  dependencies:
-    "@types/react": "npm:*"
-    "@types/relay-runtime": "npm:*"
-  checksum: 10c0/0809ad0e7e9c73d02a84b3c66947a1b925e44206595951e84a30f29a6ba9bfb49309c6d490906db81762d86627b42a437a4a8b036c803b95baa76abbcd54af2b
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:*":
-  version: 18.0.27
-  resolution: "@types/react@npm:18.0.27"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10c0/87711931b14cdca07c4149531b4c96e7a56609ed2d010c52bf6bde14b417ac128c326924b14b25667fdaeddacfe98c31fa9625a95af52dae45061df8e30b46a3
-  languageName: node
-  linkType: hard
-
-"@types/relay-runtime@npm:*":
-  version: 18.1.1
-  resolution: "@types/relay-runtime@npm:18.1.1"
-  checksum: 10c0/593b7524f7a66089d64e4ee44bc4809fafff43e8c34caef9c0ec7320a8bf54f71885afc6c1a8bbe57cb9c8d2a7de753942c97cde446c47ec79328d32ec815e6c
-  languageName: node
-  linkType: hard
-
-"@types/relay-runtime@npm:18.2.5":
-  version: 18.2.5
-  resolution: "@types/relay-runtime@npm:18.2.5"
-  checksum: 10c0/c8c2e26da41f9e49d321b6f2471297d895c44a58573531bb95b70c3376d07a31e5c4a74647d8b667c7fc4b1c6d51da1415f8cb5148d7f7fa64087a4fc3d6d4b7
-  languageName: node
-  linkType: hard
-
 "@types/resolve@npm:^1.20.2":
   version: 1.20.6
   resolution: "@types/resolve@npm:1.20.6"
   checksum: 10c0/a9b0549d816ff2c353077365d865a33655a141d066d0f5a3ba6fd4b28bc2f4188a510079f7c1f715b3e7af505a27374adce2a5140a3ece2a059aab3d6e1a4244
-  languageName: node
-  linkType: hard
-
-"@types/scheduler@npm:*":
-  version: 0.16.2
-  resolution: "@types/scheduler@npm:0.16.2"
-  checksum: 10c0/89a3a922f03609b61c270d534226791edeedcb1b06f0225d5543ac17830254624ef9d8a97ad05418e4ce549dd545bddf1ff28cb90658ff10721ad14556ca68a5
   languageName: node
   linkType: hard
 
@@ -11163,8 +11114,6 @@ __metadata:
     "@storybook/addon-themes": "npm:8.4.7"
     "@storybook/nextjs": "npm:8.4.7"
     "@storybook/react": "npm:^8.0.0"
-    "@types/react-relay": "npm:18.2.0"
-    "@types/relay-runtime": "npm:18.2.5"
     "@typescript-eslint/eslint-plugin": "npm:8.19.1"
     "@typescript-eslint/parser": "npm:8.19.1"
     babel-plugin-relay: "npm:18.2.0"
@@ -11193,7 +11142,6 @@ __metadata:
     react-icons: "npm:^5.3.0"
     react-relay: "npm:18.2.0"
     relay-compiler: "npm:18.2.0"
-    relay-compiler-language-typescript: "npm:15.0.1"
     relay-runtime: "npm:18.2.0"
     storybook: "npm:8.4.7"
     ts-jest: "npm:29.2.5"
@@ -18047,21 +17995,6 @@ __metadata:
   version: 0.2.7
   resolution: "relateurl@npm:0.2.7"
   checksum: 10c0/c248b4e3b32474f116a804b537fa6343d731b80056fb506dffd91e737eef4cac6be47a65aae39b522b0db9d0b1011d1a12e288d82a109ecd94a5299d82f6573a
-  languageName: node
-  linkType: hard
-
-"relay-compiler-language-typescript@npm:15.0.1":
-  version: 15.0.1
-  resolution: "relay-compiler-language-typescript@npm:15.0.1"
-  dependencies:
-    invariant: "npm:^2.2.4"
-  peerDependencies:
-    "@types/react-relay": ">=11.0.2"
-    "@types/relay-runtime": ">=12.0.0"
-    relay-compiler: ">=12.0.0"
-    relay-runtime: ">=12.0.0"
-    typescript: ">=4.5.0"
-  checksum: 10c0/ae0006ddc97ae428ffcc3402b9a4e81d16faacf2a868557806a89e2536675fe7c749852ec18352593cf590bad0c55a7ba7c5cb9a99e2730851fb5d9d4e1b82ed
   languageName: node
   linkType: hard
 
