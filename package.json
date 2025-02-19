@@ -91,7 +91,7 @@
     "@storybook/addon-themes": "8.5.3",
     "@storybook/nextjs": "8.5.3",
     "@storybook/react": "^8.0.0",
-    "@types/react": "19.0.8",
+    "@types/react": "19.0.10",
     "@typescript-eslint/eslint-plugin": "8.23.0",
     "@typescript-eslint/parser": "8.23.0",
     "babel-plugin-relay": "18.2.0",
