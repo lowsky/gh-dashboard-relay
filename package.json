@@ -114,7 +114,7 @@
     "react-relay": "18.2.0",
     "relay-compiler": "18.2.0",
     "storybook": "8.5.8",
-    "ts-jest": "29.2.5",
+    "ts-jest": "29.2.6",
     "typescript": "5.7.3",
     "typescript-eslint": "8.25.0",
     "vercel": "41.1.4"
