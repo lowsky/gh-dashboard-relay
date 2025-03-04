@@ -5832,7 +5832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:8.6.3, @storybook/react@npm:^8.0.0":
+"@storybook/react@npm:8.6.3":
   version: 8.6.3
   resolution: "@storybook/react@npm:8.6.3"
   dependencies:
@@ -10022,7 +10022,7 @@ __metadata:
     "@storybook/addon-essentials": "npm:8.6.3"
     "@storybook/addon-themes": "npm:8.6.3"
     "@storybook/nextjs": "npm:8.6.3"
-    "@storybook/react": "npm:^8.0.0"
+    "@storybook/react": "npm:8.6.3"
     "@types/react": "npm:19.0.10"
     "@typescript-eslint/eslint-plugin": "npm:8.25.0"
     "@typescript-eslint/parser": "npm:8.25.0"
