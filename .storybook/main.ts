@@ -9,10 +9,8 @@ const config: StorybookConfig = {
         '../app/*.story.@(js|jsx|ts|tsx|mdx)',
         '../app/**/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
-    addons: ['@storybook/addon-essentials', '@storybook/addon-themes'],
-    docs: {
-        autodocs: false,
-    },
+    addons: ['@storybook/addon-essentials', '@storybook/addon-themes', '@chromatic-com/storybook'],
+    docs: {},
     core: {
         disableTelemetry: true,
     },
@@ -31,6 +29,9 @@ const config: StorybookConfig = {
             },
         };
         return baseConfig;
+    },
+    typescript: {
+        reactDocgen: 'react-docgen-typescript'
     },
 };
 
