@@ -9,7 +9,7 @@ export default function InternalLink({
     href,
     variant,
     ...props
-}: Omit<LinkProps, 'href'> & NextLinkProps): ReactElement {
+}: Omit<LinkProps, 'href'> & NextLinkProps): ReactElement<HTMLAnchorElement> {
     return (
         <Link variant={variant} asChild>
             {
