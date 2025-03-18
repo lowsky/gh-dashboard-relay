@@ -6,6 +6,11 @@ const withMDX = nextMDX();
 const nextConfig = {
     pageExtensions: ['ts', 'tsx', 'mdx'],
     experimental: {
+        // https://chakra-ui.com/docs/get-started/frameworks/next-app#optimize-bundle
+        // This also helps to resolve warnings like:
+        //
+        // [webpack.cache.PackFileCacheStrategy] Serializing big strings (xxxkiB)
+        optimizePackageImports: ["@chakra-ui/react"],
         forceSwcTransforms: true,
         mdxRs: true,
     },
