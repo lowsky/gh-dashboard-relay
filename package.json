@@ -107,7 +107,7 @@
     "globals": "16.0.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "29.7.0",
-    "nextjs-toploader": "3.7.15",
+    "nextjs-toploader": "3.8.16",
     "prettier": "3.5.3",
     "react": "next",
     "react-dom": "next",
