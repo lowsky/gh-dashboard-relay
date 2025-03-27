@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
-import { IEnvironment, Environment, INetwork, RecordSource, Store } from 'relay-runtime';
-import { RecordMap } from 'relay-runtime/lib/store/RelayStoreTypes';
+import { RecordMap, IEnvironment, Environment, INetwork, RecordSource, Store } from 'react-relay';
 
 import { network } from './relayNetwork';
 

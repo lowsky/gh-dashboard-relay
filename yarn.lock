@@ -10440,7 +10440,6 @@ __metadata:
     react-icons: "npm:^5.3.0"
     react-relay: "npm:18.2.0"
     relay-compiler: "npm:18.2.0"
-    relay-runtime: "npm:18.2.0"
     storybook: "npm:8.6.12"
     ts-jest: "npm:29.3.2"
     typescript: "npm:5.8.3"
