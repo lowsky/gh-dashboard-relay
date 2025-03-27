@@ -1,4 +1,4 @@
-import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable } from 'relay-runtime';
+import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable } from 'react-relay';
 import { meros } from 'meros';
 import { type ExecutionResult, graphql } from 'graphql';
 import type { ExecutionPatchResult, Sink } from 'graphql-ws';
@@ -36,7 +36,7 @@ const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cache
                 }
             } else {
                 const promise = parts.json();
-                const value: any = await promise;
+                const value = await promise;
                 sink.next(value);
             }
 
@@ -79,6 +79,6 @@ function isAsyncIterable(input: unknown): input is AsyncIterable<unknown> {
         // Some browsers still don't have Symbol.asyncIterator implemented (iOS Safari)
         // That means every custom AsyncIterable must be built using a AsyncGeneratorFunction
         // (async function * () {})
-        ((input as any)[Symbol.toStringTag] === 'AsyncGenerator' || Symbol.asyncIterator in input)
+        (input[Symbol.toStringTag] === 'AsyncGenerator' || Symbol.asyncIterator in input)
     );
 }
