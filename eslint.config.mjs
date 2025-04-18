@@ -35,14 +35,6 @@ export default [
         },
     },
     {
-        files: ['**/__tests__/*', '**/*.test.*'],
-        languageOptions: {
-            globals: {
-                ...globals.jest,
-            },
-        },
-    },
-    {
         plugins: {
             '@next/next': fixupPluginRules(nextPlugin),
         },
@@ -119,8 +111,6 @@ export default [
             '**/out_publish',
             '.next/**',
             '.yarn',
-            // TEMP: TODO: needs adoption. Next/jest is not compatible
-            'jest.config.js',
         ],
     },
 ];
