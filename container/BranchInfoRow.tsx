@@ -8,8 +8,8 @@ import { ClipboardIconButton, ClipboardRoot } from 'components/ui/clipboard';
 import { GithubBranch, Maybe } from 'restinpeace/types';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import { Spinner } from 'components/Spinner';
-import { useUILib } from 'components/UILibContext';
-import { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses/CommitWithStatuses';
+import CommitWithStatuses, { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses/CommitWithStatuses';
+import PullRequestInfo from 'relay/PullRequestInfo';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
@@ -23,8 +23,6 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
     const { associatedPullRequests } = lastCommit ?? {};
 
     const githubBranchSrc = `https://github.com/${userName}/${repoName}/tree/${name}`;
-
-    const { CommitWithStatuses, PullRequestInfo } = useUILib();
 
     const branchUrlValid = userName && repoName;
 

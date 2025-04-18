@@ -1,6 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-
-import { UILibPureComponentsDecorator } from 'components/UILibContextDecorator';
 import UserRepo from 'container/UserRepo';
 
 import { WithAvatar } from 'components/User.story';
@@ -10,7 +8,6 @@ import { RepoType } from 'components/Repo';
 
 const meta: Meta<typeof UserRepo> = {
     component: UserRepo,
-    decorators: [UILibPureComponentsDecorator],
 };
 export default meta;
 

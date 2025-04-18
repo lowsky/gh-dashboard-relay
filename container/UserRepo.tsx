@@ -1,15 +1,16 @@
 'use client';
 
 import React from 'react';
-import { Link, Flex } from '@chakra-ui/react';
+import { Flex, Link } from '@chakra-ui/react';
 
 import { RevalidateCacheButton } from 'components/RevalidateCacheButton';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
-import { RepoType } from 'components/Repo';
-import { useUILib } from 'components/UILibContext';
+import Repo, { RepoType } from 'components/Repo';
 import { User as UserType } from 'restinpeace/github';
 
 import { Alert } from 'components/ui/alert';
+import User from '../components/User';
+import BranchesTable from './BranchesTable';
 
 export type UserRepoProps = Readonly<{
     user?: UserType;
@@ -18,7 +19,6 @@ export type UserRepoProps = Readonly<{
 
 const UserRepo: React.FC<UserRepoProps> = ({ user, repo }) => {
     const { userName, repoName } = useUserRepo();
-    const { Repo, User, BranchesTable } = useUILib();
 
     return (
         <Flex gap="4" direction="column">

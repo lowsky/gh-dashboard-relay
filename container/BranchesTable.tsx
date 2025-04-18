@@ -3,16 +3,12 @@ import { Table } from '@chakra-ui/react';
 
 import { GithubRepo } from 'restinpeace/types';
 
-import { SkeletonRow } from './BranchInfoRow';
-
-import { useUILib } from 'components/UILibContext';
+import BranchInfoRow, { SkeletonRow } from './BranchInfoRow';
 
 export interface BranchesTableProps {
     repo: GithubRepo;
 }
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
-    const { BranchInfoRow } = useUILib();
-
     const { branches } = repo ?? {};
     return (
         <Table.Root size="sm" striped>
