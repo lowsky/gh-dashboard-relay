@@ -9,7 +9,8 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 
 import InternalLink from './InternalLink';
-import { useColorModeValue, ColorModeButton } from './ui/color-mode';
+import { DarkLightThemeToggle } from './DarkLightThemeToggle';
+import { useColorModeValue } from './ui/color-mode';
 
 export function NavBar() {
     const params = useParams();
@@ -82,7 +83,6 @@ const DesktopNav = ({ owner, repo }) => {
 
 const MobileNav = ({ owner, repo }) => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-        <InternalLink href="/">Home</InternalLink>
         <br />
         {owner && repo && (
             <Text>
@@ -138,20 +138,4 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
         ];
 
     return [];
-}
-
-function DarkLightThemeToggle() {
-    const backgroundColor = useColorModeValue('white', 'gray.800');
-
-    return (
-        <Box bg={backgroundColor} px={4}>
-            <Flex h={8} alignItems="center" justifyContent="space-between">
-                <Flex alignItems="center">
-                    <Stack direction="row">
-                        <ColorModeButton />
-                    </Stack>
-                </Flex>
-            </Flex>
-        </Box>
-    );
 }
