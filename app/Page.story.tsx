@@ -1,11 +1,9 @@
 import { StoryObj } from '@storybook/react';
 
 import IndexPage from './page.mdx';
-import { UILibPureComponentsDecorator } from 'components/UILibContextDecorator';
 
 export default {
     component: IndexPage,
-    decorators: [UILibPureComponentsDecorator],
 };
 
 export const Index: StoryObj<typeof IndexPage> = {
