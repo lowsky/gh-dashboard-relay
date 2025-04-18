@@ -1,6 +1,7 @@
-import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable } from 'react-relay';
+import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable, PayloadError } from 'relay-runtime';
+
 import { meros } from 'meros';
-import { type ExecutionResult, graphql } from 'graphql';
+import { type ExecutionResult, graphql, GraphQLError } from 'graphql';
 import type { ExecutionPatchResult, Sink } from 'graphql-ws';
 
 import { schema } from 'pages/api/graphql';
@@ -56,9 +57,14 @@ const serverSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
                 },
             });
             const value: ExecutionResult = await graphqlOp;
-            const errors = value.errors;
+
+            const errors: ReadonlyArray<GraphQLError> | undefined = value.errors;
             // Types of property locations are incompatible.
-            sink.next({ ...value, data: value.data ?? {}, errors });
+            const errs: PayloadError | PayloadError[] = errors!.map((e) => {
+                return { message: isServerSideRendering() ? 'server:' : 'client:' + e.message };
+            });
+
+            sink.next({ ...value, data: value.data ?? {}, errors: errs });
             sink.complete();
         })();
     });

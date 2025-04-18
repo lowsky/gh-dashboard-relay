@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { RecordMap, IEnvironment, Environment, INetwork, RecordSource, Store } from 'react-relay';
+import { IEnvironment, Environment, INetwork, RecordSource, Store /* no RecordMap export */ } from 'relay-runtime';
 
 import { network } from './relayNetwork';
 
@@ -21,7 +21,7 @@ function createEnvironment(network: INetwork): IEnvironment {
     });
 }
 
-function initEnvironment(network: INetwork, initialRecords?: RecordMap): IEnvironment {
+function initEnvironment(network: INetwork, initialRecords? /*RecordMap*/): IEnvironment {
     const environment = createEnvironment(network);
 
     // If your page has Next.js data fetching methods that use Relay, the initial records
@@ -33,6 +33,6 @@ function initEnvironment(network: INetwork, initialRecords?: RecordMap): IEnviro
     return environment;
 }
 
-export function useEnvironment(initialRecords: RecordMap): IEnvironment {
+export function useEnvironment(initialRecords /*RecordMap*/): IEnvironment {
     return useMemo(() => initEnvironment(network(), initialRecords), [initialRecords]);
 }
