@@ -26,7 +26,7 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                 .catch((err) => logAndSetError(err))
                 .finally(() => setMergingInProgress(undefined));
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // ?? not needed anymore: eslint-disable-next-line react-hooks/exhaustive-deps
     }, [mergingInProgress]);
 
     const triggerMerging = () => setMergingInProgress(doMergePR?.());

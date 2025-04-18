@@ -1,4 +1,3 @@
-
 import { Icon, Link, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
@@ -40,11 +39,7 @@ export default function PullRequestMerge(props: PullRequestInfoProps) {
                 </span>
             )}
 
-            {(
-                <MergeButtonWithErrorStatus
-                    doMergePR={doMergePR}
-                />
-            )}
+            <MergeButtonWithErrorStatus doMergePR={doMergePR} />
         </VStack>
     );
 }
