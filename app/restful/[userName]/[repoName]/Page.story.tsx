@@ -1,13 +1,11 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 import RestfulPage from 'app/restful/[userName]/[repoName]/page';
-import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from 'components/UILibPureComponents';
+import { UILibPureComponentsDecorator } from 'components/UILibContextDecorator';
 
 const meta: Meta<typeof RestfulPage> = {
     component: RestfulPage,
-    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
+    decorators: [UILibPureComponentsDecorator],
 };
 
 export default meta;

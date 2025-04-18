@@ -1,24 +1,23 @@
-import type { Preview, Decorator, ReactRenderer } from '@storybook/react';
+import type { Preview, ReactRenderer } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { ChakraProvider } from '@chakra-ui/react';
-import { system } from 'components/theme';
-
-export const decorators: Decorator[] = [
-    withThemeByClassName<ReactRenderer>({
-        defaultTheme: 'light',
-        themes: {
-            light: '',
-            dark: 'dark',
-        },
-    }),
-    (Story) => (
-        <ChakraProvider value={system}>
-            <Story />
-        </ChakraProvider>
-    ),
-];
+import { Provider } from 'components/ui/provider';
 
 const preview: Preview = {
+    decorators: [
+        withThemeByClassName<ReactRenderer>({
+            defaultTheme: 'light',
+            themes: {
+                light: '',
+                dark: 'dark',
+            },
+        }),
+        (Story) => (
+            <Provider>
+                <Story />
+            </Provider>
+        ),
+    ],
+    // commented-out, to avoid generating docs:: tags: ['autodocs'],
     parameters: {
         actions: { argTypesRegex: '^on.*' },
         nextjs: {
