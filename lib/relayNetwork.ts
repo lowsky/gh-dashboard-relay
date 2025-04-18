@@ -60,9 +60,10 @@ const serverSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
 
             const errors: ReadonlyArray<GraphQLError> | undefined = value.errors;
             // Types of property locations are incompatible.
-            const errs: PayloadError | PayloadError[] = errors!.map((e) => {
-                return { message: isServerSideRendering() ? 'server:' : 'client:' + e.message };
-            });
+            const errs: PayloadError | PayloadError[] =
+                errors?.map((e) => {
+                    return { message: isServerSideRendering() ? 'server:' : 'client:' + e.message };
+                }) ?? [];
 
             sink.next({ ...value, data: value.data ?? {}, errors: errs });
             sink.complete();

@@ -1,8 +1,7 @@
-import { system } from 'components/theme';
+import type { Preview, Decorator, ReactRenderer } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { ChakraProvider } from '@chakra-ui/react';
-//import { defaultSystem } from '@chakra-ui/react';
-import type { Decorator, ReactRenderer } from '@storybook/react';
+import { system } from 'components/theme';
 
 export const decorators: Decorator[] = [
     withThemeByClassName<ReactRenderer>({
@@ -13,16 +12,19 @@ export const decorators: Decorator[] = [
         },
     }),
     (Story) => (
-        //<ChakraProvider value={system}>
         <ChakraProvider value={system}>
             <Story />
         </ChakraProvider>
     ),
 ];
 
-export const parameters = {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    nextjs: {
-        appDirectory: true,
+const preview: Preview = {
+    parameters: {
+        actions: { argTypesRegex: '^on.*' },
+        nextjs: {
+            appDirectory: true,
+        },
     },
 };
+
+export default preview;
