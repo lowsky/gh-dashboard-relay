@@ -6457,12 +6457,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.1.2":
+"@types/react-relay@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "@types/react-relay@npm:18.2.0"
+  dependencies:
+    "@types/react": "npm:*"
+    "@types/relay-runtime": "npm:*"
+  checksum: 10c0/0809ad0e7e9c73d02a84b3c66947a1b925e44206595951e84a30f29a6ba9bfb49309c6d490906db81762d86627b42a437a4a8b036c803b95baa76abbcd54af2b
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*, @types/react@npm:19.1.2":
   version: 19.1.2
   resolution: "@types/react@npm:19.1.2"
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/76ffe71395c713d4adc3c759465012d3c956db00af35ab7c6d0d91bd07b274b7ce69caa0478c0760311587bd1e38c78ffc9688ebc629f2b266682a19d8750947
+  languageName: node
+  linkType: hard
+
+"@types/relay-runtime@npm:*":
+  version: 18.2.5
+  resolution: "@types/relay-runtime@npm:18.2.5"
+  checksum: 10c0/c8c2e26da41f9e49d321b6f2471297d895c44a58573531bb95b70c3376d07a31e5c4a74647d8b667c7fc4b1c6d51da1415f8cb5148d7f7fa64087a4fc3d6d4b7
   languageName: node
   linkType: hard
 
@@ -10412,6 +10429,7 @@ __metadata:
     "@storybook/nextjs": "npm:8.6.12"
     "@storybook/react": "npm:8.6.12"
     "@types/react": "npm:19.1.2"
+    "@types/react-relay": "npm:^18.2.0"
     "@typescript-eslint/eslint-plugin": "npm:8.30.1"
     "@typescript-eslint/parser": "npm:8.30.1"
     babel-plugin-relay: "npm:18.2.0"
