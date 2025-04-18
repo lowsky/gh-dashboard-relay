@@ -1,10 +1,8 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 import BranchesTable from './BranchesTable';
 
-import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from 'components/UILibPureComponents';
+import { UILibPureComponentsDecorator } from 'components/UILibContextDecorator';
 
 import { WithInfo } from './BranchInfoRow.story';
 
@@ -12,7 +10,7 @@ import { GithubBranch, Maybe } from '../restinpeace/types';
 
 const meta: Meta<typeof BranchesTable> = {
     component: BranchesTable,
-    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
+    decorators: [UILibPureComponentsDecorator],
 };
 export default meta;
 

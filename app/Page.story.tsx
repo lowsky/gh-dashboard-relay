@@ -1,35 +1,22 @@
-import React from 'react';
 import { StoryObj } from '@storybook/react';
 
 import IndexPage from './page.mdx';
-import UILibContext from 'components/UILibContext';
-import { UILibPureComponents } from 'components/UILibPureComponents';
+import { UILibPureComponentsDecorator } from 'components/UILibContextDecorator';
 
 export default {
     component: IndexPage,
-    decorators: [(story) => <UILibContext.Provider value={UILibPureComponents}>{story()}</UILibContext.Provider>],
+    decorators: [UILibPureComponentsDecorator],
 };
 
 export const Index: StoryObj<typeof IndexPage> = {
     args: {},
     parameters: {
         /*
-        storyshots: { disable: true },
         chromatic: { disable: true },
-    
-        _nextRouter: {
-            pathname: "/restful/[userName]/[repoName]",
-            asPath: "/restful/lowsky/test-repo",
-            query: {
-                userName: 'lowsky',
-                repoName: 'test-repo',
-            },
-        },
          */
         nextjs: {
             appDirectory: true,
             navigation: {
-                //pathname: '/restful/[userName]/[repoName]',
                 pathname: '/restful/lowsky/test-repo',
                 segments: [
                     ['userName', 'lowsky'],
@@ -42,22 +29,6 @@ export const Index: StoryObj<typeof IndexPage> = {
             },
         },
     },
-    /*
-    _decorators: [
-        (story, _context) => {
-            console.log({ story, _context });
-            return <UserRepoFromUrlProvider {
-                ... {
-                    userName: 'lowsky',
-                    repoName: 'test-repo',
-                }
-                                            }>{story({
-                userName: 'lowsky',
-                repoName: 'test-repo',
-            })}</UserRepoFromUrlProvider>;
-        },
-    ],
-     */
 };
 
 /* this does currently not work at all, and need
