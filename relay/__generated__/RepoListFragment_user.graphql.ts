@@ -9,186 +9,192 @@
 // @ts-nocheck
 
 import { ReaderFragment } from 'relay-runtime';
-import { FragmentRefs } from "relay-runtime";
+import { FragmentRefs } from 'relay-runtime';
 export type RepoListFragment_user$data = {
-  readonly id: string;
-  readonly name: string | null | undefined;
-  readonly repositories: {
-    readonly edges: ReadonlyArray<{
-      readonly node: {
-        readonly " $fragmentSpreads": FragmentRefs<"RepoListFragment_repo">;
-      } | null | undefined;
-    } | null | undefined> | null | undefined;
-    readonly totalCount: number;
-  };
-  readonly " $fragmentType": "RepoListFragment_user";
+    readonly id: string;
+    readonly name: string | null | undefined;
+    readonly repositories: {
+        readonly edges:
+            | ReadonlyArray<
+                  | {
+                        readonly node:
+                            | {
+                                  readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_repo'>;
+                              }
+                            | null
+                            | undefined;
+                    }
+                  | null
+                  | undefined
+              >
+            | null
+            | undefined;
+        readonly totalCount: number;
+    };
+    readonly ' $fragmentType': 'RepoListFragment_user';
 };
 export type RepoListFragment_user$key = {
-  readonly " $data"?: RepoListFragment_user$data;
-  readonly " $fragmentSpreads": FragmentRefs<"RepoListFragment_user">;
+    readonly ' $data'?: RepoListFragment_user$data;
+    readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_user'>;
 };
 
-const node: ReaderFragment = (function(){
-var v0 = [
-  "repositories"
-];
-return {
-  "argumentDefinitions": [
-    {
-      "defaultValue": 4,
-      "kind": "LocalArgument",
-      "name": "count"
-    },
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
-      "name": "cursor"
-    }
-  ],
-  "kind": "Fragment",
-  "metadata": {
-    "connection": [
-      {
-        "count": "count",
-        "cursor": "cursor",
-        "direction": "forward",
-        "path": (v0/*: any*/)
-      }
-    ],
-    "refetch": {
-      "connection": {
-        "forward": {
-          "count": "count",
-          "cursor": "cursor"
-        },
-        "backward": null,
-        "path": (v0/*: any*/)
-      },
-      "fragmentPathInResult": [
-        "node"
-      ],
-      "operation": require('./RepoListPaginationQuery.graphql'),
-      "identifierInfo": {
-        "identifierField": "id",
-        "identifierQueryVariableName": "id"
-      }
-    }
-  },
-  "name": "RepoListFragment_user",
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "name",
-      "storageKey": null
-    },
-    {
-      "alias": "repositories",
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "orderBy",
-          "value": {
-            "direction": "ASC",
-            "field": "NAME"
-          }
-        }
-      ],
-      "concreteType": "RepositoryConnection",
-      "kind": "LinkedField",
-      "name": "__RepoList_user_repositories_connection",
-      "plural": false,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "RepositoryEdge",
-          "kind": "LinkedField",
-          "name": "edges",
-          "plural": true,
-          "selections": [
+const node: ReaderFragment = (function () {
+    var v0 = ['repositories'];
+    return {
+        argumentDefinitions: [
             {
-              "alias": null,
-              "args": null,
-              "concreteType": "Repository",
-              "kind": "LinkedField",
-              "name": "node",
-              "plural": false,
-              "selections": [
+                defaultValue: 4,
+                kind: 'LocalArgument',
+                name: 'count',
+            },
+            {
+                defaultValue: null,
+                kind: 'LocalArgument',
+                name: 'cursor',
+            },
+        ],
+        kind: 'Fragment',
+        metadata: {
+            connection: [
                 {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "RepoListFragment_repo"
+                    count: 'count',
+                    cursor: 'cursor',
+                    direction: 'forward',
+                    path: v0 /*: any*/,
                 },
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "__typename",
-                  "storageKey": null
-                }
-              ],
-              "storageKey": null
+            ],
+            refetch: {
+                connection: {
+                    forward: {
+                        count: 'count',
+                        cursor: 'cursor',
+                    },
+                    backward: null,
+                    path: v0 /*: any*/,
+                },
+                fragmentPathInResult: ['node'],
+                operation: require('./RepoListPaginationQuery.graphql'),
+                identifierInfo: {
+                    identifierField: 'id',
+                    identifierQueryVariableName: 'id',
+                },
+            },
+        },
+        name: 'RepoListFragment_user',
+        selections: [
+            {
+                alias: null,
+                args: null,
+                kind: 'ScalarField',
+                name: 'name',
+                storageKey: null,
             },
             {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "cursor",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "totalCount",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "PageInfo",
-          "kind": "LinkedField",
-          "name": "pageInfo",
-          "plural": false,
-          "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "endCursor",
-              "storageKey": null
+                alias: 'repositories',
+                args: [
+                    {
+                        kind: 'Literal',
+                        name: 'orderBy',
+                        value: {
+                            direction: 'ASC',
+                            field: 'NAME',
+                        },
+                    },
+                ],
+                concreteType: 'RepositoryConnection',
+                kind: 'LinkedField',
+                name: '__RepoList_user_repositories_connection',
+                plural: false,
+                selections: [
+                    {
+                        alias: null,
+                        args: null,
+                        concreteType: 'RepositoryEdge',
+                        kind: 'LinkedField',
+                        name: 'edges',
+                        plural: true,
+                        selections: [
+                            {
+                                alias: null,
+                                args: null,
+                                concreteType: 'Repository',
+                                kind: 'LinkedField',
+                                name: 'node',
+                                plural: false,
+                                selections: [
+                                    {
+                                        args: null,
+                                        kind: 'FragmentSpread',
+                                        name: 'RepoListFragment_repo',
+                                    },
+                                    {
+                                        alias: null,
+                                        args: null,
+                                        kind: 'ScalarField',
+                                        name: '__typename',
+                                        storageKey: null,
+                                    },
+                                ],
+                                storageKey: null,
+                            },
+                            {
+                                alias: null,
+                                args: null,
+                                kind: 'ScalarField',
+                                name: 'cursor',
+                                storageKey: null,
+                            },
+                        ],
+                        storageKey: null,
+                    },
+                    {
+                        alias: null,
+                        args: null,
+                        kind: 'ScalarField',
+                        name: 'totalCount',
+                        storageKey: null,
+                    },
+                    {
+                        alias: null,
+                        args: null,
+                        concreteType: 'PageInfo',
+                        kind: 'LinkedField',
+                        name: 'pageInfo',
+                        plural: false,
+                        selections: [
+                            {
+                                alias: null,
+                                args: null,
+                                kind: 'ScalarField',
+                                name: 'endCursor',
+                                storageKey: null,
+                            },
+                            {
+                                alias: null,
+                                args: null,
+                                kind: 'ScalarField',
+                                name: 'hasNextPage',
+                                storageKey: null,
+                            },
+                        ],
+                        storageKey: null,
+                    },
+                ],
+                storageKey: '__RepoList_user_repositories_connection(orderBy:{"direction":"ASC","field":"NAME"})',
             },
             {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "hasNextPage",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        }
-      ],
-      "storageKey": "__RepoList_user_repositories_connection(orderBy:{\"direction\":\"ASC\",\"field\":\"NAME\"})"
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "id",
-      "storageKey": null
-    }
-  ],
-  "type": "User",
-  "abstractKey": null
-};
+                alias: null,
+                args: null,
+                kind: 'ScalarField',
+                name: 'id',
+                storageKey: null,
+            },
+        ],
+        type: 'User',
+        abstractKey: null,
+    };
 })();
 
-(node as any).hash = "ba9d2880df0fc52554034ecbe557f037";
+(node as any).hash = 'ba9d2880df0fc52554034ecbe557f037';
 
 export default node;

@@ -52,7 +52,7 @@ export function UserRepoPageContent({ userName, repoName }) {
         repoName,
     });
 
-    if (!repository) return null;
+    if (!repository || !user) return null;
 
     return (
         <>

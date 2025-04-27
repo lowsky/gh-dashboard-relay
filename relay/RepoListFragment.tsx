@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { graphql, useFragment, usePaginationFragment } from 'react-relay';
+import { ListItem } from '@chakra-ui/react';
 
 import { Button } from 'components/ui/button';
 import { Ul } from 'components/ChakraMdxProvider';
@@ -17,9 +18,8 @@ function RepoListFragment(props: Props) {
     const { data, hasNext, loadNext } = usePaginationFragment(
         graphql`
             fragment RepoListFragment_user on User
-            @argumentDefinitions(cursor: { type: "String" }, count: { type: "Int", defaultValue: 4 })
+            @argumentDefinitions(cursor: { type: "String" }, count: { type: "Int", defaultValue: 10 })
             @refetchable(queryName: "RepoListPaginationQuery") {
-                name
                 repositories(orderBy: { field: NAME, direction: ASC }, first: $count, after: $cursor)
                     @connection(key: "RepoList_user_repositories") {
                     edges {
@@ -36,17 +36,14 @@ function RepoListFragment(props: Props) {
 
     if (!data) return null;
 
-    const { name, repositories } = data;
+    const { repositories } = data;
+    if (!repositories) return null;
     return (
         <>
-            {name !== null ? (
-                <h1>
-                    {repositories?.edges?.length ?? '?'} of {repositories?.totalCount ?? '?'} repositories
-                </h1>
-            ) : null}
             <Ul variant="plain">
-                {(repositories?.edges ?? []).map((edge) => {
+                {(repositories.edges ?? []).map((edge) => {
                     const node = edge?.node;
+                    if (!node) return null;
                     return (
                         <Suspense key={node?.['__id']} fallback={<Spinner />}>
                             <RepoComponent repo={node} />
@@ -54,12 +51,13 @@ function RepoListFragment(props: Props) {
                     );
                 })}
             </Ul>
+
             {hasNext && (
-                <h1>
-                    {repositories?.edges?.length ?? '?'} of {repositories?.totalCount ?? '?'} repositories of user{' '}
-                    {name}:
-                </h1>
+                <p>
+                    {repositories.edges?.length ?? '?'} of {repositories.totalCount ?? '?'} repositories.
+                </p>
             )}
+
             {hasNext && <Button onClick={() => loadNext(10)}>Load 10 more</Button>}
         </>
     );
@@ -83,11 +81,14 @@ export function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
         props.repo
     );
     if (!data) return null;
+
+    const { name, nameWithOwner, pullRequests, url } = data;
+    const { totalCount } = pullRequests;
     return (
-        <li>
-            <InternalLink href={'./' + data.nameWithOwner}>{data.name}</InternalLink>
-            <a href={data.url}>{data.name}</a>
-            <span>{data.pullRequests.totalCount} PRs</span>
-        </li>
+        <ListItem>
+            <InternalLink href={'./' + nameWithOwner}>{name}</InternalLink>
+            <a href={url}>(open on GitHub)</a>
+            {totalCount > 0 && <span>{totalCount} PRs</span>}
+        </ListItem>
     );
 }
