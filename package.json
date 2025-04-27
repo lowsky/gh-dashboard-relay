@@ -43,7 +43,7 @@
       "**/__mocks__/",
       "**/__generated__/**"
     ],
-    "schema": "./schema/schema.graphql"
+    "schema": "./schema.graphql"
   },
   "author": "Robert Hostlowsky",
   "license": "APACHE-2.0",
