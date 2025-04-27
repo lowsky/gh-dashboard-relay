@@ -6,14 +6,13 @@ import { Flex, Link } from '@chakra-ui/react';
 import { RevalidateCacheButton } from 'components/RevalidateCacheButton';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import Repo, { RepoType } from 'components/Repo';
-import { User as UserType } from 'restinpeace/github';
 
 import { Alert } from 'components/ui/alert';
-import User from 'components/User';
+import User, { UserProps } from 'components/User';
 import BranchesTable from './BranchesTable';
 
 export type UserRepoProps = Readonly<{
-    user?: UserType;
+    user?: UserProps;
     repo?: RepoType;
 }>;
 
