@@ -13,7 +13,7 @@ export function CommitterInfo({ author }) {
             {isGithubUser(author) && (
                 <Link href={`https://github.com/${author.login}`} rel="noopener noreferrer nofollow">
                     <Box display={'inline-flex'} alignItems={'center'}>
-                        {author.avatar_url && (
+                        {author.avatarUrl && (
                             <Image
                                 display="inline-flex"
                                 alignItems="center"
@@ -21,7 +21,7 @@ export function CommitterInfo({ author }) {
                                 borderRadius="full"
                                 boxSize="32px"
                                 alt="user avatar"
-                                src={author.avatar_url}
+                                src={author.avatarUrl}
                             />
                         )}
                         &nbsp;<span>{author.login}</span>

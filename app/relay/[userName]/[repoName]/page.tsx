@@ -1,26 +1,13 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
-import RelayClientContext from 'app/relay/[userName]/[repoName]/RelayClientContext';
-import { RelayRootMain } from './relayRootMain';
-import RichErrorBoundary from 'components/RichErrorBoundary';
-import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
+import { getAccessToken } from '../../../app/lib/getAccessToken';
+import RelayRoot from './RelayRoot';
 
-import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
-import InternalLink from 'components/InternalLink';
-
-const RelayRoot = () => {
-    return (
-        <UserRepoFromUrlProvider>
-            <InternalLink href="/relay">back to shortcut list</InternalLink>
-            <RelayClientContext>
-                <RichErrorBoundary>
-                    <Suspense fallback={<ContentLoadingFallback />}>
-                        <RelayRootMain />
-                    </Suspense>
-                </RichErrorBoundary>
-            </RelayClientContext>
-        </UserRepoFromUrlProvider>
-    );
+const RelayRepoRoot = async () => {
+    const authToken = await getAccessToken();
+    if (!authToken) {
+        return <>Empty - no auth token</>;
+    }
+    return <RelayRoot authToken={authToken} />;
 };
-
-export default RelayRoot;
+export default RelayRepoRoot;

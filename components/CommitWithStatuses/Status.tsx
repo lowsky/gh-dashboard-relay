@@ -4,35 +4,35 @@ import { Maybe } from 'restinpeace/types';
 import { Avatar } from '../ui/avatar';
 import { Circle, Float } from '@chakra-ui/react';
 
-type StatusType = 'success' | 'pending' | 'failure' | 'error' | any;
+type StatusType = 'SUCCESS' | 'PENDING' | 'FAILURE' | 'ERROR' | any;
 
 function status2color(status: StatusType) {
-    if (status === 'success') {
+    if (status === 'SUCCESS') {
         return 'green.500';
     }
-    if (status === 'pending') {
+    if (status === 'PENDING') {
         return 'orange';
     }
-    if (status === 'failure') {
+    if (status === 'FAILURE') {
         return 'red';
     }
-    if (status === 'error') {
+    if (status === 'ERROR') {
         return 'red';
     }
     return 'inherit';
 }
 
 interface StatusProps {
-    target_url?: string | null;
-    avatar_url?: Maybe<string>;
+    targetUrl?: string | null;
+    avatarUrl?: Maybe<string>;
     context?: Maybe<string>;
     description?: Maybe<string>;
     state?: Maybe<string>;
 }
 
-export const Status = ({ target_url, avatar_url, context, description, state }: StatusProps) => (
-    <a href={target_url ?? ''} title={context + ': ' + description}>
-        <Avatar size="2xs" name={context ?? ''} src={avatar_url ?? undefined} loading="lazy">
+export const Status = ({ targetUrl, avatarUrl, context, description, state }: StatusProps) => (
+    <a href={targetUrl ?? ''} title={context + ': ' + description}>
+        <Avatar size="2xs" name={context ?? ''} src={avatarUrl ?? undefined}>
             {
                 <Float placement="top-end" offsetX="1" offsetY="1">
                     <Circle bg={status2color(state)} size="1.25em" outline="0.2em solid" outlineColor="bg" />

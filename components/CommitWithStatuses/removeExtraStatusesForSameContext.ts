@@ -7,9 +7,10 @@ import { GithubStatus, Maybe } from 'restinpeace/types';
  * - Only the first status will be taken.
  */
 export function removeExtraStatusesForSameContext(statuses: Maybe<GithubStatus>[] = []): GithubStatus[] {
+    console.warn(statuses);
     const filteredStatuses = statuses
-        .filter((item) => item?.context)
-        .reduce((acc, item) => {
+        ?.filter((item) => item?.context)
+        ?.reduce((acc, item) => {
             if (acc.get(item!.context)) {
                 return acc;
             }

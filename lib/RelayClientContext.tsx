@@ -1,4 +1,5 @@
-'use client';
+//'use client';
+
 // this can only run on client-side.
 // Error:
 // > Server Functions cannot be called during initial render.
@@ -8,11 +9,13 @@
 import React, { ReactNode } from 'react';
 
 import { RelayEnvironmentProvider } from 'react-relay/hooks';
+import { getCurrentEnvironment } from './relay';
 
-import { useEnvironment } from 'lib/relay';
+export default function RelayClientContext({ auth, children }: { auth: string; children: ReactNode }) {
+    //const environment = useEnvironment({});
 
-export default function RelayClientContext({ children }: { children: ReactNode }) {
-    const environment = useEnvironment({});
+    console.log('RelayClientContext - fetching environment');
+    const environment = getCurrentEnvironment(auth);
 
     return <RelayEnvironmentProvider environment={environment}>{children}</RelayEnvironmentProvider>;
 }

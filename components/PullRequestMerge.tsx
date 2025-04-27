@@ -11,35 +11,37 @@ export type DoMergePR = () => Promise<MergePullRequestsResponseDataType | null>;
 export type PullRequestInfoProps = {
     pullRequest: PullRequestData;
     doMergePR?: DoMergePR;
+    associatedPullRequests: any;
 };
 
-export default function PullRequestMerge(props: PullRequestInfoProps) {
-    const { pullRequest, doMergePR } = props;
-    const { number, html_url, title } = pullRequest;
-
-    if (!number) {
+export default function PullRequestMerge({ associatedPullRequests, doMergePR }: PullRequestInfoProps) {
+    if (associatedPullRequests.length === 0) {
         return null;
     }
 
-    return (
-        <VStack width="6em">
-            {html_url ? (
-                <Link href={html_url} title={title ?? '-no-title-'} rel="noopener noreferrer nofollow">
-                    <Icon mr={1}>
-                        <FontAwesomeIcon icon={faCodePullRequest} />
-                    </Icon>
-                    {number}
-                </Link>
-            ) : (
-                <span>
-                    <Icon mr={1}>
-                        <FontAwesomeIcon icon={faCodePullRequest} />
-                    </Icon>
-                    {number}
-                </span>
-            )}
+    return (associatedPullRequests.edges ?? []).filter(Boolean).map(({ node }) => {
+        if (!node) return null;
+        const { number, url, title } = node;
+        return (
+            <VStack width="6em" key={number}>
+                {url ? (
+                    <Link href={url} title={title ?? '-no-title-'} rel="noopener noreferrer nofollow">
+                        <Icon mr={1}>
+                            <FontAwesomeIcon icon={faCodePullRequest} />
+                        </Icon>
+                        {number}
+                    </Link>
+                ) : (
+                    <span>
+                        <Icon mr={1}>
+                            <FontAwesomeIcon icon={faCodePullRequest} />
+                        </Icon>
+                        {number}
+                    </span>
+                )}
 
-            <MergeButtonWithErrorStatus doMergePR={doMergePR} />
-        </VStack>
-    );
+                <MergeButtonWithErrorStatus doMergePR={doMergePR} />
+            </VStack>
+        );
+    });
 }

@@ -10,10 +10,13 @@ export default function PRFragmentContainer(props) {
             fragment PullRequestInfo_pullRequest on PullRequest {
                 title
                 number
-                html_url
-                head {
-                    sha
+                url
+                # html_url
+                # commits
+                headRef {
+                    id
                 }
+                # head { sha }
             }
         `,
         props.pullRequest

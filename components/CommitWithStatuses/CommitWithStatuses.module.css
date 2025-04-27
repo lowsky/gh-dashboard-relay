@@ -5,8 +5,12 @@
 }
 
 .status {
-    display: flex;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
+    i {
+        text-wrap: nowrap;
+    }
 }
 
 .committer {

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<55a19d02e76a70d5966069414d57ef58>>
+ * @generated SignedSource<<41fb12623df5630c76e8d156cccc93a1>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,71 +9,71 @@
 // @ts-nocheck
 
 import { ReaderFragment } from 'relay-runtime';
-import { FragmentRefs } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type PullRequestInfo_pullRequest$data = {
-    readonly head: {
-        readonly sha: string;
-    };
-    readonly html_url: string | null | undefined;
-    readonly number: number;
-    readonly title: string | null | undefined;
-    readonly ' $fragmentType': 'PullRequestInfo_pullRequest';
+  readonly headRef: {
+    readonly id: string;
+  } | null | undefined;
+  readonly number: number;
+  readonly title: string;
+  readonly url: any;
+  readonly " $fragmentType": "PullRequestInfo_pullRequest";
 };
 export type PullRequestInfo_pullRequest$key = {
-    readonly ' $data'?: PullRequestInfo_pullRequest$data;
-    readonly ' $fragmentSpreads': FragmentRefs<'PullRequestInfo_pullRequest'>;
+  readonly " $data"?: PullRequestInfo_pullRequest$data;
+  readonly " $fragmentSpreads": FragmentRefs<"PullRequestInfo_pullRequest">;
 };
 
 const node: ReaderFragment = {
-    argumentDefinitions: [],
-    kind: 'Fragment',
-    metadata: null,
-    name: 'PullRequestInfo_pullRequest',
-    selections: [
+  "argumentDefinitions": [],
+  "kind": "Fragment",
+  "metadata": null,
+  "name": "PullRequestInfo_pullRequest",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "title",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "number",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "url",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Ref",
+      "kind": "LinkedField",
+      "name": "headRef",
+      "plural": false,
+      "selections": [
         {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'title',
-            storageKey: null,
-        },
-        {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'number',
-            storageKey: null,
-        },
-        {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'html_url',
-            storageKey: null,
-        },
-        {
-            alias: null,
-            args: null,
-            concreteType: 'GithubGitTip',
-            kind: 'LinkedField',
-            name: 'head',
-            plural: false,
-            selections: [
-                {
-                    alias: null,
-                    args: null,
-                    kind: 'ScalarField',
-                    name: 'sha',
-                    storageKey: null,
-                },
-            ],
-            storageKey: null,
-        },
-    ],
-    type: 'PullRequest',
-    abstractKey: null,
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "id",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "type": "PullRequest",
+  "abstractKey": null
 };
 
-(node as any).hash = 'b8faa5cf2e317681fd2fc6a5dee8d3f3';
+(node as any).hash = "9a56a094fa56a7936dfe1cf0e398f89b";
 
 export default node;

@@ -1,15 +1,16 @@
 import React, { Suspense } from 'react';
 import { Table } from '@chakra-ui/react';
 
-import { GithubRepo } from 'restinpeace/types';
+import BranchInfoRow from 'relay/BranchInfoRow';
+import { RelayCon } from 'relay/RelayConnection';
 
-import BranchInfoRow, { SkeletonRow } from './BranchInfoRow';
+import { SkeletonRow } from 'components/BranchInfoRow';
 
 export interface BranchesTableProps {
-    repo: GithubRepo;
+    branches: RelayCon;
 }
-const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
-    const { branches } = repo ?? {};
+
+const BranchesTable: React.FC<BranchesTableProps> = ({ branches }) => {
     return (
         <Table.Root size="sm" striped>
             <Table.Header>
@@ -23,9 +24,9 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {(branches ?? []).filter(Boolean).map((branch, idx) => (
+                {(branches?.edges ?? []).map((edge, idx) => (
                     <Suspense fallback={<SkeletonRow />} key={idx}>
-                        <BranchInfoRow branch={branch!} sha={branch!.lastCommit?.sha} />
+                        {edge?.node && <BranchInfoRow branch={edge.node} />}
                     </Suspense>
                 ))}
             </Table.Body>

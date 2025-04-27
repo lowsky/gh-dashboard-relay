@@ -6,7 +6,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Flex, Heading, Icon, Link } from '@chakra-ui/react';
 
 import { Maybe } from 'restinpeace/types';
-import { useUserRepo } from './useUserRepoFromRoute';
 
 export interface OwnerType {
     login?: string;
@@ -18,15 +17,11 @@ export interface RepoType {
 }
 
 export interface RepoProps {
-    repo?: RepoType;
+    userName?: string;
+    repoName?: string;
 }
 
-const Repo: React.FC<RepoProps> = ({ repo }) => {
-    const { userName, repoName } = useUserRepo();
-
-    const login = repo?.owner?.login ?? userName ?? 'unknown';
-    const name = repo?.name ?? repoName ?? 'unknown';
-
+const Repo: React.FC<RepoProps> = ({ userName = 'unknown', repoName = 'unknown' }) => {
     return (
         <Flex align="center" gap={4}>
             {
@@ -36,9 +31,9 @@ const Repo: React.FC<RepoProps> = ({ repo }) => {
                 </Heading>
             }
             <Heading as="h2" size="md" margin={0}>
-                <Link href={`https://github.com/${login}/${name}`} rel="noopener noreferrer nofollow">
+                <Link href={`https://github.com/${userName}/${repoName}`} rel="noopener noreferrer nofollow">
                     <strong>
-                        {login} / {name}
+                        {userName} / {repoName}
                     </strong>
                     <Icon ml={1}>
                         <FontAwesomeIcon icon={faGithub} />

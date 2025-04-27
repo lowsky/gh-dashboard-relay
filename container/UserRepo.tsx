@@ -9,7 +9,7 @@ import Repo, { RepoType } from 'components/Repo';
 import { User as UserType } from 'restinpeace/github';
 
 import { Alert } from 'components/ui/alert';
-import User from '../components/User';
+import User from 'components/User';
 import BranchesTable from './BranchesTable';
 
 export type UserRepoProps = Readonly<{

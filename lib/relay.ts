@@ -1,19 +1,104 @@
-import { useMemo } from 'react';
-import { IEnvironment, Environment, INetwork, RecordSource, Store /* no RecordMap export */ } from 'relay-runtime';
-
-import { network } from './relayNetwork';
+import {
+    CacheConfig,
+    Environment,
+    GraphQLResponse,
+    IEnvironment,
+    INetwork,
+    Network,
+    QueryResponseCache,
+    RecordSource,
+    RequestParameters,
+    Store,
+    Variables,
+} from 'relay-runtime';
 
 const STORE_ENTRIES = 250;
 const STORE_CACHE_RELEASE_TIME = 10 * 1000; // 10 seconds
 
+const CACHE_TTL = 5 * 1000; // 5 seconds, to resolve preloaded results
+
 const IS_SERVER = typeof window === typeof undefined;
 
-function createEnvironment(network: INetwork): IEnvironment {
-    const source = new RecordSource();
-    const store = new Store(source, {
-        gcReleaseBufferSize: STORE_ENTRIES,
-        queryCacheExpirationTime: STORE_CACHE_RELEASE_TIME,
+/* new one */
+export async function networkFetch(
+    request: RequestParameters,
+    variables: Variables,
+    auth: string = 'not-authenticated'
+): Promise<GraphQLResponse> {
+    //const access_token = (await cookies()).get('access_token')?.value;
+    console.log('fetchGraphQL', auth);
+
+    const token = process.env.NEXT_PUBLIC_REACT_APP_GITHUB_AUTH_TOKEN;
+    if (token == null || token === '') {
+        throw new Error(
+            'This app requires a GitHub authentication token to be configured. See readme.md for setup details.'
+        );
+    }
+
+    const HTTP_ENDPOINT = 'https://api.github.com/graphql';
+    const resp = await fetch(HTTP_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `bearer ${auth}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            query: request.text,
+            variables,
+        }),
     });
+    const json = await resp.json();
+
+    if (resp.status === 401) {
+        const error = Error('Authentification failed');
+        error.details = 'Authentification failed, Response status: ' + resp.status + ' ' + resp.statusText;
+        throw error;
+    }
+
+    // GraphQL returns exceptions (for example, a missing required variable) in the "errors"
+    // property of the response. If any exceptions occurred when processing the request,
+    // throw an error to indicate to the developer what went wrong.
+    if (Array.isArray(json.errors)) {
+        console.error('error while running graphql operation:', json.errors);
+        throw new Error(
+            `Error fetching GraphQL query '${
+                request.name
+            }' with variables '${JSON.stringify(variables)}': ${JSON.stringify(json.errors)}`
+        );
+    }
+
+    return json;
+}
+
+const responseCache: QueryResponseCache | null = IS_SERVER
+    ? null
+    : new QueryResponseCache({
+          size: 100,
+          ttl: CACHE_TTL,
+      });
+
+function createNetwork(auth?: string) {
+    async function fetchResponse(params: RequestParameters, variables: Variables, cacheConfig: CacheConfig) {
+        const isQuery = params.operationKind === 'query';
+        const cacheKey = params.id ?? params.cacheID;
+        const forceFetch = cacheConfig && cacheConfig.force;
+        if (responseCache != null && isQuery && !forceFetch) {
+            const fromCache = responseCache.get(cacheKey, variables);
+            if (fromCache != null) {
+                return Promise.resolve(fromCache);
+            }
+        }
+
+        return networkFetch(params, variables, auth);
+    }
+
+    return Network.create(fetchResponse);
+}
+
+function createEnvironment(network: INetwork): IEnvironment {
+    const source = RecordSource.create();
+    const store = new Store(source, {});
     return new Environment({
         network,
         store,
@@ -21,18 +106,10 @@ function createEnvironment(network: INetwork): IEnvironment {
     });
 }
 
-function initEnvironment(network: INetwork, initialRecords? /*RecordMap*/): IEnvironment {
-    const environment = createEnvironment(network);
-
-    // If your page has Next.js data fetching methods that use Relay, the initial records
-    // will get hydrated here
-    if (initialRecords) {
-        environment.getStore().publish(new RecordSource(initialRecords));
+export function getCurrentEnvironment(auth?: string) {
+    if (IS_SERVER) {
+        return createEnvironment(createNetwork(auth));
     }
 
-    return environment;
-}
-
-export function useEnvironment(initialRecords /*RecordMap*/): IEnvironment {
-    return useMemo(() => initEnvironment(network(), initialRecords), [initialRecords]);
+    return createEnvironment(createNetwork(auth));
 }
