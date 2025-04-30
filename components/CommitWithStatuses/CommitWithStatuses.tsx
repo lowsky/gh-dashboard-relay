@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { CommitWithStatuses_commit$data } from '../../relay/__generated__/CommitWithStatuses_commit.graphql';
+import { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
 
 import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { Spinner } from '../Spinner';

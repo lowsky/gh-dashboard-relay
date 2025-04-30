@@ -5,15 +5,14 @@ import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 
 import { RelayRootRepoQuery, RelayRootRepoQuery$data } from './__generated__/RelayRootRepoQuery.graphql';
-import RelayClientContext from '../../../../lib/RelayClientContext';
+import RelayClientContext from 'lib/RelayClientContext';
 
-import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
 import InternalLink from 'components/InternalLink';
 
-import UserFragmentContainer from '../../../../relay/UserFragment';
+import UserFragmentContainer from 'relay/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
-import Repo from '../../../../relay/Repo';
-import { RevalidateCacheButton } from '../../../../components/RevalidateCacheButton';
+import Repo from 'relay/Repo';
+import { RevalidateCacheButton } from 'components/RevalidateCacheButton';
 
 const query = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {

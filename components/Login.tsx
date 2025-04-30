@@ -1,6 +1,6 @@
 'use client';
 
-import { deleteAuthCookie } from '../app/actions/deleteAuthCookie';
+import { deleteAuthCookie } from 'app/actions/deleteAuthCookie';
 import { Button } from './ui/button';
 
 const handleLogin = () => {

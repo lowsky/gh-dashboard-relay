@@ -2,11 +2,13 @@ import { Icon, Link, Text, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 
-import { MergeButtonWithErrorStatus } from '../components/MergeButtonWithErrorStatus';
+import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
+
 import type { MergePullRequestsResponseDataType } from 'restinpeace/github';
-import doMergePRAction from '../app/actions/doMergePRAction';
+
+import doMergePRAction from 'app/actions/doMergePRAction';
 import { BranchInfoRowFragment_ref$data } from './__generated__/BranchInfoRowFragment_ref.graphql';
-import { useUserRepoFromRouter } from '../components/useUserRepoFromRoute';
+import { useUserRepoFromRouter } from 'components/useUserRepoFromRoute';
 
 export type DoMergePR = () => Promise<MergePullRequestsResponseDataType | null>;
 

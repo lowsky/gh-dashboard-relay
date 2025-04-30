@@ -3,8 +3,8 @@ import {
     UserWithReposFragment_user$data,
     UserWithReposFragment_user$key,
 } from './__generated__/UserWithReposFragment_user.graphql';
-import RepoListFragment from '../../../relay/RepoListFragment';
-import UserFragmentContainer from '../../../relay/UserFragment';
+import RepoListFragment from 'relay/RepoListFragment';
+import UserFragmentContainer from 'relay/UserFragment';
 
 const userFragment = graphql`
     fragment UserWithReposFragment_user on User {

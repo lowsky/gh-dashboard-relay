@@ -6,7 +6,7 @@ import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-sol
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import type { MergePullRequestsResponseDataType } from '../restinpeace/github';
-import { DoMergePR } from '../relay/PullRequestMerge';
+import { DoMergePR } from 'relay/PullRequestMerge';
 
 import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverBody } from './ui/popover';
 

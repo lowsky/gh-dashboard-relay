@@ -1,9 +1,9 @@
 'use client'; // Error boundaries must be Client Components
 
 import { useEffect } from 'react';
-import { Alert } from '../components/ui/alert';
+import { Alert } from 'components/ui/alert';
 import { Button } from 'components/ui/button';
-import { Login } from '../components/Login';
+import { Login } from 'components/Login';
 import { ButtonGroup } from '@chakra-ui/react';
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
