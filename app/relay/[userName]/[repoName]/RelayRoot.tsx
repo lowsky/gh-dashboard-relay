@@ -9,10 +9,11 @@ import RelayClientContext from '../../../../lib/RelayClientContext';
 
 import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
 import InternalLink from 'components/InternalLink';
-import RichErrorBoundary from 'components/RichErrorBoundary';
 
 import UserFragmentContainer from '../../../../relay/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
+import Repo from '../../../../relay/Repo';
+import { RevalidateCacheButton } from '../../../../components/RevalidateCacheButton';
 
 const query = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {
@@ -30,17 +31,16 @@ export default function RelayRoot(props: { authToken: string }) {
 
     return (
         <RelayClientContext auth={props.authToken}>
-            <Suspense fallback={<ContentLoadingFallback />}>
-                <RichErrorBoundary message={'User/repo can not be found or fetched, please try to re-login!'}>
-                    <InternalLink href="/relay">back to main page</InternalLink>
-                    <br />
-                    <InternalLink href="/relay">back to shortcut list</InternalLink>
-                    <br />
-                    <InternalLink href={'/relay/' + userName}>
-                        Repo list of user <strong>{userName}</strong>
-                    </InternalLink>
-                    <UserRepoPageContent userName={userName} repoName={repoName} />
-                </RichErrorBoundary>
+            <Suspense>
+                <InternalLink href="/">back to main page</InternalLink>
+                <br />
+                <InternalLink href="/relay">back to shortcut list</InternalLink>
+                <br />
+                <InternalLink href={'/relay/' + userName}>
+                    Repo list of user <strong>{userName}</strong>
+                </InternalLink>
+                <RevalidateCacheButton pathPrefix="/relay" userName={userName!} repoName={repoName!} />
+                <UserRepoPageContent userName={userName} repoName={repoName} />
             </Suspense>
         </RelayClientContext>
     );
@@ -57,6 +57,7 @@ export function UserRepoPageContent({ userName, repoName }) {
     return (
         <>
             <UserFragmentContainer user={user} />
+            <Repo repoName={repoName} userName={userName}></Repo>
             <RepoWithBranchList repo={repository} />
         </>
     );

@@ -29,11 +29,14 @@ export async function networkFetch(
     console.log('fetchGraphQL', auth);
 
     const token = process.env.NEXT_PUBLIC_REACT_APP_GITHUB_AUTH_TOKEN;
+    /*
     if (token == null || token === '') {
         throw new Error(
             'This app requires a GitHub authentication token to be configured. See readme.md for setup details.'
         );
     }
+
+     */
 
     const HTTP_ENDPOINT = 'https://api.github.com/graphql';
     const resp = await fetch(HTTP_ENDPOINT, {

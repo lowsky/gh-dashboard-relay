@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Flex, Heading, Icon, Link } from '@chakra-ui/react';
 
-import { Maybe } from 'restinpeace/types';
+export type Maybe<T> = T | null;
 
 export interface OwnerType {
     login?: string;

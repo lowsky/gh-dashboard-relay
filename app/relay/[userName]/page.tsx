@@ -1,19 +1,23 @@
 import React from 'react';
 
-import RichErrorBoundary from 'components/RichErrorBoundary';
+import { getAccessToken } from '../../lib/getAccessToken';
+import InternalLink from 'components/InternalLink';
 import RelayRoot from './RelayRoot';
-import { getAccessToken } from '../../app/lib/getAccessToken';
 
 const RelayUserRoot = async () => {
     const authToken = await getAccessToken();
     if (!authToken) {
-        console.log('NO authToken');
         return <>Empty - no auth token</>;
     }
     return (
-        <RichErrorBoundary>
+        <>
+            <InternalLink href="/">back to main page</InternalLink>
+            <br />
+            <InternalLink href="/relay">back to shortcut list</InternalLink>
+            <br />
+
             <RelayRoot authToken={authToken} />
-        </RichErrorBoundary>
+        </>
     );
 };
 export default RelayUserRoot;

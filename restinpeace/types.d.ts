@@ -1,3 +1,5 @@
+import { GithubStatus } from '../components/CommitWithStatuses/githubStatus';
+
 export type Maybe<T> = T | null;
 
 export type GithubBranch = {
@@ -28,15 +30,6 @@ export type GithubRepo = {
     id?: Maybe<string>;
     name?: Maybe<string>;
     owner?: Maybe<GithubUser>;
-};
-
-export type GithubStatus = {
-    avatar_url?: Maybe<string>;
-    context?: Maybe<string>;
-    description?: Maybe<string>;
-    state?: Maybe<string>;
-    target_url?: Maybe<string>;
-    updated_at?: Maybe<string>;
 };
 
 export type GithubUser = {

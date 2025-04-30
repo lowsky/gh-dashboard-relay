@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2bfee1dc3d4ba9b3236192a9e0aa84b7>>
+ * @generated SignedSource<<9544f3f8f9e04d1c3bcb1f3a757f31c2>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,9 +11,6 @@
 import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type UserWithReposFragment_user$data = {
-  readonly avatarUrl: any;
-  readonly company: string | null | undefined;
-  readonly login: string;
   readonly " $fragmentSpreads": FragmentRefs<"RepoListFragment_user" | "UserFragment_user">;
   readonly " $fragmentType": "UserWithReposFragment_user";
 };
@@ -29,27 +26,6 @@ const node: ReaderFragment = {
   "name": "UserWithReposFragment_user",
   "selections": [
     {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "login",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "company",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "avatarUrl",
-      "storageKey": null
-    },
-    {
       "args": null,
       "kind": "FragmentSpread",
       "name": "UserFragment_user"
@@ -64,6 +40,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "42581b7d535546dbc814dc5c2478d1df";
+(node as any).hash = "f14c1c930fde13fc4606154d52efacce";
 
 export default node;

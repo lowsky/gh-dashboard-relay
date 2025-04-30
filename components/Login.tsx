@@ -16,6 +16,6 @@ export function Logout() {
     return <Button onClick={handleLogout}>Logout & Delete Auth cookies.</Button>;
 }
 
-export function Login() {
-    return <Button onClick={handleLogin}>Login</Button>;
+export function Login({ title = 'Login' }: { title?: string }) {
+    return <Button onClick={handleLogin}>{title}</Button>;
 }

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9927342c0ac5960baabcb0816427118f>>
+ * @generated SignedSource<<27298d4ee01a174cb84bbe2e1e92f6b3>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,17 +14,11 @@ export type RepoWithBranchListFragment_repo$data = {
   readonly branches: {
     readonly edges: ReadonlyArray<{
       readonly node: {
-        readonly " $fragmentSpreads": FragmentRefs<"BranchInfoRow_ref">;
+        readonly " $fragmentSpreads": FragmentRefs<"BranchInfoRowFragment_ref">;
       } | null | undefined;
     } | null | undefined> | null | undefined;
   } | null | undefined;
-  readonly description: string | null | undefined;
   readonly id: string;
-  readonly name: string;
-  readonly owner: {
-    readonly login: string;
-  };
-  readonly url: any;
   readonly " $fragmentType": "RepoWithBranchListFragment_repo";
 };
 export type RepoWithBranchListFragment_repo$key = {
@@ -39,7 +33,7 @@ var v0 = [
 return {
   "argumentDefinitions": [
     {
-      "defaultValue": 5,
+      "defaultValue": 10,
       "kind": "LocalArgument",
       "name": "count"
     },
@@ -81,45 +75,6 @@ return {
   "name": "RepoWithBranchListFragment_repo",
   "selections": [
     {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "name",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": null,
-      "kind": "LinkedField",
-      "name": "owner",
-      "plural": false,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "login",
-          "storageKey": null
-        }
-      ],
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "url",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "description",
-      "storageKey": null
-    },
-    {
       "alias": "branches",
       "args": [
         {
@@ -152,7 +107,7 @@ return {
                 {
                   "args": null,
                   "kind": "FragmentSpread",
-                  "name": "BranchInfoRow_ref"
+                  "name": "BranchInfoRowFragment_ref"
                 },
                 {
                   "alias": null,
@@ -215,6 +170,6 @@ return {
 };
 })();
 
-(node as any).hash = "cd96009e71b89579133ffac4c02f1b62";
+(node as any).hash = "952626d02325330fe463526370bd6d4d";
 
 export default node;

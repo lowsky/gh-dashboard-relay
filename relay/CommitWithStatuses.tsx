@@ -6,8 +6,8 @@ import {
     CommitWithStatuses_commit$key,
 } from './__generated__/CommitWithStatuses_commit.graphql';
 
-export default function CommitFragmentContainer(props) {
-    const commit: CommitWithStatuses_commit$data = useFragment<CommitWithStatuses_commit$key>(
+export default function CommitFragment({ commit }) {
+    const data: CommitWithStatuses_commit$data = useFragment<CommitWithStatuses_commit$key>(
         graphql`
             fragment CommitWithStatuses_commit on Commit {
                 authoredDate
@@ -41,8 +41,8 @@ export default function CommitFragmentContainer(props) {
                 }
             }
         `,
-        props.commit
+        commit
     );
 
-    return <CommitWithStatus commit={commit} />;
+    return <CommitWithStatus commit={data} />;
 }

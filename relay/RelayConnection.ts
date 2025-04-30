@@ -1,16 +1,9 @@
-import { FragmentRefs } from 'relay-runtime';
-
-export type RelayCon<> =
+export type RelayCon<NodeType> =
     | {
           readonly edges:
               | ReadonlyArray<
                     | {
-                          readonly node:
-                              | {
-                                    readonly ' $fragmentSpreads': FragmentRefs<'BranchInfoRow_ref'>;
-                                }
-                              | null
-                              | undefined;
+                          readonly node: NodeType | null | undefined;
                       }
                     | null
                     | undefined

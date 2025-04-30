@@ -12,7 +12,8 @@ export function LinkList({ rootPath }) {
         'lowsky/spotify-graphql-server',
         'lowsky/spotify-graphql-server-graphql-yoga',
         'lowsky/spotify-graphql-server-graphql-helix-envelop',
-        'facebook/react',
+        'facebook/relay',
+        'add your own, see url schema',
     ];
 
     return (

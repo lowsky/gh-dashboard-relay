@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f02135c6f9f78ba6a71068acc061fd7e>>
+ * @generated SignedSource<<171145e98e6cdd609185161771bdf250>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -28,7 +28,7 @@ export type RepoWithBranchPaginationQuery = {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "defaultValue": 5,
+    "defaultValue": 10,
     "kind": "LocalArgument",
     "name": "count"
   },
@@ -64,35 +64,7 @@ v3 = {
   "name": "id",
   "storageKey": null
 },
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v5 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "login",
-  "storageKey": null
-},
-v6 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "url",
-  "storageKey": null
-},
-v7 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "description",
-  "storageKey": null
-},
-v8 = [
+v4 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -109,21 +81,35 @@ v8 = [
     "value": "refs/heads/"
   }
 ],
-v9 = {
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "oid",
   "storageKey": null
 },
-v10 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "avatarUrl",
   "storageKey": null
 },
-v11 = {
+v8 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "login",
+  "storageKey": null
+},
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -187,26 +173,9 @@ return {
           {
             "kind": "InlineFragment",
             "selections": [
-              (v4/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": null,
-                "kind": "LinkedField",
-                "name": "owner",
-                "plural": false,
-                "selections": [
-                  (v2/*: any*/),
-                  (v5/*: any*/),
-                  (v3/*: any*/)
-                ],
-                "storageKey": null
-              },
-              (v6/*: any*/),
-              (v7/*: any*/),
               {
                 "alias": "branches",
-                "args": (v8/*: any*/),
+                "args": (v4/*: any*/),
                 "concreteType": "RefConnection",
                 "kind": "LinkedField",
                 "name": "refs",
@@ -228,7 +197,7 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v4/*: any*/),
+                          (v5/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -248,7 +217,7 @@ return {
                                     "name": "authoredDate",
                                     "storageKey": null
                                   },
-                                  (v9/*: any*/),
+                                  (v6/*: any*/),
                                   {
                                     "alias": null,
                                     "args": null,
@@ -266,7 +235,7 @@ return {
                                         "name": "commit",
                                         "plural": false,
                                         "selections": [
-                                          (v9/*: any*/),
+                                          (v6/*: any*/),
                                           (v3/*: any*/)
                                         ],
                                         "storageKey": null
@@ -279,7 +248,7 @@ return {
                                         "name": "contexts",
                                         "plural": true,
                                         "selections": [
-                                          (v10/*: any*/),
+                                          (v7/*: any*/),
                                           {
                                             "alias": null,
                                             "args": null,
@@ -296,7 +265,7 @@ return {
                                             "plural": false,
                                             "selections": [
                                               (v2/*: any*/),
-                                              (v5/*: any*/),
+                                              (v8/*: any*/),
                                               {
                                                 "kind": "InlineFragment",
                                                 "selections": [
@@ -308,8 +277,14 @@ return {
                                             ],
                                             "storageKey": null
                                           },
-                                          (v11/*: any*/),
-                                          (v7/*: any*/),
+                                          (v9/*: any*/),
+                                          {
+                                            "alias": null,
+                                            "args": null,
+                                            "kind": "ScalarField",
+                                            "name": "description",
+                                            "storageKey": null
+                                          },
                                           {
                                             "alias": null,
                                             "args": null,
@@ -321,7 +296,7 @@ return {
                                         ],
                                         "storageKey": null
                                       },
-                                      (v11/*: any*/)
+                                      (v9/*: any*/)
                                     ],
                                     "storageKey": null
                                   },
@@ -362,9 +337,9 @@ return {
                                         "name": "user",
                                         "plural": false,
                                         "selections": [
+                                          (v8/*: any*/),
                                           (v5/*: any*/),
-                                          (v4/*: any*/),
-                                          (v10/*: any*/),
+                                          (v7/*: any*/),
                                           (v3/*: any*/)
                                         ],
                                         "storageKey": null
@@ -431,7 +406,13 @@ return {
                                         "name": "number",
                                         "storageKey": null
                                       },
-                                      (v6/*: any*/),
+                                      {
+                                        "alias": null,
+                                        "args": null,
+                                        "kind": "ScalarField",
+                                        "name": "url",
+                                        "storageKey": null
+                                      },
                                       {
                                         "alias": null,
                                         "args": null,
@@ -443,7 +424,28 @@ return {
                                         "alias": null,
                                         "args": null,
                                         "kind": "ScalarField",
+                                        "name": "mergeStateStatus",
+                                        "storageKey": null
+                                      },
+                                      {
+                                        "alias": null,
+                                        "args": null,
+                                        "kind": "ScalarField",
                                         "name": "closed",
+                                        "storageKey": null
+                                      },
+                                      {
+                                        "alias": null,
+                                        "args": null,
+                                        "kind": "ScalarField",
+                                        "name": "isDraft",
+                                        "storageKey": null
+                                      },
+                                      {
+                                        "alias": null,
+                                        "args": null,
+                                        "kind": "ScalarField",
+                                        "name": "isInMergeQueue",
                                         "storageKey": null
                                       },
                                       {
@@ -522,7 +524,7 @@ return {
               },
               {
                 "alias": "branches",
-                "args": (v8/*: any*/),
+                "args": (v4/*: any*/),
                 "filters": [
                   "refPrefix"
                 ],
@@ -541,16 +543,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "766dcd72cb5e72aaf1fa25dfcb134c10",
+    "cacheID": "4e458de9d73920595c169cf612815a47",
     "id": null,
     "metadata": {},
     "name": "RepoWithBranchPaginationQuery",
     "operationKind": "query",
-    "text": "query RepoWithBranchPaginationQuery(\n  $count: Int = 5\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoWithBranchListFragment_repo_1G22uz\n    id\n  }\n}\n\nfragment BranchInfoRow_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        headRefOid\n        number\n        url\n        title\n        closed\n        mergeable\n        merged\n        locked\n        id\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment RepoWithBranchListFragment_repo_1G22uz on Repository {\n  name\n  owner {\n    __typename\n    login\n    id\n  }\n  url\n  description\n  branches: refs(refPrefix: \"refs/heads/\", first: $count, after: $cursor) {\n    edges {\n      node {\n        ...BranchInfoRow_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query RepoWithBranchPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoWithBranchListFragment_repo_1G22uz\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        headRefOid\n        number\n        url\n        title\n        mergeStateStatus\n        closed\n        isDraft\n        isInMergeQueue\n        mergeable\n        merged\n        locked\n        id\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment RepoWithBranchListFragment_repo_1G22uz on Repository {\n  branches: refs(refPrefix: \"refs/heads/\", first: $count, after: $cursor) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "cd96009e71b89579133ffac4c02f1b62";
+(node as any).hash = "952626d02325330fe463526370bd6d4d";
 
 export default node;

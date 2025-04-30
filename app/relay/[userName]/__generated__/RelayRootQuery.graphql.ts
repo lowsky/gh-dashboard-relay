@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f6ee60089498e7b56f44468d6bd8f77f>>
+ * @generated SignedSource<<f0f0f0de4f6c8ffc063bb2d2489d726c>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -97,18 +97,11 @@ v4 = {
   "name": "id",
   "storageKey": null
 },
-v5 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v6 = [
+v5 = [
   {
     "kind": "Literal",
     "name": "first",
-    "value": 4
+    "value": 10
   },
   {
     "kind": "Literal",
@@ -119,7 +112,7 @@ v6 = [
     }
   }
 ],
-v7 = {
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -194,10 +187,9 @@ return {
                 "name": "avatarUrl",
                 "storageKey": null
               },
-              (v5/*: any*/),
               {
                 "alias": null,
-                "args": (v6/*: any*/),
+                "args": (v5/*: any*/),
                 "concreteType": "RepositoryConnection",
                 "kind": "LinkedField",
                 "name": "repositories",
@@ -219,7 +211,13 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v5/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "name",
+                            "storageKey": null
+                          },
                           {
                             "alias": null,
                             "args": null,
@@ -262,7 +260,7 @@ return {
                             "name": "pullRequests",
                             "plural": false,
                             "selections": [
-                              (v7/*: any*/)
+                              (v6/*: any*/)
                             ],
                             "storageKey": "pullRequests(first:1,states:[\"OPEN\"])"
                           },
@@ -281,7 +279,7 @@ return {
                     ],
                     "storageKey": null
                   },
-                  (v7/*: any*/),
+                  (v6/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -308,11 +306,11 @@ return {
                     "storageKey": null
                   }
                 ],
-                "storageKey": "repositories(first:4,orderBy:{\"direction\":\"ASC\",\"field\":\"NAME\"})"
+                "storageKey": "repositories(first:10,orderBy:{\"direction\":\"ASC\",\"field\":\"NAME\"})"
               },
               {
                 "alias": null,
-                "args": (v6/*: any*/),
+                "args": (v5/*: any*/),
                 "filters": [
                   "orderBy"
                 ],
@@ -332,12 +330,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d75562ddbc4fbe9f8cc0df2540f48be5",
+    "cacheID": "1b7c71cef4a45becd640aeacf845820b",
     "id": null,
     "metadata": {},
     "name": "RelayRootQuery",
     "operationKind": "query",
-    "text": "query RelayRootQuery(\n  $userName: String!\n) {\n  repositoryOwner(login: $userName) {\n    __typename\n    ...UserWithReposFragment_user\n    id\n  }\n  rateLimit {\n    limit\n    remaining\n    used\n    resetAt\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user on User {\n  name\n  repositories(orderBy: {field: NAME, direction: ASC}, first: 4) {\n    edges {\n      node {\n        ...RepoListFragment_repo\n        id\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n\nfragment UserWithReposFragment_user on User {\n  login\n  company\n  avatarUrl\n  ...UserFragment_user\n  ...RepoListFragment_user\n}\n"
+    "text": "query RelayRootQuery(\n  $userName: String!\n) {\n  repositoryOwner(login: $userName) {\n    __typename\n    ...UserWithReposFragment_user\n    id\n  }\n  rateLimit {\n    limit\n    remaining\n    used\n    resetAt\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: 10) {\n    edges {\n      node {\n        ...RepoListFragment_repo\n        id\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n\nfragment UserWithReposFragment_user on User {\n  ...UserFragment_user\n  ...RepoListFragment_user\n}\n"
   }
 };
 })();

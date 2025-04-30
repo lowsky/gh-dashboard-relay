@@ -1,13 +1,12 @@
 import React, { Suspense } from 'react';
 import { Table } from '@chakra-ui/react';
 
-import BranchInfoRow from 'relay/BranchInfoRow';
+import BranchInfoRow, { SkeletonRow } from 'relay/BranchInfoRowFragment';
 import { RelayCon } from 'relay/RelayConnection';
+import { BranchInfoRowFragment_ref$key } from './__generated__/BranchInfoRowFragment_ref.graphql';
 
-import { SkeletonRow } from 'components/BranchInfoRow';
-
-export interface BranchesTableProps {
-    branches: RelayCon;
+interface BranchesTableProps {
+    branches: RelayCon<BranchInfoRowFragment_ref$key[' $fragmentSpreads']>;
 }
 
 const BranchesTable: React.FC<BranchesTableProps> = ({ branches }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getAccessToken } from '../../../app/lib/getAccessToken';
+import { getAccessToken } from '../../../lib/getAccessToken';
 import RelayRoot from './RelayRoot';
 
 const RelayRepoRoot = async () => {
