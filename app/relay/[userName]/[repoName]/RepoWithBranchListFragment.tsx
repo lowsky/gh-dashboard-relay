@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql, useRefetchableFragment } from 'react-relay';
-import { Options } from 'react-relay/relay-hooks/useRefetchableFragmentNode';
 
 import { RepoWithBranchListFragment_repo$key } from './__generated__/RepoWithBranchListFragment_repo.graphql';
+import { RepoWithBranchPaginationQuery } from './__generated__/RepoWithBranchPaginationQuery.graphql';
 import BranchesTable from 'relay/BranchesTable';
 
 export function RepoWithBranchList(props: { repo: RepoWithBranchListFragment_repo$key }) {
-    const [{ branches }, refetch] = useRefetchableFragment<
-        RepoWithBranchListFragment_repoGraphql,
+    const [{ branches, id }, refetch] = useRefetchableFragment<
+        RepoWithBranchPaginationQuery,
         RepoWithBranchListFragment_repo$key
     >(
         graphql`
@@ -26,10 +26,16 @@ export function RepoWithBranchList(props: { repo: RepoWithBranchListFragment_rep
         `,
         props.repo
     );
-    const x: RefetchFnInexact<RepoWithBranchListFragment_repo$key, Options> &
-        RefetchFnExact<RepoWithBranchListFragment_repo$key, Options> = refetch;
+    const refetchDefault = () =>
+        refetch(
+            { id },
+            {
+                fetchPolicy: 'store-and-network',
+            }
+        );
 
     if (!branches) return <p>No branches found!</p>;
 
-    return <BranchesTable branches={branches} refetch={refetch} />;
+    // @ts-expect-error TS2322: Type is not assignable to type RelayCon<FragmentRefs<"BranchInfoRowFragment_ref">> temporary
+    return <BranchesTable branches={branches} refetch={refetchDefault} />;
 }

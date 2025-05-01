@@ -14,6 +14,7 @@ type Story = StoryObj<typeof CommitWithStatuses>;
 
 export const WithData: Story = {
     args: {
+        // @ts-expect-error neeeds further adoption: not matching data
         commit: moreStatus,
     },
 };

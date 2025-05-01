@@ -1,5 +1,3 @@
-import { Maybe } from './CommitterInfo';
-
 export type Maybe<T> = T | null;
 
 export type GithubStatus = {

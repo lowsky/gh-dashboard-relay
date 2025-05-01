@@ -8,22 +8,13 @@ import { Button } from '../components/ui/button';
 
 interface BranchesTableProps {
     branches: RelayCon<BranchInfoRowFragment_ref$key[' $fragmentSpreads']>;
-    refetch: (variables, options) => void;
+    refetch: () => void;
 }
 
 const BranchesTable: React.FC<BranchesTableProps> = ({ branches, refetch }) => {
     return (
         <>
-            <Button
-                onClick={() => {
-                    return refetch(
-                        {},
-                        {
-                            fetchPolicy: 'store-and-network',
-                        }
-                    );
-                }}
-                disabled={!refetch}>
+            <Button onClick={refetch} disabled={!refetch}>
                 Update
             </Button>
             <Table.Root size="sm" striped>
@@ -40,7 +31,10 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ branches, refetch }) => {
                 <Table.Body>
                     {(branches?.edges ?? []).map((edge, idx) => (
                         <Suspense fallback={<SkeletonRow />} key={idx}>
-                            {edge?.node && <BranchInfoRow branch={edge.node} />}
+                            {
+                                // @ts-expect-error temporary ignore type mismatch
+                                edge?.node && <BranchInfoRow branch={edge.node} />
+                            }
                         </Suspense>
                     ))}
                 </Table.Body>

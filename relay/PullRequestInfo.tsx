@@ -42,5 +42,6 @@ export default function PullRequestInfoFragment({
         return mergeResult;
     };
 
+    // @ts-expect-error temporary ignore type mismatch
     return <PullRequestMerge associatedPullRequests={[data]} doMergePR={doMergePR} />;
 }

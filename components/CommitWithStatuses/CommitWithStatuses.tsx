@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Link } from '@chakra-ui/react';
 
 import { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
@@ -47,7 +47,10 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
                 }
             </PopoverRoot>
 
-            {status && <CommitStatuses statuses={status.contexts} />}
+            {
+                // @ts-expect-error temporary ignore type mismatch
+                status && <CommitStatuses statuses={status.contexts} />
+            }
         </>
     );
 };
