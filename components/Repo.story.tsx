@@ -13,6 +13,6 @@ type Story = StoryObj<typeof Repo>;
 export const FakeData: Story = {
     args: {
         repoName: 'demo-repo',
-        userName: 'owner',
+        userName: 'login',
     },
 };

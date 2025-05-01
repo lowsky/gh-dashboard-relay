@@ -8,7 +8,7 @@
   "message": "Merge pull request #1234 from lowsky/a-new-feature",
   "status": [
     {
-      "state": "success",
+      "state": "SUCCESS",
       "description": "has completed",
       "avatarUrl": "https://avatars.githubusercontent.com/in/8329",
       "target_url": "https://www.github.com/lowsky/dashboard",
@@ -16,7 +16,7 @@
       "updated_at": "2017-03-14T18:59:30Z"
     },
     {
-      "state": "pending",
+      "state": "PENDING",
       "description": "is building",
       "avatarUrl": "https://avatars.githubusercontent.com/in/8329",
       "target_url": "https://www.github.com/lowsky/dashboard",
