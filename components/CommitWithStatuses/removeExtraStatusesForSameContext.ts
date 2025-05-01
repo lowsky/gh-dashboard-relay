@@ -7,7 +7,6 @@ import { GithubStatus, Maybe } from './githubStatus';
  * - Only the first status will be taken.
  */
 export function removeExtraStatusesForSameContext(statuses: Maybe<GithubStatus>[] = []): GithubStatus[] {
-    console.warn(statuses);
     const filteredStatuses = statuses
         ?.filter((item) => item?.context)
         ?.reduce((acc, item) => {
