@@ -37,7 +37,15 @@ export default function RelayRoot(props: { authToken: string }) {
 }
 
 export function UserPageContent({ userName }) {
-    const data = useLazyLoadQuery<RelayRootQuery>(userQuery, { userName });
+    const data = useLazyLoadQuery<RelayRootQuery>(
+        userQuery,
+        { userName },
+        {
+            networkCacheConfig: {
+                force: true,
+            },
+        }
+    );
 
     const { repositoryOwner, rateLimit } = data;
     console.log('rate limit info:', rateLimit);

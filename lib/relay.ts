@@ -26,19 +26,11 @@ export async function networkFetch(
     auth: string = 'not-authenticated'
 ): Promise<GraphQLResponse> {
     //const access_token = (await cookies()).get('access_token')?.value;
-    console.log('fetchGraphQL', auth);
-
-    const token = process.env.NEXT_PUBLIC_REACT_APP_GITHUB_AUTH_TOKEN;
-    /*
-    if (token == null || token === '') {
-        throw new Error(
-            'This app requires a GitHub authentication token to be configured. See readme.md for setup details.'
-        );
-    }
-
-     */
+    console.log('fetchGraphQL auth', auth);
+    console.log('fetchGraphQL is server', IS_SERVER);
 
     const HTTP_ENDPOINT = 'https://api.github.com/graphql';
+
     const resp = await fetch(HTTP_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -53,9 +45,24 @@ export async function networkFetch(
     });
     const json = await resp.json();
 
+    //resp.headers.forEach((value, name) => console.log('header', name, value));
+    console.log('github-authentication-token-expiration', resp.headers.get('github-authentication-token-expiration'));
+    console.log(
+        'github-authentication-token-expiration',
+        new Date(resp.headers.get('github-authentication-token-expiration'))
+    );
+
     if (resp.status === 401) {
         const error = Error('Authentification failed');
+
         error.details = 'Authentification failed, Response status: ' + resp.status + ' ' + resp.statusText;
+        // x-ratelimit-remaining: 0
+        // x-ratelimit-limit: 5000
+        // x-ratelimit-remaining: 4997
+        // x-ratelimit-reset: 1746096673
+        // github-authentication-token-expiration: 2025-05-01 17:57:50 UTC
+        console.error(error);
+
         throw error;
     }
 
@@ -85,6 +92,9 @@ function createNetwork(auth?: string) {
     async function fetchResponse(params: RequestParameters, variables: Variables, cacheConfig: CacheConfig) {
         const isQuery = params.operationKind === 'query';
         const cacheKey = params.id ?? params.cacheID;
+
+        console.log('Hey this is cahce config', cacheConfig);
+
         const forceFetch = cacheConfig && cacheConfig.force;
         if (responseCache != null && isQuery && !forceFetch) {
             const fromCache = responseCache.get(cacheKey, variables);

@@ -57,7 +57,9 @@ export function UserRepoPageContent({ userName, repoName }) {
         <>
             <UserFragmentContainer user={user} />
             <Repo repoName={repoName} userName={userName}></Repo>
-            <RepoWithBranchList repo={repository} />
+            <Suspense fallback="Loading ...">
+                <RepoWithBranchList repo={repository} />
+            </Suspense>
         </>
     );
 }

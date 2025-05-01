@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { isServerSideRendering } from '../../../lib/isServerSideRendering';
 
 export default function login(_req: NextApiRequest, res: NextApiResponse) {
     const gh_oauth_app_url =
@@ -10,6 +11,8 @@ export default function login(_req: NextApiRequest, res: NextApiResponse) {
               // The value does not include the protocol scheme https://.
               // this will be checked and added below, if it is needed.
               process.env.VERCEL_BRANCH_URL) ?? 'http://localhost:3000/api/auth/callback';
+
+    console.log('is server ??', isServerSideRendering());
 
     console.log('diagnosis:');
     console.log('VERCEL_ENV', process.env.VERCEL_ENV);

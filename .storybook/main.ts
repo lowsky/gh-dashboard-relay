@@ -4,8 +4,6 @@ const config: StorybookConfig = {
     stories: [
         '../components/*.story.@(js|jsx|ts|tsx|mdx)',
         '../components/**/*.story.@(js|jsx|ts|tsx|mdx)',
-        '../container/*.story.@(js|jsx|ts|tsx|mdx)',
-        '../container/**/*.story.@(js|jsx|ts|tsx|mdx)',
         '../app/*.story.@(js|jsx|ts|tsx|mdx)',
         '../app/**/*.story.@(js|jsx|ts|tsx|mdx)',
     ],
