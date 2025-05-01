@@ -2,7 +2,6 @@ import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable } fr
 
 import { meros } from 'meros';
 import type { ExecutionPatchResult, Sink } from 'graphql-ws';
-import { isServerSideRendering } from 'lib/isServerSideRendering';
 
 const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
     Observable.create((sink: Sink<GraphQLResponse>) => {
@@ -41,12 +40,16 @@ const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cache
         })();
     });
 
+/**
+ * Not sure if this will still be needed - because without our own server that was supporting
+ * streaming and use of @defer - it might not be necessary anymore.
+ *
+ * Needs a little more investigation, so this will be kept for the moment.
+ *
+ * @deprecated
+ */
 export function network(): INetwork {
-    if (isServerSideRendering()) {
-        return Network.create(serverSideFetchQuery);
-    } else {
-        return Network.create(streamableClientSideFetchQuery);
-    }
+    return Network.create(streamableClientSideFetchQuery);
 }
 
 // Type Guard
