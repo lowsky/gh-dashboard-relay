@@ -15,7 +15,9 @@ type Story = StoryObj<typeof BranchesTable>;
 
 export const WithOneBranch: Story = {
     args: {
+        // @ts-expect-error temporary ignoring
         repo: {
+            // @ts-expect-error temporary ignoring
             branches: [WithInfo.args!.branch as Maybe<GithubBranch>],
         },
     },

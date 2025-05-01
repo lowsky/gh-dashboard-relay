@@ -26,11 +26,11 @@ type Story = StoryObj<typeof BranchInfoRow>;
 export const WithInfo: Story = {
     args: {
         branch: {
+            // @ts-expect-error temporary ignoring
             name: 'branch-x',
             lastCommit: {
                 ...CommitWithDataStory.args!.commit,
                 associatedPullRequests: [
-                    // @ts-expect-error missing head
                     {
                         ...DefaultPRStory.args!.pullRequest!,
                     },
