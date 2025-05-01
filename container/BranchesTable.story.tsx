@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import BranchesTable from './BranchesTable';
+import BranchesTable from '../relay/BranchesTable';
 
 import { WithInfo } from './BranchInfoRow.story';
 

@@ -1,12 +1,16 @@
 {
   "date": "2017-03-14T18:59:30Z",
+  "authoredDate": "2017-03-14T18:59:30Z",
   "sha": "bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e",
+  "oid": "bfae86ac1dc8d3b0ae594e2c3a23311dd503d15e",
+  "abbreviatedOid": "bfae86ac",
+  "commitUrl": "https://www.github.com/commitUrlFake",
   "message": "Merge pull request #1234 from lowsky/a-new-feature",
   "status": [
     {
       "state": "success",
       "description": "has completed",
-      "avatar_url": "https://avatars.githubusercontent.com/in/8329",
+      "avatarUrl": "https://avatars.githubusercontent.com/in/8329",
       "target_url": "https://www.github.com/lowsky/dashboard",
       "context": "Vercel Deployment",
       "updated_at": "2017-03-14T18:59:30Z"
@@ -14,7 +18,7 @@
     {
       "state": "pending",
       "description": "is building",
-      "avatar_url": "https://avatars.githubusercontent.com/in/8329",
+      "avatarUrl": "https://avatars.githubusercontent.com/in/8329",
       "target_url": "https://www.github.com/lowsky/dashboard",
       "context": "Vercel build",
       "updated_at": "2017-03-14T18:59:30Z"
@@ -22,6 +26,6 @@
   ],
   "author": {
     "login": "lowsky",
-    "avatar_url": "https://avatars2.githubusercontent.com/u/217931"
+    "avatarUrl": "https://avatars2.githubusercontent.com/u/217931"
   }
 }

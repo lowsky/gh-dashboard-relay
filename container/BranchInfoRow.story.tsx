@@ -2,7 +2,7 @@ import React from 'react';
 import { Decorator, Meta, StoryObj } from '@storybook/react';
 import { Table } from '@chakra-ui/react';
 
-import BranchInfoRow from 'container/BranchInfoRow';
+import BranchInfoRow from 'relay/BranchInfoRowFragment';
 
 import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses/CommitWithStatuses.story';
 import { Default as DefaultPRStory } from 'components/PullRequestInfo.story';

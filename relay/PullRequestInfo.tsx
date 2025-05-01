@@ -38,7 +38,6 @@ export default function PullRequestInfoFragment({
     }
 
     const doMergePR: DoMergePR = async () => {
-        debugger;
         const mergeResult = doMergePRAction(data.number, userName, repoName, sha);
         return mergeResult;
     };

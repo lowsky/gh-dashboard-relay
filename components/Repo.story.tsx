@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Repo from './Repo';
+import Repo from '../relay/Repo';
 
 const meta: Meta<typeof Repo> = {
     component: Repo,

@@ -1,6 +1,6 @@
-import PullRequestInfo from './PullRequestInfo';
-
 import { Meta, StoryObj } from '@storybook/react';
+
+import PullRequestInfo from '../relay/PullRequestInfo';
 
 const meta: Meta<typeof PullRequestInfo> = {
     component: PullRequestInfo,
