@@ -21,6 +21,16 @@ export const WithData: Story = {
 
 export const WithNoData: Story = {
     args: {
-        commit: undefined,
+        // empty, intentionally
+        commit: {
+            abbreviatedOid: '',
+            author: undefined,
+            authoredDate: undefined,
+            commitUrl: undefined,
+            message: '',
+            oid: undefined,
+            status: undefined,
+            ' $fragmentType': 'CommitWithStatuses_commit',
+        },
     },
 };
