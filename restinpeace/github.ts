@@ -1,9 +1,8 @@
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
 import { Octokit } from '@octokit/rest';
 
-import type { GithubStatus } from './types';
-
 import type { GithubBranch, GithubCommit, GithubRepo, GithubUser } from 'lib/types/resolvers';
+import { GithubStatus } from '../components/CommitWithStatuses/githubStatus';
 
 export interface User {
     login: string;

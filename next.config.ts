@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
 
     compiler: {
         relay: pack.relay as {
-            // + "schema": "./schema/schema.graphql"
+            schema: string;
             src: string;
             //artifactDirectory?: string;
             language: 'typescript';

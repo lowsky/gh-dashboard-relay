@@ -1,8 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Repo from './Repo';
-import { WithAvatar } from './User.story';
-import { WithOneBranch } from 'container/BranchesTable.story';
+import Repo from '../relay/Repo';
 
 const meta: Meta<typeof Repo> = {
     component: Repo,
@@ -14,10 +12,7 @@ type Story = StoryObj<typeof Repo>;
 
 export const FakeData: Story = {
     args: {
-        repo: {
-            ...WithOneBranch.args!.repo,
-            owner: WithAvatar.args!.user,
-            name: 'demo-repo',
-        },
+        repoName: 'demo-repo',
+        userName: 'login',
     },
 };

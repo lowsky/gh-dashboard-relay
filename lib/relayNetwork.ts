@@ -1,12 +1,7 @@
-import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable, PayloadError } from 'relay-runtime';
+import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable } from 'relay-runtime';
 
 import { meros } from 'meros';
-import { type ExecutionResult, graphql, GraphQLError } from 'graphql';
 import type { ExecutionPatchResult, Sink } from 'graphql-ws';
-
-import { schema } from 'pages/api/graphql';
-import { isServerSideRendering } from 'lib/isServerSideRendering';
-import { getUnauthorizedGitHub } from '../restinpeace/github';
 
 const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
     Observable.create((sink: Sink<GraphQLResponse>) => {
@@ -45,37 +40,16 @@ const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cache
         })();
     });
 
-const serverSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
-    Observable.create((sink: Sink<GraphQLResponse>) => {
-        (async () => {
-            const graphqlOp: Promise<ExecutionResult> = graphql({
-                schema,
-                source: params.text ?? '',
-                variableValues: variables,
-                contextValue: {
-                    getAuthorizedGitHub: getUnauthorizedGitHub,
-                },
-            });
-            const value: ExecutionResult = await graphqlOp;
-
-            const errors: ReadonlyArray<GraphQLError> | undefined = value.errors;
-            // Types of property locations are incompatible.
-            const errs: PayloadError | PayloadError[] =
-                errors?.map((e) => {
-                    return { message: isServerSideRendering() ? 'server:' : 'client:' + e.message };
-                }) ?? [];
-
-            sink.next({ ...value, data: value.data ?? {}, errors: errs });
-            sink.complete();
-        })();
-    });
-
+/**
+ * Not sure if this will still be needed - because without our own server that was supporting
+ * streaming and use of @defer - it might not be necessary anymore.
+ *
+ * Needs a little more investigation, so this will be kept for the moment.
+ *
+ * @deprecated
+ */
 export function network(): INetwork {
-    if (isServerSideRendering()) {
-        return Network.create(serverSideFetchQuery);
-    } else {
-        return Network.create(streamableClientSideFetchQuery);
-    }
+    return Network.create(streamableClientSideFetchQuery);
 }
 
 // Type Guard

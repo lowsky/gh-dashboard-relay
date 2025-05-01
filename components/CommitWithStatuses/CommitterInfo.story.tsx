@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import moreStatus from 'components/CommitWithStatuses/lastCommitMock.json';
 import { CommitterInfo } from './CommitterInfo';
+
+import moreStatus from './lastCommitMock.json';
 
 const meta: Meta<typeof CommitterInfo> = {
     component: CommitterInfo,

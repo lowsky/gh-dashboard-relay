@@ -1,4 +1,4 @@
-import { GithubStatus, Maybe } from 'restinpeace/types';
+import { GithubStatus, Maybe } from './githubStatus';
 
 /**
  * Remove duplicate entries of states:
@@ -8,8 +8,8 @@ import { GithubStatus, Maybe } from 'restinpeace/types';
  */
 export function removeExtraStatusesForSameContext(statuses: Maybe<GithubStatus>[] = []): GithubStatus[] {
     const filteredStatuses = statuses
-        .filter((item) => item?.context)
-        .reduce((acc, item) => {
+        ?.filter((item) => item?.context)
+        ?.reduce((acc, item) => {
             if (acc.get(item!.context)) {
                 return acc;
             }

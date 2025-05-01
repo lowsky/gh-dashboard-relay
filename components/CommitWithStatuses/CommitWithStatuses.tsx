@@ -1,25 +1,22 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Link } from '@chakra-ui/react';
 
+import { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
+
 import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
-import { GithubCommit } from 'restinpeace/types';
-import { useUserRepo } from '../useUserRepoFromRoute';
+import { Spinner } from '../Spinner';
+
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
-import { Spinner } from '../Spinner';
 
 import styles from './CommitWithStatuses.module.css';
 
 export interface CommitWithStatusesProps {
-    commit?: GithubCommit;
+    commit: CommitWithStatuses_commit$data;
 }
 
-const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) => {
-    const { userName, repoName } = useUserRepo();
-
-    const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
-
-    const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
+const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
+    const { author, commitUrl, authoredDate = '-?-', message = '-?-', status } = commit;
 
     const mainMessage = message?.split('\n\n', 1);
 
@@ -27,9 +24,12 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
         <>
             <PopoverRoot>
                 <PopoverTrigger>
-                    <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
-                        <strong>{mainMessage}</strong>
-                    </Link>
+                    <span>
+                        <strong>{mainMessage}</strong> &nbsp;
+                        <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
+                            more
+                        </Link>
+                    </span>
                 </PopoverTrigger>
                 {
                     // @ts-expect-error snippet type error
@@ -38,8 +38,8 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
                             <PopoverArrow />
                             <PopoverBody>
                                 <div className={styles.status}>
-                                    <i>{date}</i>
-                                    <CommitterInfo author={author} />
+                                    {<i>{new Date(authoredDate).toLocaleString()}</i>}
+                                    <CommitterInfo author={author?.user} />
                                 </div>
                             </PopoverBody>
                         </PopoverBody>
@@ -47,9 +47,10 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
                 }
             </PopoverRoot>
 
-            <Suspense fallback={<Spinner size="lg" />}>
-                <CommitStatuses statuses={status ?? statuses} />
-            </Suspense>
+            {
+                // @ts-expect-error temporary ignore type mismatch
+                status && <CommitStatuses statuses={status.contexts} />
+            }
         </>
     );
 };

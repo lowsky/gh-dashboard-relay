@@ -1,26 +1,48 @@
 import { graphql, useFragment } from 'react-relay';
 
 import CommitWithStatus from 'components/CommitWithStatuses/CommitWithStatuses';
+import {
+    CommitWithStatuses_commit$data,
+    CommitWithStatuses_commit$key,
+} from './__generated__/CommitWithStatuses_commit.graphql';
 
-export default function CommitFragmentContainer(props) {
-    const commit = useFragment(
+export default function CommitFragment({ commit }) {
+    const data: CommitWithStatuses_commit$data = useFragment<CommitWithStatuses_commit$key>(
         graphql`
-            fragment CommitWithStatuses_commit on GithubCommit {
-                sha
-                message
-                date
+            fragment CommitWithStatuses_commit on Commit {
+                authoredDate
+                oid
                 status {
-                    context
-                    description
+                    id
+                    commit {
+                        oid
+                    }
+                    contexts {
+                        avatarUrl
+                        context
+                        creator {
+                            login
+                        }
+                        state
+                        description
+                        targetUrl
+                    }
                     state
-                    target_url
-                    updated_at
-                    avatar_url
+                }
+                commitUrl
+                abbreviatedOid
+                message
+                author {
+                    user {
+                        login
+                        name
+                        avatarUrl
+                    }
                 }
             }
         `,
-        props.commit
+        commit
     );
 
-    return <CommitWithStatus commit={commit} />;
+    return <CommitWithStatus commit={data} />;
 }

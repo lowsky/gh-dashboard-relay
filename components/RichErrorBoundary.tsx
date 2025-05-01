@@ -15,7 +15,7 @@ type Props = {
     children: React.ReactNode;
 };
 export default class RichErrorBoundary extends React.Component<Props, State> {
-    state = { error: null };
+    state: State = { error: null };
 
     static getDerivedStateFromError(error: Error) {
         return { error };

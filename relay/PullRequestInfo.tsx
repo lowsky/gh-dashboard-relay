@@ -1,31 +1,47 @@
 import { graphql, useFragment } from 'react-relay';
 
 import { useUserRepo } from 'components/useUserRepoFromRoute';
-import PullRequestMerge, { type DoMergePR } from 'components/PullRequestMerge';
+import PullRequestMerge, { type DoMergePR } from 'relay/PullRequestMerge';
 import doMergePRAction from 'app/actions/doMergePRAction';
+import {
+    PullRequestInfo_pullRequest$data,
+    PullRequestInfo_pullRequest$key,
+} from './__generated__/PullRequestInfo_pullRequest.graphql';
 
-export default function PRFragmentContainer(props) {
-    const pullRequest = useFragment(
+export default function PullRequestInfoFragment({
+    pullRequest,
+}: {
+    pullRequest: PullRequestInfo_pullRequest$key | null;
+}) {
+    const data: PullRequestInfo_pullRequest$data | null | undefined = useFragment<PullRequestInfo_pullRequest$key>(
         graphql`
             fragment PullRequestInfo_pullRequest on PullRequest {
                 title
                 number
-                html_url
-                head {
-                    sha
+                url
+                # html_url
+                # commits
+                headRef {
+                    id
                 }
+                # head { sha }
             }
         `,
-        props.pullRequest
+        pullRequest
     );
 
     const { userName, repoName } = useUserRepo();
-    const sha = pullRequest?.head?.sha;
+
+    const sha = data?.headRef?.id;
+    if (!sha) {
+        return null;
+    }
 
     const doMergePR: DoMergePR = async () => {
-        const mergeResult = doMergePRAction(pullRequest.number, userName, repoName, sha);
+        const mergeResult = doMergePRAction(data.number, userName, repoName, sha);
         return mergeResult;
     };
 
-    return <PullRequestMerge pullRequest={pullRequest} doMergePR={doMergePR} />;
+    // @ts-expect-error temporary ignore type mismatch
+    return <PullRequestMerge associatedPullRequests={[data]} doMergePR={doMergePR} />;
 }

@@ -19,6 +19,10 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
         });
         const tokenData = await tokenResponse.json();
         const { access_token } = tokenData;
+
+        // TODO check expiration
+        // github-authentication-token-expiration: 2025-05-01 02:57:28 UTC
+
         if (access_token) {
             res.setHeader('Set-Cookie', `access_token=${access_token}; HttpOnly; Path=/`);
             const original_url = req.query.original_url as string;

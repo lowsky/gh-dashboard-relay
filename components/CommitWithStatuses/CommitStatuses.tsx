@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { GithubStatus, Maybe } from 'restinpeace/types';
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 import { Status } from './Status';
 import { Spinner } from '../Spinner';
 
+import { GithubStatus } from './githubStatus';
+
 import styles from './CommitWithStatuses.module.css';
 
-export const CommitStatuses: React.FC<{ statuses?: Maybe<Array<Maybe<GithubStatus>>> }> = ({ statuses }) => {
+type Maybe<T> = T | null;
+
+type Props = { statuses?: Maybe<Array<Maybe<GithubStatus>>> };
+export const CommitStatuses: React.FC<Props> = ({ statuses }) => {
     if (statuses)
         return (
             <div className={styles.statusLine}>

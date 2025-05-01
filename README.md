@@ -3,34 +3,34 @@
 
 ## Stack
 
--   [GraphQL](https://graphql.org/)
--   [Next.js](https://nextjs.org/)
--   ~~[Netlify](https://www.netlify.com/)~~/[Vercel](https://vercel.com/)
--   GraphQL server
-    -   ~~[ApolloServer](https://www.apollographql.com/docs/apollo-server/)~~ [Helix](https://www.graphql-helix.com/),
-    -   ~~[Envelop](https://the-guild.dev/graphql/yoga-server)~~ [Yoga](https://the-guild.dev/graphql/yoga-server)
--   [Relay](https://relay.dev/)
--   ~~[Bulma](https://bulma.io/)~~ [ChakraUI](https://chakra-ui.com/)
--   React
--   [Storybook](https://storybook.js.org/)
--   [Chromatic](https://storybook.js.org/)
--   [Typescript](https://www.typescriptlang.org/)
--   [Jest](https://jestjs.io/)
--   [Storyshots](https://storybook.js.org/addons/@storybook/addon-storyshots)
+- [GraphQL](https://graphql.org/)
+- [Next.js](https://nextjs.org/)
+- ~~[Netlify](https://www.netlify.com/)~~/[Vercel](https://vercel.com/)
+- ~~GraphQL server~~
+    - ~~[ApolloServer](https://www.apollographql.com/docs/apollo-server/)~~ ~~[Helix](https://www.graphql-helix.com/)~~
+    - ~~[Envelop](https://the-guild.dev/graphql/yoga-server)~~ ~~[Yoga](https://the-guild.dev/graphql/yoga-server)~~
+- [Relay](https://relay.dev/)
+- ~~[Bulma](https://bulma.io/)~~ [ChakraUI](https://chakra-ui.com/)
+- React
+- [Storybook](https://storybook.js.org/)
+- [Chromatic](https://storybook.js.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- ~~[Storyshots](https://storybook.js.org/addons/@storybook/addon-storyshots)~~
 
 ## Purpose
 
 List the `(feature) branches` of a GitHub repository with its `last commit's`
 
--   build status
--   linked PR
--   commit message and author
--   linked deployment
+- build status
+- linked PR
+- commit message and author
+- linked deployment
 
 The idea behind this was, to provide easy access to all feature branches before releasing them.
 So you can test a new version of a new feature before bringing it live.
 
-Very old presentation at a Docker Meetup: Find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
+Very very old presentation at a Docker Meetup: Find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
 
 ## Getting started
 
@@ -52,30 +52,6 @@ This runs Next.js dev-mode which includes the endpoints for the graphql API.
 Open the home [http://localhost:3000](http://localhost:3000) with your browser.
 
 Or **even better** the dashboard project page: [http://localhost:3000/relay/lowsky/gh-dashboard-relay](http://localhost:3000/relay/lowsky/gh-dashboard-relay)
-
-### Built-in GraphQL-backend
-
-**GraphIql Playground:** [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql)
-
-for using and playing with different graphql queries, e.g.:
-(use this [link with query](http://localhost:3000/api/graphql?query=%7B%0A%20%20github%20%7B%0A%20%20%20%20user%28username%3A%20%22lowsky%22%29%20%7B%0A%20%20%20%20%20%20login%0A%20%20%20%20%20%20avatar_url%0A%20%20%20%20%7D%0A%20%20%20%20repo%28ownerUsername%3A%20%22lowsky%22%2C%20name%3A%20%22dashboard%22%29%20%7B%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20branches%7Bname%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A)
-
-```graphql
-{
-    github {
-        user(username: "lowsky") {
-            login
-            avatar_url
-        }
-        repo(ownerUsername: "lowsky", name: "dashboard") {
-            name
-            branches {
-                name
-            }
-        }
-    }
-}
-```
 
 Have fun!
 

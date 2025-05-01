@@ -4,8 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { Button, Icon } from '@chakra-ui/react';
 import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import type { MergePullRequestsResponseDataType } from '../restinpeace/github';
-import { DoMergePR } from './PullRequestMerge';
+import { DoMergePR } from 'relay/PullRequestMerge';
+
 import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverBody } from './ui/popover';
 
 export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergePR }) {
@@ -58,11 +60,16 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                         <Button
                             ml={1}
                             size="xs"
-                            color={'red'}
+                            color="red"
                             variant="outline"
-                            onClick={triggerMerging}
+                            {...(isError
+                                ? {}
+                                : {
+                                      // don't override in case of an error but show the error as a popover
+                                      onClick: triggerMerging,
+                                  })}
                             disabled={!!mergingInProgress}>
-                            Rebase&Merge
+                            {isError ? 'show error' : 'Rebase&Merge'}
                             {!!mergingInProgress && (
                                 <Icon>
                                     <FontAwesomeIcon icon={faSpinner} size="1x" />
