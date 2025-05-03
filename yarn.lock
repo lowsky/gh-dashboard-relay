@@ -9901,7 +9901,7 @@ __metadata:
     react-cache: "npm:latest"
     react-dom: "npm:next"
     react-icons: "npm:^5.3.0"
-    react-relay: "npm:18.2.0"
+    react-relay: "npm:19.0.0"
     relay-compiler: "npm:18.2.0"
     storybook: "npm:8.6.12"
     typescript: "npm:5.8.3"
@@ -15968,18 +15968,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react-relay@npm:18.2.0"
+"react-relay@npm:19.0.0":
+  version: 19.0.0
+  resolution: "react-relay@npm:19.0.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:18.2.0"
+    relay-runtime: "npm:19.0.0"
   peerDependencies:
-    react: ^16.9.0 || ^17 || ^18
-  checksum: 10c0/f753212408fe5b6e5bedac116f3ac94414d3c94efb3cc4a3de4f32336a80f2d1f54db472b89b5777fcb6149df0f4ad13df28a0f8acf6fd7c005a9028dc7d4a54
+    react: ^16.9.0 || ^17 || ^18 || ^19
+  checksum: 10c0/760b702a9c77b2b614c6988205af3d9611e1fec44e5970c18158e11c6d869b40393404219e780e37140d0cebc8ca4df458f6f8b0e8fabc386d1d99e9b42fa500
   languageName: node
   linkType: hard
 
@@ -16260,14 +16260,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:18.2.0":
-  version: 18.2.0
-  resolution: "relay-runtime@npm:18.2.0"
+"relay-runtime@npm:19.0.0":
+  version: 19.0.0
+  resolution: "relay-runtime@npm:19.0.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
-  checksum: 10c0/497ec7139a56e0834e5a21d3b86af1800dd10f56b4cc730d2265d94a581910a7768ae469edb38ac9538411255c2ea6864a468dd29fec21610971cb98d3b48f0a
+  checksum: 10c0/667b60bb93133b5828807a66c68057891d99b39998f96f4338e04e51b8512b472c277a35fc7dc07ac989b4d23e0384cec5cb4dcbb403e4e3ff9bdc3c3faf7b30
   languageName: node
   linkType: hard
 

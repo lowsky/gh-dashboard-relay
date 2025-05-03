@@ -107,7 +107,7 @@
     "prettier": "3.5.3",
     "react": "next",
     "react-dom": "next",
-    "react-relay": "18.2.0",
+    "react-relay": "19.0.0",
     "relay-compiler": "18.2.0",
     "storybook": "8.6.12",
     "typescript": "5.8.3",
