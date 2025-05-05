@@ -10000,7 +10000,7 @@ __metadata:
     react-dom: "npm:next"
     react-icons: "npm:^5.3.0"
     react-relay: "npm:19.0.0"
-    relay-compiler: "npm:18.2.0"
+    relay-compiler: "npm:19.0.0"
     storybook: "npm:8.6.12"
     typescript: "npm:5.8.3"
     typescript-eslint: "npm:8.31.1"
@@ -16593,12 +16593,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:18.2.0":
-  version: 18.2.0
-  resolution: "relay-compiler@npm:18.2.0"
+"relay-compiler@npm:19.0.0":
+  version: 19.0.0
+  resolution: "relay-compiler@npm:19.0.0"
   bin:
     relay-compiler: cli.js
-  checksum: 10c0/3249b9def1cf152813a9f7814e708c9a918ec1b87434188d4a710742b11be0a973d6f49b8935a28708e74e628fc326f72072b0c9da58c2824cd8afbcd3c94643
+  checksum: 10c0/7ad87ada0dd46daf8d9c5380ab0917ad4b7e829c0998a735b682c4238fbda5af1ea76f7937b3d6a5d2c5bbdc5d27857eb06e9d79bfacde3b353d054d07a989b1
   languageName: node
   linkType: hard
 
