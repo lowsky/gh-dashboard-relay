@@ -7,6 +7,7 @@ import {
     PullRequestInfo_pullRequest$data,
     PullRequestInfo_pullRequest$key,
 } from './__generated__/PullRequestInfo_pullRequest.graphql';
+import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
 
 export default function PullRequestInfoFragment({
     pullRequest,
@@ -19,12 +20,9 @@ export default function PullRequestInfoFragment({
                 title
                 number
                 url
-                # html_url
-                # commits
                 headRef {
                     id
                 }
-                # head { sha }
             }
         `,
         pullRequest
@@ -38,10 +36,16 @@ export default function PullRequestInfoFragment({
     }
 
     const doMergePR: DoMergePR = async () => {
-        const mergeResult = doMergePRAction(data.number, userName, repoName, sha);
+        const mergeResult = await doMergePRAction(data.number, userName, repoName, sha);
         return mergeResult;
     };
 
-    // @ts-expect-error temporary ignore type mismatch
-    return <PullRequestMerge associatedPullRequests={[data]} doMergePR={doMergePR} />;
+    return (
+        <>
+            <a href={data.url} title={data.title}>
+                PR #{data.number}
+            </a>
+            <MergeButtonWithErrorStatus doMergePR={doMergePR} />
+        </>
+    );
 }
