@@ -146,8 +146,8 @@ devDependencies:
     specifier: 0.12.0
     version: 0.12.0(eslint@9.26.0)(typescript@5.8.3)
   globals:
-    specifier: 16.0.0
-    version: 16.0.0
+    specifier: 16.1.0
+    version: 16.1.0
   identity-obj-proxy:
     specifier: 3.0.0
     version: 3.0.0
@@ -7513,6 +7513,7 @@ packages:
     resolution: {integrity: sha512-wI4ZiIfFxpkuxB8ju4MHrGwGLyp1+awEHAHVpx6w7a+1pmYIq8T9FGEVVwFo0iFierDoMj++Xq69GXWYn2EiwA==}
     engines: {node: '>=12'}
     hasBin: true
+    requiresBuild: true
     optionalDependencies:
       esbuild-android-64: 0.14.47
       esbuild-android-arm64: 0.14.47
@@ -7540,6 +7541,7 @@ packages:
     resolution: {integrity: sha512-8pgjLUcUjcgDg+2Q4NYXnPbo/vncAY4UmyaCm0jZevERqCHZIaWwdJHkf8XQtu4AxSKCdvrUbT0XUr1IdZzI8Q==}
     engines: {node: '>=18'}
     hasBin: true
+    requiresBuild: true
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.25.4
       '@esbuild/android-arm': 0.25.4
@@ -8486,8 +8488,8 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /globals@16.0.0:
-    resolution: {integrity: sha512-iInW14XItCXET01CQFqudPOWP2jYMl7T+QRQT+UNcR/iQncN/F0UNpgd76iFkBPgNQb4+X3LV9tLJYzwh+Gl3A==}
+  /globals@16.1.0:
+    resolution: {integrity: sha512-aibexHNbb/jiUSObBgpHLj+sIuUmJnYcgXBlrfsiDZ9rt4aF2TFRbyLgZ2iFQuVZ1K5Mx3FVkbKRSgKrbK3K2g==}
     engines: {node: '>=18'}
     dev: true
 
