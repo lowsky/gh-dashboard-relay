@@ -3,7 +3,8 @@ import type { MDXComponents } from 'mdx/types';
 
 import { Box, H1, H2, H3, Ol, Ul, A, P, Code, ResponsiveImage } from './components/ChakraMdxProvider';
 
-// this will only be used on the server-side!
+// this will only be used on the server-side
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function useMDXComponents(_unusedComponents: MDXComponents) {
     return {
         div: Box,
