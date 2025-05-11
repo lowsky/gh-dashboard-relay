@@ -3,6 +3,7 @@ import { FetchFunction, type GraphQLResponse, INetwork, Network, Observable } fr
 import { meros } from 'meros';
 import type { ExecutionPatchResult, Sink } from 'graphql-ws';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const streamableClientSideFetchQuery: FetchFunction = (params, variables, _cacheConfig) =>
     Observable.create((sink: Sink<GraphQLResponse>) => {
         (async () => {

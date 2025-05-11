@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import ts from 'typescript-eslint';
+import ts, { Config } from 'typescript-eslint';
 import prettierConfigRecommended from 'eslint-plugin-prettier/recommended';
 import storybookPlugin from 'eslint-plugin-storybook';
 import reactPlugin from 'eslint-plugin-react';
@@ -10,7 +10,6 @@ import globals from 'globals';
 
 import { fixupPluginRules } from '@eslint/compat';
 
-/** @type {import('typescript-eslint').Config} */
 export default [
     js.configs.recommended,
     ...ts.configs.recommended,
@@ -22,16 +21,12 @@ export default [
     {
         files: ['pages/api/**/*'],
         languageOptions: {
-            globals: {
-                ...globals.node,
-            },
+            globals: globals.node,
         },
     },
     {
         languageOptions: {
-            globals: {
-                ...globals.browser,
-            },
+            globals: globals.browser,
         },
     },
     {
@@ -51,10 +46,10 @@ export default [
         // TEMP: until sources got changed
         rules: {
             // e.g.  If you want a type meaning "any value", you probably want `unknown` instead
-            '@typescript-eslint/ban-ts-comment': 'off',
-            '@typescript-eslint/no-empty-object-type': 'off',
-            '@typescript-eslint/no-wrapper-object-types': 'warn',
-            '@typescript-eslint/no-unused-vars': 'off',
+            //    '@typescript-eslint/ban-ts-comment': 'off',
+            //'@typescript-eslint/no-empty-object-type': 'off',
+            //'@typescript-eslint/no-wrapper-object-types': 'warn',
+            //'@typescript-eslint/no-unused-vars': 'off',
         },
     },
     prettierConfigRecommended,
@@ -113,4 +108,4 @@ export default [
             '.yarn',
         ],
     },
-];
+] satisfies Config;

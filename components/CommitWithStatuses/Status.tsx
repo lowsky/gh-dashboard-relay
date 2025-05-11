@@ -3,7 +3,8 @@ import { Circle, Float } from '@chakra-ui/react';
 
 import { Avatar } from '../ui/avatar';
 
-type StatusType = 'SUCCESS' | 'PENDING' | 'FAILURE' | 'ERROR' | any;
+// LATER: improve typing
+type StatusType = 'SUCCESS' | 'PENDING' | 'FAILURE' | 'ERROR' | string | undefined | null;
 
 function status2color(status: StatusType) {
     if (status === 'SUCCESS') {
