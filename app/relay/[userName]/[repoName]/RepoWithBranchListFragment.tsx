@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { graphql, useRefetchableFragment } from 'react-relay';
 
 import { RepoWithBranchListFragment_repo$key } from './__generated__/RepoWithBranchListFragment_repo.graphql';
 import { RepoWithBranchPaginationQuery } from './__generated__/RepoWithBranchPaginationQuery.graphql';
 import BranchesTable from 'relay/BranchesTable';
+import BranchInfoRowFragment, { SkeletonRow } from 'relay/BranchInfoRowFragment';
 
 export function RepoWithBranchList(props: { repo: RepoWithBranchListFragment_repo$key }) {
     const [{ branches, id }, refetch] = useRefetchableFragment<
@@ -34,8 +35,15 @@ export function RepoWithBranchList(props: { repo: RepoWithBranchListFragment_rep
             }
         );
 
-    if (!branches) return <p>No branches found!</p>;
+    if (!branches || branches.edges?.length === 0) return <p>No branches found!</p>;
 
-    // @ts-expect-error TS2322: Type is not assignable to type RelayCon<FragmentRefs<"BranchInfoRowFragment_ref">> temporary
-    return <BranchesTable branches={branches} refetch={refetchDefault} />;
+    return (
+        <BranchesTable refetch={refetchDefault}>
+            {(branches?.edges ?? []).map((edge, idx) => (
+                <Suspense fallback={<SkeletonRow />} key={idx}>
+                    {edge?.node && <BranchInfoRowFragment branch={edge.node} />}
+                </Suspense>
+            ))}
+        </BranchesTable>
+    );
 }

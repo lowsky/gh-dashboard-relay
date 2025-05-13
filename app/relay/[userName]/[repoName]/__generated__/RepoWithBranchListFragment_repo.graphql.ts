@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<27298d4ee01a174cb84bbe2e1e92f6b3>>
+ * @generated SignedSource<<7753afb01bf5c8cb8e376cce6d15e98b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -25,6 +25,8 @@ export type RepoWithBranchListFragment_repo$key = {
   readonly " $data"?: RepoWithBranchListFragment_repo$data;
   readonly " $fragmentSpreads": FragmentRefs<"RepoWithBranchListFragment_repo">;
 };
+
+import RepoWithBranchPaginationQuery_graphql from './RepoWithBranchPaginationQuery.graphql';
 
 const node: ReaderFragment = (function(){
 var v0 = [
@@ -65,7 +67,7 @@ return {
       "fragmentPathInResult": [
         "node"
       ],
-      "operation": require('./RepoWithBranchPaginationQuery.graphql'),
+      "operation": RepoWithBranchPaginationQuery_graphql,
       "identifierInfo": {
         "identifierField": "id",
         "identifierQueryVariableName": "id"
