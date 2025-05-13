@@ -1,11 +1,16 @@
 import React from 'react';
 import { Decorator, Meta, StoryObj } from '@storybook/react';
 import { Table } from '@chakra-ui/react';
+import { graphql } from 'relay-runtime';
+
+import { relayDecorator, WithRelayParameters } from '../relay/relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
+import { BranchInfoRowFragment_ref$data } from '../relay/__generated__/BranchInfoRowFragment_ref.graphql';
+import { CommitWithStatuses_commit$data, StatusState } from '../relay/__generated__/CommitWithStatuses_commit.graphql';
+import { BranchInfoRowStoryQuery } from './__generated__/BranchInfoRowStoryQuery.graphql';
 
-import { WithData as CommitWithDataStory } from 'components/CommitWithStatuses/CommitWithStatuses.story';
-import { Default as DefaultPRStory } from 'components/PullRequestInfo.story';
+import moreStatus from '../components/CommitWithStatuses/lastCommitMock.json';
 
 const wrapInTableDecorator: Decorator = (Story) => (
     <Table.Root size="sm" striped>
@@ -17,25 +22,74 @@ const wrapInTableDecorator: Decorator = (Story) => (
 
 const meta: Meta<typeof BranchInfoRow> = {
     component: BranchInfoRow,
-    decorators: [wrapInTableDecorator],
+    decorators: [relayDecorator, wrapInTableDecorator],
 };
 export default meta;
 
 type Story = StoryObj<typeof BranchInfoRow>;
 
 export const WithInfo: Story = {
-    args: {
-        branch: {
-            // @ts-expect-error temporary ignoring
-            name: 'branch-x',
-            lastCommit: {
-                ...CommitWithDataStory.args!.commit,
-                associatedPullRequests: [
-                    {
-                        ...DefaultPRStory.args!.pullRequest!,
+    parameters: {
+        query: graphql`
+            query BranchInfoRowStoryQuery @relay_test_operation {
+                node(id: "test-id") {
+                    ... on Ref {
+                        ...BranchInfoRowFragment_ref
+                    }
+                }
+            }
+        `,
+        getReferenceEntry: (q) => ['branch', q.node],
+        mockResolvers: {
+            Commit: (): CommitWithStatuses_commit$data => ({
+                ...moreStatus,
+                message: 'Merge pull request #1234 from lowsky/a-new-feature',
+                author: {
+                    user: {
+                        login: 'lowsky',
+                        name: 'name-mock',
+                        avatarUrl: 'https://avatars2.githubusercontent.com/u/217931',
                     },
-                ],
-            },
+                },
+
+                status: {
+                    commit: {
+                        oid: 'mock-oid',
+                    },
+                    contexts: moreStatus.status.map((status) => ({
+                        avatarUrl: status.avatarUrl,
+                        context: status.context,
+                        creator: null,
+                        description: status.description,
+                        state: status.state as StatusState,
+                        targetUrl: status.target_url,
+                    })),
+                    id: 'mock-status-id',
+                    state: 'SUCCESS' as StatusState,
+                },
+                ' $fragmentType': 'CommitWithStatuses_commit',
+            }),
+            Ref: (): BranchInfoRowFragment_ref$data => ({
+                name: 'branch-x',
+                target: {
+                    ' $fragmentSpreads': {
+                        CommitWithStatuses_commit: true,
+                    },
+                },
+                associatedPullRequests: {
+                    edges: [
+                        {
+                            node: {
+                                id: 'abc',
+                                ' $fragmentSpreads': {
+                                    PullRequestMergeFragment_ref: true,
+                                },
+                            },
+                        },
+                    ],
+                },
+                ' $fragmentType': 'BranchInfoRowFragment_ref',
+            }),
         },
-    },
+    } satisfies WithRelayParameters<BranchInfoRowStoryQuery>,
 };
