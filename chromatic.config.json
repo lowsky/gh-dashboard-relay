@@ -1,6 +1,6 @@
 {
-    "projectId": "Project:5afab010f1d19900240b5469",
-    "zip": true,
-    "onlyChanged": true,
-    "buildScriptName": "build:storybook"
+  "projectId": "Project:5afab010f1d19900240b5469",
+  "zip": true,
+  "onlyChanged": true,
+  "buildScriptName": "build:storybook"
 }
