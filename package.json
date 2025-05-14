@@ -40,7 +40,6 @@
       "**/stuff/**",
       "**/node_modules/**",
       "**/test/",
-      "**/__mocks__/",
       "**/__generated__/**"
     ],
     "schema": "./schema.graphql"
@@ -72,11 +71,6 @@
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@fortawesome/react-fontawesome": "0.2.2",
-    "@graphql-codegen/cli": "5.0.6",
-    "@graphql-codegen/typescript": "4.1.6",
-    "@graphql-codegen/typescript-document-nodes": "4.0.16",
-    "@graphql-codegen/typescript-operations": "4.6.1",
-    "@graphql-codegen/typescript-resolvers": "4.5.1",
     "@graphql-eslint/eslint-plugin": "^4.0.0",
     "@graphql-tools/schema": "10.0.23",
     "@next/eslint-plugin-next": "^15.3.2",
