@@ -10,7 +10,7 @@ dependencies:
     version: 3.17.0(@emotion/react@11.14.0)(react-dom@19.2.0-canary-38ef6550-20250508)(react@19.2.0-canary-38ef6550-20250508)
   '@emotion/react':
     specifier: 11.14.0
-    version: 11.14.0(@types/react@19.1.3)(react@19.2.0-canary-38ef6550-20250508)
+    version: 11.14.0(@types/react@19.1.4)(react@19.2.0-canary-38ef6550-20250508)
   '@next/mdx':
     specifier: 15.3.1
     version: 15.3.1
@@ -96,7 +96,7 @@ devDependencies:
     version: 14.0.0
   '@storybook/addon-essentials':
     specifier: 8.6.12
-    version: 8.6.12(@types/react@19.1.3)(storybook@8.6.12)
+    version: 8.6.12(@types/react@19.1.4)(storybook@8.6.12)
   '@storybook/addon-themes':
     specifier: 8.6.12
     version: 8.6.12(storybook@8.6.12)
@@ -107,8 +107,8 @@ devDependencies:
     specifier: 8.6.12
     version: 8.6.12(@storybook/test@8.6.12)(react-dom@19.2.0-canary-38ef6550-20250508)(react@19.2.0-canary-38ef6550-20250508)(storybook@8.6.12)(typescript@5.8.3)
   '@types/react':
-    specifier: 19.1.3
-    version: 19.1.3
+    specifier: 19.1.4
+    version: 19.1.4
   '@types/react-relay':
     specifier: ^18.2.0
     version: 18.2.1
@@ -1472,7 +1472,7 @@ packages:
     dependencies:
       '@ark-ui/react': 5.8.0(react-dom@19.2.0-canary-38ef6550-20250508)(react@19.2.0-canary-38ef6550-20250508)
       '@emotion/is-prop-valid': 1.3.1
-      '@emotion/react': 11.14.0(@types/react@19.1.3)(react@19.2.0-canary-38ef6550-20250508)
+      '@emotion/react': 11.14.0(@types/react@19.1.4)(react@19.2.0-canary-38ef6550-20250508)
       '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.2.0-canary-38ef6550-20250508)
       '@emotion/utils': 1.4.2
@@ -1601,7 +1601,7 @@ packages:
     resolution: {integrity: sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==}
     dev: false
 
-  /@emotion/react@11.14.0(@types/react@19.1.3)(react@19.2.0-canary-38ef6550-20250508):
+  /@emotion/react@11.14.0(@types/react@19.1.4)(react@19.2.0-canary-38ef6550-20250508):
     resolution: {integrity: sha512-O000MLDBDdk/EohJPFUqvnp4qnHeYkVP5B0xEG0D/L7cOKP9kefu2DXn8dj74cQfsEzUqh+sr1RzFqiL1o+PpA==}
     peerDependencies:
       '@types/react': '*'
@@ -1617,7 +1617,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@19.2.0-canary-38ef6550-20250508)
       '@emotion/utils': 1.4.2
       '@emotion/weak-memoize': 0.4.0
-      '@types/react': 19.1.3
+      '@types/react': 19.1.4
       hoist-non-react-statics: 3.3.2
       react: 19.2.0-canary-38ef6550-20250508
     transitivePeerDependencies:
@@ -3230,14 +3230,14 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/react@3.1.0(@types/react@19.1.3)(react@19.1.0):
+  /@mdx-js/react@3.1.0(@types/react@19.1.4)(react@19.1.0):
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.1.3
+      '@types/react': 19.1.4
       react: 19.1.0
     dev: true
 
@@ -3615,12 +3615,12 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/addon-docs@8.6.12(@types/react@19.1.3)(storybook@8.6.12):
+  /@storybook/addon-docs@8.6.12(@types/react@19.1.4)(storybook@8.6.12):
     resolution: {integrity: sha512-kEezQjAf/p3SpDzLABgg4fbT48B6dkT2LiZCKTRmCrJVtuReaAr4R9MMM6Jsph6XjbIj/SvOWf3CMeOPXOs9sg==}
     peerDependencies:
       storybook: ^8.6.12
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@19.1.3)(react@19.1.0)
+      '@mdx-js/react': 3.1.0(@types/react@19.1.4)(react@19.1.0)
       '@storybook/blocks': 8.6.12(react-dom@19.1.0)(react@19.1.0)(storybook@8.6.12)
       '@storybook/csf-plugin': 8.6.12(storybook@8.6.12)
       '@storybook/react-dom-shim': 8.6.12(react-dom@19.1.0)(react@19.1.0)(storybook@8.6.12)
@@ -3632,7 +3632,7 @@ packages:
       - '@types/react'
     dev: true
 
-  /@storybook/addon-essentials@8.6.12(@types/react@19.1.3)(storybook@8.6.12):
+  /@storybook/addon-essentials@8.6.12(@types/react@19.1.4)(storybook@8.6.12):
     resolution: {integrity: sha512-Y/7e8KFlttaNfv7q2zoHMPdX6hPXHdsuQMAjYl5NG9HOAJREu4XBy4KZpbcozRe4ApZ78rYsN/MO1EuA+bNMIA==}
     peerDependencies:
       storybook: ^8.6.12
@@ -3640,7 +3640,7 @@ packages:
       '@storybook/addon-actions': 8.6.12(storybook@8.6.12)
       '@storybook/addon-backgrounds': 8.6.12(storybook@8.6.12)
       '@storybook/addon-controls': 8.6.12(storybook@8.6.12)
-      '@storybook/addon-docs': 8.6.12(@types/react@19.1.3)(storybook@8.6.12)
+      '@storybook/addon-docs': 8.6.12(@types/react@19.1.4)(storybook@8.6.12)
       '@storybook/addon-highlight': 8.6.12(storybook@8.6.12)
       '@storybook/addon-measure': 8.6.12(storybook@8.6.12)
       '@storybook/addon-outline': 8.6.12(storybook@8.6.12)
@@ -4257,12 +4257,12 @@ packages:
   /@types/react-relay@18.2.1:
     resolution: {integrity: sha512-KgmFapsxAylhxcFfaAv5GZZJhTHnDvV8IDZVsUm5afpJUvgZC1Y68ssfOGsFfiFY/2EhxHM/YPfpdKbfmF3Ecg==}
     dependencies:
-      '@types/react': 19.1.3
+      '@types/react': 19.1.4
       '@types/relay-runtime': 19.0.1
     dev: true
 
-  /@types/react@19.1.3:
-    resolution: {integrity: sha512-dLWQ+Z0CkIvK1J8+wrDPwGxEYFA4RAyHoZPxHVGspYmFVnwGSNT24cGIhFJrtfRnWVuW8X7NO52gCXmhkVUWGQ==}
+  /@types/react@19.1.4:
+    resolution: {integrity: sha512-EB1yiiYdvySuIITtD5lhW4yPyJ31RkJkkDw794LaQYrxCSaQV/47y5o1FMC4zF9ZyjUjzJMZwbovEnT5yHTW6g==}
     dependencies:
       csstype: 3.1.3
 
@@ -4273,7 +4273,7 @@ packages:
   /@types/relay-test-utils@18.0.0:
     resolution: {integrity: sha512-sg++buiunZkj0MkL1/Q6w4p19ut3USC5BQnWJ1D4Bp4pNOrck4nhVDIyklm/ilVyM0wCbvROa5wL+nsYVo4Frw==}
     dependencies:
-      '@types/react': 19.1.3
+      '@types/react': 19.1.4
       '@types/react-relay': 18.2.1
       '@types/relay-runtime': 19.0.1
     dev: true
@@ -6590,6 +6590,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
 
   /color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
