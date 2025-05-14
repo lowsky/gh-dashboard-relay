@@ -5,18 +5,26 @@ import storybookPlugin from 'eslint-plugin-storybook';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import nextPlugin from '@next/eslint-plugin-next';
+import graphqlPlugin from '@graphql-eslint/eslint-plugin';
 
 import globals from 'globals';
 
 import { fixupPluginRules } from '@eslint/compat';
 
 export default [
-    js.configs.recommended,
+    {
+        files: ['** / *.{js,jsx,ts,tsx}'],
+        processor: graphqlPlugin.processor,
+        rules: {
+            ...js.configs.recommended.rules,
+        },
+    },
     ...ts.configs.recommended,
     ...storybookPlugin.configs['flat/csf-strict'],
     {
         // also work on typescript files with extensions tsx
         files: ['**/*.{js,jsx,ts,tsx}'],
+        processor: graphqlPlugin.processor,
     },
     {
         files: ['pages/api/**/*'],
