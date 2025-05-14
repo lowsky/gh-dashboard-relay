@@ -23,7 +23,7 @@
     "circle:deploy": "vercel -y -t $VERCEL_TOKEN deploy --prebuilt",
     "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
-    "build:relay": "relay-compiler && prettier -w relay/__generated__",
+    "build:relay": "relay-compiler && prettier -w relay/__generated__ components/__generated__ container/__generated__ relay/__generated__ app/relay/[userName]/__generated__ app/relay/[userName]/[repoName] ",
     "codegen": "yarn run build:relay",
     "format": "prettier . --cache -l -w",
     "vercel-build:without-chromatic": "yarn run build",
