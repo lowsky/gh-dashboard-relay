@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 
-import { RelayRootQuery } from './__generated__/RelayRootQuery.graphql';
+import { RelayRootQuery, RelayRootQuery$data, RelayRootQuery$variables } from './__generated__/RelayRootQuery.graphql';
 import RelayClientContext from 'lib/RelayClientContext';
 
 import InternalLink from 'components/InternalLink';
@@ -30,14 +30,14 @@ export default function RelayRoot(props: { authToken: string }) {
     return (
         <RelayClientContext auth={props.authToken}>
             <Suspense>
-                <UserPageContent userName={userName} />
+                <UserPageContent userName={userName!} />
             </Suspense>
         </RelayClientContext>
     );
 }
 
-export function UserPageContent({ userName }) {
-    const data = useLazyLoadQuery<RelayRootQuery>(
+export function UserPageContent({ userName }: { userName: RelayRootQuery$variables['userName'] }) {
+    const data: RelayRootQuery$data = useLazyLoadQuery<RelayRootQuery>(
         userQuery,
         { userName },
         {
@@ -48,6 +48,7 @@ export function UserPageContent({ userName }) {
     );
 
     const { repositoryOwner, rateLimit } = data;
+
     console.log('rate limit info:', rateLimit);
 
     if (!repositoryOwner)

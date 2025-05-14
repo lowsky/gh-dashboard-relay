@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fb7dafc285782b611db29ef124f98f96>>
+ * @generated SignedSource<<70db0f44392881ce2dff4ffa880fb3a1>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -26,6 +26,8 @@ export type RepoListFragment_repo$key = {
     readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_repo'>;
 };
 
+import RepoBranchListPaginationQuery_graphql from './RepoBranchListPaginationQuery.graphql';
+
 const node: ReaderFragment = {
     argumentDefinitions: [],
     kind: 'Fragment',
@@ -33,7 +35,7 @@ const node: ReaderFragment = {
         refetch: {
             connection: null,
             fragmentPathInResult: ['node'],
-            operation: require('./RepoBranchListPaginationQuery.graphql'),
+            operation: RepoBranchListPaginationQuery_graphql,
             identifierInfo: {
                 identifierField: 'id',
                 identifierQueryVariableName: 'id',

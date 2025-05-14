@@ -30,6 +30,7 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
             console.log({ original_url });
 
             res.redirect(original_url ?? '/');
+            return;
         }
         res.redirect('/error?no-token-in-payload');
     } catch (error) {

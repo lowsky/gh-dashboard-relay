@@ -1,29 +1,30 @@
-# What is it?
+## Purpose
 
-**This website renders a GitHub repository's Feature Branches with their state and linking to each deployment.**
+It shows GitHub Feature Branches together with their build state and link to each deployment, for live view of each branch.
 
-Btw. It is also a demo and playground to experiment with React Suspend possibilities: especially (using RFC 220): latest
-React and React Server Components and Next.js App Router.
+[Start here](./relay) for further loading a user's repos or dive into example repo.
 
-### Choose one of these different variants of data loading:
+### Auth\*
 
-1.  [GraphQL + Relay](/relay)
-    **GraphQL + Relay** - Using user's GH auth token!
-    Fetches all information from the running relay server
-2.  [Next based modern](/next)
-    **Next.js app:** GH-Rate-limited, partially SSR, fails on authentication
-3.  [Old way](/restful)
-    GH-Rate-limited _for comparison only_ old-style!
-    Fetching all data in a top-level `useEffect()` + props-drilling
+After accepting this web app to authenticate against GitHub, it will fetch information from
+GitHub via GraphQL.
 
-Here you can find the [storybook](https://www.chromatic.com/library?appId=5afab010f1d19900240b5469)
+All will be done and cached only in the browser on the client side.
+
+It keeps the generated auth token for it in the cookie 🍪.
+You will be able to logout to delete it completely.
 
 ## Tech stack
 
-- nextjs - app router
-- react server components
-- relay
-- graphql
+- [NEXTJS](https://nextjs.org/) - app router
+- [Relay](https://relay.dev/)
+- [GraphQL](https://graphql.org/)
+- [GitHub GraphQL api](https://graphql.github.com)
+
+## Design
+
+- [chakra-ui](https://chakra-ui.com/)
+- See latest [storybook here](https://www.chromatic.com/library?appId=5afab010f1d19900240b5469)
 
 ---
 

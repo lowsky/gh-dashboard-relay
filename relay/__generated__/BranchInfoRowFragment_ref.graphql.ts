@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<df34625cb9fa299be83875a4426f5087>>
+ * @generated SignedSource<<2f6c20e2721f8007e9dff0b54c0382b3>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,17 +9,6 @@
 // @ts-nocheck
 
 import { ReaderFragment } from 'relay-runtime';
-export type MergeStateStatus =
-    | 'BEHIND'
-    | 'BLOCKED'
-    | 'CLEAN'
-    | 'DIRTY'
-    | 'DRAFT'
-    | 'HAS_HOOKS'
-    | 'UNKNOWN'
-    | 'UNSTABLE'
-    | '%future added value';
-export type MergeableState = 'CONFLICTING' | 'MERGEABLE' | 'UNKNOWN' | '%future added value';
 import { FragmentRefs } from 'relay-runtime';
 export type BranchInfoRowFragment_ref$data = {
     readonly associatedPullRequests: {
@@ -28,17 +17,8 @@ export type BranchInfoRowFragment_ref$data = {
                   | {
                         readonly node:
                             | {
-                                  readonly closed: boolean;
-                                  readonly headRefOid: any;
-                                  readonly isDraft: boolean;
-                                  readonly isInMergeQueue: boolean;
-                                  readonly locked: boolean;
-                                  readonly mergeStateStatus: MergeStateStatus;
-                                  readonly mergeable: MergeableState;
-                                  readonly merged: boolean;
-                                  readonly number: number;
-                                  readonly title: string;
-                                  readonly url: any;
+                                  readonly id: string;
+                                  readonly ' $fragmentSpreads': FragmentRefs<'PullRequestMergeFragment_ref'>;
                               }
                             | null
                             | undefined;
@@ -131,78 +111,13 @@ const node: ReaderFragment = {
                                     alias: null,
                                     args: null,
                                     kind: 'ScalarField',
-                                    name: 'headRefOid',
+                                    name: 'id',
                                     storageKey: null,
                                 },
                                 {
-                                    alias: null,
                                     args: null,
-                                    kind: 'ScalarField',
-                                    name: 'number',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'url',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'title',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'mergeStateStatus',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'closed',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'isDraft',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'isInMergeQueue',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'mergeable',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'merged',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'locked',
-                                    storageKey: null,
+                                    kind: 'FragmentSpread',
+                                    name: 'PullRequestMergeFragment_ref',
                                 },
                             ],
                             storageKey: null,
@@ -218,6 +133,6 @@ const node: ReaderFragment = {
     abstractKey: null,
 };
 
-(node as any).hash = '79e5abdfeaf148175ca090f50e1e8406';
+(node as any).hash = 'aaeea5298b83e9c444881c5772898bda';
 
 export default node;

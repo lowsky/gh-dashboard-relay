@@ -15,7 +15,7 @@ type Props = {
 };
 
 function RepoListFragment(props: Props) {
-    const { data, hasNext, loadNext } = usePaginationFragment(
+    const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment(
         graphql`
             fragment RepoListFragment_user on User
             @argumentDefinitions(cursor: { type: "String" }, count: { type: "Int", defaultValue: 10 })
@@ -59,6 +59,7 @@ function RepoListFragment(props: Props) {
             )}
 
             {hasNext && <Button onClick={() => loadNext(10)}>Load 10 more</Button>}
+            {isLoadingNext && <Spinner size="sm" />}
         </>
     );
 }
@@ -66,7 +67,7 @@ function RepoListFragment(props: Props) {
 export default RepoListFragment;
 
 export function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
-    const data = useFragment(
+    const data = useFragment<RepoListFragment_repo$key>(
         graphql`
             fragment RepoListFragment_repo on Repository @refetchable(queryName: "RepoBranchListPaginationQuery") {
                 name

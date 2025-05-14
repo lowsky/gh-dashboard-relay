@@ -12,6 +12,7 @@ import PullRequestMerge from 'relay/PullRequestMerge';
 
 import { Spinner } from 'components/Spinner';
 import { ClipboardIconButton, ClipboardRoot } from 'components/ui/clipboard';
+import { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
 
 export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRowFragment_ref$key }) {
     const { name, target, associatedPullRequests } = useFragment<BranchInfoRowFragment_ref$key>(
@@ -24,24 +25,8 @@ export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRo
                 associatedPullRequests(first: 1, states: [OPEN]) {
                     edges {
                         node {
-                            ... on PullRequest {
-                                headRefOid
-                                number
-                                url
-                                title
-                                #body
-                                #bodyText
-                                mergeStateStatus
-                                closed
-                                isDraft
-                                #isMergeQueueEnabled
-                                isInMergeQueue
-                                #viewerCanDisableAutoMerge
-                                #viewerCanEnableAutoMerge
-                                mergeable
-                                merged
-                                locked
-                            }
+                            id
+                            ...PullRequestMergeFragment_ref
                         }
                     }
                 }
@@ -53,15 +38,29 @@ export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRo
     if (!name) {
         return null;
     }
+    if (!associatedPullRequests) {
+        return null;
+    }
 
-    return <BranchInfoRow name={name} target={target} associatedPullRequests={associatedPullRequests} />;
+    return (associatedPullRequests.edges ?? []).map((edge) => {
+        if (!edge?.node) return null;
+
+        const { node } = edge;
+        if (!node) return null;
+
+        return <BranchInfoRow key={node.id} name={name} target={target} associatedPullRequest={node} />;
+    });
 }
 
 export function BranchInfoRow({
     name,
     target,
-    associatedPullRequests,
-}: Omit<BranchInfoRowFragment_ref$data, ' $fragmentType'>) {
+    associatedPullRequest,
+}: {
+    name: string;
+    target: BranchInfoRowFragment_ref$data['target'] | null;
+    associatedPullRequest: PullRequestMergeFragment_ref$key;
+}) {
     const main = false;
     //const githubBranchSrc = `https://github.com/${userName}/${repoName}/tree/${name}`;
     return (
@@ -85,9 +84,9 @@ export function BranchInfoRow({
                                 <Spinner size="lg" />
                             </VStack>
                         }>
-                        {associatedPullRequests ? (
+                        {associatedPullRequest ? (
                             <Suspense>
-                                <PullRequestMerge associatedPullRequests={associatedPullRequests} />
+                                <PullRequestMerge associatedPullRequest={associatedPullRequest} />
                             </Suspense>
                         ) : (
                             'no PR'

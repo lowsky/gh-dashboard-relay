@@ -3,8 +3,13 @@
 import { useParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
+import { Flex } from '@chakra-ui/react';
 
-import { RelayRootRepoQuery, RelayRootRepoQuery$data } from './__generated__/RelayRootRepoQuery.graphql';
+import {
+    RelayRootRepoQuery,
+    RelayRootRepoQuery$data,
+    RelayRootRepoQuery$variables,
+} from './__generated__/RelayRootRepoQuery.graphql';
 import RelayClientContext from 'lib/RelayClientContext';
 
 import InternalLink from 'components/InternalLink';
@@ -36,16 +41,16 @@ export default function RelayRoot(props: { authToken: string }) {
                 <InternalLink href="/relay">back to shortcut list</InternalLink>
                 <br />
                 <InternalLink href={'/relay/' + userName}>
-                    Repo list of user <strong>{userName}</strong>
+                    Repo list of user <strong>{userName!}</strong>
                 </InternalLink>
                 <RevalidateCacheButton pathPrefix="/relay" userName={userName!} repoName={repoName!} />
-                <UserRepoPageContent userName={userName} repoName={repoName} />
+                <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>
         </RelayClientContext>
     );
 }
 
-export function UserRepoPageContent({ userName, repoName }) {
+export function UserRepoPageContent({ userName, repoName }: RelayRootRepoQuery$variables) {
     const { repository, user }: RelayRootRepoQuery$data = useLazyLoadQuery<RelayRootRepoQuery>(query, {
         userName,
         repoName,
@@ -54,12 +59,12 @@ export function UserRepoPageContent({ userName, repoName }) {
     if (!repository || !user) return null;
 
     return (
-        <>
-            <UserFragmentContainer user={user} />
+        <Flex gap="4" direction="column">
             <Repo repoName={repoName} userName={userName}></Repo>
+            <UserFragmentContainer user={user} />
             <Suspense fallback="Loading ...">
                 <RepoWithBranchList repo={repository} />
             </Suspense>
-        </>
+        </Flex>
     );
 }

@@ -1,7 +1,7 @@
 import { graphql, useFragment } from 'react-relay';
 
 import { useUserRepo } from 'components/useUserRepoFromRoute';
-import PullRequestMerge, { type DoMergePR } from 'relay/PullRequestMerge';
+import { type DoMergePR } from 'relay/PullRequestMerge';
 import doMergePRAction from 'app/actions/doMergePRAction';
 import {
     PullRequestInfo_pullRequest$data,

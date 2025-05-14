@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<eb9f8b3f0710717e9881cd2341c515cd>>
+ * @generated SignedSource<<6ca27cc043a5757920f020081418a7e7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -37,6 +37,8 @@ export type RepoListFragment_user$key = {
     readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_user'>;
 };
 
+import RepoListPaginationQuery_graphql from './RepoListPaginationQuery.graphql';
+
 const node: ReaderFragment = (function () {
     var v0 = ['repositories'];
     return {
@@ -72,7 +74,7 @@ const node: ReaderFragment = (function () {
                     path: v0 /*: any*/,
                 },
                 fragmentPathInResult: ['node'],
-                operation: require('./RepoListPaginationQuery.graphql'),
+                operation: RepoListPaginationQuery_graphql,
                 identifierInfo: {
                     identifierField: 'id',
                     identifierQueryVariableName: 'id',
