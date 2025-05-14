@@ -36,7 +36,7 @@ export default function RelayRoot(props: { authToken: string }) {
     );
 }
 
-export function UserPageContent({ userName }: { userName: RelayRootQuery$variables['userName'] }) {
+function UserPageContent({ userName }: { userName: RelayRootQuery$variables['userName'] }) {
     const data: RelayRootQuery$data = useLazyLoadQuery<RelayRootQuery>(
         userQuery,
         { userName },

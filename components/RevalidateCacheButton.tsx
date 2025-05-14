@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { revalidateCache } from 'app/actions/doRevalidateCache';
 import { Button } from './ui/button';
 
-export default interface RevalidateCacheButtonProps {
+interface RevalidateCacheButtonProps {
     pathPrefix: string;
     userName: string;
     repoName: string;

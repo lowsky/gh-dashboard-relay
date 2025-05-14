@@ -2,7 +2,6 @@ import React from 'react';
 
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 import { Status } from './Status';
-import { Spinner } from '../Spinner';
 
 import { GithubStatus } from './githubStatus';
 
@@ -22,5 +21,3 @@ export const CommitStatuses: React.FC<Props> = ({ statuses }) => {
         );
     return null;
 };
-
-export const Skeleton = () => <Spinner size="lg" />;

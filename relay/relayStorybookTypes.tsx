@@ -5,7 +5,7 @@
 import { MockPayloadGenerator } from 'relay-test-utils';
 import { PartialDeep } from 'type-fest';
 
-export type Primitive = null | undefined | string | number | boolean | symbol | bigint;
+type Primitive = null | undefined | string | number | boolean | symbol | bigint;
 
 type ResolverReturnType<T> = T extends { resolve: infer U }
     ? ResolverReturnType<U>
