@@ -29,7 +29,6 @@ export const WithUserAndRepo: Story = {
                                 ' $fragmentSpreads': {
                                     BranchInfoRowFragment_ref: true,
                                 },
-                                id: 'test-branch',
                             },
                         },
                     ],
