@@ -25,7 +25,7 @@ const config: StorybookConfig = {
     framework: {
         name: '@storybook/nextjs',
         options: {
-            fastRefresh: true,
+            lazyCompilation: true,
         },
     },
     webpackFinal: (baseConfig, _options) => {
