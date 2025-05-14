@@ -24,9 +24,7 @@ const config: StorybookConfig = {
     },
     framework: {
         name: '@storybook/nextjs',
-        options: {
-            lazyCompilation: true,
-        },
+        options: {},
     },
 };
 
