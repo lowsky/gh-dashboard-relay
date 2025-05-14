@@ -28,19 +28,6 @@ const config: StorybookConfig = {
             lazyCompilation: true,
         },
     },
-    webpackFinal: (baseConfig, _options) => {
-        baseConfig.resolve = {
-            ...(baseConfig.resolve ?? {}),
-            alias: {
-                ...(baseConfig.resolve?.alias ?? {}),
-                '@opentelemetry/api': 'next/dist/compiled/@opentelemetry/api',
-            },
-        };
-        return baseConfig;
-    },
-    typescript: {
-        reactDocgen: 'react-docgen-typescript',
-    },
 };
 
 export default config;
