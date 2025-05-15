@@ -17,7 +17,6 @@ import InternalLink from 'components/InternalLink';
 import UserFragmentContainer from 'relay/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'relay/Repo';
-import { RevalidateCacheButton } from 'components/RevalidateCacheButton';
 
 const query = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {
@@ -36,14 +35,12 @@ export default function RelayRoot(props: { authToken: string }) {
     return (
         <RelayClientContext auth={props.authToken}>
             <Suspense>
-                <InternalLink href="/">back to main page</InternalLink>
                 <br />
                 <InternalLink href="/relay">back to shortcut list</InternalLink>
                 <br />
                 <InternalLink href={'/relay/' + userName}>
                     Repo list of user <strong>{userName!}</strong>
                 </InternalLink>
-                <RevalidateCacheButton pathPrefix="/relay" userName={userName!} repoName={repoName!} />
                 <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>
         </RelayClientContext>
