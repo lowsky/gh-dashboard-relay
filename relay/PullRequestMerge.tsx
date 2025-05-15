@@ -55,6 +55,7 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
                     {number}
                 </span>
             )}
+            {'id:' + id}
             {closed && 'closed'}
             {isDraft && 'draft'}
             {isInMergeQueue && 'inMergeQueue'}
