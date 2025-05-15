@@ -1,9 +1,6 @@
 'use client'; // because it uses useParams
 
-import { ReactNode } from 'react';
-import { useParams, usePathname } from 'next/navigation';
-
-import { Box, Center, Collapsible, Flex, Icon, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, Center, Collapsible, Flex, Icon, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
@@ -13,8 +10,6 @@ import { DarkLightThemeToggle } from './DarkLightThemeToggle';
 import { useColorModeValue } from './ui/color-mode';
 
 export function NavBar() {
-    const params = useParams();
-    const { userName: owner, repoName: repo } = params ?? {};
     const { open, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.400');
@@ -47,95 +42,33 @@ export function NavBar() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Flex display={{ base: 'none', md: 'flex' }} gap={4}>
-                        <DesktopNav owner={owner} repo={repo} />
+                        <DesktopNav />
                         <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
             <Collapsible.Root open={open}>
                 <Collapsible.Content>
-                    <MobileNav owner={owner} repo={repo} />
+                    <MobileNav />
                 </Collapsible.Content>
             </Collapsible.Root>
         </Box>
     );
 }
 
-const DesktopNav = ({ owner, repo }) => {
-    const pathname = usePathname();
+const DesktopNav = () => {
     return (
         <Stack direction="row" gap={4} align="center">
             <InternalLink href="/">Home</InternalLink>
-            {owner && repo && <strong>{repo}</strong>}
-            {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <InternalLink
-                    key={href}
-                    href={href ?? '#'}
-                    fontWeight={pathname === href ? 'bold' : ''}
-                    textDecoration={pathname === href ? 'underline' : ''}>
-                    {label}
-                </InternalLink>
-            ))}
             <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         </Stack>
     );
 };
 
-const MobileNav = ({ owner, repo }) => (
+const MobileNav = () => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
         <br />
-        {owner && repo && (
-            <Text>
-                open <strong>{repo}</strong> via:
-            </Text>
-        )}
-        {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-            <MobileNavItem key={href} label={label} href={href} />
-        ))}
         <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         <DarkLightThemeToggle />
     </Stack>
 );
-
-const MobileNavItem = ({ label, href }: NavItem) => {
-    const color = useColorModeValue('gray.600', 'gray.200');
-
-    return (
-        <Stack gap={4}>
-            {
-                // @ts-expect-error "as" won't work well with typescript
-                <Flex py={2} as={InternalLink} href={href ?? '#'} justify="space-between" align="center">
-                    <Text fontWeight={600} color={color}>
-                        {label}
-                    </Text>
-                </Flex>
-            }
-        </Stack>
-    );
-};
-
-interface NavItem {
-    label: string | ReactNode;
-    href?: string;
-}
-
-function getNavItemsForRepo(owner, repo): NavItem[] {
-    const ownerRepo = owner + '/' + repo;
-    if (owner && repo)
-        return [
-            {
-                label: <span>Relay GraphQL</span>,
-                href: '/relay/' + ownerRepo,
-            },
-            {
-                label: <span>Next SSR</span>,
-                href: '/next/' + ownerRepo,
-            },
-            {
-                label: <span>Old Style</span>,
-                href: '/restful/' + ownerRepo,
-            },
-        ];
-
-    return [];
-}
