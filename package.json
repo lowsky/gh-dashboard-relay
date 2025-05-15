@@ -100,7 +100,7 @@
     "storybook": "8.6.14",
     "typescript": "5.8.3",
     "typescript-eslint": "8.32.1",
-    "vercel": "41.7.6"
+    "vercel": "41.7.8"
   },
   "packageManager": "yarn@4.9.1"
 }
