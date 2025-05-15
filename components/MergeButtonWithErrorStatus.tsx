@@ -5,13 +5,12 @@ import { Button, Icon } from '@chakra-ui/react';
 import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import type { MergePullRequestsResponseDataType } from '../restinpeace/github';
 import { DoMergePR } from 'relay/PullRequestMerge';
 
 import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverBody } from './ui/popover';
 
 export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergePR }) {
-    const [mergingInProgress, setMergingInProgress] = useState<Promise<MergePullRequestsResponseDataType | null>>();
+    const [mergingInProgress, setMergingInProgress] = useState<Promise<unknown | null>>();
     const [isMerged, setIsMerged] = useState(false);
     const [errorObject, setErrorObject] = useState<Error>();
 

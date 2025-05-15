@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1f146e4da9d7f0b1646bb075e467ca7c>>
+ * @generated SignedSource<<2b5e892ee03b803d645eef4257cd7c9f>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -457,20 +457,6 @@ const node: ConcreteRequest = (function () {
                                                                             name: 'mergeable',
                                                                             storageKey: null,
                                                                         },
-                                                                        {
-                                                                            alias: null,
-                                                                            args: null,
-                                                                            kind: 'ScalarField',
-                                                                            name: 'merged',
-                                                                            storageKey: null,
-                                                                        },
-                                                                        {
-                                                                            alias: null,
-                                                                            args: null,
-                                                                            kind: 'ScalarField',
-                                                                            name: 'locked',
-                                                                            storageKey: null,
-                                                                        },
                                                                     ],
                                                                     storageKey: null,
                                                                 },
@@ -560,12 +546,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '1985c35c7b1d2080ae59c5855bd09ae5',
+            cacheID: '8b0d84283448247a2d030782d07038be',
             id: null,
             metadata: {},
             name: 'RelayRootRepoQuery',
             operationKind: 'query',
-            text: 'query RelayRootRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repository(name: $repoName, owner: $userName) {\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n  user(login: $userName) {\n    ...UserFragment_user\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n  mergeable\n  merged\n  locked\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n',
+            text: 'query RelayRootRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repository(name: $repoName, owner: $userName) {\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n  user(login: $userName) {\n    ...UserFragment_user\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n',
         },
     };
 })();

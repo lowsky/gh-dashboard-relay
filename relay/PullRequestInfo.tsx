@@ -1,13 +1,12 @@
 import { graphql, useFragment } from 'react-relay';
-
-import { useUserRepo } from 'components/useUserRepoFromRoute';
 import { type DoMergePR } from 'relay/PullRequestMerge';
-import doMergePRAction from 'app/actions/doMergePRAction';
+
 import {
     PullRequestInfo_pullRequest$data,
     PullRequestInfo_pullRequest$key,
 } from './__generated__/PullRequestInfo_pullRequest.graphql';
 import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
+import useMergePR from './useMergePR';
 
 export default function PullRequestInfoFragment({
     pullRequest,
@@ -17,28 +16,20 @@ export default function PullRequestInfoFragment({
     const data: PullRequestInfo_pullRequest$data | null | undefined = useFragment<PullRequestInfo_pullRequest$key>(
         graphql`
             fragment PullRequestInfo_pullRequest on PullRequest {
+                id
                 title
                 number
                 url
-                headRef {
-                    id
-                }
+                headRefOid
             }
         `,
         pullRequest
     );
+    const mergePR = useMergePR();
 
-    const { userName, repoName } = useUserRepo();
+    if (!data) return null;
 
-    const sha = data?.headRef?.id;
-    if (!sha) {
-        return null;
-    }
-
-    const doMergePR: DoMergePR = async () => {
-        const mergeResult = await doMergePRAction(data.number, userName, repoName, sha);
-        return mergeResult;
-    };
+    const doMergePR: DoMergePR = async () => mergePR(data.headRefOid, data.id);
 
     return (
         <>

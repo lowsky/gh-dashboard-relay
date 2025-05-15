@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<41fb12623df5630c76e8d156cccc93a1>>
+ * @generated SignedSource<<7eff99355429f33bd284a4c6b45709a9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,12 +11,8 @@
 import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestInfo_pullRequest$data = {
-    readonly headRef:
-        | {
-              readonly id: string;
-          }
-        | null
-        | undefined;
+    readonly headRefOid: any;
+    readonly id: string;
     readonly number: number;
     readonly title: string;
     readonly url: any;
@@ -33,6 +29,13 @@ const node: ReaderFragment = {
     metadata: null,
     name: 'PullRequestInfo_pullRequest',
     selections: [
+        {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'id',
+            storageKey: null,
+        },
         {
             alias: null,
             args: null,
@@ -57,19 +60,8 @@ const node: ReaderFragment = {
         {
             alias: null,
             args: null,
-            concreteType: 'Ref',
-            kind: 'LinkedField',
-            name: 'headRef',
-            plural: false,
-            selections: [
-                {
-                    alias: null,
-                    args: null,
-                    kind: 'ScalarField',
-                    name: 'id',
-                    storageKey: null,
-                },
-            ],
+            kind: 'ScalarField',
+            name: 'headRefOid',
             storageKey: null,
         },
     ],
@@ -77,6 +69,6 @@ const node: ReaderFragment = {
     abstractKey: null,
 };
 
-(node as any).hash = '9a56a094fa56a7936dfe1cf0e398f89b';
+(node as any).hash = 'a4db669712822a32e610ea79a2566e53';
 
 export default node;

@@ -37,11 +37,10 @@ export const WithOneBranch: Story = {
                 headRefOid: {
                     id: '72b14d30d',
                 },
+                id: '72b14d30d',
                 closed: false,
                 isDraft: false,
                 isInMergeQueue: false,
-                locked: false,
-                merged: false,
                 ' $fragmentType': 'PullRequestMergeFragment_ref',
             }),
         },

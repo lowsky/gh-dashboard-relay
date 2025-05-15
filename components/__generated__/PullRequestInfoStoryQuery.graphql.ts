@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d619a3dc363042ba8c03aaffd62ad3a5>>
+ * @generated SignedSource<<610cd253de49bcf9f2452c7d47f0fa63>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -81,6 +81,13 @@ const node: ConcreteRequest = (function () {
                             storageKey: null,
                         },
                         {
+                            alias: null,
+                            args: null,
+                            kind: 'ScalarField',
+                            name: 'id',
+                            storageKey: null,
+                        },
+                        {
                             kind: 'InlineFragment',
                             selections: [
                                 {
@@ -146,30 +153,9 @@ const node: ConcreteRequest = (function () {
                                     name: 'mergeable',
                                     storageKey: null,
                                 },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'merged',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'locked',
-                                    storageKey: null,
-                                },
                             ],
                             type: 'PullRequest',
                             abstractKey: null,
-                        },
-                        {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: 'id',
-                            storageKey: null,
                         },
                     ],
                     storageKey: 'node(id:"test-id")',
@@ -177,12 +163,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '829a65373173f6912bad3e7e09c040b6',
+            cacheID: '9092bae7611971ee9e67abf04f06c835',
             id: null,
             metadata: {},
             name: 'PullRequestInfoStoryQuery',
             operationKind: 'query',
-            text: 'query PullRequestInfoStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ...PullRequestMergeFragment_ref\n    id\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n  mergeable\n  merged\n  locked\n}\n',
+            text: 'query PullRequestInfoStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ...PullRequestMergeFragment_ref\n    id\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n  mergeable\n}\n',
         },
     };
 })();
