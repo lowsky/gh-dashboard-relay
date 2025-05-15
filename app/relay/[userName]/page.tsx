@@ -11,8 +11,6 @@ const RelayUserRoot = async () => {
     }
     return (
         <>
-            <InternalLink href="/">back to main page</InternalLink>
-            <br />
             <InternalLink href="/relay">back to shortcut list</InternalLink>
             <br />
 

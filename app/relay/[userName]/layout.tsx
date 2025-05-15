@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 import WarningGitHubRateLimiting from 'components/WarningGitHubRateLimiting';
 import WhenSignedIn from 'components/WhenSignedIn';
@@ -8,7 +8,7 @@ import { Logout } from 'components/Login';
 
 export default function UserLayout({ children }: { children: React.ReactNode }) {
     return (
-        <Box p={4}>
+        <Flex direction="column">
             <WhenSignedIn>
                 <Logout />
             </WhenSignedIn>
@@ -16,6 +16,6 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
                 <WarningGitHubRateLimiting />
             </WhenNotAuthenticated>
             {children}
-        </Box>
+        </Flex>
     );
 }
