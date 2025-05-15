@@ -52,7 +52,7 @@ export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRo
     });
 }
 
-export function BranchInfoRow({
+function BranchInfoRow({
     name,
     target,
     associatedPullRequest,

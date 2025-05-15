@@ -66,7 +66,7 @@ function RepoListFragment(props: Props) {
 
 export default RepoListFragment;
 
-export function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
+function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
     const data = useFragment<RepoListFragment_repo$key>(
         graphql`
             fragment RepoListFragment_repo on Repository @refetchable(queryName: "RepoBranchListPaginationQuery") {

@@ -13,7 +13,7 @@ import { useUserRepoFromRouter } from 'components/useUserRepoFromRoute';
 
 export type DoMergePR = () => Promise<MergePullRequestsResponseDataType | null>;
 
-export type PullRequestInfoProps = {
+type PullRequestInfoProps = {
     associatedPullRequest: PullRequestMergeFragment_ref$key;
 };
 

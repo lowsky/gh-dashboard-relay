@@ -17,7 +17,7 @@ const CACHE_TTL = 5 * 1000; // 5 seconds, to resolve preloaded results
 const IS_SERVER = typeof window === typeof undefined;
 
 /* new one */
-export async function networkFetch(
+async function networkFetch(
     request: RequestParameters,
     variables: Variables,
     auth: string = 'not-authenticated'

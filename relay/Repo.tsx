@@ -5,18 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Flex, Heading, Icon, Link } from '@chakra-ui/react';
 
-export type Maybe<T> = T | null;
-
-export interface OwnerType {
-    login?: string;
-}
-
-export interface RepoType {
-    owner?: Maybe<OwnerType>;
-    name?: string;
-}
-
-export interface RepoProps {
+interface RepoProps {
     userName?: string;
     repoName?: string;
 }

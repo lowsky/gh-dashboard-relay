@@ -11,7 +11,7 @@ import { CommitStatuses } from './CommitStatuses';
 
 import styles from './CommitWithStatuses.module.css';
 
-export interface CommitWithStatusesProps {
+interface CommitWithStatusesProps {
     commit: CommitWithStatuses_commit$data;
 }
 

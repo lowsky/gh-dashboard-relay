@@ -50,7 +50,7 @@ export const relayDecorator: DecoratorFunction = (Story, context) => {
     );
 };
 
-export type WithRelayParameters<TQuery extends OperationType, TResolvers = {}> = {
+export type WithRelayParameters<TQuery extends OperationType, TResolvers = object> = {
     /**
      * A GraphQLTaggedNode returned by the relay's graphql`...` template literal.
      */

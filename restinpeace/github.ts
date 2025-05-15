@@ -4,19 +4,20 @@ import { Octokit } from '@octokit/rest';
 import type { GithubBranch, GithubCommit, GithubRepo, GithubUser } from 'lib/types/resolvers';
 import { GithubStatus } from '../components/CommitWithStatuses/githubStatus';
 
-export interface User {
+interface User {
     login: string;
     company?: string | null;
     avatar_url: string;
 }
 
-export type Branch = {
+type Branch = {
     commit: Commit;
     name: string;
 };
-export type Branches = Branch[];
 
-export interface Commit {
+type Branches = Branch[];
+
+interface Commit {
     sha: string;
     url: string;
 }
@@ -27,8 +28,7 @@ type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpo
     Octokit['repos']['listPullRequestsAssociatedWithCommit']
 >;
 
-export type ListPullRequestsAssociatedWithCommitResponseDataType =
-    ListPullRequestsAssociatedWithCommitResponseType['data'];
+type ListPullRequestsAssociatedWithCommitResponseDataType = ListPullRequestsAssociatedWithCommitResponseType['data'];
 
 export type MergePullRequestsResponseDataType = GetResponseDataTypeFromEndpointMethod<Octokit['pulls']['merge']>;
 
@@ -111,14 +111,6 @@ export interface AuthorizedGitHub {
         repo: string;
         sha?: undefined | string;
     }) => Promise<MergePullRequestsResponseDataType>;
-}
-
-/**
- * Factory, to make octokit injectable
- * @deprecated always use with an initialized octo given
- */
-export function getUnauthorizedGitHub(): AuthorizedGitHub {
-    return getAuthorizedGitHub(new Octokit());
 }
 
 export function getAuthorizedGitHub(octo: Octokit): AuthorizedGitHub {
@@ -402,7 +394,7 @@ export function getAuthorizedGitHub(octo: Octokit): AuthorizedGitHub {
     };
 }
 
-export function convertItsIdToString<T>(obj: any & { id: number }): T & { id: string } {
+function convertItsIdToString<T>(obj: any & { id: number }): T & { id: string } {
     return {
         ...obj,
         id: String(obj.id),

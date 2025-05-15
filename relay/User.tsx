@@ -3,13 +3,13 @@ import { Avatar } from 'components/ui/avatar';
 
 import { Heading, Box, Text, HStack } from '@chakra-ui/react';
 
-export interface UserType {
+interface UserType {
     avatarUrl?: string;
     company?: string | null;
     login?: string;
 }
 
-export interface UserProps {
+interface UserProps {
     user: Readonly<UserType>;
 }
 

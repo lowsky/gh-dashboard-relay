@@ -18,7 +18,7 @@ export function LinkList({ rootPath }) {
 
     return (
         <>
-            <Heading size="1">Some example repos:</Heading>
+            <Heading>Some example repos:</Heading>
 
             <List.Root>
                 {links.map((link) => (
