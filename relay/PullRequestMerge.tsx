@@ -4,52 +4,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 
 import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
-
-import type { MergePullRequestsResponseDataType } from 'restinpeace/github';
-
-import doMergePRAction from 'app/actions/doMergePRAction';
 import { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
-import { useUserRepoFromRouter } from 'components/useUserRepoFromRoute';
+import useMergePR from './useMergePR';
 
-export type DoMergePR = () => Promise<MergePullRequestsResponseDataType | null>;
+export type DoMergePR = () => Promise<unknown | null>;
 
 type PullRequestInfoProps = {
     associatedPullRequest: PullRequestMergeFragment_ref$key;
 };
 
 export default function PullRequestMerge({ associatedPullRequest }: PullRequestInfoProps) {
-    const { userName, repoName } = useUserRepoFromRouter();
-
     const node = useFragment<PullRequestMergeFragment_ref$key>(
         graphql`
             fragment PullRequestMergeFragment_ref on PullRequest {
+                id
                 headRefOid
                 number
                 url
                 title
-                # body
-                # bodyText
                 mergeStateStatus
                 closed
                 isDraft
-                # isMergeQueueEnabled
                 isInMergeQueue
-                # viewerCanDisableAutoMerge
-                # viewerCanEnableAutoMerge
                 mergeable
-                merged
-                locked
             }
         `,
         associatedPullRequest
     );
 
-    const { number, url, title, closed, merged, locked, headRefOid, isDraft, isInMergeQueue, mergeStateStatus } = node;
-    const sha = headRefOid;
+    const { number, id, url, title, closed, headRefOid, isDraft, isInMergeQueue, mergeStateStatus } = node;
 
-    const doMergePR: DoMergePR = async () => {
-        return doMergePRAction(number, userName!, repoName!, sha);
-    };
+    const mergePR = useMergePR();
+    const doMergePR: DoMergePR = async () => mergePR(headRefOid, id);
 
     return (
         <VStack width="6em" key={number}>
@@ -72,8 +58,6 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
             {closed && 'closed'}
             {isDraft && 'draft'}
             {isInMergeQueue && 'inMergeQueue'}
-            {merged && 'merged'}
-            {locked && 'locked'}
             <MergeButtonWithErrorStatus doMergePR={doMergePR} />
         </VStack>
     );
