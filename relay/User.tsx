@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar } from 'components/ui/avatar';
 
-import { Heading, Box, Text, HStack } from '@chakra-ui/react';
+import { Heading, Box, Strong, Text, HStack } from '@chakra-ui/react';
 
 interface UserType {
     avatarUrl?: string;
@@ -18,13 +18,11 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
 
     return (
         <HStack align="center" gap={4}>
-            <Heading as="h3" size="sm">
-                Owner
-            </Heading>
+            <Heading as="h3">Owner</Heading>
             <Avatar src={avatarUrl} size="xl" />
             <Box>
-                <Text>{login ?? '?'}</Text>
-                <i>{company}</i>
+                <Strong>{login ?? '?'}</Strong>
+                <Text>{company}</Text>
             </Box>
         </HStack>
     );

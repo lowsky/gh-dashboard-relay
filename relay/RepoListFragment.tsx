@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import { graphql, useFragment, usePaginationFragment } from 'react-relay';
-import { ListItem } from '@chakra-ui/react';
+import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
+import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Button } from 'components/ui/button';
 import { Ul } from 'components/ChakraMdxProvider';
@@ -72,6 +74,7 @@ function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
             fragment RepoListFragment_repo on Repository @refetchable(queryName: "RepoBranchListPaginationQuery") {
                 name
                 nameWithOwner
+                isFork
                 url
                 description
                 pullRequests(first: 1, states: [OPEN]) {
@@ -83,13 +86,23 @@ function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
     );
     if (!data) return null;
 
-    const { name, nameWithOwner, pullRequests, url } = data;
+    const { name, nameWithOwner, pullRequests, url, isFork } = data;
     const { totalCount } = pullRequests;
     return (
-        <ListItem>
-            <InternalLink href={'./' + nameWithOwner}>{name}</InternalLink>
-            <a href={url}>(open on GitHub)</a>
-            {totalCount > 0 && <span>{totalCount} PRs</span>}
+        <ListItem alignItems="center" gap="1">
+            <InternalLink prefetch={false} href={'./' + nameWithOwner}>
+                {name}
+            </InternalLink>
+            {isFork && <Badge>fork</Badge>}
+            {totalCount > 0 && <span> - {totalCount} PRs</span>}
+            {totalCount > 0 && (
+                <Link href={url} rel="noopener noreferrer nofollow" target="_blank">
+                    - <Text> open in GitHub</Text>
+                    <Icon ml={1}>
+                        <FontAwesomeIcon icon={faCodePullRequest} />
+                    </Icon>
+                </Link>
+            )}
         </ListItem>
     );
 }

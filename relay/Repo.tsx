@@ -12,14 +12,9 @@ interface RepoProps {
 
 const Repo: React.FC<RepoProps> = ({ userName = 'unknown', repoName = 'unknown' }) => {
     return (
-        <Flex align="center" gap={4}>
-            {
-                // @ts-expect-error variant does not exist
-                <Heading as="h1" variant="grey" size="lg" margin={0}>
-                    Repository
-                </Heading>
-            }
-            <Heading as="h2" size="md" margin={0}>
+        <Flex align="center" gap={1}>
+            <Heading>Repository</Heading>
+            <Heading>
                 <Link href={`https://github.com/${userName}/${repoName}`} rel="noopener noreferrer nofollow">
                     <strong>
                         {userName} / {repoName}
