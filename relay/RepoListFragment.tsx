@@ -4,13 +4,13 @@ import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Button } from 'components/ui/button';
 import { Ul } from 'components/ChakraMdxProvider';
 import { Spinner } from 'components/Spinner';
+import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
+import InternalLink from 'components/InternalLink';
 
 import { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
 import { RepoListFragment_repo$key } from './__generated__/RepoListFragment_repo.graphql';
-import InternalLink from 'components/InternalLink';
 
 type Props = {
     user: RepoListFragment_user$key;
@@ -22,8 +22,12 @@ function RepoListFragment(props: Props) {
             fragment RepoListFragment_user on User
             @argumentDefinitions(cursor: { type: "String" }, count: { type: "Int", defaultValue: 10 })
             @refetchable(queryName: "RepoListPaginationQuery") {
-                repositories(orderBy: { field: NAME, direction: ASC }, first: $count, after: $cursor)
-                    @connection(key: "RepoList_user_repositories") {
+                repositories(
+                    orderBy: { field: NAME, direction: ASC }
+                    first: $count
+                    after: $cursor
+                    ownerAffiliations: [OWNER]
+                ) @connection(key: "RepoList_user_repositories") {
                     edges {
                         node {
                             ...RepoListFragment_repo
@@ -40,13 +44,27 @@ function RepoListFragment(props: Props) {
 
     const { repositories } = data;
     if (!repositories) return null;
+
+    const { totalCount, edges } = repositories;
+    if (!edges) return null;
+
+    const triggerNext = () => loadNext(10);
+
     return (
         <>
+            <Heading>Repositories ({totalCount})</Heading>
             <Ul variant="plain">
-                {(repositories.edges ?? []).map((edge) => {
+                {edges.map((edge, idx) => {
                     const node = edge?.node;
                     if (!node) return null;
-                    return (
+                    const isLastElement = edges.length - 1 == idx;
+                    return isLastElement && hasNext ? (
+                        <InfiniteScrollTrigger onLoadMore={triggerNext}>
+                            <Suspense key={node?.['__id']} fallback={<Spinner />}>
+                                <RepoComponent repo={node} />
+                            </Suspense>
+                        </InfiniteScrollTrigger>
+                    ) : (
                         <Suspense key={node?.['__id']} fallback={<Spinner />}>
                             <RepoComponent repo={node} />
                         </Suspense>
@@ -54,13 +72,6 @@ function RepoListFragment(props: Props) {
                 })}
             </Ul>
 
-            {hasNext && (
-                <p>
-                    {repositories.edges?.length ?? '?'} of {repositories.totalCount ?? '?'} repositories.
-                </p>
-            )}
-
-            {hasNext && <Button onClick={() => loadNext(10)}>Load 10 more</Button>}
             {isLoadingNext && <Spinner size="sm" />}
         </>
     );

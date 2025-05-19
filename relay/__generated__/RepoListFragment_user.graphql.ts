@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6ca27cc043a5757920f020081418a7e7>>
+ * @generated SignedSource<<feb79aa941a1b74b7d5a84a2d2a116ce>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -87,6 +87,13 @@ return {
             "direction": "ASC",
             "field": "NAME"
           }
+        },
+        {
+          "kind": "Literal",
+          "name": "ownerAffiliations",
+          "value": [
+            "OWNER"
+          ]
         }
       ],
       "concreteType": "RepositoryConnection",
@@ -168,7 +175,7 @@ return {
           "storageKey": null
         }
       ],
-      "storageKey": "__RepoList_user_repositories_connection(orderBy:{\"direction\":\"ASC\",\"field\":\"NAME\"})"
+      "storageKey": "__RepoList_user_repositories_connection(orderBy:{\"direction\":\"ASC\",\"field\":\"NAME\"},ownerAffiliations:[\"OWNER\"])"
     },
     {
       "alias": null,
@@ -183,6 +190,6 @@ return {
 };
 })();
 
-(node as any).hash = "176831e201caf17e66813fa855b89ddd";
+(node as any).hash = "8b011f745da72b23419d1f6b6f161b2b";
 
 export default node;

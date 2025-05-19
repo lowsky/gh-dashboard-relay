@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<644b867f61b6ac72c1885cb5c9fa27c5>>
+ * @generated SignedSource<<90d04932f0848fa0e68bc449b9df8e7a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -82,6 +82,13 @@ v4 = [
       "direction": "ASC",
       "field": "NAME"
     }
+  },
+  {
+    "kind": "Literal",
+    "name": "ownerAffiliations",
+    "value": [
+      "OWNER"
+    ]
   }
 ],
 v5 = {
@@ -190,6 +197,13 @@ return {
                             "alias": null,
                             "args": null,
                             "kind": "ScalarField",
+                            "name": "isFork",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
                             "name": "url",
                             "storageKey": null
                           },
@@ -273,7 +287,8 @@ return {
                 "alias": null,
                 "args": (v4/*: any*/),
                 "filters": [
-                  "orderBy"
+                  "orderBy",
+                  "ownerAffiliations"
                 ],
                 "handle": "connection",
                 "key": "RepoList_user_repositories",
@@ -290,16 +305,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "78df766b9a1252d9327c6eecf491f2de",
+    "cacheID": "1751884d1bfa7b23bdfd520cd0033143",
     "id": null,
     "metadata": {},
     "name": "RepoListPaginationQuery",
     "operationKind": "query",
-    "text": "query RepoListPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_user_1G22uz\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user_1G22uz on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: $count, after: $cursor) {\n    edges {\n      node {\n        ...RepoListFragment_repo\n        id\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
+    "text": "query RepoListPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_user_1G22uz\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user_1G22uz on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: $count, after: $cursor, ownerAffiliations: [OWNER]) {\n    edges {\n      node {\n        ...RepoListFragment_repo\n        id\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "176831e201caf17e66813fa855b89ddd";
+(node as any).hash = "8b011f745da72b23419d1f6b6f161b2b";
 
 export default node;

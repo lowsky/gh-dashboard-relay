@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f7b0823350a1386d0082220c318995f7>>
+ * @generated SignedSource<<be03998621b4cfd84d7c1a31f504ec2e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -114,6 +114,13 @@ return {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
+                "name": "isFork",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
                 "name": "url",
                 "storageKey": null
               },
@@ -165,16 +172,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a50e60fbf48b3b33cf6d4c7fe3218af7",
+    "cacheID": "4de9367af0ba75bda12e97a190a5e0eb",
     "id": null,
     "metadata": {},
     "name": "RepoBranchListPaginationQuery",
     "operationKind": "query",
-    "text": "query RepoBranchListPaginationQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_repo\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n"
+    "text": "query RepoBranchListPaginationQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_repo\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "c0b4f30c7e77ca8aba7f741805223513";
+(node as any).hash = "27709e20801f618210183cdfe365bb14";
 
 export default node;
