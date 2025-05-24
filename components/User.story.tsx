@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-
-import User from '../relay/User';
+import User from './User';
 
 const meta: Meta<typeof User> = {
     component: User,
