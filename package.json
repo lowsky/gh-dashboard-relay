@@ -65,7 +65,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "3.2.6",
     "@eslint/compat": "1.2.9",
-    "@eslint/js": "9.27.0",
+    "@eslint/js": "9.28.0",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-solid-svg-icons": "6.7.2",
@@ -82,7 +82,7 @@
     "@types/relay-test-utils": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "8.32.1",
     "chromatic": "12.0.0",
-    "eslint": "9.27.0",
+    "eslint": "9.28.0",
     "eslint-config-next": "15.3.2",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-prettier": "5.4.0",
