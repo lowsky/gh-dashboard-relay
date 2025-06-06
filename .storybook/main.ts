@@ -10,8 +10,7 @@ const config: StorybookConfig = {
     ],
     addons: [
         // formatting
-        '@storybook/addon-essentials',
-        '@storybook/addon-themes',
+        '@storybook/addon-docs',
         '@chromatic-com/storybook',
     ],
     core: {

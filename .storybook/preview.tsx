@@ -1,11 +1,11 @@
-import type { Preview, ReactRenderer } from '@storybook/react';
+import type { Preview, ReactRenderer } from '@storybook/nextjs';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Provider } from 'components/ui/provider';
 
 const preview: Preview = {
     decorators: [
         withThemeByClassName<ReactRenderer>({
-            defaultTheme: 'light',
+            defaultTheme: 'dark',
             themes: {
                 light: '',
                 dark: 'dark',
@@ -19,6 +19,9 @@ const preview: Preview = {
     ],
     // commented-out, to avoid generating docs:: tags: ['autodocs'],
     parameters: {
+        docs: {
+            codePanel: true,
+        },
         actions: { argTypesRegex: '^on.*' },
         nextjs: {
             appDirectory: true,
