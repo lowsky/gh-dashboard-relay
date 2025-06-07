@@ -1,4 +1,4 @@
-import type { Preview, ReactRenderer } from '@storybook/nextjs';
+import type { Preview, ReactRenderer } from '@storybook/nextjs-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Provider } from 'components/ui/provider';
 
