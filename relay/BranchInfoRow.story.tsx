@@ -1,5 +1,5 @@
 import React from 'react';
-import { Decorator, Meta } from '@storybook/nextjs';
+import { Decorator, Meta } from '@storybook/nextjs-vite';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
