@@ -102,5 +102,5 @@
     "typescript-eslint": "8.33.0",
     "vercel": "42.3.0"
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.9.2"
 }
