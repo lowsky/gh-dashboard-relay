@@ -95,7 +95,7 @@
     "react": "next",
     "react-dom": "next",
     "react-relay": "20.0.0",
-    "relay-compiler": "19.0.0",
+    "relay-compiler": "20.0.0",
     "relay-test-utils": "19.0.0",
     "storybook": "9.1.0-alpha.3",
     "typescript": "5.8.3",
