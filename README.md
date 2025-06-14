@@ -9,7 +9,8 @@
 - ~~GraphQL server~~
     - ~~[ApolloServer](https://www.apollographql.com/docs/apollo-server/)~~ ~~[Helix](https://www.graphql-helix.com/)~~
     - ~~[Envelop](https://the-guild.dev/graphql/yoga-server)~~ ~~[Yoga](https://the-guild.dev/graphql/yoga-server)~~
-- [Relay](https://relay.dev/)
+- [Apollo GraphQL client](https://www.apollographql.com)
+- [Relay GraphQL client](https://relay.dev/)
 - ~~[Bulma](https://bulma.io/)~~ [ChakraUI](https://chakra-ui.com/)
 - React
 - [Storybook](https://storybook.js.org/)
@@ -30,7 +31,7 @@ List the `(feature) branches` of a GitHub repository with its `last commit's`
 The idea behind this was, to provide easy access to all feature branches before releasing them.
 So you can test a new version of a new feature before bringing it live.
 
-Very very old presentation at a Docker Meetup: Find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
+Very, very old presentation at a Docker Meetup: Find the [slides here](https://github.com/lowsky/dockerMeetupSlides)
 
 ## Getting started
 
