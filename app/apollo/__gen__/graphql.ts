@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -32281,3 +32282,347 @@ export type WorkflowsParametersInput = {
     /** Workflows that must pass for this rule to pass. */
     workflows: Array<WorkflowFileReferenceInput>;
 };
+
+export type GetRepositoriesQueryVariables = Exact<{
+    login: Scalars['String']['input'];
+    after?: InputMaybe<Scalars['String']['input']>;
+    first: Scalars['Int']['input'];
+}>;
+
+export type GetRepositoriesQuery = {
+    __typename?: 'Query';
+    user?: {
+        __typename?: 'User';
+        repositories: {
+            __typename?: 'RepositoryConnection';
+            totalCount: number;
+            pageInfo: { __typename?: 'PageInfo'; hasNextPage: boolean; endCursor?: string | null };
+            edges?: Array<{
+                __typename?: 'RepositoryEdge';
+                node?: {
+                    __typename?: 'Repository';
+                    id: string;
+                    name: string;
+                    nameWithOwner: string;
+                    isFork: boolean;
+                    url: any;
+                    description?: string | null;
+                    pullRequests: { __typename?: 'PullRequestConnection'; totalCount: number };
+                } | null;
+            } | null> | null;
+        };
+    } | null;
+};
+
+export type GetUserQueryVariables = Exact<{
+    login: Scalars['String']['input'];
+}>;
+
+export type GetUserQuery = {
+    __typename?: 'Query';
+    user?: { __typename?: 'User'; login: string; company?: string | null; avatarUrl: any } | null;
+};
+
+export type GetUserWithReposQueryVariables = Exact<{
+    userName: Scalars['String']['input'];
+}>;
+
+export type GetUserWithReposQuery = {
+    __typename?: 'Query';
+    repositoryOwner?:
+        | { __typename?: 'Organization' }
+        | { __typename?: 'User'; login: string; company?: string | null; avatarUrl: any }
+        | null;
+    rateLimit?: { __typename?: 'RateLimit'; limit: number; remaining: number; used: number; resetAt: any } | null;
+};
+
+export const GetRepositoriesDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetRepositories' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'login' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+                    type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+                },
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'first' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'user' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'login' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'login' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'repositories' },
+                                    arguments: [
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'first' },
+                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'first' } },
+                                        },
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'after' },
+                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+                                        },
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'orderBy' },
+                                            value: {
+                                                kind: 'ObjectValue',
+                                                fields: [
+                                                    {
+                                                        kind: 'ObjectField',
+                                                        name: { kind: 'Name', value: 'field' },
+                                                        value: { kind: 'EnumValue', value: 'NAME' },
+                                                    },
+                                                    {
+                                                        kind: 'ObjectField',
+                                                        name: { kind: 'Name', value: 'direction' },
+                                                        value: { kind: 'EnumValue', value: 'ASC' },
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'ownerAffiliations' },
+                                            value: {
+                                                kind: 'ListValue',
+                                                values: [{ kind: 'EnumValue', value: 'OWNER' }],
+                                            },
+                                        },
+                                    ],
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'totalCount' } },
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'pageInfo' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'hasNextPage' } },
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'endCursor' } },
+                                                    ],
+                                                },
+                                            },
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'edges' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        {
+                                                            kind: 'Field',
+                                                            name: { kind: 'Name', value: 'node' },
+                                                            selectionSet: {
+                                                                kind: 'SelectionSet',
+                                                                selections: [
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'id' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'name' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'nameWithOwner' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'isFork' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'url' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'description' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'pullRequests' },
+                                                                        arguments: [
+                                                                            {
+                                                                                kind: 'Argument',
+                                                                                name: { kind: 'Name', value: 'first' },
+                                                                                value: { kind: 'IntValue', value: '1' },
+                                                                            },
+                                                                            {
+                                                                                kind: 'Argument',
+                                                                                name: { kind: 'Name', value: 'states' },
+                                                                                value: {
+                                                                                    kind: 'ListValue',
+                                                                                    values: [
+                                                                                        {
+                                                                                            kind: 'EnumValue',
+                                                                                            value: 'OPEN',
+                                                                                        },
+                                                                                    ],
+                                                                                },
+                                                                            },
+                                                                        ],
+                                                                        selectionSet: {
+                                                                            kind: 'SelectionSet',
+                                                                            selections: [
+                                                                                {
+                                                                                    kind: 'Field',
+                                                                                    name: {
+                                                                                        kind: 'Name',
+                                                                                        value: 'totalCount',
+                                                                                    },
+                                                                                },
+                                                                            ],
+                                                                        },
+                                                                    },
+                                                                ],
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetRepositoriesQuery, GetRepositoriesQueryVariables>;
+export const GetUserDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetUser' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'login' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'user' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'login' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'login' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetUserQuery, GetUserQueryVariables>;
+export const GetUserWithReposDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetUserWithRepos' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'repositoryOwner' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'login' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'InlineFragment',
+                                    typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'rateLimit' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'limit' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'remaining' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'used' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'resetAt' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetUserWithReposQuery, GetUserWithReposQueryVariables>;

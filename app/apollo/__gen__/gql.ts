@@ -2,7 +2,31 @@
 import * as types from './graphql';
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
-const documents = [];
+/**
+ * Map of all GraphQL operations in the project.
+ *
+ * This map has several performance disadvantages:
+ * 1. It is not tree-shakeable, so it will include all operations in the project.
+ * 2. It is not minifiable, so the string of a GraphQL query will be multiple times inside the bundle.
+ * 3. It does not support dead code elimination, so it will add unused operations.
+ *
+ * Therefore it is highly recommended to use the babel or swc plugin for production.
+ * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
+ */
+type Documents = {
+    '\n    query GetRepositories($login: String!, $after: String, $first: Int!) {\n        user(login: $login) {\n            repositories(\n                first: $first\n                after: $after\n                orderBy: { field: NAME, direction: ASC }\n                ownerAffiliations: [OWNER]\n            ) {\n                totalCount\n                pageInfo {\n                    hasNextPage\n                    endCursor\n                }\n                edges {\n                    node {\n                        id\n                        name\n                        nameWithOwner\n                        isFork\n                        url\n                        description\n                        pullRequests(first: 1, states: [OPEN]) {\n                            totalCount\n                        }\n                    }\n                }\n            }\n        }\n    }\n': typeof types.GetRepositoriesDocument;
+    '\n    query GetUser($login: String!) {\n        user(login: $login) {\n            login\n            company\n            avatarUrl\n        }\n    }\n': typeof types.GetUserDocument;
+    '\n    query GetUserWithRepos($userName: String!) {\n        repositoryOwner(login: $userName) {\n            ... on User {\n                login\n                company\n                avatarUrl\n            }\n        }\n        rateLimit {\n            limit\n            remaining\n            used\n            resetAt\n        }\n    }\n': typeof types.GetUserWithReposDocument;
+};
+const documents: Documents = {
+    '\n    query GetRepositories($login: String!, $after: String, $first: Int!) {\n        user(login: $login) {\n            repositories(\n                first: $first\n                after: $after\n                orderBy: { field: NAME, direction: ASC }\n                ownerAffiliations: [OWNER]\n            ) {\n                totalCount\n                pageInfo {\n                    hasNextPage\n                    endCursor\n                }\n                edges {\n                    node {\n                        id\n                        name\n                        nameWithOwner\n                        isFork\n                        url\n                        description\n                        pullRequests(first: 1, states: [OPEN]) {\n                            totalCount\n                        }\n                    }\n                }\n            }\n        }\n    }\n':
+        types.GetRepositoriesDocument,
+    '\n    query GetUser($login: String!) {\n        user(login: $login) {\n            login\n            company\n            avatarUrl\n        }\n    }\n':
+        types.GetUserDocument,
+    '\n    query GetUserWithRepos($userName: String!) {\n        repositoryOwner(login: $userName) {\n            ... on User {\n                login\n                company\n                avatarUrl\n            }\n        }\n        rateLimit {\n            limit\n            remaining\n            used\n            resetAt\n        }\n    }\n':
+        types.GetUserWithReposDocument,
+};
+
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  *
@@ -16,6 +40,25 @@ const documents = [];
  * Please regenerate the types.
  */
 export function graphql(source: string): unknown;
+
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+    source: '\n    query GetRepositories($login: String!, $after: String, $first: Int!) {\n        user(login: $login) {\n            repositories(\n                first: $first\n                after: $after\n                orderBy: { field: NAME, direction: ASC }\n                ownerAffiliations: [OWNER]\n            ) {\n                totalCount\n                pageInfo {\n                    hasNextPage\n                    endCursor\n                }\n                edges {\n                    node {\n                        id\n                        name\n                        nameWithOwner\n                        isFork\n                        url\n                        description\n                        pullRequests(first: 1, states: [OPEN]) {\n                            totalCount\n                        }\n                    }\n                }\n            }\n        }\n    }\n'
+): (typeof documents)['\n    query GetRepositories($login: String!, $after: String, $first: Int!) {\n        user(login: $login) {\n            repositories(\n                first: $first\n                after: $after\n                orderBy: { field: NAME, direction: ASC }\n                ownerAffiliations: [OWNER]\n            ) {\n                totalCount\n                pageInfo {\n                    hasNextPage\n                    endCursor\n                }\n                edges {\n                    node {\n                        id\n                        name\n                        nameWithOwner\n                        isFork\n                        url\n                        description\n                        pullRequests(first: 1, states: [OPEN]) {\n                            totalCount\n                        }\n                    }\n                }\n            }\n        }\n    }\n'];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+    source: '\n    query GetUser($login: String!) {\n        user(login: $login) {\n            login\n            company\n            avatarUrl\n        }\n    }\n'
+): (typeof documents)['\n    query GetUser($login: String!) {\n        user(login: $login) {\n            login\n            company\n            avatarUrl\n        }\n    }\n'];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+    source: '\n    query GetUserWithRepos($userName: String!) {\n        repositoryOwner(login: $userName) {\n            ... on User {\n                login\n                company\n                avatarUrl\n            }\n        }\n        rateLimit {\n            limit\n            remaining\n            used\n            resetAt\n        }\n    }\n'
+): (typeof documents)['\n    query GetUserWithRepos($userName: String!) {\n        repositoryOwner(login: $userName) {\n            ... on User {\n                login\n                company\n                avatarUrl\n            }\n        }\n        rateLimit {\n            limit\n            remaining\n            used\n            resetAt\n        }\n    }\n'];
 
 export function graphql(source: string) {
     return (documents as any)[source] ?? {};
