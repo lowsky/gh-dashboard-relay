@@ -32314,6 +32314,25 @@ export type GetRepositoriesQuery = {
     } | null;
 };
 
+type UserFragment_RepositoryOwner_Organization_Fragment = {
+    __typename?: 'Organization';
+    id: string;
+    login: string;
+    avatarUrl: any;
+} & { ' $fragmentName'?: 'UserFragment_RepositoryOwner_Organization_Fragment' };
+
+type UserFragment_RepositoryOwner_User_Fragment = {
+    __typename?: 'User';
+    id: string;
+    login: string;
+    company?: string | null;
+    avatarUrl: any;
+} & { ' $fragmentName'?: 'UserFragment_RepositoryOwner_User_Fragment' };
+
+export type UserFragment_RepositoryOwnerFragment =
+    | UserFragment_RepositoryOwner_Organization_Fragment
+    | UserFragment_RepositoryOwner_User_Fragment;
+
 export type GetUserQueryVariables = Exact<{
     login: Scalars['String']['input'];
 }>;
@@ -32330,12 +32349,126 @@ export type GetUserWithReposQueryVariables = Exact<{
 export type GetUserWithReposQuery = {
     __typename?: 'Query';
     repositoryOwner?:
-        | { __typename?: 'Organization' }
-        | { __typename?: 'User'; login: string; company?: string | null; avatarUrl: any }
+        | ({ __typename?: 'Organization' } & {
+              ' $fragmentRefs'?: {
+                  UserWithReposFragment_RepositoryOwner_Organization_Fragment: UserWithReposFragment_RepositoryOwner_Organization_Fragment;
+              };
+          })
+        | ({ __typename?: 'User' } & {
+              ' $fragmentRefs'?: {
+                  UserWithReposFragment_RepositoryOwner_User_Fragment: UserWithReposFragment_RepositoryOwner_User_Fragment;
+              };
+          })
         | null;
     rateLimit?: { __typename?: 'RateLimit'; limit: number; remaining: number; used: number; resetAt: any } | null;
 };
 
+type UserWithReposFragment_RepositoryOwner_Organization_Fragment = ({ __typename?: 'Organization'; login: string } & {
+    ' $fragmentRefs'?: {
+        UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
+    };
+}) & { ' $fragmentName'?: 'UserWithReposFragment_RepositoryOwner_Organization_Fragment' };
+
+type UserWithReposFragment_RepositoryOwner_User_Fragment = ({ __typename?: 'User'; login: string } & {
+    ' $fragmentRefs'?: { UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment };
+}) & { ' $fragmentName'?: 'UserWithReposFragment_RepositoryOwner_User_Fragment' };
+
+export type UserWithReposFragment_RepositoryOwnerFragment =
+    | UserWithReposFragment_RepositoryOwner_Organization_Fragment
+    | UserWithReposFragment_RepositoryOwner_User_Fragment;
+
+export const UserFragment_RepositoryOwnerFragmentDoc = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<UserFragment_RepositoryOwnerFragment, unknown>;
+export const UserWithReposFragment_RepositoryOwnerFragmentDoc = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserWithReposFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'FragmentSpread', name: { kind: 'Name', value: 'UserFragment_repositoryOwner' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<UserWithReposFragment_RepositoryOwnerFragment, unknown>;
 export const GetRepositoriesDocument = {
     kind: 'Document',
     definitions: [
@@ -32599,9 +32732,23 @@ export const GetUserWithReposDocument = {
                                     selectionSet: {
                                         kind: 'SelectionSet',
                                         selections: [
-                                            { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                            { kind: 'Field', name: { kind: 'Name', value: 'company' } },
-                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                            {
+                                                kind: 'FragmentSpread',
+                                                name: { kind: 'Name', value: 'UserWithReposFragment_repositoryOwner' },
+                                            },
+                                        ],
+                                    },
+                                },
+                                {
+                                    kind: 'InlineFragment',
+                                    typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            {
+                                                kind: 'FragmentSpread',
+                                                name: { kind: 'Name', value: 'UserWithReposFragment_repositoryOwner' },
+                                            },
                                         ],
                                     },
                                 },
@@ -32621,6 +32768,53 @@ export const GetUserWithReposDocument = {
                             ],
                         },
                     },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserWithReposFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'FragmentSpread', name: { kind: 'Name', value: 'UserFragment_repositoryOwner' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'login' } },
                 ],
             },
         },
