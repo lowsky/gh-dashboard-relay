@@ -40,7 +40,7 @@ export default function UserWithReposFragment(props: Props) {
         <>
             <UserFragmentContainer user={user} />
             <Suspense fallback={<Spinner />}>
-                <RepoList login={login} />
+                <RepoList login={login!} />
             </Suspense>
         </>
     );

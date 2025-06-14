@@ -11,7 +11,7 @@ import InternalLink from 'components/InternalLink';
 
 const REPOS_QUERY = gql`
     query GetRepositories($login: String!, $after: String, $first: Int!) {
-        user(login: $login) {
+        repositoryOwner(login: $login) {
             repositories(
                 first: $first
                 after: $after
@@ -52,15 +52,15 @@ export default function RepoList({ login }: RepoListProps) {
 
     if (loading && !data) return <div>Loading repositories...</div>;
     if (error) return <div>Error loading repositories: {error.message}</div>;
-    if (!data || !data.user || !data.user.repositories) return <div>No repositories found</div>;
+    if (!data || !data.repositoryOwner || !data.repositoryOwner.repositories) return <div>No repositories found</div>;
 
-    const { repositories } = data.user;
+    const { repositories } = data.repositoryOwner;
     const { totalCount, edges, pageInfo } = repositories;
 
-    const loadMore = () => {
+    const loadMore = async () => {
         if (!pageInfo.hasNextPage) return;
 
-        fetchMore({
+        await fetchMore({
             variables: {
                 login,
                 first: 10,

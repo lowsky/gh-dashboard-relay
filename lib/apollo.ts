@@ -27,7 +27,7 @@ export function getApolloClient(authToken?: string): ApolloClient<NormalizedCach
         possibleTypes: generatedIntrospection.possibleTypes,
         fragments: fragmentRegistry,
         typePolicies: {
-            User: {
+            RepositoryOwner: {
                 fields: {
                     // Configure type policies for pagination
                     // TODO more work and evaluation needed, see

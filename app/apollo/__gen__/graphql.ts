@@ -32291,27 +32291,50 @@ export type GetRepositoriesQueryVariables = Exact<{
 
 export type GetRepositoriesQuery = {
     __typename?: 'Query';
-    user?: {
-        __typename?: 'User';
-        repositories: {
-            __typename?: 'RepositoryConnection';
-            totalCount: number;
-            pageInfo: { __typename?: 'PageInfo'; hasNextPage: boolean; endCursor?: string | null };
-            edges?: Array<{
-                __typename?: 'RepositoryEdge';
-                node?: {
-                    __typename?: 'Repository';
-                    id: string;
-                    name: string;
-                    nameWithOwner: string;
-                    isFork: boolean;
-                    url: any;
-                    description?: string | null;
-                    pullRequests: { __typename?: 'PullRequestConnection'; totalCount: number };
-                } | null;
-            } | null> | null;
-        };
-    } | null;
+    repositoryOwner?:
+        | {
+              __typename?: 'Organization';
+              repositories: {
+                  __typename?: 'RepositoryConnection';
+                  totalCount: number;
+                  pageInfo: { __typename?: 'PageInfo'; hasNextPage: boolean; endCursor?: string | null };
+                  edges?: Array<{
+                      __typename?: 'RepositoryEdge';
+                      node?: {
+                          __typename?: 'Repository';
+                          id: string;
+                          name: string;
+                          nameWithOwner: string;
+                          isFork: boolean;
+                          url: any;
+                          description?: string | null;
+                          pullRequests: { __typename?: 'PullRequestConnection'; totalCount: number };
+                      } | null;
+                  } | null> | null;
+              };
+          }
+        | {
+              __typename?: 'User';
+              repositories: {
+                  __typename?: 'RepositoryConnection';
+                  totalCount: number;
+                  pageInfo: { __typename?: 'PageInfo'; hasNextPage: boolean; endCursor?: string | null };
+                  edges?: Array<{
+                      __typename?: 'RepositoryEdge';
+                      node?: {
+                          __typename?: 'Repository';
+                          id: string;
+                          name: string;
+                          nameWithOwner: string;
+                          isFork: boolean;
+                          url: any;
+                          description?: string | null;
+                          pullRequests: { __typename?: 'PullRequestConnection'; totalCount: number };
+                      } | null;
+                  } | null> | null;
+              };
+          }
+        | null;
 };
 
 type UserFragment_RepositoryOwner_Organization_Fragment = {
@@ -32498,7 +32521,7 @@ export const GetRepositoriesDocument = {
                 selections: [
                     {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'user' },
+                        name: { kind: 'Name', value: 'repositoryOwner' },
                         arguments: [
                             {
                                 kind: 'Argument',
