@@ -7868,7 +7868,7 @@ __metadata:
     react: "npm:next"
     react-dom: "npm:next"
     react-icons: "npm:^5.3.0"
-    react-relay: "npm:19.0.0"
+    react-relay: "npm:20.0.0"
     relay-compiler: "npm:19.0.0"
     relay-test-utils: "npm:19.0.0"
     storybook: "npm:9.1.0-alpha.3"
@@ -13308,18 +13308,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:19.0.0":
-  version: 19.0.0
-  resolution: "react-relay@npm:19.0.0"
+"react-relay@npm:20.0.0":
+  version: 20.0.0
+  resolution: "react-relay@npm:20.0.0"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:19.0.0"
+    relay-runtime: "npm:20.0.0"
   peerDependencies:
     react: ^16.9.0 || ^17 || ^18 || ^19
-  checksum: 10c0/760b702a9c77b2b614c6988205af3d9611e1fec44e5970c18158e11c6d869b40393404219e780e37140d0cebc8ca4df458f6f8b0e8fabc386d1d99e9b42fa500
+  checksum: 10c0/c22fcf5f7cb03a4bd8523e5674b2874166a203a801d749208e06a23f49f520ec920e757089d6df9331706b227cc3c53b03e2439fcf63d68197a4f2c18299898a
   languageName: node
   linkType: hard
 
@@ -13612,6 +13612,17 @@ __metadata:
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
   checksum: 10c0/667b60bb93133b5828807a66c68057891d99b39998f96f4338e04e51b8512b472c277a35fc7dc07ac989b4d23e0384cec5cb4dcbb403e4e3ff9bdc3c3faf7b30
+  languageName: node
+  linkType: hard
+
+"relay-runtime@npm:20.0.0":
+  version: 20.0.0
+  resolution: "relay-runtime@npm:20.0.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+  checksum: 10c0/d234f95627d4734e765fbdaae1e4763785dd55339c3733f2fe4e35646667d4efaa00ed8043b2c177d9c29ed6f773df90c150515800d124715ca8f0719e5b32f0
   languageName: node
   linkType: hard
 
