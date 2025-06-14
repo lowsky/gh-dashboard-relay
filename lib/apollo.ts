@@ -7,12 +7,12 @@ import generatedIntrospection from '../app/apollo/__gen__/possibleTypes';
 
 // Create a function to get the Apollo Client instance
 export function getApolloClient(authToken?: string): ApolloClient<NormalizedCacheObject> {
-    // Create the HTTP link
+    // Create the HTTP link to the GitHub GraphQL API
     const httpLink = createHttpLink({
-        uri: GITHUB_API_URL,
+        uri: 'https://api.github.com/graphql',
     });
 
-    // Create the auth link
+    // Add the authorization header to the HTTP link
     const authLink = setContext((_, { headers }) => {
         return {
             headers: {
