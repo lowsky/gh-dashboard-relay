@@ -29,9 +29,15 @@ export function getApolloClient(authToken?: string): ApolloClient<NormalizedCach
         typePolicies: {
             User: {
                 fields: {
+                    // Configure type policies for pagination
+                    // TODO more work and evaluation needed, see
+                    // pagination: https://www.apollographql.com/docs/react/pagination/core-api
                     repositories: {
                         // Configure pagination for repositories
                         keyArgs: ['ownerAffiliations'],
+                        // ^ not 100% sure, but this is important ^
+                        // else, no load-more works
+
                         merge(existing = { edges: [] }, incoming) {
                             return {
                                 ...incoming,
