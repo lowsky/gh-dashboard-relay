@@ -94,7 +94,7 @@
     "prettier": "3.5.3",
     "react": "next",
     "react-dom": "next",
-    "react-relay": "19.0.0",
+    "react-relay": "20.0.0",
     "relay-compiler": "19.0.0",
     "relay-test-utils": "19.0.0",
     "storybook": "9.1.0-alpha.3",
