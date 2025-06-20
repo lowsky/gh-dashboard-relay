@@ -52,6 +52,7 @@ export function getApolloClient(authToken?: string): ApolloClient<NormalizedCach
 
     // Create and return the Apollo Client instance
     return new ApolloClient({
+        dataMasking: true,
         link: authLink.concat(httpLink),
         cache,
         defaultOptions: {
