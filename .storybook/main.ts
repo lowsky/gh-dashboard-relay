@@ -2,9 +2,8 @@ import { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
     stories: [
-        // formatting
+        // (this comment kept for formatting only)
         '../components/**/*.story.*',
-        '../container/**/*.story.*',
         '../app/**/*.story.@(js|jsx|ts|tsx)',
         '../relay/**/*.story.@(js|jsx|ts|tsx)',
     ],
