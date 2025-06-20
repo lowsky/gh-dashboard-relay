@@ -2,10 +2,10 @@ import { Meta, StoryObj } from '@storybook/nextjs';
 
 import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoot';
 import { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
-import { UserFragment_user$data } from '../relay/__generated__/UserFragment_user.graphql';
+import { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
 import { WithInfo } from './BranchInfoRow.story';
 //Later: import { Default } from '../not-yet/relay/PullRequestInfo.story';
-import { relayDecorator } from '../relay/relayDecorator';
+import { relayDecorator } from './relayDecorator';
 
 const meta: Meta<typeof UserRepoPageContent> = {
     component: UserRepoPageContent,

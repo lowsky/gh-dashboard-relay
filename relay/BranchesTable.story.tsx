@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/nextjs';
 import { graphql } from 'react-relay';
 
-import { relayDecorator, WithRelayParameters } from '../relay/relayDecorator';
-import { PullRequestMergeFragment_ref$data } from '../relay/__generated__/PullRequestMergeFragment_ref.graphql';
+import { relayDecorator, WithRelayParameters } from './relayDecorator';
+import { PullRequestMergeFragment_ref$data } from './__generated__/PullRequestMergeFragment_ref.graphql';
 import { RepoWithBranchList } from '../app/relay/[userName]/[repoName]/RepoWithBranchListFragment';
 import { BranchesTableStoryQuery } from './__generated__/BranchesTableStoryQuery.graphql';
 import { WithInfo } from './BranchInfoRow.story';
