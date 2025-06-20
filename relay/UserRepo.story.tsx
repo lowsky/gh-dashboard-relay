@@ -4,7 +4,8 @@ import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoo
 import { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
 import { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
 import { WithInfo } from './BranchInfoRow.story';
-//Later: import { Default } from '../not-yet/relay/PullRequestInfo.story';
+import { WithOneBranch } from './BranchesTable.story';
+
 import { relayDecorator } from './relayDecorator';
 
 const meta: Meta<typeof UserRepoPageContent> = {
@@ -19,7 +20,27 @@ export const WithUserAndRepo: Story = {
     parameters: {
         mockResolvers: {
             Ref: WithInfo.parameters!.mockResolvers.Ref,
-            //Later: PullRequest: Default.parameters!.mockResolvers.PullRequest,
+            //Later:
+            //PullRequest: Default.parameters!.mockResolvers.PullRequest,
+            //PullRequest:
+            PullRequest: WithOneBranch.parameters.mockResolvers.PullRequest,
+            /*
+                mergeStateStatus: 'CLEAN',
+                number: 423,
+                mergeable: 'MERGEABLE',
+                title: 'add PR info to branch table',
+                url: 'https://github.com/lowsky/dashboard/pull/42',
+                headRefOid: {
+                    id: '72b14d30d',
+                },
+                id: '72b14d30d',
+                closed: false,
+                isDraft: false,
+                isInMergeQueue: false,
+                ' $fragmentType': 'PullRequestMergeFragment_ref',
+            }),
+
+             */
             Commit: WithInfo.parameters!.mockResolvers.Commit,
             Repository: (): RepoWithBranchListFragment_repo$data => ({
                 branches: {

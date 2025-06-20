@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta } from '@storybook/nextjs';
 import { graphql } from 'react-relay';
 
 import { relayDecorator, WithRelayParameters } from './relayDecorator';
@@ -13,9 +13,7 @@ const meta: Meta<typeof RepoWithBranchList> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof RepoWithBranchList>;
-
-export const WithOneBranch: Story = {
+export const WithOneBranch = {
     parameters: {
         query: graphql`
             query BranchesTableStoryQuery {

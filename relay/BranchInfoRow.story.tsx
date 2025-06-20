@@ -1,5 +1,5 @@
 import React from 'react';
-import { Decorator, Meta, StoryObj } from '@storybook/nextjs';
+import { Decorator, Meta } from '@storybook/nextjs';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
@@ -26,9 +26,7 @@ const meta: Meta<typeof BranchInfoRow> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof BranchInfoRow>;
-
-export const WithInfo: Story = {
+export const WithInfo = {
     parameters: {
         query: graphql`
             query BranchInfoRowStoryQuery @relay_test_operation {
