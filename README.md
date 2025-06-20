@@ -1,5 +1,5 @@
 [![Chromatic](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml/badge.svg)](https://github.com/lowsky/gh-dashboard-relay/actions/workflows/chromatic.yml)[![Snyk Known Vulnerabilities](https://snyk.io/test/github/lowsky/gh-dashboard-relay/badge.svg)](https://snyk.io/test/github/lowsky/gh-dashboard-relay)
-![CircleCI](https://circleci.com/gh/lowsky/dashboard.svg?style=svg)
+![CircleCI](https://circleci.com/gh/lowsky/gh-dashboard-relay.svg?style=svg)
 
 ## Stack
 
