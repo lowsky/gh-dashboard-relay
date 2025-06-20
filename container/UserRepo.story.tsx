@@ -4,7 +4,7 @@ import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoo
 import { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
 import { UserFragment_user$data } from '../relay/__generated__/UserFragment_user.graphql';
 import { WithInfo } from './BranchInfoRow.story';
-import { Default } from '../components/PullRequestInfo.story';
+//Later: import { Default } from '../not-yet/relay/PullRequestInfo.story';
 import { relayDecorator } from '../relay/relayDecorator';
 
 const meta: Meta<typeof UserRepoPageContent> = {
@@ -19,7 +19,7 @@ export const WithUserAndRepo: Story = {
     parameters: {
         mockResolvers: {
             Ref: WithInfo.parameters!.mockResolvers.Ref,
-            PullRequest: Default.parameters!.mockResolvers.PullRequest,
+            //Later: PullRequest: Default.parameters!.mockResolvers.PullRequest,
             Commit: WithInfo.parameters!.mockResolvers.Commit,
             Repository: (): RepoWithBranchListFragment_repo$data => ({
                 branches: {

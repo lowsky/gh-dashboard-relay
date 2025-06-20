@@ -16,8 +16,15 @@ const config: CodegenConfig = {
             overwrite: true,
             preset: 'client',
             presetConfig: {
+                // https://www.apollographql.com/docs/react/data/fragments#adoption-in-an-existing-application
                 // disables the incompatible GraphQL Codegen fragment masking feature:
-                fragmentMasking: true,
+                fragmentMasking: false,
+            },
+            config: {
+                customDirectives: {
+                    apolloUnmask: true,
+                },
+                inlineFragmentTypes: 'mask',
             },
             documents: [
                 'app/apollo/**/*.tsx',
