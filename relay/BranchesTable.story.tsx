@@ -29,7 +29,6 @@ export const WithOneBranch = {
             PullRequest: (): PullRequestMergeFragment_ref$data => ({
                 mergeStateStatus: 'CLEAN',
                 number: 423,
-                mergeable: 'MERGEABLE',
                 title: 'add PR info to branch table',
                 url: 'https://github.com/lowsky/dashboard/pull/42',
                 headRefOid: {
