@@ -1,13 +1,13 @@
 import React from 'react';
-import { Decorator, Meta, StoryObj } from '@storybook/nextjs';
+import { Decorator, Meta } from '@storybook/nextjs';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
-import { relayDecorator, WithRelayParameters } from '../relay/relayDecorator';
+import { relayDecorator, WithRelayParameters } from './relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
-import { BranchInfoRowFragment_ref$data } from '../relay/__generated__/BranchInfoRowFragment_ref.graphql';
-import { CommitWithStatuses_commit$data, StatusState } from '../relay/__generated__/CommitWithStatuses_commit.graphql';
+import { BranchInfoRowFragment_ref$data } from './__generated__/BranchInfoRowFragment_ref.graphql';
+import { CommitWithStatuses_commit$data, StatusState } from './__generated__/CommitWithStatuses_commit.graphql';
 import { BranchInfoRowStoryQuery } from './__generated__/BranchInfoRowStoryQuery.graphql';
 
 import moreStatus from '../components/CommitWithStatuses/lastCommitMock.json';
@@ -26,9 +26,7 @@ const meta: Meta<typeof BranchInfoRow> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof BranchInfoRow>;
-
-export const WithInfo: Story = {
+export const WithInfo = {
     parameters: {
         query: graphql`
             query BranchInfoRowStoryQuery @relay_test_operation {

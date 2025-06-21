@@ -17,7 +17,10 @@ type InferMockResolverFieldReturnType<T> = {
     [K in keyof T]: ResolverReturnType<T[K]> extends infer FieldResolverReturnType
         ? FieldResolverReturnType extends Primitive
             ? FieldResolverReturnType
-            : PartialDeep<FieldResolverReturnType, { recurseIntoArrays: true }>
+            : // @ts-expect-error version conflict leads to "requires only one param"
+              //fails with type-fest@npm:0.21.3
+              // works with type-fest@npm:2.19.0
+              PartialDeep<FieldResolverReturnType, { recurseIntoArrays: true }>
         : never;
 };
 
