@@ -45,7 +45,7 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
                         <FontAwesomeIcon icon={faCodePullRequest} />
                     </Icon>
                     <span>{number}</span>
-                    <Text color="fg.muted">{mergeStateStatus && mergeStateStatus}</Text>
+                    {mergeStateStatus && <Text color="fg.muted">{mergeStateStatus}</Text>}
                 </Link>
             ) : (
                 <span>
