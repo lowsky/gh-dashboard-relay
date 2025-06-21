@@ -17,6 +17,7 @@ const userQuery = graphql`
             ...UserWithReposFragment_user
         }
         rateLimit {
+            # eslint-disable-next-line relay/unused-fields
             limit
             # eslint-disable-next-line relay/unused-fields
             remaining
