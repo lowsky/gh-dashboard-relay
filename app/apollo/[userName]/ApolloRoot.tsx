@@ -17,6 +17,7 @@ import { Spinner } from 'components/Spinner';
 const USER_WITH_REPOS_QUERY = gql`
     query GetUserWithRepos($userName: String!) {
         repositoryOwner(login: $userName) {
+            id # key value for resolving the fragment in child component
             ... on User {
                 ...UserWithReposFragment_repositoryOwner
             }
