@@ -88,7 +88,7 @@
     "@storybook/addon-docs": "^9.1.0-alpha.2",
     "@storybook/addon-themes": "9.1.0-alpha.6",
     "@storybook/nextjs": "9.1.0-alpha.6",
-    "@types/react": "19.1.6",
+    "@types/react": "19.1.8",
     "@types/react-relay": "^18.2.0",
     "@types/relay-test-utils": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "8.34.1",
