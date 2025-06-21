@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<530ff401c440b7537f56bb8da427a81e>>
+ * @generated SignedSource<<2033f9e38816cdd4a8d0e3ff319633d7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -19,7 +19,6 @@ export type MergeStateStatus =
     | 'UNKNOWN'
     | 'UNSTABLE'
     | '%future added value';
-export type MergeableState = 'CONFLICTING' | 'MERGEABLE' | 'UNKNOWN' | '%future added value';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestMergeFragment_ref$data = {
     readonly closed: boolean;
@@ -28,7 +27,6 @@ export type PullRequestMergeFragment_ref$data = {
     readonly isDraft: boolean;
     readonly isInMergeQueue: boolean;
     readonly mergeStateStatus: MergeStateStatus;
-    readonly mergeable: MergeableState;
     readonly number: number;
     readonly title: string;
     readonly url: any;
@@ -108,18 +106,11 @@ const node: ReaderFragment = {
             name: 'isInMergeQueue',
             storageKey: null,
         },
-        {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'mergeable',
-            storageKey: null,
-        },
     ],
     type: 'PullRequest',
     abstractKey: null,
 };
 
-(node as any).hash = 'f78d14d021c66a4df524b865ebfdbe4f';
+(node as any).hash = '2b6e6351cf2a0f3eab82ad5d9bda73dd';
 
 export default node;

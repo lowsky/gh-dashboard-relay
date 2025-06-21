@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<dfb2eb6130f0151dd617810a993239c0>>
+ * @generated SignedSource<<648fcccfc772a0e34cd1b21384dbb6b9>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,7 +11,6 @@
 import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type RepoListFragment_repo$data = {
-    readonly description: string | null | undefined;
     readonly id: string;
     readonly isFork: boolean;
     readonly name: string;
@@ -75,13 +74,6 @@ const node: ReaderFragment = {
         },
         {
             alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'description',
-            storageKey: null,
-        },
-        {
-            alias: null,
             args: [
                 {
                     kind: 'Literal',
@@ -121,6 +113,6 @@ const node: ReaderFragment = {
     abstractKey: null,
 };
 
-(node as any).hash = '27709e20801f618210183cdfe365bb14';
+(node as any).hash = '1a9d0c4294c57bcfce310fcc08a4095c';
 
 export default node;

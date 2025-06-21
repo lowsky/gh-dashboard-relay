@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<90d04932f0848fa0e68bc449b9df8e7a>>
+ * @generated SignedSource<<94fadb6f4dad2f5ffecb33a39f672367>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -210,13 +210,6 @@ const node: ConcreteRequest = (function () {
                                                         },
                                                         {
                                                             alias: null,
-                                                            args: null,
-                                                            kind: 'ScalarField',
-                                                            name: 'description',
-                                                            storageKey: null,
-                                                        },
-                                                        {
-                                                            alias: null,
                                                             args: [
                                                                 {
                                                                     kind: 'Literal',
@@ -299,12 +292,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '1751884d1bfa7b23bdfd520cd0033143',
+            cacheID: '8ebd7ce0dca025fcc6fe7b5c837c9d3f',
             id: null,
             metadata: {},
             name: 'RepoListPaginationQuery',
             operationKind: 'query',
-            text: 'query RepoListPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_user_1G22uz\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user_1G22uz on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: $count, after: $cursor, ownerAffiliations: [OWNER]) {\n    edges {\n      node {\n        ...RepoListFragment_repo\n        id\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+            text: 'query RepoListPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_user_1G22uz\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user_1G22uz on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: $count, after: $cursor, ownerAffiliations: [OWNER]) {\n    edges {\n      node {\n        ...RepoListFragment_repo\n        id\n        __typename\n      }\n      cursor\n    }\n    totalCount\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
         },
     };
 })();

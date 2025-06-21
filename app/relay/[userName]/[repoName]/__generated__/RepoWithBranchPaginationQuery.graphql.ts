@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<40cc62078d2449a237d9f81dbe074375>>
+ * @generated SignedSource<<0c8e08f60e644136defa0eeed6f94c2b>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -451,13 +451,6 @@ const node: ConcreteRequest = (function () {
                                                                                     name: 'isInMergeQueue',
                                                                                     storageKey: null,
                                                                                 },
-                                                                                {
-                                                                                    alias: null,
-                                                                                    args: null,
-                                                                                    kind: 'ScalarField',
-                                                                                    name: 'mergeable',
-                                                                                    storageKey: null,
-                                                                                },
                                                                             ],
                                                                             storageKey: null,
                                                                         },
@@ -530,12 +523,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: 'a731c842157cf991d9286b8e0ec8852d',
+            cacheID: '17a2c1431c14f31277797f701573ca6a',
             id: null,
             metadata: {},
             name: 'RepoWithBranchPaginationQuery',
             operationKind: 'query',
-            text: 'query RepoWithBranchPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoWithBranchListFragment_repo_1G22uz\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo_1G22uz on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: $count, after: $cursor) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+            text: 'query RepoWithBranchPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoWithBranchListFragment_repo_1G22uz\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n}\n\nfragment RepoWithBranchListFragment_repo_1G22uz on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: $count, after: $cursor) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
         },
     };
 })();

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<be03998621b4cfd84d7c1a31f504ec2e>>
+ * @generated SignedSource<<44fdff296cf014c598c125a7dad0aaa8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -129,13 +129,6 @@ const node: ConcreteRequest = (function () {
                                 },
                                 {
                                     alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'description',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
                                     args: [
                                         {
                                             kind: 'Literal',
@@ -173,16 +166,16 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '4de9367af0ba75bda12e97a190a5e0eb',
+            cacheID: 'bf50b346b174bc1dc7902a6675bb68f3',
             id: null,
             metadata: {},
             name: 'RepoBranchListPaginationQuery',
             operationKind: 'query',
-            text: 'query RepoBranchListPaginationQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_repo\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  description\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n',
+            text: 'query RepoBranchListPaginationQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_repo\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n',
         },
     };
 })();
 
-(node as any).hash = '27709e20801f618210183cdfe365bb14';
+(node as any).hash = '1a9d0c4294c57bcfce310fcc08a4095c';
 
 export default node;
