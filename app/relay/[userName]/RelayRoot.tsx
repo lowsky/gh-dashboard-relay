@@ -18,8 +18,11 @@ const userQuery = graphql`
         }
         rateLimit {
             limit
+            # eslint-disable-next-line relay/unused-fields
             remaining
+            # eslint-disable-next-line relay/unused-fields
             used
+            # eslint-disable-next-line relay/unused-fields
             resetAt
         }
     }

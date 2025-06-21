@@ -1,3 +1,4 @@
+/* eslint-disable relay/unused-fields */
 import { graphql, useFragment } from 'react-relay';
 
 import CommitWithStatus from 'components/CommitWithStatuses/CommitWithStatuses';

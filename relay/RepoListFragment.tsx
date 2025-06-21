@@ -17,28 +17,29 @@ type Props = {
 };
 
 function RepoListFragment(props: Props) {
-    const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment(
-        graphql`
-            fragment RepoListFragment_user on User
-            @argumentDefinitions(cursor: { type: "String" }, count: { type: "Int", defaultValue: 10 })
-            @refetchable(queryName: "RepoListPaginationQuery") {
-                repositories(
-                    orderBy: { field: NAME, direction: ASC }
-                    first: $count
-                    after: $cursor
-                    ownerAffiliations: [OWNER]
-                ) @connection(key: "RepoList_user_repositories") {
-                    edges {
-                        node {
-                            ...RepoListFragment_repo
-                        }
+    const graphQLTaggedNode = graphql`
+        fragment RepoListFragment_user on User
+        @argumentDefinitions(cursor: { type: "String" }, count: { type: "Int", defaultValue: 10 })
+        @refetchable(queryName: "RepoListPaginationQuery") {
+            repositories(
+                orderBy: { field: NAME, direction: ASC }
+                first: $count
+                after: $cursor
+                ownerAffiliations: [OWNER]
+            ) @connection(key: "RepoList_user_repositories") {
+                edges {
+                    node {
+                        ...RepoListFragment_repo
                     }
-                    totalCount
                 }
+                totalCount
             }
-        `,
-        props.user
-    );
+        }
+    `;
+
+    // LATER:
+    // eslint-disable-next-line relay/generated-typescript-types
+    const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment(graphQLTaggedNode, props.user);
 
     if (!data) return null;
 
@@ -87,7 +88,7 @@ function RepoComponent(props: { repo: RepoListFragment_repo$key }) {
                 nameWithOwner
                 isFork
                 url
-                description
+                # description
                 pullRequests(first: 1, states: [OPEN]) {
                     totalCount
                 }

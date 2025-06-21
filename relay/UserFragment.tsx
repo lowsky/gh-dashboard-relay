@@ -5,8 +5,11 @@ import User from '../components/User';
 
 const userFragment = graphql`
     fragment UserFragment_user on User {
+        # eslint-disable-next-line relay/unused-fields
         login
+        # eslint-disable-next-line relay/unused-fields
         company
+        # eslint-disable-next-line relay/unused-fields
         avatarUrl
     }
 `;

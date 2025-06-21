@@ -98,6 +98,7 @@
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-prettier": "5.5.0",
     "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-relay": "2.0.0",
     "eslint-plugin-sonarjs": "3.0.3",
     "eslint-plugin-storybook": "9.1.0-alpha.6",
     "globals": "16.2.0",

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta } from '@storybook/nextjs';
 
 import { graphql } from 'react-relay';
 
@@ -15,9 +15,7 @@ const meta: Meta<typeof UserFragment> = {
 
 export default meta;
 
-type Story = StoryObj<typeof UserFragment>;
-
-export const WithoutAvatar: Story = {
+export const WithoutAvatar = {
     parameters: {
         query: graphql`
             query UserFragmentStoryQuery @relay_test_operation {
@@ -40,7 +38,7 @@ export const WithoutAvatar: Story = {
     } satisfies WithRelayParameters<UserFragmentStoryQuery>,
 };
 
-export const WithAvatar: Story = {
+export const WithAvatar = {
     parameters: {
         ...WithoutAvatar.parameters,
         mockResolvers: {
@@ -51,5 +49,5 @@ export const WithAvatar: Story = {
                 ' $fragmentType': 'UserFragment_user',
             }),
         },
-    }, // missing query ...: satisfies WithRelayParameters<UserFragmentStoryQuery>,
+    } satisfies WithRelayParameters<UserFragmentStoryQuery>,
 };

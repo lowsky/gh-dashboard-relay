@@ -9654,6 +9654,7 @@ __metadata:
     eslint-config-prettier: "npm:10.1.5"
     eslint-plugin-prettier: "npm:5.5.0"
     eslint-plugin-react-hooks: "npm:5.2.0"
+    eslint-plugin-relay: "npm:2.0.0"
     eslint-plugin-sonarjs: "npm:3.0.3"
     eslint-plugin-storybook: "npm:9.1.0-alpha.6"
     globals: "npm:16.2.0"
@@ -11055,6 +11056,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-relay@npm:2.0.0":
+  version: 2.0.0
+  resolution: "eslint-plugin-relay@npm:2.0.0"
+  dependencies:
+    graphql: "npm:^14.0.0 || ^15.0.0 || ^16.0.0"
+  checksum: 10c0/7a2d90044cbf8250570998ea0e15f26fe48112c4ccf8476b92522cf768179dbfef4e0be276c79613c86ac43c633b847b19f88c7289c775cb06eb81af829926b8
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-sonarjs@npm:3.0.3":
   version: 3.0.3
   resolution: "eslint-plugin-sonarjs@npm:3.0.3"
@@ -12264,7 +12274,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:16.11.0, graphql@npm:^15.5.0 || ^16.0.0 || ^17.0.0":
+"graphql@npm:16.11.0, graphql@npm:^14.0.0 || ^15.0.0 || ^16.0.0, graphql@npm:^15.5.0 || ^16.0.0 || ^17.0.0":
   version: 16.11.0
   resolution: "graphql@npm:16.11.0"
   checksum: 10c0/124da7860a2292e9acf2fed0c71fc0f6a9b9ca865d390d112bdd563c1f474357141501c12891f4164fe984315764736ad67f705219c62f7580681d431a85db88
