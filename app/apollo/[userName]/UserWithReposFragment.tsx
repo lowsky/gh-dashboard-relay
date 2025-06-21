@@ -1,9 +1,6 @@
 import { FragmentType, gql, useFragment } from '@apollo/client';
 
-import {
-    UserFragment_RepositoryOwnerFragment,
-    UserWithReposFragment_RepositoryOwnerFragment,
-} from '../__gen__/graphql';
+import { UserWithReposFragment_RepositoryOwnerFragment } from '../__gen__/graphql';
 import type { NoInfer } from '@apollo/client/react/types/types';
 
 import UserFragmentContainer, { UserFragment_repositoryOwner } from 'apollo/UserFragment';
@@ -24,23 +21,19 @@ interface Props {
 }
 
 export default function UserWithReposFragment(props: Props) {
-    const { data } = useFragment<UserWithReposFragment_RepositoryOwnerFragment>({
+    const { data, complete } = useFragment<UserWithReposFragment_RepositoryOwnerFragment>({
         fragment: UserWithReposFragment_repositoryOwner,
         fragmentName: 'UserWithReposFragment_repositoryOwner',
         from: props.repositoryOwner,
     });
 
-    if (!data) return null;
-
-    const login = data.login;
-    let user: FragmentType<NoInfer<UserFragment_RepositoryOwnerFragment>>;
-    user = data as FragmentType<NoInfer<UserFragment_RepositoryOwnerFragment>>;
+    if (!complete) return 'loading...';
 
     return (
         <>
-            <UserFragmentContainer user={user} />
+            <UserFragmentContainer user={data} />
             <Suspense fallback={<Spinner />}>
-                <RepoList login={login!} />
+                <RepoList login={data.login} />
             </Suspense>
         </>
     );
