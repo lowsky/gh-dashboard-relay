@@ -28,11 +28,12 @@ export default function UserWithReposFragment(props: Props) {
     });
 
     if (!complete) return 'loading...';
+    if (!data.login) return 'loading... missing login';
 
     return (
         <>
-            <UserFragmentContainer user={data} />
             <Suspense fallback={<Spinner />}>
+                <UserFragmentContainer user={data} />
                 <RepoList login={data.login} />
             </Suspense>
         </>

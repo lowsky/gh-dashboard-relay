@@ -4,6 +4,8 @@ import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
+
 import { Ul } from 'components/ChakraMdxProvider';
 import { Spinner } from 'components/Spinner';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
@@ -12,6 +14,8 @@ import InternalLink from 'components/InternalLink';
 const REPOS_QUERY = gql`
     query GetRepositories($login: String!, $after: String, $first: Int!) {
         repositoryOwner(login: $login) {
+            login
+            id
             repositories(
                 first: $first
                 after: $after
@@ -46,25 +50,55 @@ interface RepoListProps {
 }
 
 export default function RepoList({ login }: RepoListProps) {
-    const { loading, error, data, fetchMore } = useQuery(REPOS_QUERY, {
-        variables: { login, first: 10 },
-    });
+    const { loading, error, data, fetchMore } = useQuery<GetRepositoriesQuery, GetRepositoriesQueryVariables>(
+        REPOS_QUERY,
+        {
+            variables: { login, first: 10 },
+        }
+    );
 
     if (loading && !data) return <div>Loading repositories...</div>;
     if (error) return <div>Error loading repositories: {error.message}</div>;
     if (!data || !data.repositoryOwner || !data.repositoryOwner.repositories) return <div>No repositories found</div>;
 
-    const { repositories } = data.repositoryOwner;
+    const { repositories, id } = data.repositoryOwner;
     const { totalCount, edges, pageInfo } = repositories;
 
-    const loadMore = async () => {
+    const loadMore = async (after: string) => {
         if (!pageInfo.hasNextPage) return;
 
         await fetchMore({
-            variables: {
-                login,
-                first: 10,
-                after: pageInfo.endCursor,
+            variables: { after, login },
+            updateQuery: (
+                previousQueryResult, //Unmasked<TData>
+                options
+            ) => {
+                const { fetchMoreResult } = options;
+                const repositoryOwner = {
+                    ...previousQueryResult.repositoryOwner,
+                    ...fetchMoreResult.repositoryOwner,
+                    repositories: {
+                        totalCount: -1, // placeholder
+                        ...previousQueryResult.repositoryOwner?.repositories,
+                        ...fetchMoreResult.repositoryOwner?.repositories,
+                        pageInfo: {
+                            hasNextPage: false, // placeholder
+                            ...previousQueryResult.repositoryOwner?.repositories?.pageInfo,
+                            ...fetchMoreResult.repositoryOwner?.repositories.pageInfo,
+                        },
+                        edges: [
+                            ...(previousQueryResult.repositoryOwner?.repositories?.edges ?? []),
+                            ...(fetchMoreResult.repositoryOwner?.repositories.edges ?? []),
+                        ],
+                    },
+                    id,
+                    login,
+                };
+                return {
+                    ...previousQueryResult,
+                    ...fetchMoreResult,
+                    repositoryOwner,
+                } satisfies GetRepositoriesQuery;
             },
         });
     };
@@ -72,25 +106,29 @@ export default function RepoList({ login }: RepoListProps) {
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
-            <Ul variant="plain">
-                {edges.map((edge: any, idx: number) => {
-                    const node = edge?.node;
-                    if (!node) return null;
+            {edges && (
+                <Ul variant="plain">
+                    {edges.map((edge: any, idx: number) => {
+                        const node = edge?.node;
+                        if (!node) return null;
 
-                    const isLastElement = edges.length - 1 === idx;
-                    return isLastElement && pageInfo.hasNextPage ? (
-                        <InfiniteScrollTrigger key={node.id} onLoadMore={loadMore}>
-                            <Suspense fallback={<Spinner />}>
+                        const isLastElement = edges.length - 1 === idx;
+                        return isLastElement && pageInfo.hasNextPage ? (
+                            <InfiniteScrollTrigger
+                                key={node.id}
+                                onLoadMore={() => pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
+                                <Suspense fallback={<Spinner />}>
+                                    <RepoItem repo={node} />
+                                </Suspense>
+                            </InfiniteScrollTrigger>
+                        ) : (
+                            <Suspense key={node.id} fallback={<Spinner />}>
                                 <RepoItem repo={node} />
                             </Suspense>
-                        </InfiniteScrollTrigger>
-                    ) : (
-                        <Suspense key={node.id} fallback={<Spinner />}>
-                            <RepoItem repo={node} />
-                        </Suspense>
-                    );
-                })}
-            </Ul>
+                        );
+                    })}
+                </Ul>
+            )}
 
             {loading && <Spinner size="sm" />}
         </>

@@ -32294,6 +32294,8 @@ export type GetRepositoriesQuery = {
     repositoryOwner?:
         | {
               __typename?: 'Organization';
+              login: string;
+              id: string;
               repositories: {
                   __typename?: 'RepositoryConnection';
                   totalCount: number;
@@ -32315,6 +32317,8 @@ export type GetRepositoriesQuery = {
           }
         | {
               __typename?: 'User';
+              login: string;
+              id: string;
               repositories: {
                   __typename?: 'RepositoryConnection';
                   totalCount: number;
@@ -32372,12 +32376,12 @@ export type GetUserWithReposQueryVariables = Exact<{
 export type GetUserWithReposQuery = {
     __typename?: 'Query';
     repositoryOwner?:
-        | ({ __typename?: 'Organization'; id: string } & {
+        | ({ __typename?: 'Organization'; id: string; login: string } & {
               ' $fragmentRefs'?: {
                   UserWithReposFragment_RepositoryOwner_Organization_Fragment: UserWithReposFragment_RepositoryOwner_Organization_Fragment;
               };
           })
-        | ({ __typename?: 'User'; id: string } & {
+        | ({ __typename?: 'User'; id: string; login: string } & {
               ' $fragmentRefs'?: {
                   UserWithReposFragment_RepositoryOwner_User_Fragment: UserWithReposFragment_RepositoryOwner_User_Fragment;
               };
@@ -32537,6 +32541,8 @@ export const GetRepositoriesDocument = {
                         selectionSet: {
                             kind: 'SelectionSet',
                             selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                 {
                                     kind: 'Field',
                                     name: { kind: 'Name', value: 'repositories' },
@@ -32755,6 +32761,7 @@ export const GetUserWithReposDocument = {
                             kind: 'SelectionSet',
                             selections: [
                                 { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
                                 {
                                     kind: 'InlineFragment',
                                     typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
