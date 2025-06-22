@@ -153,9 +153,14 @@ function RepoItem({ repo }: RepoItemProps) {
 
     return (
         <ListItem alignItems="center" gap="1">
-            <InternalLink prefetch={false} href={`/apollo/${nameWithOwner}`}>
-                {name}
-            </InternalLink>
+            {false && (
+                <InternalLink prefetch={false} href={`/apollo/${nameWithOwner}`}>
+                    {name}
+                </InternalLink>
+            )}
+
+            {name}
+
             {isFork && <Badge>fork</Badge>}
             {totalCount > 0 && <span> - {totalCount} PRs</span>}
             {totalCount > 0 && (

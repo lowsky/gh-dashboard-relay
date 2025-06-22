@@ -1,17 +1,66 @@
+import { Button, ButtonGroup, Card, Group, Link, Text } from '@chakra-ui/react';
+import { GoGitBranch, GoRepo } from 'react-icons/go';
+import { PiGithubLogoDuotone } from 'react-icons/pi';
+
 ## Purpose
 
 It shows GitHub Feature Branches together with their build state and link to each deployment, for live view of each branch.
 
-Start here for [loading a user's repos](./relay) and dive into example repo based [on relay](https://relay.dev/)
+<Group>
+    <Card.Root>
+        <Card.Header>
+            <PiGithubLogoDuotone />
+            <Text>
+                Browse repositories or feature branches using <strong>Apollo Client</strong>
+            </Text>
+        </Card.Header>
+        <Card.Body>
+            Links with user <strong>lowsky</strong> in URL parameter:
+            <ButtonGroup size="sm" variant="outline">
+                <Button asChild>
+                    <Link href="/apollo/lowsky">
+                        <GoRepo />
+                        <Text>View Repositories</Text>
+                    </Link>
+                </Button>
+            </ButtonGroup>
+        </Card.Body>
+    </Card.Root>
+    <Card.Root>
+        <Card.Header>
+            <PiGithubLogoDuotone />
+            <Text>
+                Browse repositories or feature branches using <strong>Relay</strong>
+            </Text>
+        </Card.Header>
+        <Card.Body>
+            Links with user <strong>lowsky</strong> in URL parameter:
+            <ButtonGroup size="sm" variant="outline">
+                <Button asChild>
+                    <Link href="/relay/lowsky">
+                        <GoRepo />
+                        <Text>View Repositories</Text>
+                    </Link>
+                </Button>
+                <Button href="/relay">
+                    <Link href="/relay">
+                        <GoGitBranch />
+                        <Text>Some repos</Text>
+                    </Link>
+                </Button>
+            </ButtonGroup>
+        </Card.Body>
+    </Card.Root>
+</Group>
 
-Start here for [loading a user's repos](./apollo) and dive into example repo based [on apollo](https://www.apollographql.com/)
+<br />
 
 ### Auth\*
 
 After accepting this web app to authenticate against GitHub, it will fetch information from
-GitHub via GraphQL.
+GitHub via GraphQL:
 
-All will be done and cached only in the browser on the client side.
+All will be done and cached only in the browser on the **client side**!
 
 It keeps the generated auth token for it in the cookie 🍪.
 You will be able to logout to delete it completely.
@@ -20,6 +69,7 @@ You will be able to logout to delete it completely.
 
 - [NEXTJS](https://nextjs.org/) - app router
 - [Relay](https://relay.dev/)
+- [Aoollo](https://apollographql.com)
 - [GraphQL](https://graphql.org/)
 - [GitHub GraphQL api](https://graphql.github.com)
 
