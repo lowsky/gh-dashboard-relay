@@ -3658,7 +3658,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset@npm:4.8.2, @graphql-codegen/client-preset@npm:^4.8.2":
+"@graphql-codegen/client-preset@npm:4.8.3":
+  version: 4.8.3
+  resolution: "@graphql-codegen/client-preset@npm:4.8.3"
+  dependencies:
+    "@babel/helper-plugin-utils": "npm:^7.20.2"
+    "@babel/template": "npm:^7.20.7"
+    "@graphql-codegen/add": "npm:^5.0.3"
+    "@graphql-codegen/gql-tag-operations": "npm:4.0.17"
+    "@graphql-codegen/plugin-helpers": "npm:^5.1.1"
+    "@graphql-codegen/typed-document-node": "npm:^5.1.2"
+    "@graphql-codegen/typescript": "npm:^4.1.6"
+    "@graphql-codegen/typescript-operations": "npm:^4.6.1"
+    "@graphql-codegen/visitor-plugin-common": "npm:^5.8.0"
+    "@graphql-tools/documents": "npm:^1.0.0"
+    "@graphql-tools/utils": "npm:^10.0.0"
+    "@graphql-typed-document-node/core": "npm:3.2.0"
+    tslib: "npm:~2.6.0"
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql-sock: ^1.0.0
+  peerDependenciesMeta:
+    graphql-sock:
+      optional: true
+  checksum: 10c0/048b5b465d81aa08ea43956837fe43057b3ca771dbaf92fe453512f5f9ef38719aa00eba3980d6c3a769bb61b77056fbdc9c7cf69255977e053b5c3419deef53
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/client-preset@npm:^4.8.2":
   version: 4.8.2
   resolution: "@graphql-codegen/client-preset@npm:4.8.2"
   dependencies:
@@ -3783,6 +3810,21 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 10c0/c86a92ec89760b848911e0e353bd4357b7b16da732bae9d0b195cc06278d620420cb0880caf1b43e4ddbb9290cfa230d7796a7a0ba63d54b7024c0564f1dd129
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typed-document-node@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@graphql-codegen/typed-document-node@npm:5.1.2"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": "npm:^5.1.0"
+    "@graphql-codegen/visitor-plugin-common": "npm:5.8.0"
+    auto-bind: "npm:~4.0.0"
+    change-case-all: "npm:1.0.15"
+    tslib: "npm:~2.6.0"
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 10c0/51bc87f2d9e32d4ef15d878820b8fe2ebb44006631c963395a7001ae2e7a8ba6ed402e67726605c692ea589ee256dc45d5f4c0270a75ebea61fec777ecdd0685
   languageName: node
   linkType: hard
 
@@ -9630,7 +9672,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:6.7.2"
     "@fortawesome/react-fontawesome": "npm:0.2.2"
     "@graphql-codegen/cli": "npm:5.0.7"
-    "@graphql-codegen/client-preset": "npm:4.8.2"
+    "@graphql-codegen/client-preset": "npm:4.8.3"
     "@graphql-codegen/client-preset-swc-plugin": "npm:0.2.0"
     "@graphql-codegen/fragment-matcher": "npm:5.1.0"
     "@graphql-codegen/typescript-operations": "npm:4.6.1"
