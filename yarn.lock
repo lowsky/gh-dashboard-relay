@@ -9056,9 +9056,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:13.1.0":
-  version: 13.1.0
-  resolution: "chromatic@npm:13.1.0"
+"chromatic@npm:13.1.2":
+  version: 13.1.2
+  resolution: "chromatic@npm:13.1.2"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -9071,7 +9071,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: 10c0/ec23095e0a079c632f88a410c2ecc19c093874565924509ebba465c94f727c3a8f98e58932ab01db1c3a34f1a149a192e29c4b19277a3d53a9e6810085d404bd
+  checksum: 10c0/291456ebf98300efcea0287e2bd1f65429f3fb92233ba3abb6eae29617c6fff76d8825f6a24428d34d2850ba926d80e3b41356a6b754026dc586c5a05a9ba8df
   languageName: node
   linkType: hard
 
@@ -9690,7 +9690,7 @@ __metadata:
     "@types/react-relay": "npm:^18.2.0"
     "@types/relay-test-utils": "npm:^19.0.0"
     "@typescript-eslint/eslint-plugin": "npm:8.35.1"
-    chromatic: "npm:13.1.0"
+    chromatic: "npm:13.1.2"
     eslint: "npm:9.30.1"
     eslint-config-next: "npm:15.3.4"
     eslint-config-prettier: "npm:10.1.5"
