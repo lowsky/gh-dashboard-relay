@@ -95,7 +95,7 @@
     "chromatic": "13.1.2",
     "eslint": "9.31.0",
     "eslint-config-next": "15.3.4",
-    "eslint-config-prettier": "10.1.5",
+    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.3",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-relay": "2.0.0",
