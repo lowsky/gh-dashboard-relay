@@ -11,6 +11,7 @@ const config: StorybookConfig = {
         // formatting
         '@storybook/addon-docs',
         '@chromatic-com/storybook',
+        '@storybook/addon-a11y',
     ],
     core: {
         disableTelemetry: true,

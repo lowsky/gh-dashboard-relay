@@ -5498,7 +5498,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:^9.1.0-alpha.2":
+"@storybook/addon-a11y@npm:9.1.0-alpha.7":
+  version: 9.1.0-alpha.7
+  resolution: "@storybook/addon-a11y@npm:9.1.0-alpha.7"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    axe-core: "npm:^4.2.0"
+  peerDependencies:
+    storybook: ^9.1.0-alpha.7
+  checksum: 10c0/479f8f7b55b964346559bfc92a6b3f6abca6daa20618749280aba503e9dcfe8e4b044f4cb3171e569e1e515b1126d70fc19c29ffc5e82ca2000d41da4083194c
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-docs@npm:9.1.0-alpha.7":
   version: 9.1.0-alpha.7
   resolution: "@storybook/addon-docs@npm:9.1.0-alpha.7"
   dependencies:
@@ -8395,7 +8407,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.10.0":
+"axe-core@npm:^4.10.0, axe-core@npm:^4.2.0":
   version: 4.10.3
   resolution: "axe-core@npm:4.10.3"
   checksum: 10c0/1b1c24f435b2ffe89d76eca0001cbfff42dbf012ad9bd37398b70b11f0d614281a38a28bc3069e8972e3c90ec929a8937994bd24b0ebcbaab87b8d1e241ab0c7
@@ -9749,7 +9761,8 @@ __metadata:
     "@next/mdx": "npm:15.3.4"
     "@octokit/graphql-schema": "npm:15.26.0"
     "@parcel/watcher": "npm:2.5.1"
-    "@storybook/addon-docs": "npm:^9.1.0-alpha.2"
+    "@storybook/addon-a11y": "npm:9.1.0-alpha.7"
+    "@storybook/addon-docs": "npm:9.1.0-alpha.7"
     "@storybook/addon-themes": "npm:9.1.0-alpha.7"
     "@storybook/nextjs": "npm:9.1.0-alpha.7"
     "@types/react": "npm:19.1.8"
