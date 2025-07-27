@@ -23,14 +23,17 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
     return (
         <>
             <PopoverRoot>
-                <PopoverTrigger>
-                    <span>
-                        <strong>{mainMessage}</strong> &nbsp;
-                        <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
-                            more
-                        </Link>
-                    </span>
-                </PopoverTrigger>
+                {
+                    // @ts-expect-error type error in snippet
+                    <PopoverTrigger>
+                        <span>
+                            <strong>{mainMessage}</strong> &nbsp;
+                            <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
+                                more
+                            </Link>
+                        </span>
+                    </PopoverTrigger>
+                }
                 {
                     // @ts-expect-error snippet type error
                     <PopoverContent>
