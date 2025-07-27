@@ -1,5 +1,5 @@
 import js from '@eslint/js';
-import ts, { Config } from 'typescript-eslint';
+import ts from 'typescript-eslint';
 import prettierConfigRecommended from 'eslint-plugin-prettier/recommended';
 import storybookPlugin from 'eslint-plugin-storybook';
 import reactPlugin from 'eslint-plugin-react';
@@ -132,4 +132,4 @@ export default [
         //
         rules: relay.configs['ts-recommended'].rules,
     },
-] satisfies Config;
+];
