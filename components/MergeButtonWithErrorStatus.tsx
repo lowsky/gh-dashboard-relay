@@ -55,30 +55,33 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
             )}
             {isError && (
                 <PopoverRoot>
-                    <PopoverTrigger>
-                        <Button
-                            ml={1}
-                            size="xs"
-                            color="red"
-                            variant="outline"
-                            {...(isError
-                                ? {}
-                                : {
-                                      // don't override in case of an error but show the error as a popover
-                                      onClick: triggerMerging,
-                                  })}
-                            disabled={!!mergingInProgress}>
-                            {isError ? 'show error' : 'Rebase&Merge'}
-                            {!!mergingInProgress && (
-                                <Icon>
-                                    <FontAwesomeIcon icon={faSpinner} size="1x" />
+                    {
+                        // @ts-expect-error type error in snippet
+                        <PopoverTrigger>
+                            <Button
+                                ml={1}
+                                size="xs"
+                                color="red"
+                                variant="outline"
+                                {...(isError
+                                    ? {}
+                                    : {
+                                          // don't override in case of an error but show the error as a popover
+                                          onClick: triggerMerging,
+                                      })}
+                                disabled={!!mergingInProgress}>
+                                {isError ? 'show error' : 'Rebase&Merge'}
+                                {!!mergingInProgress && (
+                                    <Icon>
+                                        <FontAwesomeIcon icon={faSpinner} size="1x" />
+                                    </Icon>
+                                )}
+                                <Icon ml={1}>
+                                    <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
                                 </Icon>
-                            )}
-                            <Icon ml={1}>
-                                <FontAwesomeIcon icon={faExclamationTriangle} size="1x" />
-                            </Icon>
-                        </Button>
-                    </PopoverTrigger>
+                            </Button>
+                        </PopoverTrigger>
+                    }
                     {
                         // @ts-expect-error snippet type error
                         <PopoverContent>
