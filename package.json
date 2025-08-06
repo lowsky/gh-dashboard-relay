@@ -97,7 +97,7 @@
     "eslint": "9.32.0",
     "eslint-config-next": "15.4.5",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-prettier": "5.5.3",
+    "eslint-plugin-prettier": "5.5.4",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-relay": "2.0.0",
     "eslint-plugin-sonarjs": "3.0.4",
