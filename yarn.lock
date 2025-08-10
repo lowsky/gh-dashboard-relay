@@ -6468,21 +6468,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/go@npm:3.2.2":
-  version: 3.2.2
-  resolution: "@vercel/go@npm:3.2.2"
-  checksum: 10c0/45a261aca504b2c1843855eab9bbf11c0ccd696fd22d5421fabeca1d6892676c3810cfb75ab53491c66d4c97aa6c68d84d6105a15f9d38a1b98507dfa0f92b0e
+"@vercel/go@npm:3.2.3":
+  version: 3.2.3
+  resolution: "@vercel/go@npm:3.2.3"
+  checksum: 10c0/f3bc35d920cffaf4ba7883701cc644027961616d3c5a753e32cc22c837a4bdce571aa908fd8603e012bc38cf1077235de4f2967ad70edf753f82cb03e49504f9
   languageName: node
   linkType: hard
 
-"@vercel/hono@npm:0.0.5":
-  version: 0.0.5
-  resolution: "@vercel/hono@npm:0.0.5"
+"@vercel/hono@npm:0.0.9":
+  version: 0.0.9
+  resolution: "@vercel/hono@npm:0.0.9"
   dependencies:
-    "@vercel/node": "npm:5.3.7"
+    "@vercel/node": "npm:5.3.11"
     "@vercel/static-config": "npm:3.1.1"
     ts-morph: "npm:12.0.0"
-  checksum: 10c0/2fdda132af08931b08bd616c3417538eeecfdeabcd4165a6dccfd2845c51bd08861850da7b8da885db8a202ba5d821516570bc42951b3e730dc68158317a64fc
+  checksum: 10c0/8dbdb79187a6d3ec173f3efc51e2ecb339defbf93d6e2d58bc63b35693f65f7a8ec7a3e630e91b4d663b5117de7752808260ddfe8b971a3adadb3e0777b40798
   languageName: node
   linkType: hard
 
@@ -6496,12 +6496,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/next@npm:4.10.9":
-  version: 4.10.9
-  resolution: "@vercel/next@npm:4.10.9"
+"@vercel/next@npm:4.11.0":
+  version: 4.11.0
+  resolution: "@vercel/next@npm:4.11.0"
   dependencies:
     "@vercel/nft": "npm:0.29.2"
-  checksum: 10c0/00f66730868c7b4687e3b70256c8b6a2e3188d2fe5278430584cd4a0dfb6dbb4670ce3f3f5a6d874cf2da4b3b0cbbb16194a528793b809ee5a369c3445268e11
+  checksum: 10c0/b66a8338a662da746ecb1706d4724331d2cc0a4bcb46ebcb49436cc8c06f3cce1d93dcd906359bfba5995ff90ab9e9c8d38b4445e092cb0ece97bcf37bc89520
   languageName: node
   linkType: hard
 
@@ -6527,9 +6527,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/node@npm:5.3.7":
-  version: 5.3.7
-  resolution: "@vercel/node@npm:5.3.7"
+"@vercel/node@npm:5.3.11":
+  version: 5.3.11
+  resolution: "@vercel/node@npm:5.3.11"
   dependencies:
     "@edge-runtime/node-utils": "npm:2.3.0"
     "@edge-runtime/primitives": "npm:4.1.0"
@@ -6552,7 +6552,7 @@ __metadata:
     ts-node: "npm:10.9.1"
     typescript: "npm:4.9.5"
     undici: "npm:5.28.4"
-  checksum: 10c0/568be4445ac3070014dc514eb5eac3eaa98b9cd3f70dab177dc216b1effb90c314685cbe57448b9047d95334aaf7d0b52672386b45e4c9aa086cbcedb181265e
+  checksum: 10c0/437923077cd48eca9595b1f54fae1f488c2c63e444aec32d9094095bf44686eea7c4f0e174d13a8c7449b9368f1fea222854cf47a1f9335fcfcff57da85398f7
   languageName: node
   linkType: hard
 
@@ -9843,7 +9843,7 @@ __metadata:
     storybook: "npm:9.1.1"
     typescript: "npm:5.9.2"
     typescript-eslint: "npm:8.39.0"
-    vercel: "npm:44.6.5"
+    vercel: "npm:44.7.3"
   languageName: unknown
   linkType: soft
 
@@ -18506,18 +18506,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:44.6.5":
-  version: 44.6.5
-  resolution: "vercel@npm:44.6.5"
+"vercel@npm:44.7.3":
+  version: 44.7.3
+  resolution: "vercel@npm:44.7.3"
   dependencies:
     "@vercel/blob": "npm:1.0.2"
     "@vercel/build-utils": "npm:11.0.0"
     "@vercel/fun": "npm:1.1.6"
-    "@vercel/go": "npm:3.2.2"
-    "@vercel/hono": "npm:0.0.5"
+    "@vercel/go": "npm:3.2.3"
+    "@vercel/hono": "npm:0.0.9"
     "@vercel/hydrogen": "npm:1.2.3"
-    "@vercel/next": "npm:4.10.9"
-    "@vercel/node": "npm:5.3.7"
+    "@vercel/next": "npm:4.11.0"
+    "@vercel/node": "npm:5.3.11"
     "@vercel/python": "npm:5.0.0"
     "@vercel/redwood": "npm:2.3.4"
     "@vercel/remix-builder": "npm:5.4.10"
@@ -18528,7 +18528,7 @@ __metadata:
   bin:
     vc: dist/vc.js
     vercel: dist/vc.js
-  checksum: 10c0/0df30f56bd4913666dfda8d83b8e0149ffcd6bc091ebdcbd287d88c452aecdcaea43f4abd99872aac98f6231ccfcf3ebe18ddb6134083097bf862e36ffd8177d
+  checksum: 10c0/78460aced3ebf1f4c5c69f7c891536038bfe1d606b3c21aa00c6db40e0104fe88bea3d6125c0a670b9ee9d3031543ca26bbe6f3bcad0ac4e6f972b69d22affd5
   languageName: node
   linkType: hard
 
