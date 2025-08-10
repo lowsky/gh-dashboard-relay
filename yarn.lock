@@ -9838,7 +9838,7 @@ __metadata:
     react-dom: "npm:next"
     react-icons: "npm:^5.3.0"
     react-relay: "npm:20.1.1"
-    relay-compiler: "npm:20.1.0"
+    relay-compiler: "npm:20.1.1"
     relay-test-utils: "npm:20.1.0"
     storybook: "npm:9.1.0"
     typescript: "npm:5.9.2"
@@ -16181,12 +16181,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:20.1.0":
-  version: 20.1.0
-  resolution: "relay-compiler@npm:20.1.0"
+"relay-compiler@npm:20.1.1":
+  version: 20.1.1
+  resolution: "relay-compiler@npm:20.1.1"
   bin:
     relay-compiler: cli.js
-  checksum: 10c0/053568fd2283d4acc2ee40aa1699095c61380a6686ff39b162dac3a0e79650deec6cac1b61cb7eaecb7a1d0837ae875e9cd1a3eacf406650bb4e18313123c751
+  checksum: 10c0/6facd3fbc5b27853a70deb059f300f37af1bad8e2cc1a81dd014c7bb5df7d1d11004ab972b62396b19f44bf614adb6c1c4ea757fc36e5ad2fa3acf1f24661fbf
   languageName: node
   linkType: hard
 
