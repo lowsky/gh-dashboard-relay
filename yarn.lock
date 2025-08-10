@@ -9839,7 +9839,7 @@ __metadata:
     react-icons: "npm:^5.3.0"
     react-relay: "npm:20.1.1"
     relay-compiler: "npm:20.1.1"
-    relay-test-utils: "npm:20.1.0"
+    relay-test-utils: "npm:20.1.1"
     storybook: "npm:9.1.1"
     typescript: "npm:5.9.2"
     typescript-eslint: "npm:8.39.0"
@@ -16201,17 +16201,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-runtime@npm:20.1.0":
-  version: 20.1.0
-  resolution: "relay-runtime@npm:20.1.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.25.0"
-    fbjs: "npm:^3.0.2"
-    invariant: "npm:^2.2.4"
-  checksum: 10c0/c7af61286c74f442d4d17d6cb4b189f1b1930f176d9a90cac44d44ffd03c2a2a096b471fff7a86df68080b3e707dd08d18c74583d280e48dc3cb4a624fa78e75
-  languageName: node
-  linkType: hard
-
 "relay-runtime@npm:20.1.1":
   version: 20.1.1
   resolution: "relay-runtime@npm:20.1.1"
@@ -16223,15 +16212,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-test-utils@npm:20.1.0":
-  version: 20.1.0
-  resolution: "relay-test-utils@npm:20.1.0"
+"relay-test-utils@npm:20.1.1":
+  version: 20.1.1
+  resolution: "relay-test-utils@npm:20.1.1"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
-    relay-runtime: "npm:20.1.0"
-  checksum: 10c0/ef295547fa5bfbe88b92ce75b6fb5ac4bcd931752b7b8efc5addfc51e21a1bf1cb808a2ea0bee960e5f44517fa2448af8311278612b2216fa6f9441a3cb60ac4
+    relay-runtime: "npm:20.1.1"
+  checksum: 10c0/0784d3a3169d579ed89e289e6d027b8a4ebe39b06a7b21316cbd305ed430be3dd6d7a9f2c73f814b2df25e3aecd6a3461dd2b8d4bd8a6a632a22b198ef59c9a9
   languageName: node
   linkType: hard
 
