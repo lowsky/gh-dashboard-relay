@@ -9854,7 +9854,7 @@ __metadata:
     storybook: "npm:9.1.2"
     typescript: "npm:5.9.2"
     typescript-eslint: "npm:8.39.1"
-    vercel: "npm:45.0.10"
+    vercel: "npm:46.0.1"
   languageName: unknown
   linkType: soft
 
@@ -18517,9 +18517,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:45.0.10":
-  version: 45.0.10
-  resolution: "vercel@npm:45.0.10"
+"vercel@npm:46.0.1":
+  version: 46.0.1
+  resolution: "vercel@npm:46.0.1"
   dependencies:
     "@vercel/blob": "npm:1.0.2"
     "@vercel/build-utils": "npm:11.0.1"
@@ -18540,7 +18540,7 @@ __metadata:
   bin:
     vc: dist/vc.js
     vercel: dist/vc.js
-  checksum: 10c0/0c193d48564094cd83afb7f436713f71707c1a9f5c71b85d88b0aab44bd981abd95a549de91ae66a9a8eb8ead8f16b50b8c64c516633a347a77a0027c62e7c03
+  checksum: 10c0/cd8103fa895ed9fa15ef5cbd514bb700c91c6d9f9ca7db38b3ac3b36119fab4e07a95b7322191c621be41b380e2f8265e461bd5e8e8417050fc0dda173812143
   languageName: node
   linkType: hard
 
