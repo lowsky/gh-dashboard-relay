@@ -1,4 +1,6 @@
-import { FragmentType, gql, useFragment } from '@apollo/client';
+import { FragmentType, gql } from '@apollo/client';
+
+import { useFragment } from '@apollo/client/react';
 
 import { UserWithReposFragment_RepositoryOwnerFragment } from '../__gen__/graphql';
 
