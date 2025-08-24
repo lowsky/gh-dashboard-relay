@@ -1,4 +1,6 @@
-import { ApolloClient, InMemoryCache, createHttpLink, NormalizedCacheObject } from '@apollo/client';
+import { ApolloClient, InMemoryCache, NormalizedCacheObject, HttpLink } from '@apollo/client';
+import { Defer20220824Handler } from '@apollo/client/incremental';
+import { LocalState } from '@apollo/client/local-state';
 import { setContext } from '@apollo/client/link/context';
 import { relayStylePagination } from '@apollo/client/utilities';
 import { fragmentRegistry } from './fragmentRegistry';
@@ -7,9 +9,9 @@ import { fragmentRegistry } from './fragmentRegistry';
 import generatedIntrospection from '../app/apollo/__gen__/possibleTypes';
 
 // Create a function to get the Apollo Client instance
-export function getApolloClient(authToken?: string): ApolloClient<NormalizedCacheObject> {
+export function getApolloClient(authToken?: string): ApolloClient {
     // Create the HTTP link to the GitHub GraphQL API
-    const httpLink = createHttpLink({
+    const httpLink = new HttpLink({
         uri: 'https://api.github.com/graphql',
     });
 
@@ -51,6 +53,13 @@ export function getApolloClient(authToken?: string): ApolloClient<NormalizedCach
 
     // Create and return the Apollo Client instance
     return new ApolloClient({
+        /*
+        Inserted by Apollo Client 3->4 migration codemod.
+        Keep this comment here if you intend to run the codemod again,
+        to avoid changes from being reapplied.
+        Delete this comment once you are done with the migration.
+        @apollo/client-codemod-migrate-3-to-4 applied
+        */
         dataMasking: true,
         link: authLink.concat(httpLink),
         cache,
@@ -62,5 +71,19 @@ export function getApolloClient(authToken?: string): ApolloClient<NormalizedCach
                 fetchPolicy: 'cache-and-network',
             },
         },
+
+        /*
+        Inserted by Apollo Client 3->4 migration codemod.
+        If you are not using the `@client` directive in your application,
+        you can safely remove this option.
+        */
+        localState: new LocalState({}),
+
+        /*
+        Inserted by Apollo Client 3->4 migration codemod.
+        If you are not using the `@defer` directive in your application,
+        you can safely remove this option.
+        */
+        incrementalHandler: new Defer20220824Handler(),
     });
 }

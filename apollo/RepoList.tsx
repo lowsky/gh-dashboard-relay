@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
+import { useQuery } from '@apollo/client/react';
 import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

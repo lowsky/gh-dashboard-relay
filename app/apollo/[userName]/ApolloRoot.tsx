@@ -2,7 +2,9 @@
 
 import { Suspense } from 'react';
 import { useParams } from 'next/navigation';
-import { gql, useSuspenseQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
+
+import { useSuspenseQuery } from '@apollo/client/react';
 
 import { UserWithReposFragment_repositoryOwner } from './UserWithReposFragment';
 
