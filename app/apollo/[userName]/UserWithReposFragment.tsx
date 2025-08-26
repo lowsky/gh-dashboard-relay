@@ -1,4 +1,4 @@
-import { FragmentType, gql } from '@apollo/client';
+import { FragmentType, gql, TypedDocumentNode } from '@apollo/client';
 
 import { useFragment } from '@apollo/client/react';
 
@@ -9,7 +9,7 @@ import { Suspense } from 'react';
 import { Spinner } from '../../../components/Spinner';
 import RepoList from '../../../apollo/RepoList';
 
-export const UserWithReposFragment_repositoryOwner = gql`
+export const UserWithReposFragment_repositoryOwner: TypedDocumentNode<UserWithReposFragment_RepositoryOwnerFragment> = gql`
     fragment UserWithReposFragment_repositoryOwner on RepositoryOwner {
         id # key value for resolving the fragment in child component
         ...UserFragment_repositoryOwner
