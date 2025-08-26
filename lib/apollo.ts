@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, NormalizedCacheObject, HttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 import { Defer20220824Handler } from '@apollo/client/incremental';
 import { LocalState } from '@apollo/client/local-state';
 import { setContext } from '@apollo/client/link/context';

@@ -32360,15 +32360,6 @@ export type UserFragment_RepositoryOwnerFragment =
     | UserFragment_RepositoryOwner_Organization_Fragment
     | UserFragment_RepositoryOwner_User_Fragment;
 
-export type GetUserQueryVariables = Exact<{
-    login: Scalars['String']['input'];
-}>;
-
-export type GetUserQuery = {
-    __typename?: 'Query';
-    user?: { __typename?: 'User'; login: string; company?: string | null; avatarUrl: any } | null;
-};
-
 export type GetUserWithReposQueryVariables = Exact<{
     userName: Scalars['String']['input'];
 }>;
@@ -32689,47 +32680,6 @@ export const GetRepositoriesDocument = {
         },
     ],
 } as unknown as DocumentNode<GetRepositoriesQuery, GetRepositoriesQueryVariables>;
-export const GetUserDocument = {
-    kind: 'Document',
-    definitions: [
-        {
-            kind: 'OperationDefinition',
-            operation: 'query',
-            name: { kind: 'Name', value: 'GetUser' },
-            variableDefinitions: [
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'login' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
-                },
-            ],
-            selectionSet: {
-                kind: 'SelectionSet',
-                selections: [
-                    {
-                        kind: 'Field',
-                        name: { kind: 'Name', value: 'user' },
-                        arguments: [
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'login' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'login' } },
-                            },
-                        ],
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                            ],
-                        },
-                    },
-                ],
-            },
-        },
-    ],
-} as unknown as DocumentNode<GetUserQuery, GetUserQueryVariables>;
 export const GetUserWithReposDocument = {
     kind: 'Document',
     definitions: [
