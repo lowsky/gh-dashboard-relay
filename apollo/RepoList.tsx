@@ -109,7 +109,7 @@ export default function RepoList({ login }: RepoListProps) {
             <Heading>Repositories ({totalCount})</Heading>
             {edges && (
                 <Ul variant="plain">
-                    {edges.map((edge: any, idx: number) => {
+                    {edges.map((edge, idx: number) => {
                         const node = edge?.node;
                         if (!node) return null;
 

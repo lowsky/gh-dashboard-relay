@@ -5,7 +5,7 @@ import { Heading, List } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
 
-export function LinkList({ rootPath }) {
+export function LinkList({ rootPath }: { rootPath: string }) {
     const links = [
         'lowsky/react-suspense-meetup-demo',
         'lowsky/gh-dashboard-relay',

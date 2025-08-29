@@ -7,7 +7,7 @@ import {
     CommitWithStatuses_commit$key,
 } from './__generated__/CommitWithStatuses_commit.graphql';
 
-export default function CommitFragment({ commit }) {
+export default function CommitFragment({ commit }: { commit: CommitWithStatuses_commit$key }) {
     const data: CommitWithStatuses_commit$data = useFragment<CommitWithStatuses_commit$key>(
         graphql`
             fragment CommitWithStatuses_commit on Commit {

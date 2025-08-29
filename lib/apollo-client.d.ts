@@ -4,5 +4,6 @@ import '@apollo/client';
 import type { GraphQLCodegenDataMasking } from '@apollo/client/masking';
 
 declare module '@apollo/client' {
+    // eslint-disable-next-line
     interface TypeOverrides extends GraphQLCodegenDataMasking.TypeOverrides {}
 }

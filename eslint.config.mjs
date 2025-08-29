@@ -51,23 +51,7 @@ export default [
         // TEMP: until all sources got fixed
         rules: { '@typescript-eslint/no-explicit-any': 'off' },
     },
-    {
-        // TEMP: until sources got changed
-        rules: {
-            // e.g.  If you want a type meaning "any value", you probably want `unknown` instead
-            //    '@typescript-eslint/ban-ts-comment': 'off',
-            //'@typescript-eslint/no-empty-object-type': 'off',
-            //'@typescript-eslint/no-wrapper-object-types': 'warn',
-            //'@typescript-eslint/no-unused-vars': 'off',
-        },
-    },
     prettierConfigRecommended,
-    {
-        // TEMP: Some outdated, not properly formatted sources exist
-        rules: {
-            'prettier/prettier': 1,
-        },
-    },
     {
         files: ['**/*.{jsx,tsx}'],
         plugins: {
@@ -76,15 +60,14 @@ export default [
         settings: { react: { version: 'detect' } },
         rules: {
             ...reactPlugin.configs.recommended.rules,
-            // TEMP: code needs adoptions:
+            // TEMP: code needs adoptions: React must be in scope?!
             'react/react-in-jsx-scope': 0,
-            'react/prop-types': 0,
+            //'react/prop-types': 0,
         },
     },
     {
         // TEMP code will need adoptions:
         rules: {
-            'import/no-anonymous-default-export': 'off',
             'no-undef': 1,
             'no-console': 0,
         },
