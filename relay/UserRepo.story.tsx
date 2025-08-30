@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoot';
 import { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';

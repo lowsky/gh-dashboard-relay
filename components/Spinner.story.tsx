@@ -1,6 +1,6 @@
 import { Spinner } from './Spinner';
 
-import { Meta, StoryObj } from '@storybook/nextjs';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 const meta: Meta<typeof Spinner> = {
     component: Spinner,
