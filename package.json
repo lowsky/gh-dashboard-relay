@@ -37,6 +37,7 @@
   },
   "relay": {
     "src": ".",
+    "eagerEsModules": true,
     "language": "typescript",
     "exclude": [
       "/.next/**",
