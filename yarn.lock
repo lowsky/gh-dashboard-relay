@@ -3552,15 +3552,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/react-fontawesome@npm:3.0.1":
-  version: 3.0.1
-  resolution: "@fortawesome/react-fontawesome@npm:3.0.1"
-  dependencies:
-    semver: "npm:^7.7.2"
+"@fortawesome/react-fontawesome@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@fortawesome/react-fontawesome@npm:3.0.2"
   peerDependencies:
     "@fortawesome/fontawesome-svg-core": ~6 || ~7
     react: ^18.0.0 || ^19.0.0
-  checksum: 10c0/337579e2f505fdd6bd7fd1a514dba0fefd7ac8f5ae0c511e0913dd06ec0af3b98600164fe2906b295e47340d831d0ca2aa58a08b01910cd054a8531ef78130f5
+  checksum: 10c0/0a6a99ab16af74189232b01986d882ce3b2265836297a949709517f0f9b3d7c11dcf67e130200f09aca9d0e015abff21248d105796d768660901273a8ee232db
   languageName: node
   linkType: hard
 
@@ -9834,7 +9832,7 @@ __metadata:
     "@fortawesome/fontawesome-svg-core": "npm:7.0.0"
     "@fortawesome/free-brands-svg-icons": "npm:7.0.0"
     "@fortawesome/free-solid-svg-icons": "npm:7.0.0"
-    "@fortawesome/react-fontawesome": "npm:3.0.1"
+    "@fortawesome/react-fontawesome": "npm:3.0.2"
     "@graphql-codegen/cli": "npm:5.0.7"
     "@graphql-codegen/client-preset": "npm:4.8.3"
     "@graphql-codegen/client-preset-swc-plugin": "npm:0.2.0"
