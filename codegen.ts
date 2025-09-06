@@ -7,6 +7,7 @@ const config: CodegenConfig = {
     generates: {
         'app/apollo/__gen__/possibleTypes.ts': {
             // required to handle fragments with unions
+            // see https://www.apollographql.com/docs/react/data/fragments#generating-possibletypes-with-graphql-codegen
             plugins: ['fragment-matcher'],
             config: {
                 useExplicitTyping: true,
@@ -18,13 +19,18 @@ const config: CodegenConfig = {
             presetConfig: {
                 // https://www.apollographql.com/docs/react/data/fragments#adoption-in-an-existing-application
                 // disables the incompatible GraphQL Codegen fragment masking feature:
-                fragmentMasking: false,
+                fragmentMasking: true,
+                // previous idea:
+                //fragmentMasking: false,
             },
             config: {
+                /* previous idea:
+                // not sure if this will still be needed....
                 customDirectives: {
                     apolloUnmask: true,
                 },
                 inlineFragmentTypes: 'mask',
+                 */
             },
             documents: [
                 'app/apollo/**/*.tsx',
