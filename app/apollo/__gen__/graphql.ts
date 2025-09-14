@@ -32451,6 +32451,22 @@ export const UserWithReposFragment_RepositoryOwnerFragmentDoc = {
                 selections: [
                     { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'FragmentSpread', name: { kind: 'Name', value: 'UserFragment_repositoryOwner' } },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+                        },
+                    },
                     { kind: 'Field', name: { kind: 'Name', value: 'login' } },
                 ],
             },
@@ -32801,6 +32817,22 @@ export const GetUserWithReposDocument = {
                 selections: [
                     { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'FragmentSpread', name: { kind: 'Name', value: 'UserFragment_repositoryOwner' } },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [{ kind: 'Field', name: { kind: 'Name', value: 'id' } }],
+                        },
+                    },
                     { kind: 'Field', name: { kind: 'Name', value: 'login' } },
                 ],
             },

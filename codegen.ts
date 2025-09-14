@@ -7,6 +7,7 @@ const config: CodegenConfig = {
     generates: {
         'app/apollo/__gen__/possibleTypes.ts': {
             // required to handle fragments with unions
+            // see https://www.apollographql.com/docs/react/data/fragments#generating-possibletypes-with-graphql-codegen
             plugins: ['fragment-matcher'],
             config: {
                 useExplicitTyping: true,
@@ -16,11 +17,14 @@ const config: CodegenConfig = {
             overwrite: true,
             preset: 'client',
             presetConfig: {
-                // https://www.apollographql.com/docs/react/data/fragments#adoption-in-an-existing-application
+                // codegen's masking is incompatible with apollo with preset-client:
+                // https://www.apollographql.com/docs/react/data/fragments#with-the-client-preset
                 // disables the incompatible GraphQL Codegen fragment masking feature:
                 fragmentMasking: false,
             },
             config: {
+                // need to add when fragmentMasking is disabled:
+                // https://www.apollographql.com/docs/react/data/fragments#with-the-client-preset
                 customDirectives: {
                     apolloUnmask: true,
                 },
