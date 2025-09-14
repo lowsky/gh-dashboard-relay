@@ -120,7 +120,7 @@ export default function RepoList({ login }: RepoListProps) {
                         return isLastElement && pageInfo.hasNextPage ? (
                             <InfiniteScrollTrigger
                                 key={node.id}
-                                onLoadMore={() => pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
+                                onLoadMore={() => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
                                 <RepoItem repo={node} />
                             </InfiniteScrollTrigger>
                         ) : (
