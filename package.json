@@ -103,7 +103,7 @@
     "eslint-plugin-relay": "2.0.0",
     "eslint-plugin-sonarjs": "3.0.5",
     "eslint-plugin-storybook": "9.1.5",
-    "globals": "16.3.0",
+    "globals": "16.4.0",
     "nextjs-toploader": "3.8.16",
     "prettier": "3.6.2",
     "react": "next",
