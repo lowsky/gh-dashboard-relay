@@ -1,4 +1,5 @@
-import { FragmentType, gql } from '@apollo/client';
+import { Suspense } from 'react';
+import { FragmentType, gql, TypedDocumentNode } from '@apollo/client';
 import { useFragment } from '@apollo/client/react';
 
 import {
@@ -7,13 +8,19 @@ import {
 } from '../__gen__/graphql';
 
 import UserFragmentContainer, { UserFragment_repositoryOwner } from 'apollo/UserFragment';
-import { Suspense } from 'react';
+
 import { Spinner } from '../../../components/Spinner';
 import RepoList from '../../../apollo/RepoList';
 
-export const UserWithReposFragment_repositoryOwner = gql`
+export const UserWithReposFragment_repositoryOwner: TypedDocumentNode<UserWithReposFragment_RepositoryOwnerFragment> = gql`
     fragment UserWithReposFragment_repositoryOwner on RepositoryOwner {
         ...UserFragment_repositoryOwner
+        ... on User {
+            id
+        }
+        ... on Organization {
+            id
+        }
         login # used later for paginated fetching of repos
     }
     ${UserFragment_repositoryOwner}
@@ -24,18 +31,17 @@ interface Props {
 }
 
 export default function UserWithReposFragment(props: Props) {
-    const { data } = useFragment<UserWithReposFragment_RepositoryOwnerFragment>({
-        fragment: UserWithReposFragment_repositoryOwner,
-        fragmentName: 'UserWithReposFragment_repositoryOwner',
-        from: props.repositoryOwner,
-    });
+    const result: useFragment.Result<UserWithReposFragment_RepositoryOwnerFragment> =
+        useFragment<UserWithReposFragment_RepositoryOwnerFragment>({
+            fragment: UserWithReposFragment_repositoryOwner,
+            fragmentName: 'UserWithReposFragment_repositoryOwner',
+            from: props.repositoryOwner,
+        });
 
-    if (!data) return null;
+    if (!result.data || !result.complete) return null;
 
-    const login = data.login;
-    let user: FragmentType<NoInfer<UserFragment_RepositoryOwnerFragment>>;
-    // eslint-disable-next-line prefer-const
-    user = data as FragmentType<NoInfer<UserFragment_RepositoryOwnerFragment>>;
+    const { login } = result.data;
+    const user: FragmentType<UserFragment_RepositoryOwnerFragment> = result.data;
 
     return (
         <>
