@@ -7382,7 +7382,7 @@ __metadata:
     eslint-plugin-storybook: "npm:9.1.5"
     globals: "npm:16.3.0"
     graphql: "npm:16.11.0"
-    meros: "npm:1.3.1"
+    meros: "npm:1.3.2"
     next: "npm:15.5.2"
     next-themes: "npm:^0.4.3"
     nextjs-toploader: "npm:3.8.16"
@@ -11245,15 +11245,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meros@npm:1.3.1":
-  version: 1.3.1
-  resolution: "meros@npm:1.3.1"
+"meros@npm:1.3.2":
+  version: 1.3.2
+  resolution: "meros@npm:1.3.2"
   peerDependencies:
     "@types/node": ">=13"
   peerDependenciesMeta:
     "@types/node":
       optional: true
-  checksum: 10c0/a3af0702b3086fc7394b38af0f35c2abb445b5e486d6810380d60f6ac241fb114b5423eb55898f8b86b73d58c91f6b4e961087f841e8ba86a0538d2ff249e877
+  checksum: 10c0/ebb0e462e4aeccaf569593c714f738e6f941dcf10b537c6aa1acec92ce8894cc76f6a995ecaac89b0bcefe240ec20539ade4d7fe897845cd815de1bf78099836
   languageName: node
   linkType: hard
 
