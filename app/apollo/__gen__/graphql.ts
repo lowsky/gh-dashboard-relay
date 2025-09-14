@@ -32381,17 +32381,13 @@ export type GetUserWithReposQuery = {
     rateLimit?: { __typename?: 'RateLimit'; limit: number; remaining: number; used: number; resetAt: any } | null;
 };
 
-type UserWithReposFragment_RepositoryOwner_Organization_Fragment = ({
-    __typename?: 'Organization';
-    id: string;
-    login: string;
-} & {
+type UserWithReposFragment_RepositoryOwner_Organization_Fragment = ({ __typename?: 'Organization'; login: string } & {
     ' $fragmentRefs'?: {
         UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
     };
 }) & { ' $fragmentName'?: 'UserWithReposFragment_RepositoryOwner_Organization_Fragment' };
 
-type UserWithReposFragment_RepositoryOwner_User_Fragment = ({ __typename?: 'User'; id: string; login: string } & {
+type UserWithReposFragment_RepositoryOwner_User_Fragment = ({ __typename?: 'User'; login: string } & {
     ' $fragmentRefs'?: { UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment };
 }) & { ' $fragmentName'?: 'UserWithReposFragment_RepositoryOwner_User_Fragment' };
 
@@ -32449,7 +32445,6 @@ export const UserWithReposFragment_RepositoryOwnerFragmentDoc = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
-                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'FragmentSpread', name: { kind: 'Name', value: 'UserFragment_repositoryOwner' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'login' } },
                 ],
@@ -32799,7 +32794,6 @@ export const GetUserWithReposDocument = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
-                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'FragmentSpread', name: { kind: 'Name', value: 'UserFragment_repositoryOwner' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'login' } },
                 ],
