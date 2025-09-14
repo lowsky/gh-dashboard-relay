@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { gql } from '@apollo/client';
+import React from 'react';
+import { gql, TypedDocumentNode } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ import { Spinner } from 'components/Spinner';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 import InternalLink from 'components/InternalLink';
 
-const REPOS_QUERY = gql`
+const REPOS_QUERY: TypedDocumentNode<GetRepositoriesQuery, GetRepositoriesQueryVariables> = gql`
     query GetRepositories($login: String!, $after: String, $first: Int!) {
         repositoryOwner(login: $login) {
             login
@@ -58,11 +58,17 @@ export default function RepoList({ login }: RepoListProps) {
         }
     );
 
-    if (loading && !data) return <div>Loading repositories...</div>;
     if (error) return <div>Error loading repositories: {error.message}</div>;
-    if (!data || !data.repositoryOwner || !data.repositoryOwner.repositories) return <div>No repositories found</div>;
 
-    const { repositories, id } = data.repositoryOwner;
+    // Initial loading
+    // only shown if not already data exist
+    if (loading && !data) return <div>Loading repositories...</div>;
+    if (!data) return null;
+
+    const { repositoryOwner } = data;
+    if (!repositoryOwner?.repositories) return <div>No repositories found</div>;
+
+    const { repositories, id } = repositoryOwner;
     const { totalCount, edges, pageInfo } = repositories;
 
     const loadMore = async (after: string) => {
@@ -70,20 +76,17 @@ export default function RepoList({ login }: RepoListProps) {
 
         await fetchMore({
             variables: { after, login },
-            updateQuery: (
-                previousQueryResult, //Unmasked<TData>
-                options
-            ) => {
+            updateQuery: (previousQueryResult, options) => {
                 const { fetchMoreResult } = options;
                 const repositoryOwner = {
                     ...previousQueryResult.repositoryOwner,
                     ...fetchMoreResult.repositoryOwner,
                     repositories: {
-                        totalCount: -1, // placeholder
+                        totalCount: -1, // placeholder, default value
                         ...previousQueryResult.repositoryOwner?.repositories,
                         ...fetchMoreResult.repositoryOwner?.repositories,
                         pageInfo: {
-                            hasNextPage: false, // placeholder
+                            hasNextPage: false, // placeholder, default value
                             ...previousQueryResult.repositoryOwner?.repositories?.pageInfo,
                             ...fetchMoreResult.repositoryOwner?.repositories.pageInfo,
                         },
@@ -118,14 +121,10 @@ export default function RepoList({ login }: RepoListProps) {
                             <InfiniteScrollTrigger
                                 key={node.id}
                                 onLoadMore={() => pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
-                                <Suspense fallback={<Spinner />}>
-                                    <RepoItem repo={node} />
-                                </Suspense>
+                                <RepoItem repo={node} />
                             </InfiniteScrollTrigger>
                         ) : (
-                            <Suspense key={node.id} fallback={<Spinner />}>
-                                <RepoItem repo={node} />
-                            </Suspense>
+                            <RepoItem key={node.id} repo={node} />
                         );
                     })}
                 </Ul>

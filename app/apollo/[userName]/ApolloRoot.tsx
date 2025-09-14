@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react';
 import { useParams } from 'next/navigation';
-import { gql } from '@apollo/client';
+import { gql, TypedDocumentNode } from '@apollo/client';
 
 import { useSuspenseQuery } from '@apollo/client/react';
 
@@ -16,7 +16,7 @@ import UserWithReposFragment from './UserWithReposFragment';
 
 import { Spinner } from 'components/Spinner';
 
-const USER_WITH_REPOS_QUERY = gql`
+const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
     query GetUserWithRepos($userName: String!) {
         repositoryOwner(login: $userName) {
             id # key value for resolving the fragment in child component
