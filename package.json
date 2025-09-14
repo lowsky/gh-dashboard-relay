@@ -104,7 +104,7 @@
     "eslint-plugin-sonarjs": "3.0.5",
     "eslint-plugin-storybook": "9.1.5",
     "globals": "16.4.0",
-    "nextjs-toploader": "3.8.16",
+    "nextjs-toploader": "3.9.17",
     "prettier": "3.6.2",
     "react": "next",
     "react-dom": "next",
