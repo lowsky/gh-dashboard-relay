@@ -117,5 +117,5 @@
     "vercel": "48.0.3",
     "vite": "7.1.6"
   },
-  "packageManager": "yarn@4.9.4"
+  "packageManager": "yarn@4.10.1"
 }
