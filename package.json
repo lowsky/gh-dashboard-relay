@@ -113,7 +113,7 @@
     "relay-test-utils": "20.1.1",
     "rxjs": "7.8.2",
     "storybook": "9.1.7",
-    "type-fest": "5.0.0",
+    "type-fest": "5.0.1",
     "typescript": "5.9.2",
     "typescript-eslint": "8.44.0",
     "vercel": "48.0.3",
