@@ -1,5 +1,4 @@
 {
   "ignoreDeps": [],
-  "supportPolicy": ["lts_latest"],
   "extends": ["config:recommended"]
 }
