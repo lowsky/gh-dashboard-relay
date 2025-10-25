@@ -9,7 +9,8 @@ jobs:
     executor: node/default
     resource_class: lowsky/selfhosted
     steps:
-      - checkout
+      - checkout:
+          method: full
       - node/install-packages:
           check-cache: always
           pkg-manager: yarn-berry
