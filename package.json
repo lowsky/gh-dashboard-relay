@@ -117,7 +117,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.1",
     "vercel": "48.2.9",
-    "vite": "7.1.10"
+    "vite": "7.1.11"
   },
   "packageManager": "yarn@4.10.3"
 }
