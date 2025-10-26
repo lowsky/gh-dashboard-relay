@@ -6,6 +6,7 @@ import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
 import { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
 import useMergePR from './useMergePR';
+import { Spinner } from 'components/Spinner';
 
 export type DoMergePR = () => Promise<unknown | null>;
 
@@ -14,7 +15,7 @@ type PullRequestInfoProps = {
 };
 
 export default function PullRequestMerge({ associatedPullRequest }: PullRequestInfoProps) {
-    const node = useFragment<PullRequestMergeFragment_ref$key>(
+    const pr = useFragment<PullRequestMergeFragment_ref$key>(
         graphql`
             fragment PullRequestMergeFragment_ref on PullRequest {
                 id
@@ -25,26 +26,29 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
                 mergeStateStatus
                 closed
                 isDraft
-                isInMergeQueue
+                merged
+                mergeable
             }
         `,
         associatedPullRequest
     );
 
-    const { number, id, url, title, closed, headRefOid, isDraft, isInMergeQueue, mergeStateStatus } = node;
+    const { number, id, url, title, closed, headRefOid, isDraft, mergeStateStatus, merged, mergeable } = pr;
 
     const mergePR = useMergePR();
     const doMergePR: DoMergePR = async () => mergePR(headRefOid, id);
 
+    const isClean = mergeStateStatus === 'CLEAN';
     return (
-        <VStack width="6em" key={number}>
+        <VStack width="6em">
             {url ? (
                 <Link href={url} title={title ?? '-no-title-'} rel="noopener noreferrer nofollow">
                     <Icon>
                         <FontAwesomeIcon icon={faCodePullRequest} />
                     </Icon>
                     <span>{number}</span>
-                    <Text color="fg.muted">{mergeStateStatus && mergeStateStatus}</Text>
+                    {mergeStateStatus && !isClean && <Text color="fg.muted">{mergeStateStatus}</Text>}
+                    {mergeStateStatus === 'UNKNOWN' && <Spinner size="xs" />}
                 </Link>
             ) : (
                 <span>
@@ -56,8 +60,7 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
             )}
             {closed && 'closed'}
             {isDraft && 'draft'}
-            {isInMergeQueue && 'inMergeQueue'}
-            <MergeButtonWithErrorStatus doMergePR={doMergePR} />
+            {!merged && mergeable && isClean && <MergeButtonWithErrorStatus doMergePR={doMergePR} />}
         </VStack>
     );
 }

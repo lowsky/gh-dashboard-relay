@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<dc86b064327c5586420bfdfde74e64b5>>
+ * @generated SignedSource<<d108126a3a17b94e3acf3096694d528d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -411,7 +411,14 @@ const node: ConcreteRequest = (function () {
                                                                                     alias: null,
                                                                                     args: null,
                                                                                     kind: 'ScalarField',
-                                                                                    name: 'isInMergeQueue',
+                                                                                    name: 'merged',
+                                                                                    storageKey: null,
+                                                                                },
+                                                                                {
+                                                                                    alias: null,
+                                                                                    args: null,
+                                                                                    kind: 'ScalarField',
+                                                                                    name: 'mergeable',
                                                                                     storageKey: null,
                                                                                 },
                                                                             ],
@@ -486,12 +493,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '3cb72514c66e718330f78534ce0d6e79',
+            cacheID: '19e013bcd16638c218f66d570346c5ec',
             id: null,
             metadata: {},
             name: 'BranchesTableStoryQuery',
             operationKind: 'query',
-            text: 'query BranchesTableStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+            text: 'query BranchesTableStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
         },
     };
 })();
