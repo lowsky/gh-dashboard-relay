@@ -2867,21 +2867,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:15.5.6":
+"@next/eslint-plugin-next@npm:15.5.6, @next/eslint-plugin-next@npm:^15.3.2":
   version: 15.5.6
   resolution: "@next/eslint-plugin-next@npm:15.5.6"
   dependencies:
     fast-glob: "npm:3.3.1"
   checksum: 10c0/2a42df314d6690f975731e28c8b47c370eb15976ff82d98ee615d97f9e103857c224bfd6e9b75074af77bfdd82c102e9499ace55d3cb0905e9d8ecb0ce46ede7
-  languageName: node
-  linkType: hard
-
-"@next/eslint-plugin-next@npm:^15.3.2":
-  version: 15.5.5
-  resolution: "@next/eslint-plugin-next@npm:15.5.5"
-  dependencies:
-    fast-glob: "npm:3.3.1"
-  checksum: 10c0/1ca2888e9921f728f3903266fdb2f48d4c62ea94426b5e42780f5fd88e5103275631a049dfbd8d5a504ce3bd116c53595773155905403c143f9c9ec29752f288
   languageName: node
   linkType: hard
 
