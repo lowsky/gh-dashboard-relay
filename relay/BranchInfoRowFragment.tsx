@@ -85,9 +85,7 @@ function BranchInfoRow({
                             </VStack>
                         }>
                         {associatedPullRequest ? (
-                            <Suspense>
-                                <PullRequestMerge associatedPullRequest={associatedPullRequest} />
-                            </Suspense>
+                            <PullRequestMerge associatedPullRequest={associatedPullRequest} />
                         ) : (
                             'no PR'
                         )}
