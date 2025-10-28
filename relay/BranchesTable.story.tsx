@@ -24,8 +24,8 @@ export const WithOneBranch = {
         `,
         getReferenceEntry: (q) => ['repo', q.node],
         mockResolvers: {
-            Ref: WithInfo.parameters!.mockResolvers.Ref,
-            Commit: WithInfo.parameters!.mockResolvers.Commit,
+            Ref: WithInfo.parameters.mockResolvers.Ref,
+            Commit: WithInfo.parameters.mockResolvers.Commit,
             PullRequest: (): PullRequestMergeFragment_ref$data => ({
                 mergeStateStatus: 'CLEAN',
                 number: 423,
@@ -37,8 +37,9 @@ export const WithOneBranch = {
                 id: '72b14d30d',
                 closed: false,
                 isDraft: false,
-                isInMergeQueue: false,
                 ' $fragmentType': 'PullRequestMergeFragment_ref',
+                mergeable: 'UNKNOWN',
+                merged: false,
             }),
         },
     } satisfies WithRelayParameters<BranchesTableStoryQuery>,
