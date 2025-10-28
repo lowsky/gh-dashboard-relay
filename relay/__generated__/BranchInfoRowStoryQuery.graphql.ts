@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8e32ab08880efe73d65bc4f3f4482384>>
+ * @generated SignedSource<<646bc52bf35d76d048af94a17c984d5d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -423,7 +423,14 @@ const node: ConcreteRequest = (function () {
                                                             alias: null,
                                                             args: null,
                                                             kind: 'ScalarField',
-                                                            name: 'isInMergeQueue',
+                                                            name: 'merged',
+                                                            storageKey: null,
+                                                        },
+                                                        {
+                                                            alias: null,
+                                                            args: null,
+                                                            kind: 'ScalarField',
+                                                            name: 'mergeable',
                                                             storageKey: null,
                                                         },
                                                     ],
@@ -446,7 +453,7 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: 'fa253f8fdcc05950c907f08fa7c08496',
+            cacheID: '76a75b00e9715c20231bdd9017f8226a',
             id: null,
             metadata: {
                 relayTestingSelectionTypeInfo: {
@@ -479,7 +486,6 @@ const node: ConcreteRequest = (function () {
                     'node.associatedPullRequests.edges.node.headRefOid': v10 /*: any*/,
                     'node.associatedPullRequests.edges.node.id': v11 /*: any*/,
                     'node.associatedPullRequests.edges.node.isDraft': v9 /*: any*/,
-                    'node.associatedPullRequests.edges.node.isInMergeQueue': v9 /*: any*/,
                     'node.associatedPullRequests.edges.node.mergeStateStatus': {
                         enumValues: [
                             'BEHIND',
@@ -495,6 +501,13 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'MergeStateStatus',
                     },
+                    'node.associatedPullRequests.edges.node.mergeable': {
+                        enumValues: ['CONFLICTING', 'MERGEABLE', 'UNKNOWN'],
+                        nullable: false,
+                        plural: false,
+                        type: 'MergeableState',
+                    },
+                    'node.associatedPullRequests.edges.node.merged': v9 /*: any*/,
                     'node.associatedPullRequests.edges.node.number': {
                         enumValues: null,
                         nullable: false,
@@ -581,7 +594,7 @@ const node: ConcreteRequest = (function () {
             },
             name: 'BranchInfoRowStoryQuery',
             operationKind: 'query',
-            text: 'query BranchInfoRowStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ... on Ref {\n      ...BranchInfoRowFragment_ref\n    }\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  isInMergeQueue\n}\n',
+            text: 'query BranchInfoRowStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ... on Ref {\n      ...BranchInfoRowFragment_ref\n    }\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  oid\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  abbreviatedOid\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n',
         },
     };
 })();
