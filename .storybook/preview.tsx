@@ -1,10 +1,10 @@
-import type { Preview, ReactRenderer } from '@storybook/nextjs-vite';
+import { Preview } from '@storybook/nextjs-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Provider } from 'components/ui/provider';
 
 const preview: Preview = {
     decorators: [
-        withThemeByClassName<ReactRenderer>({
+        withThemeByClassName({
             defaultTheme: 'dark',
             themes: {
                 light: '',

@@ -25,42 +25,40 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
         <>
             {authorUser && (
                 <PopoverRoot>
-                    {
-                        // @ts-expect-error type error in snippet
-                        <PopoverTrigger>
-                            <span>
-                                <strong>{firstLineOfMessage}</strong> &nbsp;
-                                <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
-                                    more
-                                </Link>
-                            </span>
-                        </PopoverTrigger>
-                    }
-                    {
-                        // @ts-expect-error snippet type error
-                        <PopoverContent>
+                    <PopoverTrigger>
+                        <span>
+                            {firstLineOfMessage.map((line) => (
+                                <strong key={line}>{line}</strong>
+                            ))}
+                            &nbsp;
+                            <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
+                                more
+                            </Link>
+                        </span>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                        <PopoverBody>
+                            <PopoverArrow />
                             <PopoverBody>
-                                <PopoverArrow />
-                                <PopoverBody>
-                                    <div className={styles.status}>
-                                        <i>{new Date(authoredDate).toLocaleString()}</i>
-                                        <CommitterInfo author={authorUser} />
-                                    </div>
-                                </PopoverBody>
+                                <div className={styles.status}>
+                                    <i>{new Date(authoredDate).toLocaleString()}</i>
+                                    <CommitterInfo author={authorUser} />
+                                </div>
                             </PopoverBody>
-                        </PopoverContent>
-                    }
+                        </PopoverBody>
+                    </PopoverContent>
                 </PopoverRoot>
             )}
             {!authorUser && (
-                <>
-                    <span>
-                        <strong>{firstLineOfMessage}</strong> &nbsp;
-                        <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
-                            more
-                        </Link>
-                    </span>
-                </>
+                <span>
+                    {firstLineOfMessage.map((line) => (
+                        <strong key={line}>{line}</strong>
+                    ))}
+                    &nbsp;
+                    <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
+                        more
+                    </Link>
+                </span>
             )}
             {
                 // @ts-expect-error temporary ignore type mismatch

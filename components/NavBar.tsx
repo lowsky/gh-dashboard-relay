@@ -48,12 +48,9 @@ export function NavBar() {
                 </Flex>
             </Flex>
             <Collapsible.Root open={open}>
-                {
-                    // @ts-expect-error type error in snippet
-                    <Collapsible.Content>
-                        <MobileNav />
-                    </Collapsible.Content>
-                }
+                <Collapsible.Content>
+                    <MobileNav />
+                </Collapsible.Content>
             </Collapsible.Root>
         </Box>
     );
