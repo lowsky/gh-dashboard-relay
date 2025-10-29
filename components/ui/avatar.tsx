@@ -19,16 +19,10 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(function Ava
     const { name, src, srcSet, loading, icon, fallback, children, ...rest } = props;
     return (
         <ChakraAvatar.Root ref={ref} {...rest}>
-            {
-                // @ts-expect-error snippet type error
-                <AvatarFallback name={name} icon={icon}>
-                    {fallback}
-                </AvatarFallback>
-            }
-            {
-                // @ts-expect-error snippet type error
-                <ChakraAvatar.Image src={src} srcSet={srcSet} loading={loading} />
-            }
+            <AvatarFallback name={name} icon={icon}>
+                {fallback}
+            </AvatarFallback>
+            <ChakraAvatar.Image src={src} srcSet={srcSet} loading={loading} />
             {children}
         </ChakraAvatar.Root>
     );
@@ -40,10 +34,8 @@ interface AvatarFallbackProps extends ChakraAvatar.FallbackProps {
 }
 
 const AvatarFallback = React.forwardRef<HTMLDivElement, AvatarFallbackProps>(function AvatarFallback(props, ref) {
-    // @ts-expect-error snippet type error
     const { name, icon, children, ...rest } = props;
     return (
-        // @ts-expect-error snippet type error
         <ChakraAvatar.Fallback ref={ref} {...rest}>
             {children}
             {name != null && children == null && <>{getInitials(name)}</>}

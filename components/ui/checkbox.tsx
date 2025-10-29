@@ -12,14 +12,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(functi
     return (
         <ChakraCheckbox.Root ref={rootRef} {...rest}>
             <ChakraCheckbox.HiddenInput ref={ref} {...inputProps} />
-            {
-                // @ts-expect-error type error in snippet
-                <ChakraCheckbox.Control>{icon || <ChakraCheckbox.Indicator />}</ChakraCheckbox.Control>
-            }{' '}
-            {children != null && (
-                // @ts-expect-error type error in snippet
-                <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>
-            )}
+            <ChakraCheckbox.Control>{icon || <ChakraCheckbox.Indicator />}</ChakraCheckbox.Control>{' '}
+            {children != null && <ChakraCheckbox.Label>{children}</ChakraCheckbox.Label>}
         </ChakraCheckbox.Root>
     );
 });
