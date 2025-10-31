@@ -116,7 +116,7 @@
     "type-fest": "5.1.0",
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.2",
-    "vercel": "48.6.7",
+    "vercel": "48.7.1",
     "vite": "7.1.12"
   },
   "packageManager": "yarn@4.10.3"
