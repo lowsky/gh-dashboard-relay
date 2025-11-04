@@ -83,7 +83,7 @@
     "@graphql-codegen/typescript-operations": "5.0.2",
     "@graphql-codegen/typescript-react-apollo": "4.3.3",
     "@graphql-eslint/eslint-plugin": "4.4.0",
-    "@graphql-tools/schema": "10.0.26",
+    "@graphql-tools/schema": "10.0.27",
     "@next/eslint-plugin-next": "^15.3.2",
     "@parcel/watcher": "2.5.1",
     "@storybook/addon-a11y": "9.1.16",
