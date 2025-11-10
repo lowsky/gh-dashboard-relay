@@ -1,4 +1,3 @@
-import { createFragmentRegistry } from '@apollo/client/cache';
-import { FragmentRegistryAPI } from '@apollo/client/cache/inmemory/fragmentRegistry';
+import { createFragmentRegistry, FragmentRegistryAPI } from '@apollo/client/cache';
 
 export const fragmentRegistry: FragmentRegistryAPI = createFragmentRegistry();

@@ -12,12 +12,9 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
         const { portalled = true, portalRef, ...rest } = props;
         return (
             <Portal disabled={!portalled} container={portalRef}>
-                {
-                    // @ts-expect-error type error in snippet
-                    <ChakraPopover.Positioner>
-                        <ChakraPopover.Content ref={ref} {...rest} />
-                    </ChakraPopover.Positioner>
-                }
+                <ChakraPopover.Positioner>
+                    <ChakraPopover.Content ref={ref} {...rest} />
+                </ChakraPopover.Positioner>
             </Portal>
         );
     }
@@ -26,7 +23,6 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
 export const PopoverArrow = React.forwardRef<HTMLDivElement, ChakraPopover.ArrowProps>(
     function PopoverArrow(props, ref) {
         return (
-            // @ts-expect-error type error in snippet
             <ChakraPopover.Arrow {...props} ref={ref}>
                 <ChakraPopover.ArrowTip />
             </ChakraPopover.Arrow>
@@ -37,7 +33,6 @@ export const PopoverArrow = React.forwardRef<HTMLDivElement, ChakraPopover.Arrow
 export const PopoverCloseTrigger = React.forwardRef<HTMLButtonElement, ChakraPopover.CloseTriggerProps>(
     function PopoverCloseTrigger(props, ref) {
         return (
-            // @ts-expect-error type error in snippet
             <ChakraPopover.CloseTrigger position="absolute" top="1" insetEnd="1" {...props} asChild ref={ref}>
                 <CloseButton size="sm" />
             </ChakraPopover.CloseTrigger>
