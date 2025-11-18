@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 import { Status } from './Status';
 

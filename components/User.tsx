@@ -1,4 +1,3 @@
-import React from 'react';
 import { Avatar } from 'components/ui/avatar';
 
 import { Heading, Box, Strong, Text, HStack } from '@chakra-ui/react';

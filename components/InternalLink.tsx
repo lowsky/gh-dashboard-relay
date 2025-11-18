@@ -1,5 +1,5 @@
 'use client';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { Link, LinkProps } from '@chakra-ui/react';
