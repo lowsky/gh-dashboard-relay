@@ -1,4 +1,3 @@
-import React from 'react';
 import { Circle, Float } from '@chakra-ui/react';
 
 import { Avatar } from '../ui/avatar';

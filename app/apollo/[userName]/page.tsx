@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getAccessToken } from '../../lib/getAccessToken';
 import InternalLink from 'components/InternalLink';
 import ApolloRoot from './ApolloRoot';

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button, Icon } from '@chakra-ui/react';
 import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';

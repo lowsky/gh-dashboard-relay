@@ -14,8 +14,6 @@ import {
 } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
-import React from 'react';
-
 export function Box(props: BoxProps) {
     return <ChakraBox {...props}>{props.children}</ChakraBox>;
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { gql, TypedDocumentNode } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';

@@ -1,7 +1,5 @@
 'use client'; // using useState
 
-import React from 'react';
-
 import { Login } from './Login';
 import { Alert } from './ui/alert';
 

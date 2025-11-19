@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from '@chakra-ui/react';
 
 import { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';

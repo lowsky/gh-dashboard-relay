@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getAccessToken } from '../../../lib/getAccessToken';
 import RelayRoot from './RelayRoot';
 
