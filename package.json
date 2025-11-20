@@ -94,7 +94,7 @@
     "@types/react-relay": "^18.2.0",
     "@types/relay-test-utils": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "8.46.4",
-    "chromatic": "13.3.3",
+    "chromatic": "13.3.4",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.2",
     "eslint-config-prettier": "10.1.8",
