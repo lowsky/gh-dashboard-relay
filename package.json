@@ -90,7 +90,7 @@
     "@storybook/addon-docs": "10.1.2",
     "@storybook/addon-themes": "10.1.2",
     "@storybook/nextjs-vite": "10.1.2",
-    "@types/react": "19.2.6",
+    "@types/react": "19.2.7",
     "@types/react-relay": "^18.2.0",
     "@types/relay-test-utils": "^19.0.0",
     "@typescript-eslint/eslint-plugin": "8.46.4",
