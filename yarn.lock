@@ -3490,18 +3490,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:16.0.2, @next/eslint-plugin-next@npm:^16.0.0":
-  version: 16.0.2
-  resolution: "@next/eslint-plugin-next@npm:16.0.2"
+"@next/eslint-plugin-next@npm:16.0.7, @next/eslint-plugin-next@npm:^16.0.0":
+  version: 16.0.7
+  resolution: "@next/eslint-plugin-next@npm:16.0.7"
   dependencies:
     fast-glob: "npm:3.3.1"
-  checksum: 10c0/dd5cf118894cd82631e9ebfac90856dc2af56df69d2f7754424304f47b1fce95e9c0c6620d772ef36862f23fee18fe321b47cbe53cad8da1a026842dd7f9dcd7
+  checksum: 10c0/dce7be827de6686d11c68e1ae22f136e926bf63d9373a9f6c5fc8a2ce4a0ab92857c4becec9cd07c7293bb4ce6e0fa5c8407521e3632d61a42ad82769e190a8c
   languageName: node
   linkType: hard
 
-"@next/mdx@npm:16.0.2":
-  version: 16.0.2
-  resolution: "@next/mdx@npm:16.0.2"
+"@next/mdx@npm:16.0.7":
+  version: 16.0.7
+  resolution: "@next/mdx@npm:16.0.7"
   dependencies:
     source-map: "npm:^0.7.0"
   peerDependencies:
@@ -3512,7 +3512,7 @@ __metadata:
       optional: true
     "@mdx-js/react":
       optional: true
-  checksum: 10c0/69572f063642b8ae95bbc8815d7664de65bb45651f3c016c1c79dad6031b931566cf89e9889b94b19d3f22d7a57c9495fcae048330750c34f99dc41c6f02e6a4
+  checksum: 10c0/17c2012c6748b6138a51285fa3b3daf8ce18490fc59d0f2158a513b21445f81d5375341b0df79194fd6386cd2dd2c49f231bb9136965e64a1fa0f2fbc087c353
   languageName: node
   linkType: hard
 
@@ -7332,7 +7332,7 @@ __metadata:
     "@graphql-eslint/eslint-plugin": "npm:4.4.0"
     "@graphql-tools/schema": "npm:10.0.30"
     "@next/eslint-plugin-next": "npm:^16.0.0"
-    "@next/mdx": "npm:16.0.2"
+    "@next/mdx": "npm:16.0.7"
     "@octokit/graphql-schema": "npm:15.26.1"
     "@parcel/watcher": "npm:2.5.1"
     "@storybook/addon-a11y": "npm:10.1.2"
@@ -7345,7 +7345,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.46.4"
     chromatic: "npm:13.3.4"
     eslint: "npm:9.39.1"
-    eslint-config-next: "npm:16.0.2"
+    eslint-config-next: "npm:16.0.7"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-prettier: "npm:5.5.4"
     eslint-plugin-react-hooks: "npm:7.0.1"
@@ -8382,11 +8382,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:16.0.2":
-  version: 16.0.2
-  resolution: "eslint-config-next@npm:16.0.2"
+"eslint-config-next@npm:16.0.7":
+  version: 16.0.7
+  resolution: "eslint-config-next@npm:16.0.7"
   dependencies:
-    "@next/eslint-plugin-next": "npm:16.0.2"
+    "@next/eslint-plugin-next": "npm:16.0.7"
     eslint-import-resolver-node: "npm:^0.3.6"
     eslint-import-resolver-typescript: "npm:^3.5.2"
     eslint-plugin-import: "npm:^2.32.0"
@@ -8401,7 +8401,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/830103a73c8f04e973112c7f77ba3fe83f1c71426ee360453c336049589daaa56530565e0511a82f11177a41935be4469948297647f1d907739d5ba6dde946b3
+  checksum: 10c0/ca3e974c6c1c0821d6ff9ec8590ff334417b2cb615b92b119dd7bd05303c9c987256668e90209d2a74c6b088df9fbcbdbe44e79cb24c52b2b00f3ef9d0f0a061
   languageName: node
   linkType: hard
 
