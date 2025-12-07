@@ -105,7 +105,7 @@
     "eslint-plugin-storybook": "10.1.2",
     "globals": "16.5.0",
     "nextjs-toploader": "3.9.17",
-    "prettier": "3.6.2",
+    "prettier": "3.7.4",
     "react": "next",
     "react-dom": "next",
     "react-relay": "20.1.1",
