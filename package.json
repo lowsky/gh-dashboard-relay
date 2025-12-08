@@ -93,7 +93,7 @@
     "@types/react": "19.2.7",
     "@types/react-relay": "^18.2.0",
     "@types/relay-test-utils": "^19.0.0",
-    "@typescript-eslint/eslint-plugin": "8.46.4",
+    "@typescript-eslint/eslint-plugin": "8.49.0",
     "chromatic": "13.3.4",
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.7",
@@ -115,7 +115,7 @@
     "storybook": "10.1.2",
     "type-fest": "5.2.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.46.4",
+    "typescript-eslint": "8.49.0",
     "vercel": "48.9.1",
     "vite": "7.2.6"
   },
