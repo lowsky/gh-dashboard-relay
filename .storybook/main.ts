@@ -25,11 +25,11 @@ const config: StorybookConfig = {
         },
     ],
     addons: [
-        // formatting
         '@storybook/addon-docs',
         '@chromatic-com/storybook',
         '@storybook/addon-themes',
         '@storybook/addon-a11y',
+        '@storybook/addon-vitest',
     ],
     core: {
         disableTelemetry: true,
