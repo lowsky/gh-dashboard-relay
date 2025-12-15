@@ -2,10 +2,27 @@ import { StorybookConfig } from '@storybook/nextjs-vite';
 
 const config: StorybookConfig = {
     stories: [
-        // (this comment kept for formatting only)
-        '../components/**/*.story.*',
-        '../app/**/*.story.@(js|jsx|ts|tsx)',
-        '../relay/**/*.story.@(js|jsx|ts|tsx)',
+        /**
+         * This story breaks build, in visual testing
+         * it seems the triggered build won't be able to handle the page.mdx file correctly
+         */
+        /*
+        {
+            directory: '../app',
+            titlePrefix: 'App',
+            files: '**'+'/*.story.@(js|jsx|ts|tsx)',
+        },
+        */
+        {
+            directory: '../relay',
+            titlePrefix: 'Relay',
+            files: '**/*.story.@(js|jsx|ts|tsx)',
+        },
+        {
+            directory: '../components',
+            titlePrefix: 'Components',
+            files: '**/*.story.@(js|jsx|ts|tsx)',
+        },
     ],
     addons: [
         // formatting
