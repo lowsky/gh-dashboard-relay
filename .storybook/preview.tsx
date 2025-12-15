@@ -17,6 +17,9 @@ const preview: Preview = {
             </Provider>
         ),
     ],
+
+    tags: ['autodocs'],
+
     // commented-out, to avoid generating docs:: tags: ['autodocs'],
     parameters: {
         docs: {
