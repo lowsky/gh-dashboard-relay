@@ -81,7 +81,7 @@
     "@graphql-codegen/client-preset-swc-plugin": "0.2.0",
     "@graphql-codegen/fragment-matcher": "6.0.0",
     "@graphql-codegen/typescript-operations": "5.0.6",
-    "@graphql-codegen/typescript-react-apollo": "4.3.3",
+    "@graphql-codegen/typescript-react-apollo": "4.3.4",
     "@graphql-eslint/eslint-plugin": "4.4.0",
     "@graphql-tools/schema": "10.0.30",
     "@next/eslint-plugin-next": "^16.0.0",

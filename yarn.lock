@@ -2248,9 +2248,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-react-apollo@npm:4.3.3":
-  version: 4.3.3
-  resolution: "@graphql-codegen/typescript-react-apollo@npm:4.3.3"
+"@graphql-codegen/typescript-react-apollo@npm:4.3.4":
+  version: 4.3.4
+  resolution: "@graphql-codegen/typescript-react-apollo@npm:4.3.4"
   dependencies:
     "@graphql-codegen/plugin-helpers": "npm:^3.0.0"
     "@graphql-codegen/visitor-plugin-common": "npm:2.13.8"
@@ -2259,7 +2259,7 @@ __metadata:
     tslib: "npm:^2.8.1"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/bc2266ddea1240486185fd58e51439031a9a68a1c284662d911dd2564bc1e6e8f80dd16db6a0d2c57fe1a31ee3e274dd4169fd9a8177da3015aa4c5a4f3e40c6
+  checksum: 10c0/b143bc2bf686c4cd9724d83eba874238501ea26d307077c265afaaeca1df05851f0d202dfdf00f2fba7a9a570048cb60d01c03d1f837a7d8f7d37903488feeef
   languageName: node
   linkType: hard
 
@@ -7935,7 +7935,7 @@ __metadata:
     "@graphql-codegen/client-preset-swc-plugin": "npm:0.2.0"
     "@graphql-codegen/fragment-matcher": "npm:6.0.0"
     "@graphql-codegen/typescript-operations": "npm:5.0.6"
-    "@graphql-codegen/typescript-react-apollo": "npm:4.3.3"
+    "@graphql-codegen/typescript-react-apollo": "npm:4.3.4"
     "@graphql-eslint/eslint-plugin": "npm:4.4.0"
     "@graphql-tools/schema": "npm:10.0.30"
     "@next/eslint-plugin-next": "npm:^16.0.0"
