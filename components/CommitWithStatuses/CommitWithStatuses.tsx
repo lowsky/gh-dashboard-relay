@@ -23,30 +23,32 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
     return (
         <>
             {authorUser && (
-                <PopoverRoot>
-                    <PopoverTrigger>
-                        <span>
-                            {firstLineOfMessage.map((line) => (
-                                <strong key={line}>{line}</strong>
-                            ))}
-                            &nbsp;
-                            <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
-                                more
-                            </Link>
-                        </span>
-                    </PopoverTrigger>
-                    <PopoverContent>
-                        <PopoverBody>
-                            <PopoverArrow />
+                <>
+                    <PopoverRoot>
+                        <PopoverTrigger>
+                            <span>
+                                {firstLineOfMessage.map((line) => (
+                                    <strong key={line}>{line}</strong>
+                                ))}
+                            </span>
+                        </PopoverTrigger>
+                        <PopoverContent>
                             <PopoverBody>
-                                <div className={styles.status}>
-                                    <i>{new Date(authoredDate).toLocaleString()}</i>
-                                    <CommitterInfo author={authorUser} />
-                                </div>
+                                <PopoverArrow />
+                                <PopoverBody>
+                                    <div className={styles.status}>
+                                        <i>{new Date(authoredDate).toLocaleString()}</i>
+                                        <CommitterInfo author={authorUser} />
+                                    </div>
+                                </PopoverBody>
                             </PopoverBody>
-                        </PopoverBody>
-                    </PopoverContent>
-                </PopoverRoot>
+                        </PopoverContent>
+                    </PopoverRoot>
+                    &nbsp;
+                    <Link variant="underline" href={commitUrl} rel="noopener noreferrer nofollow">
+                        more
+                    </Link>
+                </>
             )}
             {!authorUser && (
                 <span>
@@ -54,7 +56,7 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
                         <strong key={line}>{line}</strong>
                     ))}
                     &nbsp;
-                    <Link className={styles.status} href={commitUrl} rel="noopener noreferrer nofollow">
+                    <Link variant="underline" href={commitUrl} rel="noopener noreferrer nofollow">
                         more
                     </Link>
                 </span>

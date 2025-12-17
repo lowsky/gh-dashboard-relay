@@ -22,7 +22,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(function Ava
             <AvatarFallback name={name} icon={icon}>
                 {fallback}
             </AvatarFallback>
-            <ChakraAvatar.Image src={src} srcSet={srcSet} loading={loading} />
+            <ChakraAvatar.Image src={src} srcSet={srcSet} loading={loading} alt={name} />
             {children}
         </ChakraAvatar.Root>
     );

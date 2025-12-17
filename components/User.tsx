@@ -18,7 +18,7 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
     return (
         <HStack align="center" gap={4}>
             <Heading as="h3">Owner</Heading>
-            <Avatar src={avatarUrl} size="xl" />
+            <Avatar src={avatarUrl} size="xl" name="owner avatar" />
             <Box>
                 <Strong>{login ?? '?'}</Strong>
                 <Text>{company}</Text>
