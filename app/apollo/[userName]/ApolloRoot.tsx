@@ -17,7 +17,7 @@ import UserWithReposFragment from './UserWithReposFragment';
 
 import { Spinner } from 'components/Spinner';
 
-const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
+export const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
     query GetUserWithRepos($userName: String!) {
         repositoryOwner(login: $userName) {
             id # key value for resolving the fragment in child component
@@ -51,7 +51,7 @@ export default function ApolloRoot(props: { authToken: string }) {
     );
 }
 
-function UserPageContent({ userName }: { userName: string }) {
+export function UserPageContent({ userName }: { userName: string }) {
     const { error, data } = useSuspenseQuery<GetUserWithReposQuery, GetUserWithReposQueryVariables>(
         USER_WITH_REPOS_QUERY,
         {

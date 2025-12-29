@@ -43,7 +43,8 @@
       "/.next/**",
       "**/stuff/**",
       "**/node_modules/**",
-      "**/test/",
+      "**/test/**",
+      "**/apollo/**",
       "**/__generated__/**"
     ],
     "schema": "./schema.graphql"
@@ -117,6 +118,7 @@
     "relay-test-utils": "20.1.1",
     "rxjs": "7.8.2",
     "storybook": "10.1.11",
+    "storybook-addon-apollo-client": "10.0.0",
     "type-fest": "5.4.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.53.1",
