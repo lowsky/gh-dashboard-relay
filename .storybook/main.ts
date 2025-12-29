@@ -19,6 +19,12 @@ const config: StorybookConfig = {
             files: '**/*.story.@(js|jsx|ts|tsx)',
         },
         {
+            directory: '../apollo',
+            titlePrefix: 'Apollo',
+            files: '**/*.story.@(js|jsx|ts|tsx)',
+        },
+
+        {
             directory: '../components',
             titlePrefix: 'Components',
             files: '**/*.story.@(js|jsx|ts|tsx)',
@@ -30,6 +36,7 @@ const config: StorybookConfig = {
         '@storybook/addon-themes',
         '@storybook/addon-a11y',
         '@storybook/addon-vitest',
+        'storybook-addon-apollo-client',
     ],
     core: {
         disableTelemetry: true,
