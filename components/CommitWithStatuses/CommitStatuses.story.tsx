@@ -6,11 +6,11 @@ import moreStatus from './lastCommitMock.json';
 
 const meta: Meta<typeof CommitStatuses> = {
     component: CommitStatuses,
-};
+} satisfies Meta<typeof CommitStatuses>;
 
 export default meta;
 
-type Story = StoryObj<typeof CommitStatuses>;
+type Story = StoryObj<typeof meta>;
 
 export const WithData: Story = {
     args: {

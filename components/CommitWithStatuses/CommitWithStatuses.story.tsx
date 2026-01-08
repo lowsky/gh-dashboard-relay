@@ -4,13 +4,13 @@ import CommitWithStatuses from './CommitWithStatuses';
 
 import moreStatus from './lastCommitMock.json';
 
-const meta: Meta<typeof CommitWithStatuses> = {
+const meta = {
     component: CommitWithStatuses,
-};
+} satisfies Meta<typeof CommitWithStatuses>;
 
 export default meta;
 
-type Story = StoryObj<typeof CommitWithStatuses>;
+type Story = StoryObj<typeof meta>;
 
 export const WithData: Story = {
     args: {

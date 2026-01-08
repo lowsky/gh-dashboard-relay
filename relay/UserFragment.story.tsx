@@ -8,10 +8,10 @@ import UserFragment from '../relay/UserFragment';
 import { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
 import { UserFragmentStoryQuery } from './__generated__/UserFragmentStoryQuery.graphql';
 
-const meta: Meta<typeof UserFragment> = {
+const meta = {
     component: UserFragment,
     decorators: [relayDecorator],
-};
+} satisfies Meta<typeof UserFragment>;
 
 export default meta;
 

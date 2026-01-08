@@ -7,13 +7,17 @@ import PullRequestInfoFragment from 'relay/PullRequestInfo';
 import { PullRequestInfoFragmentStoryQuery } from './__generated__/PullRequestInfoFragmentStoryQuery.graphql';
 import { PullRequestInfo_pullRequest$data } from 'relay/__generated__/PullRequestInfo_pullRequest.graphql';
 
-const meta: Meta<typeof PullRequestInfoFragment> = {
+const meta = {
     component: PullRequestInfoFragment,
     decorators: [relayDecorator],
-};
+    args: {
+        pullRequest: null, // could be empty, not relevant for rendering
+    },
+} satisfies Meta<typeof PullRequestInfoFragment>;
+
 export default meta;
 
-type Story = StoryObj<typeof PullRequestInfoFragment>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     parameters: {

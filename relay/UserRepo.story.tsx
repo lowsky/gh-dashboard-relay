@@ -8,13 +8,13 @@ import { WithOneBranch } from './BranchesTable.story';
 
 import { relayDecorator } from './relayDecorator';
 
-const meta: Meta<typeof UserRepoPageContent> = {
+const meta = {
     component: UserRepoPageContent,
     decorators: [relayDecorator],
-};
+} satisfies Meta<typeof UserRepoPageContent>;
 export default meta;
 
-type Story = StoryObj<typeof UserRepoPageContent>;
+type Story = StoryObj<typeof meta>;
 
 export const WithUserAndRepo: Story = {
     parameters: {

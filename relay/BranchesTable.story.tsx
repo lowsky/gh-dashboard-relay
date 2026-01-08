@@ -7,10 +7,11 @@ import { RepoWithBranchList } from '../app/relay/[userName]/[repoName]/RepoWithB
 import { BranchesTableStoryQuery } from './__generated__/BranchesTableStoryQuery.graphql';
 import { WithInfo } from './BranchInfoRow.story';
 
-const meta: Meta<typeof RepoWithBranchList> = {
+const meta = {
     component: RepoWithBranchList,
     decorators: [relayDecorator],
-};
+} satisfies Meta<typeof RepoWithBranchList>;
+
 export default meta;
 
 export const WithOneBranch = {

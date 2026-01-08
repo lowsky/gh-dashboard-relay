@@ -1,15 +1,13 @@
-import { Meta } from '@storybook/nextjs-vite';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { NavBar } from './NavBar';
 
-const meta: Meta<typeof NavBar> = {
+const meta = {
     component: NavBar,
-};
+} satisfies Meta<typeof NavBar>;
 
 export default meta;
 
-type Story = Meta<typeof NavBar>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-    args: {},
-};
+export const Default: Story = {};

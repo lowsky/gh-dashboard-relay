@@ -19,10 +19,11 @@ const wrapInTableDecorator: Decorator = (Story) => (
     </Table.Root>
 );
 
-const meta: Meta<typeof BranchInfoRow> = {
+const meta = {
     component: BranchInfoRow,
     decorators: [relayDecorator, wrapInTableDecorator],
-};
+} satisfies Meta<typeof BranchInfoRow>;
+
 export default meta;
 
 export const WithInfo = {

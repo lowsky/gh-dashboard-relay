@@ -1,17 +1,16 @@
-import { StoryObj } from '@storybook/nextjs-vite';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import IndexPage from './page.mdx';
 
-export default {
+const meta = {
     component: IndexPage,
-};
+} satisfies Meta<typeof IndexPage>;
+export default meta;
 
-export const Index: StoryObj<typeof IndexPage> = {
-    args: {},
+type Story = StoryObj<typeof meta>;
+
+export const Index: Story = {
     parameters: {
-        /*
-        chromatic: { disable: true },
-         */
         nextjs: {
             appDirectory: true,
             navigation: {
