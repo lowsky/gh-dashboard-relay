@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { FragmentType, gql, TypedDocumentNode } from '@apollo/client';
 
 import { useFragment } from '@apollo/client/react';
@@ -10,8 +9,7 @@ import {
 
 import UserFragmentContainer, { UserFragment_repositoryOwner } from 'apollo/UserFragment';
 
-import { Spinner } from '../../../components/Spinner';
-import RepoList from '../../../apollo/RepoList';
+import RepoList from 'apollo/RepoList';
 
 export const UserWithReposFragment_repositoryOwner: TypedDocumentNode<UserWithReposFragment_RepositoryOwnerFragment> = gql`
     fragment UserWithReposFragment_repositoryOwner on RepositoryOwner {
@@ -48,9 +46,7 @@ export default function UserWithReposFragment(props: Props) {
     return (
         <>
             <UserFragmentContainer user={user} />
-            <Suspense fallback={<Spinner />}>
-                <RepoList login={login} />
-            </Suspense>
+            <RepoList login={login} />
         </>
     );
 }

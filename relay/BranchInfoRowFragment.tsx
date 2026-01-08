@@ -35,16 +35,8 @@ export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRo
         branch
     );
 
-    if (!name) {
-        return null;
-    }
-    if (!associatedPullRequests) {
-        return null;
-    }
-
     return (associatedPullRequests.edges ?? []).map((edge) => {
         if (!edge?.node) return null;
-
         const { node } = edge;
         if (!node) return null;
 

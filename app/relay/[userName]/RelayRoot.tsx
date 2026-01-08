@@ -4,14 +4,14 @@ import { useParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 
-import { RelayRootQuery, RelayRootQuery$data, RelayRootQuery$variables } from './__generated__/RelayRootQuery.graphql';
+import { RelayRootQuery } from './__generated__/RelayRootQuery.graphql';
 import RelayClientContext from 'lib/RelayClientContext';
 
 import InternalLink from 'components/InternalLink';
 
 import UserWithReposFragment from './UserWithReposFragment';
 
-const userQuery = graphql`
+const USER_WITH_REPOS_QUERY = graphql`
     query RelayRootQuery($userName: String!) {
         repositoryOwner(login: $userName) {
             ...UserWithReposFragment_user
@@ -33,16 +33,16 @@ export default function RelayRoot(props: { authToken: string }) {
     const { userName } = useParams<{ userName: string }>() ?? {};
     return (
         <RelayClientContext auth={props.authToken}>
-            <Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
                 <UserPageContent userName={userName!} />
             </Suspense>
         </RelayClientContext>
     );
 }
 
-function UserPageContent({ userName }: { userName: RelayRootQuery$variables['userName'] }) {
-    const data: RelayRootQuery$data = useLazyLoadQuery<RelayRootQuery>(
-        userQuery,
+function UserPageContent({ userName }: { userName: string }) {
+    const data = useLazyLoadQuery<RelayRootQuery>(
+        USER_WITH_REPOS_QUERY,
         { userName },
         {
             networkCacheConfig: {
@@ -55,12 +55,13 @@ function UserPageContent({ userName }: { userName: RelayRootQuery$variables['use
 
     console.log('rate limit info:', rateLimit);
 
-    if (!repositoryOwner)
+    if (!repositoryOwner) {
         return (
             <p>
-                User <strong>{userName}</strong> was not found!{' '}
+                User <strong>{userName}</strong> was not found!
             </p>
         );
+    }
 
     return (
         <>
