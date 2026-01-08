@@ -1,4 +1,5 @@
 import { Preview } from '@storybook/nextjs-vite';
+import { themes } from 'storybook/theming';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Provider } from 'components/ui/provider';
 
@@ -24,6 +25,7 @@ const preview: Preview = {
     parameters: {
         docs: {
             codePanel: true,
+            theme: themes.dark,
         },
 
         actions: { argTypesRegex: '^on.*' },
