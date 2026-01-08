@@ -27,7 +27,7 @@ interface Props {
     user: FragmentType<UserFragment_RepositoryOwnerFragment>;
 }
 
-export default function UserFragmentContainer(props: Props) {
+export default function UserFragment(props: Props) {
     const { user } = props;
     const { data, complete } = useFragment<UserFragment_RepositoryOwnerFragment>({
         fragment: UserFragment_repositoryOwner,
