@@ -1,49 +1,42 @@
 import { Meta } from '@storybook/nextjs-vite';
 
-import UserFragment, { STORY_QUERY } from './UserFragment';
-//import { GetUserWithReposQuery, GetUserWithReposQueryVariables } from '../app/apollo/__gen__/graphql';
-//import { USER_WITH_REPOS_QUERY } from '../app/apollo/[userName]/ApolloRoot';
-import { useQuery, useSuspenseQuery } from '@apollo/client/react';
-//import { graphql } from '../app/apollo/__gen__';
-//import { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
+import { useQuery } from '@apollo/client/react';
+import { FragmentType, gql } from '@apollo/client';
 
-//const user: FragmentType<UserFragment_RepositoryOwnerFragment> = {};
+import UserFragment, { UserFragment_repositoryOwner } from './UserFragment';
+import { UserFragment_RepositoryOwnerFragment, UserFragmentStoryQueryQuery } from '../app/apollo/__gen__/graphql';
+
+const STORY_QUERY = gql`
+    query UserFragmentStoryQuery {
+        repositoryOwner(login: "test-id") {
+            ... on RepositoryOwner {
+                ...UserFragment_repositoryOwner
+            }
+        }
+        ${UserFragment_repositoryOwner}
+    }
+`;
 
 const meta: Meta<typeof UserFragment> = {
     component: UserFragment,
-    decorators: [
-        (Story) => {
-            console.error('decorators');
-
-            const { error, data, loading } = useQuery(STORY_QUERY);
-
-            if (loading) return <div> loading data</div>;
-            if (error) return <div>Error loading user data: {error.message}</div>;
-            if (!data) return <div>,no data...</div>;
-
-            console.error(data);
-
-            const { node } = data;
-            if (!node) {
-                return (
-                    <>
-                        User <strong>Username</strong> was not found! <Story />
-                    </>
-                );
-            }
-
-            return (
-                <>
-                    <Story userName={'test-idsss'} data={data} />
-                </>
-            );
-        },
-    ],
 };
+
 export default meta;
 
 export const WithoutAvatar = {
+    args: {
+        login: 'test-id',
+    },
+    render: function Render() {
+        const { error, data, loading } = useQuery<UserFragmentStoryQueryQuery>(STORY_QUERY);
+        if (loading) return <div>loading</div>;
+        if (error) return <div>error: {error.message}</div>;
+        if (!data) return <div>no entry found.</div>;
+        const user: FragmentType<UserFragment_RepositoryOwnerFragment> = data.repositoryOwner!;
+        return <UserFragment user={user} />;
+    },
     parameters: {
+        fragmentQuery: STORY_QUERY,
         apolloClient: {
             mocks: [
                 {
@@ -51,16 +44,23 @@ export const WithoutAvatar = {
                         query: STORY_QUERY,
                     },
                     result: {
+                        //LATER: testing Error state:
                         //error: new Error('This is a mock network error'),
                         data: {
-                            node: {
-                                id: 'test-id',
-                                login: 'test-id',
-                                company: 'company',
+                            repositoryOwner: {
                                 __typename: 'User',
-                                //' $fragmentType': 'UserFragment_repositoryOwner',
+                                ' $fragmentRefs': {
+                                    UserFragment_RepositoryOwner_User_Fragment: {
+                                        ' $fragmentName': 'UserFragment_RepositoryOwner_User_Fragment',
+                                        //      __typename: 'User',
+                                        id: 'test-id',
+                                        login: 'test-id',
+                                        company: 'company',
+                                        avatarUrl: 'https://avatars2.githubusercontent.com/u/217931',
+                                    },
+                                },
                             },
-                        },
+                        } satisfies UserFragmentStoryQueryQuery,
                     },
                 },
             ],
