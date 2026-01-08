@@ -1,4 +1,6 @@
 import { graphql, useFragment } from 'react-relay';
+import { Link } from '@chakra-ui/react';
+
 import { type DoMergePR } from 'relay/PullRequestMerge';
 
 import {
@@ -33,9 +35,9 @@ export default function PullRequestInfoFragment({
 
     return (
         <>
-            <a href={data.url} title={data.title}>
+            <Link href={data.url} title={data.title} variant="underline">
                 PR #{data.number}
-            </a>
+            </Link>
             <MergeButtonWithErrorStatus doMergePR={doMergePR} />
         </>
     );

@@ -28,9 +28,9 @@ export function CommitterInfo({ author }: { author: UserOrCommitAuthor }) {
                 </Link>
             )}
             {isGithubCommitAuthor(author) && (
-                <a href={'mailto:' + author.email} rel="noopener noreferrer nofollow">
+                <Link href={'mailto:' + author.email} rel="noopener noreferrer nofollow" variant="underline">
                     {author.name ?? '?'}
-                </a>
+                </Link>
             )}
         </>
     );

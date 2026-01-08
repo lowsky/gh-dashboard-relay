@@ -8,7 +8,7 @@ import { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMer
 import useMergePR from './useMergePR';
 import { Spinner } from 'components/Spinner';
 
-export type DoMergePR = () => Promise<unknown | null>;
+export type DoMergePR = () => Promise<unknown>;
 
 type PullRequestInfoProps = {
     associatedPullRequest: PullRequestMergeFragment_ref$key;
@@ -47,8 +47,8 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
                         <FontAwesomeIcon icon={faCodePullRequest} />
                     </Icon>
                     <span>{number}</span>
-                    {mergeStateStatus && !isClean && <Text color="fg.muted">{mergeStateStatus}</Text>}
-                    {mergeStateStatus === 'UNKNOWN' && <Spinner size="xs" />}
+                    {mergeStateStatus && !isClean && !merged && <Text color="fg.muted">{mergeStateStatus}</Text>}
+                    {mergeStateStatus === 'UNKNOWN' && !merged && <Spinner size="xs" />}
                 </Link>
             ) : (
                 <span>
