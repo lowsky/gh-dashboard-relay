@@ -11,6 +11,7 @@ import InternalLink from 'components/InternalLink';
 
 import { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
 import { RepoListFragment_repo$key } from './__generated__/RepoListFragment_repo.graphql';
+import { RepoListPaginationQuery } from './__generated__/RepoListPaginationQuery.graphql';
 
 type Props = {
     user: RepoListFragment_user$key;
@@ -37,14 +38,12 @@ function RepoListFragment(props: Props) {
         }
     `;
 
-    // LATER:
-    // eslint-disable-next-line relay/generated-typescript-types
-    const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment(graphQLTaggedNode, props.user);
-
-    if (!data) return null;
+    const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment<
+        RepoListPaginationQuery,
+        RepoListFragment_user$key
+    >(graphQLTaggedNode, props.user);
 
     const { repositories } = data;
-    if (!repositories) return null;
 
     const { totalCount, edges } = repositories;
     if (!edges) return null;
@@ -60,8 +59,8 @@ function RepoListFragment(props: Props) {
                     if (!node) return null;
                     const isLastElement = edges.length - 1 == idx;
                     return isLastElement && hasNext ? (
-                        <InfiniteScrollTrigger onLoadMore={triggerNext}>
-                            <Suspense key={node?.['__id']} fallback={<Spinner />}>
+                        <InfiniteScrollTrigger key={node['__id']} onLoadMore={triggerNext}>
+                            <Suspense fallback={<Spinner />}>
                                 <RepoComponent repo={node} />
                             </Suspense>
                         </InfiniteScrollTrigger>
