@@ -19,7 +19,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
     parameters: {
         query: graphql`
             query PullRequestInfoFragmentStoryQuery @relay_test_operation {
@@ -44,4 +44,4 @@ export const Default: Story = {
             }),
         },
     } satisfies WithRelayParameters<PullRequestInfoFragmentStoryQuery>,
-};
+} satisfies Story;

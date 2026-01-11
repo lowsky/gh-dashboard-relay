@@ -11,7 +11,7 @@ import InternalLink from 'components/InternalLink';
 
 import UserWithReposFragment from './UserWithReposFragment';
 
-const USER_WITH_REPOS_QUERY = graphql`
+export const USER_WITH_REPOS_QUERY = graphql`
     query RelayRootQuery($userName: String!) {
         repositoryOwner(login: $userName) {
             ...UserWithReposFragment_user
@@ -40,7 +40,7 @@ export default function RelayRoot(props: { authToken: string }) {
     );
 }
 
-function UserPageContent({ userName }: { userName: string }) {
+export function UserPageContent({ userName }: { userName: string }) {
     const data = useLazyLoadQuery<RelayRootQuery>(
         USER_WITH_REPOS_QUERY,
         { userName },

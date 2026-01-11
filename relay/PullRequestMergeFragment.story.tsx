@@ -61,9 +61,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const Merged: Story = {
+export const Merged = {
     args: {
         associatedPullRequest: {
             ' $fragmentSpreads': {
@@ -81,9 +81,9 @@ export const Merged: Story = {
             }),
         } satisfies MockResolvers2,
     },
-};
+} satisfies Story;
 
-export const Draft: Story = {
+export const Draft = {
     parameters: {
         mockResolvers: {
             PullRequest: (): PullRequestMergeFragment_ref$data => ({
@@ -94,4 +94,4 @@ export const Draft: Story = {
             }),
         } satisfies MockResolvers2,
     },
-};
+} satisfies Story;

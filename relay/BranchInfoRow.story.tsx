@@ -5,6 +5,7 @@ import { graphql } from 'relay-runtime';
 import { relayDecorator, WithRelayParameters } from './relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
+import { Merged } from 'relay/PullRequestMergeFragment.story';
 import { BranchInfoRowFragment_ref$data } from './__generated__/BranchInfoRowFragment_ref.graphql';
 import { CommitWithStatuses_commit$data, StatusState } from './__generated__/CommitWithStatuses_commit.graphql';
 import { BranchInfoRowStoryQuery } from './__generated__/BranchInfoRowStoryQuery.graphql';
@@ -67,6 +68,7 @@ export const WithInfo = {
                 },
                 ' $fragmentType': 'CommitWithStatuses_commit',
             }),
+            PullRequest: Merged.parameters.mockResolvers.PullRequest,
             Ref: (): BranchInfoRowFragment_ref$data => ({
                 name: 'branch-x',
                 target: {
