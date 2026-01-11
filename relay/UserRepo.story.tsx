@@ -11,6 +11,7 @@ import { relayDecorator } from './relayDecorator';
 const meta = {
     component: UserRepoPageContent,
     decorators: [relayDecorator],
+    tags: ['skipTesting', '!autodocs'],
 } satisfies Meta<typeof UserRepoPageContent>;
 export default meta;
 
