@@ -30,7 +30,6 @@ export const relayDecorator: DecoratorFunction = (Story, context) => {
         const Renderer = function RenderWithQuery() {
             // eslint-disable-next-line relay/generated-typescript-types
             const queryResult = useLazyLoadQuery(query, variables);
-            console.log(queryResult);
 
             const entries = getReferenceEntries ? getReferenceEntries(queryResult) : [getReferenceEntry(queryResult)];
             Object.assign(context.args, Object.fromEntries(entries));

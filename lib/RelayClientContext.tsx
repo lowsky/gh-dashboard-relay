@@ -1,10 +1,17 @@
 import { ReactNode } from 'react';
 
-import { RelayEnvironmentProvider } from 'react-relay/hooks';
+import { RelayEnvironmentProvider, useRelayEnvironment } from 'react-relay/hooks';
 import { getCurrentEnvironment } from './relay';
 
+/**
+ * If this is already wrapped in a relay context - then re-using it, instead of creating a new env.
+ *
+ * (This is helpful, to be used in storybook, when relay-specific stories are decorated with a
+ * relay-decorator
+ */
 export default function RelayClientContext({ auth, children }: { auth: string; children: ReactNode }) {
-    const environment = getCurrentEnvironment(auth);
+    const env = useRelayEnvironment();
+    const environment = env ?? getCurrentEnvironment(auth);
 
     /*
     Type error: Type 'React.ReactNode' is not assignable to type 'import("/Users/hostlows/github/relay-gh-cockpit/node_modules/@types/react-relay/node_modules/@types/react/index").ReactNode'.

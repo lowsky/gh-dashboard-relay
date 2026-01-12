@@ -6,7 +6,10 @@ import { relayDecorator, WithRelayParameters } from './relayDecorator';
 
 import PullRequestMerge from 'relay/PullRequestMerge';
 import { PullRequestMergeFragmentStoryQuery } from './__generated__/PullRequestMergeFragmentStoryQuery.graphql';
-import { PullRequestMergeFragment_ref$data } from 'relay/__generated__/PullRequestMergeFragment_ref.graphql';
+import {
+    PullRequestMergeFragment_ref$data,
+    PullRequestMergeFragment_ref$key,
+} from 'relay/__generated__/PullRequestMergeFragment_ref.graphql';
 
 const prMock = {
     ' $fragmentType': 'PullRequestMergeFragment_ref',
@@ -27,9 +30,16 @@ const prMock = {
 // experimental approach for additional type-safety on resolvers
 type MockResolvers2 = MockResolvers<{ PullRequest: MockResolver<PullRequestMergeFragment_ref$data> }>;
 
-const meta: Meta<typeof PullRequestMerge> = {
+const meta = {
     component: PullRequestMerge,
     decorators: [relayDecorator],
+    args: {
+        associatedPullRequest: {
+            ' $fragmentSpreads': {
+                PullRequestMergeFragment_ref: true,
+            },
+        } satisfies PullRequestMergeFragment_ref$key, // could be empty, not relevant for rendering
+    },
     parameters: {
         query: graphql`
             query PullRequestMergeFragmentStoryQuery @relay_test_operation {
@@ -45,15 +55,22 @@ const meta: Meta<typeof PullRequestMerge> = {
             PullRequest: () => prMock,
         },
     } satisfies WithRelayParameters<PullRequestMergeFragmentStoryQuery, MockResolvers2>,
-};
+} satisfies Meta<typeof PullRequestMerge>;
 
 export default meta;
 
-type Story = StoryObj<typeof PullRequestMerge>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const Merged: Story = {
+export const Merged = {
+    args: {
+        associatedPullRequest: {
+            ' $fragmentSpreads': {
+                PullRequestMergeFragment_ref: true,
+            },
+        } satisfies PullRequestMergeFragment_ref$key, // could be empty, not relevant for rendering
+    },
     parameters: {
         mockResolvers: {
             PullRequest: (): PullRequestMergeFragment_ref$data => ({
@@ -64,9 +81,9 @@ export const Merged: Story = {
             }),
         } satisfies MockResolvers2,
     },
-};
+} satisfies Story;
 
-export const Draft: Story = {
+export const Draft = {
     parameters: {
         mockResolvers: {
             PullRequest: (): PullRequestMergeFragment_ref$data => ({
@@ -77,4 +94,4 @@ export const Draft: Story = {
             }),
         } satisfies MockResolvers2,
     },
-};
+} satisfies Story;

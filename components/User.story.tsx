@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import User from './User';
 
-const meta: Meta<typeof User> = {
+const meta = {
     component: User,
-};
+} satisfies Meta<typeof User>;
 
 export default meta;
 
-type Story = StoryObj<typeof User>;
+type Story = StoryObj<typeof meta>;
 
 export const WithoutAvatar: Story = {
     args: {
@@ -21,7 +21,7 @@ export const WithoutAvatar: Story = {
 export const WithAvatar: Story = {
     args: {
         user: {
-            ...WithoutAvatar.args!.user,
+            ...WithoutAvatar.args.user,
             avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
         },
     },

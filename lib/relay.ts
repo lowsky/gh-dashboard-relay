@@ -69,11 +69,11 @@ function createNetwork(auth?: string) {
         const isQuery = params.operationKind === 'query';
         const cacheKey = params.id ?? params.cacheID;
 
-        const forceFetch = cacheConfig && cacheConfig.force;
+        const forceFetch = cacheConfig?.force;
         if (responseCache != null && isQuery && !forceFetch) {
             const fromCache = responseCache.get(cacheKey, variables);
             if (fromCache != null) {
-                return Promise.resolve(fromCache);
+                return fromCache;
             }
         }
 
