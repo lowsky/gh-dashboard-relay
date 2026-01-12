@@ -23,6 +23,12 @@ export default [
     ...ts.configs.recommended,
     ...storybookPlugin.configs['flat/csf-strict'],
     {
+        rules: {
+            /* ignoring rule, to be able to rename the title of the stories */
+            'storybook/no-title-property-in-meta': 0,
+        },
+    },
+    {
         // also work on typescript files with extensions tsx
         files: ['**/*.{js,jsx,ts,tsx}'],
         processor: graphqlPlugin.processor,
