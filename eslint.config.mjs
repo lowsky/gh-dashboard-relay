@@ -54,8 +54,8 @@ export default [
         },
     },
     {
-        // TEMP: until all sources got fixed
-        rules: { '@typescript-eslint/no-explicit-any': 'off' },
+        rules: {
+        },
     },
     prettierConfigRecommended,
     {

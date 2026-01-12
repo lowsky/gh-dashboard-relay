@@ -7,9 +7,9 @@ import { PartialDeep } from 'type-fest';
 
 type Primitive = null | undefined | string | number | boolean | symbol | bigint;
 
-type ResolverReturnType<T> = T extends { resolve: infer U }
+type ResolverReturnType<T> = T extends { resolve: () => infer U }
     ? ResolverReturnType<U>
-    : T extends (...args: any[]) => infer U
+    : T extends (...args: unknown[]) => infer U
       ? U
       : never;
 
@@ -25,7 +25,7 @@ type InferMockResolverFieldReturnType<T> = {
 
 export type InferMockResolvers<T> = T extends object
     ? T extends infer U
-        ? U extends (...args: any[]) => any
+        ? U extends (...args: unknown[]) => unknown
             ? never
             : U extends object
               ? {
