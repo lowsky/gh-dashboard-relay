@@ -61,7 +61,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default = {} satisfies Story;
+export const Default = {
+    // Even while it is the same as in the meta area, it will be repeating here,
+    // to make it re-usable in other stories
+    parameters: {
+        ...meta.parameters,
+    },
+} satisfies Story;
 
 export const Merged = {
     args: {

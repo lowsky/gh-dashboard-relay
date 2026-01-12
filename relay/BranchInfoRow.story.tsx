@@ -1,12 +1,15 @@
-import { Decorator, Meta } from '@storybook/nextjs-vite';
+import { Decorator, Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
 import { relayDecorator, WithRelayParameters } from './relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
-import { Merged } from 'relay/PullRequestMergeFragment.story';
-import { BranchInfoRowFragment_ref$data } from './__generated__/BranchInfoRowFragment_ref.graphql';
+import { Default } from 'relay/PullRequestMergeFragment.story';
+import {
+    BranchInfoRowFragment_ref$data,
+    BranchInfoRowFragment_ref$key,
+} from './__generated__/BranchInfoRowFragment_ref.graphql';
 import { CommitWithStatuses_commit$data, StatusState } from './__generated__/CommitWithStatuses_commit.graphql';
 import { BranchInfoRowStoryQuery } from './__generated__/BranchInfoRowStoryQuery.graphql';
 
@@ -27,7 +30,17 @@ const meta = {
 
 export default meta;
 
+type Story = StoryObj<typeof meta>;
+
 export const WithInfo = {
+    // to satisfy the Story type
+    args: {
+        branch: {
+            ' $fragmentSpreads': {
+                BranchInfoRowFragment_ref: true,
+            },
+        } satisfies BranchInfoRowFragment_ref$key, // could be empty, not relevant for rendering
+    },
     parameters: {
         query: graphql`
             query BranchInfoRowStoryQuery @relay_test_operation {
@@ -68,7 +81,7 @@ export const WithInfo = {
                 },
                 ' $fragmentType': 'CommitWithStatuses_commit',
             }),
-            PullRequest: Merged.parameters.mockResolvers.PullRequest,
+            PullRequest: Default.parameters.mockResolvers.PullRequest,
             Ref: (): BranchInfoRowFragment_ref$data => ({
                 name: 'branch-x',
                 target: {
@@ -78,6 +91,8 @@ export const WithInfo = {
                 },
                 associatedPullRequests: {
                     edges: [
+                        // have at least one entry:
+                        // it will be replaced by the PR mock above
                         {
                             node: {
                                 id: 'abc',
@@ -92,4 +107,4 @@ export const WithInfo = {
             }),
         },
     } satisfies WithRelayParameters<BranchInfoRowStoryQuery>,
-};
+} satisfies Story;
