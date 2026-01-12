@@ -9,12 +9,13 @@ import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
 
 import styles from './CommitWithStatuses.module.css';
+import { FC } from 'react';
 
 interface CommitWithStatusesProps {
     commit: CommitWithStatuses_commit$data;
 }
 
-const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
+const CommitWithStatuses: FC<CommitWithStatusesProps> = ({ commit }) => {
     const { author, commitUrl, authoredDate = '-?-', message = '-?-', status } = commit;
 
     const firstLineOfMessage = message?.split('\n\n', 1);

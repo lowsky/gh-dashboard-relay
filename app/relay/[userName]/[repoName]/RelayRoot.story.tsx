@@ -23,7 +23,7 @@ export const Default = {
     parameters: {
         mockResolvers: {
             // the branch itself is of type "Ref":
-            Ref: WithInfo.parameters!.mockResolvers.Ref,
+            Ref: WithInfo.parameters.mockResolvers.Ref,
             PullRequest: WithOneBranch.parameters.mockResolvers.PullRequest,
             Repository: () =>
                 ({

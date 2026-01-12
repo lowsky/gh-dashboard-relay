@@ -3,13 +3,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Flex, Heading, Icon, Link } from '@chakra-ui/react';
+import { FC } from 'react';
 
 interface RepoProps {
     userName?: string;
     repoName?: string;
 }
 
-const Repo: React.FC<RepoProps> = ({ userName = 'unknown', repoName = 'unknown' }) => {
+const Repo: FC<RepoProps> = ({ userName = 'unknown', repoName = 'unknown' }) => {
     return (
         <Flex align="center" gap={1}>
             <Heading>Repository</Heading>

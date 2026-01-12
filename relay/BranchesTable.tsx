@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { Table } from '@chakra-ui/react';
 import { Button } from '../components/ui/button';
 
@@ -7,7 +7,7 @@ interface BranchesTableProps {
     refetch?: () => void;
 }
 
-const BranchesTable: React.FC<BranchesTableProps> = ({ children, refetch }) => {
+const BranchesTable: FC<BranchesTableProps> = ({ children, refetch }) => {
     return (
         <>
             <Button onClick={() => refetch?.()} disabled={!refetch}>

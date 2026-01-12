@@ -5,6 +5,7 @@ import { Flex } from '@chakra-ui/react';
 
 import ChakraUIWrapper from './ChakraUIWrapper';
 import { NavBar } from 'components/NavBar';
+import { ReactNode } from 'react';
 
 // If loading a variable font, you don't need to specify the font weight.
 const inter = Inter({
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     icons: '/favicon.ico',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" className={inter.className} suppressHydrationWarning>
             <body>
