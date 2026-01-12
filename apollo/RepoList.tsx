@@ -1,10 +1,11 @@
-import { gql, TypedDocumentNode } from '@apollo/client';
+import type { TypedDocumentNode } from '@apollo/client';
+import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
+import type { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
 
 import { Ul } from 'components/ChakraMdxProvider';
 import { Spinner } from 'components/Spinner';

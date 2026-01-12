@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 import { Flex } from '@chakra-ui/react';
 
-import {
+import type {
     RelayRootRepoQuery,
     RelayRootRepoQuery$data,
     RelayRootRepoQuery$variables,

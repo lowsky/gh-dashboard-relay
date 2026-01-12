@@ -9,9 +9,9 @@ import { Spinner } from 'components/Spinner';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 import InternalLink from 'components/InternalLink';
 
-import { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
-import { RepoListFragment_repo$key } from './__generated__/RepoListFragment_repo.graphql';
-import { RepoListPaginationQuery } from './__generated__/RepoListPaginationQuery.graphql';
+import type { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
+import type { RepoListFragment_repo$key } from './__generated__/RepoListFragment_repo.graphql';
+import type { RepoListPaginationQuery } from './__generated__/RepoListPaginationQuery.graphql';
 
 type Props = {
     user: RepoListFragment_user$key;

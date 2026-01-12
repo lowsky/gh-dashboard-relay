@@ -1,12 +1,13 @@
-import { Meta } from '@storybook/nextjs-vite';
+import type { Meta } from '@storybook/nextjs-vite';
 
 import { graphql } from 'react-relay';
 
-import { relayDecorator, WithRelayParameters } from './relayDecorator';
+import type { WithRelayParameters } from './relayDecorator';
+import { relayDecorator } from './relayDecorator';
 
 import UserFragment from '../relay/UserFragment';
-import { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
-import { UserFragmentStoryQuery } from './__generated__/UserFragmentStoryQuery.graphql';
+import type { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
+import type { UserFragmentStoryQuery } from './__generated__/UserFragmentStoryQuery.graphql';
 
 const meta = {
     component: UserFragment,

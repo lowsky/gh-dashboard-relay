@@ -55,6 +55,7 @@ export default [
     },
     {
         rules: {
+            '@typescript-eslint/consistent-type-imports': 'warn' ,
         },
     },
     prettierConfigRecommended,

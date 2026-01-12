@@ -1,6 +1,7 @@
+import type { FC } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
+import type { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
 
 import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { Spinner } from '../Spinner';
@@ -9,7 +10,6 @@ import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
 
 import styles from './CommitWithStatuses.module.css';
-import { FC } from 'react';
 
 interface CommitWithStatusesProps {
     commit: CommitWithStatuses_commit$data;

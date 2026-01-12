@@ -1,4 +1,4 @@
-import { GithubStatus, Maybe } from './githubStatus';
+import type { GithubStatus, Maybe } from './githubStatus';
 
 /**
  * Remove duplicate entries of states:

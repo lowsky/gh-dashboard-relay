@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 import { Table } from '@chakra-ui/react';
 import { Button } from '../components/ui/button';
 

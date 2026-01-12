@@ -2,13 +2,14 @@
 
 import { Suspense } from 'react';
 import { useParams } from 'next/navigation';
-import { gql, TypedDocumentNode } from '@apollo/client';
+import type { TypedDocumentNode } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import { useSuspenseQuery } from '@apollo/client/react';
 
 import { UserWithReposFragment_repositoryOwner } from './UserWithReposFragment';
 
-import { GetUserWithReposQuery, GetUserWithReposQueryVariables } from '../__gen__/graphql';
+import type { GetUserWithReposQuery, GetUserWithReposQueryVariables } from '../__gen__/graphql';
 
 import ApolloClientContext from 'lib/ApolloClientContext';
 import InternalLink from 'components/InternalLink';

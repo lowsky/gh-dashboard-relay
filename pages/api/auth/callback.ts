@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function callback(req: NextApiRequest, res: NextApiResponse) {
     const code = req.query.code as string;

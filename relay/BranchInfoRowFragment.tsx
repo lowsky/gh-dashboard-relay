@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { graphql, useFragment } from 'react-relay';
 import { Link, Table, VStack } from '@chakra-ui/react';
 
-import {
+import type {
     BranchInfoRowFragment_ref$data,
     BranchInfoRowFragment_ref$key,
 } from './__generated__/BranchInfoRowFragment_ref.graphql';
@@ -12,7 +12,7 @@ import PullRequestMerge from 'relay/PullRequestMerge';
 
 import { Spinner } from 'components/Spinner';
 import { ClipboardIconButton, ClipboardRoot } from 'components/ui/clipboard';
-import { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
+import type { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
 
 export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRowFragment_ref$key }) {
     const { name, target, associatedPullRequests } = useFragment<BranchInfoRowFragment_ref$key>(

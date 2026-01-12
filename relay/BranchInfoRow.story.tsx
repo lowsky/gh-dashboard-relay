@@ -1,17 +1,18 @@
-import { Decorator, Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Decorator, Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
-import { relayDecorator, WithRelayParameters } from './relayDecorator';
+import type { WithRelayParameters } from './relayDecorator';
+import { relayDecorator } from './relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
 import { Default } from 'relay/PullRequestMergeFragment.story';
-import {
+import type {
     BranchInfoRowFragment_ref$data,
     BranchInfoRowFragment_ref$key,
 } from './__generated__/BranchInfoRowFragment_ref.graphql';
-import { CommitWithStatuses_commit$data, StatusState } from './__generated__/CommitWithStatuses_commit.graphql';
-import { BranchInfoRowStoryQuery } from './__generated__/BranchInfoRowStoryQuery.graphql';
+import type { CommitWithStatuses_commit$data, StatusState } from './__generated__/CommitWithStatuses_commit.graphql';
+import type { BranchInfoRowStoryQuery } from './__generated__/BranchInfoRowStoryQuery.graphql';
 
 import moreStatus from '../components/CommitWithStatuses/lastCommitMock.json';
 

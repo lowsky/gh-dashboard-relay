@@ -1,12 +1,13 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { graphql } from 'relay-runtime';
-import { MockResolver, MockResolvers } from 'relay-test-utils';
+import type { MockResolver, MockResolvers } from 'relay-test-utils';
 
-import { relayDecorator, WithRelayParameters } from './relayDecorator';
+import type { WithRelayParameters } from './relayDecorator';
+import { relayDecorator } from './relayDecorator';
 
 import PullRequestMerge from 'relay/PullRequestMerge';
-import { PullRequestMergeFragmentStoryQuery } from './__generated__/PullRequestMergeFragmentStoryQuery.graphql';
-import {
+import type { PullRequestMergeFragmentStoryQuery } from './__generated__/PullRequestMergeFragmentStoryQuery.graphql';
+import type {
     PullRequestMergeFragment_ref$data,
     PullRequestMergeFragment_ref$key,
 } from 'relay/__generated__/PullRequestMergeFragment_ref.graphql';

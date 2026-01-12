@@ -2,8 +2,8 @@
  * https://github.com/iamchanii/storybook-addon-relay/blob/main/src/decorators/types.ts
  */
 
-import { MockPayloadGenerator } from 'relay-test-utils';
-import { PartialDeep } from 'type-fest';
+import type { MockPayloadGenerator } from 'relay-test-utils';
+import type { PartialDeep } from 'type-fest';
 
 type Primitive = null | undefined | string | number | boolean | symbol | bigint;
 

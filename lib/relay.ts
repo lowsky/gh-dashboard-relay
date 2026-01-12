@@ -1,16 +1,5 @@
-import {
-    CacheConfig,
-    Environment,
-    GraphQLResponse,
-    IEnvironment,
-    INetwork,
-    Network,
-    QueryResponseCache,
-    RecordSource,
-    RequestParameters,
-    Store,
-    Variables,
-} from 'relay-runtime';
+import type { CacheConfig, GraphQLResponse, IEnvironment, INetwork, RequestParameters, Variables } from 'relay-runtime';
+import { Environment, Network, QueryResponseCache, RecordSource, Store } from 'relay-runtime';
 
 const CACHE_TTL = 5 * 1000; // 5 seconds, to resolve preloaded results
 

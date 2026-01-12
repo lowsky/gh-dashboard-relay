@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 
 import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
-import { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
+import type { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
 import useMergePR from './useMergePR';
 import { Spinner } from 'components/Spinner';
 

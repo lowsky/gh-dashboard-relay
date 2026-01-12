@@ -5,7 +5,7 @@ import { Button, Icon } from '@chakra-ui/react';
 import { faCheck, faExclamationTriangle, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { DoMergePR } from 'relay/PullRequestMerge';
+import type { DoMergePR } from 'relay/PullRequestMerge';
 
 import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverBody } from './ui/popover';
 

@@ -1,7 +1,7 @@
 import { Box, Image, Link } from '@chakra-ui/react';
 
 import styles from './CommitWithStatuses.module.css';
-import { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from './githubStatus';
+import type { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from './githubStatus';
 
 export function CommitterInfo({ author }: { author: UserOrCommitAuthor }) {
     if (!author) return null;

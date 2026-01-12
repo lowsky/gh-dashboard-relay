@@ -1,8 +1,10 @@
 'use client';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
-import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import { Link, LinkProps } from '@chakra-ui/react';
+import type { LinkProps as NextLinkProps } from 'next/link';
+import NextLink from 'next/link';
+import type { LinkProps } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 
 export default function InternalLink({
     prefetch = false,

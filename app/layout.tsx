@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import { Flex } from '@chakra-ui/react';
 
 import ChakraUIWrapper from './ChakraUIWrapper';
 import { NavBar } from 'components/NavBar';
-import { ReactNode } from 'react';
 
 // If loading a variable font, you don't need to specify the font weight.
 const inter = Inter({

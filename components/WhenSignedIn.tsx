@@ -1,6 +1,6 @@
 'use server'; // we are using cookies, only use on server side!
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { cookies } from 'next/headers';
 
 interface Props {

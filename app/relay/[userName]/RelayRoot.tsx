@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
 
-import { RelayRootQuery } from './__generated__/RelayRootQuery.graphql';
+import type { RelayRootQuery } from './__generated__/RelayRootQuery.graphql';
 import RelayClientContext from 'lib/RelayClientContext';
 
 import InternalLink from 'components/InternalLink';

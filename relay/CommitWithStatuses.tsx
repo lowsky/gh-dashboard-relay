@@ -2,7 +2,7 @@
 import { graphql, useFragment } from 'react-relay';
 
 import CommitWithStatus from 'components/CommitWithStatuses/CommitWithStatuses';
-import {
+import type {
     CommitWithStatuses_commit$data,
     CommitWithStatuses_commit$key,
 } from './__generated__/CommitWithStatuses_commit.graphql';

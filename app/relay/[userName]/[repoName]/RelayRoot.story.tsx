@@ -1,10 +1,10 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import RelayRoot from './RelayRoot';
 import { relayDecorator } from 'relay/relayDecorator';
 import { WithInfo } from 'relay/BranchInfoRow.story';
 import { WithAvatar } from 'relay/UserFragment.story';
-import { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
+import type { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
 import { WithOneBranch } from 'relay/BranchesTable.story';
 
 const meta = {

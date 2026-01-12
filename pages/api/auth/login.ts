@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function login(_req: NextApiRequest, res: NextApiResponse) {
     const gh_oauth_app_url =

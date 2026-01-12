@@ -1,10 +1,11 @@
+import type { FC } from 'react';
+
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
 import { Status } from './Status';
 
-import { GithubStatus } from './githubStatus';
+import type { GithubStatus } from './githubStatus';
 
 import styles from './CommitWithStatuses.module.css';
-import { FC } from 'react';
 
 type Maybe<T> = T | null;
 

@@ -1,11 +1,12 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { graphql } from 'relay-runtime';
 
-import { relayDecorator, WithRelayParameters } from './relayDecorator';
+import type { WithRelayParameters } from './relayDecorator';
+import { relayDecorator } from './relayDecorator';
 
 import PullRequestInfoFragment from 'relay/PullRequestInfo';
-import { PullRequestInfoFragmentStoryQuery } from './__generated__/PullRequestInfoFragmentStoryQuery.graphql';
-import { PullRequestInfo_pullRequest$data } from 'relay/__generated__/PullRequestInfo_pullRequest.graphql';
+import type { PullRequestInfoFragmentStoryQuery } from './__generated__/PullRequestInfoFragmentStoryQuery.graphql';
+import type { PullRequestInfo_pullRequest$data } from 'relay/__generated__/PullRequestInfo_pullRequest.graphql';
 
 const meta = {
     component: PullRequestInfoFragment,

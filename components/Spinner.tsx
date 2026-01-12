@@ -1,6 +1,7 @@
 'use client';
 
-import { Flex, Text, SpinnerProps, Spinner as ChakraSpinner } from '@chakra-ui/react';
+import type { SpinnerProps } from '@chakra-ui/react';
+import { Flex, Text, Spinner as ChakraSpinner } from '@chakra-ui/react';
 type Props = SpinnerProps & { label?: string };
 
 export const Spinner = ({ size, label }: Props) => (

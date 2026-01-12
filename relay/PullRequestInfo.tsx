@@ -3,7 +3,7 @@ import { Link } from '@chakra-ui/react';
 
 import { type DoMergePR } from 'relay/PullRequestMerge';
 
-import {
+import type {
     PullRequestInfo_pullRequest$data,
     PullRequestInfo_pullRequest$key,
 } from './__generated__/PullRequestInfo_pullRequest.graphql';

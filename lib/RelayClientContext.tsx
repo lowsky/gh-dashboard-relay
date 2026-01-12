@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { RelayEnvironmentProvider, useRelayEnvironment } from 'react-relay/hooks';
 import { getCurrentEnvironment } from './relay';

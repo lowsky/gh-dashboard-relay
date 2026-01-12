@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoot';
-import { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
-import { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
+import type { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
+import type { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
 import { WithInfo } from './BranchInfoRow.story';
 import { WithOneBranch } from './BranchesTable.story';
 

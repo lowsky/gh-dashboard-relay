@@ -1,7 +1,7 @@
 import { graphql, useMutation } from 'react-relay';
-import { PayloadError } from 'relay-runtime';
+import type { PayloadError } from 'relay-runtime';
 
-import { useMergePRMutation, useMergePRMutation$data } from './__generated__/useMergePRMutation.graphql';
+import type { useMergePRMutation, useMergePRMutation$data } from './__generated__/useMergePRMutation.graphql';
 
 const MergePRMutation = graphql`
     mutation useMergePRMutation($input: MergePullRequestInput!) {

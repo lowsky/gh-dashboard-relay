@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { relayDecorator } from 'relay/relayDecorator';
 
 import RelayRoot from './RelayRoot';
-import { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
-import { RepoListFragment_user$data } from 'relay/__generated__/RepoListFragment_user.graphql';
-import { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
+import type { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
+import type { RepoListFragment_user$data } from 'relay/__generated__/RepoListFragment_user.graphql';
+import type { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
 
 const meta = {
     title: 'relay/user page',

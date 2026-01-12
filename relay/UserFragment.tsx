@@ -1,6 +1,6 @@
 import { graphql, useFragment } from 'react-relay';
 
-import { UserFragment_user$data, UserFragment_user$key } from './__generated__/UserFragment_user.graphql';
+import type { UserFragment_user$data, UserFragment_user$key } from './__generated__/UserFragment_user.graphql';
 import User from '../components/User';
 
 const userFragment = graphql`

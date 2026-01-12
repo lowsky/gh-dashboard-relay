@@ -1,9 +1,9 @@
 'use client';
 
+import type { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Flex, Heading, Icon, Link } from '@chakra-ui/react';
-import { FC } from 'react';
 
 interface RepoProps {
     userName?: string;

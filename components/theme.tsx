@@ -1,4 +1,5 @@
-import { createSystem, defineConfig, defaultConfig, SystemConfig, defineRecipe } from '@chakra-ui/react';
+import type { SystemConfig } from '@chakra-ui/react';
+import { createSystem, defineConfig, defaultConfig, defineRecipe } from '@chakra-ui/react';
 
 const headingRecipe = defineRecipe({
     base: {

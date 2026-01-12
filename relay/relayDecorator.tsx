@@ -1,8 +1,10 @@
-import { GraphQLTaggedNode, OperationDescriptor, RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay';
-import { GraphQLSingularResponse, OperationType } from 'relay-runtime';
-import { createMockEnvironment, MockPayloadGenerator, MockResolvers } from 'relay-test-utils';
-import { DecoratorFunction } from 'storybook/internal/types';
-import { InferMockResolvers } from './relayStorybookTypes';
+import type { GraphQLTaggedNode, OperationDescriptor } from 'react-relay';
+import { RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay';
+import type { GraphQLSingularResponse, OperationType } from 'relay-runtime';
+import type { MockResolvers } from 'relay-test-utils';
+import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
+import type { DecoratorFunction } from 'storybook/internal/types';
+import type { InferMockResolvers } from './relayStorybookTypes';
 
 export const relayDecorator: DecoratorFunction = (Story, context) => {
     const {

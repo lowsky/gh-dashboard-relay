@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { graphql, useRefetchableFragment } from 'react-relay';
 
-import { RepoWithBranchListFragment_repo$key } from './__generated__/RepoWithBranchListFragment_repo.graphql';
-import { RepoWithBranchPaginationQuery } from './__generated__/RepoWithBranchPaginationQuery.graphql';
+import type { RepoWithBranchListFragment_repo$key } from './__generated__/RepoWithBranchListFragment_repo.graphql';
+import type { RepoWithBranchPaginationQuery } from './__generated__/RepoWithBranchPaginationQuery.graphql';
 import BranchesTable from 'relay/BranchesTable';
 import BranchInfoRowFragment, { SkeletonRow } from 'relay/BranchInfoRowFragment';
 
