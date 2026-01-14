@@ -85,7 +85,7 @@
     "@graphql-eslint/eslint-plugin": "4.4.0",
     "@graphql-tools/schema": "10.0.31",
     "@next/eslint-plugin-next": "^16.0.0",
-    "@parcel/watcher": "2.5.1",
+    "@parcel/watcher": "2.5.4",
     "@storybook/addon-a11y": "10.1.11",
     "@storybook/addon-docs": "10.1.11",
     "@storybook/addon-themes": "10.1.11",
