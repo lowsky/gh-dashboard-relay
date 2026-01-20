@@ -12,7 +12,7 @@ import { Spinner } from 'components/Spinner';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 import InternalLink from 'components/InternalLink';
 
-const REPOS_QUERY: TypedDocumentNode<GetRepositoriesQuery, GetRepositoriesQueryVariables> = gql`
+export const REPOS_QUERY: TypedDocumentNode<GetRepositoriesQuery, GetRepositoriesQueryVariables> = gql`
     query GetRepositories($login: String!, $after: String, $first: Int!) {
         repositoryOwner(login: $login) {
             login

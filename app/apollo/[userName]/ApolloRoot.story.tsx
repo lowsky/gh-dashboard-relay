@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { USER_WITH_REPOS_QUERY, UserPageContent } from './ApolloRoot';
-import { GetRepositoriesQuery, GetUserWithReposQuery } from '../__gen__/graphql';
+import type { GetRepositoriesQuery, GetUserWithReposQuery } from '../__gen__/graphql';
 import { REPOS_QUERY } from 'apollo/RepoList';
-import { Unmasked } from '@apollo/client/masking';
+import type { Unmasked } from '@apollo/client/masking';
 
 const meta: Meta<typeof UserPageContent> = {
     component: UserPageContent,
