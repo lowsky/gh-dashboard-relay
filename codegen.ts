@@ -35,7 +35,6 @@ const config: CodegenConfig = {
                 'app/apollo/**/*.graphql',
                 'apollo/**/*.tsx',
                 'apollo/**/*.graphql',
-                '!**/*.story*',
                 '!**/__generated_/**',
                 '!src',
             ],
