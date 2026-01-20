@@ -28,7 +28,7 @@ export const UserWithReposFragment_repositoryOwner: TypedDocumentNode<UserWithRe
 `;
 
 interface Props {
-    repositoryOwner: FragmentType<NoInfer<UserWithReposFragment_RepositoryOwnerFragment>>;
+    repositoryOwner: FragmentType<UserWithReposFragment_RepositoryOwnerFragment>;
 }
 
 export default function UserWithReposFragment(props: Props) {
