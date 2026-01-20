@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Preview } from '@storybook/nextjs-vite';
+import type { Preview } from '@storybook/nextjs-vite';
 import { themes } from 'storybook/theming';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Provider } from 'components/ui/provider';
 
 import { print } from 'graphql';
-import { MockLink } from '@apollo/client/testing';
+import type { MockLink } from '@apollo/client/testing';
 import { MockedProvider } from '@apollo/client/testing/react';
 import { addons } from 'storybook/internal/preview-api';
 import { EVENTS } from 'storybook-addon-apollo-client';

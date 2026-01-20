@@ -1,10 +1,10 @@
-import { Meta } from '@storybook/nextjs-vite';
+import type { Meta } from '@storybook/nextjs-vite';
 
 import { useQuery } from '@apollo/client/react';
-import { FragmentType, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import UserFragment, { UserFragment_repositoryOwner } from './UserFragment';
-import { UserFragment_RepositoryOwnerFragment, UserFragmentStoryQueryQuery } from '../app/apollo/__gen__/graphql';
+import type { UserFragment_RepositoryOwnerFragment, UserFragmentStoryQueryQuery } from '../app/apollo/__gen__/graphql';
 
 const STORY_QUERY = gql`
     query UserFragmentStoryQuery {
