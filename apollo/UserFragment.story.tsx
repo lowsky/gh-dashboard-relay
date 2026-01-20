@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client/react';
 import { gql } from '@apollo/client';
 
 import UserFragment, { UserFragment_repositoryOwner } from './UserFragment';
-import type { UserFragment_RepositoryOwnerFragment, UserFragmentStoryQueryQuery } from '../app/apollo/__gen__/graphql';
+import type { UserFragmentStoryQueryQuery } from '../app/apollo/__gen__/graphql';
 
 const STORY_QUERY = gql`
     query UserFragmentStoryQuery {
@@ -31,9 +31,9 @@ export const WithoutAvatar = {
         const { error, data, loading } = useQuery<UserFragmentStoryQueryQuery>(STORY_QUERY);
         if (loading) return <div>loading</div>;
         if (error) return <div>error: {error.message}</div>;
-        if (!data) return <div>no entry found.</div>;
-        const user: FragmentType<UserFragment_RepositoryOwnerFragment> = data.repositoryOwner!;
-        return <UserFragment user={user} />;
+        if (!data?.repositoryOwner) return <div>no entry found.</div>;
+
+        return <UserFragment user={data.repositoryOwner} />;
     },
     parameters: {
         fragmentQuery: STORY_QUERY,
