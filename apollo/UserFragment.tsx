@@ -24,7 +24,7 @@ export const UserFragment_repositoryOwner = gql`
 `;
 
 interface Props {
-    user: FragmentType<UserFragment_RepositoryOwnerFragment>;
+    user: FragmentType<NoInfer<UserFragment_RepositoryOwnerFragment>>;
 }
 
 export default function UserFragment(props: Props) {
