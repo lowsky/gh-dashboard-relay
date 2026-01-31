@@ -95,7 +95,7 @@
     "@types/react": "19.2.9",
     "@types/react-relay": "^18.2.0",
     "@types/relay-test-utils": "^19.0.0",
-    "@typescript-eslint/eslint-plugin": "8.53.1",
+    "@typescript-eslint/eslint-plugin": "8.54.0",
     "@vitest/browser-playwright": "^4.0.15",
     "@vitest/coverage-v8": "^4.0.15",
     "chromatic": "13.3.5",
@@ -121,7 +121,7 @@
     "storybook-addon-apollo-client": "10.0.0",
     "type-fest": "5.4.1",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.53.1",
+    "typescript-eslint": "8.54.0",
     "vercel": "50.9.6",
     "vite": "7.3.1",
     "vitest": "^4.0.15"
