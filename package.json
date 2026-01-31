@@ -71,7 +71,7 @@
   "devDependencies": {
     "@0no-co/graphqlsp": "1.15.2",
     "@chromatic-com/storybook": "5.0.0",
-    "@eslint/compat": "2.0.1",
+    "@eslint/compat": "2.0.2",
     "@eslint/js": "9.39.2",
     "@fortawesome/fontawesome-svg-core": "7.1.0",
     "@fortawesome/free-brands-svg-icons": "7.1.0",
@@ -122,7 +122,7 @@
     "type-fest": "5.4.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.53.1",
-    "vercel": "50.5.0",
+    "vercel": "50.9.6",
     "vite": "7.3.1",
     "vitest": "^4.0.15"
   },
