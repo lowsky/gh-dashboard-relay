@@ -32,6 +32,10 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
+          name: tool setup - vercel
+          # vercel might need update, asking for, and expects input, so simulating "yes"
+          command: echo y | yarn vercel -v
+      - run:
           name: Run setup
           command: yarn circle:setup
       - run:
