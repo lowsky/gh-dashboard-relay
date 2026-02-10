@@ -119,7 +119,7 @@
     "rxjs": "7.8.2",
     "storybook": "10.2.3",
     "storybook-addon-apollo-client": "10.0.0",
-    "type-fest": "5.4.3",
+    "type-fest": "5.4.4",
     "typescript": "5.9.3",
     "typescript-eslint": "8.55.0",
     "vercel": "^50.14.0",
