@@ -39,9 +39,6 @@ jobs:
           name: Run setup
           command: yarn circle:setup
       - run:
-          name: Run vercel link
-          command: yarn vercel link -y --debug --project gh-dashboard-relay -t $VERCEL_TOKEN
-      - run:
           name: Run vercel build
           command: yarn vercel build -y  # upgrade if needed without waiting for user input
       - run:
