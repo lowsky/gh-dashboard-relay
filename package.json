@@ -19,7 +19,7 @@
   "engines": {},
   "scripts": {
     "dev": "next dev",
-    "circle:setup": "vercel link -y --repo --debug --project gh-dashboard-relay -t $VERCEL_TOKEN ; vercel -t $VERCEL_TOKEN pull",
+    "circle:setup": "vercel link -y --debug --project gh-dashboard-relay -t $VERCEL_TOKEN ; vercel -t $VERCEL_TOKEN pull",
     "circle:deploy": "vercel -y -t $VERCEL_TOKEN deploy --prebuilt",
     "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
@@ -122,7 +122,7 @@
     "type-fest": "5.4.4",
     "typescript": "5.9.3",
     "typescript-eslint": "8.55.0",
-    "vercel": "50.22.0",
+    "vercel": "50.22.1",
     "vite": "7.3.1",
     "vitest": "4.0.18"
   },

@@ -40,7 +40,7 @@ jobs:
           command: yarn circle:setup
       - run:
           name: Run vercel build
-          command: echo Y | yarn vercel build  # upgrade if needed without waiting for user input
+          command: yarn vercel build -y  # upgrade if needed without waiting for user input
       - run:
           name: Run ls
           command: ls -la ~/project
