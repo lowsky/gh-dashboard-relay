@@ -1925,13 +1925,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/client-preset-swc-plugin@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@graphql-codegen/client-preset-swc-plugin@npm:0.2.0"
-  checksum: 10c0/2717092a1b2f0fc101570579ac779ca666bd22944832c59c620517c844559532624795ad32f19ed9bd75915de65c7eed4920042f8a6a5efb7a97b296a8b49433
-  languageName: node
-  linkType: hard
-
 "@graphql-codegen/client-preset@npm:5.2.3":
   version: 5.2.3
   resolution: "@graphql-codegen/client-preset@npm:5.2.3"
@@ -8101,7 +8094,6 @@ __metadata:
     "@fortawesome/react-fontawesome": "npm:3.2.0"
     "@graphql-codegen/cli": "npm:6.1.2"
     "@graphql-codegen/client-preset": "npm:5.2.3"
-    "@graphql-codegen/client-preset-swc-plugin": "npm:0.2.0"
     "@graphql-codegen/fragment-matcher": "npm:6.0.0"
     "@graphql-codegen/typescript-operations": "npm:5.0.8"
     "@graphql-codegen/typescript-react-apollo": "npm:4.4.0"
