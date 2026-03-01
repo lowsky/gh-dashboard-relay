@@ -1,94 +1,12 @@
-import { useEffect } from 'react';
-import type { Preview } from '@storybook/nextjs-vite';
+import { definePreview } from '@storybook/nextjs-vite';
 import { themes } from 'storybook/theming';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Provider } from 'components/ui/provider';
+import a11yAddon from '@storybook/addon-a11y';
+import docsAddon from '@storybook/addon-docs';
+import apolloClientAddon from './apolloClientAddon';
 
-import { print } from 'graphql';
-import type { MockLink } from '@apollo/client/testing';
-import { MockedProvider } from '@apollo/client/testing/react';
-import { addons } from 'storybook/internal/preview-api';
-import { EVENTS } from 'storybook-addon-apollo-client';
-import type { ApolloClientAddonState } from 'storybook-addon-apollo-client';
-
-const getMockName = (mockedResponse: MockLink.MockedResponse) => {
-    const operationDefinition = mockedResponse.request.query.definitions.find(
-        (definition) => definition.kind === 'OperationDefinition'
-    );
-
-    if (operationDefinition?.name) {
-        return operationDefinition.name.value;
-    }
-
-    return `Unnamed`;
-};
-
-function stringifyOrUndefined(value: unknown) {
-    try {
-        return JSON.stringify(value, null, 2);
-    } catch {
-        return undefined;
-    }
-}
-
-function createResultFromMocks(mocks: MockLink.MockedResponse[], activeIndex: number): ApolloClientAddonState {
-    const mock = mocks[activeIndex];
-    if (!mock) {
-        return {
-            activeIndex: -1,
-            options: mocks.map(getMockName),
-            query: undefined,
-            variables: undefined,
-            extensions: undefined,
-            context: undefined,
-            result: undefined,
-            error: undefined,
-        };
-    }
-    return {
-        options: mocks.map(getMockName),
-        activeIndex: activeIndex,
-        query: print(mock.request.query),
-        variables: stringifyOrUndefined(mock.request.variables),
-        extensions: undefined,
-        context: undefined,
-        result: stringifyOrUndefined(mock.result),
-        error: String(mock.error),
-    };
-}
-
-const ApolloDecorator = (Story, context) => {
-    useEffect(() => {
-        const { mocks = [] } = context.parameters.apolloClient || {};
-        const channel = addons.getChannel();
-
-        const handleRequest = (activeIndex: number) => {
-            const state = createResultFromMocks(mocks, activeIndex);
-            channel.emit(EVENTS.RESULT, state);
-        };
-
-        // Emit initial state
-        handleRequest(-1);
-
-        channel.on(EVENTS.REQUEST, handleRequest);
-
-        return () => {
-            channel.off(EVENTS.REQUEST, handleRequest);
-        };
-    }, [context.parameters.apolloClient]);
-
-    if (!context.parameters.apolloClient) {
-        return <Story />;
-    }
-
-    return (
-        <MockedProvider {...context.parameters.apolloClient}>
-            <Story />
-        </MockedProvider>
-    );
-};
-
-const preview: Preview = {
+const preview = definePreview({
     decorators: [
         withThemeByClassName({
             defaultTheme: 'dark',
@@ -102,13 +20,23 @@ const preview: Preview = {
                 <Story />
             </Provider>
         ),
-        ApolloDecorator,
     ],
 
     tags: ['autodocs'],
 
-    // commented-out, to avoid generating docs:: tags: ['autodocs'],
+    addons: [
+        a11yAddon(),
+        docsAddon(),
+        //LATER relayAddon(),
+        apolloClientAddon(),
+    ],
     parameters: {
+        apolloClient: {
+            // TODO revisit
+            options: [],
+            mocks: [], // currently needed
+            activeIndex: 0,
+        },
         docs: {
             codePanel: true,
             theme: themes.dark,
@@ -127,6 +55,6 @@ const preview: Preview = {
             test: 'todo',
         },
     },
-};
+});
 
 export default preview;
