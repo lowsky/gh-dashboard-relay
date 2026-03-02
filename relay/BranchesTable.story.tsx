@@ -1,8 +1,8 @@
 import type { Meta } from '@storybook/nextjs-vite';
 import { graphql } from 'react-relay';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from 'relay/storybook/relayDecorator';
+import { relayDecorator } from 'relay/storybook/relayDecorator';
 import { RepoWithBranchList } from '../app/relay/[userName]/[repoName]/RepoWithBranchListFragment';
 import type { BranchesTableStoryQuery } from './__generated__/BranchesTableStoryQuery.graphql';
 import { WithInfo } from './BranchInfoRow.story';

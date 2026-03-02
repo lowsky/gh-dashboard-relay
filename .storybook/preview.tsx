@@ -3,6 +3,7 @@ import { themes } from 'storybook/theming';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import a11yAddon from '@storybook/addon-a11y';
 import docsAddon from '@storybook/addon-docs';
+import relayAddon from 'relay/storybook/addon';
 import apolloClientAddon from './apolloClientAddon';
 
 import { chakraDecorator } from './chakraDecorator';
@@ -21,12 +22,7 @@ const preview = definePreview({
 
     tags: ['autodocs'],
 
-    addons: [
-        a11yAddon(),
-        docsAddon(),
-        //LATER relayAddon(),
-        apolloClientAddon(),
-    ],
+    addons: [a11yAddon(), docsAddon(), relayAddon(), apolloClientAddon()],
     parameters: {
         apolloClient: {
             // TODO revisit
