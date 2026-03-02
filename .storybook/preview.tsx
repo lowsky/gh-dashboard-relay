@@ -5,7 +5,7 @@ import a11yAddon from '@storybook/addon-a11y';
 import docsAddon from '@storybook/addon-docs';
 import apolloClientAddon from './apolloClientAddon';
 
-import { chakraDecorator } from '#.storybook/chakraDecorator';
+import { chakraDecorator } from './chakraDecorator';
 
 const preview = definePreview({
     decorators: [
