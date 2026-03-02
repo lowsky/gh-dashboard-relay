@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/nextjs-vite';
+import preview from '../.storybook/preview';
 
 import { useQuery } from '@apollo/client/react';
 import { gql } from '@apollo/client';
@@ -17,14 +17,15 @@ const STORY_QUERY = gql`
     }
 `;
 
-const meta: Meta<typeof UserFragment> = {
+const meta = preview.meta({
     component: UserFragment,
-};
+});
 
 export default meta;
 
-export const WithoutAvatar = {
+export const WithoutAvatar = meta.story({
     args: {
+        user: {},
         login: 'test-id',
     },
     render: function Render() {
@@ -66,4 +67,4 @@ export const WithoutAvatar = {
             ],
         },
     },
-};
+});

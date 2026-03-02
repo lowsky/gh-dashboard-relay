@@ -1,21 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../../../.storybook/preview';
 
 import { USER_WITH_REPOS_QUERY, UserPageContent } from './ApolloRoot';
 import type { GetRepositoriesQuery, GetUserWithReposQuery } from '../__gen__/graphql';
 import { REPOS_QUERY } from 'apollo/RepoList';
 import type { Unmasked } from '@apollo/client/masking';
 
-const meta: Meta<typeof UserPageContent> = {
+const meta = preview.meta({
     component: UserPageContent,
-};
+});
 
 export default meta;
 
-type Story = StoryObj<typeof UserPageContent>;
-
 type UnmaskedGetRepositoriesQuery = Unmasked<GetRepositoriesQuery>;
 
-export const Default: Story = {
+export const Default = meta.story({
     args: {
         userName: 'test-id',
     },
@@ -98,4 +96,4 @@ export const Default: Story = {
             ],
         },
     },
-};
+});

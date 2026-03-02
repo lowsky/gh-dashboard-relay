@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 
-import { ApolloClientAddonState, EVENTS } from 'storybook-addon-apollo-client';
 import { MockedProvider } from '@apollo/client/testing/react';
+import { MockLink } from '@apollo/client/testing';
+import { print } from 'graphql';
+import { ApolloClientAddonState, EVENTS } from 'storybook-addon-apollo-client';
 import { addons } from 'storybook/internal/preview-api';
 import { DecoratorFunction } from 'storybook/internal/types';
-import { MockLink } from '@apollo/client/testing';
 import { definePreviewAddon } from 'storybook/internal/csf';
 
 const PARAM_KEY = 'apolloClient';
@@ -53,8 +54,16 @@ const apolloAddonAnnotations = {
     initialGlobals,
 };
 
-export interface ApolloAddonParameter extends ApolloClientAddonState {
-    // anything else? - rootSelector?: string;
+// could be revisited...
+export interface ApolloAddonParameter {
+    options?: string[];
+    variables?: string;
+    query?: string;
+    extensions?: string;
+    context?: string;
+    result?: string;
+    error?: string;
+    mocks?: MockLink.MockedResponse[];
 }
 
 interface ApolloAddonParameters {
@@ -102,7 +111,7 @@ export function createResultFromMocks(mocks: MockLink.MockedResponse[], activeIn
     return {
         options: mocks.map(getMockName),
         activeIndex: activeIndex,
-        //        query: print(mock.request.query),
+        query: print(mock.request.query),
         variables: stringifyOrUndefined(mock.request.variables),
         extensions: undefined,
         context: undefined,
