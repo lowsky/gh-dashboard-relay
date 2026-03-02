@@ -33,9 +33,9 @@ const preview = definePreview({
     parameters: {
         apolloClient: {
             // TODO revisit
-            options: [],
-            mocks: [], // currently needed
-            activeIndex: 0,
+            //options: [],
+            mocks: [], // if missing, it breaks SB rendering manager:
+            // ... it seems it was not checked in apollo addon properly
         },
         docs: {
             codePanel: true,
