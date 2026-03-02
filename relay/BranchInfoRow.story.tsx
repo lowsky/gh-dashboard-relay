@@ -2,8 +2,8 @@ import type { Decorator, Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from 'relay/storybook/relayDecorator';
+import { relayDecorator } from 'relay/storybook/relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
 import { Default } from 'relay/PullRequestMergeFragment.story';

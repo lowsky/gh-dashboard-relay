@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { graphql } from 'relay-runtime';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from 'relay/storybook/relayDecorator';
+import { relayDecorator } from 'relay/storybook/relayDecorator';
 
 import PullRequestInfoFragment from 'relay/PullRequestInfo';
 import type { PullRequestInfoFragmentStoryQuery } from './__generated__/PullRequestInfoFragmentStoryQuery.graphql';

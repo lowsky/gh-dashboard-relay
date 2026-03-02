@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { relayDecorator } from 'relay/relayDecorator';
+import { relayDecorator } from 'relay/storybook/relayDecorator';
 
 import RelayRoot from './RelayRoot';
 import type { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';

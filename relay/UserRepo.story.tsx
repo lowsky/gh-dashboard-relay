@@ -6,7 +6,7 @@ import type { UserFragment_user$data } from './__generated__/UserFragment_user.g
 import { WithInfo } from './BranchInfoRow.story';
 import { WithOneBranch } from './BranchesTable.story';
 
-import { relayDecorator } from './relayDecorator';
+import { relayDecorator } from 'relay/storybook/relayDecorator';
 
 const meta = {
     component: UserRepoPageContent,
