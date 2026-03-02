@@ -1,24 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-
-import { relayDecorator } from 'relay/storybook/relayDecorator';
+import preview from '../../../.storybook/preview';
 
 import RelayRoot from './RelayRoot';
 import type { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
 import type { RepoListFragment_user$data } from 'relay/__generated__/RepoListFragment_user.graphql';
 import type { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
 
-const meta = {
+const meta = preview.meta({
     title: 'relay/user page',
     component: RelayRoot,
-    decorators: [relayDecorator],
     tags: ['skipTesting', '!autodocs'],
-} satisfies Meta<typeof RelayRoot>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Default = {
+export const Default = meta.story({
     args: { authToken: 'not used' },
     parameters: {
         mockResolvers: {
@@ -71,4 +66,4 @@ export const Default = {
             },
         },
     },
-} satisfies Story;
+});

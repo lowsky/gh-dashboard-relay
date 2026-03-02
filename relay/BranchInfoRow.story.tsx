@@ -2,8 +2,7 @@ import type { Decorator, Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
-import type { WithRelayParameters } from 'relay/storybook/relayDecorator';
-import { relayDecorator } from 'relay/storybook/relayDecorator';
+import type { WithRelayParameters } from './storybook/relayDecorator';
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
 import { Default } from 'relay/PullRequestMergeFragment.story';
@@ -26,7 +25,7 @@ const wrapInTableDecorator: Decorator = (Story) => (
 
 const meta = {
     component: BranchInfoRow,
-    decorators: [relayDecorator, wrapInTableDecorator],
+    decorators: [wrapInTableDecorator],
 } satisfies Meta<typeof BranchInfoRow>;
 
 export default meta;

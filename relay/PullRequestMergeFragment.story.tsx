@@ -2,8 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { graphql } from 'relay-runtime';
 import type { MockResolver, MockResolvers } from 'relay-test-utils';
 
-import type { WithRelayParameters } from 'relay/storybook/relayDecorator';
-import { relayDecorator } from 'relay/storybook/relayDecorator';
+import type { WithRelayParameters } from './storybook/relayDecorator';
 
 import PullRequestMerge from 'relay/PullRequestMerge';
 import type { PullRequestMergeFragmentStoryQuery } from './__generated__/PullRequestMergeFragmentStoryQuery.graphql';
@@ -33,7 +32,6 @@ type MockResolvers2 = MockResolvers<{ PullRequest: MockResolver<PullRequestMerge
 
 const meta = {
     component: PullRequestMerge,
-    decorators: [relayDecorator],
     args: {
         associatedPullRequest: {
             ' $fragmentSpreads': {
