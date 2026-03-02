@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { graphql, useFragment, usePaginationFragment } from 'react-relay';
-import { Heading, Icon, Link, ListItem, Text, Badge } from '@chakra-ui/react';
+import { Badge, Heading, Icon, Link, ListItem, Text } from '@chakra-ui/react';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
