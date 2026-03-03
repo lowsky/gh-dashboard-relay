@@ -13,7 +13,8 @@ jobs:
           method: full
       - node/install-packages:
           check-cache: always
-          pkg-manager: yarn-berry
+          pkg-manager: yarn
+          override-ci-command: yarn install --immutable
           with-cache: false
       - run:
           name: Print node install help instructions
@@ -34,7 +35,7 @@ jobs:
       - run:
           name: tool setup - vercel
           # vercel might need update, asking for, and expects input, so simulating "yes"
-          command: echo y | yarn vercel -v
+          command: pwd ; echo y | yarn vercel -v
       - run:
           name: Run setup
           command: yarn circle:setup
@@ -42,12 +43,7 @@ jobs:
           name: Run vercel build
           command: yarn vercel build -y  # upgrade if needed without waiting for user input
       - run:
-          name: Run ls
-          command: ls -la ~/project
-      - attach_workspace:
-          at: ~/project
-      - run:
-          name: Run ls
+          name: Run ls project and .vercel
           command: ls -la ~/project ~/project/.vercel
       - run:
           name: deploy

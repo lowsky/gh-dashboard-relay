@@ -19,8 +19,8 @@
   "engines": {},
   "scripts": {
     "dev": "next dev",
-    "circle:setup": "yarn run circle:vercel-link ; vercel -d upgrade #1; vercel -d -t $VERCEL_TOKEN pull -y",
-    "circle:vercel-link": "vercel link -y --debug --project gh-dashboard-relay -t $VERCEL_TOKEN",
+    "circle:setup": "vercel -d --non-interactive upgrade ; yarn circle:vercel-link",
+    "circle:vercel-link": "vercel link -y -d --project gh-dashboard-relay -t $VERCEL_TOKEN",
     "circle:deploy": "vercel -y -d -t $VERCEL_TOKEN deploy --prebuilt",
     "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
