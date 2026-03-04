@@ -5621,12 +5621,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/next@npm:4.15.39":
-  version: 4.15.39
-  resolution: "@vercel/next@npm:4.15.39"
+"@vercel/next@npm:4.15.40":
+  version: 4.15.40
+  resolution: "@vercel/next@npm:4.15.40"
   dependencies:
     "@vercel/nft": "npm:1.1.1"
-  checksum: 10c0/1e198339cd87cc916a40372b3d215fdb3ec3e8b3b98c3b515028e1ca27ce8c69d078e1c602b223f1213796d47326dbee62f6185e3b953cad5571e6b7ccf0221d
+  checksum: 10c0/484cec9330bdb4d6b591860cdd7e5d39102848c7067b2b9cef3da141fd046e29866028ec10d3be0d9c904c25218385981079fa490e0dbf37c4c16d51612b642a
   languageName: node
   linkType: hard
 
@@ -8165,7 +8165,7 @@ __metadata:
     type-fest: "npm:5.4.4"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.56.1"
-    vercel: "npm:50.26.1"
+    vercel: "npm:50.27.0"
     vite: "npm:7.3.1"
     vitest: "npm:4.0.18"
   languageName: unknown
@@ -14813,9 +14813,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:50.26.1":
-  version: 50.26.1
-  resolution: "vercel@npm:50.26.1"
+"vercel@npm:50.27.0":
+  version: 50.27.0
+  resolution: "vercel@npm:50.27.0"
   dependencies:
     "@vercel/backends": "npm:0.0.40"
     "@vercel/blob": "npm:2.3.0"
@@ -14831,7 +14831,7 @@ __metadata:
     "@vercel/hydrogen": "npm:1.3.5"
     "@vercel/koa": "npm:0.1.26"
     "@vercel/nestjs": "npm:0.2.47"
-    "@vercel/next": "npm:4.15.39"
+    "@vercel/next": "npm:4.15.40"
     "@vercel/node": "npm:5.6.10"
     "@vercel/python": "npm:6.20.1"
     "@vercel/redwood": "npm:2.4.9"
@@ -14848,7 +14848,7 @@ __metadata:
   bin:
     vc: dist/vc.js
     vercel: dist/vc.js
-  checksum: 10c0/5e28ab19ba1cfd01b1f675dee6c0283d69d18f3e1d7af30aad836eb7bb602d71647c1479a443f9598a5b0f4711da269da48ae4463e7502acc8a83404ad5ec068
+  checksum: 10c0/fa50ce59f11a8dc2bd8168b35502bb88ba71fa2b399f8d572a75fbc4ebd7219c46a7767525242b39f0c3448da2122f1541a7e696e172728e4b7abd93c91453ad
   languageName: node
   linkType: hard
 
