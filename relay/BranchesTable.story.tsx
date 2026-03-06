@@ -1,21 +1,28 @@
-import type { Meta } from '@storybook/nextjs-vite';
 import { graphql } from 'react-relay';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from './storybook/relayDecorator';
+
 import { RepoWithBranchList } from '../app/relay/[userName]/[repoName]/RepoWithBranchListFragment';
 import type { BranchesTableStoryQuery } from './__generated__/BranchesTableStoryQuery.graphql';
 import { WithInfo } from './BranchInfoRow.story';
+import { RepoWithBranchListFragment_repo$key } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
+import preview from '../.storybook/preview';
 
-const meta = {
+const meta = preview.meta({
     component: RepoWithBranchList,
-    decorators: [relayDecorator],
     tags: ['skipTesting', '!autodocs'],
-} satisfies Meta<typeof RepoWithBranchList>;
+});
 
 export default meta;
 
-export const WithOneBranch = {
+export const WithOneBranch = meta.story({
+    args: {
+        repo: {
+            ' $fragmentSpreads': {
+                RepoWithBranchListFragment_repo: true,
+            },
+        } satisfies RepoWithBranchListFragment_repo$key,
+    },
     parameters: {
         query: graphql`
             query BranchesTableStoryQuery {
@@ -31,4 +38,4 @@ export const WithOneBranch = {
             PullRequest: WithInfo.parameters.mockResolvers.PullRequest,
         },
     } satisfies WithRelayParameters<BranchesTableStoryQuery>,
-};
+});

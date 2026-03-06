@@ -9,6 +9,14 @@ jobs:
     executor: node/default
     resource_class: lowsky/selfhosted
     steps:
+      - run:
+          name: setup persistent cache folder
+          # vercel might need update, asking for, and expects input, so simulating "yes"
+          command: cd /home/circleci/ ; ln -s /root/.cache/circle-home-cache .cache
+      - run:
+          name: link yarn berry cache
+          # yarn config get cacheFolder results in ~/.yarn/berry/cache
+          command: cd /home/circleci/;  ln -s /root/.cache/circle-home-cache/.yarn .yarn
       - checkout:
           method: full
       - node/install-packages:

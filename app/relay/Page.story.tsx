@@ -1,18 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../../.storybook/preview';
 
 import IndexPage from './page.mdx';
 
-const meta = {
+const meta = preview.meta({
     title: 'relay/entry page',
     component: IndexPage,
     tags: ['skipTesting', '!autodocs'],
-} satisfies Meta<typeof IndexPage>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Default = {
+export const Default = meta.story({
     parameters: {
         nextjs: {
             appDirectory: true,
@@ -21,4 +19,4 @@ export const Default = {
             },
         },
     },
-} satisfies Story;
+});

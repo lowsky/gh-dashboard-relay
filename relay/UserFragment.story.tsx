@@ -2,8 +2,7 @@ import type { Meta } from '@storybook/nextjs-vite';
 
 import { graphql } from 'react-relay';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from './storybook/relayDecorator';
 
 import UserFragment from '../relay/UserFragment';
 import type { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
@@ -11,7 +10,6 @@ import type { UserFragmentStoryQuery } from './__generated__/UserFragmentStoryQu
 
 const meta = {
     component: UserFragment,
-    decorators: [relayDecorator],
 } satisfies Meta<typeof UserFragment>;
 
 export default meta;

@@ -6,11 +6,8 @@ import type { UserFragment_user$data } from './__generated__/UserFragment_user.g
 import { WithInfo } from './BranchInfoRow.story';
 import { WithOneBranch } from './BranchesTable.story';
 
-import { relayDecorator } from './relayDecorator';
-
 const meta = {
     component: UserRepoPageContent,
-    decorators: [relayDecorator],
     tags: ['skipTesting', '!autodocs'],
 } satisfies Meta<typeof UserRepoPageContent>;
 export default meta;
@@ -24,7 +21,7 @@ export const WithUserAndRepo: Story = {
             //Later:
             //PullRequest: Default.parameters!.mockResolvers.PullRequest,
             //PullRequest:
-            PullRequest: WithOneBranch.parameters.mockResolvers.PullRequest,
+            PullRequest: WithOneBranch.composed.parameters.mockResolvers.PullRequest,
             /*
                 mergeStateStatus: 'CLEAN',
                 number: 423,

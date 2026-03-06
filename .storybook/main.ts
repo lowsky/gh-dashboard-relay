@@ -1,6 +1,7 @@
 import { StorybookConfig } from '@storybook/nextjs-vite';
+import { defineMain } from '@storybook/nextjs-vite/node';
 
-const config: StorybookConfig = {
+const config: StorybookConfig = defineMain({
     stories: [
         /**
          * This story breaks build, in visual testing
@@ -50,6 +51,6 @@ const config: StorybookConfig = {
         name: '@storybook/nextjs-vite',
         options: {},
     },
-};
+});
 
 export default config;
