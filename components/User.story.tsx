@@ -1,28 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../.storybook/preview';
+
 import User from './User';
 
-const meta = {
+const meta = preview.meta({
     component: User,
-} satisfies Meta<typeof User>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const WithoutAvatar: Story = {
-    args: {
-        user: {
-            login: 'login',
-            company: 'company',
-        },
+const userWithoutAvatar = {
+    user: {
+        login: 'login',
+        company: 'company',
     },
 };
 
-export const WithAvatar: Story = {
+export const WithoutAvatar = meta.story({
+    args: userWithoutAvatar,
+});
+
+export const WithAvatar = meta.story({
     args: {
         user: {
-            ...WithoutAvatar.args.user,
+            ...userWithoutAvatar.user,
             avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
         },
     },
-};
+});
