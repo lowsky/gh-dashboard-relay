@@ -8,21 +8,19 @@ const meta = preview.meta({
 
 export default meta;
 
-const userWithoutAvatar = {
-    user: {
-        login: 'login',
-        company: 'company',
-    },
-};
-
 export const WithoutAvatar = meta.story({
-    args: userWithoutAvatar,
+    args: {
+        user: {
+            login: 'login',
+            company: 'company',
+        },
+    },
 });
 
 export const WithAvatar = meta.story({
     args: {
         user: {
-            ...userWithoutAvatar.user,
+            ...WithoutAvatar.composed.args,
             avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
         },
     },
