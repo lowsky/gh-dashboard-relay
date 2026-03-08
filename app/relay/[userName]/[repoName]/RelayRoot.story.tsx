@@ -19,7 +19,7 @@ export const Default = meta.story({
     parameters: {
         mockResolvers: {
             // the branch itself is of type "Ref":
-            Ref: WithInfo.parameters.mockResolvers.Ref,
+            Ref: WithInfo.composed.parameters.mockResolvers.Ref,
             PullRequest: WithOneBranch.composed.parameters.mockResolvers.PullRequest,
             Repository: () =>
                 ({
@@ -33,7 +33,7 @@ export const Default = meta.story({
                     },
                     ' $fragmentType': 'RepoListFragment_repo',
                 }) satisfies RepoListFragment_repo$data,
-            User: WithAvatar.parameters.mockResolvers.User,
+            User: WithAvatar.composed.parameters.mockResolvers.User,
         },
         nextjs: {
             appDirectory: true,
