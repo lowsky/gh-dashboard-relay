@@ -1,13 +1,11 @@
+import preview from '../.storybook/preview';
+
 import { Spinner } from './Spinner';
 
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-
-const meta = {
+const meta = preview.meta({
     component: Spinner,
-} satisfies Meta;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+export const Default = meta.story({});

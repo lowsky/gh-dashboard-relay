@@ -1,25 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../../.storybook/preview';
 
 import CommitWithStatuses from './CommitWithStatuses';
 
 import moreStatus from './lastCommitMock.json';
+import { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
 
-const meta = {
+const meta = preview.meta({
     component: CommitWithStatuses,
-} satisfies Meta<typeof CommitWithStatuses>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const WithData: Story = {
+export const WithData = meta.story({
     args: {
-        // @ts-expect-error neeeds further adoption: not matching data
-        commit: moreStatus,
+        commit: {
+            ...moreStatus,
+            // somehow broken: status: moreStatus.status satisfies CommitWithStatuses_commit$data['status'],
+            author: undefined,
+            status: undefined,
+            ' $fragmentType': 'CommitWithStatuses_commit',
+        } satisfies CommitWithStatuses_commit$data,
     },
-};
+});
 
-export const WithNoData: Story = {
+export const WithNoData = meta.story({
     args: {
         // empty, intentionally
         commit: {
@@ -33,4 +37,4 @@ export const WithNoData: Story = {
             ' $fragmentType': 'CommitWithStatuses_commit',
         },
     },
-};
+});

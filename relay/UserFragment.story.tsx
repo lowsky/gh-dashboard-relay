@@ -1,22 +1,14 @@
-import type { Meta } from '@storybook/nextjs-vite';
-
 import { graphql } from 'react-relay';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from './storybook/relayDecorator';
+import preview from '../.storybook/preview';
 
 import UserFragment from '../relay/UserFragment';
 import type { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
 import type { UserFragmentStoryQuery } from './__generated__/UserFragmentStoryQuery.graphql';
 
-const meta = {
+const meta = preview.meta({
     component: UserFragment,
-    decorators: [relayDecorator],
-} satisfies Meta<typeof UserFragment>;
-
-export default meta;
-
-export const WithoutAvatar = {
     parameters: {
         query: graphql`
             query UserFragmentStoryQuery @relay_test_operation {
@@ -28,6 +20,21 @@ export const WithoutAvatar = {
             }
         `,
         getReferenceEntry: (q) => ['user', q.node],
+    } satisfies WithRelayParameters<UserFragmentStoryQuery>,
+});
+
+export default meta;
+
+export const WithoutAvatar = meta.story({
+    args: {
+        user: {
+            ' $fragmentSpreads': {
+                UserFragment_user: true,
+            },
+        },
+    },
+    parameters: {
+        //getReferenceEntry: (q) => ['user', q.node],
         mockResolvers: {
             User: (): UserFragment_user$data => ({
                 login: 'login',
@@ -36,12 +43,14 @@ export const WithoutAvatar = {
                 ' $fragmentType': 'UserFragment_user',
             }),
         },
-    } satisfies WithRelayParameters<UserFragmentStoryQuery>,
-};
+    },
+});
 
-export const WithAvatar = {
+export const WithAvatar = meta.story({
+    args: {
+        ...WithoutAvatar.composed.args,
+    },
     parameters: {
-        ...WithoutAvatar.parameters,
         mockResolvers: {
             User: (): UserFragment_user$data => ({
                 login: 'login',
@@ -50,5 +59,5 @@ export const WithAvatar = {
                 ' $fragmentType': 'UserFragment_user',
             }),
         },
-    } satisfies WithRelayParameters<UserFragmentStoryQuery>,
-};
+    },
+});

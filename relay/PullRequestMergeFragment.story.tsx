@@ -1,16 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { graphql } from 'relay-runtime';
-import type { MockResolver, MockResolvers } from 'relay-test-utils';
-
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
 
 import PullRequestMerge from 'relay/PullRequestMerge';
-import type { PullRequestMergeFragmentStoryQuery } from './__generated__/PullRequestMergeFragmentStoryQuery.graphql';
+import preview from '../.storybook/preview';
+
 import type {
     PullRequestMergeFragment_ref$data,
     PullRequestMergeFragment_ref$key,
 } from 'relay/__generated__/PullRequestMergeFragment_ref.graphql';
+import type { PullRequestMergeFragmentStoryQuery } from './__generated__/PullRequestMergeFragmentStoryQuery.graphql';
+import type { WithRelayParameters } from 'relay/storybook/relayDecorator';
 
 const prMock = {
     ' $fragmentType': 'PullRequestMergeFragment_ref',
@@ -26,20 +24,16 @@ const prMock = {
     mergeStateStatus: 'CLEAN',
     mergeable: 'MERGEABLE',
     merged: false,
-} satisfies PullRequestMergeFragment_ref$data;
+} satisfies PullRequestMergeFragment_ref$data; // required for typing $fragmentType
 
-// experimental approach for additional type-safety on resolvers
-type MockResolvers2 = MockResolvers<{ PullRequest: MockResolver<PullRequestMergeFragment_ref$data> }>;
-
-const meta = {
+const meta = preview.meta({
     component: PullRequestMerge,
-    decorators: [relayDecorator],
     args: {
         associatedPullRequest: {
             ' $fragmentSpreads': {
                 PullRequestMergeFragment_ref: true,
             },
-        } satisfies PullRequestMergeFragment_ref$key, // could be empty, not relevant for rendering
+        } satisfies PullRequestMergeFragment_ref$key, // required! {} would not be sufficient
     },
     parameters: {
         query: graphql`
@@ -55,42 +49,34 @@ const meta = {
         mockResolvers: {
             PullRequest: () => prMock,
         },
-    } satisfies WithRelayParameters<PullRequestMergeFragmentStoryQuery, MockResolvers2>,
-} satisfies Meta<typeof PullRequestMerge>;
+    } satisfies WithRelayParameters<PullRequestMergeFragmentStoryQuery>,
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export const Default = meta.story({});
 
-export const Default = {
-    // Even while it is the same as in the meta area, it will be repeating here,
-    // to make it re-usable in other stories
-    parameters: {
-        ...meta.parameters,
-    },
-} satisfies Story;
-
-export const Merged = {
+export const Merged = meta.story({
     args: {
         associatedPullRequest: {
             ' $fragmentSpreads': {
                 PullRequestMergeFragment_ref: true,
             },
-        } satisfies PullRequestMergeFragment_ref$key, // could be empty, not relevant for rendering
+        }, //still needed? satisfies PullRequestMergeFragment_ref$key, // could be empty, not relevant for rendering
     },
     parameters: {
         mockResolvers: {
-            PullRequest: (): PullRequestMergeFragment_ref$data => ({
+            PullRequest: () => ({
                 ...prMock,
                 mergeStateStatus: 'UNKNOWN',
                 mergeable: 'UNKNOWN',
                 merged: true,
             }),
-        } satisfies MockResolvers2,
+        },
     },
-} satisfies Story;
+});
 
-export const Draft = {
+export const Draft = meta.story({
     parameters: {
         mockResolvers: {
             PullRequest: (): PullRequestMergeFragment_ref$data => ({
@@ -99,6 +85,6 @@ export const Draft = {
                 mergeable: 'UNKNOWN',
                 isDraft: true,
             }),
-        } satisfies MockResolvers2,
+        },
     },
-} satisfies Story;
+});

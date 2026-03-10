@@ -1,18 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../.storybook/preview';
 
 import Repo from '../relay/Repo';
 
-const meta = {
+const meta = preview.meta({
     component: Repo,
-} satisfies Meta;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const FakeData: Story = {
+export const FakeData = meta.story({
     args: {
         repoName: 'demo-repo',
         userName: 'login',
     },
-};
+});

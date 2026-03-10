@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../.storybook/preview';
 
 import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoot';
 import type { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
@@ -6,25 +6,21 @@ import type { UserFragment_user$data } from './__generated__/UserFragment_user.g
 import { WithInfo } from './BranchInfoRow.story';
 import { WithOneBranch } from './BranchesTable.story';
 
-import { relayDecorator } from './relayDecorator';
-
-const meta = {
+const meta = preview.meta({
     component: UserRepoPageContent,
-    decorators: [relayDecorator],
     tags: ['skipTesting', '!autodocs'],
-} satisfies Meta<typeof UserRepoPageContent>;
+});
+
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const WithUserAndRepo: Story = {
+export const WithUserAndRepo = meta.story({
     parameters: {
         mockResolvers: {
-            Ref: WithInfo.parameters!.mockResolvers.Ref,
+            Ref: WithInfo.composed.parameters.mockResolvers.Ref,
             //Later:
             //PullRequest: Default.parameters!.mockResolvers.PullRequest,
             //PullRequest:
-            PullRequest: WithOneBranch.parameters.mockResolvers.PullRequest,
+            PullRequest: WithOneBranch.composed.parameters.mockResolvers.PullRequest,
             /*
                 mergeStateStatus: 'CLEAN',
                 number: 423,
@@ -42,7 +38,7 @@ export const WithUserAndRepo: Story = {
             }),
 
              */
-            Commit: WithInfo.parameters!.mockResolvers.Commit,
+            Commit: WithInfo.composed.parameters.mockResolvers.Commit,
             Repository: (): RepoWithBranchListFragment_repo$data => ({
                 branches: {
                     edges: [
@@ -72,4 +68,4 @@ export const WithUserAndRepo: Story = {
         repoName: 'demo-repo',
         userName: 'login',
     },
-};
+});

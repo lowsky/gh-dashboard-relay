@@ -1,9 +1,9 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Decorator } from '@storybook/nextjs-vite';
 import { Table } from '@chakra-ui/react';
 import { graphql } from 'relay-runtime';
 
-import type { WithRelayParameters } from './relayDecorator';
-import { relayDecorator } from './relayDecorator';
+import type { WithRelayParameters } from './storybook/relayDecorator';
+import preview from '../.storybook/preview'; // Added import for CSF3
 
 import BranchInfoRow from 'relay/BranchInfoRowFragment';
 import { Default } from 'relay/PullRequestMergeFragment.story';
@@ -24,16 +24,14 @@ const wrapInTableDecorator: Decorator = (Story) => (
     </Table.Root>
 );
 
-const meta = {
+const meta = preview.meta({
     component: BranchInfoRow,
-    decorators: [relayDecorator, wrapInTableDecorator],
-} satisfies Meta<typeof BranchInfoRow>;
+    decorators: [wrapInTableDecorator],
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const WithInfo = {
+export const WithInfo = meta.story({
     // to satisfy the Story type
     args: {
         branch: {
@@ -82,7 +80,7 @@ export const WithInfo = {
                 },
                 ' $fragmentType': 'CommitWithStatuses_commit',
             }),
-            PullRequest: Default.parameters.mockResolvers.PullRequest,
+            PullRequest: Default.composed.parameters.mockResolvers.PullRequest,
             Ref: (): BranchInfoRowFragment_ref$data => ({
                 name: 'branch-x',
                 target: {
@@ -108,4 +106,4 @@ export const WithInfo = {
             }),
         },
     } satisfies WithRelayParameters<BranchInfoRowStoryQuery>,
-} satisfies Story;
+});

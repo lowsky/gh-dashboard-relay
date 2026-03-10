@@ -1,19 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import preview from '../../.storybook/preview';
 
 import { CommitterInfo } from './CommitterInfo';
 
 import moreStatus from './lastCommitMock.json';
 
-const meta = {
+const meta = preview.meta({
     component: CommitterInfo,
-} satisfies Meta<typeof CommitterInfo>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const WithData: Story = {
+export const WithData = meta.story({
     args: {
         author: moreStatus.author,
     },
-};
+});
