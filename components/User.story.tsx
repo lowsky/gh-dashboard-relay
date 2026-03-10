@@ -20,7 +20,7 @@ export const WithoutAvatar = meta.story({
 export const WithAvatar = meta.story({
     args: {
         user: {
-            ...WithoutAvatar.composed.args,
+            ...WithoutAvatar.composed.args.user,
             avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
         },
     },
