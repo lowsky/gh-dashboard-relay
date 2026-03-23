@@ -1,5 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+function isSafeRedirectTarget(target: string | string[] | undefined): target is string {
+    if (typeof target !== 'string') {
+        return false;
+    }
+    const trimmed = target.trim();
+    // Only allow absolute paths within this application.
+    if (!trimmed.startsWith('/')) {
+        return false;
+    }
+    // Disallow protocol-relative and external URLs.
+    if (trimmed.startsWith('//') || trimmed.includes('://')) {
+        return false;
+    }
+    return true;
+}
+
 export default async function callback(req: NextApiRequest, res: NextApiResponse) {
     const code = req.query.code as string;
     const client_id = process.env.GH_BASIC_CLIENT_ID;
@@ -25,11 +41,12 @@ export default async function callback(req: NextApiRequest, res: NextApiResponse
 
         if (access_token) {
             res.setHeader('Set-Cookie', `access_token=${access_token}; HttpOnly; Path=/`);
-            const original_url = req.query.original_url as string;
+            const original_url = req.query.original_url;
 
             console.log({ original_url });
 
-            res.redirect(original_url ?? '/');
+            const redirectTarget = isSafeRedirectTarget(original_url) ? original_url.trim() : '/';
+            res.redirect(redirectTarget);
             return;
         }
         res.redirect('/error?no-token-in-payload');
