@@ -6,7 +6,7 @@ import type { GithubStatus, Maybe } from './githubStatus';
  *   in the resulting list.
  * - Only the first status will be taken.
  */
-export function removeExtraStatusesForSameContext(statuses: Maybe<GithubStatus>[] = []): GithubStatus[] {
+export function removeExtraStatusesForSameContext(statuses: readonly Maybe<GithubStatus>[] = []): GithubStatus[] {
     const filteredStatuses = statuses
         ?.filter((item) => item?.context)
         ?.reduce((acc, item) => {

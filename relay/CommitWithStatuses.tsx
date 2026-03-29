@@ -1,4 +1,3 @@
-/* eslint-disable relay/unused-fields */
 import { graphql, useFragment } from 'react-relay';
 
 import CommitWithStatus from 'components/CommitWithStatuses/CommitWithStatuses';
@@ -12,7 +11,6 @@ export default function CommitFragment({ commit }: { commit: CommitWithStatuses_
         graphql`
             fragment CommitWithStatuses_commit on Commit {
                 authoredDate
-                oid
                 status {
                     id
                     commit {
@@ -31,7 +29,6 @@ export default function CommitFragment({ commit }: { commit: CommitWithStatuses_
                     state
                 }
                 commitUrl
-                abbreviatedOid
                 message
                 author {
                     user {
@@ -45,5 +42,5 @@ export default function CommitFragment({ commit }: { commit: CommitWithStatuses_
         commit
     );
 
-    return <CommitWithStatus commit={data} />;
+    return <CommitWithStatus {...data} />;
 }

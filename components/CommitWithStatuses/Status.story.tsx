@@ -1,6 +1,6 @@
 import preview from '../../.storybook/preview';
 
-import { Status } from './Status';
+import { ContextStatusProps, Status } from './Status';
 
 import moreStatus from './lastCommitMock.json';
 
@@ -12,6 +12,6 @@ export default meta;
 
 export const Default = meta.story({
     args: {
-        ...moreStatus.status[0],
+        ...(moreStatus.status[0] satisfies ContextStatusProps),
     },
 });
