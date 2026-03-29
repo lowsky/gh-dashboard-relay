@@ -1,10 +1,10 @@
-import preview from '../.storybook/preview';
+import preview from '../../../../.storybook/preview';
 
-import { UserRepoPageContent } from '../app/relay/[userName]/[repoName]/RelayRoot';
-import type { RepoWithBranchListFragment_repo$data } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
-import type { UserFragment_user$data } from './__generated__/UserFragment_user.graphql';
-import { WithInfo } from './BranchInfoRow.story';
-import { WithOneBranch } from './BranchesTable.story';
+import { UserRepoPageContent } from './RelayRoot';
+import type { RepoWithBranchListFragment_repo$data } from './__generated__/RepoWithBranchListFragment_repo.graphql';
+import type { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
+import { WithInfo } from 'relay/BranchInfoRow.story';
+import { WithOneBranch } from 'relay/BranchesTable.story';
 
 const meta = preview.meta({
     component: UserRepoPageContent,
@@ -17,27 +17,7 @@ export const WithUserAndRepo = meta.story({
     parameters: {
         mockResolvers: {
             Ref: WithInfo.composed.parameters.mockResolvers.Ref,
-            //Later:
-            //PullRequest: Default.parameters!.mockResolvers.PullRequest,
-            //PullRequest:
             PullRequest: WithOneBranch.composed.parameters.mockResolvers.PullRequest,
-            /*
-                mergeStateStatus: 'CLEAN',
-                number: 423,
-                mergeable: 'MERGEABLE',
-                title: 'add PR info to branch table',
-                url: 'https://github.com/lowsky/dashboard/pull/42',
-                headRefOid: {
-                    id: '72b14d30d',
-                },
-                id: '72b14d30d',
-                closed: false,
-                isDraft: false,
-                isInMergeQueue: false,
-                ' $fragmentType': 'PullRequestMergeFragment_ref',
-            }),
-
-             */
             Commit: WithInfo.composed.parameters.mockResolvers.Commit,
             Repository: (): RepoWithBranchListFragment_repo$data => ({
                 branches: {
