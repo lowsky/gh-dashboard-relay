@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<feb79aa941a1b74b7d5a84a2d2a116ce>>
+ * @generated SignedSource<<ce57c74503c8a4f7fbf2aa5320c947cd>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -18,7 +18,7 @@ export type RepoListFragment_user$data = {
                   | {
                         readonly node:
                             | {
-                                  readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_repo'>;
+                                  readonly ' $fragmentSpreads': FragmentRefs<'RepoItemFragment_repo'>;
                               }
                             | null
                             | undefined;
@@ -28,6 +28,9 @@ export type RepoListFragment_user$data = {
               >
             | null
             | undefined;
+        readonly pageInfo: {
+            readonly endCursor: string | null | undefined;
+        };
         readonly totalCount: number;
     };
     readonly ' $fragmentType': 'RepoListFragment_user';
@@ -124,7 +127,7 @@ const node: ReaderFragment = (function () {
                                     {
                                         args: null,
                                         kind: 'FragmentSpread',
-                                        name: 'RepoListFragment_repo',
+                                        name: 'RepoItemFragment_repo',
                                     },
                                     {
                                         alias: null,
@@ -144,13 +147,6 @@ const node: ReaderFragment = (function () {
                                 storageKey: null,
                             },
                         ],
-                        storageKey: null,
-                    },
-                    {
-                        alias: null,
-                        args: null,
-                        kind: 'ScalarField',
-                        name: 'totalCount',
                         storageKey: null,
                     },
                     {
@@ -178,6 +174,13 @@ const node: ReaderFragment = (function () {
                         ],
                         storageKey: null,
                     },
+                    {
+                        alias: null,
+                        args: null,
+                        kind: 'ScalarField',
+                        name: 'totalCount',
+                        storageKey: null,
+                    },
                 ],
                 storageKey:
                     '__RepoList_user_repositories_connection(orderBy:{"direction":"ASC","field":"NAME"},ownerAffiliations:["OWNER"])',
@@ -195,6 +198,6 @@ const node: ReaderFragment = (function () {
     };
 })();
 
-(node as any).hash = '8b011f745da72b23419d1f6b6f161b2b';
+(node as any).hash = '7141b040d26dd9b98e8a489878e7d418';
 
 export default node;
