@@ -35,19 +35,16 @@ export const Default = meta.story({
                     company: 'company',
                     avatarUrl: 'avatarUrl',
                     id: 'owner',
-                    // TODO, research an improved solution:
-                    // conflict: it would need to be used for both types:
-                    // may require checking the requested types/fragments??
                     //' $fragmentType': "UserFragment_user",
                     //' $fragmentType': 'RepoListFragment_user',
                     repositories: {
                         totalCount: 1,
+                        pageInfo: { endCursor: 'undefined' },
                         edges: [
                             {
                                 node: {
                                     ' $fragmentSpreads': {
-                                        // see mock above
-                                        RepoListFragment_repo: true,
+                                        RepoItemFragment_repo: true,
                                     },
                                 },
                             },

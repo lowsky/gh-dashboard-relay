@@ -33,6 +33,7 @@ export default function RelayRoot(props: { authToken: string }) {
     const { userName } = useParams<{ userName: string }>() ?? {};
     return (
         <RelayClientContext auth={props.authToken}>
+            <InternalLink href="/relay">Back to overview</InternalLink>
             <Suspense fallback={<div>Loading...</div>}>
                 <UserPageContent userName={userName!} />
             </Suspense>
@@ -63,10 +64,5 @@ export function UserPageContent({ userName }: { userName: string }) {
         );
     }
 
-    return (
-        <>
-            <InternalLink href="/relay">Back to overview</InternalLink>
-            <UserWithReposFragment user={repositoryOwner} />
-        </>
-    );
+    return <UserWithReposFragment user={repositoryOwner} />;
 }
