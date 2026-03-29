@@ -1,6 +1,6 @@
 import preview from '../.storybook/preview';
 
-import Repo from '../relay/Repo';
+import Repo from './Repo';
 
 const meta = preview.meta({
     component: Repo,
