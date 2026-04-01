@@ -24,12 +24,6 @@ const preview = definePreview({
 
     addons: [a11yAddon(), docsAddon(), relayAddon(), apolloClientAddon()],
     parameters: {
-        apolloClient: {
-            // TODO revisit
-            //options: [],
-            mocks: [], // if missing, it breaks SB rendering manager:
-            // ... it seems it was not checked in apollo addon properly
-        },
         docs: {
             codePanel: true,
             theme: themes.dark,

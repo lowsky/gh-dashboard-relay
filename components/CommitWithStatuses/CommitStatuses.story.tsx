@@ -12,7 +12,7 @@ export default meta;
 
 export const WithData = meta.story({
     args: {
-        statuses: moreStatus.status,
+        contexts: moreStatus.status,
     },
 });
 

@@ -9,12 +9,15 @@ import styles from './CommitWithStatuses.module.css';
 
 type Maybe<T> = T | null;
 
-type Props = { statuses?: Maybe<Array<Maybe<GithubStatus>>> };
-export const CommitStatuses: FC<Props> = ({ statuses }) => {
-    if (statuses)
+type Props = {
+    contexts?: Maybe<ReadonlyArray<Maybe<GithubStatus>>>;
+};
+
+export const CommitStatuses: FC<Props> = ({ contexts }) => {
+    if (contexts)
         return (
             <div className={styles.statusLine}>
-                {removeExtraStatusesForSameContext(statuses).map((status, idx) => (
+                {removeExtraStatusesForSameContext(contexts).map((status, idx) => (
                     <Status key={idx} {...status} />
                 ))}
             </div>

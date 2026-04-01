@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import type { CommitWithStatuses_commit$data } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
+import { StatusState } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
 
 import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { Spinner } from '../Spinner';
@@ -12,11 +12,50 @@ import { CommitStatuses } from './CommitStatuses';
 import styles from './CommitWithStatuses.module.css';
 
 interface CommitWithStatusesProps {
-    commit: CommitWithStatuses_commit$data;
+    author?:
+        | {
+              user:
+                  | {
+                        avatarUrl: any;
+                        login: string;
+                        name: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+          }
+        | null
+        | undefined;
+    authoredDate?: string;
+    commitUrl?: string;
+    message?: string;
+    status?:
+        | {
+              commit:
+                  | {
+                        oid: any;
+                    }
+                  | null
+                  | undefined;
+              contexts: ReadonlyArray<{
+                  avatarUrl: any | null | undefined;
+                  context: string;
+                  creator:
+                      | {
+                            login: string;
+                        }
+                      | null
+                      | undefined;
+                  description: string | null | undefined;
+                  state: StatusState;
+                  targetUrl: any | null | undefined;
+              }>;
+          }
+        | null
+        | undefined;
 }
 
-const CommitWithStatuses: FC<CommitWithStatusesProps> = ({ commit }) => {
-    const { author, commitUrl, authoredDate = '-?-', message = '-?-', status } = commit;
+const CommitWithStatuses: FC<CommitWithStatusesProps> = (props) => {
+    const { author, commitUrl, authoredDate = '-?-', message = '-?-', status } = props;
 
     const firstLineOfMessage = message?.split('\n\n', 1);
 
@@ -62,10 +101,7 @@ const CommitWithStatuses: FC<CommitWithStatusesProps> = ({ commit }) => {
                     </Link>
                 </span>
             )}
-            {
-                // @ts-expect-error temporary ignore type mismatch
-                status && <CommitStatuses statuses={status.contexts} />
-            }
+            {status && <CommitStatuses contexts={status.contexts} />}
         </>
     );
 };

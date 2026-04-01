@@ -16,7 +16,7 @@ import InternalLink from 'components/InternalLink';
 
 import UserFragmentContainer from 'relay/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
-import Repo from 'relay/Repo';
+import Repo from 'components/Repo';
 
 const query = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {

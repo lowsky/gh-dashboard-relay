@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<44fdff296cf014c598c125a7dad0aaa8>>
+ * @generated SignedSource<<cddcfdf958e3ef31acee6c0ece788e49>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,20 +10,20 @@
 
 import { ConcreteRequest } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
-export type RepoBranchListPaginationQuery$variables = {
+export type RepoItemRefetchFragment$variables = {
     id: string;
 };
-export type RepoBranchListPaginationQuery$data = {
+export type RepoItemRefetchFragment$data = {
     readonly node:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_repo'>;
+              readonly ' $fragmentSpreads': FragmentRefs<'RepoItemFragment_repo'>;
           }
         | null
         | undefined;
 };
-export type RepoBranchListPaginationQuery = {
-    response: RepoBranchListPaginationQuery$data;
-    variables: RepoBranchListPaginationQuery$variables;
+export type RepoItemRefetchFragment = {
+    response: RepoItemRefetchFragment$data;
+    variables: RepoItemRefetchFragment$variables;
 };
 
 const node: ConcreteRequest = (function () {
@@ -46,7 +46,7 @@ const node: ConcreteRequest = (function () {
             argumentDefinitions: v0 /*: any*/,
             kind: 'Fragment',
             metadata: null,
-            name: 'RepoBranchListPaginationQuery',
+            name: 'RepoItemRefetchFragment',
             selections: [
                 {
                     alias: null,
@@ -59,7 +59,7 @@ const node: ConcreteRequest = (function () {
                         {
                             args: null,
                             kind: 'FragmentSpread',
-                            name: 'RepoListFragment_repo',
+                            name: 'RepoItemFragment_repo',
                         },
                     ],
                     storageKey: null,
@@ -72,7 +72,7 @@ const node: ConcreteRequest = (function () {
         operation: {
             argumentDefinitions: v0 /*: any*/,
             kind: 'Operation',
-            name: 'RepoBranchListPaginationQuery',
+            name: 'RepoItemRefetchFragment',
             selections: [
                 {
                     alias: null,
@@ -166,16 +166,16 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: 'bf50b346b174bc1dc7902a6675bb68f3',
+            cacheID: 'e1eb425309787030df3025708014daad',
             id: null,
             metadata: {},
-            name: 'RepoBranchListPaginationQuery',
+            name: 'RepoItemRefetchFragment',
             operationKind: 'query',
-            text: 'query RepoBranchListPaginationQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoListFragment_repo\n    id\n  }\n}\n\nfragment RepoListFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n',
+            text: 'query RepoItemRefetchFragment(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoItemFragment_repo\n    id\n  }\n}\n\nfragment RepoItemFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n',
         },
     };
 })();
 
-(node as any).hash = '1a9d0c4294c57bcfce310fcc08a4095c';
+(node as any).hash = 'cb35e44231761c3f3eae507791fa4336';
 
 export default node;
