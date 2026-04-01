@@ -551,9 +551,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:5.0.2":
-  version: 5.0.2
-  resolution: "@chromatic-com/storybook@npm:5.0.2"
+"@chromatic-com/storybook@npm:5.1.1":
+  version: 5.1.1
+  resolution: "@chromatic-com/storybook@npm:5.1.1"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
     chromatic: "npm:^13.3.4"
@@ -562,7 +562,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0
-  checksum: 10c0/f888eb2518cd264d1c9b4199c2d44b60fbbfead7344231b97a0259d0461559cbe7bc02c32e9ffc0ee37f0226a8cdf7c2e4dd3464bc7d1026fee5e4cf9f04f1de
+  checksum: 10c0/952757501277eaf1cb5e025e53edb08e58beeb97d0c34a680e400c77b45d1c743c6e074c87f6c113cd761157291de5095813f204972c961bc3af793baba5482a
   languageName: node
   linkType: hard
 
@@ -7562,7 +7562,7 @@ __metadata:
     "@0no-co/graphqlsp": "npm:1.15.2"
     "@apollo/client": "npm:4.1.6"
     "@chakra-ui/react": "npm:3.34.0"
-    "@chromatic-com/storybook": "npm:5.0.2"
+    "@chromatic-com/storybook": "npm:5.1.1"
     "@emotion/react": "npm:11.14.0"
     "@eslint/compat": "npm:2.0.3"
     "@eslint/js": "npm:10.0.1"
