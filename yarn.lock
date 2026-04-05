@@ -7746,7 +7746,7 @@ __metadata:
     type-fest: "npm:5.5.0"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.57.2"
-    vercel: "npm:50.38.3"
+    vercel: "npm:50.39.0"
     vite: "npm:8.0.3"
     vitest: "npm:4.1.2"
   languageName: unknown
@@ -14319,9 +14319,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:50.38.3":
-  version: 50.38.3
-  resolution: "vercel@npm:50.38.3"
+"vercel@npm:50.39.0":
+  version: 50.39.0
+  resolution: "vercel@npm:50.39.0"
   dependencies:
     "@vercel/backends": "npm:0.0.55"
     "@vercel/blob": "npm:2.3.0"
@@ -14355,7 +14355,7 @@ __metadata:
   bin:
     vc: dist/vc.js
     vercel: dist/vc.js
-  checksum: 10c0/b1d5c7476f1c315237a9e1dcf084fd0ebd82d5a9a2477a2f4438c9be85ed065f3b70ef71f195965eed5c8313c43e4c9fe936eafebff5221271efd8715836b68c
+  checksum: 10c0/c417870c71aec41d1506d43048d9cd8c1ce80e915436cf7a385455f0d9d52c0590308f78ec1d52d0a086d5ec5e926fa9a318a6adaa390e0b86e99542bbfb4a50
   languageName: node
   linkType: hard
 
