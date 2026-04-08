@@ -32,9 +32,9 @@
     "format": "prettier . --cache -l -w",
     "vercel-build:without-chromatic": "yarn run build",
     "lint": "eslint .",
-    "chromatic-test": "chromatic --exit-zero-on-changes -d public/story-book --ci --allow-console-errors --exit-once-uploaded '*'",
+    "chromatic-test": "chromatic --exit-zero-on-changes --ci --allow-console-errors --exit-once-uploaded '*'",
     "storybook": "storybook dev -p 9009",
-    "build:storybook": "storybook build -o public/story-book --quiet"
+    "build:storybook": "storybook build --quiet"
   },
   "relay": {
     "src": ".",
