@@ -12,7 +12,7 @@ next-env.d.ts
 
 # generated output
 test-reports
-public/story-book
+storybook-static
 
 # misc
 .DS_Store
