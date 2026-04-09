@@ -42,6 +42,7 @@
     "baseUrl": "."
   },
   "exclude": [
+    "**/*story.tsx",
     "node_modules"
   ],
   "include": [
