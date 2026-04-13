@@ -110,7 +110,7 @@
     "globals": "17.4.0",
     "nextjs-toploader": "3.9.17",
     "playwright": "1.59.1",
-    "prettier": "3.8.1",
+    "prettier": "3.8.2",
     "react": "next",
     "react-dom": "next",
     "react-relay": "20.1.1",
