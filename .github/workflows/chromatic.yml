@@ -22,7 +22,7 @@ jobs:
           node-version: '24'
           cache: 'yarn'
       - run: yarn install --immutable
-      - uses: chromaui/action@v15
+      - uses: chromaui/action@v16
         with:
           buildScriptName: 'build:storybook'
           token: ${{ secrets.GITHUB_TOKEN }}
