@@ -1437,9 +1437,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:6.3.0":
-  version: 6.3.0
-  resolution: "@graphql-codegen/cli@npm:6.3.0"
+"@graphql-codegen/cli@npm:6.3.1":
+  version: 6.3.1
+  resolution: "@graphql-codegen/cli@npm:6.3.1"
   dependencies:
     "@babel/generator": "npm:^7.18.13"
     "@babel/template": "npm:^7.18.10"
@@ -1487,7 +1487,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 10c0/b328e2c83bd10a8a8dac39f0ddcb99d1f738c628d9efb529b2621de1d5ec84447441e37ce74bc0843aed40e0463dbb7bda44865ab747713845e97b4afe06deb8
+  checksum: 10c0/46935d2aaf9b2b8bb2162d3b3ddb2b35aaf9f0ac501ce89bf9aae0d93661f0df6c4100848e946656ca78e454c817128a226de6f4321e957ddf60586c3a4fef96
   languageName: node
   linkType: hard
 
@@ -1559,22 +1559,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "@graphql-codegen/plugin-helpers@npm:6.1.1"
-  dependencies:
-    "@graphql-tools/utils": "npm:^11.0.0"
-    change-case-all: "npm:1.0.15"
-    common-tags: "npm:1.8.2"
-    import-from: "npm:4.0.0"
-    lodash: "npm:~4.17.0"
-    tslib: "npm:~2.6.0"
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/4e38b08cfad92758b3ed09b35b027f215a434f6531de64aa258c879c5014a23345016e6b47f6f39aadd4975340d173cfb670ce6ab0b5f349835196e2717f31cc
-  languageName: node
-  linkType: hard
-
 "@graphql-codegen/plugin-helpers@npm:^6.3.0":
   version: 6.3.0
   resolution: "@graphql-codegen/plugin-helpers@npm:6.3.0"
@@ -1637,18 +1621,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-react-apollo@npm:4.4.1":
-  version: 4.4.1
-  resolution: "@graphql-codegen/typescript-react-apollo@npm:4.4.1"
+"@graphql-codegen/typescript-react-apollo@npm:4.4.2":
+  version: 4.4.2
+  resolution: "@graphql-codegen/typescript-react-apollo@npm:4.4.2"
   dependencies:
-    "@graphql-codegen/plugin-helpers": "npm:^6.1.1"
-    "@graphql-codegen/visitor-plugin-common": "npm:^6.2.4"
+    "@graphql-codegen/plugin-helpers": "npm:^6.3.0"
+    "@graphql-codegen/visitor-plugin-common": "npm:^6.3.0"
     auto-bind: "npm:~4.0.0"
     change-case-all: "npm:1.0.15"
     tslib: "npm:^2.8.1"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/9d99fc320a0793f134707098b8924a4954ca5b55b37251f835453578e83d992cf4e9d59daabc9c29a27cf68ceb3b919fc86c4d79a28cf859aba2ce08d2ca8c3c
+  checksum: 10c0/1a89fbebd9eb55f7e15034c1e8972600d12afa1e5de3f0c948ca9054f60eee9df32ee77db7a2ad592c2e3029c6db563c9796802cd704203a9204d7ebdc99b20a
   languageName: node
   linkType: hard
 
@@ -1664,26 +1648,6 @@ __metadata:
   peerDependencies:
     graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 10c0/efb3c0053f9196635355a86c34b66feaa6cfa4ab7e2e091dd4a21f59e696acb0a15eb38b76e7063e5d5cc39532b072a038e26cae041ce9990c8f9408b4db408b
-  languageName: node
-  linkType: hard
-
-"@graphql-codegen/visitor-plugin-common@npm:^6.2.4":
-  version: 6.2.4
-  resolution: "@graphql-codegen/visitor-plugin-common@npm:6.2.4"
-  dependencies:
-    "@graphql-codegen/plugin-helpers": "npm:^6.1.1"
-    "@graphql-tools/optimize": "npm:^2.0.0"
-    "@graphql-tools/relay-operation-optimizer": "npm:^7.1.1"
-    "@graphql-tools/utils": "npm:^11.0.0"
-    auto-bind: "npm:~4.0.0"
-    change-case-all: "npm:1.0.15"
-    dependency-graph: "npm:^1.0.0"
-    graphql-tag: "npm:^2.11.0"
-    parse-filepath: "npm:^1.0.2"
-    tslib: "npm:~2.6.0"
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 10c0/1bc912ec750b8271cf3b28404dc7ce1ebfe356d071da74c711052a3dc48bcd03748fe74e2a01b01dd0e68d1b96ad180249a2162521eef682219532568b988a4c
   languageName: node
   linkType: hard
 
@@ -7860,11 +7824,11 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:7.2.0"
     "@fortawesome/free-solid-svg-icons": "npm:7.2.0"
     "@fortawesome/react-fontawesome": "npm:3.3.1"
-    "@graphql-codegen/cli": "npm:6.3.0"
+    "@graphql-codegen/cli": "npm:6.3.1"
     "@graphql-codegen/client-preset": "npm:5.3.0"
     "@graphql-codegen/fragment-matcher": "npm:6.0.1"
     "@graphql-codegen/typescript-operations": "npm:5.1.0"
-    "@graphql-codegen/typescript-react-apollo": "npm:4.4.1"
+    "@graphql-codegen/typescript-react-apollo": "npm:4.4.2"
     "@graphql-eslint/eslint-plugin": "npm:4.4.0"
     "@graphql-tools/schema": "npm:10.0.32"
     "@next/eslint-plugin-next": "npm:^16.0.0"
@@ -10983,13 +10947,6 @@ __metadata:
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
   checksum: 10c0/fc48fb54ff7669f33bb32997cab9460757ee99fafaf72400b261c3e10fde21538e47d8cfcbe6a25a31bcb5b7b727c27d52626386fc2de24eb059a6d64a89cdf5
-  languageName: node
-  linkType: hard
-
-"lodash@npm:~4.17.0":
-  version: 4.17.21
-  resolution: "lodash@npm:4.17.21"
-  checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
   languageName: node
   linkType: hard
 
@@ -14210,13 +14167,6 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
-  languageName: node
-  linkType: hard
-
-"tslib@npm:~2.6.0":
-  version: 2.6.3
-  resolution: "tslib@npm:2.6.3"
-  checksum: 10c0/2598aef53d9dbe711af75522464b2104724d6467b26a60f2bdac8297d2b5f1f6b86a71f61717384aa8fd897240467aaa7bcc36a0700a0faf751293d1331db39a
   languageName: node
   linkType: hard
 
