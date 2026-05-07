@@ -1,8 +1,6 @@
 import type { FC } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { StatusState } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
-
 import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { Spinner } from '../Spinner';
 
@@ -10,6 +8,7 @@ import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
 
 import styles from './CommitWithStatuses.module.css';
+import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
 
 interface CommitWithStatusesProps {
     author?:
@@ -30,25 +29,13 @@ interface CommitWithStatusesProps {
     message?: string;
     status?:
         | {
-              commit:
+              commit?:
                   | {
                         oid: any;
                     }
                   | null
                   | undefined;
-              contexts: ReadonlyArray<{
-                  avatarUrl: any | null | undefined;
-                  context: string;
-                  creator:
-                      | {
-                            login: string;
-                        }
-                      | null
-                      | undefined;
-                  description: string | null | undefined;
-                  state: StatusState;
-                  targetUrl: any | null | undefined;
-              }>;
+              contexts?: ContextStatusProps[] | null | undefined;
           }
         | null
         | undefined;
