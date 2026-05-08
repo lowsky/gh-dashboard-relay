@@ -12,11 +12,10 @@ import type {
 } from './__generated__/RelayRootRepoQuery.graphql';
 import RelayClientContext from 'lib/RelayClientContext';
 
-import InternalLink from 'components/InternalLink';
-
 import UserFragmentContainer from 'relay/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
+import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
 
 const query = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {
@@ -34,13 +33,14 @@ export default function RelayRoot(props: { authToken: string }) {
 
     return (
         <RelayClientContext auth={props.authToken}>
+            <BreadcrumbRoot>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                <BreadcrumbLink href="/relay">Relay</BreadcrumbLink>
+                <BreadcrumbLink href={'/relay/' + userName}>user {userName} </BreadcrumbLink>
+                <BreadcrumbCurrentLink>repo</BreadcrumbCurrentLink>
+            </BreadcrumbRoot>
+            <br />
             <Suspense>
-                <br />
-                <InternalLink href="/relay">back to shortcut list</InternalLink>
-                <br />
-                <InternalLink href={'/relay/' + userName}>
-                    Repo list of user <strong>{userName!}</strong>
-                </InternalLink>
                 <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>
         </RelayClientContext>

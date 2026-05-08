@@ -1,6 +1,6 @@
 import { getAccessToken } from '../../lib/getAccessToken';
-import InternalLink from 'components/InternalLink';
 import RelayRoot from './RelayRoot';
+import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
 
 const RelayUserRoot = async () => {
     const authToken = await getAccessToken();
@@ -9,7 +9,11 @@ const RelayUserRoot = async () => {
     }
     return (
         <>
-            <InternalLink href="/relay">back to shortcut list</InternalLink>
+            <BreadcrumbRoot>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                <BreadcrumbLink href="/relay">Relay</BreadcrumbLink>
+                <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
+            </BreadcrumbRoot>
             <br />
 
             <RelayRoot authToken={authToken} />
