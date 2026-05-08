@@ -2,7 +2,7 @@ import { Icon, Link, Text, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FragmentType, gql } from '@apollo/client';
-//import useMergePR from './useMergePR';
+import useMergePR from './useMergePR';
 import { useFragment } from '@apollo/client/react';
 import { Spinner } from 'components/Spinner';
 import { PullRequestMergeFragment_RefFragment } from '../app/apollo/__gen__/graphql';
@@ -34,14 +34,13 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
         fragment: PullRequestMergeFragment_ref,
         from: associatedPullRequest,
     });
+    const mergePR = useMergePR();
 
     if (!result.data || !result.complete) return null;
 
-    // @ts-expect-error will be adopted in a follow-up
     const { number, id, url, title, closed, headRefOid, isDraft, mergeStateStatus, merged, mergeable } = result.data;
 
-    //const mergePR = useMergePR();
-    //const doMergePR: DoMergePR = async () => mergePR(headRefOid, id);
+    const doMergePR: DoMergePR = async () => mergePR(headRefOid, id);
 
     const isClean = mergeStateStatus === 'CLEAN';
     return (
@@ -65,10 +64,7 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
             )}
             {closed && 'closed'}
             {isDraft && 'draft'}
-            {
-                // @ts-expect-error will be adopted in a follow-up
-                !merged && mergeable && isClean && <MergeButtonWithErrorStatus doMergePR={doMergePR} />
-            }
+            {!merged && mergeable && isClean && <MergeButtonWithErrorStatus doMergePR={doMergePR} />}
         </VStack>
     );
 }

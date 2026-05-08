@@ -32438,6 +32438,23 @@ export type UserFragment_RepositoryOwnerFragment =
     | UserFragment_RepositoryOwner_Organization_Fragment
     | UserFragment_RepositoryOwner_User_Fragment;
 
+export type UseMergePrMutationMutationVariables = Exact<{
+    input: MergePullRequestInput;
+}>;
+
+export type UseMergePrMutationMutation = {
+    __typename?: 'Mutation';
+    mergePullRequest?: {
+        __typename?: 'MergePullRequestPayload';
+        pullRequest?: {
+            __typename?: 'PullRequest';
+            merged: boolean;
+            state: PullRequestState;
+            mergeStateStatus: MergeStateStatus;
+        } | null;
+    } | null;
+};
+
 export type GetUserWithReposQueryVariables = Exact<{
     userName: Scalars['String']['input'];
 }>;
@@ -33133,6 +33150,59 @@ export const UserFragmentStoryQueryDocument = {
         },
     ],
 } as unknown as DocumentNode<UserFragmentStoryQueryQuery, UserFragmentStoryQueryQueryVariables>;
+export const UseMergePrMutationDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'mutation',
+            name: { kind: 'Name', value: 'useMergePRMutation' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'input' } },
+                    type: {
+                        kind: 'NonNullType',
+                        type: { kind: 'NamedType', name: { kind: 'Name', value: 'MergePullRequestInput' } },
+                    },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'mergePullRequest' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'input' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'input' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'pullRequest' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'merged' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'mergeStateStatus' } },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<UseMergePrMutationMutation, UseMergePrMutationMutationVariables>;
 export const GetUserWithReposDocument = {
     kind: 'Document',
     definitions: [
