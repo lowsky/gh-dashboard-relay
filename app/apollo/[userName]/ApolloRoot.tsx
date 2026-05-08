@@ -12,10 +12,9 @@ import { UserWithReposFragment_repositoryOwner } from './UserWithReposFragment';
 import type { GetUserWithReposQuery, GetUserWithReposQueryVariables } from '../__gen__/graphql';
 
 import ApolloClientContext from 'lib/ApolloClientContext';
-import InternalLink from 'components/InternalLink';
 import UserWithReposFragment from './UserWithReposFragment';
 
-import { Spinner } from 'components/Spinner';
+import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
 
 export const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
     query GetUserWithRepos($userName: String!) {
@@ -44,6 +43,13 @@ export default function ApolloRoot(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
+            <BreadcrumbRoot>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
+                <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
+            </BreadcrumbRoot>
+            <br />
+
             <Suspense fallback={<div>Loading...</div>}>
                 <UserPageContent userName={userName!} />
             </Suspense>
@@ -74,12 +80,5 @@ export function UserPageContent({ userName }: { userName: string }) {
         );
     }
 
-    return (
-        <>
-            <InternalLink href="/apollo">Back to overview</InternalLink>
-            <Suspense fallback={<Spinner />}>
-                <UserWithReposFragment repositoryOwner={repositoryOwner} />
-            </Suspense>
-        </>
-    );
+    return <UserWithReposFragment repositoryOwner={repositoryOwner} />;
 }

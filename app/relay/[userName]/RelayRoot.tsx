@@ -7,8 +7,6 @@ import { graphql, useLazyLoadQuery } from 'react-relay';
 import type { RelayRootQuery } from './__generated__/RelayRootQuery.graphql';
 import RelayClientContext from 'lib/RelayClientContext';
 
-import InternalLink from 'components/InternalLink';
-
 import UserWithReposFragment from './UserWithReposFragment';
 
 export const USER_WITH_REPOS_QUERY = graphql`
@@ -33,7 +31,6 @@ export default function RelayRoot(props: { authToken: string }) {
     const { userName } = useParams<{ userName: string }>() ?? {};
     return (
         <RelayClientContext auth={props.authToken}>
-            <InternalLink href="/relay">Back to overview</InternalLink>
             <Suspense fallback={<div>Loading...</div>}>
                 <UserPageContent userName={userName!} />
             </Suspense>

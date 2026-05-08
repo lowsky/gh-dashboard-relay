@@ -14,11 +14,11 @@ import type {
 } from '../../__gen__/graphql';
 
 import ApolloClientContext from 'lib/ApolloClientContext';
-import InternalLink from 'components/InternalLink';
 
 import UserFragmentContainer, { UserFragment_repositoryOwner } from 'apollo/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
+import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
 
 export const USER_REPO_BRANCHES_QUERY: TypedDocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables> =
     gql`
@@ -38,11 +38,14 @@ export default function ApolloRoot(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
+            <BreadcrumbRoot>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
+                <BreadcrumbLink href={'/apollo/' + userName}>user {userName} </BreadcrumbLink>
+                <BreadcrumbCurrentLink>repo</BreadcrumbCurrentLink>
+            </BreadcrumbRoot>
+            <br />
             <Suspense fallback={<div>Loading...</div>}>
-                <br />
-                <InternalLink href={'/apollo/' + userName}>
-                    Repo list of user <strong>{userName!}</strong>
-                </InternalLink>
                 <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>
         </ApolloClientContext>

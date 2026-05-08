@@ -1,4 +1,11 @@
 import { LinkList } from 'components/LinkList';
+import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
+
+<BreadcrumbRoot>
+    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    <BreadcrumbCurrentLink href="/apollo">Apollo</BreadcrumbCurrentLink>
+</BreadcrumbRoot>
+<br />
 
 ## Loading a user's repositories with Apollo Client
 
