@@ -39,6 +39,7 @@ export default function ApolloRoot(props: { authToken: string }) {
     return (
         <ApolloClientContext auth={props.authToken}>
             <Suspense fallback={<div>Loading...</div>}>
+                <br />o <InternalLink href="/apollo">back to shortcut list</InternalLink>
                 <br />
                 <InternalLink href={'/apollo/' + userName}>
                     Repo list of user <strong>{userName!}</strong>
