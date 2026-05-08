@@ -35,7 +35,7 @@ interface CommitWithStatusesProps {
                     }
                   | null
                   | undefined;
-              contexts?: ContextStatusProps[] | null | undefined;
+              contexts?: readonly ContextStatusProps[] | null | undefined;
           }
         | null
         | undefined;

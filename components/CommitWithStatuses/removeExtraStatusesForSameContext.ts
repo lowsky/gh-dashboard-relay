@@ -1,4 +1,3 @@
-import type { Maybe } from './githubStatus';
 import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
 
 /**
@@ -7,9 +6,7 @@ import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
  *   in the resulting list.
  * - Only the first status will be taken.
  */
-export function removeExtraStatusesForSameContext(
-    statuses: readonly Maybe<ContextStatusProps>[] = []
-): ContextStatusProps[] {
+export function removeExtraStatusesForSameContext(statuses: readonly ContextStatusProps[] = []): ContextStatusProps[] {
     const filteredStatuses = statuses
         ?.filter((item) => item?.context)
         ?.reduce((acc, item) => {
