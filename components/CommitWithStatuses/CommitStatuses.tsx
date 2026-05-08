@@ -1,16 +1,14 @@
 import type { FC } from 'react';
 
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
-import { Status } from './Status';
-
-import type { GithubStatus } from './githubStatus';
+import { ContextStatusProps, Status } from './Status';
 
 import styles from './CommitWithStatuses.module.css';
 
 type Maybe<T> = T | null;
 
 type Props = {
-    contexts?: Maybe<ReadonlyArray<Maybe<GithubStatus>>>;
+    contexts?: Maybe<ReadonlyArray<ContextStatusProps>>;
 };
 
 export const CommitStatuses: FC<Props> = ({ contexts }) => {

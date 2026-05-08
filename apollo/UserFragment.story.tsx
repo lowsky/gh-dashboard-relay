@@ -37,7 +37,6 @@ export const WithoutAvatar = meta.story({
         return <UserFragment user={data.repositoryOwner} />;
     },
     parameters: {
-        fragmentQuery: STORY_QUERY,
         apolloClient: {
             mocks: [
                 {

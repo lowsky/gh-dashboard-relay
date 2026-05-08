@@ -32283,6 +32283,66 @@ export type WorkflowsParametersInput = {
     workflows: Array<WorkflowFileReferenceInput>;
 };
 
+export type CommitWithStatuses_CommitFragment = {
+    __typename?: 'Commit';
+    authoredDate: any;
+    commitUrl: any;
+    message: string;
+    status?: {
+        __typename?: 'Status';
+        id: string;
+        state: StatusState;
+        commit?: { __typename?: 'Commit'; oid: any } | null;
+        contexts: Array<{
+            __typename?: 'StatusContext';
+            avatarUrl?: any | null;
+            context: string;
+            state: StatusState;
+            description?: string | null;
+            targetUrl?: any | null;
+        }>;
+    } | null;
+} & { ' $fragmentName'?: 'CommitWithStatuses_CommitFragment' };
+
+export type BranchInfoRowFragment_RefFragment = {
+    __typename?: 'Ref';
+    name: string;
+    id: string;
+    target?:
+        | { __typename?: 'Blob'; id: string }
+        | ({ __typename?: 'Commit'; id: string } & {
+              ' $fragmentRefs'?: { CommitWithStatuses_CommitFragment: CommitWithStatuses_CommitFragment };
+          })
+        | { __typename?: 'Tag'; id: string }
+        | { __typename?: 'Tree'; id: string }
+        | null;
+    associatedPullRequests: {
+        __typename?: 'PullRequestConnection';
+        edges?: Array<{
+            __typename?: 'PullRequestEdge';
+            node?:
+                | ({ __typename?: 'PullRequest'; id: string } & {
+                      ' $fragmentRefs'?: { PullRequestMergeFragment_RefFragment: PullRequestMergeFragment_RefFragment };
+                  })
+                | null;
+        } | null> | null;
+    };
+} & { ' $fragmentName'?: 'BranchInfoRowFragment_RefFragment' };
+
+export type PullRequestMergeFragment_RefFragment = {
+    __typename?: 'PullRequest';
+    id: string;
+    headRefOid: any;
+    number: number;
+    url: any;
+    title: string;
+    mergeStateStatus: MergeStateStatus;
+    closed: boolean;
+    isDraft: boolean;
+    merged: boolean;
+    mergeable: MergeableState;
+} & { ' $fragmentName'?: 'PullRequestMergeFragment_RefFragment' };
+
 export type GetRepositoriesQueryVariables = Exact<{
     login: Scalars['String']['input'];
     after?: InputMaybe<Scalars['String']['input']>;
@@ -32378,6 +32438,23 @@ export type UserFragment_RepositoryOwnerFragment =
     | UserFragment_RepositoryOwner_Organization_Fragment
     | UserFragment_RepositoryOwner_User_Fragment;
 
+export type UseMergePrMutationMutationVariables = Exact<{
+    input: MergePullRequestInput;
+}>;
+
+export type UseMergePrMutationMutation = {
+    __typename?: 'Mutation';
+    mergePullRequest?: {
+        __typename?: 'MergePullRequestPayload';
+        pullRequest?: {
+            __typename?: 'PullRequest';
+            merged: boolean;
+            state: PullRequestState;
+            mergeStateStatus: MergeStateStatus;
+        } | null;
+    } | null;
+};
+
 export type GetUserWithReposQueryVariables = Exact<{
     userName: Scalars['String']['input'];
 }>;
@@ -32417,6 +32494,283 @@ export type UserWithReposFragment_RepositoryOwnerFragment =
     | UserWithReposFragment_RepositoryOwner_Organization_Fragment
     | UserWithReposFragment_RepositoryOwner_User_Fragment;
 
+export type GetUserRepoBranchesQueryVariables = Exact<{
+    userName: Scalars['String']['input'];
+}>;
+
+export type GetUserRepoBranchesQuery = {
+    __typename?: 'Query';
+    repositoryOwner?:
+        | ({ __typename?: 'Organization'; id: string; login: string; avatarUrl: any } & {
+              ' $fragmentRefs'?: {
+                  UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
+              };
+          })
+        | ({ __typename?: 'User'; id: string; login: string; avatarUrl: any } & {
+              ' $fragmentRefs'?: {
+                  UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment;
+              };
+          })
+        | null;
+};
+
+export type GetRepoBranchesQueryVariables = Exact<{
+    userName: Scalars['String']['input'];
+    repoName: Scalars['String']['input'];
+    after?: InputMaybe<Scalars['String']['input']>;
+    count: Scalars['Int']['input'];
+}>;
+
+export type GetRepoBranchesQuery = {
+    __typename?: 'Query';
+    repository?: {
+        __typename?: 'Repository';
+        id: string;
+        branches?: {
+            __typename?: 'RefConnection';
+            totalCount: number;
+            pageInfo: { __typename?: 'PageInfo'; hasNextPage: boolean; endCursor?: string | null };
+            edges?: Array<{
+                __typename?: 'RefEdge';
+                node?:
+                    | ({ __typename?: 'Ref'; id: string; name: string } & {
+                          ' $fragmentRefs'?: { BranchInfoRowFragment_RefFragment: BranchInfoRowFragment_RefFragment };
+                      })
+                    | null;
+            } | null> | null;
+        } | null;
+    } | null;
+};
+
+export const CommitWithStatuses_CommitFragmentDoc = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Commit' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'status' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'commit' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [{ kind: 'Field', name: { kind: 'Name', value: 'oid' } }],
+                                    },
+                                },
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'contexts' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'context' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'description' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'targetUrl' } },
+                                        ],
+                                    },
+                                },
+                                { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                            ],
+                        },
+                    },
+                    { kind: 'Field', name: { kind: 'Name', value: 'commitUrl' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'message' } },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<CommitWithStatuses_CommitFragment, unknown>;
+export const PullRequestMergeFragment_RefFragmentDoc = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'PullRequestMergeFragment_ref' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'PullRequest' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'headRefOid' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'number' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'mergeStateStatus' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'closed' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'isDraft' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'merged' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'mergeable' } },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<PullRequestMergeFragment_RefFragment, unknown>;
+export const BranchInfoRowFragment_RefFragmentDoc = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'BranchInfoRowFragment_ref' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Ref' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'target' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                {
+                                    kind: 'InlineFragment',
+                                    typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Commit' } },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            {
+                                                kind: 'FragmentSpread',
+                                                name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
+                                            },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'associatedPullRequests' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'first' },
+                                value: { kind: 'IntValue', value: '1' },
+                            },
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'states' },
+                                value: { kind: 'ListValue', values: [{ kind: 'EnumValue', value: 'OPEN' }] },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'edges' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'node' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                                        {
+                                                            kind: 'FragmentSpread',
+                                                            name: {
+                                                                kind: 'Name',
+                                                                value: 'PullRequestMergeFragment_ref',
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Commit' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'status' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'commit' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [{ kind: 'Field', name: { kind: 'Name', value: 'oid' } }],
+                                    },
+                                },
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'contexts' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'context' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'description' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'targetUrl' } },
+                                        ],
+                                    },
+                                },
+                                { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                            ],
+                        },
+                    },
+                    { kind: 'Field', name: { kind: 'Name', value: 'commitUrl' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'message' } },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'PullRequestMergeFragment_ref' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'PullRequest' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'headRefOid' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'number' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'mergeStateStatus' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'closed' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'isDraft' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'merged' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'mergeable' } },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<BranchInfoRowFragment_RefFragment, unknown>;
 export const UserFragment_RepositoryOwnerFragmentDoc = {
     kind: 'Document',
     definitions: [
@@ -32796,6 +33150,59 @@ export const UserFragmentStoryQueryDocument = {
         },
     ],
 } as unknown as DocumentNode<UserFragmentStoryQueryQuery, UserFragmentStoryQueryQueryVariables>;
+export const UseMergePrMutationDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'mutation',
+            name: { kind: 'Name', value: 'useMergePRMutation' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'input' } },
+                    type: {
+                        kind: 'NonNullType',
+                        type: { kind: 'NamedType', name: { kind: 'Name', value: 'MergePullRequestInput' } },
+                    },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'mergePullRequest' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'input' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'input' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'pullRequest' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'merged' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'mergeStateStatus' } },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<UseMergePrMutationMutation, UseMergePrMutationMutationVariables>;
 export const GetUserWithReposDocument = {
     kind: 'Document',
     definitions: [
@@ -32939,3 +33346,362 @@ export const GetUserWithReposDocument = {
         },
     ],
 } as unknown as DocumentNode<GetUserWithReposQuery, GetUserWithReposQueryVariables>;
+export const GetUserRepoBranchesDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetUserRepoBranches' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'repositoryOwner' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'login' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                {
+                                    kind: 'FragmentSpread',
+                                    name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>;
+export const GetRepoBranchesDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetRepoBranches' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'repoName' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+                    type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+                },
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'count' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'repository' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'name' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'repoName' } },
+                            },
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'owner' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                {
+                                    kind: 'Field',
+                                    alias: { kind: 'Name', value: 'branches' },
+                                    name: { kind: 'Name', value: 'refs' },
+                                    arguments: [
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'refPrefix' },
+                                            value: { kind: 'StringValue', value: 'refs/heads/', block: false },
+                                        },
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'first' },
+                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'count' } },
+                                        },
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'after' },
+                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+                                        },
+                                    ],
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'totalCount' } },
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'pageInfo' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'hasNextPage' } },
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'endCursor' } },
+                                                    ],
+                                                },
+                                            },
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'edges' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        {
+                                                            kind: 'Field',
+                                                            name: { kind: 'Name', value: 'node' },
+                                                            selectionSet: {
+                                                                kind: 'SelectionSet',
+                                                                selections: [
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'id' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'Field',
+                                                                        name: { kind: 'Name', value: 'name' },
+                                                                    },
+                                                                    {
+                                                                        kind: 'FragmentSpread',
+                                                                        name: {
+                                                                            kind: 'Name',
+                                                                            value: 'BranchInfoRowFragment_ref',
+                                                                        },
+                                                                    },
+                                                                ],
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Commit' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'status' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'commit' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [{ kind: 'Field', name: { kind: 'Name', value: 'oid' } }],
+                                    },
+                                },
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'contexts' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'context' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'description' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'targetUrl' } },
+                                        ],
+                                    },
+                                },
+                                { kind: 'Field', name: { kind: 'Name', value: 'state' } },
+                            ],
+                        },
+                    },
+                    { kind: 'Field', name: { kind: 'Name', value: 'commitUrl' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'message' } },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'PullRequestMergeFragment_ref' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'PullRequest' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'headRefOid' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'number' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'mergeStateStatus' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'closed' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'isDraft' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'merged' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'mergeable' } },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'BranchInfoRowFragment_ref' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Ref' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'target' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                {
+                                    kind: 'InlineFragment',
+                                    typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Commit' } },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            {
+                                                kind: 'FragmentSpread',
+                                                name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
+                                            },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'associatedPullRequests' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'first' },
+                                value: { kind: 'IntValue', value: '1' },
+                            },
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'states' },
+                                value: { kind: 'ListValue', values: [{ kind: 'EnumValue', value: 'OPEN' }] },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'edges' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'node' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                                        {
+                                                            kind: 'FragmentSpread',
+                                                            name: {
+                                                                kind: 'Name',
+                                                                value: 'PullRequestMergeFragment_ref',
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                            },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetRepoBranchesQuery, GetRepoBranchesQueryVariables>;

@@ -1,9 +1,22 @@
 import { Box, Image, Link } from '@chakra-ui/react';
 
 import styles from './CommitWithStatuses.module.css';
-import type { GithubCommitAuthor, GithubUser, UserOrCommitAuthor } from './githubStatus';
 
-export function CommitterInfo({ author }: { author: UserOrCommitAuthor }) {
+type Maybe<T> = T | null;
+
+type GithubCommitAuthor = {
+    email: Maybe<string>;
+    name?: Maybe<string>;
+};
+type GithubUser = {
+    avatarUrl?: Maybe<string>;
+    company?: Maybe<string>;
+    id?: Maybe<string>;
+    login: Maybe<string>;
+};
+export type UserOrCommitAuthor = GithubCommitAuthor | GithubUser;
+
+export function CommitterInfo({ author }: { author?: UserOrCommitAuthor }) {
     if (!author) return null;
 
     return (
