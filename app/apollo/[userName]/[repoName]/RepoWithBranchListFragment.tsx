@@ -30,13 +30,17 @@ export const RepoBranchesQuery: TypedDocumentNode<GetRepoBranchesQuery, GetRepoB
 `;
 
 export function RepoWithBranchList(props: { userName: string; repoName: string }) {
-    const { data } = useQuery<GetRepoBranchesQuery, GetRepoBranchesQueryVariables>(RepoBranchesQuery, {
-        variables: {
-            userName: props.userName,
-            repoName: props.repoName,
-            count: 10,
-        },
-    });
+    const variables = {
+        userName: props.userName,
+        repoName: props.repoName,
+        count: 10,
+    };
+    const { data, refetch, loading } = useQuery<GetRepoBranchesQuery, GetRepoBranchesQueryVariables>(
+        RepoBranchesQuery,
+        {
+            variables,
+        }
+    );
     console.log(data);
 
     if (!data || !data.repository) return 'no main data - incomplete, loading...';
@@ -45,8 +49,10 @@ export function RepoWithBranchList(props: { userName: string; repoName: string }
     const { branches } = repository;
     if (!branches || branches.edges?.length === 0) return <p>No branches found!</p>;
 
+    const refetchDefault = () => refetch(variables);
+
     return (
-        <BranchesTable>
+        <BranchesTable refetch={loading ? undefined : refetchDefault}>
             {(branches?.edges ?? []).map(
                 (edge, idx) =>
                     edge?.node && (
