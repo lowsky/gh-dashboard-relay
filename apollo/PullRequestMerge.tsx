@@ -40,12 +40,14 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
 
     const { number, id, url, title, closed, headRefOid, isDraft, mergeStateStatus, merged, mergeable } = result.data;
 
+    // @ts-expect-error Type error: Argument of type 'unknown' is not assignable to parameter of type 'string'.
     const doMergePR: DoMergePR = async () => mergePR(headRefOid, id);
 
     const isClean = mergeStateStatus === 'CLEAN';
     return (
         <VStack width="6em">
             {url ? (
+                // @ts-expect-error Type error: Type '{}' is not assignable to type 'string'.
                 <Link href={url} title={title ?? '-no-title-'} rel="noopener noreferrer nofollow">
                     <Icon>
                         <FontAwesomeIcon icon={faCodePullRequest} />

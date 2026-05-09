@@ -46,7 +46,6 @@ export const BranchInfoRowFragment_ref = gql`
         name
         id
         target {
-            id
             ... on Commit {
                 ...CommitWithStatuses_commit
             }

@@ -7,11 +7,14 @@ import { CommitWithStatuses_CommitFragment } from '../app/apollo/__gen__/graphql
 export default function CommitFragment({ commit }: { commit: FragmentType<CommitWithStatuses_CommitFragment> }) {
     const { complete, data } = useFragment<CommitWithStatuses_CommitFragment>({
         fragment: CommitWithStatuses_commit,
+        fragmentName: 'CommitWithStatuses_commit',
         from: commit,
     });
 
     if (!complete) return 'incomplete commit, loading...';
     if (!data) return null;
 
+    // @ts-expect-error types of property 'authoredDate' are incompatible.
+    //     Type 'unknown' is not assignable to type 'string | null | undefined'.
     return <CommitWithStatus {...data} />;
 }

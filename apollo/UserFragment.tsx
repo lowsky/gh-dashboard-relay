@@ -37,5 +37,6 @@ export default function UserFragment(props: Props) {
 
     if (!complete) return 'incomplete, loading...';
 
+    // @ts-expect-error Types of property avatarUrl are incompatible. Type unknown is not assignable to type string | undefined
     return <User user={data} />;
 }
