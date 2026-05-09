@@ -5166,13 +5166,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/cli-config@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@vercel/cli-config@npm:0.1.0"
+"@vercel/cli-config@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@vercel/cli-config@npm:0.1.1"
   dependencies:
     xdg-app-paths: "npm:5"
     zod: "npm:4.1.11"
-  checksum: 10c0/68c8bcf1fa9db741d33b66ee3be8f2a300e7e651dbf9a9e2448d1a8e930635a862b95ebbdfc9db954cfa2738126ac7e7b482b53f7a73a1a728fa05364f19f216
+  checksum: 10c0/c115ea214acb9439360e34cc197d2a25739ff144a5a8dc7762e1922b0e256043aedb04044d39412d1bfd35ab02a996d9459aa0dc909eae8a7ab1c21b7fce9609
   languageName: node
   linkType: hard
 
@@ -7901,7 +7901,7 @@ __metadata:
     type-fest: "npm:5.6.0"
     typescript: "npm:6.0.3"
     typescript-eslint: "npm:8.59.2"
-    vercel: "npm:53.3.0"
+    vercel: "npm:53.3.1"
     vite: "npm:8.0.11"
     vitest: "npm:4.1.5"
   languageName: unknown
@@ -14619,14 +14619,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:53.3.0":
-  version: 53.3.0
-  resolution: "vercel@npm:53.3.0"
+"vercel@npm:53.3.1":
+  version: 53.3.1
+  resolution: "vercel@npm:53.3.1"
   dependencies:
     "@vercel/backends": "npm:0.4.0"
     "@vercel/blob": "npm:2.3.0"
     "@vercel/build-utils": "npm:13.22.0"
-    "@vercel/cli-config": "npm:0.1.0"
+    "@vercel/cli-config": "npm:0.1.1"
     "@vercel/detect-agent": "npm:1.2.3"
     "@vercel/elysia": "npm:0.1.74"
     "@vercel/express": "npm:0.1.84"
@@ -14659,7 +14659,7 @@ __metadata:
   bin:
     vc: dist/vc.js
     vercel: dist/vc.js
-  checksum: 10c0/6e0c8f1b91679de60fd8a24bccf99a64b4a4cf669fe66d94827397a27aa67975125040ddb1fda7a95fae78dc08cf4b9e376a1406fd8678e04ae85df7bd2446c6
+  checksum: 10c0/654fd8d7ce78c8d2d626521b3a158cb2ad02af04ee34317717da246c95db9ac030281b6609c2419ada1608b94f85f1ee00ff7a8837dce31f260adc8766545122
   languageName: node
   linkType: hard
 
