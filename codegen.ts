@@ -23,6 +23,30 @@ const config: CodegenConfig = {
                 fragmentMasking: false,
             },
             config: {
+                //Note: Apollo Client users can still use
+                nonOptionalTypename: true,
+                skipTypeNameForRoot: true,
+
+                // re-enable types?? https://the-guild.dev/graphql/codegen/plugins/typescript/typescript#nonOptionalTypename
+                // no effect
+                ///nonOptionalTypename: true,
+
+                // https://the-guild.dev/graphql/codegen/plugins/typescript/typescript#skiptypename
+                //strictScalars: false,
+
+                // defaultScalarType
+                //defaultScalarType: 'any',
+
+                // https://the-guild.dev/graphql/codegen/plugins/typescript/typescript#scalars
+                /*
+                scalars: {
+                    //Unknown scalar type Base64String
+                    // not used in this project
+                    Base64String: 'string',
+                    BigInt: 'number',
+                },
+                */
+
                 // need to add when fragmentMasking is disabled:
                 // https://www.apollographql.com/docs/react/data/fragments#with-the-client-preset
                 customDirectives: {
