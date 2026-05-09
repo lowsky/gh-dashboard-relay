@@ -68,7 +68,7 @@ export default function RepoList({ login }: RepoListProps) {
     const { repositoryOwner } = data;
     if (!repositoryOwner?.repositories) return <div>No repositories found</div>;
 
-    const { repositories, id } = repositoryOwner;
+    const { repositories } = repositoryOwner;
     const { totalCount, edges, pageInfo } = repositories;
 
     const loadMore = async (after: string) => {
@@ -76,34 +76,6 @@ export default function RepoList({ login }: RepoListProps) {
 
         await fetchMore({
             variables: { after, login },
-            updateQuery: (previousQueryResult, options) => {
-                const { fetchMoreResult } = options;
-                const repositoryOwner = {
-                    ...previousQueryResult.repositoryOwner,
-                    ...fetchMoreResult.repositoryOwner,
-                    repositories: {
-                        totalCount: -1, // placeholder, default value
-                        ...previousQueryResult.repositoryOwner?.repositories,
-                        ...fetchMoreResult.repositoryOwner?.repositories,
-                        pageInfo: {
-                            hasNextPage: false, // placeholder, default value
-                            ...previousQueryResult.repositoryOwner?.repositories?.pageInfo,
-                            ...fetchMoreResult.repositoryOwner?.repositories.pageInfo,
-                        },
-                        edges: [
-                            ...(previousQueryResult.repositoryOwner?.repositories?.edges ?? []),
-                            ...(fetchMoreResult.repositoryOwner?.repositories.edges ?? []),
-                        ],
-                    },
-                    id,
-                    login,
-                };
-                return {
-                    ...previousQueryResult,
-                    ...fetchMoreResult,
-                    repositoryOwner,
-                } satisfies GetRepositoriesQuery;
-            },
         });
     };
 
@@ -121,9 +93,13 @@ export default function RepoList({ login }: RepoListProps) {
                             <InfiniteScrollTrigger
                                 key={node.id}
                                 onLoadMore={() => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
-                                <RepoItem repo={node} />
+                                {
+                                    // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
+                                    <RepoItem repo={node} />
+                                }
                             </InfiniteScrollTrigger>
                         ) : (
+                            // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
                             <RepoItem key={node.id} repo={node} />
                         );
                     })}

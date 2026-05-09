@@ -24,7 +24,7 @@ interface CommitWithStatusesProps {
           }
         | null
         | undefined;
-    authoredDate?: string;
+    authoredDate?: string | null | unknown;
     commitUrl?: string;
     message?: string;
     status?:
@@ -64,7 +64,10 @@ const CommitWithStatuses: FC<CommitWithStatusesProps> = (props) => {
                                 <PopoverArrow />
                                 <PopoverBody>
                                     <div className={styles.status}>
-                                        <i>{new Date(authoredDate).toLocaleString()}</i>
+                                        <i>{
+                                            // @ts-expect-error incorrect type error
+                                            new Date(authoredDate).toLocaleString()
+                                        }</i>
                                         <CommitterInfo author={authorUser} />
                                     </div>
                                 </PopoverBody>
