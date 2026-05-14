@@ -7941,30 +7941,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:16.9.1":
-  version: 16.9.1
-  resolution: "chromatic@npm:16.9.1"
-  dependencies:
-    semver: "npm:^7.3.5"
-  peerDependencies:
-    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
-    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
-    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
-  peerDependenciesMeta:
-    "@chromatic-com/cypress":
-      optional: true
-    "@chromatic-com/playwright":
-      optional: true
-    "@chromatic-com/vitest":
-      optional: true
-  bin:
-    chroma: dist/bin.cjs
-    chromatic: dist/bin.cjs
-    chromatic-cli: dist/bin.cjs
-  checksum: 10c0/b0badbfc71ca4eebbad86f43814c523afc42637fa342727e65a1b8c5f10271eb0bb91a3fbfd5e1412d62190bcacf612cf1ecc459f99cd03faba8bfe84a815fd9
-  languageName: node
-  linkType: hard
-
 "cjs-module-lexer@npm:1.2.3":
   version: 1.2.3
   resolution: "cjs-module-lexer@npm:1.2.3"
@@ -8256,7 +8232,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.59.2"
     "@vitest/browser-playwright": "npm:4.1.5"
     "@vitest/coverage-v8": "npm:4.1.5"
-    chromatic: "npm:16.9.1"
+    chromatic: "npm:16.10.0"
     eslint: "npm:10.3.0"
     eslint-config-next: "npm:16.2.6"
     eslint-config-prettier: "npm:10.1.8"
