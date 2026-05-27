@@ -45,12 +45,12 @@ export const WithInfo = meta.story({
             query BranchInfoRowStoryQuery @relay_test_operation {
                 node(id: "test-id") {
                     ... on Ref {
-                        ...BranchInfoRowFragment_ref
+                        ...BranchInfoRowFragment_ref @alias(as: "branchInfoRow")
                     }
                 }
             }
         `,
-        getReferenceEntry: (q) => ['branch', q.node],
+        getReferenceEntry: (q) => ['branch', q.node?.branchInfoRow],
         mockResolvers: {
             Commit: (): CommitWithStatuses_commit$data => ({
                 ...moreStatus,
@@ -84,8 +84,10 @@ export const WithInfo = meta.story({
             Ref: (): BranchInfoRowFragment_ref$data => ({
                 name: 'branch-x',
                 target: {
-                    ' $fragmentSpreads': {
-                        CommitWithStatuses_commit: true,
+                    commit: {
+                        ' $fragmentSpreads': {
+                            CommitWithStatuses_commit: true,
+                        },
                     },
                 },
                 associatedPullRequests: {
@@ -95,8 +97,10 @@ export const WithInfo = meta.story({
                         {
                             node: {
                                 id: 'abc',
-                                ' $fragmentSpreads': {
-                                    PullRequestMergeFragment_ref: true,
+                                pr: {
+                                    ' $fragmentSpreads': {
+                                        PullRequestMergeFragment_ref: true,
+                                    },
                                 },
                             },
                         },

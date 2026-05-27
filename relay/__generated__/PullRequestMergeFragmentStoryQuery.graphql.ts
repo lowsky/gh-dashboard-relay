@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c6d40e1e10627ddfb37b94d71da2b87b>>
+ * @generated SignedSource<<fbdb598234b562259cdba5fb5f37a9e8>>
  * @lightSyntaxTransform
  */
 
@@ -8,264 +8,262 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from 'relay-runtime';
-import { FragmentRefs } from 'relay-runtime';
+import { FragmentRefs } from "relay-runtime";
 export type PullRequestMergeFragmentStoryQuery$variables = Record<PropertyKey, never>;
 export type PullRequestMergeFragmentStoryQuery$data = {
-    readonly node:
-        | {
-              readonly pr?:
-                  | {
-                        readonly ' $fragmentSpreads': FragmentRefs<'PullRequestMergeFragment_ref'>;
-                    }
-                  | null
-                  | undefined;
-          }
-        | null
-        | undefined;
+  readonly node: {
+    readonly pullRequest?: {
+      readonly " $fragmentSpreads": FragmentRefs<"PullRequestMergeFragment_ref">;
+    } | null | undefined;
+  } | null | undefined;
 };
 export type PullRequestMergeFragmentStoryQuery = {
-    response: PullRequestMergeFragmentStoryQuery$data;
-    variables: PullRequestMergeFragmentStoryQuery$variables;
+  response: PullRequestMergeFragmentStoryQuery$data;
+  variables: PullRequestMergeFragmentStoryQuery$variables;
 };
 
-const node: ConcreteRequest = (function () {
-    var v0 = [
-            {
-                kind: 'Literal',
-                name: 'id',
-                value: 'pr-id',
-            },
+const node: ConcreteRequest = (function(){
+var v0 = [
+  {
+    "kind": "Literal",
+    "name": "id",
+    "value": "pr-id"
+  }
+],
+v1 = {
+  "enumValues": null,
+  "nullable": false,
+  "plural": false,
+  "type": "String"
+},
+v2 = {
+  "enumValues": null,
+  "nullable": false,
+  "plural": false,
+  "type": "Boolean"
+};
+return {
+  "fragment": {
+    "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "PullRequestMergeFragmentStoryQuery",
+    "selections": [
+      {
+        "alias": null,
+        "args": (v0/*:: as any*/),
+        "concreteType": null,
+        "kind": "LinkedField",
+        "name": "node",
+        "plural": false,
+        "selections": [
+          {
+            "kind": "InlineFragment",
+            "selections": [
+              {
+                "fragment": {
+                  "kind": "InlineFragment",
+                  "selections": [
+                    {
+                      "args": null,
+                      "kind": "FragmentSpread",
+                      "name": "PullRequestMergeFragment_ref"
+                    }
+                  ],
+                  "type": "PullRequest",
+                  "abstractKey": null
+                },
+                "kind": "AliasedInlineFragmentSpread",
+                "name": "pullRequest"
+              }
+            ],
+            "type": "PullRequest",
+            "abstractKey": null
+          }
         ],
-        v1 = {
-            enumValues: null,
-            nullable: false,
-            plural: false,
-            type: 'String',
-        },
-        v2 = {
-            enumValues: null,
-            nullable: false,
-            plural: false,
-            type: 'Boolean',
-        };
-    return {
-        fragment: {
-            argumentDefinitions: [],
-            kind: 'Fragment',
-            metadata: null,
-            name: 'PullRequestMergeFragmentStoryQuery',
-            selections: [
-                {
-                    alias: null,
-                    args: v0 /*:: as any*/,
-                    concreteType: null,
-                    kind: 'LinkedField',
-                    name: 'node',
-                    plural: false,
-                    selections: [
-                        {
-                            kind: 'InlineFragment',
-                            selections: [
-                                {
-                                    fragment: {
-                                        kind: 'InlineFragment',
-                                        selections: [
-                                            {
-                                                args: null,
-                                                kind: 'FragmentSpread',
-                                                name: 'PullRequestMergeFragment_ref',
-                                            },
-                                        ],
-                                        type: 'PullRequest',
-                                        abstractKey: null,
-                                    },
-                                    kind: 'AliasedInlineFragmentSpread',
-                                    name: 'pr',
-                                },
-                            ],
-                            type: 'PullRequest',
-                            abstractKey: null,
-                        },
-                    ],
-                    storageKey: 'node(id:"pr-id")',
-                },
+        "storageKey": "node(id:\"pr-id\")"
+      }
+    ],
+    "type": "Query",
+    "abstractKey": null
+  },
+  "kind": "Request",
+  "operation": {
+    "argumentDefinitions": [],
+    "kind": "Operation",
+    "name": "PullRequestMergeFragmentStoryQuery",
+    "selections": [
+      {
+        "alias": null,
+        "args": (v0/*:: as any*/),
+        "concreteType": null,
+        "kind": "LinkedField",
+        "name": "node",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "id",
+            "storageKey": null
+          },
+          {
+            "kind": "InlineFragment",
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "headRefOid",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "number",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "url",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "title",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "mergeStateStatus",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "closed",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "isDraft",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "merged",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "mergeable",
+                "storageKey": null
+              }
             ],
-            type: 'Query',
-            abstractKey: null,
+            "type": "PullRequest",
+            "abstractKey": null
+          }
+        ],
+        "storageKey": "node(id:\"pr-id\")"
+      }
+    ]
+  },
+  "params": {
+    "cacheID": "dbf519e8c5d1fefc8ada7306d27f3488",
+    "id": null,
+    "metadata": {
+      "relayTestingSelectionTypeInfo": {
+        "node": {
+          "enumValues": null,
+          "nullable": true,
+          "plural": false,
+          "type": "Node"
         },
-        kind: 'Request',
-        operation: {
-            argumentDefinitions: [],
-            kind: 'Operation',
-            name: 'PullRequestMergeFragmentStoryQuery',
-            selections: [
-                {
-                    alias: null,
-                    args: v0 /*:: as any*/,
-                    concreteType: null,
-                    kind: 'LinkedField',
-                    name: 'node',
-                    plural: false,
-                    selections: [
-                        {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: '__typename',
-                            storageKey: null,
-                        },
-                        {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: 'id',
-                            storageKey: null,
-                        },
-                        {
-                            kind: 'InlineFragment',
-                            selections: [
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'headRefOid',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'number',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'url',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'title',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'mergeStateStatus',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'closed',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'isDraft',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'merged',
-                                    storageKey: null,
-                                },
-                                {
-                                    alias: null,
-                                    args: null,
-                                    kind: 'ScalarField',
-                                    name: 'mergeable',
-                                    storageKey: null,
-                                },
-                            ],
-                            type: 'PullRequest',
-                            abstractKey: null,
-                        },
-                    ],
-                    storageKey: 'node(id:"pr-id")',
-                },
-            ],
+        "node.__typename": (v1/*:: as any*/),
+        "node.closed": (v2/*:: as any*/),
+        "node.headRefOid": {
+          "enumValues": null,
+          "nullable": false,
+          "plural": false,
+          "type": "GitObjectID"
         },
-        params: {
-            cacheID: 'dbf519e8c5d1fefc8ada7306d27f3488',
-            id: null,
-            metadata: {
-                relayTestingSelectionTypeInfo: {
-                    node: {
-                        enumValues: null,
-                        nullable: true,
-                        plural: false,
-                        type: 'Node',
-                    },
-                    'node.__typename': v1 /*:: as any*/,
-                    'node.closed': v2 /*:: as any*/,
-                    'node.headRefOid': {
-                        enumValues: null,
-                        nullable: false,
-                        plural: false,
-                        type: 'GitObjectID',
-                    },
-                    'node.id': {
-                        enumValues: null,
-                        nullable: false,
-                        plural: false,
-                        type: 'ID',
-                    },
-                    'node.isDraft': v2 /*:: as any*/,
-                    'node.mergeStateStatus': {
-                        enumValues: [
-                            'BEHIND',
-                            'BLOCKED',
-                            'CLEAN',
-                            'DIRTY',
-                            'DRAFT',
-                            'HAS_HOOKS',
-                            'UNKNOWN',
-                            'UNSTABLE',
-                        ],
-                        nullable: false,
-                        plural: false,
-                        type: 'MergeStateStatus',
-                    },
-                    'node.mergeable': {
-                        enumValues: ['CONFLICTING', 'MERGEABLE', 'UNKNOWN'],
-                        nullable: false,
-                        plural: false,
-                        type: 'MergeableState',
-                    },
-                    'node.merged': v2 /*:: as any*/,
-                    'node.number': {
-                        enumValues: null,
-                        nullable: false,
-                        plural: false,
-                        type: 'Int',
-                    },
-                    'node.title': v1 /*:: as any*/,
-                    'node.url': {
-                        enumValues: null,
-                        nullable: false,
-                        plural: false,
-                        type: 'URI',
-                    },
-                },
-            },
-            name: 'PullRequestMergeFragmentStoryQuery',
-            operationKind: 'query',
-            text: 'query PullRequestMergeFragmentStoryQuery {\n  node(id: "pr-id") {\n    __typename\n    ... on PullRequest {\n      ...PullRequestMergeFragment_ref\n    }\n    id\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n',
+        "node.id": {
+          "enumValues": null,
+          "nullable": false,
+          "plural": false,
+          "type": "ID"
         },
-    };
+        "node.isDraft": (v2/*:: as any*/),
+        "node.mergeStateStatus": {
+          "enumValues": [
+            "BEHIND",
+            "BLOCKED",
+            "CLEAN",
+            "DIRTY",
+            "DRAFT",
+            "HAS_HOOKS",
+            "UNKNOWN",
+            "UNSTABLE"
+          ],
+          "nullable": false,
+          "plural": false,
+          "type": "MergeStateStatus"
+        },
+        "node.mergeable": {
+          "enumValues": [
+            "CONFLICTING",
+            "MERGEABLE",
+            "UNKNOWN"
+          ],
+          "nullable": false,
+          "plural": false,
+          "type": "MergeableState"
+        },
+        "node.merged": (v2/*:: as any*/),
+        "node.number": {
+          "enumValues": null,
+          "nullable": false,
+          "plural": false,
+          "type": "Int"
+        },
+        "node.title": (v1/*:: as any*/),
+        "node.url": {
+          "enumValues": null,
+          "nullable": false,
+          "plural": false,
+          "type": "URI"
+        }
+      }
+    },
+    "name": "PullRequestMergeFragmentStoryQuery",
+    "operationKind": "query",
+    "text": "query PullRequestMergeFragmentStoryQuery {\n  node(id: \"pr-id\") {\n    __typename\n    ... on PullRequest {\n      ...PullRequestMergeFragment_ref\n    }\n    id\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n"
+  }
+};
 })();
 
-(node as any).hash = '1f9d5d80d1a19b673da8a6e96c50e663';
+(node as any).hash = "ab764fca74c5210570f93dae9b9b69a0";
 
 export default node;

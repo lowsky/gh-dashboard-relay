@@ -22,12 +22,12 @@ export const Default = meta.story({
             query PullRequestInfoFragmentStoryQuery @relay_test_operation {
                 node(id: "pr-id") {
                     ... on PullRequest {
-                        ...PullRequestInfo_pullRequest
+                        ...PullRequestInfo_pullRequest @alias(as: "pr")
                     }
                 }
             }
         `,
-        getReferenceEntry: (q) => ['pullRequest', q.node],
+        getReferenceEntry: (q) => ['pullRequest', q.node?.pr],
         mockResolvers: {
             PullRequest: (): PullRequestInfo_pullRequest$data => ({
                 ' $fragmentType': 'PullRequestInfo_pullRequest',

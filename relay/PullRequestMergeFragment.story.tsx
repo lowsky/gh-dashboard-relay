@@ -40,12 +40,12 @@ const meta = preview.meta({
             query PullRequestMergeFragmentStoryQuery @relay_test_operation {
                 node(id: "pr-id") {
                     ... on PullRequest {
-                        ...PullRequestMergeFragment_ref
+                        ...PullRequestMergeFragment_ref @alias(as: "pullRequest")
                     }
                 }
             }
         `,
-        getReferenceEntry: (q) => ['associatedPullRequest', q.node],
+        getReferenceEntry: (q) => ['associatedPullRequest', q.node?.pullRequest],
         mockResolvers: {
             PullRequest: () => prMock,
         },
