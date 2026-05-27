@@ -27,6 +27,7 @@ function RepoListFragment(props: Props) {
             ) @connection(key: "RepoList_user_repositories") {
                 edges {
                     node {
+                        id
                         ...RepoItemFragment_repo
                     }
                 }
@@ -61,19 +62,18 @@ function RepoListFragment(props: Props) {
 
                     const isLastElement = edges.length - 1 == idx;
                     return isLastElement && hasNext ? (
-                        <InfiniteScrollTrigger key={node['__id']} onLoadMore={() => loadNext(10)}>
+                        <InfiniteScrollTrigger key={node.id} onLoadMore={() => loadNext(10)}>
                             <Suspense fallback={<Spinner />}>
                                 <RepoItemFragment repo={node} />
                             </Suspense>
                         </InfiniteScrollTrigger>
                     ) : (
-                        <Suspense key={node?.['__id']} fallback={<Spinner />}>
+                        <Suspense key={node.id} fallback={<Spinner />}>
                             <RepoItemFragment repo={node} />
                         </Suspense>
                     );
                 })}
             </Ul>
-
             {isLoadingNext && <Spinner size="sm" />}
         </>
     );

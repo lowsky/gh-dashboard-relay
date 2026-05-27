@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9ac09e695abb185554ec9502fe81362b>>
+ * @generated SignedSource<<c93a0913678a37fe9bf2bb6247ac864c>>
  * @lightSyntaxTransform
  */
 
@@ -17,6 +17,7 @@ export type RepoListFragment_user$data = {
                   | {
                         readonly node:
                             | {
+                                  readonly id: string;
                                   readonly ' $fragmentSpreads': FragmentRefs<'RepoItemFragment_repo'>;
                               }
                             | null
@@ -42,7 +43,14 @@ export type RepoListFragment_user$key = {
 import RepoListPaginationQuery_graphql from './RepoListPaginationQuery.graphql';
 
 const node: ReaderFragment = (function () {
-    var v0 = ['repositories'];
+    var v0 = ['repositories'],
+        v1 = {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'id',
+            storageKey: null,
+        };
     return {
         argumentDefinitions: [
             {
@@ -123,6 +131,7 @@ const node: ReaderFragment = (function () {
                                 name: 'node',
                                 plural: false,
                                 selections: [
+                                    v1 /*:: as any*/,
                                     {
                                         args: null,
                                         kind: 'FragmentSpread',
@@ -184,19 +193,13 @@ const node: ReaderFragment = (function () {
                 storageKey:
                     '__RepoList_user_repositories_connection(orderBy:{"direction":"ASC","field":"NAME"},ownerAffiliations:["OWNER"])',
             },
-            {
-                alias: null,
-                args: null,
-                kind: 'ScalarField',
-                name: 'id',
-                storageKey: null,
-            },
+            v1 /*:: as any*/,
         ],
         type: 'User',
         abstractKey: null,
     };
 })();
 
-(node as any).hash = '7141b040d26dd9b98e8a489878e7d418';
+(node as any).hash = '56518f6a15f4ac82b88469b5c8118c64';
 
 export default node;
