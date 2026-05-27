@@ -18,11 +18,11 @@ interface Props {
 }
 
 export default function UserWithReposFragment(props: Props) {
-    const data: UserWithReposFragment_user$data = useFragment<UserWithReposFragment_user$key>(userFragment, props.user);
+    const data: UserWithReposFragment_user$data = useFragment<UserWithReposFragment_user$key>(userFragment, props);
     return (
         <>
-            <UserFragmentContainer user={data} />
-            <RepoListFragment user={data} />
+            <UserFragmentContainer user={data.user} />
+            <RepoListFragment user={data.repoList} />
         </>
     );
 }
