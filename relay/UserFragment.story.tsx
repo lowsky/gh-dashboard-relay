@@ -14,12 +14,12 @@ const meta = preview.meta({
             query UserFragmentStoryQuery @relay_test_operation {
                 node(id: "test-id") {
                     ... on User {
-                        ...UserFragment_user
+                        ...UserFragment_user @alias(as: "user")
                     }
                 }
             }
         `,
-        getReferenceEntry: (q) => ['user', q.node],
+        getReferenceEntry: (q) => ['user', q.node?.user],
     } satisfies WithRelayParameters<UserFragmentStoryQuery>,
 });
 

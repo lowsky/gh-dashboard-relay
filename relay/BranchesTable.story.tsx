@@ -27,11 +27,11 @@ export const WithOneBranch = meta.story({
         query: graphql`
             query BranchesTableStoryQuery {
                 node(id: "test-id") {
-                    ...RepoWithBranchListFragment_repo
+                    ...RepoWithBranchListFragment_repo @alias(as: "repoWithBranchList")
                 }
             }
         `,
-        getReferenceEntry: (q) => ['repo', q.node],
+        getReferenceEntry: (q) => ['repo', q.node?.repoWithBranchList],
         mockResolvers: {
             Ref: WithInfo.composed.parameters.mockResolvers.Ref,
             Commit: WithInfo.composed.parameters.mockResolvers.Commit,

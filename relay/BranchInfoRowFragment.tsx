@@ -13,20 +13,21 @@ import PullRequestMerge from 'relay/PullRequestMerge';
 import { Spinner } from 'components/Spinner';
 import { ClipboardIconButton, ClipboardRoot } from 'components/ui/clipboard';
 import type { PullRequestMergeFragment_ref$key } from './__generated__/PullRequestMergeFragment_ref.graphql';
+import type { CommitWithStatuses_commit$key } from 'relay/__generated__/CommitWithStatuses_commit.graphql';
 
 export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRowFragment_ref$key }) {
-    const { name, target, associatedPullRequests } = useFragment<BranchInfoRowFragment_ref$key>(
+    const data: BranchInfoRowFragment_ref$data = useFragment<BranchInfoRowFragment_ref$key>(
         graphql`
             fragment BranchInfoRowFragment_ref on Ref {
                 name
                 target {
-                    ...CommitWithStatuses_commit
+                    ...CommitWithStatuses_commit @alias(as: "commit")
                 }
                 associatedPullRequests(first: 1, states: [OPEN]) {
                     edges {
                         node {
                             id
-                            ...PullRequestMergeFragment_ref
+                            ...PullRequestMergeFragment_ref @alias(as: "pr")
                         }
                     }
                 }
@@ -34,13 +35,14 @@ export default function BranchInfoRowFragment({ branch }: { branch: BranchInfoRo
         `,
         branch
     );
+    const { name, target, associatedPullRequests } = data;
 
     return (associatedPullRequests.edges ?? []).map((edge) => {
         if (!edge?.node) return null;
         const { node } = edge;
         if (!node) return null;
-
-        return <BranchInfoRow key={node.id} name={name} target={target} associatedPullRequest={node} />;
+        if (!target?.commit) return null;
+        return <BranchInfoRow key={node.id} name={name} target={target?.commit} associatedPullRequest={node.pr} />;
     });
 }
 
@@ -50,7 +52,7 @@ function BranchInfoRow({
     associatedPullRequest,
 }: {
     name: string;
-    target: BranchInfoRowFragment_ref$data['target'] | null;
+    target: CommitWithStatuses_commit$key | null;
     associatedPullRequest: PullRequestMergeFragment_ref$key;
 }) {
     const main = false;
