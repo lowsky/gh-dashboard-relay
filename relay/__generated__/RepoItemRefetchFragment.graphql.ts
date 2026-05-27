@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<cddcfdf958e3ef31acee6c0ece788e49>>
+ * @generated SignedSource<<1d5ab0f8ff4f17b74e79887da40badfe>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -43,14 +42,14 @@ const node: ConcreteRequest = (function () {
         ];
     return {
         fragment: {
-            argumentDefinitions: v0 /*: any*/,
+            argumentDefinitions: v0 /*:: as any*/,
             kind: 'Fragment',
             metadata: null,
             name: 'RepoItemRefetchFragment',
             selections: [
                 {
                     alias: null,
-                    args: v1 /*: any*/,
+                    args: v1 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -70,13 +69,13 @@ const node: ConcreteRequest = (function () {
         },
         kind: 'Request',
         operation: {
-            argumentDefinitions: v0 /*: any*/,
+            argumentDefinitions: v0 /*:: as any*/,
             kind: 'Operation',
             name: 'RepoItemRefetchFragment',
             selections: [
                 {
                     alias: null,
-                    args: v1 /*: any*/,
+                    args: v1 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',

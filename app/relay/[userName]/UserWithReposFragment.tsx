@@ -8,8 +8,8 @@ import UserFragmentContainer from 'relay/UserFragment';
 
 const userFragment = graphql`
     fragment UserWithReposFragment_user on User {
-        ...UserFragment_user
-        ...RepoListFragment_user
+        ...UserFragment_user @alias(as: "user")
+        ...RepoListFragment_user @alias(as: "repoList")
     }
 `;
 

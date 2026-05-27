@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<620a89c7725cf698bd05e3936ea21c51>>
+ * @generated SignedSource<<28ddb5df45f21f7b3d2b19d1989712d7>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -91,14 +90,14 @@ const node: ConcreteRequest = (function () {
         };
     return {
         fragment: {
-            argumentDefinitions: v0 /*: any*/,
+            argumentDefinitions: v0 /*:: as any*/,
             kind: 'Fragment',
             metadata: null,
             name: 'useMergePRMutation',
             selections: [
                 {
                     alias: null,
-                    args: v1 /*: any*/,
+                    args: v1 /*:: as any*/,
                     concreteType: 'MergePullRequestPayload',
                     kind: 'LinkedField',
                     name: 'mergePullRequest',
@@ -111,7 +110,7 @@ const node: ConcreteRequest = (function () {
                             kind: 'LinkedField',
                             name: 'pullRequest',
                             plural: false,
-                            selections: [v2 /*: any*/, v3 /*: any*/, v4 /*: any*/],
+                            selections: [v2 /*:: as any*/, v3 /*:: as any*/, v4 /*:: as any*/],
                             storageKey: null,
                         },
                     ],
@@ -123,13 +122,13 @@ const node: ConcreteRequest = (function () {
         },
         kind: 'Request',
         operation: {
-            argumentDefinitions: v0 /*: any*/,
+            argumentDefinitions: v0 /*:: as any*/,
             kind: 'Operation',
             name: 'useMergePRMutation',
             selections: [
                 {
                     alias: null,
-                    args: v1 /*: any*/,
+                    args: v1 /*:: as any*/,
                     concreteType: 'MergePullRequestPayload',
                     kind: 'LinkedField',
                     name: 'mergePullRequest',
@@ -143,9 +142,9 @@ const node: ConcreteRequest = (function () {
                             name: 'pullRequest',
                             plural: false,
                             selections: [
-                                v2 /*: any*/,
-                                v3 /*: any*/,
-                                v4 /*: any*/,
+                                v2 /*:: as any*/,
+                                v3 /*:: as any*/,
+                                v4 /*:: as any*/,
                                 {
                                     alias: null,
                                     args: null,

@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<4ed6ba544319d824c0f29f871bdc6b36>>
+ * @generated SignedSource<<c6d40e1e10627ddfb37b94d71da2b87b>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -14,7 +13,12 @@ export type PullRequestMergeFragmentStoryQuery$variables = Record<PropertyKey, n
 export type PullRequestMergeFragmentStoryQuery$data = {
     readonly node:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'PullRequestMergeFragment_ref'>;
+              readonly pr?:
+                  | {
+                        readonly ' $fragmentSpreads': FragmentRefs<'PullRequestMergeFragment_ref'>;
+                    }
+                  | null
+                  | undefined;
           }
         | null
         | undefined;
@@ -53,7 +57,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -63,9 +67,20 @@ const node: ConcreteRequest = (function () {
                             kind: 'InlineFragment',
                             selections: [
                                 {
-                                    args: null,
-                                    kind: 'FragmentSpread',
-                                    name: 'PullRequestMergeFragment_ref',
+                                    fragment: {
+                                        kind: 'InlineFragment',
+                                        selections: [
+                                            {
+                                                args: null,
+                                                kind: 'FragmentSpread',
+                                                name: 'PullRequestMergeFragment_ref',
+                                            },
+                                        ],
+                                        type: 'PullRequest',
+                                        abstractKey: null,
+                                    },
+                                    kind: 'AliasedInlineFragmentSpread',
+                                    name: 'pr',
                                 },
                             ],
                             type: 'PullRequest',
@@ -86,7 +101,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -192,8 +207,8 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'Node',
                     },
-                    'node.__typename': v1 /*: any*/,
-                    'node.closed': v2 /*: any*/,
+                    'node.__typename': v1 /*:: as any*/,
+                    'node.closed': v2 /*:: as any*/,
                     'node.headRefOid': {
                         enumValues: null,
                         nullable: false,
@@ -206,7 +221,7 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'ID',
                     },
-                    'node.isDraft': v2 /*: any*/,
+                    'node.isDraft': v2 /*:: as any*/,
                     'node.mergeStateStatus': {
                         enumValues: [
                             'BEHIND',
@@ -228,14 +243,14 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'MergeableState',
                     },
-                    'node.merged': v2 /*: any*/,
+                    'node.merged': v2 /*:: as any*/,
                     'node.number': {
                         enumValues: null,
                         nullable: false,
                         plural: false,
                         type: 'Int',
                     },
-                    'node.title': v1 /*: any*/,
+                    'node.title': v1 /*:: as any*/,
                     'node.url': {
                         enumValues: null,
                         nullable: false,
@@ -251,6 +266,6 @@ const node: ConcreteRequest = (function () {
     };
 })();
 
-(node as any).hash = '390bd2302dad90891b14e011d518ce7f';
+(node as any).hash = '1f9d5d80d1a19b673da8a6e96c50e663';
 
 export default node;

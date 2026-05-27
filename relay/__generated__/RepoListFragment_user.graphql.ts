@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<ce57c74503c8a4f7fbf2aa5320c947cd>>
+ * @generated SignedSource<<9ac09e695abb185554ec9502fe81362b>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -64,7 +63,7 @@ const node: ReaderFragment = (function () {
                     count: 'count',
                     cursor: 'cursor',
                     direction: 'forward',
-                    path: v0 /*: any*/,
+                    path: v0 /*:: as any*/,
                 },
             ],
             refetch: {
@@ -74,7 +73,7 @@ const node: ReaderFragment = (function () {
                         cursor: 'cursor',
                     },
                     backward: null,
-                    path: v0 /*: any*/,
+                    path: v0 /*:: as any*/,
                 },
                 fragmentPathInResult: ['node'],
                 operation: RepoListPaginationQuery_graphql,

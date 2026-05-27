@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<9544f3f8f9e04d1c3bcb1f3a757f31c2>>
+ * @generated SignedSource<<cfd318a2afda5261eab468cb6c3c05ab>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -11,7 +10,12 @@
 import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type UserWithReposFragment_user$data = {
-    readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_user' | 'UserFragment_user'>;
+    readonly repoList: {
+        readonly ' $fragmentSpreads': FragmentRefs<'RepoListFragment_user'>;
+    };
+    readonly user: {
+        readonly ' $fragmentSpreads': FragmentRefs<'UserFragment_user'>;
+    };
     readonly ' $fragmentType': 'UserWithReposFragment_user';
 };
 export type UserWithReposFragment_user$key = {
@@ -26,20 +30,42 @@ const node: ReaderFragment = {
     name: 'UserWithReposFragment_user',
     selections: [
         {
-            args: null,
-            kind: 'FragmentSpread',
-            name: 'UserFragment_user',
+            fragment: {
+                kind: 'InlineFragment',
+                selections: [
+                    {
+                        args: null,
+                        kind: 'FragmentSpread',
+                        name: 'UserFragment_user',
+                    },
+                ],
+                type: 'User',
+                abstractKey: null,
+            },
+            kind: 'AliasedInlineFragmentSpread',
+            name: 'user',
         },
         {
-            args: null,
-            kind: 'FragmentSpread',
-            name: 'RepoListFragment_user',
+            fragment: {
+                kind: 'InlineFragment',
+                selections: [
+                    {
+                        args: null,
+                        kind: 'FragmentSpread',
+                        name: 'RepoListFragment_user',
+                    },
+                ],
+                type: 'User',
+                abstractKey: null,
+            },
+            kind: 'AliasedInlineFragmentSpread',
+            name: 'repoList',
         },
     ],
     type: 'User',
     abstractKey: null,
 };
 
-(node as any).hash = 'f14c1c930fde13fc4606154d52efacce';
+(node as any).hash = 'a3b99b1edb2356fbdc970fa881cb65a8';
 
 export default node;

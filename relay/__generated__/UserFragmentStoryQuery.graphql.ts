@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<b3bbaa6560c0ec07afe14843d7201ca1>>
+ * @generated SignedSource<<391113f00e12e3c3f4d74645379c4a5b>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -14,7 +13,12 @@ export type UserFragmentStoryQuery$variables = Record<PropertyKey, never>;
 export type UserFragmentStoryQuery$data = {
     readonly node:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'UserFragment_user'>;
+              readonly user?:
+                  | {
+                        readonly ' $fragmentSpreads': FragmentRefs<'UserFragment_user'>;
+                    }
+                  | null
+                  | undefined;
           }
         | null
         | undefined;
@@ -47,7 +51,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -57,9 +61,20 @@ const node: ConcreteRequest = (function () {
                             kind: 'InlineFragment',
                             selections: [
                                 {
-                                    args: null,
-                                    kind: 'FragmentSpread',
-                                    name: 'UserFragment_user',
+                                    fragment: {
+                                        kind: 'InlineFragment',
+                                        selections: [
+                                            {
+                                                args: null,
+                                                kind: 'FragmentSpread',
+                                                name: 'UserFragment_user',
+                                            },
+                                        ],
+                                        type: 'User',
+                                        abstractKey: null,
+                                    },
+                                    kind: 'AliasedInlineFragmentSpread',
+                                    name: 'user',
                                 },
                             ],
                             type: 'User',
@@ -80,7 +95,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -144,7 +159,7 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'Node',
                     },
-                    'node.__typename': v1 /*: any*/,
+                    'node.__typename': v1 /*:: as any*/,
                     'node.avatarUrl': {
                         enumValues: null,
                         nullable: false,
@@ -163,7 +178,7 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'ID',
                     },
-                    'node.login': v1 /*: any*/,
+                    'node.login': v1 /*:: as any*/,
                 },
             },
             name: 'UserFragmentStoryQuery',
@@ -173,6 +188,6 @@ const node: ConcreteRequest = (function () {
     };
 })();
 
-(node as any).hash = '229258462933b4021003218dab26d320';
+(node as any).hash = 'ccc92344e1bbdfd5f4d83f326059d853';
 
 export default node;
