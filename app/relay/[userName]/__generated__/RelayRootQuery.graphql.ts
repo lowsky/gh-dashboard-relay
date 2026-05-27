@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<784ff8519d8f727335daedcfaa93c42f>>
+ * @generated SignedSource<<b53a6b22c3fcfd212588e3f2fa655f14>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -25,7 +24,12 @@ export type RelayRootQuery$data = {
         | undefined;
     readonly repositoryOwner:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'UserWithReposFragment_user'>;
+              readonly user:
+                  | {
+                        readonly ' $fragmentSpreads': FragmentRefs<'UserWithReposFragment_user'>;
+                    }
+                  | null
+                  | undefined;
           }
         | null
         | undefined;
@@ -132,48 +136,59 @@ const node: ConcreteRequest = (function () {
         };
     return {
         fragment: {
-            argumentDefinitions: v0 /*: any*/,
+            argumentDefinitions: v0 /*:: as any*/,
             kind: 'Fragment',
             metadata: null,
             name: 'RelayRootQuery',
             selections: [
                 {
                     alias: null,
-                    args: v1 /*: any*/,
+                    args: v1 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'repositoryOwner',
                     plural: false,
                     selections: [
                         {
-                            args: null,
-                            kind: 'FragmentSpread',
-                            name: 'UserWithReposFragment_user',
+                            fragment: {
+                                kind: 'InlineFragment',
+                                selections: [
+                                    {
+                                        args: null,
+                                        kind: 'FragmentSpread',
+                                        name: 'UserWithReposFragment_user',
+                                    },
+                                ],
+                                type: 'User',
+                                abstractKey: null,
+                            },
+                            kind: 'AliasedInlineFragmentSpread',
+                            name: 'user',
                         },
                     ],
                     storageKey: null,
                 },
-                v2 /*: any*/,
+                v2 /*:: as any*/,
             ],
             type: 'Query',
             abstractKey: null,
         },
         kind: 'Request',
         operation: {
-            argumentDefinitions: v0 /*: any*/,
+            argumentDefinitions: v0 /*:: as any*/,
             kind: 'Operation',
             name: 'RelayRootQuery',
             selections: [
                 {
                     alias: null,
-                    args: v1 /*: any*/,
+                    args: v1 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'repositoryOwner',
                     plural: false,
                     selections: [
-                        v3 /*: any*/,
-                        v4 /*: any*/,
+                        v3 /*:: as any*/,
+                        v4 /*:: as any*/,
                         {
                             kind: 'InlineFragment',
                             selections: [
@@ -200,7 +215,7 @@ const node: ConcreteRequest = (function () {
                                 },
                                 {
                                     alias: null,
-                                    args: v5 /*: any*/,
+                                    args: v5 /*:: as any*/,
                                     concreteType: 'RepositoryConnection',
                                     kind: 'LinkedField',
                                     name: 'repositories',
@@ -268,11 +283,11 @@ const node: ConcreteRequest = (function () {
                                                             kind: 'LinkedField',
                                                             name: 'pullRequests',
                                                             plural: false,
-                                                            selections: [v6 /*: any*/],
+                                                            selections: [v6 /*:: as any*/],
                                                             storageKey: 'pullRequests(first:1,states:["OPEN"])',
                                                         },
-                                                        v4 /*: any*/,
-                                                        v3 /*: any*/,
+                                                        v4 /*:: as any*/,
+                                                        v3 /*:: as any*/,
                                                     ],
                                                     storageKey: null,
                                                 },
@@ -311,14 +326,14 @@ const node: ConcreteRequest = (function () {
                                             ],
                                             storageKey: null,
                                         },
-                                        v6 /*: any*/,
+                                        v6 /*:: as any*/,
                                     ],
                                     storageKey:
                                         'repositories(first:10,orderBy:{"direction":"ASC","field":"NAME"},ownerAffiliations:["OWNER"])',
                                 },
                                 {
                                     alias: null,
-                                    args: v5 /*: any*/,
+                                    args: v5 /*:: as any*/,
                                     filters: ['orderBy', 'ownerAffiliations'],
                                     handle: 'connection',
                                     key: 'RepoList_user_repositories',
@@ -332,7 +347,7 @@ const node: ConcreteRequest = (function () {
                     ],
                     storageKey: null,
                 },
-                v2 /*: any*/,
+                v2 /*:: as any*/,
             ],
         },
         params: {
@@ -346,6 +361,6 @@ const node: ConcreteRequest = (function () {
     };
 })();
 
-(node as any).hash = '61594f2395eb39c6db2538e4332e2fd9';
+(node as any).hash = '120f0efbd27d02baae15cdda64add3e3';
 
 export default node;

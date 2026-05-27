@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<2f6c20e2721f8007e9dff0b54c0382b3>>
+ * @generated SignedSource<<b1b8e34a474effd2f67492c2f0f37bec>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -18,7 +17,9 @@ export type BranchInfoRowFragment_ref$data = {
                         readonly node:
                             | {
                                   readonly id: string;
-                                  readonly ' $fragmentSpreads': FragmentRefs<'PullRequestMergeFragment_ref'>;
+                                  readonly pr: {
+                                      readonly ' $fragmentSpreads': FragmentRefs<'PullRequestMergeFragment_ref'>;
+                                  };
                               }
                             | null
                             | undefined;
@@ -32,7 +33,12 @@ export type BranchInfoRowFragment_ref$data = {
     readonly name: string;
     readonly target:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'CommitWithStatuses_commit'>;
+              readonly commit:
+                  | {
+                        readonly ' $fragmentSpreads': FragmentRefs<'CommitWithStatuses_commit'>;
+                    }
+                  | null
+                  | undefined;
           }
         | null
         | undefined;
@@ -65,9 +71,20 @@ const node: ReaderFragment = {
             plural: false,
             selections: [
                 {
-                    args: null,
-                    kind: 'FragmentSpread',
-                    name: 'CommitWithStatuses_commit',
+                    fragment: {
+                        kind: 'InlineFragment',
+                        selections: [
+                            {
+                                args: null,
+                                kind: 'FragmentSpread',
+                                name: 'CommitWithStatuses_commit',
+                            },
+                        ],
+                        type: 'Commit',
+                        abstractKey: null,
+                    },
+                    kind: 'AliasedInlineFragmentSpread',
+                    name: 'commit',
                 },
             ],
             storageKey: null,
@@ -115,9 +132,20 @@ const node: ReaderFragment = {
                                     storageKey: null,
                                 },
                                 {
-                                    args: null,
-                                    kind: 'FragmentSpread',
-                                    name: 'PullRequestMergeFragment_ref',
+                                    fragment: {
+                                        kind: 'InlineFragment',
+                                        selections: [
+                                            {
+                                                args: null,
+                                                kind: 'FragmentSpread',
+                                                name: 'PullRequestMergeFragment_ref',
+                                            },
+                                        ],
+                                        type: 'PullRequest',
+                                        abstractKey: null,
+                                    },
+                                    kind: 'AliasedInlineFragmentSpread',
+                                    name: 'pr',
                                 },
                             ],
                             storageKey: null,
@@ -133,6 +161,6 @@ const node: ReaderFragment = {
     abstractKey: null,
 };
 
-(node as any).hash = 'aaeea5298b83e9c444881c5772898bda';
+(node as any).hash = '97ab3924798d504ee5944eb2e6cf2ff1';
 
 export default node;

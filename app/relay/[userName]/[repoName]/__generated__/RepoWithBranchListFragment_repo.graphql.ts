@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<7753afb01bf5c8cb8e376cce6d15e98b>>
+ * @generated SignedSource<<ad21eb02e6f1e6007ac878c500e2aad4>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -63,7 +62,7 @@ const node: ReaderFragment = (function () {
                     count: 'count',
                     cursor: 'cursor',
                     direction: 'forward',
-                    path: v0 /*: any*/,
+                    path: v0 /*:: as any*/,
                 },
             ],
             refetch: {
@@ -73,7 +72,7 @@ const node: ReaderFragment = (function () {
                         cursor: 'cursor',
                     },
                     backward: null,
-                    path: v0 /*: any*/,
+                    path: v0 /*:: as any*/,
                 },
                 fragmentPathInResult: ['node'],
                 operation: RepoWithBranchPaginationQuery_graphql,

@@ -12,7 +12,7 @@ import UserWithReposFragment from './UserWithReposFragment';
 export const USER_WITH_REPOS_QUERY = graphql`
     query RelayRootQuery($userName: String!) {
         repositoryOwner(login: $userName) {
-            ...UserWithReposFragment_user
+            ...UserWithReposFragment_user @alias(as: "user")
         }
         rateLimit {
             # eslint-disable-next-line relay/unused-fields

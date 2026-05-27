@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<2b520859a6968d99c72408251ed7a7eb>>
+ * @generated SignedSource<<d0fbabc0488d0e56cba0eb165e0e7085>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -14,7 +13,12 @@ export type BranchInfoRowStoryQuery$variables = Record<PropertyKey, never>;
 export type BranchInfoRowStoryQuery$data = {
     readonly node:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'BranchInfoRowFragment_ref'>;
+              readonly branchInfoRow?:
+                  | {
+                        readonly ' $fragmentSpreads': FragmentRefs<'BranchInfoRowFragment_ref'>;
+                    }
+                  | null
+                  | undefined;
           }
         | null
         | undefined;
@@ -131,7 +135,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -141,9 +145,20 @@ const node: ConcreteRequest = (function () {
                             kind: 'InlineFragment',
                             selections: [
                                 {
-                                    args: null,
-                                    kind: 'FragmentSpread',
-                                    name: 'BranchInfoRowFragment_ref',
+                                    fragment: {
+                                        kind: 'InlineFragment',
+                                        selections: [
+                                            {
+                                                args: null,
+                                                kind: 'FragmentSpread',
+                                                name: 'BranchInfoRowFragment_ref',
+                                            },
+                                        ],
+                                        type: 'Ref',
+                                        abstractKey: null,
+                                    },
+                                    kind: 'AliasedInlineFragmentSpread',
+                                    name: 'branchInfoRow',
                                 },
                             ],
                             type: 'Ref',
@@ -164,17 +179,17 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
                     plural: false,
                     selections: [
-                        v1 /*: any*/,
+                        v1 /*:: as any*/,
                         {
                             kind: 'InlineFragment',
                             selections: [
-                                v2 /*: any*/,
+                                v2 /*:: as any*/,
                                 {
                                     alias: null,
                                     args: null,
@@ -183,7 +198,7 @@ const node: ConcreteRequest = (function () {
                                     name: 'target',
                                     plural: false,
                                     selections: [
-                                        v1 /*: any*/,
+                                        v1 /*:: as any*/,
                                         {
                                             kind: 'InlineFragment',
                                             selections: [
@@ -202,7 +217,7 @@ const node: ConcreteRequest = (function () {
                                                     name: 'status',
                                                     plural: false,
                                                     selections: [
-                                                        v3 /*: any*/,
+                                                        v3 /*:: as any*/,
                                                         {
                                                             alias: null,
                                                             args: null,
@@ -218,7 +233,7 @@ const node: ConcreteRequest = (function () {
                                                                     name: 'oid',
                                                                     storageKey: null,
                                                                 },
-                                                                v3 /*: any*/,
+                                                                v3 /*:: as any*/,
                                                             ],
                                                             storageKey: null,
                                                         },
@@ -230,7 +245,7 @@ const node: ConcreteRequest = (function () {
                                                             name: 'contexts',
                                                             plural: true,
                                                             selections: [
-                                                                v4 /*: any*/,
+                                                                v4 /*:: as any*/,
                                                                 {
                                                                     alias: null,
                                                                     args: null,
@@ -246,18 +261,18 @@ const node: ConcreteRequest = (function () {
                                                                     name: 'creator',
                                                                     plural: false,
                                                                     selections: [
-                                                                        v1 /*: any*/,
-                                                                        v5 /*: any*/,
+                                                                        v1 /*:: as any*/,
+                                                                        v5 /*:: as any*/,
                                                                         {
                                                                             kind: 'InlineFragment',
-                                                                            selections: [v3 /*: any*/],
+                                                                            selections: [v3 /*:: as any*/],
                                                                             type: 'Node',
                                                                             abstractKey: '__isNode',
                                                                         },
                                                                     ],
                                                                     storageKey: null,
                                                                 },
-                                                                v6 /*: any*/,
+                                                                v6 /*:: as any*/,
                                                                 {
                                                                     alias: null,
                                                                     args: null,
@@ -272,11 +287,11 @@ const node: ConcreteRequest = (function () {
                                                                     name: 'targetUrl',
                                                                     storageKey: null,
                                                                 },
-                                                                v3 /*: any*/,
+                                                                v3 /*:: as any*/,
                                                             ],
                                                             storageKey: null,
                                                         },
-                                                        v6 /*: any*/,
+                                                        v6 /*:: as any*/,
                                                     ],
                                                     storageKey: null,
                                                 },
@@ -310,10 +325,10 @@ const node: ConcreteRequest = (function () {
                                                             name: 'user',
                                                             plural: false,
                                                             selections: [
-                                                                v5 /*: any*/,
-                                                                v2 /*: any*/,
-                                                                v4 /*: any*/,
-                                                                v3 /*: any*/,
+                                                                v5 /*:: as any*/,
+                                                                v2 /*:: as any*/,
+                                                                v4 /*:: as any*/,
+                                                                v3 /*:: as any*/,
                                                             ],
                                                             storageKey: null,
                                                         },
@@ -324,7 +339,7 @@ const node: ConcreteRequest = (function () {
                                             type: 'Commit',
                                             abstractKey: null,
                                         },
-                                        v3 /*: any*/,
+                                        v3 /*:: as any*/,
                                     ],
                                     storageKey: null,
                                 },
@@ -363,7 +378,7 @@ const node: ConcreteRequest = (function () {
                                                     name: 'node',
                                                     plural: false,
                                                     selections: [
-                                                        v3 /*: any*/,
+                                                        v3 /*:: as any*/,
                                                         {
                                                             alias: null,
                                                             args: null,
@@ -440,7 +455,7 @@ const node: ConcreteRequest = (function () {
                             type: 'Ref',
                             abstractKey: null,
                         },
-                        v3 /*: any*/,
+                        v3 /*:: as any*/,
                     ],
                     storageKey: 'node(id:"test-id")',
                 },
@@ -457,7 +472,7 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'Node',
                     },
-                    'node.__typename': v7 /*: any*/,
+                    'node.__typename': v7 /*:: as any*/,
                     'node.associatedPullRequests': {
                         enumValues: null,
                         nullable: false,
@@ -476,10 +491,10 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'PullRequest',
                     },
-                    'node.associatedPullRequests.edges.node.closed': v8 /*: any*/,
-                    'node.associatedPullRequests.edges.node.headRefOid': v9 /*: any*/,
-                    'node.associatedPullRequests.edges.node.id': v10 /*: any*/,
-                    'node.associatedPullRequests.edges.node.isDraft': v8 /*: any*/,
+                    'node.associatedPullRequests.edges.node.closed': v8 /*:: as any*/,
+                    'node.associatedPullRequests.edges.node.headRefOid': v9 /*:: as any*/,
+                    'node.associatedPullRequests.edges.node.id': v10 /*:: as any*/,
+                    'node.associatedPullRequests.edges.node.isDraft': v8 /*:: as any*/,
                     'node.associatedPullRequests.edges.node.mergeStateStatus': {
                         enumValues: [
                             'BEHIND',
@@ -501,24 +516,24 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'MergeableState',
                     },
-                    'node.associatedPullRequests.edges.node.merged': v8 /*: any*/,
+                    'node.associatedPullRequests.edges.node.merged': v8 /*:: as any*/,
                     'node.associatedPullRequests.edges.node.number': {
                         enumValues: null,
                         nullable: false,
                         plural: false,
                         type: 'Int',
                     },
-                    'node.associatedPullRequests.edges.node.title': v7 /*: any*/,
-                    'node.associatedPullRequests.edges.node.url': v11 /*: any*/,
-                    'node.id': v10 /*: any*/,
-                    'node.name': v7 /*: any*/,
+                    'node.associatedPullRequests.edges.node.title': v7 /*:: as any*/,
+                    'node.associatedPullRequests.edges.node.url': v11 /*:: as any*/,
+                    'node.id': v10 /*:: as any*/,
+                    'node.name': v7 /*:: as any*/,
                     'node.target': {
                         enumValues: null,
                         nullable: true,
                         plural: false,
                         type: 'GitObject',
                     },
-                    'node.target.__typename': v7 /*: any*/,
+                    'node.target.__typename': v7 /*:: as any*/,
                     'node.target.author': {
                         enumValues: null,
                         nullable: true,
@@ -531,19 +546,19 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'User',
                     },
-                    'node.target.author.user.avatarUrl': v11 /*: any*/,
-                    'node.target.author.user.id': v10 /*: any*/,
-                    'node.target.author.user.login': v7 /*: any*/,
-                    'node.target.author.user.name': v12 /*: any*/,
+                    'node.target.author.user.avatarUrl': v11 /*:: as any*/,
+                    'node.target.author.user.id': v10 /*:: as any*/,
+                    'node.target.author.user.login': v7 /*:: as any*/,
+                    'node.target.author.user.name': v12 /*:: as any*/,
                     'node.target.authoredDate': {
                         enumValues: null,
                         nullable: false,
                         plural: false,
                         type: 'DateTime',
                     },
-                    'node.target.commitUrl': v11 /*: any*/,
-                    'node.target.id': v10 /*: any*/,
-                    'node.target.message': v7 /*: any*/,
+                    'node.target.commitUrl': v11 /*:: as any*/,
+                    'node.target.id': v10 /*:: as any*/,
+                    'node.target.message': v7 /*:: as any*/,
                     'node.target.status': {
                         enumValues: null,
                         nullable: true,
@@ -556,32 +571,32 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'Commit',
                     },
-                    'node.target.status.commit.id': v10 /*: any*/,
-                    'node.target.status.commit.oid': v9 /*: any*/,
+                    'node.target.status.commit.id': v10 /*:: as any*/,
+                    'node.target.status.commit.oid': v9 /*:: as any*/,
                     'node.target.status.contexts': {
                         enumValues: null,
                         nullable: false,
                         plural: true,
                         type: 'StatusContext',
                     },
-                    'node.target.status.contexts.avatarUrl': v13 /*: any*/,
-                    'node.target.status.contexts.context': v7 /*: any*/,
+                    'node.target.status.contexts.avatarUrl': v13 /*:: as any*/,
+                    'node.target.status.contexts.context': v7 /*:: as any*/,
                     'node.target.status.contexts.creator': {
                         enumValues: null,
                         nullable: true,
                         plural: false,
                         type: 'Actor',
                     },
-                    'node.target.status.contexts.creator.__isNode': v7 /*: any*/,
-                    'node.target.status.contexts.creator.__typename': v7 /*: any*/,
-                    'node.target.status.contexts.creator.id': v10 /*: any*/,
-                    'node.target.status.contexts.creator.login': v7 /*: any*/,
-                    'node.target.status.contexts.description': v12 /*: any*/,
-                    'node.target.status.contexts.id': v10 /*: any*/,
-                    'node.target.status.contexts.state': v14 /*: any*/,
-                    'node.target.status.contexts.targetUrl': v13 /*: any*/,
-                    'node.target.status.id': v10 /*: any*/,
-                    'node.target.status.state': v14 /*: any*/,
+                    'node.target.status.contexts.creator.__isNode': v7 /*:: as any*/,
+                    'node.target.status.contexts.creator.__typename': v7 /*:: as any*/,
+                    'node.target.status.contexts.creator.id': v10 /*:: as any*/,
+                    'node.target.status.contexts.creator.login': v7 /*:: as any*/,
+                    'node.target.status.contexts.description': v12 /*:: as any*/,
+                    'node.target.status.contexts.id': v10 /*:: as any*/,
+                    'node.target.status.contexts.state': v14 /*:: as any*/,
+                    'node.target.status.contexts.targetUrl': v13 /*:: as any*/,
+                    'node.target.status.id': v10 /*:: as any*/,
+                    'node.target.status.state': v14 /*:: as any*/,
                 },
             },
             name: 'BranchInfoRowStoryQuery',
@@ -591,6 +606,6 @@ const node: ConcreteRequest = (function () {
     };
 })();
 
-(node as any).hash = '4655145b6f6e507882124957fd0d2a0f';
+(node as any).hash = '83739a24f6bc4142a9299f93547b7a45';
 
 export default node;

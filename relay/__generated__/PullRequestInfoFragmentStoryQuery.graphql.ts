@@ -1,7 +1,6 @@
 /**
- * @generated SignedSource<<008d99e8d512a2a0f9f712f57a922af2>>
+ * @generated SignedSource<<65a4066fd83dee56a872e08b0dca5ca6>>
  * @lightSyntaxTransform
- * @nogrep
  */
 
 /* tslint:disable */
@@ -14,7 +13,12 @@ export type PullRequestInfoFragmentStoryQuery$variables = Record<PropertyKey, ne
 export type PullRequestInfoFragmentStoryQuery$data = {
     readonly node:
         | {
-              readonly ' $fragmentSpreads': FragmentRefs<'PullRequestInfo_pullRequest'>;
+              readonly pr?:
+                  | {
+                        readonly ' $fragmentSpreads': FragmentRefs<'PullRequestInfo_pullRequest'>;
+                    }
+                  | null
+                  | undefined;
           }
         | null
         | undefined;
@@ -47,7 +51,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -57,9 +61,20 @@ const node: ConcreteRequest = (function () {
                             kind: 'InlineFragment',
                             selections: [
                                 {
-                                    args: null,
-                                    kind: 'FragmentSpread',
-                                    name: 'PullRequestInfo_pullRequest',
+                                    fragment: {
+                                        kind: 'InlineFragment',
+                                        selections: [
+                                            {
+                                                args: null,
+                                                kind: 'FragmentSpread',
+                                                name: 'PullRequestInfo_pullRequest',
+                                            },
+                                        ],
+                                        type: 'PullRequest',
+                                        abstractKey: null,
+                                    },
+                                    kind: 'AliasedInlineFragmentSpread',
+                                    name: 'pr',
                                 },
                             ],
                             type: 'PullRequest',
@@ -80,7 +95,7 @@ const node: ConcreteRequest = (function () {
             selections: [
                 {
                     alias: null,
-                    args: v0 /*: any*/,
+                    args: v0 /*:: as any*/,
                     concreteType: null,
                     kind: 'LinkedField',
                     name: 'node',
@@ -151,7 +166,7 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'Node',
                     },
-                    'node.__typename': v1 /*: any*/,
+                    'node.__typename': v1 /*:: as any*/,
                     'node.headRefOid': {
                         enumValues: null,
                         nullable: false,
@@ -170,7 +185,7 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'Int',
                     },
-                    'node.title': v1 /*: any*/,
+                    'node.title': v1 /*:: as any*/,
                     'node.url': {
                         enumValues: null,
                         nullable: false,
@@ -186,6 +201,6 @@ const node: ConcreteRequest = (function () {
     };
 })();
 
-(node as any).hash = '391ce84efd7ba0174b0ec9bc5b5bd496';
+(node as any).hash = 'efd8ff93c326c8b4248c307916bbb64c';
 
 export default node;
