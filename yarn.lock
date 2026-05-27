@@ -8220,7 +8220,7 @@ __metadata:
     react-icons: "npm:5.6.0"
     react-relay: "npm:21.0.0"
     relay-compiler: "npm:21.0.1"
-    relay-test-utils: "npm:21.0.0"
+    relay-test-utils: "npm:21.0.1"
     rxjs: "npm:7.8.2"
     storybook: "npm:10.4.1"
     storybook-addon-apollo-client: "npm:10.0.0"
@@ -13186,15 +13186,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-test-utils@npm:21.0.0":
-  version: 21.0.0
-  resolution: "relay-test-utils@npm:21.0.0"
+"relay-runtime@npm:21.0.1":
+  version: 21.0.1
+  resolution: "relay-runtime@npm:21.0.1"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
-    relay-runtime: "npm:21.0.0"
-  checksum: 10c0/a1bfd625830acfeb47ff8b2f577a73d7242decab56f910cdf95dd7d8b26ecd990cbfa3ce7f0660f981e2cbad43033c7ddf52aa713c5b091852da5553a28def83
+  checksum: 10c0/f8eac31bc7820412ffa270f1f8daec088beeee961a6ba8d74b416bd591a64214b056d9a54082dce3ffe744fcea831db3d78d52906df70cbad06298a8ae7e3733
+  languageName: node
+  linkType: hard
+
+"relay-test-utils@npm:21.0.1":
+  version: 21.0.1
+  resolution: "relay-test-utils@npm:21.0.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.0"
+    fbjs: "npm:^3.0.2"
+    invariant: "npm:^2.2.4"
+    relay-runtime: "npm:21.0.1"
+  checksum: 10c0/f2a625fe6e0e5e0b86c29938de4055c851d6a27d39fe35ce060b0c028daeeba1b2bf958cd7670eec8eba243d78bb76f0dd1de74ab37ea577dc84bdd2d803fb2b
   languageName: node
   linkType: hard
 
