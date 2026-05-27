@@ -18,7 +18,7 @@ interface Props {
 }
 
 export default function UserWithReposFragment(props: Props) {
-    const data: UserWithReposFragment_user$data = useFragment<UserWithReposFragment_user$key>(userFragment, props);
+    const data: UserWithReposFragment_user$data = useFragment<UserWithReposFragment_user$key>(userFragment, props.user);
     return (
         <>
             <UserFragmentContainer user={data.user} />
