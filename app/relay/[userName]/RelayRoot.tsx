@@ -61,5 +61,13 @@ export function UserPageContent({ userName }: { userName: string }) {
         );
     }
 
-    return <UserWithReposFragment user={repositoryOwner} />;
+    if (!repositoryOwner) {
+        return (
+            <p>
+                User <strong>{userName}</strong> was not found!
+            </p>
+        );
+    }
+
+    return <UserWithReposFragment user={repositoryOwner.user} />;
 }
