@@ -124,7 +124,7 @@
     "typescript": "6.0.3",
     "typescript-eslint": "8.59.3",
     "vercel": "54.0.0",
-    "vite": "8.0.13",
+    "vite": "8.0.14",
     "vitest": "4.1.6"
   },
   "resolutions": {
