@@ -1,10 +1,11 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { graphql, usePaginationFragment } from 'react-relay';
 import { Heading } from '@chakra-ui/react';
 
 import { Ul } from 'components/ChakraMdxProvider';
 import { Spinner } from 'components/Spinner';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
+import { Checkbox } from 'components/ui/checkbox';
 
 import type { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
 import type { RepoListPaginationQuery } from './__generated__/RepoListPaginationQuery.graphql';
@@ -38,6 +39,7 @@ function RepoListFragment(props: Props) {
             }
         }
     `;
+    const [showAll, setShowAll] = useState(false);
 
     const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment<
         RepoListPaginationQuery,
@@ -45,35 +47,44 @@ function RepoListFragment(props: Props) {
     >(graphQLTaggedNode, props.user);
 
     const { repositories } = data;
+    const { totalCount, edges } = repositories;
 
-    const { totalCount } = repositories;
+    if (totalCount == 0 || edges?.length == 0) return <div>No repositories found</div>;
 
-    const edges = repositories.edges ?? [];
-
-    if (totalCount == 0 || edges.length == 0) return <div>No repositories found</div>;
+    const toggleShowAll = () => setShowAll(!showAll);
 
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
-            <Ul variant="plain">
-                {edges.map((edge, idx) => {
-                    const node = edge?.node;
-                    if (!node) return null;
+            <Checkbox checked={showAll} onChange={toggleShowAll} size="xs">
+                {showAll ? (
+                    <span title="click to hide forked repos">hide forks</span>
+                ) : (
+                    <span title="click to show entries for forked repos, too">show forks</span>
+                )}
+            </Checkbox>
 
-                    const isLastElement = edges.length - 1 == idx;
-                    return isLastElement && hasNext ? (
-                        <InfiniteScrollTrigger key={node.id} onLoadMore={() => loadNext(10)}>
-                            <Suspense fallback={<Spinner />}>
-                                <RepoItemFragment repo={node} />
+            {edges && (
+                <Ul variant="plain">
+                    {(edges ?? []).map((edge, idx) => {
+                        const node = edge?.node;
+                        if (!node) return null;
+
+                        const isLastElement = edges.length - 1 == idx;
+                        return isLastElement && hasNext ? (
+                            <InfiniteScrollTrigger key={node.id} onLoadMore={() => loadNext(10)}>
+                                <Suspense fallback={<Spinner />}>
+                                    <RepoItemFragment repo={node} hideIfFork={!showAll} />
+                                </Suspense>
+                            </InfiniteScrollTrigger>
+                        ) : (
+                            <Suspense key={node.id} fallback={<Spinner />}>
+                                <RepoItemFragment repo={node} hideIfFork={!showAll} />
                             </Suspense>
-                        </InfiniteScrollTrigger>
-                    ) : (
-                        <Suspense key={node.id} fallback={<Spinner />}>
-                            <RepoItemFragment repo={node} />
-                        </Suspense>
-                    );
-                })}
-            </Ul>
+                        );
+                    })}
+                </Ul>
+            )}
             {isLoadingNext && <Spinner size="sm" />}
         </>
     );
