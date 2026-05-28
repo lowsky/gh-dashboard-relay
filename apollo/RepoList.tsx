@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { TypedDocumentNode } from '@apollo/client';
 import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
@@ -11,6 +12,7 @@ import { Ul } from 'components/ChakraMdxProvider';
 import { Spinner } from 'components/Spinner';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 import InternalLink from 'components/InternalLink';
+import { Checkbox } from 'components/ui/checkbox';
 
 export const REPOS_QUERY: TypedDocumentNode<GetRepositoriesQuery, GetRepositoriesQueryVariables> = gql`
     query GetRepositories($login: String!, $after: String, $first: Int!) {
@@ -51,6 +53,7 @@ interface RepoListProps {
 }
 
 export default function RepoList({ login }: RepoListProps) {
+    const [showAll, setShowAll] = useState(false);
     const { loading, error, data, fetchMore } = useQuery<GetRepositoriesQuery, GetRepositoriesQueryVariables>(
         REPOS_QUERY,
         {
@@ -79,12 +82,22 @@ export default function RepoList({ login }: RepoListProps) {
         });
     };
 
+    const toggleShowAll = () => setShowAll(!showAll);
+
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
+            <Checkbox checked={showAll} onChange={toggleShowAll} size="xs">
+                {showAll ? (
+                    <span title="click to hide forked repos">hide forks</span>
+                ) : (
+                    <span title="click to show entries for forked repos, too">show forks</span>
+                )}
+            </Checkbox>
+
             {edges && (
                 <Ul variant="plain">
-                    {edges.map((edge, idx: number) => {
+                    {edges.map((edge, idx) => {
                         const node = edge?.node;
                         if (!node) return null;
 
@@ -95,12 +108,12 @@ export default function RepoList({ login }: RepoListProps) {
                                 onLoadMore={() => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
                                 {
                                     // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
-                                    <RepoItem repo={node} />
+                                    <RepoItem repo={node} hideIfFork={!showAll} />
                                 }
                             </InfiniteScrollTrigger>
                         ) : (
                             // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
-                            <RepoItem key={node.id} repo={node} />
+                            <RepoItem key={node.id} repo={node} hideIfFork={!showAll} />
                         );
                     })}
                 </Ul>
@@ -112,6 +125,7 @@ export default function RepoList({ login }: RepoListProps) {
 }
 
 interface RepoItemProps {
+    hideIfFork?: boolean;
     repo: {
         name: string;
         nameWithOwner: string;
@@ -123,13 +137,15 @@ interface RepoItemProps {
     };
 }
 
-function RepoItem({ repo }: RepoItemProps) {
+function RepoItem({ repo, hideIfFork }: RepoItemProps) {
     const { name, nameWithOwner, pullRequests, url, isFork } = repo;
     const { totalCount } = pullRequests;
 
+    if (isFork && hideIfFork) return null;
+
     return (
         <ListItem alignItems="center" gap="1">
-            <InternalLink prefetch={false} href={`/apollo/${nameWithOwner}`}>
+            <InternalLink prefetch={false} href={'./' + nameWithOwner}>
                 {name}
             </InternalLink>
 
