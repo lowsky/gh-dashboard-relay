@@ -8218,7 +8218,7 @@ __metadata:
     react: "npm:next"
     react-dom: "npm:next"
     react-icons: "npm:5.6.0"
-    react-relay: "npm:21.0.0"
+    react-relay: "npm:21.0.1"
     relay-compiler: "npm:21.0.1"
     relay-test-utils: "npm:21.0.1"
     rxjs: "npm:7.8.2"
@@ -13058,18 +13058,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-relay@npm:21.0.0":
-  version: 21.0.0
-  resolution: "react-relay@npm:21.0.0"
+"react-relay@npm:21.0.1":
+  version: 21.0.1
+  resolution: "react-relay@npm:21.0.1"
   dependencies:
     "@babel/runtime": "npm:^7.25.0"
     fbjs: "npm:^3.0.2"
     invariant: "npm:^2.2.4"
     nullthrows: "npm:^1.1.1"
-    relay-runtime: "npm:21.0.0"
+    relay-runtime: "npm:21.0.1"
   peerDependencies:
     react: ^16.9.0 || ^17 || ^18 || ^19
-  checksum: 10c0/04b754186856e8af69ced64838bd08e7045ec7d76fcb241d24954c4d64091c11d9df1a5b8a24321f5d6fa846383230aefc3896bc29bc1d9ed589979440b2df45
+  checksum: 10c0/906e7f108b02800d9749c5cfdae2404aa793c47c37820390eab404c6a735cd665a22eb1051271418ab55b366eeb1744a167d14c5886f773cc15fd7cb67c58202
   languageName: node
   linkType: hard
 
@@ -13172,17 +13172,6 @@ __metadata:
   bin:
     relay-compiler: cli.js
   checksum: 10c0/b8d59a181386b1df019f36bf4375afd43a3c6208789a037d84b20047d01f3c6765fde958aa8e1870aab5c784ff134ac5012f1626da14bb69524d5562f28d78f7
-  languageName: node
-  linkType: hard
-
-"relay-runtime@npm:21.0.0":
-  version: 21.0.0
-  resolution: "relay-runtime@npm:21.0.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.25.0"
-    fbjs: "npm:^3.0.2"
-    invariant: "npm:^2.2.4"
-  checksum: 10c0/b002d723bf5f2a971ec38056fe3e3555693ac1e2f65c45c2677c85261f0a2b80fca98faee0050bf0e308867998fee7202707746c0da4a258a810065c1ffc3f59
   languageName: node
   linkType: hard
 
