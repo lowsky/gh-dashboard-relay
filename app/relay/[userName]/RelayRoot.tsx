@@ -61,7 +61,7 @@ export function UserPageContent({ userName }: { userName: string }) {
         );
     }
 
-    if (!repositoryOwner) {
+    if (!repositoryOwner?.user) {
         return (
             <p>
                 User <strong>{userName}</strong> was not found!
