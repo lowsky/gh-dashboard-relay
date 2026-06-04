@@ -1457,9 +1457,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:7.1.0":
-  version: 7.1.0
-  resolution: "@graphql-codegen/cli@npm:7.1.0"
+"@graphql-codegen/cli@npm:7.1.2":
+  version: 7.1.2
+  resolution: "@graphql-codegen/cli@npm:7.1.2"
   dependencies:
     "@babel/generator": "npm:^7.18.13"
     "@babel/template": "npm:^7.18.10"
@@ -1508,7 +1508,7 @@ __metadata:
     graphql-codegen: esm/bin.js
     graphql-codegen-cjs: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 10c0/779f1661942b2f698c0c110394c1efc129c823e96ef3af350547abd17c9370573ede6caf6b7504d04715cf5fc4b13c790010bb9e8b1dc2106d415c44c6d59565
+  checksum: 10c0/db050c0bd42cbd0716883d3f1096cd7e524234691aa2674ce9d1c76aea1f8169feed73094e1946531e5ce0acc3d090e064c88ff3d6be67c5da3d46577527cb45
   languageName: node
   linkType: hard
 
@@ -8177,7 +8177,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": "npm:7.2.0"
     "@fortawesome/free-solid-svg-icons": "npm:7.2.0"
     "@fortawesome/react-fontawesome": "npm:3.3.1"
-    "@graphql-codegen/cli": "npm:7.1.0"
+    "@graphql-codegen/cli": "npm:7.1.2"
     "@graphql-codegen/client-preset": "npm:6.0.1"
     "@graphql-codegen/fragment-matcher": "npm:7.0.1"
     "@graphql-codegen/typescript-operations": "npm:6.0.3"
