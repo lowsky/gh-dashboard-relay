@@ -48,6 +48,7 @@ jobs:
       - run:
           name: deploy
           command: yarn circle:deploy
+          no_output_timeout: 20m
 workflows:
   build-and-test:
     jobs:
