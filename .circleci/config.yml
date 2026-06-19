@@ -38,6 +38,8 @@ jobs:
           command: pwd ; echo y | yarn vercel -v
       - run:
           name: Run setup
+          environment:
+            VERCEL_NO_UPDATE_CHECK: "1"
           command: yarn circle:setup
       - run:
           name: Run vercel build
