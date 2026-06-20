@@ -33,14 +33,17 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: tool setup - vercel
+          name: tool setup - vercel version
           # vercel might need update, asking for, and expects input, so simulating "yes"
           command: pwd ; echo y | yarn vercel -v
       - run:
-          name: Run setup
+          name: Run setup - vercel update
+          command: yarn circle:vercel:update
+      - run:
+          name: Run setup - vercel link
           environment:
             VERCEL_NO_UPDATE_CHECK: "1"
-          command: yarn circle:setup
+          command: yarn circle:vercel:link
       - run:
           name: Run vercel build
           command: yarn vercel build -y  # upgrade if needed without waiting for user input

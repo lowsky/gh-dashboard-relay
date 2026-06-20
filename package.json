@@ -16,11 +16,11 @@
     "dashboard",
     "github"
   ],
-  "engines": {},
-  "scripts": {
+   "scripts": {
     "dev": "next dev",
-    "circle:setup": "vercel -d --non-interactive upgrade ; yarn circle:vercel-link",
-    "circle:vercel-link": "vercel link -y -d --project gh-dashboard-relay -t $VERCEL_TOKEN",
+    "circle:setup": "yarn circle:vercel:update ; yarn circle:vercel:link",
+    "circle:vercel:update": "vercel -d --non-interactive upgrade",
+    "circle:vercel:link": "VERCEL_NO_UPDATE_CHECK=1 vercel link -y -d --project gh-dashboard-relay -t $VERCEL_TOKEN",
     "circle:deploy": "vercel -y -d -t $VERCEL_TOKEN deploy --prebuilt",
     "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
