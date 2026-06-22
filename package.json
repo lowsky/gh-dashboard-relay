@@ -58,7 +58,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "@apollo/client": "4.2.2",
+    "@apollo/client": "4.2.3",
     "@chakra-ui/react": "3.36.0",
     "@emotion/react": "11.14.0",
     "@next/mdx": "16.2.9",
