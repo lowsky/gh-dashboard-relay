@@ -97,7 +97,7 @@
     "@typescript-eslint/eslint-plugin": "8.61.1",
     "@vitest/browser-playwright": "4.1.9",
     "@vitest/coverage-v8": "4.1.9",
-    "chromatic": "17.8.0",
+    "chromatic": "18.0.0",
     "eslint": "10.6.0",
     "eslint-config-next": "16.2.9",
     "eslint-config-prettier": "10.1.8",
