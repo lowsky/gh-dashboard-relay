@@ -16,7 +16,7 @@
     "dashboard",
     "github"
   ],
-   "scripts": {
+  "scripts": {
     "dev": "next dev",
     "circle:setup": "yarn circle:vercel:update ; yarn circle:vercel:link",
     "circle:vercel:update": "vercel -d --non-interactive upgrade",
