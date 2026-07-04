@@ -26,6 +26,7 @@
     "plugins": [
       {
         "name": "@0no-co/graphqlsp",
+        "templateIsCallExpression": false,
         "schema": "./schema.graphql"
       },
       {
@@ -33,13 +34,13 @@
       }
     ],
     "paths": {
-      "apollo/*": ["apollo/*"],
-      "relay/*": ["relay/*"],
-      "components/*": ["components/*"],
-      "container/*": ["container/*"],
-      "lib/*": ["lib/*"],
-    },
-    "baseUrl": "."
+      "apollo/*": ["./apollo/*"],
+      "relay/*": ["./relay/*"],
+      "components/*": ["./components/*"],
+      "container/*": ["./container/*"],
+      "lib/*": ["./lib/*"],
+      "*": ["./*"],
+    }
   },
   "exclude": [
     "**/*story.tsx",
