@@ -121,7 +121,7 @@
     "type-fest": "5.7.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.61.1",
-    "vercel": "54.14.2",
+    "vercel": "54.20.1",
     "vite": "8.0.16",
     "vitest": "4.1.9"
   },
