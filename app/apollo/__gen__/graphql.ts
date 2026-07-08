@@ -83,6 +83,7 @@ export type StatusState =
 
 export type CommitWithStatuses_CommitFragment = {
     __typename: 'Commit';
+    id: string;
     authoredDate: unknown;
     commitUrl: unknown;
     message: string;
@@ -108,7 +109,7 @@ export type BranchInfoRowFragment_RefFragment = {
     id: string;
     target:
         | { __typename: 'Blob' }
-        | ({ __typename: 'Commit' } & {
+        | ({ __typename: 'Commit'; id: string } & {
               ' $fragmentRefs'?: { CommitWithStatuses_CommitFragment: CommitWithStatuses_CommitFragment };
           })
         | { __typename: 'Tag' }
@@ -342,6 +343,7 @@ export const CommitWithStatuses_CommitFragmentDoc = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
                     {
                         kind: 'Field',
@@ -432,6 +434,7 @@ export const BranchInfoRowFragment_RefFragmentDoc = {
                                     selectionSet: {
                                         kind: 'SelectionSet',
                                         selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                             {
                                                 kind: 'FragmentSpread',
                                                 name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
@@ -499,6 +502,7 @@ export const BranchInfoRowFragment_RefFragmentDoc = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
                     {
                         kind: 'Field',
@@ -1351,6 +1355,7 @@ export const GetRepoBranchesDocument = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
                     {
                         kind: 'Field',
@@ -1431,6 +1436,7 @@ export const GetRepoBranchesDocument = {
                                     selectionSet: {
                                         kind: 'SelectionSet',
                                         selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                             {
                                                 kind: 'FragmentSpread',
                                                 name: { kind: 'Name', value: 'CommitWithStatuses_commit' },

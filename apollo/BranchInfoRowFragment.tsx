@@ -18,6 +18,7 @@ import PullRequestMerge, { PullRequestMergeFragment_ref } from 'apollo/PullReque
 
 export const CommitWithStatuses_commit = gql`
     fragment CommitWithStatuses_commit on Commit {
+        id
         authoredDate
         status {
             id
@@ -47,6 +48,7 @@ export const BranchInfoRowFragment_ref = gql`
         id
         target {
             ... on Commit {
+                id
                 ...CommitWithStatuses_commit
             }
         }
