@@ -13,8 +13,8 @@ const STORY_QUERY = gql`
                 ...UserFragment_repositoryOwner
             }
         }
-        ${UserFragment_repositoryOwner}
     }
+    ${UserFragment_repositoryOwner}
 `;
 
 const meta = preview.meta({
@@ -52,7 +52,7 @@ export const WithoutAvatar = meta.story({
                                 ' $fragmentRefs': {
                                     UserFragment_RepositoryOwner_User_Fragment: {
                                         ' $fragmentName': 'UserFragment_RepositoryOwner_User_Fragment',
-                                        //      __typename: 'User',
+                                        __typename: 'User',
                                         id: 'test-id',
                                         login: 'test-id',
                                         company: 'company',
