@@ -9,15 +9,7 @@
 
 import { ConcreteRequest } from 'relay-runtime';
 export type MergeStateStatus =
-    | 'BEHIND'
-    | 'BLOCKED'
-    | 'CLEAN'
-    | 'DIRTY'
-    | 'DRAFT'
-    | 'HAS_HOOKS'
-    | 'UNKNOWN'
-    | 'UNSTABLE'
-    | '%future added value';
+    'BEHIND' | 'BLOCKED' | 'CLEAN' | 'DIRTY' | 'DRAFT' | 'HAS_HOOKS' | 'UNKNOWN' | 'UNSTABLE' | '%future added value';
 export type PullRequestMergeMethod = 'MERGE' | 'REBASE' | 'SQUASH' | '%future added value';
 export type PullRequestState = 'CLOSED' | 'MERGED' | 'OPEN' | '%future added value';
 export type MergePullRequestInput = {

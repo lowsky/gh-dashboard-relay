@@ -231,8 +231,7 @@ type UserFragment_RepositoryOwner_User_Fragment = {
 } & { ' $fragmentName'?: 'UserFragment_RepositoryOwner_User_Fragment' };
 
 export type UserFragment_RepositoryOwnerFragment =
-    | UserFragment_RepositoryOwner_Organization_Fragment
-    | UserFragment_RepositoryOwner_User_Fragment;
+    UserFragment_RepositoryOwner_Organization_Fragment | UserFragment_RepositoryOwner_User_Fragment;
 
 export type UseMergePrMutationMutationVariables = Exact<{
     input: MergePullRequestInput;
@@ -285,8 +284,7 @@ type UserWithReposFragment_RepositoryOwner_User_Fragment = ({ __typename: 'User'
 }) & { ' $fragmentName'?: 'UserWithReposFragment_RepositoryOwner_User_Fragment' };
 
 export type UserWithReposFragment_RepositoryOwnerFragment =
-    | UserWithReposFragment_RepositoryOwner_Organization_Fragment
-    | UserWithReposFragment_RepositoryOwner_User_Fragment;
+    UserWithReposFragment_RepositoryOwner_Organization_Fragment | UserWithReposFragment_RepositoryOwner_User_Fragment;
 
 export type GetUserRepoBranchesQueryVariables = Exact<{
     userName: string;

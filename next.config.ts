@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
     // until yarn next lint does not know how to use eslint9
     reactStrictMode: true,
 
+    //future: typedRoutes: true,
+
+    typescript: {
+        tsconfigPath: './tsconfig.nextjs.json',
+    },
     compiler: {
         relay: pack.relay as {
             schema: string;
