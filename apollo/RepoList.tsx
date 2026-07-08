@@ -98,22 +98,30 @@ export default function RepoList({ login }: RepoListProps) {
             {edges && (
                 <Ul variant="plain">
                     {edges.map((edge, idx) => {
-                        const node = edge?.node;
-                        if (!node) return null;
-
                         const isLastElement = edges.length - 1 === idx;
-                        return isLastElement && pageInfo.hasNextPage ? (
+                        const node = edge?.node;
+                        const onLoadMore = () => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor);
+
+                        if (!node) {
+                            return (
+                                <InfiniteScrollTrigger
+                                    key={idx}
+                                    enabled={isLastElement && pageInfo.hasNextPage}
+                                    onLoadMore={onLoadMore}>
+                                    <div />
+                                </InfiniteScrollTrigger>
+                            );
+                        }
+                        return (
                             <InfiniteScrollTrigger
                                 key={node.id}
-                                onLoadMore={() => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor)}>
+                                enabled={isLastElement && pageInfo.hasNextPage}
+                                onLoadMore={onLoadMore}>
                                 {
                                     // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
                                     <RepoItem repo={node} hideIfFork={!showAll} />
                                 }
                             </InfiniteScrollTrigger>
-                        ) : (
-                            // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
-                            <RepoItem key={node.id} repo={node} hideIfFork={!showAll} />
                         );
                     })}
                 </Ul>
