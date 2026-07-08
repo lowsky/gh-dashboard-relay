@@ -46,6 +46,7 @@ export const Default = meta.story({
                                 __typename: 'User',
                             },
                             rateLimit: {
+                                __typename: 'RateLimit',
                                 limit: 5,
                                 remaining: 10,
                                 used: 5,
@@ -66,15 +67,19 @@ export const Default = meta.story({
                     result: {
                         data: {
                             repositoryOwner: {
+                                __typename: 'Organization',
                                 id: 'test-id',
                                 login: 'test-id',
                                 repositories: {
                                     totalCount: 1,
                                     pageInfo: {
+                                        __typename: 'PageInfo',
                                         hasNextPage: false,
+                                        endCursor: null,
                                     },
                                     edges: [
                                         {
+                                            __typename: 'RepositoryEdge',
                                             node: {
                                                 __typename: 'Repository',
                                                 id: 'dashboard-id',
@@ -83,11 +88,14 @@ export const Default = meta.story({
                                                 isFork: true,
                                                 url: 'https://github.com/lowsky/dashboard',
                                                 pullRequests: {
+                                                    __typename: 'PullRequestConnection',
                                                     totalCount: 4,
                                                 },
+                                                description: null,
                                             },
                                         },
                                     ],
+                                    __typename: 'RepositoryConnection',
                                 },
                             },
                         } satisfies UnmaskedGetRepositoriesQuery,
