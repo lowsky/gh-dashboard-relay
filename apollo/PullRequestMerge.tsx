@@ -2,8 +2,9 @@ import { Icon, Link, Text, VStack } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
 import { FragmentType, gql } from '@apollo/client';
-import useMergePR from './useMergePR';
 import { useFragment } from '@apollo/client/react';
+
+import useMergePR from './useMergePR';
 import { Spinner } from 'components/Spinner';
 import { PullRequestMergeFragment_RefFragment } from '../app/apollo/__gen__/graphql';
 import { MergeButtonWithErrorStatus } from 'components/MergeButtonWithErrorStatus';
