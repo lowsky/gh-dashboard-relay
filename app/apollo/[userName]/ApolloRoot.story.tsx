@@ -11,7 +11,7 @@ const meta = preview.meta({
 
 export default meta;
 
-type UnmaskedGetRepositoriesQuery = Unmasked<GetRepositoriesQuery>;
+export type UnmaskedGetRepositoriesQuery = Unmasked<GetRepositoriesQuery>;
 
 export const Default = meta.story({
     args: {
@@ -61,7 +61,7 @@ export const Default = meta.story({
                     request: {
                         query: REPOS_QUERY,
                         variables: {
-                            first: 10,
+                            count: 10,
                         },
                     },
                     result: {
