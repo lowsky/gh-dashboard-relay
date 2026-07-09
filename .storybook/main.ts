@@ -12,7 +12,7 @@ const config: StorybookConfig = defineMain({
         {
             directory: '../app',
             titlePrefix: 'App',
-            files: '**' + '/*.story.@(js|jsx|ts|tsx)',
+            files: '**/*.story.@(js|jsx|ts|tsx)',
         },
         {
             directory: '../relay',
