@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import BranchesTable from 'apollo/BranchesTable';
+import BranchesTable from 'components/BranchesTable';
 import BranchInfoRowFragment, { BranchInfoRowFragment_ref, SkeletonRow } from 'apollo/BranchInfoRowFragment';
 import { gql, type TypedDocumentNode } from '@apollo/client';
 import type { GetRepoBranchesQuery, GetRepoBranchesQueryVariables } from '../../__gen__/graphql';

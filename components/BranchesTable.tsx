@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { Table } from '@chakra-ui/react';
-import { Button } from '../components/ui/button';
+import { Button } from './ui/button';
 
 interface BranchesTableProps {
     children: ReactNode;
