@@ -1,6 +1,6 @@
 import preview from '../../../../.storybook/preview';
 
-import RelayRoot from './RelayRoot';
+import Root from './Root';
 import { WithInfo } from 'relay/BranchInfoRow.story';
 import { WithAvatar } from 'relay/UserFragment.story';
 import type { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
@@ -8,7 +8,7 @@ import { WithOneBranch } from 'relay/BranchesTable.story';
 
 const meta = preview.meta({
     title: 'relay/repo page',
-    component: RelayRoot,
+    component: Root,
     tags: ['skipTesting', '!autodocs'],
 });
 

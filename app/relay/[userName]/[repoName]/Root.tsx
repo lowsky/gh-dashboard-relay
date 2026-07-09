@@ -17,18 +17,18 @@ import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
 import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
 
-const query = graphql`
+const USER_REPO_BRANCHES_QUERY = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {
-        repository(name: $repoName, owner: $userName) {
-            ...RepoWithBranchListFragment_repo
-        }
         user(login: $userName) {
             ...UserFragment_user
+        }
+        repository(name: $repoName, owner: $userName) {
+            ...RepoWithBranchListFragment_repo
         }
     }
 `;
 
-export default function RelayRoot(props: { authToken: string }) {
+export default function Root(props: { authToken: string }) {
     const { userName, repoName } = useParams<{ userName: string; repoName: string }>() ?? {};
 
     return (
@@ -40,7 +40,7 @@ export default function RelayRoot(props: { authToken: string }) {
                 <BreadcrumbCurrentLink>repo</BreadcrumbCurrentLink>
             </BreadcrumbRoot>
             <br />
-            <Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
                 <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>
         </RelayClientContext>
@@ -48,12 +48,15 @@ export default function RelayRoot(props: { authToken: string }) {
 }
 
 export function UserRepoPageContent({ userName, repoName }: RelayRootRepoQuery$variables) {
-    const { repository, user }: RelayRootRepoQuery$data = useLazyLoadQuery<RelayRootRepoQuery>(query, {
-        userName,
-        repoName,
-    });
+    const { repository, user }: RelayRootRepoQuery$data = useLazyLoadQuery<RelayRootRepoQuery>(
+        USER_REPO_BRANCHES_QUERY,
+        {
+            userName,
+            repoName,
+        }
+    );
 
-    if (!repository || !user) return null;
+    if (!repository || !user) return <div>,no data...</div>;
 
     return (
         <Flex gap="4" direction="column">

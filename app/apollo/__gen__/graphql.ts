@@ -287,25 +287,6 @@ type UserWithReposFragment_RepositoryOwner_User_Fragment = ({ __typename: 'User'
 export type UserWithReposFragment_RepositoryOwnerFragment =
     UserWithReposFragment_RepositoryOwner_Organization_Fragment | UserWithReposFragment_RepositoryOwner_User_Fragment;
 
-export type GetUserRepoBranchesQueryVariables = Exact<{
-    userName: string;
-}>;
-
-export type GetUserRepoBranchesQuery = {
-    repositoryOwner:
-        | ({ __typename: 'Organization'; id: string; login: string; avatarUrl: unknown } & {
-              ' $fragmentRefs'?: {
-                  UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
-              };
-          })
-        | ({ __typename: 'User'; id: string; login: string; avatarUrl: unknown } & {
-              ' $fragmentRefs'?: {
-                  UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment;
-              };
-          })
-        | null;
-};
-
 export type GetRepoBranchesQueryVariables = Exact<{
     userName: string;
     repoName: string;
@@ -331,6 +312,25 @@ export type GetRepoBranchesQuery = {
             } | null> | null;
         } | null;
     } | null;
+};
+
+export type GetUserRepoBranchesQueryVariables = Exact<{
+    userName: string;
+}>;
+
+export type GetUserRepoBranchesQuery = {
+    repositoryOwner:
+        | ({ __typename: 'Organization'; id: string; login: string; avatarUrl: unknown } & {
+              ' $fragmentRefs'?: {
+                  UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
+              };
+          })
+        | ({ __typename: 'User'; id: string; login: string; avatarUrl: unknown } & {
+              ' $fragmentRefs'?: {
+                  UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment;
+              };
+          })
+        | null;
 };
 
 export const CommitWithStatuses_CommitFragmentDoc = {
@@ -1139,86 +1139,6 @@ export const GetUserWithReposDocument = {
         },
     ],
 } as unknown as DocumentNode<GetUserWithReposQuery, GetUserWithReposQueryVariables>;
-export const GetUserRepoBranchesDocument = {
-    kind: 'Document',
-    definitions: [
-        {
-            kind: 'OperationDefinition',
-            operation: 'query',
-            name: { kind: 'Name', value: 'GetUserRepoBranches' },
-            variableDefinitions: [
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
-                },
-            ],
-            selectionSet: {
-                kind: 'SelectionSet',
-                selections: [
-                    {
-                        kind: 'Field',
-                        name: { kind: 'Name', value: 'repositoryOwner' },
-                        arguments: [
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'login' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
-                            },
-                        ],
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                                {
-                                    kind: 'FragmentSpread',
-                                    name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
-                                },
-                            ],
-                        },
-                    },
-                ],
-            },
-        },
-        {
-            kind: 'FragmentDefinition',
-            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
-            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
-            selectionSet: {
-                kind: 'SelectionSet',
-                selections: [
-                    {
-                        kind: 'InlineFragment',
-                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                            ],
-                        },
-                    },
-                    {
-                        kind: 'InlineFragment',
-                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                            ],
-                        },
-                    },
-                ],
-            },
-        },
-    ],
-} as unknown as DocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>;
 export const GetRepoBranchesDocument = {
     kind: 'Document',
     definitions: [
@@ -1499,3 +1419,83 @@ export const GetRepoBranchesDocument = {
         },
     ],
 } as unknown as DocumentNode<GetRepoBranchesQuery, GetRepoBranchesQueryVariables>;
+export const GetUserRepoBranchesDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetUserRepoBranches' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'repositoryOwner' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'login' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                {
+                                    kind: 'FragmentSpread',
+                                    name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>;

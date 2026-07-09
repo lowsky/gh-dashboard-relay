@@ -20,7 +20,7 @@ import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
 import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
 
-export const USER_REPO_BRANCHES_QUERY: TypedDocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables> =
+export const REPOSITORYOWNER_QUERY: TypedDocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables> =
     gql`
         query GetUserRepoBranches($userName: String!) {
             repositoryOwner(login: $userName) {
@@ -33,7 +33,7 @@ export const USER_REPO_BRANCHES_QUERY: TypedDocumentNode<GetUserRepoBranchesQuer
         ${UserFragment_repositoryOwner}
     `;
 
-export default function ApolloRoot(props: { authToken: string }) {
+export default function Root(props: { authToken: string }) {
     const { userName, repoName } = useParams<{ userName: string; repoName: string }>() ?? {};
 
     return (
@@ -56,14 +56,15 @@ export function UserRepoPageContent({
     userName,
     repoName,
 }: Pick<GetRepoBranchesQueryVariables, 'userName' | 'repoName'>) {
-    const { error, data } = useSuspenseQuery<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>(
-        USER_REPO_BRANCHES_QUERY,
+    const { data } = useSuspenseQuery<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>(
+        REPOSITORYOWNER_QUERY,
         {
-            variables: { userName },
+            variables: {
+                userName,
+            },
         }
     );
 
-    if (error) return <div>Error loading data: {error.message}</div>;
     if (!data) return <div>,no data...</div>;
 
     const { repositoryOwner } = data;
