@@ -1,12 +1,12 @@
 import { getAccessToken } from '../../../lib/getAccessToken';
 
-import ApolloRoot from './ApolloRoot';
+import Root from './Root';
 
 const ApolloRepoRoot = async () => {
     const authToken = await getAccessToken();
     if (!authToken) {
         return <>Empty - no auth token</>;
     }
-    return <ApolloRoot authToken={authToken} />;
+    return <Root authToken={authToken} />;
 };
 export default ApolloRepoRoot;

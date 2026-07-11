@@ -1,17 +1,17 @@
-import { LinkList } from 'components/LinkList';
-import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
+import { LinkList } from '../../components/LinkList';
+import InternalLink from '../../components/InternalLink';
+import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from '../../components/ui/breadcrumb.tsx';
 
 <BreadcrumbRoot>
     <BreadcrumbLink href="/">Home</BreadcrumbLink>
-    <BreadcrumbCurrentLink href="/relay">Apollo</BreadcrumbCurrentLink>
+    <BreadcrumbCurrentLink href="/relay">Relay</BreadcrumbCurrentLink>
 </BreadcrumbRoot>
 <br />
 
-## Loading a user's repositories with Relay
+# Loading a user's repositories with Relay
 
-<br />
-
-Open [/relay/lowsky](./relay/lowsky) for fetching the repositories of user **lowsky**
+Open <InternalLink href="/relay/lowsky">relay/lowsky</InternalLink> for fetching the repositories of user **lowsky**
+using Relay Client
 
 ## Opening any repository directly
 

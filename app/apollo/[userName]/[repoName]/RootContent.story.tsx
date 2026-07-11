@@ -1,30 +1,26 @@
-import preview from '../../../.storybook/preview';
+import preview from '../../../../.storybook/preview';
 
-import { USER_WITH_REPOS_QUERY, UserPageContent } from './ApolloRoot';
-import type { GetRepositoriesQuery, GetUserWithReposQuery } from '../__gen__/graphql';
+import { REPOSITORYOWNER_QUERY, UserRepoPageContent } from './Root';
 import { REPOS_QUERY } from 'apollo/RepoList';
-import type { Unmasked } from '@apollo/client/masking';
+import { GetUserRepoBranchesQuery } from 'app/apollo/__gen__/graphql';
+import { UnmaskedGetRepositoriesQuery } from '../ApolloRoot.story';
 
 const meta = preview.meta({
-    component: UserPageContent,
+    component: UserRepoPageContent,
+    tags: ['skipTesting', '!autodocs'],
 });
 
 export default meta;
 
-export type UnmaskedGetRepositoriesQuery = Unmasked<GetRepositoriesQuery>;
-
-export const Default = meta.story({
-    args: {
-        userName: 'test-id',
-    },
+export const WithUserAndRepo = meta.story({
     parameters: {
         apolloClient: {
             mocks: [
                 {
                     request: {
-                        query: USER_WITH_REPOS_QUERY,
+                        query: REPOSITORYOWNER_QUERY,
                         variables: {
-                            userName: 'test-id',
+                            userName: 'login',
                         },
                     },
                     result: {
@@ -34,25 +30,20 @@ export const Default = meta.story({
                             repositoryOwner: {
                                 id: 'test-id',
                                 login: 'test-id',
+                                avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
                                 ' $fragmentRefs': {
-                                    UserWithReposFragment_RepositoryOwner_User_Fragment: {
+                                    UserFragment_RepositoryOwner_User_Fragment: {
                                         __typename: 'User',
-                                        id: 'string',
-                                        login: 'string',
-                                        //' $fragmentRefs'?: { UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment }
-                                        ' $fragmentName': 'UserWithReposFragment_RepositoryOwner_User_Fragment',
+                                        company: 'company',
+                                        avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
+                                        id: 'login',
+                                        login: 'login',
+                                        ' $fragmentName': 'UserFragment_RepositoryOwner_User_Fragment',
                                     },
                                 },
                                 __typename: 'User',
                             },
-                            rateLimit: {
-                                __typename: 'RateLimit',
-                                limit: 5,
-                                remaining: 10,
-                                used: 5,
-                                resetAt: -1, // dummy, unused
-                            },
-                        } satisfies GetUserWithReposQuery,
+                        } satisfies GetUserRepoBranchesQuery,
                     },
                 },
                 {
@@ -62,6 +53,7 @@ export const Default = meta.story({
                         query: REPOS_QUERY,
                         variables: {
                             count: 10,
+                            login: 'login',
                         },
                     },
                     result: {
@@ -103,5 +95,10 @@ export const Default = meta.story({
                 },
             ],
         },
+    },
+
+    args: {
+        repoName: 'demo-repo',
+        userName: 'login',
     },
 });
