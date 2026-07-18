@@ -12,7 +12,7 @@ jobs:
       - checkout:
           method: full
       - node/install-packages:
-          check-cache: false
+          check-cache: detect
           pkg-manager: yarn
           override-ci-command: yarn install --immutable
           with-cache: false
