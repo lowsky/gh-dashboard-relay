@@ -8,12 +8,12 @@ const config: StorybookConfig = defineMain({
          * it seems the triggered build won't be able to handle the page.mdx file correctly
          */
         /*
+         */
         {
             directory: '../app',
             titlePrefix: 'App',
-            files: '**'+'/*.story.@(js|jsx|ts|tsx)',
+            files: '**/*.story.@(js|jsx|ts|tsx)',
         },
-        */
         {
             directory: '../relay',
             titlePrefix: 'Relay',

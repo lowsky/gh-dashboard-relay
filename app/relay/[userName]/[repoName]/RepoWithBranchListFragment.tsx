@@ -3,7 +3,7 @@ import { graphql, useRefetchableFragment } from 'react-relay';
 
 import type { RepoWithBranchListFragment_repo$key } from './__generated__/RepoWithBranchListFragment_repo.graphql';
 import type { RepoWithBranchPaginationQuery } from './__generated__/RepoWithBranchPaginationQuery.graphql';
-import BranchesTable from 'relay/BranchesTable';
+import BranchesTable from 'components/BranchesTable';
 import BranchInfoRowFragment, { SkeletonRow } from 'relay/BranchInfoRowFragment';
 
 export function RepoWithBranchList(props: { repo: RepoWithBranchListFragment_repo$key }) {

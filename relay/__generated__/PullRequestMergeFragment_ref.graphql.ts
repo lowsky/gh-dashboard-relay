@@ -9,15 +9,7 @@
 
 import { ReaderFragment } from 'relay-runtime';
 export type MergeStateStatus =
-    | 'BEHIND'
-    | 'BLOCKED'
-    | 'CLEAN'
-    | 'DIRTY'
-    | 'DRAFT'
-    | 'HAS_HOOKS'
-    | 'UNKNOWN'
-    | 'UNSTABLE'
-    | '%future added value';
+    'BEHIND' | 'BLOCKED' | 'CLEAN' | 'DIRTY' | 'DRAFT' | 'HAS_HOOKS' | 'UNKNOWN' | 'UNSTABLE' | '%future added value';
 export type MergeableState = 'CONFLICTING' | 'MERGEABLE' | 'UNKNOWN' | '%future added value';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestMergeFragment_ref$data = {

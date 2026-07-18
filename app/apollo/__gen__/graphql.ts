@@ -83,6 +83,7 @@ export type StatusState =
 
 export type CommitWithStatuses_CommitFragment = {
     __typename: 'Commit';
+    id: string;
     authoredDate: unknown;
     commitUrl: unknown;
     message: string;
@@ -108,7 +109,7 @@ export type BranchInfoRowFragment_RefFragment = {
     id: string;
     target:
         | { __typename: 'Blob' }
-        | ({ __typename: 'Commit' } & {
+        | ({ __typename: 'Commit'; id: string } & {
               ' $fragmentRefs'?: { CommitWithStatuses_CommitFragment: CommitWithStatuses_CommitFragment };
           })
         | { __typename: 'Tag' }
@@ -143,8 +144,8 @@ export type PullRequestMergeFragment_RefFragment = {
 
 export type GetRepositoriesQueryVariables = Exact<{
     login: string;
-    after?: string | null | undefined;
-    first: number;
+    cursor?: string | null | undefined;
+    count: number;
 }>;
 
 export type GetRepositoriesQuery = {
@@ -156,7 +157,6 @@ export type GetRepositoriesQuery = {
               repositories: {
                   __typename: 'RepositoryConnection';
                   totalCount: number;
-                  pageInfo: { __typename: 'PageInfo'; hasNextPage: boolean; endCursor: string | null };
                   edges: Array<{
                       __typename: 'RepositoryEdge';
                       node: {
@@ -170,6 +170,7 @@ export type GetRepositoriesQuery = {
                           pullRequests: { __typename: 'PullRequestConnection'; totalCount: number };
                       } | null;
                   } | null> | null;
+                  pageInfo: { __typename: 'PageInfo'; endCursor: string | null; hasNextPage: boolean };
               };
           }
         | {
@@ -179,7 +180,6 @@ export type GetRepositoriesQuery = {
               repositories: {
                   __typename: 'RepositoryConnection';
                   totalCount: number;
-                  pageInfo: { __typename: 'PageInfo'; hasNextPage: boolean; endCursor: string | null };
                   edges: Array<{
                       __typename: 'RepositoryEdge';
                       node: {
@@ -193,6 +193,7 @@ export type GetRepositoriesQuery = {
                           pullRequests: { __typename: 'PullRequestConnection'; totalCount: number };
                       } | null;
                   } | null> | null;
+                  pageInfo: { __typename: 'PageInfo'; endCursor: string | null; hasNextPage: boolean };
               };
           }
         | null;
@@ -231,8 +232,7 @@ type UserFragment_RepositoryOwner_User_Fragment = {
 } & { ' $fragmentName'?: 'UserFragment_RepositoryOwner_User_Fragment' };
 
 export type UserFragment_RepositoryOwnerFragment =
-    | UserFragment_RepositoryOwner_Organization_Fragment
-    | UserFragment_RepositoryOwner_User_Fragment;
+    UserFragment_RepositoryOwner_Organization_Fragment | UserFragment_RepositoryOwner_User_Fragment;
 
 export type UseMergePrMutationMutationVariables = Exact<{
     input: MergePullRequestInput;
@@ -285,27 +285,7 @@ type UserWithReposFragment_RepositoryOwner_User_Fragment = ({ __typename: 'User'
 }) & { ' $fragmentName'?: 'UserWithReposFragment_RepositoryOwner_User_Fragment' };
 
 export type UserWithReposFragment_RepositoryOwnerFragment =
-    | UserWithReposFragment_RepositoryOwner_Organization_Fragment
-    | UserWithReposFragment_RepositoryOwner_User_Fragment;
-
-export type GetUserRepoBranchesQueryVariables = Exact<{
-    userName: string;
-}>;
-
-export type GetUserRepoBranchesQuery = {
-    repositoryOwner:
-        | ({ __typename: 'Organization'; id: string; login: string; avatarUrl: unknown } & {
-              ' $fragmentRefs'?: {
-                  UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
-              };
-          })
-        | ({ __typename: 'User'; id: string; login: string; avatarUrl: unknown } & {
-              ' $fragmentRefs'?: {
-                  UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment;
-              };
-          })
-        | null;
-};
+    UserWithReposFragment_RepositoryOwner_Organization_Fragment | UserWithReposFragment_RepositoryOwner_User_Fragment;
 
 export type GetRepoBranchesQueryVariables = Exact<{
     userName: string;
@@ -334,6 +314,25 @@ export type GetRepoBranchesQuery = {
     } | null;
 };
 
+export type GetUserRepoBranchesQueryVariables = Exact<{
+    userName: string;
+}>;
+
+export type GetUserRepoBranchesQuery = {
+    repositoryOwner:
+        | ({ __typename: 'Organization'; id: string; login: string; avatarUrl: unknown } & {
+              ' $fragmentRefs'?: {
+                  UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
+              };
+          })
+        | ({ __typename: 'User'; id: string; login: string; avatarUrl: unknown } & {
+              ' $fragmentRefs'?: {
+                  UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment;
+              };
+          })
+        | null;
+};
+
 export const CommitWithStatuses_CommitFragmentDoc = {
     kind: 'Document',
     definitions: [
@@ -344,6 +343,7 @@ export const CommitWithStatuses_CommitFragmentDoc = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
                     {
                         kind: 'Field',
@@ -434,6 +434,7 @@ export const BranchInfoRowFragment_RefFragmentDoc = {
                                     selectionSet: {
                                         kind: 'SelectionSet',
                                         selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                             {
                                                 kind: 'FragmentSpread',
                                                 name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
@@ -501,6 +502,7 @@ export const BranchInfoRowFragment_RefFragmentDoc = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
                     {
                         kind: 'Field',
@@ -686,12 +688,12 @@ export const GetRepositoriesDocument = {
                 },
                 {
                     kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'cursor' } },
                     type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
                 },
                 {
                     kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'first' } },
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'count' } },
                     type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } } },
                 },
             ],
@@ -719,16 +721,6 @@ export const GetRepositoriesDocument = {
                                     arguments: [
                                         {
                                             kind: 'Argument',
-                                            name: { kind: 'Name', value: 'first' },
-                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'first' } },
-                                        },
-                                        {
-                                            kind: 'Argument',
-                                            name: { kind: 'Name', value: 'after' },
-                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'after' } },
-                                        },
-                                        {
-                                            kind: 'Argument',
                                             name: { kind: 'Name', value: 'orderBy' },
                                             value: {
                                                 kind: 'ObjectValue',
@@ -748,6 +740,16 @@ export const GetRepositoriesDocument = {
                                         },
                                         {
                                             kind: 'Argument',
+                                            name: { kind: 'Name', value: 'first' },
+                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'count' } },
+                                        },
+                                        {
+                                            kind: 'Argument',
+                                            name: { kind: 'Name', value: 'after' },
+                                            value: { kind: 'Variable', name: { kind: 'Name', value: 'cursor' } },
+                                        },
+                                        {
+                                            kind: 'Argument',
                                             name: { kind: 'Name', value: 'ownerAffiliations' },
                                             value: {
                                                 kind: 'ListValue',
@@ -758,18 +760,6 @@ export const GetRepositoriesDocument = {
                                     selectionSet: {
                                         kind: 'SelectionSet',
                                         selections: [
-                                            { kind: 'Field', name: { kind: 'Name', value: 'totalCount' } },
-                                            {
-                                                kind: 'Field',
-                                                name: { kind: 'Name', value: 'pageInfo' },
-                                                selectionSet: {
-                                                    kind: 'SelectionSet',
-                                                    selections: [
-                                                        { kind: 'Field', name: { kind: 'Name', value: 'hasNextPage' } },
-                                                        { kind: 'Field', name: { kind: 'Name', value: 'endCursor' } },
-                                                    ],
-                                                },
-                                            },
                                             {
                                                 kind: 'Field',
                                                 name: { kind: 'Name', value: 'edges' },
@@ -848,6 +838,18 @@ export const GetRepositoriesDocument = {
                                                     ],
                                                 },
                                             },
+                                            {
+                                                kind: 'Field',
+                                                name: { kind: 'Name', value: 'pageInfo' },
+                                                selectionSet: {
+                                                    kind: 'SelectionSet',
+                                                    selections: [
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'endCursor' } },
+                                                        { kind: 'Field', name: { kind: 'Name', value: 'hasNextPage' } },
+                                                    ],
+                                                },
+                                            },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'totalCount' } },
                                         ],
                                     },
                                 },
@@ -1137,86 +1139,6 @@ export const GetUserWithReposDocument = {
         },
     ],
 } as unknown as DocumentNode<GetUserWithReposQuery, GetUserWithReposQueryVariables>;
-export const GetUserRepoBranchesDocument = {
-    kind: 'Document',
-    definitions: [
-        {
-            kind: 'OperationDefinition',
-            operation: 'query',
-            name: { kind: 'Name', value: 'GetUserRepoBranches' },
-            variableDefinitions: [
-                {
-                    kind: 'VariableDefinition',
-                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
-                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
-                },
-            ],
-            selectionSet: {
-                kind: 'SelectionSet',
-                selections: [
-                    {
-                        kind: 'Field',
-                        name: { kind: 'Name', value: 'repositoryOwner' },
-                        arguments: [
-                            {
-                                kind: 'Argument',
-                                name: { kind: 'Name', value: 'login' },
-                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
-                            },
-                        ],
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                                {
-                                    kind: 'FragmentSpread',
-                                    name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
-                                },
-                            ],
-                        },
-                    },
-                ],
-            },
-        },
-        {
-            kind: 'FragmentDefinition',
-            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
-            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
-            selectionSet: {
-                kind: 'SelectionSet',
-                selections: [
-                    {
-                        kind: 'InlineFragment',
-                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                            ],
-                        },
-                    },
-                    {
-                        kind: 'InlineFragment',
-                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
-                        selectionSet: {
-                            kind: 'SelectionSet',
-                            selections: [
-                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
-                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
-                            ],
-                        },
-                    },
-                ],
-            },
-        },
-    ],
-} as unknown as DocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>;
 export const GetRepoBranchesDocument = {
     kind: 'Document',
     definitions: [
@@ -1353,6 +1275,7 @@ export const GetRepoBranchesDocument = {
             selectionSet: {
                 kind: 'SelectionSet',
                 selections: [
+                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'authoredDate' } },
                     {
                         kind: 'Field',
@@ -1433,6 +1356,7 @@ export const GetRepoBranchesDocument = {
                                     selectionSet: {
                                         kind: 'SelectionSet',
                                         selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                             {
                                                 kind: 'FragmentSpread',
                                                 name: { kind: 'Name', value: 'CommitWithStatuses_commit' },
@@ -1495,3 +1419,83 @@ export const GetRepoBranchesDocument = {
         },
     ],
 } as unknown as DocumentNode<GetRepoBranchesQuery, GetRepoBranchesQueryVariables>;
+export const GetUserRepoBranchesDocument = {
+    kind: 'Document',
+    definitions: [
+        {
+            kind: 'OperationDefinition',
+            operation: 'query',
+            name: { kind: 'Name', value: 'GetUserRepoBranches' },
+            variableDefinitions: [
+                {
+                    kind: 'VariableDefinition',
+                    variable: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                    type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } } },
+                },
+            ],
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'repositoryOwner' },
+                        arguments: [
+                            {
+                                kind: 'Argument',
+                                name: { kind: 'Name', value: 'login' },
+                                value: { kind: 'Variable', name: { kind: 'Name', value: 'userName' } },
+                            },
+                        ],
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                {
+                                    kind: 'FragmentSpread',
+                                    name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+                                },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            kind: 'FragmentDefinition',
+            name: { kind: 'Name', value: 'UserFragment_repositoryOwner' },
+            typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'RepositoryOwner' } },
+            selectionSet: {
+                kind: 'SelectionSet',
+                selections: [
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'User' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'company' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                    {
+                        kind: 'InlineFragment',
+                        typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'Organization' } },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                            ],
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+} as unknown as DocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables>;

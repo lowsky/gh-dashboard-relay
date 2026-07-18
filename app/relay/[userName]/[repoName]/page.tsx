@@ -1,11 +1,11 @@
 import { getAccessToken } from '../../../lib/getAccessToken';
-import RelayRoot from './RelayRoot';
+import Root from './Root';
 
 const RelayRepoRoot = async () => {
     const authToken = await getAccessToken();
     if (!authToken) {
         return <>Empty - no auth token</>;
     }
-    return <RelayRoot authToken={authToken} />;
+    return <Root authToken={authToken} />;
 };
 export default RelayRepoRoot;

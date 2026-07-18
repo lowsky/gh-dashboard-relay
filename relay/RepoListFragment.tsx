@@ -9,6 +9,7 @@ import { Checkbox } from 'components/ui/checkbox';
 
 import type { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
 import type { RepoListPaginationQuery } from './__generated__/RepoListPaginationQuery.graphql';
+
 import { RepoItemFragment } from 'relay/RepoItemFragment';
 
 type Props = {
@@ -66,25 +67,35 @@ function RepoListFragment(props: Props) {
 
             {edges && (
                 <Ul variant="plain">
-                    {(edges ?? []).map((edge, idx) => {
+                    {edges.map((edge, idx) => {
+                        const isLastElement = edges.length - 1 === idx;
                         const node = edge?.node;
-                        if (!node) return null;
+                        const onLoadMore = () => loadNext(10);
 
-                        const isLastElement = edges.length - 1 == idx;
-                        return isLastElement && hasNext ? (
-                            <InfiniteScrollTrigger key={node.id} onLoadMore={() => loadNext(10)}>
+                        if (!node) {
+                            return (
+                                <InfiniteScrollTrigger
+                                    key={edges.length - 1}
+                                    enabled={isLastElement && hasNext}
+                                    onLoadMore={onLoadMore}>
+                                    <div />
+                                </InfiniteScrollTrigger>
+                            );
+                        }
+                        return (
+                            <InfiniteScrollTrigger
+                                key={node.id}
+                                enabled={isLastElement && hasNext}
+                                onLoadMore={onLoadMore}>
                                 <Suspense fallback={<Spinner />}>
                                     <RepoItemFragment repo={node} hideIfFork={!showAll} />
                                 </Suspense>
                             </InfiniteScrollTrigger>
-                        ) : (
-                            <Suspense key={node.id} fallback={<Spinner />}>
-                                <RepoItemFragment repo={node} hideIfFork={!showAll} />
-                            </Suspense>
                         );
                     })}
                 </Ul>
             )}
+
             {isLoadingNext && <Spinner size="sm" />}
         </>
     );

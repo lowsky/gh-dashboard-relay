@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8cbc8602c5a70442acece6b0a74ef05d>>
+ * @generated SignedSource<<4c73ceb58f9081a43af4e95f8cc80359>>
  * @lightSyntaxTransform
  */
 
@@ -46,6 +46,13 @@ const node: ConcreteRequest = (function () {
         v2 = [
             {
                 kind: 'Variable',
+                name: 'login',
+                variableName: 'userName',
+            },
+        ],
+        v3 = [
+            {
+                kind: 'Variable',
                 name: 'name',
                 variableName: 'repoName',
             },
@@ -55,14 +62,28 @@ const node: ConcreteRequest = (function () {
                 variableName: 'userName',
             },
         ],
-        v3 = [
-            {
-                kind: 'Variable',
-                name: 'login',
-                variableName: 'userName',
-            },
-        ],
-        v4 = [
+        v4 = {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'login',
+            storageKey: null,
+        },
+        v5 = {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'avatarUrl',
+            storageKey: null,
+        },
+        v6 = {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'id',
+            storageKey: null,
+        },
+        v7 = [
             {
                 kind: 'Literal',
                 name: 'first',
@@ -74,39 +95,18 @@ const node: ConcreteRequest = (function () {
                 value: 'refs/heads/',
             },
         ],
-        v5 = {
+        v8 = {
             alias: null,
             args: null,
             kind: 'ScalarField',
             name: 'name',
             storageKey: null,
         },
-        v6 = {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: '__typename',
-            storageKey: null,
-        },
-        v7 = {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'id',
-            storageKey: null,
-        },
-        v8 = {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'avatarUrl',
-            storageKey: null,
-        },
         v9 = {
             alias: null,
             args: null,
             kind: 'ScalarField',
-            name: 'login',
+            name: '__typename',
             storageKey: null,
         },
         v10 = {
@@ -126,22 +126,6 @@ const node: ConcreteRequest = (function () {
                 {
                     alias: null,
                     args: v2 /*:: as any*/,
-                    concreteType: 'Repository',
-                    kind: 'LinkedField',
-                    name: 'repository',
-                    plural: false,
-                    selections: [
-                        {
-                            args: null,
-                            kind: 'FragmentSpread',
-                            name: 'RepoWithBranchListFragment_repo',
-                        },
-                    ],
-                    storageKey: null,
-                },
-                {
-                    alias: null,
-                    args: v3 /*:: as any*/,
                     concreteType: 'User',
                     kind: 'LinkedField',
                     name: 'user',
@@ -151,6 +135,22 @@ const node: ConcreteRequest = (function () {
                             args: null,
                             kind: 'FragmentSpread',
                             name: 'UserFragment_user',
+                        },
+                    ],
+                    storageKey: null,
+                },
+                {
+                    alias: null,
+                    args: v3 /*:: as any*/,
+                    concreteType: 'Repository',
+                    kind: 'LinkedField',
+                    name: 'repository',
+                    plural: false,
+                    selections: [
+                        {
+                            args: null,
+                            kind: 'FragmentSpread',
+                            name: 'RepoWithBranchListFragment_repo',
                         },
                     ],
                     storageKey: null,
@@ -168,6 +168,27 @@ const node: ConcreteRequest = (function () {
                 {
                     alias: null,
                     args: v2 /*:: as any*/,
+                    concreteType: 'User',
+                    kind: 'LinkedField',
+                    name: 'user',
+                    plural: false,
+                    selections: [
+                        v4 /*:: as any*/,
+                        {
+                            alias: null,
+                            args: null,
+                            kind: 'ScalarField',
+                            name: 'company',
+                            storageKey: null,
+                        },
+                        v5 /*:: as any*/,
+                        v6 /*:: as any*/,
+                    ],
+                    storageKey: null,
+                },
+                {
+                    alias: null,
+                    args: v3 /*:: as any*/,
                     concreteType: 'Repository',
                     kind: 'LinkedField',
                     name: 'repository',
@@ -175,7 +196,7 @@ const node: ConcreteRequest = (function () {
                     selections: [
                         {
                             alias: 'branches',
-                            args: v4 /*:: as any*/,
+                            args: v7 /*:: as any*/,
                             concreteType: 'RefConnection',
                             kind: 'LinkedField',
                             name: 'refs',
@@ -197,7 +218,7 @@ const node: ConcreteRequest = (function () {
                                             name: 'node',
                                             plural: false,
                                             selections: [
-                                                v5 /*:: as any*/,
+                                                v8 /*:: as any*/,
                                                 {
                                                     alias: null,
                                                     args: null,
@@ -206,7 +227,7 @@ const node: ConcreteRequest = (function () {
                                                     name: 'target',
                                                     plural: false,
                                                     selections: [
-                                                        v6 /*:: as any*/,
+                                                        v9 /*:: as any*/,
                                                         {
                                                             kind: 'InlineFragment',
                                                             selections: [
@@ -225,7 +246,7 @@ const node: ConcreteRequest = (function () {
                                                                     name: 'status',
                                                                     plural: false,
                                                                     selections: [
-                                                                        v7 /*:: as any*/,
+                                                                        v6 /*:: as any*/,
                                                                         {
                                                                             alias: null,
                                                                             args: null,
@@ -241,7 +262,7 @@ const node: ConcreteRequest = (function () {
                                                                                     name: 'oid',
                                                                                     storageKey: null,
                                                                                 },
-                                                                                v7 /*:: as any*/,
+                                                                                v6 /*:: as any*/,
                                                                             ],
                                                                             storageKey: null,
                                                                         },
@@ -253,7 +274,7 @@ const node: ConcreteRequest = (function () {
                                                                             name: 'contexts',
                                                                             plural: true,
                                                                             selections: [
-                                                                                v8 /*:: as any*/,
+                                                                                v5 /*:: as any*/,
                                                                                 {
                                                                                     alias: null,
                                                                                     args: null,
@@ -269,12 +290,12 @@ const node: ConcreteRequest = (function () {
                                                                                     name: 'creator',
                                                                                     plural: false,
                                                                                     selections: [
-                                                                                        v6 /*:: as any*/,
                                                                                         v9 /*:: as any*/,
+                                                                                        v4 /*:: as any*/,
                                                                                         {
                                                                                             kind: 'InlineFragment',
                                                                                             selections: [
-                                                                                                v7 /*:: as any*/,
+                                                                                                v6 /*:: as any*/,
                                                                                             ],
                                                                                             type: 'Node',
                                                                                             abstractKey: '__isNode',
@@ -297,7 +318,7 @@ const node: ConcreteRequest = (function () {
                                                                                     name: 'targetUrl',
                                                                                     storageKey: null,
                                                                                 },
-                                                                                v7 /*:: as any*/,
+                                                                                v6 /*:: as any*/,
                                                                             ],
                                                                             storageKey: null,
                                                                         },
@@ -335,10 +356,10 @@ const node: ConcreteRequest = (function () {
                                                                             name: 'user',
                                                                             plural: false,
                                                                             selections: [
-                                                                                v9 /*:: as any*/,
-                                                                                v5 /*:: as any*/,
+                                                                                v4 /*:: as any*/,
                                                                                 v8 /*:: as any*/,
-                                                                                v7 /*:: as any*/,
+                                                                                v5 /*:: as any*/,
+                                                                                v6 /*:: as any*/,
                                                                             ],
                                                                             storageKey: null,
                                                                         },
@@ -349,7 +370,7 @@ const node: ConcreteRequest = (function () {
                                                             type: 'Commit',
                                                             abstractKey: null,
                                                         },
-                                                        v7 /*:: as any*/,
+                                                        v6 /*:: as any*/,
                                                     ],
                                                     storageKey: null,
                                                 },
@@ -388,7 +409,7 @@ const node: ConcreteRequest = (function () {
                                                                     name: 'node',
                                                                     plural: false,
                                                                     selections: [
-                                                                        v7 /*:: as any*/,
+                                                                        v6 /*:: as any*/,
                                                                         {
                                                                             alias: null,
                                                                             args: null,
@@ -461,8 +482,8 @@ const node: ConcreteRequest = (function () {
                                                     ],
                                                     storageKey: 'associatedPullRequests(first:1,states:["OPEN"])',
                                                 },
-                                                v7 /*:: as any*/,
                                                 v6 /*:: as any*/,
+                                                v9 /*:: as any*/,
                                             ],
                                             storageKey: null,
                                         },
@@ -506,51 +527,30 @@ const node: ConcreteRequest = (function () {
                         },
                         {
                             alias: 'branches',
-                            args: v4 /*:: as any*/,
+                            args: v7 /*:: as any*/,
                             filters: ['refPrefix'],
                             handle: 'connection',
                             key: 'RepoWithBranchList_repositories_branches',
                             kind: 'LinkedHandle',
                             name: 'refs',
                         },
-                        v7 /*:: as any*/,
-                    ],
-                    storageKey: null,
-                },
-                {
-                    alias: null,
-                    args: v3 /*:: as any*/,
-                    concreteType: 'User',
-                    kind: 'LinkedField',
-                    name: 'user',
-                    plural: false,
-                    selections: [
-                        v9 /*:: as any*/,
-                        {
-                            alias: null,
-                            args: null,
-                            kind: 'ScalarField',
-                            name: 'company',
-                            storageKey: null,
-                        },
-                        v8 /*:: as any*/,
-                        v7 /*:: as any*/,
+                        v6 /*:: as any*/,
                     ],
                     storageKey: null,
                 },
             ],
         },
         params: {
-            cacheID: '208901d211614f722a9e4213e9fff725',
+            cacheID: '571707a392218974a332cf340cbae447',
             id: null,
             metadata: {},
             name: 'RelayRootRepoQuery',
             operationKind: 'query',
-            text: 'query RelayRootRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  repository(name: $repoName, owner: $userName) {\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n  user(login: $userName) {\n    ...UserFragment_user\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n',
+            text: 'query RelayRootRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  user(login: $userName) {\n    ...UserFragment_user\n    id\n  }\n  repository(name: $repoName, owner: $userName) {\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n',
         },
     };
 })();
 
-(node as any).hash = '8161d64a0684a380adfc286fd7c0c436';
+(node as any).hash = '6b7db25a65e5c903640c785aee494a29';
 
 export default node;

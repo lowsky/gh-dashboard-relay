@@ -1,6 +1,6 @@
 import preview from '../../../../.storybook/preview';
 
-import { UserRepoPageContent } from './RelayRoot';
+import { UserRepoPageContent } from './Root';
 import type { RepoWithBranchListFragment_repo$data } from './__generated__/RepoWithBranchListFragment_repo.graphql';
 import type { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
 import { WithInfo } from 'relay/BranchInfoRow.story';

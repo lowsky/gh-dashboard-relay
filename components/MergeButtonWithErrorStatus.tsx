@@ -43,7 +43,7 @@ export function MergeButtonWithErrorStatus({ doMergePR }: { doMergePR?: DoMergeP
                 </Icon>
             )}
 
-            {!isMerged && Boolean(doMergePR) && !isError && (
+            {!isMerged && Boolean(doMergePR) && (
                 <Button ml={1} size="xs" variant="outline" onClick={triggerMerging} disabled={isMergingInProgress}>
                     Rebase&Merge
                     {isMergingInProgress && (
