@@ -126,7 +126,7 @@
     "vitest": "4.1.9"
   },
   "resolutions": {
-    "tar": "7.5.19"
+    "tar": "7.5.20"
   },
   "packageManager": "yarn@4.17.0"
 }
