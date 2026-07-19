@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
         // [webpack.cache.PackFileCacheStrategy] Serializing big strings (xxxkiB)
         optimizePackageImports: ['@chakra-ui/react'],
         mdxRs: true,
+        useTypeScriptCli: true,
     },
 
     // until yarn next lint does not know how to use eslint9
