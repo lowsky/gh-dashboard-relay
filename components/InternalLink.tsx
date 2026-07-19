@@ -11,13 +11,13 @@ export default function InternalLink({
     href,
     variant,
     ...props
+    // @ts-expect-error type is not correct: needs generic arg, to fix this error in e.g. components/RepoItem.tsx:28:44
+    //.next/dev/types/link.d.ts:87:5 - The expected type comes from property 'href' which is declared here on type 'IntrinsicAttributes & Omit<LinkProps, "href"> & LinkRestProps & { href: UrlObject | RouteImpl<string>; }'
+    //     87     href: __next_route_internal_types__.RouteImpl<RouteInferType> | UrlObject
 }: Omit<LinkProps, 'href'> & NextLinkProps): ReactElement<HTMLAnchorElement> {
     return (
         <Link variant={variant} asChild>
-            {
-                // @ts-expect-error parameter injected from parentLink component
-                <NextLink href={href} prefetch={prefetch} {...props} />
-            }
+            {<NextLink href={href} prefetch={prefetch} {...props} />}
         </Link>
     );
 }
