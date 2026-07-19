@@ -10,13 +10,13 @@ export default function InternalLink({
     prefetch = false,
     href,
     variant,
+    color,
+    content,
+    translate,
     ...props
-    // @ts-expect-error type is not correct: needs generic arg, to fix this error in e.g. components/RepoItem.tsx:28:44
-    //.next/dev/types/link.d.ts:87:5 - The expected type comes from property 'href' which is declared here on type 'IntrinsicAttributes & Omit<LinkProps, "href"> & LinkRestProps & { href: UrlObject | RouteImpl<string>; }'
-    //     87     href: __next_route_internal_types__.RouteImpl<RouteInferType> | UrlObject
 }: Omit<LinkProps, 'href'> & NextLinkProps): ReactElement<HTMLAnchorElement> {
     return (
-        <Link variant={variant} asChild>
+        <Link variant={variant} asChild color={color} translate={translate} content={content}>
             {<NextLink href={href} prefetch={prefetch} {...props} />}
         </Link>
     );
