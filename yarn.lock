@@ -2560,7 +2560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:^9.2.0":
+"@graphql-tools/merge@npm:^9.2.2":
   version: 9.2.2
   resolution: "@graphql-tools/merge@npm:9.2.2"
   dependencies:
@@ -2596,16 +2596,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:10.0.36":
-  version: 10.0.36
-  resolution: "@graphql-tools/schema@npm:10.0.36"
+"@graphql-tools/schema@npm:10.0.38":
+  version: 10.0.38
+  resolution: "@graphql-tools/schema@npm:10.0.38"
   dependencies:
-    "@graphql-tools/merge": "npm:^9.2.0"
-    "@graphql-tools/utils": "npm:^11.2.0"
+    "@graphql-tools/merge": "npm:^9.2.2"
+    "@graphql-tools/utils": "npm:^11.2.2"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/61e970b4ab5d1d40b96bb5ffcfc0c40665cb57e568c770ba573dbee5f4c9382d650e73f29b32a390baee352f923dbbab97249d829da673507ba0c641142a6a96
+  checksum: 10c0/cfce1f7df4a8c52d9e3c24a8e85f2329a46e8e1ba0170447cd23bd5bb8707ca9aa35c080234e2a373a376ddec05f0356b7a31e31de4712c3f668ab3aca89af93
   languageName: node
   linkType: hard
 
@@ -8533,7 +8533,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": "npm:6.1.0"
     "@graphql-codegen/typescript-react-apollo": "npm:4.4.2"
     "@graphql-eslint/eslint-plugin": "npm:4.4.0"
-    "@graphql-tools/schema": "npm:10.0.36"
+    "@graphql-tools/schema": "npm:10.0.38"
     "@next/eslint-plugin-next": "npm:^16.0.0"
     "@next/mdx": "npm:16.2.10"
     "@octokit/graphql-schema": "npm:15.26.1"
