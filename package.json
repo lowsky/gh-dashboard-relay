@@ -119,7 +119,7 @@
     "storybook": "10.5.2",
     "storybook-addon-apollo-client": "10.0.0",
     "type-fest": "5.8.0",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "typescript-eslint": "8.61.1",
     "vercel": "56.2.1",
     "vite": "8.1.5",
