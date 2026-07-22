@@ -552,9 +552,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.36.0":
-  version: 3.36.0
-  resolution: "@chakra-ui/react@npm:3.36.0"
+"@chakra-ui/react@npm:3.36.1":
+  version: 3.36.1
+  resolution: "@chakra-ui/react@npm:3.36.1"
   dependencies:
     "@ark-ui/react": "npm:5.37.2"
     "@emotion/is-prop-valid": "npm:^1.4.0"
@@ -567,7 +567,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/453f1816e30bb98e8074e47cbeb035d130b214824b4bd6e46a1f7f864a2cad4aeabf6d2daaa8ad6e357bfc25c22d2a8813e60a57a6de9fd7c578e5d1c2277cf5
+  checksum: 10c0/38e0392695c439acb093fff325428b1f4d2f3e687128818edf7da1bcd38f7351f42cb42f93eb8c8f3520299a1dd7691b97efbf0b98ee94aaa79ec2e3819501ae
   languageName: node
   linkType: hard
 
@@ -8703,7 +8703,7 @@ __metadata:
   dependencies:
     "@0no-co/graphqlsp": "npm:1.17.3"
     "@apollo/client": "npm:4.2.7"
-    "@chakra-ui/react": "npm:3.36.0"
+    "@chakra-ui/react": "npm:3.36.1"
     "@chromatic-com/storybook": "npm:5.2.1"
     "@emotion/react": "npm:11.14.0"
     "@eslint/compat": "npm:2.1.0"
