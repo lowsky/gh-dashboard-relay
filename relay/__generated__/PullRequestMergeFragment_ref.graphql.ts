@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<56b07408650a8495f56ae385245ec964>>
+ * @generated SignedSource<<411e4b5b32a71c95428364344e2f9f9d>>
  * @lightSyntaxTransform
  */
 
@@ -14,7 +14,7 @@ export type MergeableState = 'CONFLICTING' | 'MERGEABLE' | 'UNKNOWN' | '%future 
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestMergeFragment_ref$data = {
     readonly closed: boolean;
-    readonly headRefOid: any;
+    readonly headRefOid: string;
     readonly id: string;
     readonly isDraft: boolean;
     readonly mergeStateStatus: MergeStateStatus;
@@ -22,7 +22,7 @@ export type PullRequestMergeFragment_ref$data = {
     readonly merged: boolean;
     readonly number: number;
     readonly title: string;
-    readonly url: any;
+    readonly url: string;
     readonly ' $fragmentType': 'PullRequestMergeFragment_ref';
 };
 export type PullRequestMergeFragment_ref$key = {

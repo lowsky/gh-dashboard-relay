@@ -40,6 +40,12 @@
     "src": ".",
     "eagerEsModules": true,
     "language": "typescript",
+    "requireCustomScalarTypes": true,
+    "customScalarTypes": {
+      "GitObjectID": "string",
+      "URI": "string",
+      "DateTime": "Date"
+    },
     "excludes": [
       "/.next/**",
       "**/stuff/**",

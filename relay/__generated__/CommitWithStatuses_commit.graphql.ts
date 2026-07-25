@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9aada8867977b9694c4d19f49f607938>>
+ * @generated SignedSource<<aa46eee88acd51bf15617adee76422b0>>
  * @lightSyntaxTransform
  */
 
@@ -15,7 +15,7 @@ export type CommitWithStatuses_commit$data = {
         | {
               readonly user:
                   | {
-                        readonly avatarUrl: any;
+                        readonly avatarUrl: string;
                         readonly login: string;
                         readonly name: string | null | undefined;
                     }
@@ -24,19 +24,19 @@ export type CommitWithStatuses_commit$data = {
           }
         | null
         | undefined;
-    readonly authoredDate: any;
-    readonly commitUrl: any;
+    readonly authoredDate: Date;
+    readonly commitUrl: string;
     readonly message: string;
     readonly status:
         | {
               readonly commit:
                   | {
-                        readonly oid: any;
+                        readonly oid: string;
                     }
                   | null
                   | undefined;
               readonly contexts: ReadonlyArray<{
-                  readonly avatarUrl: any | null | undefined;
+                  readonly avatarUrl: string | null | undefined;
                   readonly context: string;
                   readonly creator:
                       | {
@@ -46,7 +46,7 @@ export type CommitWithStatuses_commit$data = {
                       | undefined;
                   readonly description: string | null | undefined;
                   readonly state: StatusState;
-                  readonly targetUrl: any | null | undefined;
+                  readonly targetUrl: string | null | undefined;
               }>;
               readonly id: string;
               readonly state: StatusState;
