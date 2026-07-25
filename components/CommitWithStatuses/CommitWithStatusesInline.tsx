@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import { Link } from '@chakra-ui/react';
-import { FaArrowUpRightFromSquare } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 import { Avatar } from '../ui/avatar';
 import { TooltipArrow, TooltipContent, TooltipRoot, TooltipTrigger } from '../ui/tooltip';
@@ -53,40 +53,46 @@ const CommitWithStatusesInline: FC<CommitWithStatusesInlineProps> = (props) => {
                     ))}
                 </Link>
 
-                {authorUser && (
-                    <div className={styles.authorMeta}>
-                        <Avatar
-                            size="2xs"
-                            name={authorUser.name ?? authorUser.login}
-                            src={authorUser.avatarUrl ?? undefined}
-                        />
-                        <span className={styles.authorName}>
-                            {authorUser.name ?? authorUser.login}
-                        </span>
-                        <span className={styles.separator}>·</span>
-                        <span className={styles.timestamp}>{formattedDate}</span>
-                    </div>
-                )}
-            </div>
+                <div className={styles.authorMetaRow}>
+                    {authorUser && (
+                        <div className={styles.authorMeta}>
+                            <Avatar
+                                size="2xs"
+                                name={authorUser.name ?? authorUser.login}
+                                src={authorUser.avatarUrl ?? undefined}
+                            />
+                            <span className={styles.authorName}>
+                                {authorUser.name ?? authorUser.login}
+                            </span>
+                            <span className={styles.separator}>·</span>
+                            <span className={styles.timestamp}>{formattedDate}</span>
+                        </div>
+                    )}
 
-            <div className={styles.rightSection}>
-                {status && <CommitStatuses contexts={status.contexts} />}
-                <TooltipRoot>
-                    <TooltipTrigger asChild>
-                        <Link
-                            href={commitUrl}
-                            rel="noopener noreferrer nofollow"
-                            className={styles.viewLink}
-                            aria-label="View commit on GitHub"
-                        >
-                            <FaArrowUpRightFromSquare />
-                        </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        <TooltipArrow />
-                        View commit on GitHub
-                    </TooltipContent>
-                </TooltipRoot>
+                    {status && status.contexts && status.contexts.length > 0 && (
+                        <>
+                            <span className={styles.separator}>·</span>
+                            <CommitStatuses contexts={status.contexts} />
+                        </>
+                    )}
+
+                    <TooltipRoot>
+                        <TooltipTrigger asChild>
+                            <Link
+                                href={commitUrl}
+                                rel="noopener noreferrer nofollow"
+                                className={styles.viewLink}
+                                aria-label="View commit on GitHub"
+                            >
+                                <FaExternalLinkAlt />
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <TooltipArrow />
+                            View commit on GitHub
+                        </TooltipContent>
+                    </TooltipRoot>
+                </div>
             </div>
         </div>
     );

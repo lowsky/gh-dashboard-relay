@@ -28,118 +28,7 @@
 }
 
 /* ==========================================
-   Option 1: Hover Card Styles
-   ========================================== */
-
-.commitRow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.commitLink {
-    color: inherit;
-    text-decoration: none;
-}
-
-.commitLink:hover {
-    text-decoration: underline;
-}
-
-.externalLinkIcon {
-    opacity: 0.5;
-    transition: opacity 0.2s;
-    font-size: 12px;
-}
-
-.externalLinkIcon:hover {
-    opacity: 1;
-}
-
-.hoverTooltip {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.tooltipTimestamp {
-    font-size: 11px;
-    opacity: 0.7;
-}
-
-/* ==========================================
-   Option 2: Rich Popover Styles
-   ========================================== */
-
-.popoverContent {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.authorRow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.authorInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.authorName {
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.authorDate {
-    font-size: 12px;
-    opacity: 0.7;
-}
-
-.statusDivider {
-    height: 1px;
-    background: var(--chakra-colors-border, #e2e8f0);
-    margin: 4px 0;
-}
-
-.statusSummary {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.statusSummaryLabel {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    opacity: 0.6;
-}
-
-.statusBadges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.statusBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    background: var(--chakra-colors-bg-subtle, #f1f5f9);
-    border-radius: 9999px;
-    font-size: 12px;
-}
-
-.viewButton {
-    text-decoration: none !important;
-}
-
-/* ==========================================
-   Option 3: Inline Card Styles
+   Inline Card Styles (Extended with Statuses)
    ========================================== */
 
 .inlineLayout {
@@ -167,8 +56,15 @@
     text-decoration: underline;
 }
 
-.authorMeta {
+.authorMetaRow {
     display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.authorMeta {
+    display: inline-flex;
     align-items: center;
     gap: 6px;
     font-size: 12px;
@@ -185,13 +81,6 @@
 
 .timestamp {
     opacity: 0.7;
-}
-
-.rightSection {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
 }
 
 .viewLink {
