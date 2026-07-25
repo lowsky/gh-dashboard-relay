@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2f797965d565118f2a6a882bae518f05>>
+ * @generated SignedSource<<cba73629c658bc9a7d55492a707aae69>>
  * @lightSyntaxTransform
  */
 
@@ -10,11 +10,11 @@
 import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from 'relay-runtime';
 export type PullRequestInfo_pullRequest$data = {
-    readonly headRefOid: any;
+    readonly headRefOid: string;
     readonly id: string;
     readonly number: number;
     readonly title: string;
-    readonly url: any;
+    readonly url: string;
     readonly ' $fragmentType': 'PullRequestInfo_pullRequest';
 };
 export type PullRequestInfo_pullRequest$key = {

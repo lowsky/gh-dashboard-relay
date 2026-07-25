@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<28ddb5df45f21f7b3d2b19d1989712d7>>
+ * @generated SignedSource<<c216e5fdc69ffe9f5bdec717f9ef3dba>>
  * @lightSyntaxTransform
  */
 
@@ -17,7 +17,7 @@ export type MergePullRequestInput = {
     clientMutationId?: string | null | undefined;
     commitBody?: string | null | undefined;
     commitHeadline?: string | null | undefined;
-    expectedHeadOid?: any | null | undefined;
+    expectedHeadOid?: string | null | undefined;
     mergeMethod?: PullRequestMergeMethod | null | undefined;
     pullRequestId: string;
 };

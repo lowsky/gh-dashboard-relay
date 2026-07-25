@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<14b07259b7b2ae5f649f2d3d54ef8575>>
+ * @generated SignedSource<<657f0d27ca1c4602336d237462029554>>
  * @lightSyntaxTransform
  */
 
@@ -17,7 +17,7 @@ export type RelayRootQuery$data = {
         | {
               readonly limit: number;
               readonly remaining: number;
-              readonly resetAt: any;
+              readonly resetAt: Date;
               readonly used: number;
           }
         | null

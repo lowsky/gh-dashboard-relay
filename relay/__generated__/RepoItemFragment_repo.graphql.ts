@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9b6d8a074329017b4fd37360dcb785ad>>
+ * @generated SignedSource<<df6a753d11dda91790eb559fc57e8132>>
  * @lightSyntaxTransform
  */
 
@@ -17,7 +17,7 @@ export type RepoItemFragment_repo$data = {
     readonly pullRequests: {
         readonly totalCount: number;
     };
-    readonly url: any;
+    readonly url: string;
     readonly ' $fragmentType': 'RepoItemFragment_repo';
 };
 export type RepoItemFragment_repo$key = {
