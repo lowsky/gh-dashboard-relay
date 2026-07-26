@@ -84,8 +84,8 @@ export type StatusState =
 export type CommitWithStatuses_CommitFragment = {
     __typename: 'Commit';
     id: string;
-    authoredDate: unknown;
-    commitUrl: unknown;
+    authoredDate: Date;
+    commitUrl: string;
     message: string;
     status: {
         __typename: 'Status';
@@ -94,11 +94,11 @@ export type CommitWithStatuses_CommitFragment = {
         commit: { __typename: 'Commit'; oid: unknown } | null;
         contexts: Array<{
             __typename: 'StatusContext';
-            avatarUrl: unknown;
+            avatarUrl: string | null;
             context: string;
             state: StatusState;
             description: string | null;
-            targetUrl: unknown;
+            targetUrl: string | null;
         }>;
     } | null;
 } & { ' $fragmentName'?: 'CommitWithStatuses_CommitFragment' };
@@ -133,7 +133,7 @@ export type PullRequestMergeFragment_RefFragment = {
     id: string;
     headRefOid: unknown;
     number: number;
-    url: unknown;
+    url: string;
     title: string;
     mergeStateStatus: MergeStateStatus;
     closed: boolean;
@@ -165,7 +165,7 @@ export type GetRepositoriesQuery = {
                           name: string;
                           nameWithOwner: string;
                           isFork: boolean;
-                          url: unknown;
+                          url: string;
                           description: string | null;
                           pullRequests: { __typename: 'PullRequestConnection'; totalCount: number };
                       } | null;
@@ -188,7 +188,7 @@ export type GetRepositoriesQuery = {
                           name: string;
                           nameWithOwner: string;
                           isFork: boolean;
-                          url: unknown;
+                          url: string;
                           description: string | null;
                           pullRequests: { __typename: 'PullRequestConnection'; totalCount: number };
                       } | null;
@@ -220,7 +220,7 @@ type UserFragment_RepositoryOwner_Organization_Fragment = {
     __typename: 'Organization';
     id: string;
     login: string;
-    avatarUrl: unknown;
+    avatarUrl: string;
 } & { ' $fragmentName'?: 'UserFragment_RepositoryOwner_Organization_Fragment' };
 
 type UserFragment_RepositoryOwner_User_Fragment = {
@@ -228,7 +228,7 @@ type UserFragment_RepositoryOwner_User_Fragment = {
     id: string;
     login: string;
     company: string | null;
-    avatarUrl: unknown;
+    avatarUrl: string;
 } & { ' $fragmentName'?: 'UserFragment_RepositoryOwner_User_Fragment' };
 
 export type UserFragment_RepositoryOwnerFragment =
@@ -267,7 +267,7 @@ export type GetUserWithReposQuery = {
               };
           })
         | null;
-    rateLimit: { __typename: 'RateLimit'; limit: number; remaining: number; used: number; resetAt: unknown } | null;
+    rateLimit: { __typename: 'RateLimit'; limit: number; remaining: number; used: number; resetAt: Date } | null;
 };
 
 type UserWithReposFragment_RepositoryOwner_Organization_Fragment = ({
@@ -320,12 +320,12 @@ export type GetUserRepoBranchesQueryVariables = Exact<{
 
 export type GetUserRepoBranchesQuery = {
     repositoryOwner:
-        | ({ __typename: 'Organization'; id: string; login: string; avatarUrl: unknown } & {
+        | ({ __typename: 'Organization'; id: string; login: string; avatarUrl: string } & {
               ' $fragmentRefs'?: {
                   UserFragment_RepositoryOwner_Organization_Fragment: UserFragment_RepositoryOwner_Organization_Fragment;
               };
           })
-        | ({ __typename: 'User'; id: string; login: string; avatarUrl: unknown } & {
+        | ({ __typename: 'User'; id: string; login: string; avatarUrl: string } & {
               ' $fragmentRefs'?: {
                   UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment;
               };

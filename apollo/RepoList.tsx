@@ -120,10 +120,7 @@ export default function RepoList({ login }: RepoListProps) {
                                 key={node.id}
                                 enabled={isLastElement && pageInfo.hasNextPage}
                                 onLoadMore={onLoadMore}>
-                                {
-                                    // @ts-expect-error  Types of property 'url' are incompatible. Type 'unknown' is not assignable to type 'string'.
-                                    <RepoItem repo={node} hideIfFork={!showAll} />
-                                }
+                                <RepoItem repo={node} hideIfFork={!showAll} />
                             </InfiniteScrollTrigger>
                         );
                     })}
