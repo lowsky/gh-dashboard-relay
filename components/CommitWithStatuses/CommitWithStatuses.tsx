@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { Spinner } from '../Spinner';
 
 import { CommitterInfo } from './CommitterInfo';
@@ -17,7 +16,6 @@ interface CommitWithStatusesProps {
                   | {
                         avatarUrl: string | null | undefined;
                         login: string;
-                        name: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -42,7 +40,7 @@ interface CommitWithStatusesProps {
 }
 
 const CommitWithStatuses: FC<CommitWithStatusesProps> = (props) => {
-    const { author, commitUrl, authoredDate = '-?-', message = '-?-', status } = props;
+    const { author, commitUrl = '0815', authoredDate = '-?-', message = '-?-', status } = props;
 
     const firstLineOfMessage = message?.split('\n\n', 1);
 
