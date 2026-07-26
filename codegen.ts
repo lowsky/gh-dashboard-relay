@@ -32,20 +32,35 @@ const config: CodegenConfig = {
                 ///nonOptionalTypename: true,
 
                 // https://the-guild.dev/graphql/codegen/plugins/typescript/typescript#skiptypename
-                //strictScalars: false,
+                // set to false, to avoid errors on unused
+                // not defined scalars, see below
+                strictScalars: false,
 
                 // defaultScalarType
                 //defaultScalarType: 'any',
 
                 // https://the-guild.dev/graphql/codegen/plugins/typescript/typescript#scalars
-                /*
                 scalars: {
-                    //Unknown scalar type Base64String
-                    // not used in this project
+                    Date: 'Date',
+                    URI: 'string',
+                    DateTime: 'Date',
+                    /*
+                    // these are not used in this project
+                    // so commenting out for the moment,
+                    // This requires that strictScalars is false
+                    //
+                    PreciseDateTime: "Date",
+                    GitObjectID: "string",
+                    GitRefname: "string",
+                    GitSSHRemote: "string",
+                    GitTimestamp: "string",
+                    HTML: "string",
+                    X509Certificate: "string",
+
                     Base64String: 'string',
                     BigInt: 'number',
-                },
                 */
+                },
 
                 // need to add when fragmentMasking is disabled:
                 // https://www.apollographql.com/docs/react/data/fragments#with-the-client-preset

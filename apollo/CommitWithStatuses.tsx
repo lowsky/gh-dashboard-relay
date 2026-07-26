@@ -14,7 +14,5 @@ export default function CommitFragment({ commit }: { commit: FragmentType<Commit
     if (!complete) return 'incomplete commit, loading...';
     if (!data) return null;
 
-    // @ts-expect-error types of property 'authoredDate' are incompatible.
-    //     Type 'unknown' is not assignable to type 'string | null | undefined'.
     return <CommitWithStatus {...data} />;
 }
