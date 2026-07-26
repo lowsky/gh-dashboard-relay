@@ -30,6 +30,9 @@ export interface ContextStatusProps {
     state?: StatusState | string | null;
 }
 
+// Alias for cleaner imports in new components
+export type StatusProps = ContextStatusProps;
+
 export const Status = ({ targetUrl, avatarUrl, context, description, state }: ContextStatusProps) => (
     <Link href={targetUrl ?? ''} title={context + ': ' + description} variant="underline">
         <Avatar size="2xs" name={context ?? ''} src={avatarUrl ?? undefined}>

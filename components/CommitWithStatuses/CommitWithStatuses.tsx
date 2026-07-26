@@ -1,30 +1,28 @@
 import type { FC } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
 import { Spinner } from '../Spinner';
 
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
+import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
 
 import styles from './CommitWithStatuses.module.css';
-import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
 
 interface CommitWithStatusesProps {
     author?:
         | {
               user:
                   | {
-                        avatarUrl: any;
+                        avatarUrl: string | null | undefined;
                         login: string;
-                        name: string | null | undefined;
                     }
                   | null
                   | undefined;
           }
         | null
         | undefined;
-    authoredDate?: string | null | unknown;
+    authoredDate?: string | null | undefined;
     commitUrl?: string;
     message?: string;
     status?:
@@ -42,57 +40,38 @@ interface CommitWithStatusesProps {
 }
 
 const CommitWithStatuses: FC<CommitWithStatusesProps> = (props) => {
-    const { author, commitUrl, authoredDate = '-?-', message = '-?-', status } = props;
+    const { author, commitUrl = '0815', authoredDate = '-?-', message = '-?-', status } = props;
 
     const firstLineOfMessage = message?.split('\n\n', 1);
 
     const authorUser = author?.user;
     return (
-        <>
-            {authorUser && (
-                <>
-                    <PopoverRoot>
-                        <PopoverTrigger>
-                            <span>
-                                {firstLineOfMessage.map((line) => (
-                                    <strong key={line}>{line}</strong>
-                                ))}
-                            </span>
-                        </PopoverTrigger>
-                        <PopoverContent>
-                            <PopoverBody>
-                                <PopoverArrow />
-                                <PopoverBody>
-                                    <div className={styles.status}>
-                                        <i>{
-                                            // @ts-expect-error incorrect type error
-                                            new Date(authoredDate).toLocaleString()
-                                        }</i>
-                                        <CommitterInfo author={authorUser} />
-                                    </div>
-                                </PopoverBody>
-                            </PopoverBody>
-                        </PopoverContent>
-                    </PopoverRoot>
-                    &nbsp;
-                    <Link variant="underline" href={commitUrl} rel="noopener noreferrer nofollow">
-                        more
-                    </Link>
-                </>
-            )}
-            {!authorUser && (
-                <span>
+        <div className={styles.inlineLayout}>
+            <div className={styles.mainContent}>
+                <Link
+                    href={commitUrl}
+                    title="View commit on GitHub"
+                    rel="noopener noreferrer nofollow"
+                    aria-label="View commit on GitHub">
                     {firstLineOfMessage.map((line) => (
                         <strong key={line}>{line}</strong>
                     ))}
-                    &nbsp;
-                    <Link variant="underline" href={commitUrl} rel="noopener noreferrer nofollow">
-                        more
-                    </Link>
-                </span>
-            )}
-            {status && <CommitStatuses contexts={status.contexts} />}
-        </>
+                </Link>
+
+                <div className={styles.authorMetaRow}>
+                    {authorUser && (
+                        <div className={styles.authorMeta}>
+                            {authoredDate && (
+                                <span className={styles.timestamp}>{new Date(authoredDate).toLocaleString()}</span>
+                            )}
+                            <CommitterInfo author={authorUser} />
+                        </div>
+                    )}
+
+                    {status && <CommitStatuses contexts={status.contexts} />}
+                </div>
+            </div>
+        </div>
     );
 };
 

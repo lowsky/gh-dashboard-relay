@@ -1,7 +1,9 @@
 import type { FC } from 'react';
 
 import { removeExtraStatusesForSameContext } from './removeExtraStatusesForSameContext';
-import { ContextStatusProps, Status } from './Status';
+import { Status, type ContextStatusProps } from './Status';
+
+export type { ContextStatusProps as StatusProps };
 
 import styles from './CommitWithStatuses.module.css';
 

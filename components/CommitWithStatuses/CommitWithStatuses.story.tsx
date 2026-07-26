@@ -6,17 +6,28 @@ import moreStatus from './lastCommitMock.json';
 
 const meta = preview.meta({
     component: CommitWithStatuses,
+    args: {
+        ...moreStatus,
+        author: {
+            user: moreStatus.author,
+        },
+        status:
+            {
+                contexts: moreStatus.status.map((s) => ({
+                    state: s.state,
+                    description: s.description,
+                    avatarUrl: s.avatarUrl,
+                    targetUrl: s.target_url,
+                    context: s.context,
+                }))
+            }
+    }
 });
 
 export default meta;
 
 export const WithData = meta.story({
-    args: {
-        ...moreStatus,
-        // somehow broken: status: moreStatus.status satisfies CommitWithStatuses_commit$data['status'],
-        author: undefined,
-        status: undefined,
-    },
+
 });
 
 export const WithNoData = meta.story({
@@ -25,9 +36,15 @@ export const WithNoData = meta.story({
         author: undefined,
         authoredDate: undefined,
         commitUrl: undefined,
-        message: '',
+        message: undefined,
         oid: undefined,
         status: undefined,
-        ' $fragmentType': 'CommitWithStatuses_commit',
+    },
+});
+
+export const WithLongMessage = meta.story({
+    args: {
+        message:
+            'feat: Add comprehensive feature implementation with multiple improvements and fixes for better user experience',
     },
 });
