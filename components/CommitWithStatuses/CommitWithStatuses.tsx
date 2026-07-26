@@ -22,7 +22,7 @@ interface CommitWithStatusesProps {
           }
         | null
         | undefined;
-    authoredDate?: string | null | undefined;
+    authoredDate?: string | null | Date;
     commitUrl?: string;
     message?: string;
     status?:
