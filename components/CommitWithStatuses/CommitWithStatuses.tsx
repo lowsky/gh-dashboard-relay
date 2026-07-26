@@ -15,7 +15,7 @@ interface CommitWithStatusesProps {
         | {
               user:
                   | {
-                        avatarUrl: any;
+                        avatarUrl: string | null | undefined;
                         login: string;
                         name: string | null | undefined;
                     }
@@ -24,7 +24,7 @@ interface CommitWithStatusesProps {
           }
         | null
         | undefined;
-    authoredDate?: string | null | unknown;
+    authoredDate?: string | null | undefined;
     commitUrl?: string;
     message?: string;
     status?:
