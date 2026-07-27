@@ -1847,13 +1847,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-operations@npm:6.1.1":
-  version: 6.1.1
-  resolution: "@graphql-codegen/typescript-operations@npm:6.1.1"
+"@graphql-codegen/typescript-operations@npm:6.1.2":
+  version: 6.1.2
+  resolution: "@graphql-codegen/typescript-operations@npm:6.1.2"
   dependencies:
     "@graphql-codegen/plugin-helpers": "npm:^7.1.0"
     "@graphql-codegen/schema-ast": "npm:^6.1.0"
-    "@graphql-codegen/visitor-plugin-common": "npm:^7.2.1"
+    "@graphql-codegen/visitor-plugin-common": "npm:^7.2.2"
     auto-bind: "npm:^5.0.0"
     tslib: "npm:^2.8.0"
   peerDependencies:
@@ -1862,7 +1862,7 @@ __metadata:
   peerDependenciesMeta:
     graphql-sock:
       optional: true
-  checksum: 10c0/60ce68240c1b50d28b25bcca95e432f4177321f09ebf41e6789fd898ab0395bcac7394222d752bce25e4f1f777a5d410165c9c7327da97f4b00a502bce68e51b
+  checksum: 10c0/9bdba2da163816bb9b47e8724a8a6e55f32119ce26df3b0c0824779d1302b7556eb52b3aab95e04e9eb19a57fbd55362eae499f6224f3960ed618134f96d6679
   languageName: node
   linkType: hard
 
@@ -1955,7 +1955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/visitor-plugin-common@npm:^7.2.1":
+"@graphql-codegen/visitor-plugin-common@npm:^7.2.2":
   version: 7.2.2
   resolution: "@graphql-codegen/visitor-plugin-common@npm:7.2.2"
   dependencies:
@@ -8737,7 +8737,7 @@ __metadata:
     "@graphql-codegen/cli": "npm:7.2.0"
     "@graphql-codegen/client-preset": "npm:6.1.0"
     "@graphql-codegen/fragment-matcher": "npm:7.1.0"
-    "@graphql-codegen/typescript-operations": "npm:6.1.1"
+    "@graphql-codegen/typescript-operations": "npm:6.1.2"
     "@graphql-codegen/typescript-react-apollo": "npm:4.4.2"
     "@graphql-eslint/eslint-plugin": "npm:4.4.0"
     "@graphql-tools/schema": "npm:10.0.38"
