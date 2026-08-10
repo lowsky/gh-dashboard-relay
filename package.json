@@ -112,7 +112,7 @@
     "eslint-plugin-relay": "2.0.0",
     "eslint-plugin-sonarjs": "4.2.0",
     "eslint-plugin-storybook": "10.5.3",
-    "globals": "17.7.0",
+    "globals": "17.9.0",
     "nextjs-toploader": "3.9.17",
     "playwright": "1.61.1",
     "prettier": "3.9.6",
