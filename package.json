@@ -78,7 +78,7 @@
   },
   "devDependencies": {
     "@0no-co/graphqlsp": "1.17.3",
-    "@chromatic-com/storybook": "5.2.1",
+    "@chromatic-com/storybook": "5.3.0",
     "@eslint/compat": "2.1.0",
     "@eslint/js": "10.0.1",
     "@fortawesome/fontawesome-svg-core": "7.3.1",
