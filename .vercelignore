@@ -19,7 +19,6 @@ schema.graphql
 .idea
 .nvmrc
 .editorconfig
-.env.local
 .gitignore
 
 renovate.json
