@@ -114,7 +114,7 @@
     "eslint-plugin-storybook": "10.5.3",
     "globals": "17.9.0",
     "nextjs-toploader": "3.9.17",
-    "playwright": "1.61.1",
+    "playwright": "1.62.1",
     "prettier": "3.9.6",
     "react": "next",
     "react-dom": "next",
