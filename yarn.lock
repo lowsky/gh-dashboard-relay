@@ -6349,12 +6349,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/python@npm:6.51.0":
-  version: 6.51.0
-  resolution: "@vercel/python@npm:6.51.0"
+"@vercel/python@npm:6.51.1":
+  version: 6.51.1
+  resolution: "@vercel/python@npm:6.51.1"
   dependencies:
     "@vercel/python-analysis": "npm:0.11.1"
-  checksum: 10c0/d3f91ee8293ea58d4ae447793e7b76198d68e73d34b9e2bed756c02d6d1c16f6511c8357d5913756f80cc78d3965d6e43722c7c811fd9953c2b0792750488cf2
+  checksum: 10c0/5830f40a2aacce5f7214958f96b11fa2fe02c9d1d3b5107e6e67069405e006a46ed1477609269c160b7e0237d1c1e5977a257d11a02ba5e56499bd853d97420a
   languageName: node
   linkType: hard
 
@@ -8787,7 +8787,7 @@ __metadata:
     type-fest: "npm:5.8.0"
     typescript: "npm:7.0.2"
     typescript-eslint: "npm:8.61.1"
-    vercel: "npm:56.4.1"
+    vercel: "npm:56.5.0"
     vite: "npm:8.1.5"
     vitest: "npm:4.1.10"
   languageName: unknown
@@ -15899,9 +15899,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:56.4.1":
-  version: 56.4.1
-  resolution: "vercel@npm:56.4.1"
+"vercel@npm:56.5.0":
+  version: 56.5.0
+  resolution: "vercel@npm:56.5.0"
   dependencies:
     "@vercel/backends": "npm:0.8.25"
     "@vercel/blob": "npm:2.4.0"
@@ -15923,7 +15923,7 @@ __metadata:
     "@vercel/next": "npm:4.20.4"
     "@vercel/node": "npm:5.8.26"
     "@vercel/prepare-flags-definitions": "npm:0.3.0"
-    "@vercel/python": "npm:6.51.0"
+    "@vercel/python": "npm:6.51.1"
     "@vercel/redwood": "npm:2.5.0"
     "@vercel/remix-builder": "npm:5.9.1"
     "@vercel/ruby": "npm:2.5.1"
@@ -15952,7 +15952,7 @@ __metadata:
     "@vercel/nestjs": 0.2.106
     "@vercel/next": 4.20.4
     "@vercel/node": 5.8.26
-    "@vercel/python": 6.51.0
+    "@vercel/python": 6.51.1
     "@vercel/redwood": 2.5.0
     "@vercel/remix-builder": 5.9.1
     "@vercel/ruby": 2.5.1
@@ -16000,7 +16000,7 @@ __metadata:
   bin:
     vc: dist/vc.js
     vercel: dist/vc.js
-  checksum: 10c0/30d942e94291a86c394c9fbfc68008d0a3ce539d06117279fc5ebef247c4f3fc920db89c9766f17b6f59be94df4fe6d5221cbed06878bc7bd5d955212085a2e0
+  checksum: 10c0/82b245b9419217494f9d2b3c82c306133e7f7d7819f9bf7b1993da3e975217c9214afd6d91bfb34717812c3916044e7870de0c8e7a9e09f33beb9b36b5198c22
   languageName: node
   linkType: hard
 
