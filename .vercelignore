@@ -12,10 +12,12 @@ stuff
 chromatic.config.json
 cleanVercelDeployments.sh
 graphql.config.js
-schema.graphql
 
-.prettierrc.js
-.prettierignore
+#used at build time
+#schema.graphql
+#.prettierrc.js
+#.prettierignore
+
 .idea
 .nvmrc
 .editorconfig
