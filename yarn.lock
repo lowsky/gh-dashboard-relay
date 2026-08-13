@@ -8722,7 +8722,7 @@ __metadata:
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-prettier: "npm:5.5.6"
     eslint-plugin-react-hooks: "npm:7.1.1"
-    eslint-plugin-relay: "npm:2.0.0"
+    eslint-plugin-relay: "npm:2.1.0"
     eslint-plugin-sonarjs: "npm:4.2.0"
     eslint-plugin-storybook: "npm:10.5.7"
     globals: "npm:17.9.0"
@@ -9796,12 +9796,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-relay@npm:2.0.0":
-  version: 2.0.0
-  resolution: "eslint-plugin-relay@npm:2.0.0"
+"eslint-plugin-relay@npm:2.1.0":
+  version: 2.1.0
+  resolution: "eslint-plugin-relay@npm:2.1.0"
   dependencies:
-    graphql: "npm:^14.0.0 || ^15.0.0 || ^16.0.0"
-  checksum: 10c0/7a2d90044cbf8250570998ea0e15f26fe48112c4ccf8476b92522cf768179dbfef4e0be276c79613c86ac43c633b847b19f88c7289c775cb06eb81af829926b8
+    graphql: "npm:^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
+  checksum: 10c0/6be18d17543c7d1440db71feb2aba09f9bcb2e19620b7e53ff5c5c6c43d07cbe57014168a682eb0b58f81c08173f09b1e6ff7c5183a897db456f7f411fc90311
   languageName: node
   linkType: hard
 
@@ -10754,7 +10754,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^14.0.0 || ^15.0.0 || ^16.0.0, graphql@npm:^15.5.0 || ^16.0.0 || ^17.0.0, graphql@npm:^16.0.0":
+"graphql@npm:^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0":
+  version: 17.0.2
+  resolution: "graphql@npm:17.0.2"
+  checksum: 10c0/766546216b891439ed09fd8584963df2013e26f2f79f096036eaaa2788c38964e049c8a142d68e3afdabdd8bbe70042639e83f0f4b82edbc7c6850421f072bb6
+  languageName: node
+  linkType: hard
+
+"graphql@npm:^15.5.0 || ^16.0.0 || ^17.0.0, graphql@npm:^16.0.0":
   version: 16.11.0
   resolution: "graphql@npm:16.11.0"
   checksum: 10c0/124da7860a2292e9acf2fed0c71fc0f6a9b9ca865d390d112bdd563c1f474357141501c12891f4164fe984315764736ad67f705219c62f7580681d431a85db88
