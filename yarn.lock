@@ -37,9 +37,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:4.2.10":
-  version: 4.2.10
-  resolution: "@apollo/client@npm:4.2.10"
+"@apollo/client@npm:4.2.11":
+  version: 4.2.11
+  resolution: "@apollo/client@npm:4.2.11"
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.1.1"
     "@wry/caches": "npm:^1.0.0"
@@ -64,7 +64,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 10c0/4fbf68402c40382def54e782a00f5a2c056c33096e46751434d65144b61182ca0c42789a77bde885dd5f4a11e4a718b7987edd786d887e69e72af5eb48979ee5
+  checksum: 10c0/de20400eb6025cba6002dbf4a8644abbbf7ff029a124e6c4f3ac3c650041cdeb6a85ef023938ba99f71df0da929dcdf880632b398af9a2c5d01b34e64b098e39
   languageName: node
   linkType: hard
 
@@ -8686,7 +8686,7 @@ __metadata:
   resolution: "dashboard@workspace:."
   dependencies:
     "@0no-co/graphqlsp": "npm:1.17.3"
-    "@apollo/client": "npm:4.2.10"
+    "@apollo/client": "npm:4.2.11"
     "@chakra-ui/react": "npm:3.36.1"
     "@chromatic-com/storybook": "npm:5.3.0"
     "@emotion/react": "npm:11.14.0"
