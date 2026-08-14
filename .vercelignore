@@ -28,7 +28,9 @@ renovate.json
 vitest.config.ts
 vitest.shims.d.ts
 
-codegen.ts
+# required on main build
+#codegen.ts
+
 mdx-components.tsx
 assets
 
