@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
     // until yarn next lint does not know how to use eslint9
     reactStrictMode: true,
 
+    // https://nextjs.org/docs/app/api-reference/config/next-config-js/typedRoutes
+    typedRoutes: true,
+
     //future: typedRoutes: true,
 
     typescript: {

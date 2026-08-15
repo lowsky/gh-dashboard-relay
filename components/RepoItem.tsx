@@ -1,6 +1,7 @@
 import { Badge, Icon, Link, ListItem, Text } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
+import { Route } from 'next';
 
 import InternalLink from 'components/InternalLink';
 
@@ -25,7 +26,7 @@ export function RepoItem({ repo, hideIfFork }: RepoItemProps) {
 
     return (
         <ListItem alignItems="center" gap="1">
-            <InternalLink prefetch={false} href={'./' + nameWithOwner}>
+            <InternalLink prefetch={false} href={('./' + nameWithOwner) as Route}>
                 {name}
             </InternalLink>
 

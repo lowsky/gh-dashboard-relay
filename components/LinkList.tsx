@@ -1,6 +1,7 @@
 'use client';
 
 import { Heading, List } from '@chakra-ui/react';
+import { Route } from 'next';
 
 import InternalLink from './InternalLink';
 
@@ -22,7 +23,7 @@ export function LinkList({ rootPath }: { rootPath: string }) {
             <List.Root>
                 {links.map((link) => (
                     <List.Item key={link}>
-                        <InternalLink href={rootPath + '/' + link}>{link}</InternalLink>
+                        <InternalLink href={(rootPath + '/' + link) as Route}>{link}</InternalLink>
                     </List.Item>
                 ))}
             </List.Root>

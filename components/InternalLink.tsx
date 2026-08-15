@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 import type { LinkProps } from '@chakra-ui/react';
 import { Link } from '@chakra-ui/react';
 
-export default function InternalLink({
+export default function InternalLink<RouteInferType>({
     prefetch = false,
     href,
     variant,
@@ -14,7 +14,7 @@ export default function InternalLink({
     content,
     translate,
     ...props
-}: Omit<LinkProps, 'href'> & NextLinkProps): ReactElement<HTMLAnchorElement> {
+}: Omit<LinkProps, 'href'> & NextLinkProps<RouteInferType>): ReactElement<HTMLAnchorElement> {
     return (
         <Link variant={variant} asChild color={color} translate={translate} content={content}>
             {<NextLink href={href} prefetch={prefetch} {...props} />}
