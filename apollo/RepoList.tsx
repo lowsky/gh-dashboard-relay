@@ -4,8 +4,7 @@ import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 import { Heading } from '@chakra-ui/react';
 
-import { Ul } from 'components/ChakraMdxProvider';
-import { Spinner } from 'components/Spinner';
+import { PaginatedList } from 'apollo/PaginatedList';
 import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 import { Checkbox } from 'components/ui/checkbox';
 
@@ -98,9 +97,9 @@ export default function RepoList({ login }: RepoListProps) {
                 )}
             </Checkbox>
 
-            {edges && (
-                <Ul variant="plain">
-                    {edges.map((edge, idx) => {
+            <PaginatedList edges={edges} loading={loading} pageInfo={pageInfo} showAll={showAll} loadMore={loadMore}>
+                {({ edges }) =>
+                    edges.map((edge, idx) => {
                         const isLastElement = edges.length - 1 === idx;
                         const node = edge?.node;
                         const onLoadMore = () => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor);
@@ -123,11 +122,9 @@ export default function RepoList({ login }: RepoListProps) {
                                 <RepoItem repo={node} hideIfFork={!showAll} />
                             </InfiniteScrollTrigger>
                         );
-                    })}
-                </Ul>
-            )}
-
-            {loading && <Spinner size="sm" />}
+                    })
+                }
+            </PaginatedList>
         </>
     );
 }
