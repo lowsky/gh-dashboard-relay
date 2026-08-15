@@ -4,6 +4,10 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import a11yAddon from '@storybook/addon-a11y';
 import docsAddon from '@storybook/addon-docs';
 import relayAddon from 'relay/storybook/addon';
+
+// this is empty, not working with CSF 3:
+// import * as storybookAddonApolloClient from 'storybook-addon-apollo-client/preview';
+// fix: implement the preview addon in this repo:
 import apolloClientAddon from './apolloClientAddon';
 
 import { chakraDecorator } from './chakraDecorator';
@@ -28,8 +32,6 @@ const preview = definePreview({
             codePanel: true,
             theme: themes.dark,
         },
-
-        actions: { argTypesRegex: '^on.*' },
 
         nextjs: {
             appDirectory: true,

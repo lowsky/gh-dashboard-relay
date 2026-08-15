@@ -38,6 +38,7 @@ const config: StorybookConfig = defineMain({
         '@storybook/addon-a11y',
         '@storybook/addon-vitest',
         'storybook-addon-apollo-client',
+        '@storybook/addon-mcp'
     ],
     core: {
         disableTelemetry: true,
