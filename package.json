@@ -130,7 +130,7 @@
     "type-fest": "5.8.0",
     "typescript": "7.0.2",
     "typescript-eslint": "8.67.0",
-    "vercel": "58.9.1",
+    "vercel": "58.11.0",
     "vite": "8.2.1",
     "vitest": "4.1.10"
   },
