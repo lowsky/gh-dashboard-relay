@@ -8957,7 +8957,7 @@ __metadata:
     globals: "npm:17.11.0"
     graphql: "npm:16.14.2"
     inter-ui: "npm:4.1.1"
-    mcporter: "npm:0.13.4"
+    mcporter: "npm:0.13.5"
     meros: "npm:1.3.2"
     next: "npm:16.3.0"
     next-themes: "npm:0.4.6"
@@ -12524,9 +12524,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mcporter@npm:0.13.4":
-  version: 0.13.4
-  resolution: "mcporter@npm:0.13.4"
+"mcporter@npm:0.13.5":
+  version: 0.13.5
+  resolution: "mcporter@npm:0.13.5"
   dependencies:
     "@iarna/toml": "npm:^2.2.5"
     "@modelcontextprotocol/client": "npm:^2.0.0"
@@ -12540,7 +12540,7 @@ __metadata:
     zod: "npm:^4.4.3"
   bin:
     mcporter: dist/cli.js
-  checksum: 10c0/d292638976678df6c970a38b72c2fc46820f1bd79fbaaac537c1dddb62572e2287eb9e168261c660ea722ccd889f1b27888d6eaf34d511b0ecd2d890c371afcb
+  checksum: 10c0/7414f54e2f1324ac2d21ced93b4b5567b2175f1026b30ed25e7fc455415752d6eb26f15e6cef57b85ed5376b57c45aef13e82a733682abc769da516f069081e9
   languageName: node
   linkType: hard
 
