@@ -115,7 +115,7 @@
     "eslint-plugin-sonarjs": "4.2.0",
     "eslint-plugin-storybook": "10.5.8",
     "globals": "17.11.0",
-    "mcporter": "0.13.5",
+    "mcporter": "0.13.6",
     "nextjs-toploader": "3.9.17",
     "playwright": "1.62.1",
     "prettier": "3.9.6",
