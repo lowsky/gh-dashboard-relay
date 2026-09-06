@@ -17,16 +17,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@0no-co/graphqlsp@npm:1.17.4":
-  version: 1.17.4
-  resolution: "@0no-co/graphqlsp@npm:1.17.4"
+"@0no-co/graphqlsp@npm:1.17.5":
+  version: 1.17.5
+  resolution: "@0no-co/graphqlsp@npm:1.17.5"
   dependencies:
     "@gql.tada/internal": "npm:^1.2.1"
     graphql: "npm:^15.5.0 || ^16.0.0 || ^17.0.0"
   peerDependencies:
     graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
     typescript: ^5.0.0 || ^6.0.0
-  checksum: 10c0/a5a4351b05689d44457c046096c98892e7ece9fdbe158c1aad7b73e1e4874cae083ee78ca9aa2969e49dd7a0dea0dbc84de93ed27fc3dd682b1abcb3ed9bc91b
+  checksum: 10c0/6b40d666ce9b237d0aebb13d17770c009e4416e8955c6636acaef49174b1bde5d612c7a6d7656a3053518cbbfbb85f9d039df78b595233c365878d2091987ed2
   languageName: node
   linkType: hard
 
@@ -8965,7 +8965,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dashboard@workspace:."
   dependencies:
-    "@0no-co/graphqlsp": "npm:1.17.4"
+    "@0no-co/graphqlsp": "npm:1.17.5"
     "@apollo/client": "npm:4.2.12"
     "@chakra-ui/react": "npm:3.36.1"
     "@chromatic-com/storybook": "npm:5.3.0"
