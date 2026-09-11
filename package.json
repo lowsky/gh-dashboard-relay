@@ -106,7 +106,7 @@
     "@vitest/coverage-v8": "4.1.11",
     "chromatic": "18.2.0",
     "commander": "15.0.0",
-    "eslint": "10.8.1",
+    "eslint": "10.10.0",
     "eslint-config-next": "16.3.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.6",
