@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { useMutation } from '@apollo/client/react';
 
-import { UseMergePrMutationMutation } from 'app/apollo/__gen__/graphql';
+import type { UseMergePrMutationMutation } from 'app/apollo/__gen__/graphql';
 
 const MergePRMutation = gql`
     mutation useMergePRMutation($input: MergePullRequestInput!) {

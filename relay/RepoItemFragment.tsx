@@ -1,5 +1,6 @@
+/* eslint-disable relay/unused-fields */
 import { graphql, useFragment } from 'react-relay';
-import { RepoItemFragment_repo$key } from 'relay/__generated__/RepoItemFragment_repo.graphql';
+import type { RepoItemFragment_repo$key } from 'relay/__generated__/RepoItemFragment_repo.graphql';
 
 import { RepoItem } from 'components/RepoItem';
 

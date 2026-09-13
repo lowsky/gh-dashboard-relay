@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
-import { FragmentType, gql } from '@apollo/client';
+import type { FragmentType } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import { useFragment } from '@apollo/client/react';
 import { Link, Table, VStack } from '@chakra-ui/react';
 
-import {
+import type {
     BranchInfoRowFragment_RefFragment,
     CommitWithStatuses_CommitFragment,
     PullRequestMergeFragment_RefFragment,

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d0fbabc0488d0e56cba0eb165e0e7085>>
+ * @generated SignedSource<<a18dba7c41c771cf79fa459a8c7d019e>>
  * @lightSyntaxTransform
  */
 
@@ -317,6 +317,15 @@ const node: ConcreteRequest = (function () {
                                                     name: 'author',
                                                     plural: false,
                                                     selections: [
+                                                        v2 /*:: as any*/,
+                                                        v4 /*:: as any*/,
+                                                        {
+                                                            alias: null,
+                                                            args: null,
+                                                            kind: 'ScalarField',
+                                                            name: 'email',
+                                                            storageKey: null,
+                                                        },
                                                         {
                                                             alias: null,
                                                             args: null,
@@ -325,10 +334,10 @@ const node: ConcreteRequest = (function () {
                                                             name: 'user',
                                                             plural: false,
                                                             selections: [
+                                                                v3 /*:: as any*/,
                                                                 v5 /*:: as any*/,
                                                                 v2 /*:: as any*/,
                                                                 v4 /*:: as any*/,
-                                                                v3 /*:: as any*/,
                                                             ],
                                                             storageKey: null,
                                                         },
@@ -462,7 +471,7 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '18cd0d0d5421c895b408d2af9319fddc',
+            cacheID: 'cc486b904dfc57718c00179f81f00182',
             id: null,
             metadata: {
                 relayTestingSelectionTypeInfo: {
@@ -540,6 +549,9 @@ const node: ConcreteRequest = (function () {
                         plural: false,
                         type: 'GitActor',
                     },
+                    'node.target.author.avatarUrl': v11 /*:: as any*/,
+                    'node.target.author.email': v12 /*:: as any*/,
+                    'node.target.author.name': v12 /*:: as any*/,
                     'node.target.author.user': {
                         enumValues: null,
                         nullable: true,
@@ -601,7 +613,7 @@ const node: ConcreteRequest = (function () {
             },
             name: 'BranchInfoRowStoryQuery',
             operationKind: 'query',
-            text: 'query BranchInfoRowStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ... on Ref {\n      ...BranchInfoRowFragment_ref\n    }\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n',
+            text: 'query BranchInfoRowStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ... on Ref {\n      ...BranchInfoRowFragment_ref\n    }\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    name\n    avatarUrl\n    email\n    user {\n      id\n      login\n      name\n      avatarUrl\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n',
         },
     };
 })();
