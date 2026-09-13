@@ -29,7 +29,6 @@ export const CommitWithStatuses_commit = gql`
             contexts {
                 avatarUrl
                 context
-                #creator { login }
                 state
                 description
                 targetUrl
@@ -38,8 +37,14 @@ export const CommitWithStatuses_commit = gql`
         }
         commitUrl
         message
-        # would break overall loading the whole page. shrug
-        # author { user { login name avatarUrl } }
+        author {
+            user {
+                id # necessary, breaks apollo internals if missing
+                login
+                name
+                avatarUrl
+            }
+        }
     }
 `;
 

@@ -10,18 +10,14 @@ export default meta;
 
 export const WithoutAvatar = meta.story({
     args: {
-        user: {
-            login: 'login',
-            company: 'company',
-        },
+        login: 'login',
+        company: 'company',
     },
 });
 
 export const WithAvatar = meta.story({
     args: {
-        user: {
-            ...WithoutAvatar.composed.args.user,
-            avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
-        },
+        ...WithoutAvatar.composed.args,
+        avatarUrl: 'https://avatars2.githubusercontent.com/u/217931?v=3',
     },
 });

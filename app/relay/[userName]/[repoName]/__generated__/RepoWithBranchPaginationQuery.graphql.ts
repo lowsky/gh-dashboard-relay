@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7dcaa13523b8addafa17bcbe296c6873>>
+ * @generated SignedSource<<e154f8c79a956b508e24a884d9de11be>>
  * @lightSyntaxTransform
  */
 
@@ -331,10 +331,10 @@ const node: ConcreteRequest = (function () {
                                                                                     name: 'user',
                                                                                     plural: false,
                                                                                     selections: [
+                                                                                        v3 /*:: as any*/,
                                                                                         v7 /*:: as any*/,
                                                                                         v5 /*:: as any*/,
                                                                                         v6 /*:: as any*/,
-                                                                                        v3 /*:: as any*/,
                                                                                     ],
                                                                                     storageKey: null,
                                                                                 },
@@ -520,12 +520,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: 'b6296f9be78eab23c1b5d7dcb7623e2b',
+            cacheID: 'ab1437788befd90a08fe2fe7e9c562d3',
             id: null,
             metadata: {},
             name: 'RepoWithBranchPaginationQuery',
             operationKind: 'query',
-            text: 'query RepoWithBranchPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoWithBranchListFragment_repo_1G22uz\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo_1G22uz on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: $count, after: $cursor) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+            text: 'query RepoWithBranchPaginationQuery(\n  $count: Int = 10\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoWithBranchListFragment_repo_1G22uz\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      id\n      login\n      name\n      avatarUrl\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo_1G22uz on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: $count, after: $cursor) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
         },
     };
 })();

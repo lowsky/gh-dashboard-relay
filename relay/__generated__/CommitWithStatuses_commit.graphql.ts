@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1acd1f1bb290b3a39ec59ef1a6f8d8d5>>
+ * @generated SignedSource<<13bf476ad04120fd3caaa74d9e630fac>>
  * @lightSyntaxTransform
  */
 
@@ -13,9 +13,6 @@ import { FragmentRefs } from 'relay-runtime';
 export type CommitWithStatuses_commit$data = {
     readonly author:
         | {
-              readonly avatarUrl: string;
-              readonly email: string | null | undefined;
-              readonly name: string | null | undefined;
               readonly user:
                   | {
                         readonly avatarUrl: string;
@@ -91,13 +88,6 @@ const node: ReaderFragment = (function () {
             args: null,
             kind: 'ScalarField',
             name: 'state',
-            storageKey: null,
-        },
-        v4 = {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'name',
             storageKey: null,
         };
     return {
@@ -210,15 +200,6 @@ const node: ReaderFragment = (function () {
                 name: 'author',
                 plural: false,
                 selections: [
-                    v4 /*:: as any*/,
-                    v1 /*:: as any*/,
-                    {
-                        alias: null,
-                        args: null,
-                        kind: 'ScalarField',
-                        name: 'email',
-                        storageKey: null,
-                    },
                     {
                         alias: null,
                         args: null,
@@ -226,7 +207,18 @@ const node: ReaderFragment = (function () {
                         kind: 'LinkedField',
                         name: 'user',
                         plural: false,
-                        selections: [v0 /*:: as any*/, v2 /*:: as any*/, v4 /*:: as any*/, v1 /*:: as any*/],
+                        selections: [
+                            v0 /*:: as any*/,
+                            v2 /*:: as any*/,
+                            {
+                                alias: null,
+                                args: null,
+                                kind: 'ScalarField',
+                                name: 'name',
+                                storageKey: null,
+                            },
+                            v1 /*:: as any*/,
+                        ],
                         storageKey: null,
                     },
                 ],
@@ -238,6 +230,6 @@ const node: ReaderFragment = (function () {
     };
 })();
 
-(node as any).hash = '5fc4bada1260c066f5a3130fe5c95a98';
+(node as any).hash = '8f5cff2b2e3ba53f6a29a2d039b99894';
 
 export default node;
