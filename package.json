@@ -134,8 +134,16 @@
     "vite": "8.2.2",
     "vitest": "4.1.11"
   },
+  "dependenciesMeta": {
+    "esbuild": {
+      "built": true
+    },
+    "unrs-resolver": {
+      "built": true
+    }
+  },
   "resolutions": {
-    "tar": "7.5.22"
+    "tar": ">=7.5.22"
   },
   "packageManager": "yarn@4.18.0"
 }

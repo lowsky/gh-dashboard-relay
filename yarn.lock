@@ -9062,6 +9062,11 @@ __metadata:
     vercel: "npm:58.11.0"
     vite: "npm:8.2.2"
     vitest: "npm:4.1.11"
+  dependenciesMeta:
+    esbuild:
+      built: true
+    unrs-resolver:
+      built: true
   languageName: unknown
   linkType: soft
 
@@ -15627,7 +15632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar@npm:7.5.22":
+"tar@npm:>=7.5.22":
   version: 7.5.22
   resolution: "tar@npm:7.5.22"
   dependencies:
