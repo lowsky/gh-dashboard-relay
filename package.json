@@ -101,7 +101,7 @@
     "@storybook/addon-vitest": "10.6.0",
     "@storybook/nextjs-vite": "10.6.0",
     "@types/react": "19.2.18",
-    "@typescript-eslint/eslint-plugin": "8.67.0",
+    "@typescript-eslint/eslint-plugin": "8.70.0",
     "@vitest/browser-playwright": "4.1.11",
     "@vitest/coverage-v8": "4.1.11",
     "chromatic": "18.7.2",
@@ -129,7 +129,7 @@
     "storybook-addon-apollo-client": "10.0.0",
     "type-fest": "5.9.0",
     "typescript": "7.0.2",
-    "typescript-eslint": "8.67.0",
+    "typescript-eslint": "8.70.0",
     "vercel": "59.15.1",
     "vite": "8.2.2",
     "vitest": "4.1.11"
