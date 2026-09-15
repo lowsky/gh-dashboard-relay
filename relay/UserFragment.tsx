@@ -5,11 +5,8 @@ import User from '../components/User';
 
 const userFragment = graphql`
     fragment UserFragment_user on User {
-        # eslint-disable-next-line relay/unused-fields
         login
-        # eslint-disable-next-line relay/unused-fields
         company
-        # eslint-disable-next-line relay/unused-fields
         avatarUrl
     }
 `;
@@ -20,5 +17,7 @@ interface Props {
 
 export default function UserFragment({ user }: Props) {
     const data: UserFragment_user$data = useFragment<UserFragment_user$key>(userFragment, user);
-    return <User user={data} />;
+    const { avatarUrl, company, login } = data;
+
+    return <User avatarUrl={avatarUrl} company={company} login={login} />;
 }

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<391036db6dc928a15a5831e0f0a3a925>>
+ * @generated SignedSource<<f6f7ca09449461f273b4f995148b18f3>>
  * @lightSyntaxTransform
  */
 
@@ -310,10 +310,10 @@ const node: ConcreteRequest = (function () {
                                                                                     name: 'user',
                                                                                     plural: false,
                                                                                     selections: [
+                                                                                        v2 /*:: as any*/,
                                                                                         v6 /*:: as any*/,
                                                                                         v4 /*:: as any*/,
                                                                                         v5 /*:: as any*/,
-                                                                                        v2 /*:: as any*/,
                                                                                     ],
                                                                                     storageKey: null,
                                                                                 },
@@ -499,12 +499,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '17f6d2e98e3ad8bda9b0b6579fb16efa',
+            cacheID: '232eaca2eb1a011ac6415bd2dc62a194',
             id: null,
             metadata: {},
             name: 'BranchesTableStoryQuery',
             operationKind: 'query',
-            text: 'query BranchesTableStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
+            text: 'query BranchesTableStoryQuery {\n  node(id: "test-id") {\n    __typename\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      id\n      login\n      name\n      avatarUrl\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n',
         },
     };
 })();

@@ -3,19 +3,13 @@ import { Heading, Box, Strong, Text, HStack } from '@chakra-ui/react';
 
 import { Avatar } from 'components/ui/avatar';
 
-interface UserType {
+interface UserProps {
     avatarUrl?: string;
     company?: string | null;
-    login?: string;
+    login: string;
 }
 
-interface UserProps {
-    user: Readonly<UserType>;
-}
-
-const User: React.FC<UserProps> = ({ user }) => {
-    const { avatarUrl, login, company } = user;
-
+const User: React.FC<UserProps> = ({ avatarUrl, login, company }) => {
     return (
         <HStack align="center" gap={4}>
             <Heading as="h3">Owner</Heading>

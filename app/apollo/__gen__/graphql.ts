@@ -101,6 +101,10 @@ export type CommitWithStatuses_CommitFragment = {
             targetUrl: string | null;
         }>;
     } | null;
+    author: {
+        __typename: 'GitActor';
+        user: { __typename: 'User'; id: string; login: string; name: string | null; avatarUrl: string } | null;
+    } | null;
 } & { ' $fragmentName'?: 'CommitWithStatuses_CommitFragment' };
 
 export type BranchInfoRowFragment_RefFragment = {
@@ -380,6 +384,28 @@ export const CommitWithStatuses_CommitFragmentDoc = {
                     },
                     { kind: 'Field', name: { kind: 'Name', value: 'commitUrl' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'message' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'author' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'user' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
                 ],
             },
         },
@@ -539,6 +565,28 @@ export const BranchInfoRowFragment_RefFragmentDoc = {
                     },
                     { kind: 'Field', name: { kind: 'Name', value: 'commitUrl' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'message' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'author' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'user' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
                 ],
             },
         },
@@ -1312,6 +1360,28 @@ export const GetRepoBranchesDocument = {
                     },
                     { kind: 'Field', name: { kind: 'Name', value: 'commitUrl' } },
                     { kind: 'Field', name: { kind: 'Name', value: 'message' } },
+                    {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'author' },
+                        selectionSet: {
+                            kind: 'SelectionSet',
+                            selections: [
+                                {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'user' },
+                                    selectionSet: {
+                                        kind: 'SelectionSet',
+                                        selections: [
+                                            { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'login' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                                            { kind: 'Field', name: { kind: 'Name', value: 'avatarUrl' } },
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    },
                 ],
             },
         },

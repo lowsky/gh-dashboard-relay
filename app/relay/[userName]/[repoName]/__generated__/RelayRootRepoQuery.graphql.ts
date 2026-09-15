@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4c73ceb58f9081a43af4e95f8cc80359>>
+ * @generated SignedSource<<3fd78f830e3575e1387344be25bab791>>
  * @lightSyntaxTransform
  */
 
@@ -356,10 +356,10 @@ const node: ConcreteRequest = (function () {
                                                                             name: 'user',
                                                                             plural: false,
                                                                             selections: [
+                                                                                v6 /*:: as any*/,
                                                                                 v4 /*:: as any*/,
                                                                                 v8 /*:: as any*/,
                                                                                 v5 /*:: as any*/,
-                                                                                v6 /*:: as any*/,
                                                                             ],
                                                                             storageKey: null,
                                                                         },
@@ -541,12 +541,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '571707a392218974a332cf340cbae447',
+            cacheID: 'e9b92e78ed3bda20e71174ad5f6ba610',
             id: null,
             metadata: {},
             name: 'RelayRootRepoQuery',
             operationKind: 'query',
-            text: 'query RelayRootRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  user(login: $userName) {\n    ...UserFragment_user\n    id\n  }\n  repository(name: $repoName, owner: $userName) {\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      login\n      name\n      avatarUrl\n      id\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n',
+            text: 'query RelayRootRepoQuery(\n  $userName: String!\n  $repoName: String!\n) {\n  user(login: $userName) {\n    ...UserFragment_user\n    id\n  }\n  repository(name: $repoName, owner: $userName) {\n    ...RepoWithBranchListFragment_repo\n    id\n  }\n}\n\nfragment BranchInfoRowFragment_ref on Ref {\n  name\n  target {\n    __typename\n    ...CommitWithStatuses_commit\n    id\n  }\n  associatedPullRequests(first: 1, states: [OPEN]) {\n    edges {\n      node {\n        id\n        ...PullRequestMergeFragment_ref\n      }\n    }\n  }\n}\n\nfragment CommitWithStatuses_commit on Commit {\n  authoredDate\n  status {\n    id\n    commit {\n      oid\n      id\n    }\n    contexts {\n      avatarUrl\n      context\n      creator {\n        __typename\n        login\n        ... on Node {\n          __isNode: __typename\n          id\n        }\n      }\n      state\n      description\n      targetUrl\n      id\n    }\n    state\n  }\n  commitUrl\n  message\n  author {\n    user {\n      id\n      login\n      name\n      avatarUrl\n    }\n  }\n}\n\nfragment PullRequestMergeFragment_ref on PullRequest {\n  id\n  headRefOid\n  number\n  url\n  title\n  mergeStateStatus\n  closed\n  isDraft\n  merged\n  mergeable\n}\n\nfragment RepoWithBranchListFragment_repo on Repository {\n  branches: refs(refPrefix: "refs/heads/", first: 10) {\n    edges {\n      node {\n        ...BranchInfoRowFragment_ref\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n',
         },
     };
 })();

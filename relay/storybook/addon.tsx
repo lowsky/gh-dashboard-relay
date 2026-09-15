@@ -1,4 +1,5 @@
 import { definePreviewAddon } from 'storybook/internal/csf';
+import type { GraphQLTaggedNode } from 'react-relay';
 
 import { relayDecorator } from 'relay/storybook/relayDecorator';
 
@@ -7,17 +8,18 @@ import { relayDecorator } from 'relay/storybook/relayDecorator';
  * the required parameters will be defined in typescript
  * for use in editors and syntax completion.
  */
-
 interface RelayParameters {
-    // TODO - could be added later...
+    query?: GraphQLTaggedNode;
+    ///
+    /// there are more, add them later when needed ...
 }
 interface RelayTypes {
     parameters: RelayParameters;
 }
 
-const apolloAddonAnnotations = {
+const relayAddonAnnotations = {
     decorators: relayDecorator,
     initialGlobals: {},
 };
 
-export default () => definePreviewAddon<RelayTypes>(apolloAddonAnnotations);
+export default () => definePreviewAddon<RelayTypes>(relayAddonAnnotations);

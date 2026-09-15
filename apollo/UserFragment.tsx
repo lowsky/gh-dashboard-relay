@@ -37,5 +37,10 @@ export default function UserFragment(props: Props) {
 
     if (!complete) return 'incomplete, loading...';
 
-    return <User user={data} />;
+    if (data.__typename === 'Organization') {
+        const { avatarUrl, login } = data;
+        return <User avatarUrl={avatarUrl} login={login} />;
+    }
+    const { avatarUrl, company, login } = data;
+    return <User avatarUrl={avatarUrl} company={company} login={login} />;
 }

@@ -6,7 +6,7 @@ import preview from '../.storybook/preview';
 import { RepoWithBranchList } from '../app/relay/[userName]/[repoName]/RepoWithBranchListFragment';
 import type { BranchesTableStoryQuery } from './__generated__/BranchesTableStoryQuery.graphql';
 import { WithInfo } from './BranchInfoRow.story';
-import { RepoWithBranchListFragment_repo$key } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
+import type { RepoWithBranchListFragment_repo$key } from '../app/relay/[userName]/[repoName]/__generated__/RepoWithBranchListFragment_repo.graphql';
 
 const meta = preview.meta({
     component: RepoWithBranchList,

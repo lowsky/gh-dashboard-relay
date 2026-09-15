@@ -25,30 +25,13 @@ const meta = preview.meta({
 
 export default meta;
 
-export const WithoutAvatar = meta.story({
+export const WithAvatar = meta.story({
     args: {
         user: {
             ' $fragmentSpreads': {
                 UserFragment_user: true,
             },
         },
-    },
-    parameters: {
-        //getReferenceEntry: (q) => ['user', q.node],
-        mockResolvers: {
-            User: (): UserFragment_user$data => ({
-                login: 'login',
-                company: 'company',
-                avatarUrl: undefined,
-                ' $fragmentType': 'UserFragment_user',
-            }),
-        },
-    },
-});
-
-export const WithAvatar = meta.story({
-    args: {
-        ...WithoutAvatar.composed.args,
     },
     parameters: {
         mockResolvers: {
