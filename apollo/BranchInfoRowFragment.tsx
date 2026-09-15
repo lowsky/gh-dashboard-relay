@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
-import { FragmentType, gql } from '@apollo/client';
+import type { FragmentType } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 import { useFragment } from '@apollo/client/react';
 import { Link, Table, VStack } from '@chakra-ui/react';
 
-import {
+import type {
     BranchInfoRowFragment_RefFragment,
     CommitWithStatuses_CommitFragment,
     PullRequestMergeFragment_RefFragment,
@@ -28,7 +29,6 @@ export const CommitWithStatuses_commit = gql`
             contexts {
                 avatarUrl
                 context
-                #creator { login }
                 state
                 description
                 targetUrl
@@ -37,8 +37,14 @@ export const CommitWithStatuses_commit = gql`
         }
         commitUrl
         message
-        # would break overall loading the whole page. shrug
-        # author { user { login name avatarUrl } }
+        author {
+            user {
+                id # necessary, breaks apollo internals if missing
+                login
+                name
+                avatarUrl
+            }
+        }
     }
 `;
 

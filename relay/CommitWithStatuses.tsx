@@ -1,3 +1,4 @@
+/* eslint-disable relay/unused-fields */
 import { graphql, useFragment } from 'react-relay';
 
 import CommitWithStatus from 'components/CommitWithStatuses/CommitWithStatuses';
@@ -7,40 +8,50 @@ import type {
 } from './__generated__/CommitWithStatuses_commit.graphql';
 
 export default function CommitFragment({ commit }: { commit: CommitWithStatuses_commit$key }) {
-    const data: CommitWithStatuses_commit$data = useFragment<CommitWithStatuses_commit$key>(
-        graphql`
-            fragment CommitWithStatuses_commit on Commit {
-                authoredDate
-                status {
-                    id
-                    commit {
-                        oid
-                    }
-                    contexts {
-                        avatarUrl
-                        context
-                        creator {
-                            login
+    const { author, authoredDate, commitUrl, message, status }: CommitWithStatuses_commit$data =
+        useFragment<CommitWithStatuses_commit$key>(
+            graphql`
+                fragment CommitWithStatuses_commit on Commit {
+                    authoredDate
+                    status {
+                        id
+                        commit {
+                            oid
+                        }
+                        contexts {
+                            avatarUrl
+                            context
+                            creator {
+                                login
+                            }
+                            state
+                            description
+                            targetUrl
                         }
                         state
-                        description
-                        targetUrl
                     }
-                    state
-                }
-                commitUrl
-                message
-                author {
-                    user {
-                        login
-                        name
-                        avatarUrl
+                    commitUrl
+                    message
+                    author {
+                        user {
+                            id
+                            login
+                            name
+                            avatarUrl
+                        }
                     }
                 }
-            }
-        `,
-        commit
-    );
+            `,
+            commit
+        );
 
-    return <CommitWithStatus {...data} />;
+    return (
+        <CommitWithStatus
+            author={author}
+            authoredDate={authoredDate}
+            commitUrl={commitUrl}
+            message={message}
+            status={status}
+        />
+    );
 }

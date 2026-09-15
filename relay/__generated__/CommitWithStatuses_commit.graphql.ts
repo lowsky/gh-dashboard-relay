@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<aa46eee88acd51bf15617adee76422b0>>
+ * @generated SignedSource<<13bf476ad04120fd3caaa74d9e630fac>>
  * @lightSyntaxTransform
  */
 
@@ -16,6 +16,7 @@ export type CommitWithStatuses_commit$data = {
               readonly user:
                   | {
                         readonly avatarUrl: string;
+                        readonly id: string;
                         readonly login: string;
                         readonly name: string | null | undefined;
                     }
@@ -65,17 +66,24 @@ const node: ReaderFragment = (function () {
             alias: null,
             args: null,
             kind: 'ScalarField',
-            name: 'avatarUrl',
+            name: 'id',
             storageKey: null,
         },
         v1 = {
             alias: null,
             args: null,
             kind: 'ScalarField',
-            name: 'login',
+            name: 'avatarUrl',
             storageKey: null,
         },
         v2 = {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'login',
+            storageKey: null,
+        },
+        v3 = {
             alias: null,
             args: null,
             kind: 'ScalarField',
@@ -103,13 +111,7 @@ const node: ReaderFragment = (function () {
                 name: 'status',
                 plural: false,
                 selections: [
-                    {
-                        alias: null,
-                        args: null,
-                        kind: 'ScalarField',
-                        name: 'id',
-                        storageKey: null,
-                    },
+                    v0 /*:: as any*/,
                     {
                         alias: null,
                         args: null,
@@ -136,7 +138,7 @@ const node: ReaderFragment = (function () {
                         name: 'contexts',
                         plural: true,
                         selections: [
-                            v0 /*:: as any*/,
+                            v1 /*:: as any*/,
                             {
                                 alias: null,
                                 args: null,
@@ -151,10 +153,10 @@ const node: ReaderFragment = (function () {
                                 kind: 'LinkedField',
                                 name: 'creator',
                                 plural: false,
-                                selections: [v1 /*:: as any*/],
+                                selections: [v2 /*:: as any*/],
                                 storageKey: null,
                             },
-                            v2 /*:: as any*/,
+                            v3 /*:: as any*/,
                             {
                                 alias: null,
                                 args: null,
@@ -172,7 +174,7 @@ const node: ReaderFragment = (function () {
                         ],
                         storageKey: null,
                     },
-                    v2 /*:: as any*/,
+                    v3 /*:: as any*/,
                 ],
                 storageKey: null,
             },
@@ -206,7 +208,8 @@ const node: ReaderFragment = (function () {
                         name: 'user',
                         plural: false,
                         selections: [
-                            v1 /*:: as any*/,
+                            v0 /*:: as any*/,
+                            v2 /*:: as any*/,
                             {
                                 alias: null,
                                 args: null,
@@ -214,7 +217,7 @@ const node: ReaderFragment = (function () {
                                 name: 'name',
                                 storageKey: null,
                             },
-                            v0 /*:: as any*/,
+                            v1 /*:: as any*/,
                         ],
                         storageKey: null,
                     },
@@ -227,6 +230,6 @@ const node: ReaderFragment = (function () {
     };
 })();
 
-(node as any).hash = '87150de4c1c7defd35908a82afe812a3';
+(node as any).hash = '8f5cff2b2e3ba53f6a29a2d039b99894';
 
 export default node;
