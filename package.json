@@ -17,7 +17,7 @@
     "github"
   ],
   "scripts": {
-  "dev": "next dev",
+    "dev": "next dev",
     "circle:setup": "yarn circle:vercel:update ; yarn circle:vercel:link",
     "circle:vercel:update": "vercel -d --non-interactive upgrade --disable-auto ; vercel -d telemetry disable --non-interactive",
     "circle:vercel:link": "VERCEL_NO_UPDATE_CHECK=1 vercel link -y -d --project gh-dashboard-relay -t $VERCEL_TOKEN --non-interactive",
