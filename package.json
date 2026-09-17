@@ -100,7 +100,7 @@
     "@storybook/addon-themes": "10.6.0",
     "@storybook/addon-vitest": "10.6.0",
     "@storybook/nextjs-vite": "10.6.0",
-    "@types/react": "19.2.18",
+    "@types/react": "19.3.0",
     "@typescript-eslint/eslint-plugin": "8.70.0",
     "@vitest/browser-playwright": "4.1.11",
     "@vitest/coverage-v8": "4.1.11",
