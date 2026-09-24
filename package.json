@@ -96,7 +96,7 @@
     "@parcel/watcher": "2.6.0",
     "@storybook/addon-a11y": "10.6.0",
     "@storybook/addon-docs": "10.6.0",
-    "@storybook/addon-mcp": "^0.7.0",
+    "@storybook/addon-mcp": "^10.0.0",
     "@storybook/addon-themes": "10.6.0",
     "@storybook/addon-vitest": "10.6.0",
     "@storybook/nextjs-vite": "10.6.0",
