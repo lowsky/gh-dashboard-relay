@@ -104,7 +104,7 @@
     "@typescript-eslint/eslint-plugin": "8.70.0",
     "@vitest/browser-playwright": "5.0.1",
     "@vitest/coverage-v8": "5.0.1",
-    "chromatic": "18.8.1",
+    "chromatic": "18.9.4",
     "commander": "15.0.0",
     "eslint": "10.10.0",
     "eslint-config-next": "16.3.5",
