@@ -4,7 +4,7 @@ import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 import { Heading } from '@chakra-ui/react';
 
-import { PaginatedList } from 'apollo/PaginatedList';
+import { PaginatedList } from 'components/PaginatedList';
 import { Checkbox } from 'components/ui/checkbox';
 
 import type { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
