@@ -5,7 +5,6 @@ import { useQuery } from '@apollo/client/react';
 import { Heading } from '@chakra-ui/react';
 
 import { PaginatedList } from 'apollo/PaginatedList';
-import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 import { Checkbox } from 'components/ui/checkbox';
 
 import type { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
@@ -74,7 +73,7 @@ export default function RepoList({ login }: RepoListProps) {
     const { repositories } = repositoryOwner;
     const { totalCount, edges, pageInfo } = repositories;
 
-    if (totalCount == 0 || edges?.length == 0) return <div>No repositories found</div>;
+    if (totalCount === 0 || edges?.length === 0) return <div>No repositories found</div>;
 
     const loadMore = async (cursor: string) => {
         if (!pageInfo.hasNextPage) return;
@@ -97,33 +96,10 @@ export default function RepoList({ login }: RepoListProps) {
                 )}
             </Checkbox>
 
-            <PaginatedList edges={edges} loading={loading} pageInfo={pageInfo} showAll={showAll} loadMore={loadMore}>
-                {({ edges }) =>
-                    edges.map((edge, idx) => {
-                        const isLastElement = edges.length - 1 === idx;
-                        const node = edge?.node;
-                        const onLoadMore = () => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor);
-
-                        if (!node) {
-                            return (
-                                <InfiniteScrollTrigger
-                                    key={edges.length - 1}
-                                    enabled={isLastElement && pageInfo.hasNextPage}
-                                    onLoadMore={onLoadMore}>
-                                    <div />
-                                </InfiniteScrollTrigger>
-                            );
-                        }
-                        return (
-                            <InfiniteScrollTrigger
-                                key={node.id}
-                                enabled={isLastElement && pageInfo.hasNextPage}
-                                onLoadMore={onLoadMore}>
-                                <RepoItem repo={node} hideIfFork={!showAll} />
-                            </InfiniteScrollTrigger>
-                        );
-                    })
-                }
+            <PaginatedList edges={edges} loading={loading} pageInfo={pageInfo} loadMore={loadMore}>
+                {({node} )=> (
+                    <RepoItem repo={node} hideIfFork={!showAll} />
+                )}
             </PaginatedList>
         </>
     );
