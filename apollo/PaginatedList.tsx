@@ -1,27 +1,30 @@
+import React from 'react';
 import { Spinner } from 'components/Spinner';
 import { Ul } from 'components/ChakraMdxProvider';
+import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
 
-interface PaginatedListProps<NodeType> {
-    children: (props: {
-        edges: Array<{
-            node: NodeType | null;
-        }>;
-    }) => React.ReactNode;
-    edges: Array<{
-        node: NodeType | null;
-    } | null> | null;
+interface PaginatedListProps<NodeType extends { id: string }> {
+    children: (props: { node: NodeType }) => React.ReactNode;
+    edges:
+        | ReadonlyArray<
+              | {
+                    node: NodeType | null | undefined;
+                }
+              | null
+              | undefined
+          >
+        | null
+        | undefined;
     loading: boolean;
-    pageInfo: { hasNextPage: boolean; endCursor: string | null };
-    showAll: boolean;
-    loadMore: (cursor: string) => Promise<void>;
+    pageInfo: { readonly hasNextPage: boolean; readonly endCursor: string | null | undefined };
+    loadMore: (cursor: string) => Promise<void> | void;
 }
 
-export function PaginatedList<NodeType>({
+export function PaginatedList<NodeType extends { id: string }>({
     children,
     edges,
     loading,
     pageInfo,
-    showAll,
     loadMore,
 }: PaginatedListProps<NodeType>) {
     if (!edges) {
@@ -31,5 +34,36 @@ export function PaginatedList<NodeType>({
         return null;
     }
     const filteredEdges = edges.filter((e) => e?.node) as Array<{ node: NodeType }>;
-    if (edges) return <Ul>{children({ edges: filteredEdges })}</Ul>;
+
+    return (
+        <Ul variant="plain">
+            {filteredEdges.map((edge, idx) => {
+                const isLastElement = edges.length - 1 === idx;
+                const node = edge?.node;
+
+                // Check if this is the last element and we can load more
+                const onLoadMore = () => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor);
+
+                if (!node) {
+                    return (
+                        <InfiniteScrollTrigger
+                            key={edges.length - 1}
+                            enabled={isLastElement && pageInfo.hasNextPage}
+                            onLoadMore={onLoadMore}>
+                            <div />
+                        </InfiniteScrollTrigger>
+                    );
+                }
+                return (
+                    <InfiniteScrollTrigger
+                        key={node.id}
+                        enabled={isLastElement && pageInfo.hasNextPage}
+                        onLoadMore={onLoadMore}>
+                        {children({ node })}
+                    </InfiniteScrollTrigger>
+                );
+            })}
+            {loading && <Spinner size="sm" />}
+        </Ul>
+    );
 }
