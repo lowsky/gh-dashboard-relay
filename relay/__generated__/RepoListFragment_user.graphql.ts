@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c93a0913678a37fe9bf2bb6247ac864c>>
+ * @generated SignedSource<<00b31b8c19fee898eb0c9f5f6a716c20>>
  * @lightSyntaxTransform
  */
 
@@ -30,6 +30,7 @@ export type RepoListFragment_user$data = {
             | undefined;
         readonly pageInfo: {
             readonly endCursor: string | null | undefined;
+            readonly hasNextPage: boolean;
         };
         readonly totalCount: number;
     };
@@ -169,14 +170,14 @@ const node: ReaderFragment = (function () {
                                 alias: null,
                                 args: null,
                                 kind: 'ScalarField',
-                                name: 'endCursor',
+                                name: 'hasNextPage',
                                 storageKey: null,
                             },
                             {
                                 alias: null,
                                 args: null,
                                 kind: 'ScalarField',
-                                name: 'hasNextPage',
+                                name: 'endCursor',
                                 storageKey: null,
                             },
                         ],
@@ -200,6 +201,6 @@ const node: ReaderFragment = (function () {
     };
 })();
 
-(node as any).hash = '56518f6a15f4ac82b88469b5c8118c64';
+(node as any).hash = 'a9de695ec46347f06ec9d35821984b14';
 
 export default node;
