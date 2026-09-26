@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<657f0d27ca1c4602336d237462029554>>
+ * @generated SignedSource<<5b874839928a13fff5ab4ea2e9d556c8>>
  * @lightSyntaxTransform
  */
 
@@ -313,14 +313,14 @@ const node: ConcreteRequest = (function () {
                                                     alias: null,
                                                     args: null,
                                                     kind: 'ScalarField',
-                                                    name: 'endCursor',
+                                                    name: 'hasNextPage',
                                                     storageKey: null,
                                                 },
                                                 {
                                                     alias: null,
                                                     args: null,
                                                     kind: 'ScalarField',
-                                                    name: 'hasNextPage',
+                                                    name: 'endCursor',
                                                     storageKey: null,
                                                 },
                                             ],
@@ -351,12 +351,12 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: '2d304f60198e15f76e7edd21fc4de3b2',
+            cacheID: 'b0032ff61838200021ab1fab122b66d2',
             id: null,
             metadata: {},
             name: 'RelayRootQuery',
             operationKind: 'query',
-            text: 'query RelayRootQuery(\n  $userName: String!\n) {\n  repositoryOwner(login: $userName) {\n    __typename\n    ...UserWithReposFragment_user\n    id\n  }\n  rateLimit {\n    limit\n    remaining\n    used\n    resetAt\n  }\n}\n\nfragment RepoItemFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n\nfragment RepoListFragment_user on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: 10, ownerAffiliations: [OWNER]) {\n    edges {\n      node {\n        id\n        ...RepoItemFragment_repo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n    totalCount\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n\nfragment UserWithReposFragment_user on User {\n  ...UserFragment_user\n  ...RepoListFragment_user\n}\n',
+            text: 'query RelayRootQuery(\n  $userName: String!\n) {\n  repositoryOwner(login: $userName) {\n    __typename\n    ...UserWithReposFragment_user\n    id\n  }\n  rateLimit {\n    limit\n    remaining\n    used\n    resetAt\n  }\n}\n\nfragment RepoItemFragment_repo on Repository {\n  id\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n}\n\nfragment RepoListFragment_user on User {\n  repositories(orderBy: {field: NAME, direction: ASC}, first: 10, ownerAffiliations: [OWNER]) {\n    edges {\n      node {\n        id\n        ...RepoItemFragment_repo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    totalCount\n  }\n  id\n}\n\nfragment UserFragment_user on User {\n  login\n  company\n  avatarUrl\n}\n\nfragment UserWithReposFragment_user on User {\n  ...UserFragment_user\n  ...RepoListFragment_user\n}\n',
         },
     };
 })();
