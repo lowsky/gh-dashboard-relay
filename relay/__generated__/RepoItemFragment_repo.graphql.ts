@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<df6a753d11dda91790eb559fc57e8132>>
+ * @generated SignedSource<<11ae22295e936831fc53bb5b0eb87957>>
  * @lightSyntaxTransform
  */
 
@@ -43,6 +43,13 @@ const node: ReaderFragment = {
     },
     name: 'RepoItemFragment_repo',
     selections: [
+        {
+            alias: null,
+            args: null,
+            kind: 'ScalarField',
+            name: 'id',
+            storageKey: null,
+        },
         {
             alias: null,
             args: null,
@@ -100,18 +107,11 @@ const node: ReaderFragment = {
             ],
             storageKey: 'pullRequests(first:1,states:["OPEN"])',
         },
-        {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'id',
-            storageKey: null,
-        },
     ],
     type: 'Repository',
     abstractKey: null,
 };
 
-(node as any).hash = 'cb35e44231761c3f3eae507791fa4336';
+(node as any).hash = '4c58012ac8ed5b32a439aa966dea764f';
 
 export default node;

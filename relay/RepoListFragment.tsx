@@ -1,10 +1,8 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 import { graphql, usePaginationFragment } from 'react-relay';
 import { Heading } from '@chakra-ui/react';
 
-import { Ul } from 'components/ChakraMdxProvider';
-import { Spinner } from 'components/Spinner';
-import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
+import { PaginatedList } from 'components/PaginatedList';
 import { Checkbox } from 'components/ui/checkbox';
 
 import type { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
@@ -34,6 +32,7 @@ function RepoListFragment(props: Props) {
                     }
                 }
                 pageInfo {
+                    hasNextPage
                     endCursor
                 }
                 totalCount
@@ -42,13 +41,13 @@ function RepoListFragment(props: Props) {
     `;
     const [showAll, setShowAll] = useState(false);
 
-    const { data, hasNext, loadNext, isLoadingNext } = usePaginationFragment<
+    const { data, loadNext, isLoadingNext } = usePaginationFragment<
         RepoListPaginationQuery,
         RepoListFragment_user$key
     >(graphQLTaggedNode, props.user);
 
     const { repositories } = data;
-    const { totalCount, edges } = repositories;
+    const { totalCount, pageInfo, edges } = repositories;
 
     if (totalCount == 0 || edges?.length == 0) return <div>No repositories found</div>;
 
@@ -65,38 +64,15 @@ function RepoListFragment(props: Props) {
                 )}
             </Checkbox>
 
-            {edges && (
-                <Ul variant="plain">
-                    {edges.map((edge, idx) => {
-                        const isLastElement = edges.length - 1 === idx;
-                        const node = edge?.node;
-                        const onLoadMore = () => loadNext(10);
-
-                        if (!node) {
-                            return (
-                                <InfiniteScrollTrigger
-                                    key={edges.length - 1}
-                                    enabled={isLastElement && hasNext}
-                                    onLoadMore={onLoadMore}>
-                                    <div />
-                                </InfiniteScrollTrigger>
-                            );
-                        }
-                        return (
-                            <InfiniteScrollTrigger
-                                key={node.id}
-                                enabled={isLastElement && hasNext}
-                                onLoadMore={onLoadMore}>
-                                <Suspense fallback={<Spinner />}>
-                                    <RepoItemFragment repo={node} hideIfFork={!showAll} />
-                                </Suspense>
-                            </InfiniteScrollTrigger>
-                        );
-                    })}
-                </Ul>
-            )}
-
-            {isLoadingNext && <Spinner size="sm" />}
+            <PaginatedList
+                edges={edges}
+                loading={isLoadingNext}
+                pageInfo={pageInfo}
+                loadMore={() => {
+                    loadNext(10);
+                }}>
+                {({ node }) => <RepoItemFragment repo={node} hideIfFork={!showAll} />}
+            </PaginatedList>
         </>
     );
 }

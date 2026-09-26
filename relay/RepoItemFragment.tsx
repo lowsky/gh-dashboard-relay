@@ -8,6 +8,7 @@ export function RepoItemFragment({ repo, hideIfFork }: { repo: RepoItemFragment_
     const data = useFragment<RepoItemFragment_repo$key>(
         graphql`
             fragment RepoItemFragment_repo on Repository @refetchable(queryName: "RepoItemRefetchFragment") {
+                id
                 name
                 nameWithOwner
                 isFork
