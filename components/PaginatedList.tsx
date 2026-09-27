@@ -43,26 +43,28 @@ export function PaginatedList<NodeType extends { id: string }>({
         }
         return null;
     }
-    const filteredEdges = edges.filter((e) => e?.node) as Array<{ node: NodeType }>;
-
     return (
         <Ul variant="plain">
-            {filteredEdges.map((edge, idx) => {
+            {edges.map((edge, idx) => {
                 const isLastElement = edges.length - 1 === idx;
                 const node = edge?.node;
 
                 // Check if this is the last element and we can load more
                 const onLoadMore = () => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor);
 
+                // Skip rendering for edges without nodes, but keep trigger on last edge
                 if (!node) {
-                    return (
-                        <InfiniteScrollTrigger
-                            key={edges.length - 1}
-                            enabled={isLastElement && pageInfo.hasNextPage}
-                            onLoadMore={onLoadMore}>
-                            <div />
-                        </InfiniteScrollTrigger>
-                    );
+                    if (isLastElement && pageInfo.hasNextPage) {
+                        return (
+                            <InfiniteScrollTrigger
+                                key={idx}
+                                enabled
+                                onLoadMore={onLoadMore}>
+                                <div />
+                            </InfiniteScrollTrigger>
+                        );
+                    }
+                    return null;
                 }
                 return (
                     <InfiniteScrollTrigger
