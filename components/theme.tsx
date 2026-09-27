@@ -25,10 +25,6 @@ const config: SystemConfig = defineConfig({
         body: {
             colorPalette: 'blue',
         },
-        a: {
-            color: '#102FAF',
-            //dark mode: 5890ec ?
-        },
     },
 });
 
