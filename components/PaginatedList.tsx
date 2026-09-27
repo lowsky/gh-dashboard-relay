@@ -57,7 +57,7 @@ export function PaginatedList<NodeType extends { id: string }>({
                     if (isLastElement && pageInfo.hasNextPage) {
                         return (
                             <InfiniteScrollTrigger
-                                key={idx}
+                                key="emptyScrollTriggerRow"
                                 enabled
                                 onLoadMore={onLoadMore}>
                                 <div />
