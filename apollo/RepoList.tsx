@@ -49,6 +49,12 @@ export const REPOS_QUERY: TypedDocumentNode<GetRepositoriesQuery, GetRepositorie
     }
 `;
 
+/**
+ * Fetch and display the owner's repositories by login, with forks hidden until toggled on.
+ * Request 10 repositories initially and load more through the shared scroll trigger.
+ * Show query errors, initial loading, and empty results inline; return null when no
+ * data is available and the query is neither loading nor reporting an error.
+ */
 export default function RepoList({ login }: RepoListProps) {
     const [showAll, setShowAll] = useState(false);
 

@@ -14,6 +14,11 @@ type Props = {
     user: RepoListFragment_user$key;
 };
 
+/**
+ * Display repositories from a Relay user fragment reference, with forks hidden
+ * until toggled on. Request 10 more repositories when the shared scroll trigger fires.
+ * Show an empty-state message when the total count or edge array length is zero.
+ */
 function RepoListFragment(props: Props) {
     const graphQLTaggedNode = graphql`
         fragment RepoListFragment_user on User

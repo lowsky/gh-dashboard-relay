@@ -20,6 +20,16 @@ interface PaginatedListProps<NodeType extends { id: string }> {
     loadMore: (cursor: string) => Promise<void> | void;
 }
 
+/**
+ * Render each non-null edge's node through children, skipping missing nodes.
+ * Show a spinner while loading; without edges, otherwise return null. An empty
+ * edge array renders an empty list, with a spinner if loading.
+ *
+ * When every edge has a node, the last item's scroll trigger calls loadMore with
+ * endCursor if hasNextPage is true, loading is false, and the cursor is nonempty.
+ * Missing edges or nodes prevent a scroll trigger from being enabled.
+ * Callback errors are not caught, and promises returned by loadMore are not awaited.
+ */
 export function PaginatedList<NodeType extends { id: string }>({
     children,
     edges,
