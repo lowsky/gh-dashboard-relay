@@ -5,7 +5,7 @@
 export const lightColors = {
     background: '#FFFFFF', // White
     textPrimary: '#4A5568', // Gray.600 - meets 4.5:1 contrast against white
-    textSecondary: '#718096', // Gray.500
+    textSecondary: '#636E7B', // Darkened for 4.5:1 contrast against white (5.19:1)
     border: '#CED4DA', // Gray.300
     icon: '#1A202C', // Gray.800 for icons
 };
