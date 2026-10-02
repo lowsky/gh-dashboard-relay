@@ -8,13 +8,15 @@ import { MdClose } from 'react-icons/md';
 import InternalLink from './InternalLink';
 import { DarkLightThemeToggle } from './DarkLightThemeToggle';
 import { useColorModeValue } from './ui/color-mode';
+import { getColor } from './theme-contrast';
 
 export function NavBar() {
     const { open, onToggle } = useDisclosure();
 
-    const backgroundColor = useColorModeValue('white', 'gray.400');
-    const borderColor = useColorModeValue('gray.200', 'gray.900');
-    const textColor = useColorModeValue('gray.600', 'white');
+    const mode = useColorModeValue('light', 'dark') satisfies 'light' | 'dark';
+    const backgroundColor = getColor(mode, 'background');
+    const borderColor = getColor(mode, 'border');
+    const textColor = getColor(mode, 'textPrimary');
 
     return (
         <Box>
@@ -27,13 +29,13 @@ export function NavBar() {
                 borderBottom={1}
                 borderStyle="solid"
                 borderColor={borderColor}
-                align="center">
+                align="center" role="navigation">
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
                     alignItems="center"
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
-                    <IconButton onClick={onToggle} variant="ghost" aria-label="Toggle Navigation">
+                    <IconButton onClick={onToggle} variant="ghost" aria-label="Toggle Navigation Menu">
                         <Icon w={3} h={3}>
                             {open ? <MdClose /> : <GiHamburgerMenu />}
                         </Icon>
@@ -41,7 +43,7 @@ export function NavBar() {
                     <Center>Github Dashboard</Center>
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Flex display={{ base: 'none', md: 'flex' }} gap={4}>
+                    <Flex display={{ base: 'none', md: 'flex' }} gap={4} as="nav" aria-label="Main navigation">
                         <DesktopNav />
                         <DarkLightThemeToggle />
                     </Flex>
@@ -59,16 +61,21 @@ export function NavBar() {
 const DesktopNav = () => {
     return (
         <Stack direction="row" gap={4} align="center">
-            <InternalLink href="/">Home</InternalLink>
-            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
+            <InternalLink href="/" aria-label="Home">Home</InternalLink>
+            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">GitHub/Repo</InternalLink>
         </Stack>
     );
 };
 
-const MobileNav = () => (
-    <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-        <br />
-        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
-        <DarkLightThemeToggle />
-    </Stack>
-);
+
+const MobileNav = () => {
+    const mode = useColorModeValue('light', 'dark') as 'light' | 'dark';
+    const backgroundColor = getColor(mode, 'background');
+
+    return (
+        <Stack bg={backgroundColor} p={4} display={{ md: 'none' }}>
+            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">GitHub/Repo</InternalLink>
+            <DarkLightThemeToggle />
+        </Stack>
+    )
+};
