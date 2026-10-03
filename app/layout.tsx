@@ -4,7 +4,6 @@ import NextTopLoader from 'nextjs-toploader';
 import { Flex } from '@chakra-ui/react';
 
 import ChakraUIWrapper from './ChakraUIWrapper';
-import { NavBar } from 'components/NavBar';
 
 // Import global styles
 import './index.css';
@@ -21,7 +20,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <noscript>You need to enable JavaScript to run this app.</noscript>
                 <NextTopLoader />
                 <ChakraUIWrapper>
-                    <NavBar />
                     <Flex p={4} direction="column">
                         {children}
                     </Flex>

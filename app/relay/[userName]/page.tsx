@@ -5,12 +5,15 @@ import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'component
 const RelayUserRoot = async () => {
     const authToken = await getAccessToken();
     if (!authToken) {
-        return <>Empty - no auth token</>;
+        return null;
     }
     return (
         <>
-            <BreadcrumbRoot>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbRoot size="lg">
+                <BreadcrumbLink href="/">
+                    <LuHouse />
+                    Home
+                </BreadcrumbLink>
                 <BreadcrumbLink href="/relay">Relay</BreadcrumbLink>
                 <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
             </BreadcrumbRoot>

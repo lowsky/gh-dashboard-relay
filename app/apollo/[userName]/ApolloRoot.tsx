@@ -15,6 +15,7 @@ import ApolloClientContext from 'lib/ApolloClientContext';
 import UserWithReposFragment from './UserWithReposFragment';
 
 import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
+import { LuHouse } from 'react-icons/lu';
 
 export const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
     query GetUserWithRepos($userName: String!) {
@@ -43,8 +44,11 @@ export default function ApolloRoot(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
-            <BreadcrumbRoot>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbRoot size="lg">
+                <BreadcrumbLink href="/">
+                    <LuHouse />
+                    Home
+                </BreadcrumbLink>
                 <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
                 <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
             </BreadcrumbRoot>
