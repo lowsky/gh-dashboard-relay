@@ -23,7 +23,9 @@ export function LinkList({ rootPath }: { rootPath: string }) {
             <List.Root>
                 {links.map((link) => (
                     <List.Item key={link}>
-                        <InternalLink href={(rootPath + '/' + link) as Route}>{link}</InternalLink>
+                        <InternalLink prefetch={false} href={(rootPath + '/' + link) as Route}>
+                            {link}
+                        </InternalLink>
                     </List.Item>
                 ))}
             </List.Root>

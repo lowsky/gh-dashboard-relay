@@ -1,12 +1,11 @@
 import { LinkList } from 'components/LinkList';
 import InternalLink from 'components/InternalLink';
-import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import { NavBar } from '../../components/NavBar';
 
-<BreadcrumbRoot>
-    <BreadcrumbLink href="/">Home</BreadcrumbLink>
-    <BreadcrumbCurrentLink href="/apollo">Apollo</BreadcrumbCurrentLink>
-</BreadcrumbRoot>
-<br />
+<NavBar navItems={[{ label: 'Relay', href: '/relay' }]} />
+
+<Breadcrumbs items={[{ label: 'Apollo', href: '/apollo' }]}></Breadcrumbs>
 
 ## Loading a user's repositories with Apollo Client
 

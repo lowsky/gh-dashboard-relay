@@ -19,6 +19,7 @@ import UserFragmentContainer, { UserFragment_repositoryOwner } from 'apollo/User
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
 import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
+import { LuHouse } from 'react-icons/lu';
 
 export const REPOSITORYOWNER_QUERY: TypedDocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables> =
     gql`
@@ -38,8 +39,11 @@ export default function Root(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
-            <BreadcrumbRoot>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbRoot size="lg">
+                <BreadcrumbLink href="/">
+                    <LuHouse />
+                    Home
+                </BreadcrumbLink>
                 <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
                 <BreadcrumbLink href={'/apollo/' + userName}>user {userName} </BreadcrumbLink>
                 <BreadcrumbCurrentLink>repo</BreadcrumbCurrentLink>

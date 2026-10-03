@@ -4,7 +4,7 @@ import ApolloRoot from './ApolloRoot';
 const ApolloUserRoot = async () => {
     const authToken = await getAccessToken();
     if (!authToken) {
-        return <>Empty - no auth token</>;
+        return null;
     }
     return <ApolloRoot authToken={authToken} />;
 };
