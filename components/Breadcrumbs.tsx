@@ -1,6 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 import { Breadcrumb, Center, type SystemStyleObject } from '@chakra-ui/react';
 import { LuHouse } from 'react-icons/lu';
+import InternalLink from 'components/InternalLink';
 
 export type NavItems = { label: string; href?: string }[];
 
@@ -16,7 +17,13 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbRootProps>(funct
     const hasItems = items && items.length > 0;
 
     return (
-        <Breadcrumb.Root ref={ref} size="lg" variant="underline" {...rest} mb={3}>
+        <Breadcrumb.Root
+            ref={ref}
+            size="lg"
+            variant="underline"
+            mb={3}
+            display={{ base: 'flex', md: 'none' }}
+            {...rest}>
             <Breadcrumb.List gap={separatorGap}>
                 <Breadcrumb.Item>
                     {hasItems ? (
@@ -40,7 +47,12 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbRootProps>(funct
                             <Breadcrumb.Separator>{separator}</Breadcrumb.Separator>
                             {!last && (
                                 <Breadcrumb.Item>
-                                    <Breadcrumb.Link href={item.href}>{item.label}</Breadcrumb.Link>
+                                    {
+                                        // @ts-expect-error no prefetch available but required on InternalLink
+                                        <Breadcrumb.Link prefetch={false} href={item.href} as={InternalLink}>
+                                            {item.label}
+                                        </Breadcrumb.Link>
+                                    }{' '}
                                 </Breadcrumb.Item>
                             )}
                             {last && <Breadcrumb.CurrentLink>{item.label}</Breadcrumb.CurrentLink>}

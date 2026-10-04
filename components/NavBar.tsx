@@ -1,5 +1,5 @@
 'use client';
-import { BreadcrumbLink, Center, Collapsible, Flex, Icon, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
+import { Center, Collapsible, Flex, Icon, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
@@ -8,10 +8,14 @@ import InternalLink from './InternalLink';
 import { DarkLightThemeToggle } from './DarkLightThemeToggle';
 import { ColorModeButton, useColorModeValue } from './ui/color-mode';
 import { LuGithub, LuHouse } from 'react-icons/lu';
-import { BreadcrumbRoot } from 'components/ui/breadcrumb';
 import { getColor } from 'components/theme-contrast';
+import Breadcrumbs, { NavItems } from 'components/Breadcrumbs';
 
-export function NavBar() {
+interface NavBarProps {
+    navItems?: NavItems;
+}
+
+export function NavBar({ navItems }: NavBarProps) {
     const { open, onToggle } = useDisclosure();
 
     const mode = useColorModeValue('light', 'dark') satisfies 'light' | 'dark';
@@ -55,7 +59,7 @@ export function NavBar() {
                     display={{ base: 'none', md: 'flex' }}
                     as="nav"
                     aria-label="Main navigation">
-                    <DesktopNav />
+                    <DesktopNav navItems={navItems} />
                     <DesktopRight />
                 </Flex>
             </Flex>
@@ -80,14 +84,11 @@ const DesktopRight = () => {
     );
 };
 
-const DesktopNav = () => {
+const DesktopNav = ({ navItems }: NavBarProps) => {
     return (
-        <Flex direction="row" justify="space-between">
-            <BreadcrumbRoot size="lg">
-                <BreadcrumbLink href="/">
-                    <InternalLink href="/">GitHub Dashboard</InternalLink>
-                </BreadcrumbLink>
-            </BreadcrumbRoot>
+        <Flex direction="row" gap={1}>
+            <>GitHub Dashboard</>
+            <Breadcrumbs items={navItems} />
         </Flex>
     );
 };
