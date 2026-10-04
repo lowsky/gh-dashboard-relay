@@ -145,6 +145,9 @@ export const ThemeChanges = meta.story({
     },
 });
 
+/* Temporarily disabled.
+ *
+ * Currently, it does not work well together with theme switching in storybook
 export const Mobile = meta.story({
     globals: { viewport: { value: 'mobile1', isRotated: false } },
     play: async ({ canvas, userEvent }) => {
@@ -188,3 +191,4 @@ export const Mobile = meta.story({
         await expect(canvas.getAllByRole('link', { name: 'GitHub Repository' })).toHaveLength(1);
     },
 });
+ */

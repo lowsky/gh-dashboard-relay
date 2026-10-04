@@ -1,5 +1,5 @@
 'use client';
-import { Center, Collapsible, Flex, Group, Icon, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
+import { Center, Collapsible, Flex, Group, Icon, IconButton, Link, Stack, useDisclosure } from '@chakra-ui/react';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
@@ -74,10 +74,10 @@ export function NavBar({ navItems }: NavBarProps) {
 }
 const DesktopRight = () => (
     <Center>
-        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">
+        <Link href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">
             <LuGithub />
             Sources
-        </InternalLink>
+        </Link>
         <DarkLightThemeToggle />
     </Center>
 );

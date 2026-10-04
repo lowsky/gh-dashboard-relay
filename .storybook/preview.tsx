@@ -18,7 +18,7 @@ const preview = definePreview({
             defaultTheme: 'dark',
             themes: {
                 light: '',
-                dark: 'dark',
+                dark: '',
             },
         }),
         chakraDecorator,
