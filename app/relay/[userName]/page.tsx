@@ -1,24 +1,20 @@
 import { getAccessToken } from '../../lib/getAccessToken';
 import RelayRoot from './RelayRoot';
-import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
+
+import Breadcrumbs, { NavItems } from 'components/Breadcrumbs';
+import { NavBar } from 'components/NavBar';
 
 const RelayUserRoot = async () => {
     const authToken = await getAccessToken();
     if (!authToken) {
         return null;
     }
+    const items: NavItems = [{ label: 'Relay', href: '/relay' }, { label: 'User' }];
     return (
         <>
-            <BreadcrumbRoot size="lg">
-                <BreadcrumbLink href="/">
-                    <LuHouse />
-                    Home
-                </BreadcrumbLink>
-                <BreadcrumbLink href="/relay">Relay</BreadcrumbLink>
-                <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
-            </BreadcrumbRoot>
+            <NavBar navItems={items} />
+            <Breadcrumbs items={items} />
             <br />
-
             <RelayRoot authToken={authToken} />
         </>
     );

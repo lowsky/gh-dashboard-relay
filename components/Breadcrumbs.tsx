@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import { Breadcrumb, Center, type SystemStyleObject } from '@chakra-ui/react';
 import { LuHouse } from 'react-icons/lu';
 
+export type NavItems = { label: string; href?: string }[];
+
 export interface BreadcrumbRootProps extends Breadcrumb.RootProps {
-    separator?: React.ReactNode;
+    separator?: ReactNode;
     separatorGap?: SystemStyleObject['gap'];
-    items?: [{ label: string; href: string }];
+    items?: NavItems;
 }
 
-export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbRootProps>(function Breadcrumbs(props, ref) {
+export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbRootProps>(function Breadcrumbs(props, ref) {
     const { separator, separatorGap, items, ...rest } = props;
 
     const hasItems = items && items.length > 0;
@@ -38,7 +40,7 @@ export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbRootProps>
                             <Breadcrumb.Separator>{separator}</Breadcrumb.Separator>
                             {!last && (
                                 <Breadcrumb.Item>
-                                    <Breadcrumb.Link>{item.href}</Breadcrumb.Link>
+                                    <Breadcrumb.Link href={item.href}>{item.label}</Breadcrumb.Link>
                                 </Breadcrumb.Item>
                             )}
                             {last && <Breadcrumb.CurrentLink>{item.label}</Breadcrumb.CurrentLink>}

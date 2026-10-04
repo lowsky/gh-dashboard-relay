@@ -1,20 +1,17 @@
-import { LinkList } from 'components/LinkList';
-import InternalLink from 'components/InternalLink';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import React from 'react';
+import { LinkList } from '../../components/LinkList';
+import InternalLink from '../../components/InternalLink';
 import { NavBar } from '../../components/NavBar';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
-<NavBar navItems={[{ label: 'Relay', href: '/relay' }]} />
+<NavBar navItems={[{ label: 'Apollo', href: '/apollo' }]} />
 
-<Breadcrumbs items={[{ label: 'Apollo', href: '/apollo' }]}></Breadcrumbs>
+<Breadcrumbs items={[{ label: 'Apollo', href: '/apollo' }]} />
 
-## Loading a user's repositories with Apollo Client
-
-<br />
+- Loading a user's repositories with Apollo Client:
 
 Open <InternalLink href="./apollo/lowsky">apollo/lowsky</InternalLink> for fetching the repositories of user **lowsky** using Apollo Client
 
-## Opening any repository directly
-
-<br />
+- or any repository directly:
 
 <LinkList rootPath="/apollo" />
