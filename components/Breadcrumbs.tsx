@@ -27,7 +27,8 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbRootProps>(funct
             <Breadcrumb.List gap={separatorGap}>
                 <Breadcrumb.Item>
                     {hasItems ? (
-                        <Breadcrumb.Link href="/">
+                        /* @ts-expect-error no prefetch available but required on InternalLink */
+                        <Breadcrumb.Link prefetch={false} href="/" as={InternalLink}>
                             <LuHouse />
                             Home
                         </Breadcrumb.Link>

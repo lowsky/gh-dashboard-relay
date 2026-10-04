@@ -8,10 +8,12 @@ import type { NavItems } from 'components/Breadcrumbs';
 
 export default function UserLayout({ children }: { children: ReactNode }) {
     const params = useParams();
+    const userName = params?.userName as string;
+    const repoName = params?.repoName as string;
     const items: NavItems = [
         { label: 'Apollo', href: '/apollo' },
-        { label: params?.userName as string, href: '/apollo/' + params?.userName },
-        { label: params?.repoName as string },
+        { label: userName, href: '/apollo/' + userName },
+        { label: repoName },
     ];
     return (
         <>

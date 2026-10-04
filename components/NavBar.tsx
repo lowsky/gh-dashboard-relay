@@ -40,7 +40,7 @@ export function NavBar({ navItems }: NavBarProps) {
                 <Flex
                     flex={{ base: 1, md: 'auto' }}
                     alignItems="center"
-                    justify={'space-between'}
+                    justify="space-between"
                     ml={{ base: -2 }}
                     display={{ base: 'flex', md: 'none' }}>
                     <Center>GitHub Dashboard</Center>
@@ -52,10 +52,10 @@ export function NavBar({ navItems }: NavBarProps) {
                 </Flex>
                 {/* show on md / desktop only */}
                 <Flex
-                    width={'100%'}
-                    align={'center'}
-                    justify={'space-between'}
-                    direction={'row'}
+                    width="100%"
+                    align="center"
+                    justify="space-between"
+                    direction="row"
                     display={{ base: 'none', md: 'flex' }}
                     as="nav"
                     aria-label="Main navigation">
@@ -64,7 +64,7 @@ export function NavBar({ navItems }: NavBarProps) {
                 </Flex>
             </Flex>
 
-            <Collapsible.Root open={open || true}>
+            <Collapsible.Root open={open}>
                 <Collapsible.Content>
                     <MobileNav />
                 </Collapsible.Content>
