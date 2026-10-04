@@ -44,7 +44,7 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbRootProps>(funct
                 {items?.map((item, index) => {
                     const last = index === items.length - 1;
                     return (
-                        <React.Fragment key={index}>
+                        <React.Fragment key={item.label}>
                             <Breadcrumb.Separator>{separator}</Breadcrumb.Separator>
                             {!last && (
                                 <Breadcrumb.Item>
