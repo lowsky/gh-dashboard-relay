@@ -91,16 +91,29 @@ export const Default = meta.story({
     play: async ({ canvas }) => {
         const mainNavigation = await canvas.findByRole('navigation', { name: 'Main navigation' });
         await expect(mainNavigation.tagName).toBe('NAV');
+
         const navigation = canvas.getByRole('navigation', { name: '' });
         await expect(navigation).toContainElement(mainNavigation);
-        await expect(within(mainNavigation).getByRole('link', { name: 'Home', exact: true })).toHaveAttribute(
+
+        await expect(within(mainNavigation).getByRole('link', { name: 'GitHub Repository' })).toHaveAttribute(
             'href',
-            '/'
+            'https://www.github.com/lowsky/gh-dashboard-relay'
         );
-        await expect(
-            within(mainNavigation).getByRole('link', { name: 'GitHub Repository', exact: true })
-        ).toHaveAttribute('href', 'https://www.github.com/lowsky/gh-dashboard-relay');
         await expect(canvas.queryByRole('button', { name: 'Toggle Navigation Menu' })).not.toBeInTheDocument();
+    },
+});
+export const WithNavItems = meta.story({
+    args: {
+        navItems: [{ label: 'example-item', href: 'https://www.github.com/lowsky/gh-dashboard-relay' }],
+    },
+    play: async ({ canvas }) => {
+        const mainNavigation = await canvas.findByRole('navigation', { name: 'Main navigation' });
+        await expect(mainNavigation.tagName).toBe('NAV');
+
+        const navigation = canvas.getByRole('navigation', { name: '' });
+        await expect(navigation).toContainElement(mainNavigation);
+
+        await expect(within(mainNavigation).getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
     },
 });
 
@@ -142,7 +155,7 @@ export const Mobile = meta.story({
 
         menuToggle.focus();
         await userEvent.keyboard('{Enter}');
-        const repositoryLink = await canvas.findByRole('link', { name: 'GitHub Repository', exact: true });
+        const repositoryLink = await canvas.findByRole('link', { name: 'GitHub Repository' });
         await waitFor(() => expect(repositoryLink).toBeVisible());
         await expect(repositoryLink).toHaveAttribute('href', 'https://www.github.com/lowsky/gh-dashboard-relay');
         const colorToggle = await canvas.findByRole('button', { name: 'Toggle color mode' });
@@ -171,7 +184,7 @@ export const Mobile = meta.story({
         await waitFor(() => expect(canvas.queryByRole('link', { name: 'GitHub Repository' })).not.toBeInTheDocument());
         // Reopening must expose just the mobile link, with the same accessible name.
         await userEvent.keyboard('{Enter}');
-        await waitFor(() => expect(canvas.getByRole('link', { name: 'GitHub Repository', exact: true })).toBeVisible());
+        await waitFor(() => expect(canvas.getByRole('link', { name: 'GitHub Repository' })).toBeVisible());
         await expect(canvas.getAllByRole('link', { name: 'GitHub Repository' })).toHaveLength(1);
     },
 });

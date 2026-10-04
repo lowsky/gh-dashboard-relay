@@ -85,7 +85,7 @@ const DesktopRight = () => (
 const DesktopNav = ({ navItems }: { navItems?: NavItems }) => (
     <Flex direction="row" gap={1}>
         <>GitHub Dashboard</>
-        <Breadcrumbs items={navItems} />
+        <Breadcrumbs items={navItems} display={{ md: 'flex', base: 'none' }} />
     </Flex>
 );
 
