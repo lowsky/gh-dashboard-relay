@@ -39,16 +39,6 @@ export default function Root(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
-            <BreadcrumbRoot size="lg">
-                <BreadcrumbLink href="/">
-                    <LuHouse />
-                    Home
-                </BreadcrumbLink>
-                <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
-                <BreadcrumbLink href={'/apollo/' + userName}>user {userName} </BreadcrumbLink>
-                <BreadcrumbCurrentLink>repo</BreadcrumbCurrentLink>
-            </BreadcrumbRoot>
-            <br />
             <Suspense fallback={<div>Loading...</div>}>
                 <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>

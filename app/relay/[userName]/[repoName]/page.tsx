@@ -1,4 +1,5 @@
 import { getAccessToken } from '../../../lib/getAccessToken';
+
 import Root from './Root';
 
 const RelayRepoRoot = async () => {
