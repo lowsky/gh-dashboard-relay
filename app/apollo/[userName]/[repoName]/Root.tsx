@@ -18,8 +18,6 @@ import ApolloClientContext from 'lib/ApolloClientContext';
 import UserFragmentContainer, { UserFragment_repositoryOwner } from 'apollo/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
-import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
-import { LuHouse } from 'react-icons/lu';
 
 export const REPOSITORYOWNER_QUERY: TypedDocumentNode<GetUserRepoBranchesQuery, GetUserRepoBranchesQueryVariables> =
     gql`

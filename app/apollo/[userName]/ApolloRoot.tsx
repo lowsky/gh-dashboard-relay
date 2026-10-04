@@ -14,9 +14,6 @@ import type { GetUserWithReposQuery, GetUserWithReposQueryVariables } from '../_
 import ApolloClientContext from 'lib/ApolloClientContext';
 import UserWithReposFragment from './UserWithReposFragment';
 
-import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
-import { LuHouse } from 'react-icons/lu';
-
 export const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
     query GetUserWithRepos($userName: String!) {
         repositoryOwner(login: $userName) {

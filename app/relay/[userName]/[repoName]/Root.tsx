@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { graphql, useLazyLoadQuery } from 'react-relay';
-import { Breadcrumb, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 import type {
     RelayRootRepoQuery,
@@ -15,9 +15,6 @@ import RelayClientContext from 'lib/RelayClientContext';
 import UserFragmentContainer from 'relay/UserFragment';
 import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
-import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from 'components/ui/breadcrumb';
-import { LuHouse } from 'react-icons/lu';
-import * as React from 'react';
 
 const USER_REPO_BRANCHES_QUERY = graphql`
     query RelayRootRepoQuery($userName: String!, $repoName: String!) {

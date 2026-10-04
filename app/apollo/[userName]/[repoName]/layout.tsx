@@ -10,8 +10,8 @@ export default function UserLayout({ children }: { children: ReactNode }) {
     const params = useParams();
     const items: NavItems = [
         { label: 'Apollo', href: '/apollo' },
-        { label: params?.userName, href: '/apollo/' + params?.userName },
-        { label: params?.repoName },
+        { label: params?.userName as string, href: '/apollo/' + params?.userName },
+        { label: params?.repoName as string },
     ];
     return (
         <>
