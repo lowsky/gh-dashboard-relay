@@ -56,7 +56,11 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbRootProps>(funct
                                     }{' '}
                                 </Breadcrumb.Item>
                             )}
-                            {last && <Breadcrumb.CurrentLink>{item.label}</Breadcrumb.CurrentLink>}
+                            {last && (
+                                <Breadcrumb.Item>
+                                    <Breadcrumb.CurrentLink>{item.label}</Breadcrumb.CurrentLink>
+                                </Breadcrumb.Item>
+                            )}
                         </React.Fragment>
                     );
                 })}
