@@ -35,29 +35,6 @@ export default function Root(props: { authToken: string }) {
 
     return (
         <RelayClientContext auth={props.authToken}>
-            <Breadcrumb.Root ref={ref} size="lg" {...rest}>
-                <Breadcrumb.List gap={separatorGap}>
-                    {validChildren.map((child, index) => {
-                        const last = index === validChildren.length - 1;
-                        return (
-                            <React.Fragment key={index}>
-                                <Breadcrumb.Item>{child}</Breadcrumb.Item>
-                                {!last && <Breadcrumb.Separator>{separator}</Breadcrumb.Separator>}
-                            </React.Fragment>
-                        );
-                    })}
-                </Breadcrumb.List>
-            </Breadcrumb.Root>
-            <BreadcrumbRoot size="lg">
-                <BreadcrumbLink href="/">
-                    <LuHouse />
-                    Home
-                </BreadcrumbLink>
-                <BreadcrumbLink href="/relay">Relay</BreadcrumbLink>
-                <BreadcrumbLink href={'/relay/' + userName}>user {userName} </BreadcrumbLink>
-                <BreadcrumbCurrentLink>repo</BreadcrumbCurrentLink>
-            </BreadcrumbRoot>
-            <br />
             <Suspense fallback={<div>Loading...</div>}>
                 <UserRepoPageContent userName={userName!} repoName={repoName!} />
             </Suspense>

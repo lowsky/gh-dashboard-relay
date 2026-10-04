@@ -44,16 +44,6 @@ export default function ApolloRoot(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
-            <BreadcrumbRoot size="lg">
-                <BreadcrumbLink href="/">
-                    <LuHouse />
-                    Home
-                </BreadcrumbLink>
-                <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
-                <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
-            </BreadcrumbRoot>
-            <br />
-
             <Suspense fallback={<div>Loading...</div>}>
                 <UserPageContent userName={userName!} />
             </Suspense>
