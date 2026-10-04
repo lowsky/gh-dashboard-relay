@@ -1,5 +1,5 @@
 'use client';
-import { Center, Collapsible, Flex, Icon, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
+import { Center, Collapsible, Flex, Group, Icon, IconButton, Stack, useDisclosure } from '@chakra-ui/react';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
@@ -95,20 +95,27 @@ const MobileNav = () => {
 
     return (
         <Stack bg={backgroundColor} p={4} width="100%" align="start" direction="column" display={{ md: 'none' }}>
-            <InternalLink href="/">
-                <LuHouse />
-                Home
-            </InternalLink>
+            <Group orientation={'vertical'} align="start">
+                <div>
+                    <InternalLink href="/">
+                        <LuHouse />
+                        Home
+                    </InternalLink>
+                </div>
 
-            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">
-                <LuGithub />
-                Sources
-            </InternalLink>
-
-            <Center>
-                Theme
-                <ColorModeButton />
-            </Center>
+                <div>
+                    <InternalLink
+                        href="https://www.github.com/lowsky/gh-dashboard-relay"
+                        aria-label="GitHub Repository">
+                        <LuGithub />
+                        Sources
+                    </InternalLink>
+                </div>
+                <div>
+                    Theme
+                    <ColorModeButton />
+                </div>
+            </Group>
         </Stack>
     );
 };
