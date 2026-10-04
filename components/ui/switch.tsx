@@ -18,8 +18,8 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
             <ChakraSwitch.Control>
                 <ChakraSwitch.Thumb>
                     {thumbLabel && (
-                        <ChakraSwitch.ThumbIndicator fallback={thumbLabel?.off}>
-                            {thumbLabel?.on}
+                        <ChakraSwitch.ThumbIndicator fallback={thumbLabel.off}>
+                            {thumbLabel.on}
                         </ChakraSwitch.ThumbIndicator>
                     )}
                 </ChakraSwitch.Thumb>
@@ -27,7 +27,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
                     <ChakraSwitch.Indicator fallback={trackLabel.off}>{trackLabel.on}</ChakraSwitch.Indicator>
                 )}
             </ChakraSwitch.Control>
-            {children != null && <ChakraSwitch.Label>{children}</ChakraSwitch.Label>}
+            {children && <ChakraSwitch.Label>{children}</ChakraSwitch.Label>}
         </ChakraSwitch.Root>
     );
 });

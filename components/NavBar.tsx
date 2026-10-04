@@ -72,26 +72,22 @@ export function NavBar({ navItems }: NavBarProps) {
         </>
     );
 }
-const DesktopRight = () => {
-    return (
-        <Center>
-            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">
-                <LuGithub />
-                Sources
-            </InternalLink>
-            <DarkLightThemeToggle />
-        </Center>
-    );
-};
+const DesktopRight = () => (
+    <Center>
+        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay" aria-label="GitHub Repository">
+            <LuGithub />
+            Sources
+        </InternalLink>
+        <DarkLightThemeToggle />
+    </Center>
+);
 
-const DesktopNav = ({ navItems }: NavBarProps) => {
-    return (
-        <Flex direction="row" gap={1}>
-            <>GitHub Dashboard</>
-            <Breadcrumbs items={navItems} />
-        </Flex>
-    );
-};
+const DesktopNav = ({ navItems }: { navItems?: NavItems }) => (
+    <Flex direction="row" gap={1}>
+        <>GitHub Dashboard</>
+        <Breadcrumbs items={navItems} />
+    </Flex>
+);
 
 const MobileNav = () => {
     const mode = useColorModeValue('light', 'dark') satisfies 'light' | 'dark';
