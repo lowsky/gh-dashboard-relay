@@ -4,10 +4,15 @@ import type { RepoItemFragment_repo$key } from 'relay/__generated__/RepoItemFrag
 
 import { RepoItem } from 'components/RepoItem';
 
+/**
+ * Read a Relay repository fragment reference and render its repository item.
+ * Render nothing when fragment data is absent or hideIfFork is true for a fork.
+ */
 export function RepoItemFragment({ repo, hideIfFork }: { repo: RepoItemFragment_repo$key; hideIfFork?: boolean }) {
     const data = useFragment<RepoItemFragment_repo$key>(
         graphql`
             fragment RepoItemFragment_repo on Repository @refetchable(queryName: "RepoItemRefetchFragment") {
+                id
                 name
                 nameWithOwner
                 isFork

@@ -4,9 +4,7 @@ import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 import { Heading } from '@chakra-ui/react';
 
-import { Ul } from 'components/ChakraMdxProvider';
-import { Spinner } from 'components/Spinner';
-import InfiniteScrollTrigger from 'components/InfiniteScrollTrigger';
+import { PaginatedList } from 'components/PaginatedList';
 import { Checkbox } from 'components/ui/checkbox';
 
 import type { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
@@ -51,6 +49,12 @@ export const REPOS_QUERY: TypedDocumentNode<GetRepositoriesQuery, GetRepositorie
     }
 `;
 
+/**
+ * Fetch and display the owner's repositories by login, with forks hidden until toggled on.
+ * Request 10 repositories initially and load more through the shared scroll trigger.
+ * Show query errors, initial loading, and empty results inline; return null when no
+ * data is available and the query is neither loading nor reporting an error.
+ */
 export default function RepoList({ login }: RepoListProps) {
     const [showAll, setShowAll] = useState(false);
 
@@ -75,7 +79,7 @@ export default function RepoList({ login }: RepoListProps) {
     const { repositories } = repositoryOwner;
     const { totalCount, edges, pageInfo } = repositories;
 
-    if (totalCount == 0 || edges?.length == 0) return <div>No repositories found</div>;
+    if (totalCount === 0 || edges?.length === 0) return <div>No repositories found</div>;
 
     const loadMore = async (cursor: string) => {
         if (!pageInfo.hasNextPage) return;
@@ -98,36 +102,11 @@ export default function RepoList({ login }: RepoListProps) {
                 )}
             </Checkbox>
 
-            {edges && (
-                <Ul variant="plain">
-                    {edges.map((edge, idx) => {
-                        const isLastElement = edges.length - 1 === idx;
-                        const node = edge?.node;
-                        const onLoadMore = () => !loading && pageInfo.endCursor && loadMore(pageInfo.endCursor);
-
-                        if (!node) {
-                            return (
-                                <InfiniteScrollTrigger
-                                    key={edges.length - 1}
-                                    enabled={isLastElement && pageInfo.hasNextPage}
-                                    onLoadMore={onLoadMore}>
-                                    <div />
-                                </InfiniteScrollTrigger>
-                            );
-                        }
-                        return (
-                            <InfiniteScrollTrigger
-                                key={node.id}
-                                enabled={isLastElement && pageInfo.hasNextPage}
-                                onLoadMore={onLoadMore}>
-                                <RepoItem repo={node} hideIfFork={!showAll} />
-                            </InfiniteScrollTrigger>
-                        );
-                    })}
-                </Ul>
-            )}
-
-            {loading && <Spinner size="sm" />}
+            <PaginatedList edges={edges} loading={loading} pageInfo={pageInfo} loadMore={loadMore}>
+                {({node} )=> (
+                    <RepoItem repo={node} hideIfFork={!showAll} />
+                )}
+            </PaginatedList>
         </>
     );
 }

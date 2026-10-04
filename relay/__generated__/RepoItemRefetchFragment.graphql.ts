@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<1d5ab0f8ff4f17b74e79887da40badfe>>
+ * @generated SignedSource<<ab68b54454b384039e8b2c98fac01d5f>>
  * @lightSyntaxTransform
  */
 
@@ -165,16 +165,16 @@ const node: ConcreteRequest = (function () {
             ],
         },
         params: {
-            cacheID: 'e1eb425309787030df3025708014daad',
+            cacheID: '88860ff388c5e30cc4344ac839733176',
             id: null,
             metadata: {},
             name: 'RepoItemRefetchFragment',
             operationKind: 'query',
-            text: 'query RepoItemRefetchFragment(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoItemFragment_repo\n    id\n  }\n}\n\nfragment RepoItemFragment_repo on Repository {\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n  id\n}\n',
+            text: 'query RepoItemRefetchFragment(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...RepoItemFragment_repo\n    id\n  }\n}\n\nfragment RepoItemFragment_repo on Repository {\n  id\n  name\n  nameWithOwner\n  isFork\n  url\n  pullRequests(first: 1, states: [OPEN]) {\n    totalCount\n  }\n}\n',
         },
     };
 })();
 
-(node as any).hash = 'cb35e44231761c3f3eae507791fa4336';
+(node as any).hash = '4c58012ac8ed5b32a439aa966dea764f';
 
 export default node;
