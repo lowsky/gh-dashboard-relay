@@ -3,7 +3,7 @@ import { graphql, usePaginationFragment } from 'react-relay';
 import { Heading } from '@chakra-ui/react';
 
 import { PaginatedList } from 'components/PaginatedList';
-import { Checkbox } from 'components/ui/checkbox';
+import { Switch } from 'components/ui/switch';
 
 import type { RepoListFragment_user$key } from './__generated__/RepoListFragment_user.graphql';
 import type { RepoListPaginationQuery } from './__generated__/RepoListPaginationQuery.graphql';
@@ -61,13 +61,13 @@ function RepoListFragment(props: Props) {
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
-            <Checkbox checked={showAll} onChange={toggleShowAll} size="xs">
+            <Switch checked={showAll} onChange={toggleShowAll} size="xs">
                 {showAll ? (
                     <span title="click to hide forked repos">hide forks</span>
                 ) : (
                     <span title="click to show entries for forked repos, too">show forks</span>
                 )}
-            </Checkbox>
+            </Switch>
 
             <PaginatedList
                 edges={edges}

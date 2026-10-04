@@ -14,8 +14,6 @@ import type { GetUserWithReposQuery, GetUserWithReposQueryVariables } from '../_
 import ApolloClientContext from 'lib/ApolloClientContext';
 import UserWithReposFragment from './UserWithReposFragment';
 
-import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from 'components/ui/breadcrumb';
-
 export const USER_WITH_REPOS_QUERY: TypedDocumentNode<GetUserWithReposQuery, GetUserWithReposQuery> = gql`
     query GetUserWithRepos($userName: String!) {
         repositoryOwner(login: $userName) {
@@ -43,13 +41,6 @@ export default function ApolloRoot(props: { authToken: string }) {
 
     return (
         <ApolloClientContext auth={props.authToken}>
-            <BreadcrumbRoot>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                <BreadcrumbLink href="/apollo">Apollo</BreadcrumbLink>
-                <BreadcrumbCurrentLink>user</BreadcrumbCurrentLink>
-            </BreadcrumbRoot>
-            <br />
-
             <Suspense fallback={<div>Loading...</div>}>
                 <UserPageContent userName={userName!} />
             </Suspense>

@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client/react';
 import { Heading } from '@chakra-ui/react';
 
 import { PaginatedList } from 'components/PaginatedList';
-import { Checkbox } from 'components/ui/checkbox';
+import { Switch } from 'components/ui/switch';
 
 import type { GetRepositoriesQuery, GetRepositoriesQueryVariables } from '../app/apollo/__gen__/graphql';
 
@@ -94,13 +94,13 @@ export default function RepoList({ login }: RepoListProps) {
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
-            <Checkbox checked={showAll} onChange={toggleShowAll} size="xs">
+            <Switch checked={showAll} onChange={toggleShowAll} size="xs">
                 {showAll ? (
                     <span title="click to hide forked repos">hide forks</span>
                 ) : (
                     <span title="click to show entries for forked repos, too">show forks</span>
                 )}
-            </Checkbox>
+            </Switch>
 
             <PaginatedList edges={edges} loading={loading} pageInfo={pageInfo} loadMore={loadMore}>
                 {({node} )=> (

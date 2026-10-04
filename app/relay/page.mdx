@@ -1,20 +1,17 @@
+import React from 'react';
 import { LinkList } from '../../components/LinkList';
 import InternalLink from '../../components/InternalLink';
-import { BreadcrumbLink, BreadcrumbRoot, BreadcrumbCurrentLink } from '../../components/ui/breadcrumb.tsx';
+import { NavBar } from '../../components/NavBar';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
-<BreadcrumbRoot>
-    <BreadcrumbLink href="/">Home</BreadcrumbLink>
-    <BreadcrumbCurrentLink href="/relay">Relay</BreadcrumbCurrentLink>
-</BreadcrumbRoot>
-<br />
+<NavBar navItems={[{ label: 'Relay', href: '/relay' }]} />
 
-# Loading a user's repositories with Relay
+<Breadcrumbs items={[{ label: 'Relay', href: '/relay' }]} />
 
-Open <InternalLink href="/relay/lowsky">relay/lowsky</InternalLink> for fetching the repositories of user **lowsky**
-using Relay Client
+- Loading a user's repositories with Relay:
 
-## Opening any repository directly
+Open <InternalLink href="./relay/lowsky">relay/lowsky</InternalLink> for fetching the repositories of user **lowsky** using Relay Client
 
-<br />
+- or any repository directly:
 
 <LinkList rootPath="/relay" />
