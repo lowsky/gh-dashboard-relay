@@ -1,7 +1,7 @@
 import { Badge, Icon, Link, ListItem, Text } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCodePullRequest } from '@fortawesome/free-solid-svg-icons';
-import { Route } from 'next';
+import type { Route } from 'next';
 
 import InternalLink from 'components/InternalLink';
 

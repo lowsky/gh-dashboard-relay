@@ -1,7 +1,7 @@
 'use client';
 
 import { Heading, List } from '@chakra-ui/react';
-import { Route } from 'next';
+import type { Route } from 'next';
 
 import InternalLink from './InternalLink';
 

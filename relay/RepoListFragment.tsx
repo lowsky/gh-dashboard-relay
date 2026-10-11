@@ -46,10 +46,10 @@ function RepoListFragment(props: Props) {
     `;
     const [showAll, setShowAll] = useState(false);
 
-    const { data, loadNext, isLoadingNext } = usePaginationFragment<
-        RepoListPaginationQuery,
-        RepoListFragment_user$key
-    >(graphQLTaggedNode, props.user);
+    const { data, loadNext, isLoadingNext } = usePaginationFragment<RepoListPaginationQuery, RepoListFragment_user$key>(
+        graphQLTaggedNode,
+        props.user
+    );
 
     const { repositories } = data;
     const { totalCount, pageInfo, edges } = repositories;
