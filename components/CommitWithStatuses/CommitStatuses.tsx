@@ -17,8 +17,8 @@ export const CommitStatuses: FC<Props> = ({ contexts }) => {
     if (contexts)
         return (
             <div className={styles.statusLine}>
-                {removeExtraStatusesForSameContext(contexts).map((status, idx) => (
-                    <Status key={idx} {...status} />
+                {removeExtraStatusesForSameContext(contexts).map((status) => (
+                    <Status key={status.context} {...status} />
                 ))}
             </div>
         );

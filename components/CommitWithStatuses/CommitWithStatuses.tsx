@@ -5,7 +5,8 @@ import { Spinner } from '../Spinner';
 
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
-import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
+
+import type { ContextStatusProps } from 'components/CommitWithStatuses/Status';
 
 import styles from './CommitWithStatuses.module.css';
 
@@ -29,6 +30,8 @@ interface CommitWithStatusesProps {
         | {
               commit?:
                   | {
+                        // TODO check if still needed somewhere
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         oid: any;
                     }
                   | null

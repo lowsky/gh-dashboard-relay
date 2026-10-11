@@ -1,4 +1,4 @@
-import { ContextStatusProps } from 'components/CommitWithStatuses/Status';
+import type { ContextStatusProps } from 'components/CommitWithStatuses/Status';
 
 /**
  * Remove duplicate entries of states:
