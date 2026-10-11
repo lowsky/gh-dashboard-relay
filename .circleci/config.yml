@@ -38,7 +38,7 @@ jobs:
           command: pwd ; echo y | yarn vercel -v
       - run:
           name: Run setup - vercel update
-          command: yarn circle:vercel:update
+          command: echo y | yarn circle:vercel:update
       - run:
           name: Run setup - vercel link
           environment:
