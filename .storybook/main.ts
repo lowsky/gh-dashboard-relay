@@ -1,4 +1,4 @@
-import { StorybookConfig } from '@storybook/nextjs-vite';
+import type { StorybookConfig } from '@storybook/nextjs-vite';
 import { defineMain } from '@storybook/nextjs-vite/node';
 
 const config: StorybookConfig = defineMain({
@@ -38,7 +38,7 @@ const config: StorybookConfig = defineMain({
         '@storybook/addon-a11y',
         '@storybook/addon-vitest',
         'storybook-addon-apollo-client',
-        '@storybook/addon-mcp'
+        '@storybook/addon-mcp',
     ],
     core: {
         disableTelemetry: true,

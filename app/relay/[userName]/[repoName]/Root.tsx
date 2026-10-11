@@ -17,7 +17,7 @@ import { RepoWithBranchList } from './RepoWithBranchListFragment';
 import Repo from 'components/Repo';
 
 const USER_REPO_BRANCHES_QUERY = graphql`
-    query RelayRootRepoQuery($userName: String!, $repoName: String!) {
+    query RootRepoQuery($userName: String!, $repoName: String!) {
         user(login: $userName) {
             ...UserFragment_user
         }

@@ -1,7 +1,8 @@
 import { getAccessToken } from '../../lib/getAccessToken';
 import ApolloRoot from './ApolloRoot';
 
-import Breadcrumbs, { NavItems } from 'components/Breadcrumbs';
+import type { NavItems } from 'components/Breadcrumbs';
+import Breadcrumbs from 'components/Breadcrumbs';
 import { NavBar } from 'components/NavBar';
 
 const ApolloUserRoot = async () => {
