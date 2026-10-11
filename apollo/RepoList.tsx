@@ -103,9 +103,7 @@ export default function RepoList({ login }: RepoListProps) {
             </Switch>
 
             <PaginatedList edges={edges} loading={loading} pageInfo={pageInfo} loadMore={loadMore}>
-                {({node} )=> (
-                    <RepoItem repo={node} hideIfFork={!showAll} />
-                )}
+                {({ node }) => <RepoItem repo={node} hideIfFork={!showAll} />}
             </PaginatedList>
         </>
     );

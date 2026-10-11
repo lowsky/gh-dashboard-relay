@@ -3,7 +3,7 @@ import { themes } from 'storybook/theming';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import a11yAddon from '@storybook/addon-a11y';
 import docsAddon from '@storybook/addon-docs';
-import relayAddon from 'relay/storybook/addon';
+import relayAddon from 'relay/storybook/relayAddon';
 
 import apolloClientAddon from './apolloClientAddon';
 
