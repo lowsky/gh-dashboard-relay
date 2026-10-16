@@ -9502,7 +9502,7 @@ __metadata:
     relay-test-utils: "npm:21.0.1"
     rxjs: "npm:7.8.2"
     storybook: "npm:10.6.1"
-    storybook-addon-apollo-client: "npm:10.0.0"
+    storybook-addon-apollo-client: "npm:11.0.1"
     type-fest: "npm:5.10.0"
     typescript: "npm:7.0.2"
     typescript-eslint: "npm:8.70.1"
@@ -15629,12 +15629,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-apollo-client@npm:10.0.0":
-  version: 10.0.0
-  resolution: "storybook-addon-apollo-client@npm:10.0.0"
+"storybook-addon-apollo-client@npm:11.0.1":
+  version: 11.0.1
+  resolution: "storybook-addon-apollo-client@npm:11.0.1"
   peerDependencies:
-    storybook: "*"
-  checksum: 10c0/0531466c4b007b14dfe854d4e3c4b65dca4459947a62aa76b150f992b37c2b937cb931b5993a43223505b3e5d0887c3a8b9043a75a4fc5b542a75018b70dbb1a
+    "@apollo/client": ^3.8.0 || ^4.0.0
+    graphql: ^16.0.0 || ^17.0.0
+    storybook: ^10.1.0 || ^11.0.0-0
+  checksum: 10c0/a83de07933bd95c44ed533102a6efa73f61e3b93073cf82224debb3cfa32099d7e10775f1ef4c2d039a27f4dab7aaf6d4d975ce7ce33c8239bbe6a061167f83e
   languageName: node
   linkType: hard
 
