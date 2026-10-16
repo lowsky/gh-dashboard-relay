@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink, TypePolicies } from '@apollo/client';
 import { Defer20220824Handler } from '@apollo/client/incremental';
 import { setContext } from '@apollo/client/link/context';
 import { relayStylePagination } from '@apollo/client/utilities';
@@ -29,26 +29,7 @@ export function getApolloClient(authToken?: string): ApolloClient {
     const cache = new InMemoryCache({
         possibleTypes: generatedIntrospection.possibleTypes,
         fragments: fragmentRegistry,
-        typePolicies: {
-            Query: {
-                fields: {
-                    repositoryOwner: {
-                        keyArgs: ['login', 'id'],
-                    },
-                },
-            },
-            RepositoryOwner: {
-                keyFields: ['login', 'id'],
-                fields: {
-                    // Configure type policies for pagination
-                    // TODO more work and evaluation needed, see
-                    // pagination: https://www.apollographql.com/docs/react/pagination/core-api
-
-                    // Configure pagination for repositories
-                    repositories: relayStylePagination(['ownerAffiliations']),
-                },
-            },
-        },
+        typePolicies,
     });
 
     // Create and return the Apollo Client instance
@@ -73,3 +54,24 @@ export function getApolloClient(authToken?: string): ApolloClient {
         incrementalHandler: new Defer20220824Handler(),
     });
 }
+
+export const typePolicies: TypePolicies = {
+    Query: {
+        fields: {
+            repositoryOwner: {
+                keyArgs: ['login', 'id'],
+            },
+        },
+    },
+    RepositoryOwner: {
+        keyFields: ['login', 'id'],
+        fields: {
+            // Configure type policies for pagination
+            // TODO more work and evaluation needed, see
+            // pagination: https://www.apollographql.com/docs/react/pagination/core-api
+
+            // Configure pagination for repositories
+            repositories: relayStylePagination(['ownerAffiliations']),
+        },
+    },
+};
