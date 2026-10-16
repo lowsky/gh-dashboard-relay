@@ -9477,7 +9477,7 @@ __metadata:
     globals: "npm:17.12.0"
     graphql: "npm:16.14.2"
     inter-ui: "npm:4.1.1"
-    lucide-react: "npm:1.47.0"
+    lucide-react: "npm:1.54.0"
     mcporter: "npm:0.14.2"
     meros: "npm:1.3.2"
     next: "npm:16.3.8"
@@ -12790,12 +12790,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:1.47.0":
-  version: 1.47.0
-  resolution: "lucide-react@npm:1.47.0"
+"lucide-react@npm:1.54.0":
+  version: 1.54.0
+  resolution: "lucide-react@npm:1.54.0"
   peerDependencies:
+    "@types/react": "*"
     react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/d32cbd9e3490bf5b3a4b4d8a0030aa3f73165c0dafe26b0207053fc159733860bc790e17266d3ff9ff2c58858719c08178832d10330f50506d26d8213633a05f
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/28c80675dfd7daf76cc50fd737245c108b1d65c56c065babc3fd23d8f626cbec76aff9115a5f83e5124f80c7342b2042c64160aea6e5cb63021906b643bb2e99
   languageName: node
   linkType: hard
 
