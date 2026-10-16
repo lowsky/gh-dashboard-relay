@@ -1,21 +1,12 @@
 'use client';
 
-import { deleteAuthCookie } from 'app/actions/deleteAuthCookie';
 import { Button } from './ui/button';
-
-const handleLogin = () => {
-    window.location.href = `/api/auth/login?original_url=${window.location.href}`;
-};
-
-const handleLogout = async () => {
-    await deleteAuthCookie();
-    window.location.reload();
-};
-
-export function Logout() {
-    return <Button onClick={handleLogout}>Logout & Delete Auth cookies.</Button>;
-}
+import { useRouter } from 'next/navigation';
 
 export function Login({ title = 'Login' }: { title?: string }) {
-    return <Button onClick={handleLogin}>{title}</Button>;
+    const router = useRouter();
+
+    const original_url = encodeURIComponent(escape(window.location.href));
+
+    return <Button onClick={() => router.push(`/api/auth/login?original_url=${original_url}`)}>{title}</Button>;
 }
