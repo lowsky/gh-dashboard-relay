@@ -32,6 +32,7 @@ function RepoListFragment(props: Props) {
             ) @connection(key: "RepoList_user_repositories") {
                 edges {
                     node {
+                        id # for internal integrity when used in PaginatedList
                         ...RepoItemFragment_repo
                     }
                 }
