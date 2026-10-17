@@ -2,7 +2,14 @@ import { Circle, Float, Link } from '@chakra-ui/react';
 
 import { Avatar } from '../ui/avatar';
 
-export type StatusState = 'SUCCESS' | 'PENDING' | 'FAILURE' | 'ERROR' | 'EXPECTED';
+export type StatusState =
+    | 'SUCCESS'
+    | 'PENDING'
+    | 'FAILURE'
+    | 'ERROR'
+    | 'EXPECTED'
+    // this will be added in relay generation, but it is not part of the schema:
+    | '%future added value';
 
 /** status could be any StatusState value */
 function status2color(status: string | undefined | null) {
