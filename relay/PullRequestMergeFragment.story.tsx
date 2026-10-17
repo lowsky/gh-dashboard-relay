@@ -15,9 +15,7 @@ const prMock = {
     number: 423,
     title: 'add PR info to branch table',
     url: 'https://github.com/lowsky/dashboard/pull/42',
-    headRefOid: {
-        id: '72b14d30d',
-    },
+    headRefOid: '72b14d30d',
     id: '72b14d30d',
     closed: false,
     isDraft: false,
