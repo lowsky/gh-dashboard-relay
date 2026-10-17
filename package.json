@@ -19,9 +19,9 @@
   "scripts": {
     "dev": "next dev",
     "circle:setup": "yarn circle:vercel:update ; echo ; yarn circle:vercel:link",
-    "circle:vercel:update": "echo : no telemetry ; VERCEL_NO_UPDATE_CHECK=1 vercel -d --non-interactive telemetry disable ; echo telemetry off ; sleep 2 ; vercel -d upgrade --disable-auto ; echo ; echo ",
-    "circle:vercel:link": "VERCEL_NO_UPDATE_CHECK=1 vercel link -y -d --non-interactive --project gh-dashboard-relay -t $VERCEL_TOKEN",
-    "circle:deploy": "vercel -y -d -t $VERCEL_TOKEN deploy --prebuilt --non-interactive",
+    "circle:vercel:update": "echo : no telemetry ; vercel --debug --non-interactive telemetry disable ; echo telemetry off ; sleep 2 ; vercel -d upgrade --disable-auto ; echo ; echo ",
+    "circle:vercel:link": "vercel link --debug --non-interactive --project gh-dashboard-relay -t $VERCEL_TOKEN",
+    "circle:deploy": "vercel --debug -y -t $VERCEL_TOKEN deploy --prebuilt --non-interactive",
     "build": "yarn run codegen && yarn next build",
     "start": "echo you may want to run `yarn dev` for local development... &&  next start",
     "build:relay": "relay-compiler && prettier -w relay/__generated__ app/relay/[userName]/__generated__ app/relay/[userName]/[repoName]",
