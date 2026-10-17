@@ -9,7 +9,8 @@ import { DarkLightThemeToggle } from './DarkLightThemeToggle';
 import { ColorModeButton, useColorModeValue } from './ui/color-mode';
 import { LuGithub, LuHouse } from 'react-icons/lu';
 import { getColor } from 'components/theme-contrast';
-import Breadcrumbs, { NavItems } from 'components/Breadcrumbs';
+import type { NavItems } from 'components/Breadcrumbs';
+import Breadcrumbs from 'components/Breadcrumbs';
 
 interface NavBarProps {
     navItems?: NavItems;

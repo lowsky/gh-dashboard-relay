@@ -1,7 +1,6 @@
 import preview from '../../../.storybook/preview';
 
 import RelayRoot from './RelayRoot';
-import type { RepoListFragment_repo$data } from 'relay/__generated__/RepoListFragment_repo.graphql';
 import type { RepoListFragment_user$data } from 'relay/__generated__/RepoListFragment_user.graphql';
 import type { UserFragment_user$data } from 'relay/__generated__/UserFragment_user.graphql';
 
@@ -17,32 +16,27 @@ export const Default = meta.story({
     args: { authToken: 'not used' },
     parameters: {
         mockResolvers: {
-            Repository: () =>
-                ({
-                    id: '1234',
-                    name: 'test-repo',
-                    nameWithOwner: 'lowsky/test-repo',
-                    url: 'https://github.com/lowsky/test-repo',
-                    isFork: true,
-                    pullRequests: {
-                        totalCount: 2,
-                    },
-                    ' $fragmentType': 'RepoListFragment_repo',
-                }) satisfies RepoListFragment_repo$data,
             User: () =>
                 ({
-                    login: 'login',
+                    // UserFragment_user$data
+                    //' $fragmentType': 'UserFragment_user',
+                    login: 'lowsky',
                     company: 'company',
                     avatarUrl: 'avatarUrl',
-                    id: 'owner',
-                    //' $fragmentType': "UserFragment_user",
+
+                    // RepoListFragment_user$data
                     //' $fragmentType': 'RepoListFragment_user',
+                    id: 'lowsky',
                     repositories: {
                         totalCount: 1,
-                        pageInfo: { endCursor: 'undefined' },
+                        pageInfo: {
+                            hasNextPage: false,
+                            endCursor: 'undefined',
+                        },
                         edges: [
                             {
                                 node: {
+                                    id: 'repo',
                                     ' $fragmentSpreads': {
                                         RepoItemFragment_repo: true,
                                     },
@@ -51,6 +45,19 @@ export const Default = meta.story({
                         ],
                     },
                 }) satisfies Partial<RepoListFragment_user$data | UserFragment_user$data>,
+            // Fragment used in the list above
+            Repository: () => {
+                return {
+                    id: '123',
+                    isFork: true,
+                    name: 'repo',
+                    nameWithOwner: 'lowsky/repo',
+                    pullRequests: {
+                        totalCount: 3,
+                    },
+                    ' $fragmentType': 'RepoItemFragment_repo',
+                };
+            },
         },
         nextjs: {
             appDirectory: true,
@@ -62,5 +69,10 @@ export const Default = meta.story({
                 },
             },
         },
+    },
+});
+export const WithForks = Default.extend({
+    play: async (context) => {
+        context.canvas.getByTestId('fork-toggle').click();
     },
 });

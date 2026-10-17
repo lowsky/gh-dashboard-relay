@@ -5,9 +5,10 @@ import { relayDecorator } from 'relay/storybook/relayDecorator';
 
 /**
  * adds the decorator and setups up the typing, so that
- * the required parameters will be defined in typescript
+ * the required parameters will be defined in TypeScript
  * for use in editors and syntax completion.
  */
+
 interface RelayParameters {
     query?: GraphQLTaggedNode;
     ///
@@ -22,4 +23,5 @@ const relayAddonAnnotations = {
     initialGlobals: {},
 };
 
-export default () => definePreviewAddon<RelayTypes>(relayAddonAnnotations);
+const relayAddon = () => definePreviewAddon<RelayTypes>(relayAddonAnnotations);
+export default relayAddon;

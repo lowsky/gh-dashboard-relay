@@ -2,8 +2,8 @@ import preview from '../../../../.storybook/preview';
 
 import { REPOSITORYOWNER_QUERY, UserRepoPageContent } from './Root';
 import { REPOS_QUERY } from 'apollo/RepoList';
-import { GetUserRepoBranchesQuery } from 'app/apollo/__gen__/graphql';
-import { UnmaskedGetRepositoriesQuery } from '../ApolloRoot.story';
+import type { GetUserRepoBranchesQuery } from 'app/apollo/__gen__/graphql';
+import type { UnmaskedGetRepositoriesQuery } from '../ApolloRoot.story';
 
 const meta = preview.meta({
     component: UserRepoPageContent,

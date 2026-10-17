@@ -1,6 +1,7 @@
 import preview from '../../.storybook/preview';
 
-import { ContextStatusProps, Status } from './Status';
+import type { ContextStatusProps } from './Status';
+import { Status } from './Status';
 
 import moreStatus from './lastCommitMock.json';
 

@@ -32,7 +32,7 @@ function RepoListFragment(props: Props) {
             ) @connection(key: "RepoList_user_repositories") {
                 edges {
                     node {
-                        id
+                        id # for internal integrity when used in PaginatedList
                         ...RepoItemFragment_repo
                     }
                 }
@@ -46,10 +46,10 @@ function RepoListFragment(props: Props) {
     `;
     const [showAll, setShowAll] = useState(false);
 
-    const { data, loadNext, isLoadingNext } = usePaginationFragment<
-        RepoListPaginationQuery,
-        RepoListFragment_user$key
-    >(graphQLTaggedNode, props.user);
+    const { data, loadNext, isLoadingNext } = usePaginationFragment<RepoListPaginationQuery, RepoListFragment_user$key>(
+        graphQLTaggedNode,
+        props.user
+    );
 
     const { repositories } = data;
     const { totalCount, pageInfo, edges } = repositories;
@@ -61,7 +61,7 @@ function RepoListFragment(props: Props) {
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
-            <Switch checked={showAll} onChange={toggleShowAll} size="xs">
+            <Switch checked={showAll} onChange={toggleShowAll} size="xs" data-testid="fork-toggle">
                 {showAll ? (
                     <span title="click to hide forked repos">hide forks</span>
                 ) : (

@@ -1,4 +1,5 @@
-import React, { forwardRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import { Breadcrumb, Center, type SystemStyleObject } from '@chakra-ui/react';
 import { LuHouse } from 'react-icons/lu';
 import InternalLink from 'components/InternalLink';

@@ -11,24 +11,21 @@ const meta = preview.meta({
         author: {
             user: moreStatus.author,
         },
-        status:
-            {
-                contexts: moreStatus.status.map((s) => ({
-                    state: s.state,
-                    description: s.description,
-                    avatarUrl: s.avatarUrl,
-                    targetUrl: s.target_url,
-                    context: s.context,
-                }))
-            }
-    }
+        status: {
+            contexts: moreStatus.status.map((s) => ({
+                state: s.state,
+                description: s.description,
+                avatarUrl: s.avatarUrl,
+                targetUrl: s.target_url,
+                context: s.context,
+            })),
+        },
+    },
 });
 
 export default meta;
 
-export const WithData = meta.story({
-
-});
+export const WithData = meta.story({});
 
 export const WithNoData = meta.story({
     args: {
