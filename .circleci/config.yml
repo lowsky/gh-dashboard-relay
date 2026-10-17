@@ -46,7 +46,7 @@ jobs:
           command: yarn circle:vercel:link
       - run:
           name: Run vercel build
-          command: yarn vercel build -y  # upgrade if needed without waiting for user input
+          command: yarn vercel build -d --non-interactive -y --prod  # upgrade if needed without waiting for user input
       - run:
           name: Run ls project and .vercel
           command: ls -la ~/project ~/project/.vercel
