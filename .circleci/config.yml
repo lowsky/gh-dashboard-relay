@@ -41,9 +41,8 @@ jobs:
           command: yarn circle:vercel:update
       - run:
           name: Run setup - vercel link
-          environment:
-            VERCEL_NO_UPDATE_CHECK: "1"
-          command: yarn circle:vercel:link
+          # simulate user to enter "N" for vercel link - update check
+          command: echo N | yarn circle:vercel:link
       - run:
           name: Run vercel build
           command: yarn vercel build --debug --non-interactive --prod  # upgrade if needed without waiting for user input
