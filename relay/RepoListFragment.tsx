@@ -61,7 +61,7 @@ function RepoListFragment(props: Props) {
     return (
         <>
             <Heading>Repositories ({totalCount})</Heading>
-            <Switch checked={showAll} onChange={toggleShowAll} size="xs">
+            <Switch checked={showAll} onChange={toggleShowAll} size="xs" data-testid="fork-toggle">
                 {showAll ? (
                     <span title="click to hide forked repos">hide forks</span>
                 ) : (

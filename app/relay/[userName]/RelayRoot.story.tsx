@@ -20,17 +20,15 @@ export const Default = meta.story({
                 ({
                     // UserFragment_user$data
                     //' $fragmentType': 'UserFragment_user',
-                    login: 'login1',
-                    company: 'company1',
+                    login: 'lowsky',
+                    company: 'company',
                     avatarUrl: 'avatarUrl',
 
                     // RepoListFragment_user$data
                     //' $fragmentType': 'RepoListFragment_user',
-                    id: 'owner1',
-                    //' $fragmentType': "UserFragment_user",
-                    //' $fragmentType': 'RepoListFragment_user',
+                    id: 'lowsky',
                     repositories: {
-                        totalCount: 2,
+                        totalCount: 1,
                         pageInfo: {
                             hasNextPage: false,
                             endCursor: 'undefined',
@@ -38,7 +36,7 @@ export const Default = meta.story({
                         edges: [
                             {
                                 node: {
-                                    id: 'repo1',
+                                    id: 'repo',
                                     ' $fragmentSpreads': {
                                         RepoItemFragment_repo: true,
                                     },
@@ -47,6 +45,19 @@ export const Default = meta.story({
                         ],
                     },
                 }) satisfies Partial<RepoListFragment_user$data | UserFragment_user$data>,
+            // Fragment used in the list above
+            Repository: () => {
+                return {
+                    id: '123',
+                    isFork: true,
+                    name: 'repo',
+                    nameWithOwner: 'lowsky/repo',
+                    pullRequests: {
+                        totalCount: 3,
+                    },
+                    ' $fragmentType': 'RepoItemFragment_repo',
+                };
+            },
         },
         nextjs: {
             appDirectory: true,
@@ -58,5 +69,10 @@ export const Default = meta.story({
                 },
             },
         },
+    },
+});
+export const WithForks = Default.extend({
+    play: async (context) => {
+        context.canvas.getByTestId('fork-toggle').click();
     },
 });
