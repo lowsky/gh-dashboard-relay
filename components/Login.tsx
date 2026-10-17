@@ -8,5 +8,6 @@ export function Login({ title = 'Login' }: { title?: string }) {
 
     const original_url = encodeURIComponent(escape(window.location.href));
 
+    // @ts-expect-error error TS2345: query parameter type is not assignable to route type
     return <Button onClick={() => router.push(`/api/auth/login?original_url=${original_url}`)}>{title}</Button>;
 }
