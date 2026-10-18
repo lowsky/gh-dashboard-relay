@@ -34,6 +34,9 @@ jobs:
           at: ~/project
       - run:
           name: run vitest on storybook
+          command: yarn playwright install chromium-headless-shell
+      - run:
+          name: run vitest on storybook
           command: yarn vitest --project=storybook run
       - run:
           name: tool setup - vercel version
