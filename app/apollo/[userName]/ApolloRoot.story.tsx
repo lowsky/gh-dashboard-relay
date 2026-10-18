@@ -37,9 +37,17 @@ export const Default = meta.story({
                                 ' $fragmentRefs': {
                                     UserWithReposFragment_RepositoryOwner_User_Fragment: {
                                         __typename: 'User',
-                                        id: 'string',
-                                        login: 'string',
-                                        //' $fragmentRefs'?: { UserFragment_RepositoryOwner_User_Fragment: UserFragment_RepositoryOwner_User_Fragment }
+                                        id: 'test-id',
+                                        login: 'test-id',
+                                        ' $fragmentRefs': {
+                                            UserFragment_RepositoryOwner_User_Fragment: {
+                                                __typename: 'User',
+                                                id: 'test-id',
+                                                login: 'test-id',
+                                                company: 'company',
+                                                avatarUrl: 'https://avatars2.githubusercontent.com/u/217931',
+                                            },
+                                        },
                                         ' $fragmentName': 'UserWithReposFragment_RepositoryOwner_User_Fragment',
                                     },
                                 },
@@ -50,14 +58,14 @@ export const Default = meta.story({
                                 limit: 5,
                                 remaining: 10,
                                 used: 5,
-                                resetAt: -1, // dummy, unused
+                                resetAt: new Date(),
                             },
                         } satisfies GetUserWithReposQuery,
                     },
                 },
                 {
                     // testing: show loading state
-                    delay: 10000,
+                    delay: 2000,
                     request: {
                         query: REPOS_QUERY,
                         variables: {
