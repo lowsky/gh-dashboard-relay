@@ -5,6 +5,7 @@ import IndexPage from './page.mdx';
 const meta = preview.meta({
     title: 'relay/entry page',
     component: IndexPage,
+    // next/mdx rendering can not be tested, and it is only a static page
     tags: ['skipTesting', '!autodocs'],
 });
 
