@@ -33,8 +33,11 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run:
-          name: run vitest on storybook
-          command: yarn playwright install chromium-headless-shell
+          name: run playwright install deps
+          command: yarn playwright install-deps
+      - run:
+          name: run playwright install
+          command: yarn playwright install
       - run:
           name: run vitest on storybook
           command: yarn vitest --project=storybook run
