@@ -6,7 +6,8 @@ orbs:
 jobs:
   deploy:
     # Install node dependencies and run tests
-    executor: node/24-browsers
+    docker:
+      - image: cimg/node:24-browsers
     resource_class: lowsky/selfhosted
     steps:
       - checkout:
