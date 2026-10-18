@@ -59,9 +59,7 @@ export function UserPageContent({ userName }: { userName: string }) {
     if (error) return <div>Error loading user data: {error.message}</div>;
     if (!data) return <div>,no data...</div>;
 
-    const { repositoryOwner, rateLimit } = data;
-
-    console.log('rate limit info:', rateLimit);
+    const { repositoryOwner } = data;
 
     if (!repositoryOwner) {
         return (
