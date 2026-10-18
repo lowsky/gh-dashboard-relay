@@ -6,7 +6,7 @@ orbs:
 jobs:
   deploy:
     # Install node dependencies and run tests
-    executor: node/default
+    executor: node/24-browsers
     resource_class: lowsky/selfhosted
     steps:
       - checkout:
