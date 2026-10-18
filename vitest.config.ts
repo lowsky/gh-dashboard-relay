@@ -7,8 +7,7 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 
 import { playwright } from '@vitest/browser-playwright';
 
-// eslint-disable-next-line no-undef
-const dirname = typeof __dirname === 'undefined' ? path.dirname(fileURLToPath(import.meta.url)) : __dirname;
+const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
