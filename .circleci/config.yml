@@ -6,7 +6,7 @@ orbs:
 jobs:
   storybook-test:
     docker:
-      - image: cimg/node:24.22.0-browsers
+      - image: cimg/node:24.22.1-browsers
     resource_class: lowsky/selfhosted
     steps:
       - checkout:
@@ -44,7 +44,7 @@ jobs:
   deploy:
     # Install node dependencies and run tests
     docker:
-      - image: cimg/node:24.22.0-browsers
+      - image: cimg/node:24.22.1-browsers
     resource_class: lowsky/selfhosted
     steps:
       - checkout:
