@@ -8759,9 +8759,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:18.12.0":
-  version: 18.12.0
-  resolution: "chromatic@npm:18.12.0"
+"chromatic@npm:18.13.0":
+  version: 18.13.0
+  resolution: "chromatic@npm:18.13.0"
   dependencies:
     semver: "npm:^7.3.5"
   peerDependencies:
@@ -8784,7 +8784,7 @@ __metadata:
     chroma: dist/bin.cjs
     chromatic: dist/bin.cjs
     chromatic-cli: dist/bin.cjs
-  checksum: 10c0/f2331d4bf663401dc6b05de312d7ee712aa2c90af1aed40ac6f54c4baebac9629a091f3234ecd281065b93816246773afc224b4f1bd4e9c866e681167a9a1760
+  checksum: 10c0/141f481d6d0ac2cdaf32a92de44a197d4c21230a2e7a7f36f489f0a176407e68a638faf2a5dc94e26926dab933e7c760c947e7cc37bbf7a4ceed1cba9ea759cd
   languageName: node
   linkType: hard
 
@@ -9100,7 +9100,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:8.71.2"
     "@vitest/browser-playwright": "npm:5.0.5"
     "@vitest/coverage-v8": "npm:5.0.5"
-    chromatic: "npm:18.12.0"
+    chromatic: "npm:18.13.0"
     commander: "npm:15.0.0"
     eslint: "npm:10.12.0"
     eslint-config-next: "npm:16.4.2"
