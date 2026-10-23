@@ -10,6 +10,7 @@ const config: CodegenConfig = {
             // see https://www.apollographql.com/docs/react/data/fragments#generating-possibletypes-with-graphql-codegen
             plugins: ['fragment-matcher'],
             config: {
+                deterministic: true,
                 useExplicitTyping: true,
             },
         },
