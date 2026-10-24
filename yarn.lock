@@ -618,17 +618,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:5.5.1":
-  version: 5.5.1
-  resolution: "@chromatic-com/storybook@npm:5.5.1"
+"@chromatic-com/storybook@npm:5.6.0":
+  version: 5.6.0
+  resolution: "@chromatic-com/storybook@npm:5.6.0"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
-    chromatic: "npm:^18.0.1"
+    chromatic: "npm:^18.12.1"
     jsonfile: "npm:^6.1.0"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0 || ^11.0.0-0
-  checksum: 10c0/aedf057a761357b680d81f2af12336b221aad218fba43db5ab68fa0ae1305570af85212a15045f30489b37dcf1d57c9fb49851c499619aeb11b25b9ad7cf1821
+  checksum: 10c0/abeb82b552aad64dba4cf915c3b3f2404e8e0246e14f74075193a35aa669e88fd96658fab39baca68d103952a3a6409e378986715a336a24f62084c75041b085
   languageName: node
   linkType: hard
 
@@ -8773,7 +8773,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:18.13.0":
+"chromatic@npm:18.13.0, chromatic@npm:^18.12.1":
   version: 18.13.0
   resolution: "chromatic@npm:18.13.0"
   dependencies:
@@ -8799,30 +8799,6 @@ __metadata:
     chromatic: dist/bin.cjs
     chromatic-cli: dist/bin.cjs
   checksum: 10c0/141f481d6d0ac2cdaf32a92de44a197d4c21230a2e7a7f36f489f0a176407e68a638faf2a5dc94e26926dab933e7c760c947e7cc37bbf7a4ceed1cba9ea759cd
-  languageName: node
-  linkType: hard
-
-"chromatic@npm:^18.0.1":
-  version: 18.1.0
-  resolution: "chromatic@npm:18.1.0"
-  dependencies:
-    semver: "npm:^7.3.5"
-  peerDependencies:
-    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
-    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
-    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
-  peerDependenciesMeta:
-    "@chromatic-com/cypress":
-      optional: true
-    "@chromatic-com/playwright":
-      optional: true
-    "@chromatic-com/vitest":
-      optional: true
-  bin:
-    chroma: dist/bin.cjs
-    chromatic: dist/bin.cjs
-    chromatic-cli: dist/bin.cjs
-  checksum: 10c0/cf64a6b14d6d3a3c2cc51fd024d651b4f7c90c4647fe3d5d5dee7033108f0188157b32bb98432568bc3b0fafd42966f9c527d12f171d76f4e7cd9ea50cbb1606
   languageName: node
   linkType: hard
 
@@ -9085,7 +9061,7 @@ __metadata:
     "@0no-co/graphqlsp": "npm:1.17.5"
     "@apollo/client": "npm:4.3.4"
     "@chakra-ui/react": "npm:3.37.0"
-    "@chromatic-com/storybook": "npm:5.5.1"
+    "@chromatic-com/storybook": "npm:5.6.0"
     "@emotion/react": "npm:11.14.0"
     "@eslint/compat": "npm:2.1.1"
     "@eslint/js": "npm:10.0.1"
