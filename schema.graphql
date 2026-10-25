@@ -33370,9 +33370,6 @@ type Project implements Closable & Node & Updatable {
     The Node ID of the Project object
     """
     id: ID!
-        @deprecated(
-            reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
-        )
 
     """
     The project's name.
@@ -33538,9 +33535,6 @@ type ProjectCard implements Node {
     The Node ID of the ProjectCard object
     """
     id: ID!
-        @deprecated(
-            reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
-        )
 
     """
     Whether the card is archived
@@ -33751,9 +33745,6 @@ type ProjectColumn implements Node {
     The Node ID of the ProjectColumn object
     """
     id: ID!
-        @deprecated(
-            reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
-        )
 
     """
     The project column's name.
@@ -34972,9 +34963,6 @@ type ProjectV2Item implements Node {
     Identifies the primary key from the database.
     """
     databaseId: Int
-        @deprecated(
-            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC."
-        )
 
     """
     The field value of the first project field which matches the 'name' argument that is set on the item.
@@ -37365,9 +37353,6 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Identifies the primary key from the database.
     """
     databaseId: Int
-        @deprecated(
-            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
-        )
 
     """
     The number of deletions in this pull request.
@@ -38677,9 +38662,6 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
     Identifies the primary key from the database.
     """
     databaseId: Int
-        @deprecated(
-            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
-        )
 
     """
     The actor who edited the comment.
@@ -38927,9 +38909,6 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
     Identifies the primary key from the database.
     """
     databaseId: Int
-        @deprecated(
-            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
-        )
 
     """
     The diff hunk to which the comment applies.
@@ -56533,9 +56512,6 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
     Author's association with the discussion's team.
     """
     authorAssociation: CommentAuthorAssociation!
-        @deprecated(
-            reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC."
-        )
 
     """
     The body as Markdown.
@@ -56722,9 +56698,6 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
     The HTTP path for this discussion
     """
     resourcePath: URI!
-        @deprecated(
-            reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC."
-        )
 
     """
     The team that defines the context of this discussion.
@@ -56751,9 +56724,6 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
     The HTTP URL for this discussion
     """
     url: URI!
-        @deprecated(
-            reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC."
-        )
 
     """
     A list of edits to this content.
@@ -56837,9 +56807,6 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
     Author's association with the comment's team.
     """
     authorAssociation: CommentAuthorAssociation!
-        @deprecated(
-            reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC."
-        )
 
     """
     The body as Markdown.
@@ -56964,9 +56931,6 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
     The HTTP path for this comment
     """
     resourcePath: URI!
-        @deprecated(
-            reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC."
-        )
 
     """
     Identifies the date and time when the object was last updated.
@@ -56977,9 +56941,6 @@ type TeamDiscussionComment implements Comment & Deletable & Node & Reactable & U
     The HTTP URL for this comment
     """
     url: URI!
-        @deprecated(
-            reason: "The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/ to find a suitable replacement. Removal on 2024-07-01 UTC."
-        )
 
     """
     A list of edits to this content.
