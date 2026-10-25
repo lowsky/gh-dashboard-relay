@@ -34160,6 +34160,9 @@ type ProjectV2 implements Closable & Node & Updatable {
     Identifies the primary key from the database.
     """
     databaseId: Int
+        @deprecated(
+            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC."
+        )
 
     """
     A field of the project
@@ -36326,6 +36329,9 @@ type ProjectV2StatusUpdate implements Node {
     Identifies the primary key from the database.
     """
     databaseId: Int
+        @deprecated(
+            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC."
+        )
 
     """
     Identifies the primary key from the database as a BigInt.
@@ -36456,6 +36462,9 @@ type ProjectV2View implements Node {
     Identifies the primary key from the database.
     """
     databaseId: Int
+        @deprecated(
+            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC."
+        )
 
     """
     The view's visible fields.
@@ -36848,6 +36857,9 @@ type ProjectV2Workflow implements Node {
     Identifies the primary key from the database.
     """
     databaseId: Int
+        @deprecated(
+            reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2025-04-01 UTC."
+        )
 
     """
     Whether the workflow is enabled.
@@ -42717,6 +42729,9 @@ type RemovedFromProjectEvent implements Node {
     Identifies the primary key from the database.
     """
     databaseId: Int
+        @deprecated(
+            reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+        )
 
     """
     The Node ID of the RemovedFromProjectEvent object
