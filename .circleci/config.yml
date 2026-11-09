@@ -86,6 +86,8 @@ jobs:
           command: echo N | yarn vercel pull --debug --non-interactive  # upgrade if needed without waiting for user input
       - run:
           name: Run vercel build
+          environment:
+            NEXT_PRIVATE_SKIP_SIZE_TRACE: "1"
           command: echo N | yarn vercel build --debug --non-interactive  # upgrade if needed without waiting for user input
       - run:
           name: Run ls project and .vercel
