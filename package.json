@@ -65,7 +65,7 @@
   "homepage": ".",
   "dependencies": {
     "@apollo/client": "4.3.7",
-    "@chakra-ui/react": "3.37.0",
+    "@chakra-ui/react": "3.38.0",
     "@emotion/react": "11.14.0",
     "@next/mdx": "16.4.5",
     "@octokit/graphql-schema": "15.26.1",
