@@ -1816,15 +1816,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/fragment-matcher@npm:7.1.0":
-  version: 7.1.0
-  resolution: "@graphql-codegen/fragment-matcher@npm:7.1.0"
+"@graphql-codegen/fragment-matcher@npm:7.1.1":
+  version: 7.1.1
+  resolution: "@graphql-codegen/fragment-matcher@npm:7.1.1"
   dependencies:
-    "@graphql-codegen/plugin-helpers": "npm:^7.1.0"
+    "@graphql-codegen/plugin-helpers": "npm:^7.4.2"
     tslib: "npm:^2.8.0"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/1a3f9de12e8373dcd65d3fcaa73448df359e7e8eaf45cfd0f1f3d1154f42a0e830f853022d6a6dedda72c63905246978d750eea7be85558140f68561e549b8bc
+  checksum: 10c0/d3e0e486213dc42233c7cd2f655f10eb518738e03415961bc7e19681819df45798733f80dcc96c2c4dc3868c88247bb5f5de2c640154df07eea82610a45f51d9
   languageName: node
   linkType: hard
 
@@ -9122,7 +9122,7 @@ __metadata:
     "@fortawesome/react-fontawesome": "npm:3.5.0"
     "@graphql-codegen/cli": "npm:7.4.6"
     "@graphql-codegen/client-preset": "npm:6.2.3"
-    "@graphql-codegen/fragment-matcher": "npm:7.1.0"
+    "@graphql-codegen/fragment-matcher": "npm:7.1.1"
     "@graphql-codegen/typescript-operations": "npm:6.2.0"
     "@graphql-codegen/typescript-react-apollo": "npm:5.0.0"
     "@graphql-eslint/eslint-plugin": "npm:4.4.2"
