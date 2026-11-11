@@ -106,7 +106,7 @@
     "@vitest/browser-playwright": "5.0.5",
     "@vitest/coverage-v8": "5.0.5",
     "chromatic": "18.14.2",
-    "commander": "15.0.0",
+    "commander": "15.1.0",
     "eslint": "10.14.0",
     "eslint-config-next": "16.4.5",
     "eslint-config-prettier": "10.1.8",
