@@ -118,7 +118,7 @@
     "globals": "17.14.0",
     "mcporter": "0.17.0",
     "nextjs-toploader": "3.9.17",
-    "playwright": "1.65.0",
+    "playwright": "1.65.1",
     "prettier": "3.9.10",
     "react": "next",
     "react-dom": "next",
