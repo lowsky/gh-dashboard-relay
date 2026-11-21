@@ -103,8 +103,8 @@
     "@storybook/nextjs-vite": "10.6.7",
     "@types/react": "19.3.0",
     "@typescript-eslint/eslint-plugin": "8.72.2",
-    "@vitest/browser-playwright": "5.1.0",
-    "@vitest/coverage-v8": "5.1.0",
+    "@vitest/browser-playwright": "5.1.1",
+    "@vitest/coverage-v8": "5.1.1",
     "chromatic": "18.14.4",
     "commander": "15.1.0",
     "eslint": "10.14.0",
@@ -134,7 +134,7 @@
     "typescript-eslint": "8.72.2",
     "vercel": "65.12.1",
     "vite": "8.3.8",
-    "vitest": "5.1.0"
+    "vitest": "5.1.1"
   },
   "dependenciesMeta": {
     "esbuild": {
