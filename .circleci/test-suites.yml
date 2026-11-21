@@ -1,0 +1,6 @@
+---
+name: storybook
+discover: yarn vitest list --filesOnly --project=storybook 2>&1 | sed -n '/\.story\.tsx$/p' | sed 's/^.*] //'
+run: yarn vitest run --reporter=junit --outputFile="<< outputs.junit >>" --bail 0 << test.atoms >>
+options:
+  store-test-results: true

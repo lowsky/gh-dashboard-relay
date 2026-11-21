@@ -39,8 +39,8 @@ jobs:
           name: run playwright install
           command: yarn playwright install
       - run:
-          name: run vitest on storybook
-          command: yarn vitest --project=storybook run
+          name: run storybook testsuite
+          command: circleci testsuite run "storybook"
   deploy:
     # Install node dependencies and run tests
     docker:
