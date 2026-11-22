@@ -47,8 +47,15 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
                         <FontAwesomeIcon icon={faCodePullRequest} />
                     </Icon>
                     <span>{number}</span>
-                    {mergeStateStatus && !isClean && !merged && <Text color="fg.muted">{mergeStateStatus}</Text>}
-                    {mergeStateStatus === 'UNKNOWN' && !merged && <Spinner size="xs" />}
+                    {mergeStateStatus && !isClean && !merged && mergeable !== 'MERGEABLE' && (
+                        <Text color="fg.muted">{mergeable}</Text>
+                    )}
+                    {mergeStateStatus === 'UNSTABLE' && <Text color="fg.muted">UNSTABLE</Text>}
+                    {mergeStateStatus === 'UNKNOWN' && !merged && (
+                        <>
+                            <Spinner size="xs" /> Calculating
+                        </>
+                    )}
                 </Link>
             ) : (
                 <span>
@@ -60,7 +67,9 @@ export default function PullRequestMerge({ associatedPullRequest }: PullRequestI
             )}
             {closed && 'closed'}
             {isDraft && 'draft'}
-            {!merged && mergeable && isClean && <MergeButtonWithErrorStatus doMergePR={doMergePR} />}
+            {!merged && (mergeable === 'MERGEABLE' || mergeable === 'UNKNOWN') && isClean && (
+                <MergeButtonWithErrorStatus doMergePR={doMergePR} />
+            )}
         </VStack>
     );
 }
