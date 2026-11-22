@@ -9359,7 +9359,7 @@ __metadata:
     rxjs: "npm:7.8.2"
     storybook: "npm:10.6.7"
     storybook-addon-apollo-client: "npm:11.0.1"
-    type-fest: "npm:6.0.2"
+    type-fest: "npm:6.0.3"
     typescript: "npm:@typescript/typescript6@^6.0.2"
     typescript-7: "npm:typescript@^7.0.2"
     typescript-eslint: "npm:8.72.2"
@@ -16132,12 +16132,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:6.0.2":
-  version: 6.0.2
-  resolution: "type-fest@npm:6.0.2"
+"type-fest@npm:6.0.3":
+  version: 6.0.3
+  resolution: "type-fest@npm:6.0.3"
   dependencies:
     tagged-tag: "npm:^1.0.0"
-  checksum: 10c0/e7307bfd1e30dd2894404aaaf31b9299716d7a1104c9892f4c0714550d7cfe784a6288e7712e4e6f0ab364e53cde7a8ec0e98786e74750c6f7375147e7f43409
+  checksum: 10c0/f02b2cf35ac3ed1ad23cb567d24da4275a30500dd47ceb84c529392834f5dfa84b75926b8db73a7f9e929335a16c5c65c27a0dce2c1ed9c331af4e265f0259b2
   languageName: node
   linkType: hard
 
