@@ -128,7 +128,7 @@
     "rxjs": "7.8.2",
     "storybook": "10.6.7",
     "storybook-addon-apollo-client": "11.0.1",
-    "type-fest": "5.10.0",
+    "type-fest": "6.0.2",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-7": "npm:typescript@^7.0.2",
     "typescript-eslint": "8.72.2",
