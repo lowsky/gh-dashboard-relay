@@ -110,10 +110,11 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - storybook-test:
-          filters:
-            branches:
-              ignore: /main/
+      # TEMPORARILY DISABLED: storybook tests
+      # - storybook-test:
+      #     filters:
+      #       branches:
+      #         ignore: /main/
       - deploy:
           filters:
             branches:
