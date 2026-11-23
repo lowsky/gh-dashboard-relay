@@ -8,7 +8,15 @@ jobs:
     docker:
       - image: cimg/node:26.13.1-browsers
     resource_class: lowsky/selfhosted
+    environment:
+      # PVC "circleci-cache" mounted at /home/circleci/.cache by runner agent.
+      # fsGroup: 101 + supplementalGroups: [101] makes PVC writable by circleci user.
+      # Yarn global cache persists across jobs on same k3s node.
+      YARN_CACHE_FOLDER: /home/circleci/.cache/yarn
     steps:
+      - run:
+          name: ensure yarn cache dir exists
+          command: mkdir -p ${YARN_CACHE_FOLDER}
       - checkout:
           method: full
       - node/install-packages:
@@ -46,7 +54,12 @@ jobs:
     docker:
       - image: cimg/node:26.13.1-browsers
     resource_class: lowsky/selfhosted
+    environment:
+      YARN_CACHE_FOLDER: /home/circleci/.cache/yarn
     steps:
+      - run:
+          name: ensure yarn cache dir exists
+          command: mkdir -p ${YARN_CACHE_FOLDER}
       - checkout:
           method: full
       - node/install-packages:
