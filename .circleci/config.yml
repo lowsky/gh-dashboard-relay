@@ -19,6 +19,9 @@ jobs:
           command: mkdir -p ${YARN_CACHE_FOLDER}
       - checkout:
           method: full
+      - run:
+          name: Show yarn config
+          command: yarn config
       - node/install-packages:
           check-cache: always
           pkg-manager: yarn
