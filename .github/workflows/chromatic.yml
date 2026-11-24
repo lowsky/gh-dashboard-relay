@@ -11,15 +11,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history, since v2
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: '26'
           cache: 'yarn'
       - run: yarn install --immutable
-      - uses: chromaui/action@v18
+      - uses: chromaui/action@0a7067e5ffc663a631b14db505d8a94b26e1bf2f # v18
         with:
           buildScriptName: 'build:storybook'
           token: ${{ secrets.GITHUB_TOKEN }}
