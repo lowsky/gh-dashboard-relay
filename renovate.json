@@ -1,4 +1,5 @@
 {
+  "persistRepoData": true,
   "ignoreDeps": [],
   "packageRules": [
     {
@@ -8,5 +9,14 @@
       "minimumReleaseAge": "3 days"
     }
   ],
-  "extends": ["config:recommended"]
+
+  "autoApprove": true,
+  "automergeStrategy": "squash",
+  "extends": [
+      ":dependencyDashboard",
+      ":separateMultipleMajorReleases",
+      ":pinDevDependencies",
+      "config:best-practices",
+      "config:recommended",
+  ]
 }
