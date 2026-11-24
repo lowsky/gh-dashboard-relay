@@ -3757,7 +3757,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/eslint-plugin-next@npm:16.4.6, @next/eslint-plugin-next@npm:^16.0.0":
+"@next/eslint-plugin-next@npm:16.4.6":
   version: 16.4.6
   resolution: "@next/eslint-plugin-next@npm:16.4.6"
   dependencies:
@@ -5091,7 +5091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-mcp@npm:^10.6.7":
+"@storybook/addon-mcp@npm:10.6.8":
   version: 10.6.8
   resolution: "@storybook/addon-mcp@npm:10.6.8"
   dependencies:
@@ -9319,13 +9319,13 @@ __metadata:
     "@graphql-codegen/typescript-react-apollo": "npm:6.0.1"
     "@graphql-eslint/eslint-plugin": "npm:4.4.2"
     "@graphql-tools/schema": "npm:11.0.9"
-    "@next/eslint-plugin-next": "npm:^16.0.0"
+    "@next/eslint-plugin-next": "npm:16.4.6"
     "@next/mdx": "npm:16.4.6"
     "@octokit/graphql-schema": "npm:15.26.1"
     "@parcel/watcher": "npm:2.6.0"
     "@storybook/addon-a11y": "npm:10.6.8"
     "@storybook/addon-docs": "npm:10.6.8"
-    "@storybook/addon-mcp": "npm:^10.6.7"
+    "@storybook/addon-mcp": "npm:10.6.8"
     "@storybook/addon-themes": "npm:10.6.8"
     "@storybook/addon-vitest": "npm:10.6.8"
     "@storybook/nextjs-vite": "npm:10.6.8"
@@ -9364,8 +9364,8 @@ __metadata:
     storybook: "npm:10.6.8"
     storybook-addon-apollo-client: "npm:11.0.1"
     type-fest: "npm:6.0.3"
-    typescript: "npm:@typescript/typescript6@^6.0.2"
-    typescript-7: "npm:typescript@^7.0.2"
+    typescript: "npm:@typescript/typescript6@6.0.2"
+    typescript-7: "npm:typescript@7.0.2"
     typescript-eslint: "npm:8.73.0"
     vercel: "npm:66.6.0"
     vite: "npm:8.3.8"
@@ -16198,7 +16198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-7@npm:typescript@^7.0.2":
+"typescript-7@npm:typescript@7.0.2":
   version: 7.0.2
   resolution: "typescript@npm:7.0.2"
   dependencies:
@@ -16299,7 +16299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:@typescript/typescript6@^6.0.2":
+"typescript@npm:@typescript/typescript6@6.0.2":
   version: 6.0.2
   resolution: "@typescript/typescript6@npm:6.0.2"
   dependencies:
@@ -16330,7 +16330,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A@typescript/typescript6@^6.0.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A@typescript/typescript6@6.0.2#optional!builtin<compat/typescript>":
   version: 6.0.2
   resolution: "typescript@patch:@typescript/typescript6@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"
   dependencies:

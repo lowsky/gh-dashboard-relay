@@ -6,7 +6,7 @@ orbs:
 jobs:
   storybook-test:
     docker:
-      - image: cimg/node:26.13.1-browsers
+      - image: cimg/node:26.13.1-browsers@sha256:21c2243a0ee01269d799326acd1f0dc610f9437c47534745b102ea64e328f3d3
     resource_class: lowsky/selfhosted
     # The k8s runner taskpod config (configmap container-agent, ns circleci)
     # mounts hostPath /var/cache/circle -> /home/circleci/.cache so Yarn's
@@ -55,7 +55,7 @@ jobs:
   deploy:
     # Install node dependencies and run tests
     docker:
-      - image: cimg/node:26.13.1-browsers
+      - image: cimg/node:26.13.1-browsers@sha256:21c2243a0ee01269d799326acd1f0dc610f9437c47534745b102ea64e328f3d3
     resource_class: lowsky/selfhosted
     # Same hostPath-mounted cache as storybook-test (Yarn 4: YARN_GLOBAL_FOLDER)
     environment:
